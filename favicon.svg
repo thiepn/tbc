@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">The Bible Challenge</title>
+  <desc id="desc">A radiant open Bible in cyan, indigo, and gold.</desc>
+  <defs>
+    <linearGradient id="bg" x1="7" y1="5" x2="58" y2="61" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#121638"/>
+      <stop offset=".55" stop-color="#28347F"/>
+      <stop offset="1" stop-color="#171E52"/>
+    </linearGradient>
+    <linearGradient id="leftPage" x1="10" y1="20" x2="31" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FFFF"/>
+      <stop offset="1" stop-color="#79E9E6"/>
+    </linearGradient>
+    <linearGradient id="rightPage" x1="54" y1="20" x2="33" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F5FF"/>
+      <stop offset="1" stop-color="#ABB3FF"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="28" y1="7" x2="37" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF4AD"/>
+      <stop offset=".5" stop-color="#FFD069"/>
+      <stop offset="1" stop-color="#F3A72E"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop stop-color="#FFF2A8" stop-opacity=".34"/>
+      <stop offset=".45" stop-color="#62E4DF" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#62E4DF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-35%" width="160%" height="190%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.8" flood-color="#05081D" flood-opacity=".62"/>
+    </filter>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#bg)"/>
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="14.25" fill="none" stroke="#8290FF" stroke-opacity=".45" stroke-width="1.5"/>
+  <circle cx="32" cy="29" r="27" fill="url(#halo)"/>
+
+  <g filter="url(#shadow)">
+    <path d="M8.5 23.5c0-4.3 3.5-7.8 7.8-7.8h8.3c4.1 0 7.4 3.3 7.4 7.4v29.3c-5.2-4.5-10.8-6.5-17.7-6.5H8.5V23.5Z"
+      fill="url(#leftPage)" stroke="#62E4DF" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M55.5 23.5c0-4.3-3.5-7.8-7.8-7.8h-8.3c-4.1 0-7.4 3.3-7.4 7.4v29.3c5.2-4.5 10.8-6.5 17.7-6.5h5.8V23.5Z"
+      fill="url(#rightPage)" stroke="#9CA8FF" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M32 19v31.7" stroke="url(#gold)" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M14.5 27.3h11M14.5 33.8h11M38.5 27.3h11M38.5 33.8h11"
+      fill="none" stroke="#28347F" stroke-opacity=".5" stroke-width="2.1" stroke-linecap="round"/>
+  </g>
+
+  <path d="M32 5.8 34.3 11l5.2 2.3-5.2 2.3-2.3 5.2-2.3-5.2-5.2-2.3 5.2-2.3L32 5.8Z" fill="url(#gold)"/>
+  <circle cx="18.5" cy="10" r="1.5" fill="#62E4DF"/>
+  <circle cx="47" cy="11" r="1.25" fill="#FFF4AD"/>
+</svg>
