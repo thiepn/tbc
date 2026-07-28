@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="230" viewBox="0 0 1200 230" role="img" aria-labelledby="title desc">
+  <title id="title">Play The Bible Challenge</title>
+  <desc id="desc">Large animated launch button linking to the playable game.</desc>
+  <defs>
+    <linearGradient id="button" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5668f4"/>
+      <stop offset=".5" stop-color="#454fd4"/>
+      <stop offset="1" stop-color="#242d84"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#50e0e5"/>
+      <stop offset=".5" stop-color="#fff0ad"/>
+      <stop offset="1" stop-color="#929cff"/>
+    </linearGradient>
+    <radialGradient id="shine">
+      <stop offset="0" stop-color="#fff" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-50%" width="140%" height="220%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#121a58" flood-opacity=".42"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="clip"><rect x="18" y="18" width="1164" height="194" rx="44"/></clipPath>
+    <style>
+      .pulse{animation:pulse 2.2s ease-in-out infinite;transform-origin:128px 115px}
+      .arrow{animation:arrow 1.8s ease-in-out infinite}
+      .arrow.two{animation-delay:.18s}.arrow.three{animation-delay:.36s}
+      .dash{stroke-dasharray:12 18;animation:dash 10s linear infinite}
+      @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+      @keyframes arrow{0%,100%{opacity:.22;transform:translateX(0)}50%{opacity:1;transform:translateX(7px)}}
+      @keyframes dash{to{stroke-dashoffset:-300}}
+      @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+    </style>
+  </defs>
+
+  <rect x="18" y="18" width="1164" height="194" rx="44" fill="url(#button)" filter="url(#shadow)"/>
+  <g clip-path="url(#clip)">
+    <circle cx="300" cy="-30" r="245" fill="url(#shine)" opacity=".55"/>
+    <circle cx="1100" cy="250" r="290" fill="#22cbd7" opacity=".08"/>
+    <path d="M-70 202L250-42M858 270l306-306" stroke="#fff" stroke-opacity=".045" stroke-width="76"/>
+    <circle cx="120" cy="115" r="65" fill="#080c23" opacity=".34"/>
+    <circle cx="120" cy="115" r="54" fill="#fff" opacity=".14" stroke="#fff" stroke-opacity=".28"/>
+    <g class="pulse" filter="url(#glow)">
+      <path d="M105 85l43 30-43 30z" fill="#ffd272"/>
+    </g>
+    <text x="212" y="103" fill="#fff" font-family="Inter,Segoe UI,sans-serif" font-size="42" font-weight="900" letter-spacing=".7">PLAY THE BIBLE CHALLENGE</text>
+    <text x="215" y="143" fill="#dfe4ff" font-family="Inter,Segoe UI,sans-serif" font-size="17" font-weight="700" letter-spacing="3">LAUNCH IN YOUR BROWSER  •  NO INSTALL</text>
+    <g fill="none" stroke="#ffd272" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path class="arrow" d="M1042 93l22 22-22 22"/>
+      <path class="arrow two" d="M1067 93l22 22-22 22"/>
+      <path class="arrow three" d="M1092 93l22 22-22 22"/>
+    </g>
+  </g>
+  <rect x="19.5" y="19.5" width="1161" height="191" rx="42.5" fill="none" stroke="url(#edge)" stroke-width="3"/>
+  <rect x="27" y="27" width="1146" height="176" rx="36" fill="none" stroke="#fff" stroke-opacity=".24" stroke-width="2" class="dash"/>
+</svg>

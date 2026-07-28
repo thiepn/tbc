@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">The Bible Challenge</title>
+  <desc id="desc">Animated indigo and gold banner with an open Bible, stars, and the words Know the Word, Build Real Recall.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080c23"/>
+      <stop offset=".47" stop-color="#20275e"/>
+      <stop offset="1" stop-color="#10183d"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5b63ef" stop-opacity=".08"/>
+      <stop offset=".5" stop-color="#22cbd7" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#ffc85d" stop-opacity=".09"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff4bf"/>
+      <stop offset=".48" stop-color="#ffd272"/>
+      <stop offset="1" stop-color="#f7a92c"/>
+    </linearGradient>
+    <linearGradient id="pageLeft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf4"/>
+      <stop offset="1" stop-color="#dfe6ff"/>
+    </linearGradient>
+    <linearGradient id="pageRight" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff8df"/>
+      <stop offset="1" stop-color="#d9e2ff"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop offset="0" stop-color="#ffd272" stop-opacity=".5"/>
+      <stop offset=".42" stop-color="#50e0e5" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#5b63ef" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="200%">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#030618" flood-opacity=".65"/>
+    </filter>
+    <clipPath id="frame"><rect width="1200" height="520" rx="34"/></clipPath>
+    <style>
+      .twinkle{animation:twinkle 2.8s ease-in-out infinite}
+      .twinkle.slow{animation-duration:4.6s}
+      .twinkle.fast{animation-duration:1.9s}
+      .float{animation:float 5s ease-in-out infinite}
+      .orbit{animation:orbit 18s linear infinite;transform-origin:885px 260px}
+      .dash{stroke-dasharray:7 13;animation:dash 18s linear infinite}
+      .shimmer{animation:shimmer 3.6s ease-in-out infinite}
+      @keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.22)}}
+      @keyframes float{0%,100%{transform:translateY(3px)}50%{transform:translateY(-9px)}}
+      @keyframes orbit{to{transform:rotate(360deg)}}
+      @keyframes dash{to{stroke-dashoffset:-200}}
+      @keyframes shimmer{0%,100%{opacity:.72}50%{opacity:1}}
+      @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="520" fill="url(#bg)"/>
+    <ellipse cx="570" cy="520" rx="720" ry="250" fill="#5267e8" opacity=".1" filter="url(#soft)"/>
+    <ellipse cx="970" cy="170" rx="250" ry="225" fill="#22cbd7" opacity=".09" filter="url(#soft)"/>
+    <path d="M-70 368C182 185 335 438 598 250S961 92 1273 220" fill="none" stroke="url(#aurora)" stroke-width="108" opacity=".65" filter="url(#soft)">
+      <animate attributeName="d" dur="12s" repeatCount="indefinite"
+        values="M-70 368C182 185 335 438 598 250S961 92 1273 220;M-70 335C196 247 342 370 610 220S990 151 1273 257;M-70 368C182 185 335 438 598 250S961 92 1273 220"/>
+    </path>
+
+    <g fill="#fff">
+      <circle class="twinkle" cx="77" cy="86" r="2.5"/>
+      <circle class="twinkle slow" cx="155" cy="430" r="1.8"/>
+      <circle class="twinkle fast" cx="250" cy="73" r="1.7"/>
+      <circle class="twinkle slow" cx="428" cy="454" r="2.2"/>
+      <circle class="twinkle" cx="535" cy="82" r="1.6"/>
+      <circle class="twinkle fast" cx="670" cy="428" r="1.8"/>
+      <circle class="twinkle slow" cx="1038" cy="66" r="2.2"/>
+      <circle class="twinkle" cx="1128" cy="406" r="2"/>
+    </g>
+    <g fill="#50e0e5" filter="url(#glow)">
+      <circle class="twinkle fast" cx="104" cy="309" r="2"/>
+      <circle class="twinkle slow" cx="613" cy="142" r="2.5"/>
+      <circle class="twinkle" cx="1093" cy="252" r="2.3"/>
+    </g>
+    <g fill="#ffd272" filter="url(#glow)">
+      <path class="twinkle" d="M345 106l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+      <path class="twinkle slow" d="M749 391l2.6 7.4 7.4 2.6-7.4 2.6-2.6 7.4-2.6-7.4-7.4-2.6 7.4-2.6z"/>
+    </g>
+
+    <rect x="54" y="45" width="245" height="38" rx="19" fill="#ffffff" opacity=".075" stroke="#ffffff" stroke-opacity=".12"/>
+    <circle cx="75" cy="64" r="5" fill="#50e0e5" filter="url(#glow)"/>
+    <text x="91" y="69" fill="#dfe5ff" font-family="Inter,Segoe UI,sans-serif" font-size="13" font-weight="700" letter-spacing="2">INTERACTIVE BIBLE QUIZ</text>
+
+    <g transform="translate(62 154)">
+      <text x="0" y="0" fill="#ffffff" font-family="Georgia,serif" font-size="74" font-weight="700" letter-spacing="-2">The Bible</text>
+      <text x="0" y="77" fill="url(#gold)" font-family="Georgia,serif" font-size="84" font-weight="700" letter-spacing="-3">Challenge</text>
+      <rect x="3" y="100" width="450" height="3" rx="2" fill="url(#aurora)">
+        <animate attributeName="width" values="110;450;110" dur="5s" repeatCount="indefinite"/>
+      </rect>
+      <text x="2" y="147" fill="#cbd3f3" font-family="Inter,Segoe UI,sans-serif" font-size="20" font-weight="600" letter-spacing="1.6">KNOW THE WORD  •  BUILD REAL RECALL</text>
+      <g transform="translate(1 178)" font-family="Inter,Segoe UI,sans-serif" font-size="14" font-weight="700">
+        <rect width="177" height="42" rx="21" fill="#50e0e5" opacity=".12" stroke="#50e0e5" stroke-opacity=".3"/>
+        <text x="22" y="27" fill="#9af4f4">500 PASSAGES</text>
+        <rect x="191" width="142" height="42" rx="21" fill="#ffd272" opacity=".12" stroke="#ffd272" stroke-opacity=".3"/>
+        <text x="214" y="27" fill="#ffe4a4">66 BOOKS</text>
+        <rect x="347" width="176" height="42" rx="21" fill="#929cff" opacity=".12" stroke="#929cff" stroke-opacity=".32"/>
+        <text x="369" y="27" fill="#cbd0ff">OFFLINE READY</text>
+      </g>
+    </g>
+
+    <g class="float">
+      <circle cx="900" cy="260" r="209" fill="url(#halo)" opacity=".68"/>
+      <circle cx="900" cy="260" r="172" fill="none" stroke="#50e0e5" stroke-opacity=".16" class="dash"/>
+      <circle cx="900" cy="260" r="137" fill="none" stroke="#ffd272" stroke-opacity=".13" stroke-dasharray="2 10"/>
+      <g class="orbit">
+        <circle cx="900" cy="88" r="5" fill="#ffd272" filter="url(#glow)"/>
+        <circle cx="1047" cy="349" r="3.5" fill="#50e0e5" filter="url(#glow)"/>
+      </g>
+
+      <g filter="url(#shadow)">
+        <path d="M704 255Q798 211 899 263V397Q802 347 704 383Z" fill="url(#pageLeft)" stroke="#aab6eb" stroke-width="2"/>
+        <path d="M899 263Q1000 211 1096 255V383Q1000 347 899 397Z" fill="url(#pageRight)" stroke="#aab6eb" stroke-width="2"/>
+        <path d="M899 263V397" stroke="#6775bc" stroke-width="4"/>
+        <path d="M716 269Q803 233 887 272M716 291Q804 257 887 294M716 313Q803 282 887 316M716 335Q803 305 887 338" fill="none" stroke="#6674a9" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
+        <path d="M912 272Q997 233 1083 269M912 294Q997 257 1083 291M912 316Q997 282 1083 313M912 338Q997 305 1083 335" fill="none" stroke="#6674a9" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
+        <path d="M897 182h20v42h38v20h-38v56h-20v-56h-38v-20h38z" fill="url(#gold)" filter="url(#glow)" class="shimmer"/>
+      </g>
+      <path d="M725 412Q900 462 1074 412" fill="none" stroke="#50e0e5" stroke-opacity=".3" stroke-width="3" stroke-linecap="round">
+        <animate attributeName="stroke-opacity" values=".15;.6;.15" dur="3.6s" repeatCount="indefinite"/>
+      </path>
+    </g>
+
+    <path d="M0 493H1200" stroke="url(#aurora)" stroke-width="2"/>
+  </g>
+</svg>
