@@ -6,7 +6,8 @@
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#11183d" name="theme-color"/>
 <meta content="A polished offline Bible quiz teaching Scripture, people, events, places, structure, and the biblical storyline." name="description"/>
-<title>The Bible Challenge v2.1.4 — Performance Architecture</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>The Bible Challenge</title>
 <style>
 :root{
  --bg:#f4f6ff;--surface:#ffffff;--surface2:#fffaf0;--text:#171b3f;--muted:#66708f;--line:rgba(33,43,94,.12);
@@ -676,6 +677,11 @@ html,body{-webkit-text-size-adjust:100%}
 @media(prefers-reduced-motion:reduce){
  .visual-enter{animation:none!important}
 }
+
+/* Result-screen containment: keep the first-attempt icon and recap copy in-flow. */
+.v21-recap,.v21-tested,.v21-first-attempt,.v21-next-action,.v21-next-action>div{min-width:0}
+.v21-tested span,.v21-first-attempt,.v21-next-action h3,.v21-next-action p{overflow-wrap:anywhere}
+.v21-first-attempt>svg{width:20px;height:20px;flex:0 0 20px}
 </style>
 </head>
 <body>
