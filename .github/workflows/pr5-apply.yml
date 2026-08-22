@@ -1,0 +1,68 @@
+name: PR5 foundation apply
+
+on:
+  push:
+    branches:
+      - pr5-foundation-shell
+    paths:
+      - assets/pr5-foundation.css
+      - assets/pr5-shell.js
+      - scripts/apply-pr5-foundation.py
+      - .github/workflows/pr5-apply.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[pr5-applied]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR5 branch
+        uses: actions/checkout@v4
+        with:
+          ref: pr5-foundation-shell
+          fetch-depth: 2
+          persist-credentials: true
+
+      - name: Preserve pre-apply monolith
+        run: cp index.html /tmp/index-before-pr5.html
+
+      - name: Apply foundation loaders
+        run: python scripts/apply-pr5-foundation.py
+
+      - name: Verify surgical change and assets
+        shell: bash
+        run: |
+          node --check assets/pr5-shell.js
+          python - <<'PY'
+          from pathlib import Path
+
+          before = Path('/tmp/index-before-pr5.html').read_text(encoding='utf-8')
+          after = Path('index.html').read_text(encoding='utf-8')
+          marker = '<!-- PR5_FOUNDATION_ASSETS -->\n'
+          style = '<link rel="stylesheet" href="assets/pr5-foundation.css?v=pr5.1">\n'
+          script = '<script src="assets/pr5-shell.js?v=pr5.1" defer></script>\n'
+          restored = after.replace(marker + style, '', 1).replace(script, '', 1)
+          assert restored == before, 'index.html changed beyond the two PR5 loader insertions'
+          assert after.count('assets/pr5-foundation.css') == 1
+          assert after.count('assets/pr5-shell.js') == 1
+
+          css = Path('assets/pr5-foundation.css').read_text(encoding='utf-8')
+          assert css.count('{') == css.count('}'), 'unbalanced CSS braces'
+          assert 'pr5-mobile-nav' in css and 'pr5-home-hero' in css
+          print('PR5 regression guard passed: monolith semantics preserved')
+          PY
+
+      - name: Commit loader integration
+        shell: bash
+        run: |
+          if git diff --quiet -- index.html; then
+            echo 'PR5 loaders already integrated.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'PR5: integrate foundation shell loaders [pr5-applied]'
+          git push origin HEAD:pr5-foundation-shell
