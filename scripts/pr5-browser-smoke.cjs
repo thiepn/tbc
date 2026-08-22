@@ -4,6 +4,33 @@ const fs = require('node:fs');
 
 const BASE = 'http://127.0.0.1:4173/';
 
+async function dismissBlockingModal(page) {
+  const modal = page.locator('#modalRoot .modal-backdrop');
+  if (!(await modal.count()) || !(await modal.isVisible())) return;
+
+  const label = (await modal.innerText()).replace(/\s+/g, ' ').trim().slice(0, 160);
+  console.log(`Dismissing native first-run modal before shell interaction: ${label}`);
+
+  const closedByApi = await page.evaluate(() => {
+    if (typeof closeModal === 'function') {
+      closeModal();
+      return true;
+    }
+    return false;
+  });
+
+  if (!closedByApi) {
+    const preferred = modal.getByRole('button', { name: /close|got it|continue|start|okay|ok|dismiss|not now|cancel/i }).last();
+    if (await preferred.count()) await preferred.click();
+    else {
+      const buttons = modal.getByRole('button');
+      if (await buttons.count()) await buttons.last().click();
+    }
+  }
+
+  await page.waitForFunction(() => !document.querySelector('#modalRoot .modal-backdrop'), null, { timeout: 5000 });
+}
+
 async function openCheckedPage(browser, viewport) {
   const context = await browser.newContext({ viewport });
   const page = await context.newPage();
@@ -17,6 +44,8 @@ async function openCheckedPage(browser, viewport) {
   await page.waitForFunction(() => document.documentElement.getAttribute('data-pr5-foundation') === 'PR5.1', null, { timeout: 20000 });
   await page.waitForSelector('.pr5-primary-nav', { timeout: 20000 });
   await page.waitForTimeout(700);
+  await dismissBlockingModal(page);
+  await page.waitForTimeout(250);
   return { context, page, pageErrors, consoleErrors };
 }
 
