@@ -63,16 +63,23 @@ async function openCheckedPage(browser, viewport) {
     assert.match(visualState.sidebarBackground, /gradient/i, 'native vibrant sidebar gradient must remain intact');
     assert.ok(visualState.overflow <= 1, `desktop horizontal overflow: ${visualState.overflow}px`);
 
-    const themeChanged = await page.evaluate(() => {
+    const themeState = await page.evaluate(() => {
       const body = document.body;
-      const before = getComputedStyle(body).backgroundColor;
       const hadDark = body.classList.contains('dark');
-      body.classList.toggle('dark', !hadDark);
-      const after = getComputedStyle(body).backgroundColor;
+      const hadContrast = body.classList.contains('contrast');
+      body.classList.remove('contrast');
+      body.classList.remove('dark');
+      const lightBg = getComputedStyle(body).backgroundImage;
+      const lightSurface = getComputedStyle(body).getPropertyValue('--surface').trim();
+      body.classList.add('dark');
+      const darkBg = getComputedStyle(body).backgroundImage;
+      const darkSurface = getComputedStyle(body).getPropertyValue('--surface').trim();
       body.classList.toggle('dark', hadDark);
-      return before !== after;
+      body.classList.toggle('contrast', hadContrast);
+      return { lightBg, darkBg, lightSurface, darkSurface };
     });
-    assert.equal(themeChanged, true, 'native light/dark theme tokens must still change rendered colors');
+    assert.notEqual(themeState.lightBg, themeState.darkBg, 'native light/dark backgrounds must remain distinct');
+    assert.notEqual(themeState.lightSurface, themeState.darkSurface, 'native light/dark surface tokens must remain distinct');
 
     await page.locator('.sidebar .nav [data-pr5-nav="play"]').first().click();
     await page.waitForFunction(() => document.body.classList.contains('pr6-native-active') && document.body.dataset.pr6Flow === 'play', null, { timeout: 7000 });
