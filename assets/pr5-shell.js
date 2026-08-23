@@ -1,44 +1,80 @@
-/* The Bible Challenge — PR5 foundation shell
- * Progressive enhancement only. It does not read, write, or mutate TBC game state.
+/* The Bible Challenge — PR5 compatibility shell
+ * The v4.1.0 interface remains the visual/navigation authority.
+ * This bridge only annotates existing native navigation for PR6 and loads the
+ * reconstructed learning-flow assets. It must not replace or hide native UI.
  */
 (()=>{'use strict';
-const VERSION='PR5.1',ROOT_ATTR='data-pr5-foundation';if(document.documentElement.hasAttribute(ROOT_ATTR))return;document.documentElement.setAttribute(ROOT_ATTR,VERSION);
-const state={domain:'home',nativeNav:null,scheduled:false,observer:null};
-const normalize=v=>String(v||'').replace(/\s+/g,' ').trim().toLowerCase();
-const icon=name=>({home:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8v9.7a.5.5 0 0 1-.5.5H15v-7H9v7H3.5a.5.5 0 0 1-.5-.5v-9.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',play:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>',learn:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h6.2c1.1 0 1.8.5 1.8 1.4v12.3c0-.9-.7-1.4-1.8-1.4H4V5.5Zm16 0h-6.2c-1.1 0-1.8.5-1.8 1.4v12.3c0-.9-.7-1.4-1.8-1.4H20V5.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',library:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4v16H5V4Zm5.5 0h4v16h-4V4Zm5.5 1 3.2-.8 2.7 15.2-3.2.6L16 5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',progress:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V10m7 10V4m7 16v-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>',settings:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Zm8 3.8-2-.9a6.8 6.8 0 0 0-.6-1.4l.8-2-1.9-1.9-2 .8a6.8 6.8 0 0 0-1.4-.6L12 4h-2.7l-.8 2a6.8 6.8 0 0 0-1.4.6l-2-.8-1.9 1.9.8 2a6.8 6.8 0 0 0-.6 1.4l-2 .9v2.7l2 .8c.1.5.3 1 .6 1.4l-.8 2 1.9 1.9 2-.8c.4.3.9.5 1.4.6l.8 2H12l.9-2c.5-.1 1-.3 1.4-.6l2 .8 1.9-1.9-.8-2c.3-.4.5-.9.6-1.4l2-.8V12Z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/></svg>'}[name]||'');
-const isPr5=el=>Boolean(el&&el.closest&&el.closest('[data-pr5-ui]'));
-function nativeClickables(){return Array.from(document.querySelectorAll('button,a[href],[role="button"]')).filter(el=>!isPr5(el))}
-function scoreCandidate(el,terms){const text=normalize(el.textContent||el.getAttribute('aria-label')||el.getAttribute('title'));if(!text)return-1;let score=-1;terms.forEach((term,index)=>{const needle=normalize(term);if(text===needle)score=Math.max(score,100-index);else if(text.startsWith(needle))score=Math.max(score,70-index);else if(text.includes(needle))score=Math.max(score,40-index)});if(el.closest('.nav'))score+=8;if(el.classList.contains('active')||el.getAttribute('aria-current')==='page')score+=4;return score}
-function findNative(terms,scope){const els=scope?Array.from(scope.querySelectorAll('button,a[href],[role="button"]')).filter(el=>!isPr5(el)):nativeClickables();return els.map(el=>({el,score:scoreCandidate(el,terms)})).filter(x=>x.score>=0).sort((a,b)=>b.score-a.score)[0]?.el||null}
-const routes={home:['Home','Overview','Dashboard'],play:['Quick Play','Play','Practice'],learn:['Learn','Bible Journey','Journey','Learning Path'],library:['Library','Books','Book Library'],progress:['Progress','Mastery','Stats'],settings:['Settings','Preferences']};
-function routeTarget(domain){return findNative(routes[domain]||[domain],state.nativeNav)||findNative(routes[domain]||[domain])}
-function setDomain(domain,{render=true}={}){if(!['home','play','learn','library'].includes(domain))return;state.domain=domain;document.body.dataset.pr5Domain=domain;syncActiveNav();if(domain!=='home')removeFoundationHome();if(render)scheduleEnhance()}
-function activateDomain(domain){const target=routeTarget(domain);setDomain(domain,{render:false});if(target){target.click();setTimeout(scheduleEnhance,0);return true}scheduleEnhance();return false}
-function classifyNativeActive(){if(!state.nativeNav)return null;const active=Array.from(state.nativeNav.querySelectorAll('button,a[href],[role="button"]')).find(el=>el.classList.contains('active')||el.getAttribute('aria-current')==='page');if(!active)return null;const text=normalize(active.textContent||active.getAttribute('aria-label'));if(/home|overview|dashboard/.test(text))return'home';if(/library|books|collection|reader/.test(text))return'library';if(/journey|learn|review|mastery path|learning path/.test(text))return'learn';if(/play|practice|campaign|expedition|duel|challenge|quiz/.test(text))return'play';return null}
-function syncDomainFromNative(){const nativeDomain=classifyNativeActive();if(nativeDomain&&nativeDomain!==state.domain)setDomain(nativeDomain,{render:false})}
-function navButton(domain,label,iconName){const b=document.createElement('button');b.type='button';b.className='pr5-nav-link';b.dataset.pr5Nav=domain;b.innerHTML=`${icon(iconName)}<span>${label}</span>`;b.setAttribute('aria-label',label);b.addEventListener('click',()=>activateDomain(domain));return b}
-function buildPrimaryNavigation(){const sidebar=document.querySelector('.sidebar'),nativeNav=sidebar?.querySelector('.nav');if(!sidebar||!nativeNav)return;state.nativeNav=nativeNav;if(!nativeNav.dataset.pr5Native){nativeNav.dataset.pr5Native='true';nativeNav.classList.add('pr5-native-nav');nativeNav.setAttribute('aria-hidden','true')}if(!sidebar.querySelector('.pr5-primary-nav')){const nav=document.createElement('nav');nav.className='pr5-primary-nav';nav.dataset.pr5Ui='true';nav.setAttribute('aria-label','Primary');nav.append(navButton('home','Home','home'),navButton('play','Play','play'),navButton('learn','Learn','learn'),navButton('library','Library','library'));nativeNav.insertAdjacentElement('afterend',nav)}if(!sidebar.querySelector('.pr5-utility-nav')){const utilities=document.createElement('div');utilities.className='pr5-utility-nav';utilities.dataset.pr5Ui='true';[['progress','Progress','progress'],['settings','Settings','settings']].forEach(([key,label,iconName])=>{if(!routeTarget(key))return;const b=document.createElement('button');b.type='button';b.className='pr5-utility-link';b.innerHTML=`${icon(iconName)}<span>${label}</span>`;b.addEventListener('click',()=>routeTarget(key)?.click());utilities.appendChild(b)});const foot=sidebar.querySelector('.sidebar-foot');if(utilities.childElementCount)sidebar.insertBefore(utilities,foot||null)}const brand=sidebar.querySelector('.brand');if(brand&&!brand.dataset.pr5Bound){brand.dataset.pr5Bound='true';brand.setAttribute('role','button');brand.setAttribute('tabindex','0');brand.setAttribute('aria-label','Go to Home');brand.addEventListener('click',()=>activateDomain('home'));brand.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activateDomain('home')}})}}
-function buildMobileNavigation(){document.querySelectorAll('.mobile-nav').forEach(nav=>nav.classList.add('pr5-native-mobile-nav'));if(document.querySelector('.pr5-mobile-nav'))return;const nav=document.createElement('nav');nav.className='pr5-mobile-nav';nav.dataset.pr5Ui='true';nav.setAttribute('aria-label','Primary');nav.append(navButton('home','Home','home'),navButton('play','Play','play'),navButton('learn','Learn','learn'),navButton('library','Library','library'));document.body.appendChild(nav)}
-function syncActiveNav(){document.querySelectorAll('[data-pr5-nav]').forEach(b=>{const active=b.dataset.pr5Nav===state.domain;b.classList.toggle('active',active);if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')})}
-function actionTarget(terms){return findNative(terms,document.querySelector('.pr5-native-home'))||findNative(terms)}
-function actionButton(label,description,terms,domain,tone=''){const target=actionTarget(terms);if(!target)return null;const b=document.createElement('button');b.type='button';b.className=`pr5-quick-action ${tone}`.trim();b.innerHTML=`<span class="pr5-quick-title">${label}</span><span class="pr5-quick-copy">${description}</span><span class="pr5-quick-arrow" aria-hidden="true">→</span>`;b.addEventListener('click',()=>{setDomain(domain,{render:false});target.click();setTimeout(scheduleEnhance,0)});return b}
-function extractProgress(){const progress=document.querySelector('.side-progress'),strong=normalize(progress?.querySelector('strong')?.textContent),bar=progress?.querySelector('.bar i'),width=bar?.style?.width||'',numeric=(strong.match(/\d+(?:\.\d+)?%/)||width.match(/\d+(?:\.\d+)?%/)||[])[0];return numeric||'In progress'}
-function findContinueTarget(){return actionTarget(['Continue','Resume','Continue Journey','Resume Session','Continue Learning'])}
-function createFoundationHome(){const content=document.querySelector('.content');if(!content||content.querySelector(':scope > .pr5-home'))return;const currentTitle=normalize(document.querySelector('.topbar h1')?.textContent),nativeActive=classifyNativeActive(),looksLikeHome=state.domain==='home'&&(nativeActive==='home'||/home|overview|dashboard|bible challenge/.test(currentTitle)||document.querySelector('.hero'));if(!looksLikeHome)return;const native=document.createElement('div');native.className='pr5-native-home';native.setAttribute('aria-hidden','true');Array.from(content.children).filter(child=>!child.matches('.pr5-home')).forEach(child=>native.appendChild(child));content.appendChild(native);const home=document.createElement('section');home.className='pr5-home';home.dataset.pr5Ui='true';const continueTarget=findContinueTarget(),recommendationTarget=continueTarget||actionTarget(['Adaptive Review','Review','Bible Journey','Journey']),progress=extractProgress();const hero=document.createElement('div');hero.className='pr5-home-hero';hero.innerHTML='<div class="pr5-home-kicker">The Bible Challenge</div><h2>Know the Word.<br>Build real recall.</h2><p>Focused Bible knowledge practice across all 66 books, with guided learning and review when you need it.</p><div class="pr5-home-actions"></div>';const actions=hero.querySelector('.pr5-home-actions'),play=document.createElement('button');play.type='button';play.className='pr5-action pr5-action-primary';play.textContent='Play';play.addEventListener('click',()=>activateDomain('play'));actions.appendChild(play);if(continueTarget){const resume=document.createElement('button');resume.type='button';resume.className='pr5-action pr5-action-secondary';resume.textContent='Continue';resume.addEventListener('click',()=>{setDomain('learn',{render:false});continueTarget.click()});actions.appendChild(resume)}home.appendChild(hero);if(recommendationTarget){const recommendation=document.createElement('button');recommendation.type='button';recommendation.className='pr5-recommendation';recommendation.innerHTML=`<span class="pr5-recommendation-label">Recommended next</span><strong>${continueTarget?'Continue where you left off':'Strengthen your next area'}</strong><span>${continueTarget?'Resume your most relevant active learning path.':'Use guided practice to decide what deserves attention next.'}</span><b aria-hidden="true">→</b>`;recommendation.addEventListener('click',()=>{setDomain('learn',{render:false});recommendationTarget.click()});home.appendChild(recommendation)}const section=document.createElement('div');section.className='pr5-home-section';section.innerHTML='<div class="pr5-section-heading"><div><span>Start here</span><h3>Choose one clear path</h3></div></div><div class="pr5-quick-grid"></div>';const grid=section.querySelector('.pr5-quick-grid');[actionButton('Quick Play','Start a focused round immediately.',['Quick Play'],'play','primary'),actionButton('Bible Journey','Continue through the Bible in a guided sequence.',['Bible Journey','Journey'],'learn'),actionButton('Practice a Book','Choose any biblical book and focus your recall.',['Book Practice','Practice a Book','Library','Books'],'library'),actionButton('Adaptive Review','Revisit areas that need strengthening.',['Adaptive Review','Review'],'learn')].filter(Boolean).slice(0,4).forEach(b=>grid.appendChild(b));if(grid.childElementCount)home.appendChild(section);const snapshot=document.createElement('div');snapshot.className='pr5-progress-snapshot';snapshot.innerHTML=`<div><span class="pr5-snapshot-label">Progress</span><strong>${progress}</strong></div><p>Your detailed mastery remains available in Progress. Home only shows what is useful for the next decision.</p>`;home.appendChild(snapshot);content.appendChild(home);document.querySelector('.topbar h1')?.replaceChildren(document.createTextNode('Home'))}
-function removeFoundationHome(){const content=document.querySelector('.content'),home=content?.querySelector(':scope > .pr5-home'),native=content?.querySelector(':scope > .pr5-native-home');if(!home&&!native)return;home?.remove();if(native){const fragment=document.createDocumentFragment();while(native.firstChild)fragment.appendChild(native.firstChild);native.replaceWith(fragment)}}
-function normalizeShellSemantics(){const main=document.querySelector('.main');if(main&&!main.hasAttribute('role'))main.setAttribute('role','main');const topbar=document.querySelector('.topbar');if(topbar)topbar.setAttribute('aria-label','Page controls');document.querySelectorAll('.icon-btn:not([aria-label])').forEach((b,i)=>b.setAttribute('aria-label',b.getAttribute('title')||`Utility ${i+1}`))}
-function enhance(){state.scheduled=false;buildPrimaryNavigation();buildMobileNavigation();syncDomainFromNative();syncActiveNav();normalizeShellSemantics();if(state.domain==='home')createFoundationHome()}
-function scheduleEnhance(){if(state.scheduled)return;state.scheduled=true;requestAnimationFrame(enhance)}
-function start(){buildPrimaryNavigation();state.domain=classifyNativeActive()||'home';document.body.dataset.pr5Domain=state.domain;enhance();state.observer=new MutationObserver(mutations=>{if(mutations.every(m=>m.target.closest?.('[data-pr5-ui]')))return;scheduleEnhance()});state.observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','aria-current']})}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
-})();
+const VERSION='PR5.2-RESTORED';
+const ROOT_ATTR='data-pr5-foundation';
+if(document.documentElement.getAttribute(ROOT_ATTR)===VERSION)return;
+const ASSET_BASE=new URL('.',document.currentScript?.src||document.baseURI);
+document.documentElement.setAttribute(ROOT_ATTR,VERSION);
 
-/* PR6 loader — the monolithic document continues to load PR5 only; PR5 now
- * boots the isolated PR6 reconstruction assets without touching index.html. */
-(()=>{'use strict';
-if(window.__TBC_PR6_LOADER__)return;window.__TBC_PR6_LOADER__=true;
-const current=document.currentScript;
-const base=new URL('.',current?.src||document.baseURI);
-if(!document.querySelector('link[data-pr6-style]')){const link=document.createElement('link');link.rel='stylesheet';link.href=new URL('pr6-play-learning.css',base).href;link.dataset.pr6Style='true';document.head.appendChild(link)}
-if(!document.querySelector('script[data-pr6-script]')){const script=document.createElement('script');script.src=new URL('pr6-play-learning.js',base).href;script.defer=true;script.dataset.pr6Script='true';document.head.appendChild(script)}
+const norm=v=>String(v||'').replace(/\s+/g,' ').trim().toLowerCase();
+const routeFor=text=>{
+  const t=norm(text);
+  if(/\b(home|overview|dashboard)\b/.test(t))return'home';
+  if(/\b(study|learn|journey|learning path|adaptive review)\b/.test(t))return'learn';
+  if(/\b(bible|library|books|collection)\b/.test(t))return'library';
+  if(/\b(progress|mastery|stats|statistics)\b/.test(t))return'progress';
+  if(/\b(play|practice|quiz|challenge)\b/.test(t))return'play';
+  return null;
+};
+const nativeNavSelector='.sidebar .nav button,.sidebar .nav a,.mobile-nav button,.mobile-nav a';
+function annotateNativeNavigation(){
+  document.querySelectorAll(nativeNavSelector).forEach(el=>{
+    const raw=el.getAttribute('aria-label')||el.getAttribute('title')||el.textContent;
+    const route=routeFor(raw);
+    if(route){
+      el.dataset.pr5Nav=route;
+      /* PR6's legacy route resolver calls these native controls internally.
+       * Preserve the visible TBC label while giving "Study" a learn alias. */
+      if(route==='learn'&&norm(el.textContent)==='study'&&!el.getAttribute('aria-label')){
+        el.title='Learn · Study';
+      }
+    }else delete el.dataset.pr5Nav;
+  });
+}
+/* Playwright/user input produces trusted events. PR6's internal route priming
+ * uses HTMLElement.click(), which is untrusted and must reach the native TBC
+ * handler rather than being re-intercepted by PR6. Remove the bridge marker
+ * for that one dispatch and restore it immediately afterwards. */
+function allowSyntheticNativeNavigation(event){
+  if(event.isTrusted)return;
+  const target=event.target?.closest?.(nativeNavSelector);
+  if(!target?.dataset?.pr5Nav)return;
+  const route=target.dataset.pr5Nav;
+  delete target.dataset.pr5Nav;
+  queueMicrotask(()=>{if(target.isConnected)target.dataset.pr5Nav=route});
+}
+function addStyle(href,marker){
+  if(document.querySelector(`link[${marker}]`))return;
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href=href;
+  link.setAttribute(marker,'true');
+  document.head.appendChild(link);
+}
+function loadPr6(){
+  if(window.__TBC_PR6_LOADER__)return;
+  window.__TBC_PR6_LOADER__=true;
+  addStyle(new URL('pr6-play-learning.css',ASSET_BASE).href,'data-pr6-style');
+  addStyle(new URL('pr6-vibrant.css',ASSET_BASE).href,'data-pr6-vibrant');
+  if(!document.querySelector('script[data-pr6-script]')){
+    const script=document.createElement('script');
+    script.src=new URL('pr6-play-learning.js',ASSET_BASE).href;
+    script.defer=true;
+    script.dataset.pr6Script='true';
+    document.head.appendChild(script);
+  }
+}
+function start(){
+  annotateNativeNavigation();
+  document.addEventListener('click',allowSyntheticNativeNavigation,true);
+  loadPr6();
+  const observer=new MutationObserver(()=>annotateNativeNavigation());
+  observer.observe(document.body,{childList:true,subtree:true});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
+else start();
 })();
