@@ -54,6 +54,13 @@ async function assertFlow(page, flow, title) {
   await waitForFinishedFlow(page, flow, title);
 }
 
+async function nativeContentVisible(page) {
+  return page.evaluate(() => {
+    const content = document.querySelector('.content');
+    return Boolean(content && getComputedStyle(content).display !== 'none' && content.children.length > 0);
+  });
+}
+
 (async () => {
   fs.mkdirSync('artifacts/pr6', { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -98,7 +105,7 @@ async function assertFlow(page, flow, title) {
 
     await page.locator('.sidebar .nav [data-pr5-nav="home"]').first().click();
     await page.waitForFunction(() => !document.body.classList.contains('pr6-native-active'), null, { timeout: 7000 });
-    assert.ok(await page.locator('.hero').count(), 'native v4.1.0 Home must recover after PR6 exit');
+    assert.equal(await nativeContentVisible(page), true, 'native v4.1.0 overview Home must recover after PR6 exit');
 
     assert.deepEqual(desktop.pageErrors, [], `desktop page errors: ${desktop.pageErrors.join(' | ')}`);
     assert.deepEqual(desktop.consoleErrors, [], `desktop console errors: ${desktop.consoleErrors.join(' | ')}`);
