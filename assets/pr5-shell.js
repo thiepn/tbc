@@ -14,8 +14,9 @@ const norm=v=>String(v||'').replace(/\s+/g,' ').trim().toLowerCase();
 const routeFor=text=>{
   const t=norm(text);
   if(/\b(home|overview|dashboard)\b/.test(t))return'home';
-  if(/\b(library|books|collection)\b/.test(t))return'library';
-  if(/\b(learn|journey|learning path|adaptive review)\b/.test(t))return'learn';
+  if(/\b(study|learn|journey|learning path|adaptive review)\b/.test(t))return'learn';
+  if(/\b(bible|library|books|collection)\b/.test(t))return'library';
+  if(/\b(progress|mastery|stats|statistics)\b/.test(t))return'progress';
   if(/\b(play|practice|quiz|challenge)\b/.test(t))return'play';
   return null;
 };
