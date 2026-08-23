@@ -8,10 +8,14 @@ on:
       - index.html
       - assets/pr5-foundation.css
       - assets/pr5-shell.js
+      - assets/pr5-core.js
       - assets/pr6-play-learning.css
       - assets/pr6-play-learning.js
+      - assets/pr7-library-progress.css
+      - assets/pr7-library-progress.js
       - scripts/pr5-browser-smoke.cjs
       - scripts/pr6-browser-smoke.cjs
+      - scripts/pr7-browser-smoke.cjs
       - .github/workflows/pr5-validate.yml
 
 permissions:
@@ -55,6 +59,9 @@ jobs:
       - name: Run PR6 play and learning smoke tests
         run: node scripts/pr6-browser-smoke.cjs
 
+      - name: Run PR7 library and progress smoke tests
+        run: node scripts/pr7-browser-smoke.cjs
+
       - name: Upload visual evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -63,5 +70,6 @@ jobs:
           path: |
             artifacts/pr5
             artifacts/pr6
+            artifacts/pr7
           if-no-files-found: ignore
           retention-days: 7
