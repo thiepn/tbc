@@ -1,4 +1,4 @@
-name: PR5 browser validation
+name: Shell browser validation
 
 on:
   pull_request:
@@ -8,7 +8,10 @@ on:
       - index.html
       - assets/pr5-foundation.css
       - assets/pr5-shell.js
+      - assets/pr6-play-learning.css
+      - assets/pr6-play-learning.js
       - scripts/pr5-browser-smoke.cjs
+      - scripts/pr6-browser-smoke.cjs
       - .github/workflows/pr5-validate.yml
 
 permissions:
@@ -35,25 +38,30 @@ jobs:
       - name: Start local application
         shell: bash
         run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-pr5-server.log 2>&1 &
-          echo $! > /tmp/tbc-pr5-server.pid
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-shell-server.log 2>&1 &
+          echo $! > /tmp/tbc-shell-server.pid
           for i in {1..20}; do
             if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
               exit 0
             fi
             sleep 1
           done
-          cat /tmp/tbc-pr5-server.log
+          cat /tmp/tbc-shell-server.log
           exit 1
 
-      - name: Run desktop and mobile smoke tests
+      - name: Run PR5 shell smoke tests
         run: node scripts/pr5-browser-smoke.cjs
+
+      - name: Run PR6 play and learning smoke tests
+        run: node scripts/pr6-browser-smoke.cjs
 
       - name: Upload visual evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pr5-browser-evidence
-          path: artifacts/pr5
+          name: shell-browser-evidence
+          path: |
+            artifacts/pr5
+            artifacts/pr6
           if-no-files-found: ignore
           retention-days: 7
