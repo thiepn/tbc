@@ -1,6 +1,6 @@
 /* The Bible Challenge — compatibility bridge for reconstructed flows.
  * Keep the original v4.1.0 Home, navigation, themes and presentation intact.
- * This file only exposes native Play/Learn controls to PR6 and loads PR6 assets.
+ * This file only exposes native navigation controls to PR6 and loads PR6 assets.
  */
 (()=>{'use strict';
 const ROOT_ATTR='data-pr5-foundation';
@@ -24,14 +24,24 @@ function ensureScript(src,id){
 }
 
 function labelOf(node){return (node.textContent||'').replace(/\s+/g,' ').trim().toLowerCase();}
+function exitPr6(){window.TBC_PR6?.deactivate?.();}
+function bindExit(node){
+  if(node.dataset.pr5ExitBound)return;
+  node.dataset.pr5ExitBound='true';
+  node.addEventListener('click',exitPr6);
+}
 
 function bridgeNativeNavigation(){
   const navs=document.querySelectorAll('.nav, .mobile-nav, [class*="bottom-nav"]');
   for(const nav of navs){
     for(const node of nav.querySelectorAll('button,a,[role="button"]')){
       const text=labelOf(node);
-      if(/(^|\s)play($|\s)/.test(text))node.dataset.pr5Nav='play';
+      if(/(^|\s)home($|\s)|overview|dashboard/.test(text))node.dataset.pr5Nav='home';
+      else if(/(^|\s)play($|\s)/.test(text))node.dataset.pr5Nav='play';
       else if(/(^|\s)learn($|\s)/.test(text))node.dataset.pr5Nav='learn';
+      else if(/library|collections?|books?/.test(text))node.dataset.pr5Nav='library';
+      else if(/progress|mastery|stats/.test(text)){node.dataset.pr5Nav='progress';bindExit(node);}
+      else if(/settings|preferences/.test(text)){node.dataset.pr5Nav='settings';bindExit(node);}
     }
   }
 }
@@ -40,6 +50,8 @@ function boot(){
   bridgeNativeNavigation();
   ensureStyle(ASSETS.css,'pr6-play-learning-css');
   ensureScript(ASSETS.js,'pr6-play-learning-js');
+  const observer=new MutationObserver(bridgeNativeNavigation);
+  observer.observe(document.body,{subtree:true,childList:true});
 }
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});
