@@ -7,6 +7,7 @@
 const VERSION='PR5.2-RESTORED';
 const ROOT_ATTR='data-pr5-foundation';
 if(document.documentElement.getAttribute(ROOT_ATTR)===VERSION)return;
+const ASSET_BASE=new URL('.',document.currentScript?.src||document.baseURI);
 document.documentElement.setAttribute(ROOT_ATTR,VERSION);
 
 const norm=v=>String(v||'').replace(/\s+/g,' ').trim().toLowerCase();
@@ -36,13 +37,11 @@ function addStyle(href,marker){
 function loadPr6(){
   if(window.__TBC_PR6_LOADER__)return;
   window.__TBC_PR6_LOADER__=true;
-  const current=document.currentScript;
-  const base=new URL('.',current?.src||document.baseURI);
-  addStyle(new URL('pr6-play-learning.css',base).href,'data-pr6-style');
-  addStyle(new URL('pr6-vibrant.css',base).href,'data-pr6-vibrant');
+  addStyle(new URL('pr6-play-learning.css',ASSET_BASE).href,'data-pr6-style');
+  addStyle(new URL('pr6-vibrant.css',ASSET_BASE).href,'data-pr6-vibrant');
   if(!document.querySelector('script[data-pr6-script]')){
     const script=document.createElement('script');
-    script.src=new URL('pr6-play-learning.js',base).href;
+    script.src=new URL('pr6-play-learning.js',ASSET_BASE).href;
     script.defer=true;
     script.dataset.pr6Script='true';
     document.head.appendChild(script);
