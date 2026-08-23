@@ -20,12 +20,32 @@ const routeFor=text=>{
   if(/\b(play|practice|quiz|challenge)\b/.test(t))return'play';
   return null;
 };
+const nativeNavSelector='.sidebar .nav button,.sidebar .nav a,.mobile-nav button,.mobile-nav a';
 function annotateNativeNavigation(){
-  document.querySelectorAll('.sidebar .nav button,.sidebar .nav a,.mobile-nav button,.mobile-nav a').forEach(el=>{
-    const route=routeFor(el.getAttribute('aria-label')||el.getAttribute('title')||el.textContent);
-    if(route)el.dataset.pr5Nav=route;
-    else delete el.dataset.pr5Nav;
+  document.querySelectorAll(nativeNavSelector).forEach(el=>{
+    const raw=el.getAttribute('aria-label')||el.getAttribute('title')||el.textContent;
+    const route=routeFor(raw);
+    if(route){
+      el.dataset.pr5Nav=route;
+      /* PR6's legacy route resolver calls these native controls internally.
+       * Preserve the visible TBC label while giving "Study" a learn alias. */
+      if(route==='learn'&&norm(el.textContent)==='study'&&!el.getAttribute('aria-label')){
+        el.title='Learn · Study';
+      }
+    }else delete el.dataset.pr5Nav;
   });
+}
+/* Playwright/user input produces trusted events. PR6's internal route priming
+ * uses HTMLElement.click(), which is untrusted and must reach the native TBC
+ * handler rather than being re-intercepted by PR6. Remove the bridge marker
+ * for that one dispatch and restore it immediately afterwards. */
+function allowSyntheticNativeNavigation(event){
+  if(event.isTrusted)return;
+  const target=event.target?.closest?.(nativeNavSelector);
+  if(!target?.dataset?.pr5Nav)return;
+  const route=target.dataset.pr5Nav;
+  delete target.dataset.pr5Nav;
+  queueMicrotask(()=>{if(target.isConnected)target.dataset.pr5Nav=route});
 }
 function addStyle(href,marker){
   if(document.querySelector(`link[${marker}]`))return;
@@ -50,6 +70,7 @@ function loadPr6(){
 }
 function start(){
   annotateNativeNavigation();
+  document.addEventListener('click',allowSyntheticNativeNavigation,true);
   loadPr6();
   const observer=new MutationObserver(()=>annotateNativeNavigation());
   observer.observe(document.body,{childList:true,subtree:true});
