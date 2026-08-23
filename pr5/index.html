@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b0d10">
+  <title>The Bible Challenge — PR5 Shell</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="app-shell">
+    <header class="topbar" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="The Bible Challenge home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-copy">
+          <strong>The Bible Challenge</strong>
+          <small>Know the Word. Build real recall.</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#home" data-route="home">Home</a>
+        <a href="#play" data-route="play">Play</a>
+        <a href="#learn" data-route="learn">Learn</a>
+        <a href="#library" data-route="library">Library</a>
+      </nav>
+
+      <div class="utility-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">◐</button>
+        <a class="button button-ghost desktop-only" href="../index.html">Current game</a>
+      </div>
+    </header>
+
+    <main id="main" class="main" tabindex="-1">
+      <section class="route active" id="route-home" data-page="home" aria-labelledby="home-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Whole-Bible learning game</p>
+            <h1 id="home-title">Know the Word.<br>Build real recall.</h1>
+            <p class="lede">Practice across all 66 books, follow guided learning paths, and strengthen weak areas through focused review.</p>
+            <div class="hero-actions">
+              <button class="button button-primary button-large" type="button" data-legacy-launch>Play</button>
+              <button class="button button-secondary button-large" id="continueButton" type="button" data-legacy-launch hidden>Continue</button>
+            </div>
+          </div>
+          <aside class="hero-status" aria-label="Game content summary">
+            <div><strong>5,799</strong><span>canonical questions</span></div>
+            <div><strong>66</strong><span>Bible books</span></div>
+            <div><strong>5</strong><span>difficulty tiers</span></div>
+          </aside>
+        </div>
+
+        <section class="content-section" aria-labelledby="quick-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Start here</p>
+              <h2 id="quick-title">Choose your next step</h2>
+            </div>
+          </div>
+          <div class="action-grid">
+            <button class="action-card featured" type="button" data-legacy-launch>
+              <span class="card-kicker">Fastest start</span>
+              <strong>Quick Play</strong>
+              <span>Start a calibrated round immediately.</span>
+              <span class="card-arrow" aria-hidden="true">→</span>
+            </button>
+            <a class="action-card" href="#learn">
+              <span class="card-kicker">Guided</span>
+              <strong>Bible Journey</strong>
+              <span>Move through Scripture in a clear progression.</span>
+              <span class="card-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="action-card" href="#library">
+              <span class="card-kicker">Focused</span>
+              <strong>Practice a Book</strong>
+              <span>Choose any book and train that material directly.</span>
+              <span class="card-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="action-card" href="#learn">
+              <span class="card-kicker">Personalized</span>
+              <strong>Adaptive Review</strong>
+              <span>Strengthen material that needs attention.</span>
+              <span class="card-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section compact-section" aria-labelledby="continue-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Progress</p>
+              <h2 id="continue-title">Continue learning</h2>
+            </div>
+          </div>
+          <div class="continue-panel" id="continuePanel">
+            <div>
+              <strong>Your existing progress is preserved.</strong>
+              <p>PR5 does not modify the v4.1.0 question bank, scoring, mastery, or saved progress.</p>
+            </div>
+            <button class="button button-secondary" type="button" data-legacy-launch>Open current session</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="route" id="route-play" data-page="play" aria-labelledby="play-title" hidden>
+        <header class="page-header">
+          <p class="eyebrow">Play</p>
+          <h1 id="play-title">Choose how you want to play.</h1>
+          <p>One clear entry point for normal practice, focused sessions, and challenge modes.</p>
+        </header>
+        <div class="hub-grid">
+          <article class="hub-card primary-card">
+            <p class="eyebrow">Recommended</p>
+            <h2>Quick Play</h2>
+            <p>Start immediately with calibrated difficulty and a balanced question mix.</p>
+            <button class="button button-primary" type="button" data-legacy-launch>Start Quick Play</button>
+          </article>
+          <article class="hub-card">
+            <p class="eyebrow">Practice</p>
+            <h2>Focused Practice</h2>
+            <p>Choose content, difficulty, and round settings before starting.</p>
+            <button class="button button-secondary" type="button" data-legacy-launch>Open practice setup</button>
+          </article>
+          <article class="hub-card">
+            <p class="eyebrow">Challenge</p>
+            <h2>Campaign & Expedition</h2>
+            <p>Longer-form progression and specialized challenges remain available without crowding the primary flow.</p>
+            <button class="button button-secondary" type="button" data-legacy-launch>Open challenge modes</button>
+          </article>
+          <article class="hub-card">
+            <p class="eyebrow">Versus</p>
+            <h2>Duel</h2>
+            <p>Pass-and-play competition using the existing five-tier scoring system.</p>
+            <button class="button button-secondary" type="button" data-legacy-launch>Open Duel</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="route" id="route-learn" data-page="learn" aria-labelledby="learn-title" hidden>
+        <header class="page-header">
+          <p class="eyebrow">Learn</p>
+          <h1 id="learn-title">Let the game guide what comes next.</h1>
+          <p>Guided progression and review are separated from ordinary play so their purpose stays clear.</p>
+        </header>
+        <div class="hub-grid three-up">
+          <article class="hub-card primary-card">
+            <p class="eyebrow">25 stages</p>
+            <h2>Bible Journey</h2>
+            <p>Follow the biblical story from Creation to New Creation through the approachable guided route.</p>
+            <button class="button button-primary" type="button" data-legacy-launch>Continue Journey</button>
+          </article>
+          <article class="hub-card">
+            <p class="eyebrow">63 stages</p>
+            <h2>Learning Path</h2>
+            <p>Work through a more granular mastery progression with clear stage ownership.</p>
+            <button class="button button-secondary" type="button" data-legacy-launch>Open Learning Path</button>
+          </article>
+          <article class="hub-card">
+            <p class="eyebrow">Personalized</p>
+            <h2>Adaptive Review</h2>
+            <p>Learn, strengthen, and recover material based on your existing mastery state.</p>
+            <button class="button button-secondary" type="button" data-legacy-launch>Start review</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="route" id="route-library" data-page="library" aria-labelledby="library-title" hidden>
+        <header class="page-header">
+          <p class="eyebrow">Library</p>
+          <h1 id="library-title">Explore the content behind the game.</h1>
+          <p>Books and collections live in one content browser rather than competing with game modes.</p>
+        </header>
+        <div class="hub-grid three-up">
+          <article class="hub-card primary-card">
+            <p class="eyebrow">66 books</p>
+            <h2>Books</h2>
+            <p>Browse Old and New Testament books, inspect progress, then practice intentionally.</p>
+            <button class="button button-primary" type="button" data-legacy-launch>Browse books</button>
+          </article>
+          <article class="hub-card">
+            <p class="eyebrow">22 collections</p>
+            <h2>Collections</h2>
+            <p>Select a collection as one object, inspect it, and start from one unambiguous practice action.</p>
+            <button class="button button-secondary" type="button" data-legacy-launch>Browse collections</button>
+          </article>
+          <article class="hub-card">
+            <p class="eyebrow">Reference</p>
+            <h2>Passages</h2>
+            <p>Supporting biblical content belongs beside books and collections instead of in disconnected surfaces.</p>
+            <button class="button button-secondary" type="button" data-legacy-launch>Open current library</button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#home" data-route="home"><span aria-hidden="true">⌂</span><small>Home</small></a>
+      <a href="#play" data-route="play"><span aria-hidden="true">▶</span><small>Play</small></a>
+      <a href="#learn" data-route="learn"><span aria-hidden="true">◎</span><small>Learn</small></a>
+      <a href="#library" data-route="library"><span aria-hidden="true">▤</span><small>Library</small></a>
+    </nav>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
