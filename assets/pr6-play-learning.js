@@ -185,7 +185,7 @@ function renderPlay(){
   return shell('play',`
     <section class="pr6-intro-grid" aria-label="Play choices">
       ${card({title:'Quick Play',copy:'Start immediately with the game’s default mixed practice. No setup required.',action:'quick-start',labelText:'Start now',primary:true})}
-      ${card({title:'Focused Practice',copy:'Choose a specific book or practice route before entering the quiz engine.',flow:'focused',labelText:'Choose focus'})}
+      ${card({title:'Focused Practice',copy:'Choose a specific book or practice route before starting the round.',flow:'focused',labelText:'Choose focus'})}
     </section>
     <section class="pr6-explain">
       <span class="pr6-section-label">Two ways to practice</span>
@@ -195,7 +195,7 @@ function renderPlay(){
 function renderQuick(){
   return shell('quick',`
     <section class="pr6-feature">
-      <div class="pr6-feature-copy"><span class="pr6-section-label">Zero setup</span><h3>One action. Straight into questions.</h3><p>Quick Play keeps the current game defaults and hands directly into the existing session engine.</p>
+      <div class="pr6-feature-copy"><span class="pr6-section-label">Zero setup</span><h3>One action. Straight into questions.</h3><p>Quick Play uses your current game settings and takes you straight into a mixed round.</p>
       <div class="pr6-actions"><button class="pr6-button primary" type="button" data-pr6-action="quick-start">Start Quick Play</button><button class="pr6-button" type="button" data-pr6-open="focused">Choose a focus instead</button></div></div>
       <div class="pr6-feature-steps" aria-label="Quick Play flow"><div><b>01</b><span>Start</span></div><div><b>02</b><span>Answer</span></div><div><b>03</b><span>Review result</span></div></div>
     </section>`,'Start a mixed practice round with the fewest possible decisions.');
@@ -226,12 +226,12 @@ function renderFocused(){
   const practice=flowTarget('focused');
   return shell('focused',`
     <section class="pr6-focus-top">
-      <div><span class="pr6-section-label">Targeted recall</span><h3>Practice what you intend to strengthen.</h3><p>PR6 mirrors book choices it can verify in the legacy practice surface. Selecting one hands off to that exact existing target.</p></div>
+      <div><span class="pr6-section-label">Targeted recall</span><h3>Practice what you intend to strengthen.</h3><p>Choose a book below to practice it directly, or open the full practice setup for more options.</p></div>
       ${practice?'<button class="pr6-button primary" type="button" data-pr6-action="focused-open">Open practice setup</button>':''}
     </section>
     <div class="pr6-book-tools"><label>Find a book <input type="search" data-pr6-book-search placeholder="Genesis, John, Romans…" autocomplete="off"></label><div role="group" aria-label="Testament filter"><button type="button" class="active" data-pr6-testament="all">All</button><button type="button" data-pr6-testament="ot">Old Testament</button><button type="button" data-pr6-testament="nt">New Testament</button></div></div>
-    <div data-pr6-books>${groups||`<div class="pr6-empty"><strong>Book targets are not exposed on this legacy screen.</strong><p>Use the verified practice setup handoff instead; no guessed book mapping will be created.</p><button class="pr6-button primary" type="button" data-pr6-action="focused-open">Open practice setup</button></div>`}</div>
-  `,'Choose a book or open the game’s existing focused-practice setup.');
+    <div data-pr6-books>${groups||`<div class="pr6-empty"><strong>Book shortcuts are unavailable here.</strong><p>Open the full practice setup to choose your focus.</p><button class="pr6-button primary" type="button" data-pr6-action="focused-open">Open practice setup</button></div>`}</div>
+  `,'Choose a book or open the full focused-practice setup.');
 }
 function renderLearnHub(){
   return shell('learn',`
@@ -245,7 +245,7 @@ function renderJourney(){
   const target=flowTarget('journey');
   return shell('journey',`
     <section class="pr6-feature compact">
-      <div class="pr6-feature-copy"><span class="pr6-section-label">Whole-Bible sequence</span><h3>Keep the big picture visible.</h3><p>Bible Journey is the guided route through all 66 books. PR6 owns the route screen; the existing engine still owns session scoring and question delivery.</p>
+      <div class="pr6-feature-copy"><span class="pr6-section-label">Whole-Bible sequence</span><h3>Keep the big picture visible.</h3><p>Bible Journey guides you through all 66 books while keeping your existing progress and scoring.</p>
       <div class="pr6-actions"><button class="pr6-button primary"${target?'':' disabled'} type="button" data-pr6-action="journey-start">${target?'Continue Bible Journey':'Journey unavailable'}</button></div></div>
     </section>
     <section class="pr6-roadmap" aria-label="Bible Journey roadmap">${BOOK_GROUPS.map(([group,books],i)=>`<div><span>${String(i+1).padStart(2,'0')}</span><strong>${escapeHtml(group)}</strong><small>${books.length} books</small></div>`).join('')}</section>
@@ -268,9 +268,9 @@ function renderPath(){
   const items=learningItems();
   const target=flowTarget('path');
   return shell('path',`
-    <section class="pr6-focus-top"><div><span class="pr6-section-label">Structured progression</span><h3>One clear next learning step.</h3><p>The native path surface mirrors verified plan actions from the current game state rather than fabricating a second progress system.</p></div>${target?'<button class="pr6-button primary" type="button" data-pr6-action="path-start">Continue path</button>':''}</section>
-    <section class="pr6-path-list">${items.length?items.map((item,i)=>`<button type="button" data-pr6-learning-index="${i}"><span>${String(i+1).padStart(2,'0')}</span><div><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.copy)}</small></div><b aria-hidden="true">→</b></button>`).join(''):`<div class="pr6-empty"><strong>No individual path steps are exposed here.</strong><p>Continue through the verified Learning Path handoff.</p>${target?'<button class="pr6-button primary" type="button" data-pr6-action="path-start">Continue Learning Path</button>':''}</div>`}</section>
-  `,'Follow the structured plan already maintained by the game.');
+    <section class="pr6-focus-top"><div><span class="pr6-section-label">Structured progression</span><h3>One clear next learning step.</h3><p>Your current path steps and progress stay in sync as you continue learning.</p></div>${target?'<button class="pr6-button primary" type="button" data-pr6-action="path-start">Continue path</button>':''}</section>
+    <section class="pr6-path-list">${items.length?items.map((item,i)=>`<button type="button" data-pr6-learning-index="${i}"><span>${String(i+1).padStart(2,'0')}</span><div><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.copy)}</small></div><b aria-hidden="true">→</b></button>`).join(''):`<div class="pr6-empty"><strong>No individual path steps are exposed here.</strong><p>Continue through your current Learning Path.</p>${target?'<button class="pr6-button primary" type="button" data-pr6-action="path-start">Continue Learning Path</button>':''}</div>`}</section>
+  `,'Follow your structured plan and continue from your current step.');
 }
 function reviewSnapshot(){
   const root=content(); if(!root)return[];
@@ -291,7 +291,7 @@ function reviewSnapshot(){
 function renderReview(){
   const target=flowTarget('review'),snap=reviewSnapshot();
   return shell('review',`
-    <section class="pr6-focus-top"><div><span class="pr6-section-label">Retention loop</span><h3>Review what deserves another retrieval.</h3><p>Adaptive Review stays grounded in the game’s existing retention and mistake data. PR6 does not invent mastery scores.</p></div><button class="pr6-button primary"${target?'':' disabled'} type="button" data-pr6-action="review-start">${target?'Start Adaptive Review':'Review unavailable'}</button></section>
+    <section class="pr6-focus-top"><div><span class="pr6-section-label">Retention loop</span><h3>Review what deserves another retrieval.</h3><p>Adaptive Review uses your existing retention and mistake history to prioritize what to revisit.</p></div><button class="pr6-button primary"${target?'':' disabled'} type="button" data-pr6-action="review-start">${target?'Start Adaptive Review':'Review unavailable'}</button></section>
     ${snap.length?`<section class="pr6-signal-grid" aria-label="Current review signals">${snap.map(s=>`<article><span>${escapeHtml(s.title)}</span><strong>${escapeHtml(s.value)}</strong><p>${escapeHtml(s.copy)}</p></article>`).join('')}</section>`:''}
     <section class="pr6-review-loop"><div><b>1</b><strong>Retrieve</strong><span>Answer before seeing the explanation.</span></div><div><b>2</b><strong>Correct</strong><span>Use the result to identify the gap.</span></div><div><b>3</b><strong>Return</strong><span>Revisit the material when the game schedules it again.</span></div></section>
   `,'Use due reviews, mistakes, and weak areas to strengthen retention.');
@@ -305,7 +305,7 @@ async function render(flow){
   document.body.classList.add('pr6-native-active');
   document.body.dataset.pr6Flow=flow;
   const domain=FLOW_META[flow]?.domain||'play';
-  root.innerHTML=shell(flow,'<div class="pr6-loading" aria-label="Loading flow"><span></span><span></span><span></span></div>','Preparing the native flow…');
+  root.innerHTML=shell(flow,'<div class="pr6-loading" aria-label="Loading flow"><span></span><span></span><span></span></div>','Preparing your next step…');
   topTitle()?.replaceChildren(document.createTextNode(FLOW_META[flow]?.title||'Play'));
   await prime(domain);
   if(token!==state.renderToken||state.flow!==flow)return;
@@ -331,11 +331,11 @@ async function open(flow){
 
 async function handoff(flow){
   const domain=FLOW_META[flow]?.domain||'play';
-  setStatus('Opening the existing session engine…');
+  setStatus('Starting your session…');
   await prime(domain);
   const target=flowTarget(flow);
   if(!target){
-    setStatus(`Could not verify a ${FLOW_META[flow]?.title||flow} launch target. No guessed action was taken.`,'error');
+    setStatus(`Could not start ${FLOW_META[flow]?.title||flow} from this screen. Try opening the mode again.`,'error');
     return false;
   }
   deactivate();
@@ -348,7 +348,7 @@ async function handoffBook(name){
   await prime('play');
   const target=bookTarget(name);
   if(!target){
-    setStatus(`Could not verify the ${name} practice target.`,'error');
+    setStatus(`Could not open ${name} practice. Try the full practice setup instead.`,'error');
     return false;
   }
   deactivate();
