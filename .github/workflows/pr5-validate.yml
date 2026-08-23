@@ -1,0 +1,59 @@
+name: PR5 browser validation
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - index.html
+      - assets/pr5-foundation.css
+      - assets/pr5-shell.js
+      - scripts/pr5-browser-smoke.cjs
+      - .github/workflows/pr5-validate.yml
+
+permissions:
+  contents: read
+
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local application
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-pr5-server.log 2>&1 &
+          echo $! > /tmp/tbc-pr5-server.pid
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-pr5-server.log
+          exit 1
+
+      - name: Run desktop and mobile smoke tests
+        run: node scripts/pr5-browser-smoke.cjs
+
+      - name: Upload visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr5-browser-evidence
+          path: artifacts/pr5
+          if-no-files-found: ignore
+          retention-days: 7
