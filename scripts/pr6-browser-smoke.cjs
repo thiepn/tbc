@@ -44,15 +44,22 @@ async function openCheckedPage(browser, viewport) {
   return { context, page, pageErrors, consoleErrors };
 }
 
-async function assertFlow(page, flow, title) {
-  await page.locator(`.pr6-root [data-pr6-open="${flow}"]`).first().click();
+async function waitForFinishedFlow(page, flow, title) {
   await page.waitForFunction(expected => {
     const body = document.body;
-    const heading = document.querySelector('.pr6-root h2');
+    const root = document.querySelector('.pr6-root:not([hidden])');
+    const heading = root?.querySelector('h2');
+    const loading = root?.querySelector('.pr6-loading');
     return body.dataset.pr6Flow === expected.flow &&
       body.classList.contains('pr6-native-active') &&
-      heading?.textContent?.trim() === expected.title;
+      heading?.textContent?.trim() === expected.title &&
+      !loading;
   }, { flow, title }, { timeout: 7000 });
+}
+
+async function assertFlow(page, flow, title) {
+  await page.locator(`.pr6-root [data-pr6-open="${flow}"]`).first().click();
+  await waitForFinishedFlow(page, flow, title);
 }
 
 (async () => {
@@ -63,8 +70,7 @@ async function assertFlow(page, flow, title) {
     const page = desktop.page;
 
     await page.locator('.pr5-primary-nav [data-pr5-nav="play"]').click();
-    await page.waitForFunction(() => document.body.dataset.pr6Flow === 'play', null, { timeout: 7000 });
-    assert.equal(await page.locator('.pr6-root h2').innerText(), 'Play');
+    await waitForFinishedFlow(page, 'play', 'Play');
     assert.equal(await page.locator('.pr6-root .pr6-intro-grid .pr6-flow-card').count(), 2, 'Play hub must expose Quick Play and Focused Practice');
 
     const audit = await page.evaluate(() => window.TBC_PR6.audit());
@@ -78,8 +84,7 @@ async function assertFlow(page, flow, title) {
     assert.equal(await page.locator('.pr6-root [data-pr6-testament]').count(), 3, 'Focused Practice needs All/OT/NT filters');
 
     await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
-    await page.waitForFunction(() => document.body.dataset.pr6Flow === 'learn', null, { timeout: 7000 });
-    assert.equal(await page.locator('.pr6-root h2').innerText(), 'Learn');
+    await waitForFinishedFlow(page, 'learn', 'Learn');
     assert.equal(await page.locator('.pr6-root .pr6-intro-grid.three .pr6-flow-card').count(), 3, 'Learn hub must expose Journey, Path, and Review');
 
     await assertFlow(page, 'journey', 'Bible Journey');
@@ -107,7 +112,7 @@ async function assertFlow(page, flow, title) {
     const mobile = await openCheckedPage(browser, { width: 390, height: 844 });
     const mobilePage = mobile.page;
     await mobilePage.locator('.pr5-mobile-nav [data-pr5-nav="learn"]').click();
-    await mobilePage.waitForFunction(() => document.body.dataset.pr6Flow === 'learn', null, { timeout: 7000 });
+    await waitForFinishedFlow(mobilePage, 'learn', 'Learn');
     await assertFlow(mobilePage, 'journey', 'Bible Journey');
 
     const mobileMetrics = await mobilePage.evaluate(() => ({
