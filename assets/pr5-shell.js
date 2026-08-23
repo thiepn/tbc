@@ -25,18 +25,21 @@ function annotateNativeNavigation(){
     else delete el.dataset.pr5Nav;
   });
 }
+function addStyle(href,marker){
+  if(document.querySelector(`link[${marker}]`))return;
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href=href;
+  link.setAttribute(marker,'true');
+  document.head.appendChild(link);
+}
 function loadPr6(){
   if(window.__TBC_PR6_LOADER__)return;
   window.__TBC_PR6_LOADER__=true;
   const current=document.currentScript;
   const base=new URL('.',current?.src||document.baseURI);
-  if(!document.querySelector('link[data-pr6-style]')){
-    const link=document.createElement('link');
-    link.rel='stylesheet';
-    link.href=new URL('pr6-play-learning.css',base).href;
-    link.dataset.pr6Style='true';
-    document.head.appendChild(link);
-  }
+  addStyle(new URL('pr6-play-learning.css',base).href,'data-pr6-style');
+  addStyle(new URL('pr6-vibrant.css',base).href,'data-pr6-vibrant');
   if(!document.querySelector('script[data-pr6-script]')){
     const script=document.createElement('script');
     script.src=new URL('pr6-play-learning.js',base).href;
