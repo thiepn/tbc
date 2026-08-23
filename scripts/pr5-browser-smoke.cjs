@@ -42,7 +42,9 @@ async function openCheckedPage(browser, viewport) {
   });
   await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await page.waitForFunction(() => document.documentElement.getAttribute('data-pr5-foundation') === 'PR5.1', null, { timeout: 20000 });
-  await page.waitForSelector('.pr5-primary-nav', { timeout: 20000 });
+  // The desktop primary nav remains in the DOM at mobile widths but is intentionally hidden
+  // together with the sidebar. Wait for shell construction, not desktop visibility.
+  await page.waitForSelector('.pr5-primary-nav', { state: 'attached', timeout: 20000 });
   await page.waitForTimeout(700);
   await dismissBlockingModal(page);
   await page.waitForTimeout(250);
