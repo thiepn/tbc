@@ -7,27 +7,15 @@ const BASE = 'http://127.0.0.1:4173/';
 async function dismissBlockingModal(page) {
   const modal = page.locator('#modalRoot .modal-backdrop');
   if (!(await modal.count()) || !(await modal.isVisible())) return;
-
-  const label = (await modal.innerText()).replace(/\s+/g, ' ').trim().slice(0, 160);
-  console.log(`Dismissing native first-run modal before shell interaction: ${label}`);
-
   const closedByApi = await page.evaluate(() => {
-    if (typeof closeModal === 'function') {
-      closeModal();
-      return true;
-    }
+    if (typeof closeModal === 'function') { closeModal(); return true; }
     return false;
   });
-
   if (!closedByApi) {
     const preferred = modal.getByRole('button', { name: /close|got it|continue|start|okay|ok|dismiss|not now|cancel/i }).last();
     if (await preferred.count()) await preferred.click();
-    else {
-      const buttons = modal.getByRole('button');
-      if (await buttons.count()) await buttons.last().click();
-    }
+    else if (await modal.getByRole('button').count()) await modal.getByRole('button').last().click();
   }
-
   await page.waitForFunction(() => !document.querySelector('#modalRoot .modal-backdrop'), null, { timeout: 5000 });
 }
 
@@ -37,80 +25,81 @@ async function openCheckedPage(browser, viewport) {
   const pageErrors = [];
   const consoleErrors = [];
   page.on('pageerror', error => pageErrors.push(String(error)));
-  page.on('console', message => {
-    if (message.type() === 'error') consoleErrors.push(message.text());
-  });
+  page.on('console', message => { if (message.type() === 'error') consoleErrors.push(message.text()); });
   await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 });
-  await page.waitForFunction(() => document.documentElement.getAttribute('data-pr5-foundation') === 'PR5.1', null, { timeout: 20000 });
-  // The desktop primary nav remains in the DOM at mobile widths but is intentionally hidden
-  // together with the sidebar. Wait for shell construction, not desktop visibility.
-  await page.waitForSelector('.pr5-primary-nav', { state: 'attached', timeout: 20000 });
-  await page.waitForTimeout(700);
+  await page.waitForFunction(() => document.documentElement.getAttribute('data-pr5-foundation') === 'compat-v4.1', null, { timeout: 20000 });
+  await page.waitForFunction(() => document.documentElement.hasAttribute('data-pr6-reconstruction'), null, { timeout: 20000 });
+  await page.waitForSelector('[data-pr5-nav="play"]', { state: 'attached', timeout: 20000 });
+  await page.waitForSelector('[data-pr5-nav="learn"]', { state: 'attached', timeout: 20000 });
+  await page.waitForTimeout(500);
   await dismissBlockingModal(page);
-  await page.waitForTimeout(250);
   return { context, page, pageErrors, consoleErrors };
+}
+
+async function visibleNav(page, domain) {
+  const items = page.locator(`[data-pr5-nav="${domain}"]`);
+  for (let i = 0; i < await items.count(); i++) if (await items.nth(i).isVisible()) return items.nth(i);
+  throw new Error(`No visible native ${domain} navigation control`);
+}
+
+async function assertNativeShell(page, label) {
+  assert.equal(await page.locator('.pr5-primary-nav').count(), 0, `${label}: replacement desktop nav must not exist`);
+  assert.equal(await page.locator('.pr5-mobile-nav').count(), 0, `${label}: replacement mobile nav must not exist`);
+  assert.equal(await page.locator('.pr5-home').count(), 0, `${label}: replacement Home must not exist`);
+  assert.ok(await page.locator('.content').count(), `${label}: native content must remain mounted`);
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+  assert.ok(overflow <= 1, `${label}: horizontal overflow ${overflow}px`);
 }
 
 (async () => {
   fs.mkdirSync('artifacts/pr5', { recursive: true });
-  const browser = await chromium.launch({ headless: true });
 
+  const css = fs.readFileSync('assets/pr5-foundation.css', 'utf8');
+  const shell = fs.readFileSync('assets/pr5-shell.js', 'utf8');
+  assert.equal(/\.aurora\s*,\s*\.grain\s*\{[^}]*opacity\s*:\s*0/i.test(css), false, 'compat CSS must not disable atmospheric effects');
+  assert.equal(/\.radiance\s*,\s*\.star\s*\{[^}]*animation\s*:\s*none/i.test(css), false, 'compat CSS must not disable native animations');
+  assert.equal(/\.panel\s*,\s*\.card|\.sidebar\s*\{|\.btn-primary\s*,|\.hero\s*\{/i.test(css), false, 'compat CSS must not restyle native v4.1.0 components');
+  assert.equal(/pr5-primary-nav|pr5-home-hero/.test(shell), false, 'compat JS must not reconstruct the visual shell');
+  assert.equal(/localStorage|sessionStorage|STORAGE_KEY|PREF_KEY/.test(shell), false, 'compat shell must not touch persistence');
+
+  const browser = await chromium.launch({ headless: true });
   try {
     const desktop = await openCheckedPage(browser, { width: 1440, height: 1000 });
-    const { page } = desktop;
+    await assertNativeShell(desktop.page, 'desktop');
+    assert.ok(await desktop.page.locator('.nav').count(), 'desktop native navigation must remain present');
 
-    assert.equal(await page.locator('.pr5-primary-nav [data-pr5-nav]').count(), 4, 'desktop primary nav must have four domains');
-    assert.equal(await page.locator('.pr5-mobile-nav [data-pr5-nav]').count(), 4, 'mobile nav DOM must have four domains');
-    assert.equal(await page.locator('.pr5-home').count(), 1, 'reconstructed Home must replace legacy Home');
-    assert.match(await page.locator('.pr5-home h2').innerText(), /Know the Word/i);
+    await (await visibleNav(desktop.page, 'play')).click();
+    await desktop.page.waitForFunction(() => document.body.classList.contains('pr6-native-active'));
+    assert.equal(await desktop.page.locator('.pr6-root:not([hidden])').count(), 1, 'Play must open reconstructed flow');
 
-    const desktopOverflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-    assert.ok(desktopOverflow <= 1, `desktop horizontal overflow: ${desktopOverflow}px`);
+    await (await visibleNav(desktop.page, 'home')).click();
+    await desktop.page.waitForFunction(() => !document.body.classList.contains('pr6-native-active'));
+    assert.notEqual(await desktop.page.locator('.content').evaluate(el => getComputedStyle(el).display), 'none', 'Home must restore native content');
 
-    await page.locator('.pr5-primary-nav [data-pr5-nav="play"]').click();
-    await page.waitForTimeout(500);
-    assert.equal(await page.locator('body').getAttribute('data-pr5-domain'), 'play');
-    assert.equal(await page.locator('.pr5-home').count(), 0, 'Home shell must leave the DOM after entering Play');
+    await (await visibleNav(desktop.page, 'learn')).click();
+    await desktop.page.waitForFunction(() => document.body.classList.contains('pr6-native-active'));
+    await (await visibleNav(desktop.page, 'library')).click();
+    await desktop.page.waitForFunction(() => !document.body.classList.contains('pr6-native-active'));
 
-    await page.locator('.pr5-primary-nav [data-pr5-nav="home"]').click();
-    await page.waitForTimeout(700);
-    assert.equal(await page.locator('body').getAttribute('data-pr5-domain'), 'home');
-    assert.equal(await page.locator('.pr5-home').count(), 1, 'Home shell must reconstruct after returning Home');
-    await page.screenshot({ path: 'artifacts/pr5/desktop-home.png', fullPage: true });
-
+    await desktop.page.screenshot({ path: 'artifacts/pr5/desktop-native-home.png', fullPage: true });
     assert.deepEqual(desktop.pageErrors, [], `desktop page errors: ${desktop.pageErrors.join(' | ')}`);
     assert.deepEqual(desktop.consoleErrors, [], `desktop console errors: ${desktop.consoleErrors.join(' | ')}`);
     await desktop.context.close();
 
     const mobile = await openCheckedPage(browser, { width: 390, height: 844 });
-    const mobilePage = mobile.page;
-    const mobileNavDisplay = await mobilePage.locator('.pr5-mobile-nav').evaluate(el => getComputedStyle(el).display);
-    const sidebarDisplay = await mobilePage.locator('.sidebar').evaluate(el => getComputedStyle(el).display);
-    assert.equal(mobileNavDisplay, 'grid', 'PR5 mobile nav must be visible at phone width');
-    assert.equal(sidebarDisplay, 'none', 'desktop sidebar must be hidden at phone width');
-
-    const mobileMetrics = await mobilePage.evaluate(() => ({
-      overflow: document.documentElement.scrollWidth - window.innerWidth,
-      navHeights: [...document.querySelectorAll('.pr5-mobile-nav [data-pr5-nav]')].map(el => el.getBoundingClientRect().height),
-      home: Boolean(document.querySelector('.pr5-home'))
-    }));
-    assert.ok(mobileMetrics.overflow <= 1, `mobile horizontal overflow: ${mobileMetrics.overflow}px`);
-    assert.ok(mobileMetrics.navHeights.every(height => height >= 44), `mobile touch target below 44px: ${mobileMetrics.navHeights.join(', ')}`);
-    assert.equal(mobileMetrics.home, true, 'Home must render on mobile');
-    await mobilePage.screenshot({ path: 'artifacts/pr5/mobile-home.png', fullPage: true });
-
+    await assertNativeShell(mobile.page, 'mobile');
+    assert.ok(await mobile.page.locator('.mobile-nav').count(), 'native mobile navigation must remain in the DOM');
+    await (await visibleNav(mobile.page, 'play')).click();
+    await mobile.page.waitForFunction(() => document.body.classList.contains('pr6-native-active'));
+    await (await visibleNav(mobile.page, 'home')).click();
+    await mobile.page.waitForFunction(() => !document.body.classList.contains('pr6-native-active'));
+    await mobile.page.screenshot({ path: 'artifacts/pr5/mobile-native-home.png', fullPage: true });
     assert.deepEqual(mobile.pageErrors, [], `mobile page errors: ${mobile.pageErrors.join(' | ')}`);
     assert.deepEqual(mobile.consoleErrors, [], `mobile console errors: ${mobile.consoleErrors.join(' | ')}`);
     await mobile.context.close();
 
-    const shellSource = fs.readFileSync('assets/pr5-shell.js', 'utf8');
-    assert.equal(/localStorage|sessionStorage|STORAGE_KEY|PREF_KEY/.test(shellSource), false, 'PR5 shell must not access persistence state');
-
-    console.log('PR5 browser smoke passed: desktop + mobile shell, routing, Home, overflow, touch targets, and runtime errors');
+    console.log('Shell preservation smoke passed: original v4.1.0 presentation + PR6 handoffs on desktop/mobile');
   } finally {
     await browser.close();
   }
-})().catch(error => {
-  console.error(error);
-  process.exit(1);
-});
+})().catch(error => { console.error(error); process.exit(1); });
