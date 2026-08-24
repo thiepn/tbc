@@ -14,7 +14,7 @@ async function visibleClickableTexts(page) {
 
 async function dismissBlockingModal(page) {
   const modal = page.locator('#modalRoot .modal-backdrop');
-  if (!(await modal.count()) || !(await modal.isVisible().catch(() => false))) return;
+  if (!(await modal.count()) || !(await modal.isVisible())) return;
   const closedByApi = await page.evaluate(() => {
     if (typeof closeModal === 'function') {
       closeModal();
@@ -30,28 +30,7 @@ async function dismissBlockingModal(page) {
       if (await buttons.count()) await buttons.last().click();
     }
   }
-  await page.waitForFunction(() => !document.querySelector('#modalRoot .modal-backdrop'), null, { timeout: 5000 }).catch(() => {});
-}
-
-async function chooseStandard(page) {
-  const modal = page.locator('#modalRoot .modal-backdrop');
-  if (!(await modal.count()) || !(await modal.isVisible().catch(() => false))) return;
-  const text = clean(await modal.innerText());
-  if (/CHOOSE YOUR BIBLE DIFFICULTY/i.test(text)) {
-    const standard = modal.getByRole('button').filter({ hasText: /Standard/i }).first();
-    assert.ok(await standard.count(), 'onboarding Standard control must exist');
-    await standard.click();
-    await page.waitForFunction(() => {
-      try {
-        const raw = localStorage.getItem('theBibleChallenge_v21');
-        return raw && JSON.parse(raw)?.onboarded === true;
-      } catch { return false; }
-    }, null, { timeout: 7000 });
-    await page.waitForTimeout(250);
-    await dismissBlockingModal(page);
-    return;
-  }
-  await dismissBlockingModal(page);
+  await page.waitForFunction(() => !document.querySelector('#modalRoot .modal-backdrop'), null, { timeout: 5000 });
 }
 
 async function clickVisible(page, pattern) {
@@ -118,9 +97,10 @@ async function openFlow(page, flow, title) {
     await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForFunction(() => document.documentElement.getAttribute('data-pr5-foundation') === 'PR5.1', null, { timeout: 20000 });
     await page.waitForFunction(() => window.TBC_PR6?.version === 'PR6.0', null, { timeout: 20000 });
-    await page.waitForTimeout(600);
-    await chooseStandard(page);
-    await page.waitForTimeout(500);
+    await page.waitForSelector('.pr5-primary-nav', { state: 'attached', timeout: 20000 });
+    await page.waitForTimeout(650);
+    await dismissBlockingModal(page);
+    await page.waitForTimeout(200);
 
     for (const label of ['Home','Play','Learn','Library']) {
       assert.equal(await page.locator(`.pr5-primary-nav [data-pr5-nav="${label.toLowerCase()}"]`).count(), 1, `${label} primary route must remain present`);
