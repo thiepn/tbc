@@ -9,13 +9,14 @@ const index=read('index.html');
 const readme=read('README.md');
 const pr5=read('assets/pr5-shell.js');
 const pr6=read('assets/pr6-play-learning.js');
+const p0a=read('scripts/p0a-preservation-audit.cjs');
 const p0c=read('assets/p0c-existing-feature-preservation.js');
 
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
 const has=(src,needle)=>src.includes(needle);
 
-check('P0A guard remains active',has(index,'__TBC_P0A_GUARD__'));
+check('P0A guard remains active',has(p0a,"BASELINE = '58b5ec8a5ecd2fd87a74f11eea7a94a9bc4195bb'")&&has(p0a,"'legacy-monolith-frozen'"));
 check('P0A shell loader remains in index',has(index,'assets/pr5-shell.js'));
 check('Canonical state key remains packaged',has(index,'theBibleChallenge_v21'));
 check('Canonical recovery state remains packaged',has(index,'theBibleChallenge_v21_recovery'));

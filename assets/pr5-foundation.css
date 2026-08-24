@@ -30,6 +30,40 @@
  .pr5-mobile-nav .pr5-nav-link.active svg{color:var(--indigo)}
  .main{padding-bottom:max(112px,calc(96px + env(safe-area-inset-bottom)))}
 }
-body.dark .pr5-mobile-nav{background:rgba(13,18,46,.94)}
-body.contrast:not(.dark) .pr5-mobile-nav{background:#fff;border:2px solid #000;backdrop-filter:none;-webkit-backdrop-filter:none}
+body.dark .pr5-mobile-nav{background:color-mix(in srgb,var(--surface) 94%,transparent)}
+body.contrast:not(.dark) .pr5-mobile-nav{background:var(--surface);border:2px solid var(--text);backdrop-filter:none;-webkit-backdrop-filter:none}
 @media(prefers-reduced-motion:reduce){.pr5-nav-link,.pr5-utility-link{transition:none}}
+
+/* P0D — visual identity & theme preservation.
+   PR6 may reconstruct navigation/flow layout, but its presentation must follow
+   the active legacy theme tokens instead of imposing a second fixed palette. */
+.pr6-root{color:var(--text)!important}
+.pr6-domain-rail,.pr6-book-tools{background:color-mix(in srgb,var(--surface) 94%,transparent)!important;border-color:var(--line)!important}
+.pr6-domain-rail button.active{
+  color:var(--text)!important;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--indigo) 16%,var(--surface)),color-mix(in srgb,var(--cyan) 12%,var(--surface)))!important;
+  border:1px solid color-mix(in srgb,var(--indigo) 38%,var(--line))!important;
+  box-shadow:var(--shadow-sm)!important;
+}
+.pr6-page-head{
+  border-color:color-mix(in srgb,var(--indigo) 24%,var(--line))!important;
+  background:
+    radial-gradient(circle at 84% 18%,color-mix(in srgb,var(--cyan) 16%,transparent),transparent 30%),
+    radial-gradient(circle at 94% 85%,color-mix(in srgb,var(--gold) 13%,transparent),transparent 28%),
+    linear-gradient(135deg,color-mix(in srgb,var(--surface) 92%,var(--indigo)),color-mix(in srgb,var(--surface2) 86%,var(--violet)))!important;
+  color:var(--text)!important;
+  box-shadow:var(--shadow)!important;
+}
+.pr6-page-head p{color:var(--muted)!important}
+.pr6-page-head:after{border-color:color-mix(in srgb,var(--indigo) 20%,var(--line))!important;box-shadow:0 0 0 38px color-mix(in srgb,var(--indigo) 4%,transparent),0 0 0 76px color-mix(in srgb,var(--cyan) 2%,transparent)!important}
+.pr6-button.primary{
+  background:linear-gradient(135deg,color-mix(in srgb,var(--gold) 72%,var(--surface)),color-mix(in srgb,var(--gold) 42%,var(--surface)))!important;
+  border-color:color-mix(in srgb,var(--gold) 58%,var(--line))!important;
+  color:var(--text)!important;
+}
+.pr6-flow-card.primary{background:linear-gradient(145deg,color-mix(in srgb,var(--gold) 11%,var(--surface)),color-mix(in srgb,var(--cyan) 6%,var(--surface)))!important}
+.pr6-subnav button.active,.pr6-book-tools button.active{color:var(--indigo)!important}
+body.dark .pr6-page-head{background:radial-gradient(circle at 84% 18%,color-mix(in srgb,var(--cyan) 18%,transparent),transparent 30%),radial-gradient(circle at 94% 85%,color-mix(in srgb,var(--gold) 12%,transparent),transparent 28%),linear-gradient(135deg,color-mix(in srgb,var(--surface) 90%,var(--indigo)),color-mix(in srgb,var(--surface2) 82%,var(--violet)))!important}
+body.contrast .pr6-page-head,body.contrast .pr6-flow-card,body.contrast .pr6-feature,body.contrast .pr6-focus-top,body.contrast .pr6-domain-rail,body.contrast .pr6-book-tools{background:var(--surface)!important;color:var(--text)!important;border-color:var(--text)!important;box-shadow:none!important}
+body.contrast .pr6-page-head:after{display:none!important}
+body.contrast .pr6-page-head p{color:var(--text)!important}

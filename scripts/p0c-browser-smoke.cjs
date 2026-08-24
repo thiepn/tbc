@@ -3,10 +3,27 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 
 const BASE = 'http://127.0.0.1:4173/';
+const STORAGE_KEY = 'theBibleChallenge_v21';
 
-async function dismissBlockingModal(page) {
+async function resolveBlockingModal(page) {
   const modal = page.locator('#modalRoot .modal-backdrop');
   if (!(await modal.count()) || !(await modal.isVisible())) return;
+  const text = (await modal.innerText()).replace(/\s+/g, ' ').trim();
+
+  if (/CHOOSE YOUR BIBLE DIFFICULTY/i.test(text)) {
+    const standard = modal.getByRole('button').filter({ hasText: /Standard/i }).first();
+    assert.ok(await standard.count(), 'P0C smoke setup must be able to complete onboarding');
+    await standard.click();
+    await page.waitForFunction(key => {
+      try {
+        const state = JSON.parse(localStorage.getItem(key));
+        return state?.onboarded === true && String(state?.settings?.difficulty || '').toLowerCase() === 'standard';
+      } catch { return false; }
+    }, STORAGE_KEY, { timeout: 7000 });
+    await page.waitForFunction(() => !document.querySelector('#modalRoot .modal-backdrop'), null, { timeout: 7000 });
+    return;
+  }
+
   const closedByApi = await page.evaluate(() => {
     if (typeof closeModal === 'function') { closeModal(); return true; }
     return false;
@@ -35,8 +52,8 @@ async function openCheckedPage(browser, viewport) {
   await page.waitForFunction(() => window.TBC_P0C?.version === 'P0C.3', null, { timeout: 20000 });
   await page.waitForSelector('.pr5-primary-nav', { state: 'attached', timeout: 20000 });
   await page.waitForTimeout(650);
-  await dismissBlockingModal(page);
-  await page.waitForTimeout(200);
+  await resolveBlockingModal(page);
+  await page.waitForTimeout(250);
   return { context, page, pageErrors, consoleErrors };
 }
 
@@ -52,8 +69,8 @@ async function assertNamedCards(page, section, names) {
   await root.waitFor({ state: 'visible', timeout: 7000 });
   for (const name of names) {
     const card = root.locator(`[data-p0c-feature="${name}"]`);
+    await card.waitFor({ state: 'visible', timeout: 7000 });
     assert.equal(await card.count(), 1, `${section} preservation must expose ${name}`);
-    assert.equal(await card.isVisible(), true, `${name} preservation card must be visible`);
   }
 }
 
@@ -68,8 +85,8 @@ async function assertNamedCards(page, section, names) {
     await waitForFlow(page, 'play');
     await assertNamedCards(page, 'play', ['duel','campaign','expedition']);
 
-    const corePlayCards = await page.locator('.pr6-root [data-pr6-open="quick"], .pr6-root [data-pr6-open="focused"]').count();
-    assert.equal(corePlayCards, 2, 'P0C must not replace PR6 Quick Play or Focused Practice');
+    const corePlayCards = await page.locator('.pr6-root section.pr6-intro-grid[aria-label="Play choices"] > .pr6-flow-card').count();
+    assert.equal(corePlayCards, 2, 'P0C must leave the two canonical PR6 Play choice cards intact');
 
     const campaignLaunched = await page.evaluate(() => window.TBC_P0C.launch('campaign'));
     assert.equal(campaignLaunched, true, 'Campaign bridge must hand off to the legacy mode');
@@ -79,14 +96,24 @@ async function assertNamedCards(page, section, names) {
     const reentry = await page.evaluate(() => ({p0c:window.TBC_P0C.audit(),pr6:window.TBC_PR6.audit()}));
     assert.equal(reentry.p0c.pendingNativePrime, false, 'legacy handoff must be re-primed before PR6 resumes');
     assert.equal(reentry.p0c.reentryGuard, true, 'P0C re-entry guard must be active');
-    assert.equal(reentry.pr6.focusedTarget, true, 'Play re-entry must restore the native focused-practice target');
+    assert.equal(reentry.pr6.pass, true, `PR6 shell contract must remain healthy after legacy re-entry: ${JSON.stringify(reentry.pr6)}`);
+    assert.equal(reentry.pr6.activeFlow, 'play', 'legacy re-entry must return to the reconstructed Play hub');
+    await assertNamedCards(page, 'play', ['duel','campaign','expedition']);
+    assert.equal(await page.locator('.pr6-root section.pr6-intro-grid[aria-label="Play choices"] > .pr6-flow-card').count(), 2, 'Play re-entry must restore both canonical Play choices');
+
+    await page.locator('.pr6-root [data-pr6-open="focused"]').first().click();
+    await waitForFlow(page, 'focused');
+    assert.equal(await page.locator('.pr6-root [data-pr6-book-search]').count(), 1, 'Focused Practice must remain behaviorally reachable after Campaign re-entry');
+    await page.locator('.pr6-root [data-pr6-open="play"]').first().click();
+    await waitForFlow(page, 'play');
+    await assertNamedCards(page, 'play', ['duel','campaign','expedition']);
 
     await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
     await waitForFlow(page, 'learn');
     await assertNamedCards(page, 'learn', ['collections','library','progress']);
 
-    const coreLearnCards = await page.locator('.pr6-root [data-pr6-open="journey"], .pr6-root [data-pr6-open="path"], .pr6-root [data-pr6-open="review"]').count();
-    assert.equal(coreLearnCards, 3, 'P0C must not replace Journey, Learning Path, or Adaptive Review');
+    const coreLearnCards = await page.locator('.pr6-root section.pr6-intro-grid.three[aria-label="Learning choices"] > .pr6-flow-card').count();
+    assert.equal(coreLearnCards, 3, 'P0C must leave the three canonical PR6 learning choice cards intact');
 
     const audit = await page.evaluate(() => window.TBC_P0C.audit());
     assert.equal(audit.pass, true, `P0C audit failed after Play + Learn discovery: ${JSON.stringify(audit)}`);
