@@ -1,0 +1,26 @@
+name: P0A Preservation Gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  preservation:
+    name: Preserve v4.1.0 baseline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run P0A preservation checks
+        run: node scripts/p0a-preservation-check.cjs
