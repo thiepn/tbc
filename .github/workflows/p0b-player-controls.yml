@@ -1,0 +1,59 @@
+name: P0B Player Controls Preservation
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - main
+      - 'p0b*'
+      - 'pr7*'
+
+permissions:
+  contents: read
+
+jobs:
+  player-controls:
+    name: Preserve onboarding and difficulty controls
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enforce P0A core-content gate first
+        run: node scripts/p0a-preservation-audit.cjs
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local application
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p0b-server.log 2>&1 &
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-p0b-server.log
+          exit 1
+
+      - name: Probe existing level chip
+        run: node scripts/p0b-level-chip-probe.cjs
+
+      - name: Map difficulty and settings hooks
+        run: node scripts/p0b-control-map-probe.cjs
+
+      - name: Run P0B player-controls preservation probe
+        run: node scripts/p0b-player-controls.cjs
