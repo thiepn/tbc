@@ -14,7 +14,7 @@ const FEATURES={
   journey:{label:'Bible Journey',pr6:'journey',domain:'learn'},
   path:{label:'Learning Path',pr6:'path',domain:'learn'},
   review:{label:'Adaptive Review',pr6:'review',domain:'learn'},
-  duel:{label:'Duel',ids:['pvpBtn'],terms:['PvP Duel','Duel'],domain:'play'},
+  duel:{label:'Duel',functions:['v31OpenDuelSetup'],ids:['pvpBtn'],terms:['PvP Duel','Duel','PvP'],domain:'play'},
   campaign:{label:'Campaign',ids:['campaignBtn'],terms:['Campaign'],domain:'play'},
   expedition:{label:'Expedition',ids:['expeditionBtn'],terms:['Expedition'],domain:'play'},
 
@@ -56,6 +56,15 @@ function findByTerms(terms=[],root=document){
   }).filter(x=>x.score>=0).sort((a,b)=>b.score-a.score);
   return candidates[0]?.el||null;
 }
+function legacyFunction(key){
+  const feature=FEATURES[key];
+  if(!feature)return null;
+  for(const name of feature.functions||[]){
+    const fn=window[name];
+    if(typeof fn==='function')return fn;
+  }
+  return null;
+}
 function legacyTarget(key){
   const feature=FEATURES[key];
   if(!feature)return null;
@@ -74,7 +83,7 @@ function nativeDomainTarget(domain){
 function available(key){
   const feature=FEATURES[key];
   if(!feature)return false;
-  const ok=Boolean(feature.pr6?window.TBC_PR6?.open:legacyTarget(key));
+  const ok=Boolean(feature.pr6?window.TBC_PR6?.open:(legacyFunction(key)||legacyTarget(key)));
   if(ok)state.observed[key]=true;
   return ok;
 }
@@ -86,13 +95,20 @@ function launch(key){
     window.TBC_PR6.open(feature.pr6);
     return true;
   }
+  const direct=legacyFunction(key);
+  if(direct){
+    state.observed[key]=true;
+    direct();
+    document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key,entry:'function'}}));
+    return true;
+  }
   const target=legacyTarget(key);
   if(!target)return false;
   state.observed[key]=true;
   state.needsNativePrime=true;
   window.TBC_PR6?.deactivate?.();
   target.click();
-  document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key}}));
+  document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key,entry:'dom'}}));
   return true;
 }
 
