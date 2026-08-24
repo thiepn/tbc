@@ -4,6 +4,7 @@
   "frozenAt": "2026-08-25",
   "legacyCoreBaselineCommit": "58b5ec8a5ecd2fd87a74f11eea7a94a9bc4195bb",
   "repairedVisualBaselineCommit": "7114e43466d0fc2c5c00bd87651aaa94e42cdf3a",
+  "repairedPlayerControlsBaselineCommit": "206a4e6f41a9db5027eaacd1d8058ac11a107ca2",
   "contract": {
     "questions": 5799,
     "structuredQuestions": 203,
@@ -15,9 +16,10 @@
     "index.html": "13c6d46bc8787b36fcc0920535a2d32b282a66ff",
     "README.md": "e5a09ad23f293477f9da9d74951917964b773223",
     "assets/pr5-foundation.css": "6bd97b4ec9f8e6894d37480679790e1e9ce32e8f",
-    "assets/pr5-shell.js": "a19b09678cc1bee23d36a2fabff5c9d487b55de4",
+    "assets/pr5-shell.js": "59533c0d310b9d694b38b0e5f55956fe685a968b",
     "assets/pr6-play-learning.css": "115c03c589fc2445397e517294d67a3be7bdc9c9",
     "assets/pr6-play-learning.js": "dcfbe5d21c84ae50138765412a35ab5b095ef2a0",
+    "assets/p0b-player-controls.js": "900c3e3fadc4451e31d33e9134b9ce3bbebfe1e2",
     "assets/p0c-existing-feature-preservation.js": "c8e642417b9a19f94313e712c4ffa79c3eb41ce7"
   }
 }
