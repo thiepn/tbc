@@ -6,7 +6,7 @@ const STORAGE_KEY = 'theBibleChallenge_v21';
 const TIERS = ['Beginner', 'Easy', 'Standard', 'Advanced', 'Expert'];
 
 const esc = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const tierRe = tier => new RegExp(`^\\s*${esc(tier)}(?:\\s|$)`, 'i');
+const tierRe = tier => new RegExp(`\\b${esc(tier)}\\b`, 'i');
 
 async function waitForShell(page) {
   await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 });
