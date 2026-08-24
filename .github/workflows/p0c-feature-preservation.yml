@@ -52,5 +52,8 @@ jobs:
           cat /tmp/tbc-p0c-server.log
           exit 1
 
+      - name: Map authoritative legacy play modes
+        run: node scripts/p0c-legacy-mode-map.cjs
+
       - name: Run P0C browser feature audit
         run: node scripts/p0c-feature-runtime.cjs
