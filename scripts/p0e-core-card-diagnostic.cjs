@@ -1,6 +1,5 @@
 const { chromium } = require('playwright');
 const BASE='http://127.0.0.1:4173/';
-const ENTRY=/collection|library|progress|mastery|stats/i;
 (async()=>{
   const browser=await chromium.launch({headless:true});
   const context=await browser.newContext({viewport:{width:1440,height:1000}});
@@ -11,43 +10,31 @@ const ENTRY=/collection|library|progress|mastery|stats/i;
   await page.waitForTimeout(700);
   await page.evaluate(()=>{if(typeof closeModal==='function')closeModal()});
 
-  async function snapshot(label){
-    const data=await page.evaluate(src=>{
-      const re=new RegExp(src,'i');
-      const visible=el=>{const r=el.getBoundingClientRect(),s=getComputedStyle(el);return s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity||1)!==0&&r.width>0&&r.height>0};
-      const windowKeys=Object.keys(window).filter(k=>re.test(k)).sort().map(key=>{
-        let type='unknown',source='';
-        try{type=typeof window[key];if(type==='function')source=String(window[key]).replace(/\s+/g,' ').slice(0,700)}catch{}
-        return {key,type,source};
-      });
-      const elements=[...document.querySelectorAll('[id],button,a[href],[role="button"]')].map(el=>({
-        tag:el.tagName,id:el.id||'',cls:String(el.className||''),
-        text:String(el.getAttribute('aria-label')||el.getAttribute('title')||el.textContent||'').replace(/\s+/g,' ').trim().slice(0,260),
-        visible:visible(el),own:Boolean(el.closest('[data-pr5-ui],[data-pr6-ui],[data-p0c-ui]'))
-      })).filter(x=>re.test(`${x.id} ${x.cls} ${x.text}`)).slice(0,240);
-      return {
-        bodyDomain:document.body.dataset.pr5Domain||null,bodyFlow:document.body.dataset.pr6Flow||null,
-        title:document.querySelector('.topbar h1')?.textContent?.trim()||null,
-        p0c:window.TBC_P0C.audit(),pr6:window.TBC_PR6.audit(),windowKeys,elements
-      };
-    },ENTRY.source);
-    console.log(`P0E LEARN ENTRYPOINT DIAGNOSTIC ${label} ${JSON.stringify(data)}`);
-  }
-
-  await snapshot('INITIAL');
-  await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
-  await page.waitForFunction(()=>document.body.dataset.pr6Flow==='learn'&&document.querySelector('.pr6-root:not([hidden])'),null,{timeout:7000});
-  await page.waitForTimeout(800);
-  await snapshot('RECONSTRUCTED_LEARN');
-
-  await page.evaluate(()=>{
-    window.TBC_PR6?.deactivate?.();
-    const nav=document.querySelector('.pr5-native-nav')||document.querySelector('.nav');
-    const target=[...(nav?.querySelectorAll('button,a[href],[role="button"]')||[])].find(el=>/^(study|learn)$/i.test(String(el.textContent||el.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim()));
-    target?.click();
+  const data=await page.evaluate(()=>{
+    const needles=['v24CollectionsPanel','collections','libraryScreen','v292LibraryScreen'];
+    const callers=[];
+    for(const key of Object.keys(window).sort()){
+      let fn,source='';
+      try{fn=window[key];if(typeof fn!=='function')continue;source=String(fn).replace(/\s+/g,' ')}catch{continue}
+      if(needles.some(n=>source.includes(n))){
+        callers.push({key,source:source.slice(0,1800)});
+      }
+    }
+    const specifics={};
+    for(const key of ['v292Go','navTo','v24PracticeScreen','v24PracticeFilters','v24SetPracticeTab','v24SetPracticeView','studyScreen','learningScreen','playScreen','libraryScreen']){
+      try{if(typeof window[key]==='function')specifics[key]=String(window[key]).replace(/\s+/g,' ').slice(0,2600)}catch{}
+    }
+    return {callers,specifics,p0c:window.TBC_P0C.audit(),pr6:window.TBC_PR6.audit()};
   });
-  await page.waitForTimeout(800);
-  await snapshot('NATIVE_STUDY');
+  console.log('P0E COLLECTION ROUTE DIAGNOSTIC '+JSON.stringify(data));
 
+  await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
+  await page.waitForFunction(()=>document.body.dataset.pr6Flow==='learn',null,{timeout:7000});
+  await page.waitForTimeout(500);
+  const learn=await page.evaluate(()=>({
+    html:document.querySelector('.pr6-root:not([hidden]) [data-pr6-view]')?.innerHTML.slice(0,9000)||'',
+    p0c:window.TBC_P0C.audit()
+  }));
+  console.log('P0E COLLECTION ROUTE LEARN '+JSON.stringify(learn));
   await context.close();await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
