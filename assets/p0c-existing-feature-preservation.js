@@ -14,7 +14,7 @@ const FEATURES={
   journey:{label:'Bible Journey',pr6:'journey',domain:'learn'},
   path:{label:'Learning Path',pr6:'path',domain:'learn'},
   review:{label:'Adaptive Review',pr6:'review',domain:'learn'},
-  duel:{label:'Duel',ids:['pvpBtn'],terms:['PvP Duel','Duel'],domain:'play'},
+  duel:{label:'Duel',ids:['pvpBtn'],terms:['PvP Duel','Duel'],domain:'play',prime:['Quick Play','Start Quick Play']},
   campaign:{label:'Campaign',ids:['campaignBtn'],terms:['Campaign'],domain:'play'},
   expedition:{label:'Expedition',ids:['expeditionBtn'],terms:['Expedition'],domain:'play'},
 
@@ -34,7 +34,7 @@ const FEATURES={
 const STORAGE_CONTRACTS=['theBibleChallenge_v21','theBibleChallenge_v21_recovery'];
 const REQUIRED=['collections','library','progress','journey','path','review','duel','campaign','expedition'];
 
-const state={scheduled:false,observer:null,observed:Object.create(null),needsNativePrime:false};
+const state={scheduled:false,observer:null,observed:Object.create(null),needsNativePrime:false,pendingLaunch:null};
 const norm=v=>String(v||'').replace(/\s+/g,' ').trim().toLowerCase();
 const own=el=>Boolean(el?.closest?.('[data-p0c-ui],[data-pr5-ui],[data-pr6-ui]'));
 
@@ -65,6 +65,10 @@ function legacyTarget(key){
   }
   return findByTerms(feature.terms||[]);
 }
+function primeTarget(key){
+  const feature=FEATURES[key];
+  return feature?.prime?.length?findByTerms(feature.prime):null;
+}
 function nativeDomainTarget(domain){
   const terms=domain==='play'?['Play']:domain==='learn'?['Learn']:domain==='library'?['Library','Books']:[];
   if(!terms.length)return null;
@@ -74,9 +78,38 @@ function nativeDomainTarget(domain){
 function available(key){
   const feature=FEATURES[key];
   if(!feature)return false;
-  const ok=Boolean(feature.pr6?window.TBC_PR6?.open:legacyTarget(key));
+  const ok=Boolean(feature.pr6?window.TBC_PR6?.open:(legacyTarget(key)||primeTarget(key)));
   if(ok)state.observed[key]=true;
   return ok;
+}
+function waitForLegacyTarget(key,timeout=2500){
+  const started=performance.now();
+  return new Promise(resolve=>{
+    const check=()=>{
+      const target=legacyTarget(key);
+      if(target)return resolve(target);
+      if(performance.now()-started>=timeout)return resolve(null);
+      requestAnimationFrame(check);
+    };
+    check();
+  });
+}
+async function launchPrimed(key){
+  const feature=FEATURES[key];
+  if(!feature?.prime?.length||state.pendingLaunch)return false;
+  const primer=primeTarget(key);
+  if(!primer)return false;
+  state.pendingLaunch=key;
+  state.observed[key]=true;
+  state.needsNativePrime=true;
+  window.TBC_PR6?.deactivate?.();
+  primer.click();
+  const target=await waitForLegacyTarget(key);
+  state.pendingLaunch=null;
+  if(!target)return false;
+  target.click();
+  document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key,primed:true}}));
+  return true;
 }
 function launch(key){
   const feature=FEATURES[key];
@@ -87,13 +120,19 @@ function launch(key){
     return true;
   }
   const target=legacyTarget(key);
-  if(!target)return false;
-  state.observed[key]=true;
-  state.needsNativePrime=true;
-  window.TBC_PR6?.deactivate?.();
-  target.click();
-  document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key}}));
-  return true;
+  if(target){
+    state.observed[key]=true;
+    state.needsNativePrime=true;
+    window.TBC_PR6?.deactivate?.();
+    target.click();
+    document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key}}));
+    return true;
+  }
+  if(feature.prime?.length&&primeTarget(key)){
+    launchPrimed(key);
+    return true;
+  }
+  return false;
 }
 
 /* PR6 caches which legacy domain was last primed. A P0C handoff deliberately
@@ -194,6 +233,7 @@ function audit(){
     storage,
     reentryGuard:Boolean(window.__TBC_P0C_REENTRY_BOUND__),
     pendingNativePrime:state.needsNativePrime,
+    pendingLaunch:state.pendingLaunch,
     playPreservation:Boolean(document.querySelector('[data-p0c-preserved="play"]')),
     learnPreservation:Boolean(document.querySelector('[data-p0c-preserved="learn"]')),
     pass:REQUIRED.every(key=>featureStatus[key])
