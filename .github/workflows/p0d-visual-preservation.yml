@@ -1,0 +1,53 @@
+name: P0D Visual Preservation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'assets/pr5-foundation.css'
+      - 'assets/pr6-play-learning.css'
+      - 'assets/p0c-existing-feature-preservation.js'
+      - 'scripts/p0a-preservation-audit.cjs'
+      - 'scripts/p0c-existing-feature-preservation-audit.cjs'
+      - 'scripts/p0d-visual-preservation-audit.cjs'
+      - '.github/workflows/p0d-visual-preservation.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'assets/pr5-foundation.css'
+      - 'assets/pr6-play-learning.css'
+      - 'assets/p0c-existing-feature-preservation.js'
+      - 'scripts/p0a-preservation-audit.cjs'
+      - 'scripts/p0c-existing-feature-preservation-audit.cjs'
+      - 'scripts/p0d-visual-preservation-audit.cjs'
+      - '.github/workflows/p0d-visual-preservation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preserve:
+    name: Core + features + visual contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout full preservation history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify P0A core preservation
+        run: node scripts/p0a-preservation-audit.cjs
+
+      - name: Verify P0C existing-feature preservation
+        run: node scripts/p0c-existing-feature-preservation-audit.cjs
+
+      - name: Verify P0D visual preservation
+        run: node scripts/p0d-visual-preservation-audit.cjs
