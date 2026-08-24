@@ -49,5 +49,8 @@ jobs:
           cat /tmp/tbc-p0b-server.log
           exit 1
 
+      - name: Probe existing level chip
+        run: node scripts/p0b-level-chip-probe.cjs
+
       - name: Run P0B player-controls preservation probe
         run: node scripts/p0b-player-controls.cjs
