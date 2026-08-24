@@ -5,6 +5,7 @@ on:
     branches: [main]
   push:
     branches:
+      - main
       - p0a-preservation-audit
       - 'p0*'
       - 'pr7*'
@@ -14,14 +15,16 @@ permissions:
 
 jobs:
   preservation:
-    name: Preserve v4.1.0 surfaces
+    name: Preserve v4.1.0 core
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Run static preservation audit
+      - name: Run static core-preservation audit
         run: node scripts/p0a-preservation-audit.cjs
         continue-on-error: true
 
@@ -51,5 +54,5 @@ jobs:
       - name: Run runtime preservation probe
         run: node scripts/p0a-runtime-probe.cjs
 
-      - name: Enforce static preservation gate
+      - name: Enforce static core-preservation gate
         run: node scripts/p0a-preservation-audit.cjs
