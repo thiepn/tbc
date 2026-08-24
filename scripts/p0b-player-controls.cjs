@@ -193,6 +193,40 @@ async function locatePostOnboardingDifficultySurface(page) {
   return { select: null, tiers: await visibleTierSet(page), route: 'not found' };
 }
 
+async function dumpDifficultyDiagnostics(page) {
+  const data = await page.evaluate(() => {
+    const text = el => String(el.innerText || el.textContent || el.getAttribute?.('aria-label') || el.getAttribute?.('title') || '').replace(/\s+/g, ' ').trim();
+    const visible = el => {
+      const r = el.getBoundingClientRect();
+      const s = getComputedStyle(el);
+      return s.display !== 'none' && s.visibility !== 'hidden' && Number(s.opacity || 1) !== 0 && r.width > 0 && r.height > 0;
+    };
+    const tierPattern = /beginner|easy|standard|advanced|expert|difficulty|tier|level/i;
+    return {
+      matchingControls: [...document.querySelectorAll('button,a[href],[role="button"],select,label,input')]
+        .map(el => ({ tag: el.tagName, id: el.id, cls: el.className, text: text(el).slice(0,180), visible: visible(el), disabled: Boolean(el.disabled) }))
+        .filter(x => tierPattern.test(`${x.id} ${x.cls} ${x.text}`))
+        .slice(0,100),
+      selects: [...document.querySelectorAll('select')].map(el => ({
+        id: el.id,
+        cls: el.className,
+        visible: visible(el),
+        value: el.value,
+        options: [...el.options].map(o => ({ text: o.textContent?.trim(), value: o.value }))
+      })).slice(0,50),
+      visibleButtons: [...document.querySelectorAll('button,a[href],[role="button"]')]
+        .filter(visible)
+        .map(el => text(el).slice(0,140))
+        .filter(Boolean)
+        .slice(0,120),
+      bodyDomain: document.body.dataset.pr5Domain || null,
+      bodyFlow: document.body.dataset.pr6Flow || null,
+      title: document.querySelector('.topbar h1')?.textContent?.trim() || null,
+    };
+  });
+  console.log('P0B DIAGNOSTICS ' + JSON.stringify(data));
+}
+
 async function setExpertFromVisibleControl(page, surface) {
   if (surface.select) {
     await surface.select.selectOption({ label: /Expert/i }).catch(async () => {
@@ -232,6 +266,7 @@ async function verifyPostOnboardingSelector(browser) {
   await page.waitForTimeout(400);
 
   const surface = await locatePostOnboardingDifficultySurface(page);
+  if (!(surface.select || surface.tiers.size === TIERS.length)) await dumpDifficultyDiagnostics(page);
   assert.ok(surface.select || surface.tiers.size === TIERS.length,
     `after onboarding, a reachable five-tier difficulty selector must remain available; found [${[...surface.tiers].join(', ')}] via ${surface.route}`);
 
