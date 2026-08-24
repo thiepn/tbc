@@ -155,7 +155,23 @@ const checks = [
   },
 ];
 
+function probe(text, terms) {
+  for (const term of terms) {
+    const re = new RegExp(term, 'ig');
+    const matches = [...text.matchAll(re)];
+    const first = matches[0];
+    let sample = '';
+    if (first) {
+      const start = Math.max(0, first.index - 90);
+      const end = Math.min(text.length, first.index + first[0].length + 130);
+      sample = text.slice(start, end).replace(/\s+/g, ' ').trim();
+    }
+    console.log(`      ${term}: ${matches.length}${sample ? ` | ${sample}` : ''}`);
+  }
+}
+
 let failures = 0;
+const failedIds = [];
 console.log('TBC P0A — Preservation Audit');
 console.log(`index.html: ${(Buffer.byteLength(src.app, 'utf8') / 1024 / 1024).toFixed(2)} MiB`);
 console.log('');
@@ -164,9 +180,21 @@ for (const check of checks) {
   let ok = false;
   let error = null;
   try { ok = Boolean(check.test()); } catch (err) { error = err; }
-  if (!ok) failures += 1;
+  if (!ok) {
+    failures += 1;
+    failedIds.push(check.id);
+  }
   console.log(`${ok ? 'PASS' : 'FAIL'}  ${check.id}`);
   console.log(`      ${check.detail}${error ? ` (${error.message})` : ''}`);
+}
+
+if (failedIds.includes('question-quality-surface')) {
+  console.log('\nDiagnostic probe — question quality implementation terms');
+  probe(src.app, ['quality','feedback','evidence','memory','explain','explanation','rationale','learning','incorrect','wrongAnswer','wrong_answer']);
+}
+if (failedIds.includes('persistence-surface')) {
+  console.log('\nDiagnostic probe — persistence implementation terms');
+  probe(src.app, ['localStorage','storage','save','persist','export','import','session','restore','state']);
 }
 
 console.log('');
