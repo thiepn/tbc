@@ -121,39 +121,38 @@ function featureCard(key,title,copy,cta='Open'){
     <strong>${title}</strong><span>${copy}</span><b>${cta} <i aria-hidden="true">→</i></b>
   </button>`;
 }
-function injectPlayModes(root){
-  if(root.querySelector('[data-p0c-preserved="play"]'))return;
+function reconcileSection(root,kind,labelText,cards){
   const view=root.querySelector('[data-pr6-view]');
-  if(!view)return;
+  if(!view||!cards)return;
+  let section=root.querySelector(`[data-p0c-preserved="${kind}"]`);
+  if(!section){
+    section=document.createElement('section');
+    section.dataset.p0cPreserved=kind;
+    section.dataset.p0cUi='true';
+    section.className='pr6-explain';
+    section.innerHTML=`<span class="pr6-section-label">${labelText}</span><div class="p0c-preserved-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px"></div>`;
+    view.appendChild(section);
+  }else if(section.parentElement!==view){
+    view.appendChild(section);
+  }
+  const grid=section.querySelector('.p0c-preserved-grid');
+  if(grid&&grid.innerHTML!==cards)grid.innerHTML=cards;
+}
+function injectPlayModes(root){
   const cards=[
     featureCard('duel','Duel','Open the existing PvP Duel mode and its established rules, rating, and room flow.','Play'),
     featureCard('campaign','Campaign','Continue the existing mission ladder without replacing campaign progress.','Continue'),
     featureCard('expedition','Expedition','Open the existing branching expedition mode and saved run state.','Explore')
   ].filter(Boolean).join('');
-  if(!cards)return;
-  const section=document.createElement('section');
-  section.dataset.p0cPreserved='play';
-  section.dataset.p0cUi='true';
-  section.className='pr6-explain';
-  section.innerHTML=`<span class="pr6-section-label">Existing game modes</span><div class="p0c-preserved-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cards}</div>`;
-  view.appendChild(section);
+  reconcileSection(root,'play','Existing game modes',cards);
 }
 function injectLearnUtilities(root){
-  if(root.querySelector('[data-p0c-preserved="learn"]'))return;
-  const view=root.querySelector('[data-pr6-view]');
-  if(!view)return;
   const cards=[
     featureCard('collections','Collections','Open your existing saved question and verse collections.','Open'),
     featureCard('library','Library','Browse the existing Bible library and book-focused content.','Browse'),
     featureCard('progress','Progress & Mastery','Open detailed mastery, book progress, and retained performance statistics.','View')
   ].filter(Boolean).join('');
-  if(!cards)return;
-  const section=document.createElement('section');
-  section.dataset.p0cPreserved='learn';
-  section.dataset.p0cUi='true';
-  section.className='pr6-explain';
-  section.innerHTML=`<span class="pr6-section-label">Your existing study data</span><div class="p0c-preserved-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cards}</div>`;
-  view.appendChild(section);
+  reconcileSection(root,'learn','Your existing study data',cards);
 }
 function bind(root=document){
   root.querySelectorAll('[data-p0c-feature]:not([data-p0c-bound])').forEach(button=>{
