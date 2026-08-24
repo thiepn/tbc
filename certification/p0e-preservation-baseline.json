@@ -6,6 +6,7 @@
   "repairedVisualBaselineCommit": "7114e43466d0fc2c5c00bd87651aaa94e42cdf3a",
   "repairedPlayerControlsBaselineCommit": "079f307d0ca206c8e12c9ce8b803b1b9be9a1078",
   "repairedFeatureBridgeBaselineCommit": "5f384847abcb71923030e1aabbeeff3e198299c0",
+  "repairedNavigationBaselineCommit": "0bc2c26ad7f6f695406b3d7aba8a6b1d525dab12",
   "contract": {
     "questions": 5799,
     "structuredQuestions": 203,
@@ -17,7 +18,7 @@
     "index.html": "13c6d46bc8787b36fcc0920535a2d32b282a66ff",
     "README.md": "e5a09ad23f293477f9da9d74951917964b773223",
     "assets/pr5-foundation.css": "6bd97b4ec9f8e6894d37480679790e1e9ce32e8f",
-    "assets/pr5-shell.js": "59533c0d310b9d694b38b0e5f55956fe685a968b",
+    "assets/pr5-shell.js": "a5afec9d354e7a08d3e31bcdb4baebd3449914f1",
     "assets/pr6-play-learning.css": "115c03c589fc2445397e517294d67a3be7bdc9c9",
     "assets/pr6-play-learning.js": "dcfbe5d21c84ae50138765412a35ab5b095ef2a0",
     "assets/p0b-player-controls.js": "151262b97a0500aa528836b7cb3ec605ffc0cc9b",
