@@ -22,7 +22,12 @@ const { chromium } = require('playwright');
         tag:el.tagName,id:el.id,cls:String(el.className||''),text:String(el.innerText||el.textContent||el.getAttribute?.('aria-label')||el.getAttribute?.('title')||'').replace(/\s+/g,' ').trim().slice(0,220),
         data:[...el.attributes].filter(a=>/^data-|aria-|onclick/i.test(a.name)).map(a=>[a.name,a.value]).slice(0,12)
       })).filter(x=>interesting.test(`${x.id} ${x.cls} ${x.text} ${JSON.stringify(x.data)}`)).slice(0,200);
-      return {windowKeys,settings:state?.settings||null,controls};
+      const names=['setSetting','applySettings','save','settingsScreen','v24SettingsScreen','v292SettingsScreen','onboarding','finishOnboarding','v24FinishOnboarding','v24CompleteOnboarding'];
+      const functionSources=Object.fromEntries(names.map(name=>[name,typeof window[name]==='function'?String(window[name]).slice(0,5000):null]));
+      let constitution=null,v2=null;
+      try{constitution=JSON.parse(JSON.stringify(window.TBC_DIFFICULTY_CONSTITUTION))}catch{constitution=String(window.TBC_DIFFICULTY_CONSTITUTION)}
+      try{v2=JSON.parse(JSON.stringify(window.TBC_DIFFICULTY_V2))}catch{v2=String(window.TBC_DIFFICULTY_V2)}
+      return {windowKeys,settings:state?.settings||null,controls,functionSources,constitution,v2};
     });
     console.log('P0B CONTROL MAP RUNTIME:',JSON.stringify(runtime));
 
