@@ -33,3 +33,63 @@
 body.dark .pr5-mobile-nav{background:rgba(13,18,46,.94)}
 body.contrast:not(.dark) .pr5-mobile-nav{background:#fff;border:2px solid #000;backdrop-filter:none;-webkit-backdrop-filter:none}
 @media(prefers-reduced-motion:reduce){.pr5-nav-link,.pr5-utility-link{transition:none}}
+
+/* P0D — Visual Identity & Visual-Regression Preservation
+   Overlay-only repair. The v4.1.0 theme variables remain the source of truth;
+   no question, scoring, progression, difficulty, or persistence semantics live here. */
+:root{--p0d-visual-preservation:1}
+.pr5-primary-nav,.pr5-primary-nav *,.pr5-utility-nav,.pr5-utility-nav *,.pr5-mobile-nav,.pr5-mobile-nav *,
+.pr6-root,.pr6-root *{box-sizing:border-box}
+.pr6-root{width:100%;min-width:0;max-width:1260px;overflow:visible}
+.pr6-root :where(.pr6-intro-grid,.pr6-flow-card,.pr6-feature,.pr6-feature-copy,.pr6-feature-steps,.pr6-focus-top,.pr6-book-tools,.pr6-book-grid,.pr6-roadmap,.pr6-path-list,.pr6-signal-grid,.pr6-review-loop,.p0c-preserved-grid)>*{min-width:0}
+.pr6-root :where(h2,h3,p,strong,small,span,button){overflow-wrap:break-word}
+.pr6-book-tools input{max-width:100%}
+.p0c-preserved-grid{grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))!important}
+
+/* Eliminate reconstruction-only hard-coded hero colors. Reconstructed surfaces
+   now resolve through the same indigo/cyan/gold/violet palette as v4.1.0. */
+.pr6-page-head{
+ background:
+  radial-gradient(circle at 84% 18%,color-mix(in srgb,var(--cyan) 22%,transparent),transparent 27%),
+  radial-gradient(circle at 94% 85%,color-mix(in srgb,var(--gold) 18%,transparent),transparent 24%),
+  linear-gradient(135deg,color-mix(in srgb,var(--indigo) 82%,#10142e),color-mix(in srgb,var(--violet) 76%,var(--indigo)))!important
+}
+.pr6-button.primary{background:linear-gradient(135deg,var(--gold),color-mix(in srgb,var(--gold) 62%,#fff))!important;border-color:color-mix(in srgb,var(--gold) 60%,var(--line))!important;color:color-mix(in srgb,var(--indigo) 82%,#000)!important}
+.pr6-domain-rail,.pr6-book-tools{border-color:var(--line);color:var(--text)}
+
+/* Theme inheritance is explicit so switching the established light/dark/contrast
+   modes never leaves a reconstruction surface stranded in a foreign palette. */
+body.dark .pr6-root{color:var(--text)}
+body.dark .pr6-domain-rail,body.dark .pr6-book-tools{background:color-mix(in srgb,var(--surface) 94%,transparent)}
+body.contrast:not(.dark) .pr6-root :where(.pr6-domain-rail,.pr6-flow-card,.pr6-explain,.pr6-feature,.pr6-focus-top,.pr6-book-tools,.pr6-book-grid button,.pr6-roadmap>div,.pr6-path-list>button,.pr6-signal-grid article,.pr6-review-loop>div){box-shadow:none!important;border-color:#000!important}
+body.contrast:not(.dark) .pr6-page-head{background:#000!important;color:#fff!important;border:2px solid #000!important;box-shadow:none!important}
+body.contrast:not(.dark) .pr6-domain-rail,body.contrast:not(.dark) .pr6-book-tools{background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body.contrast:not(.dark) .pr6-domain-rail button.active,body.contrast:not(.dark) .pr6-subnav button.active{background:#000!important;color:#fff!important;border-color:#000!important;box-shadow:none!important}
+body.contrast:not(.dark) .pr6-button.primary{background:#000!important;color:#fff!important;border-color:#000!important;box-shadow:none!important}
+
+/* Responsive containment: no reconstructed card, search field, preserved-mode
+   grid, or page header may force horizontal scrolling over the legacy shell. */
+@media(max-width:940px){
+ .pr6-root{max-width:100%}
+ .pr6-page-head{padding:22px 20px;border-radius:24px}
+ .pr6-book-tools{top:64px;align-items:stretch;flex-wrap:wrap}
+ .pr6-book-tools label{flex:1 1 240px}.pr6-book-tools input{width:100%}
+}
+@media(max-width:620px){
+ .pr6-page-head{display:block;padding:20px 17px;border-radius:20px}
+ .pr6-page-head h2{font-size:clamp(1.8rem,11vw,2.7rem)}
+ .pr6-domain-rail{width:100%;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .pr6-domain-rail button{padding-inline:10px}
+ .pr6-book-tools{position:static;display:grid}
+ .pr6-book-tools>div{width:100%;flex-wrap:wrap}.pr6-book-tools>div button{flex:1 1 auto}
+}
+@media(max-width:420px){
+ .pr5-mobile-nav{padding-inline:4px}
+ .pr5-mobile-nav .pr5-nav-link{font-size:.61rem;padding-inline:2px}
+ .pr6-root{gap:14px}
+ .pr6-page-head{padding:18px 15px}
+}
+@media(prefers-reduced-motion:reduce){
+ .pr6-root :where(button,.pr6-flow-card,.pr6-book-grid button,.pr6-path-list>button){transition:none!important}
+ .pr6-root :where(.pr6-flow-card,.pr6-book-grid button,.pr6-path-list>button):hover{transform:none!important}
+}
