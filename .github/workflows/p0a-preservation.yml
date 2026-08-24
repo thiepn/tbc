@@ -16,24 +16,40 @@ jobs:
   preservation:
     name: Preserve v4.1.0 surfaces
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Probe persistence implementation markers
+
+      - name: Run static preservation audit
+        run: node scripts/p0a-preservation-audit.cjs
+        continue-on-error: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
         run: |
-          node - <<'NODE'
-          const fs=require('fs');
-          const s=fs.readFileSync('index.html','utf8');
-          const terms=['indexedDB','sessionStorage','getItem','setItem','removeItem','JSON.stringify','JSON.parse','FileReader','createObjectURL','Blob','download','upload','backup','restore','saveState','loadState','saveData','loadData','theBibleChallenge_'];
-          for(const term of terms){
-            const re=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'ig');
-            const m=[...s.matchAll(re)];
-            const first=m[0];
-            let sample='';
-            if(first){const a=Math.max(0,first.index-100),b=Math.min(s.length,first.index+first[0].length+150);sample=s.slice(a,b).replace(/\s+/g,' ').trim();}
-            console.log(`${term}: ${m.length}${sample?` | ${sample}`:''}`);
-          }
-          NODE
-      - name: Run P0A preservation audit
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local application
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p0a-server.log 2>&1 &
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-p0a-server.log
+          exit 1
+
+      - name: Run runtime preservation probe
+        run: node scripts/p0a-runtime-probe.cjs
+
+      - name: Enforce static preservation gate
         run: node scripts/p0a-preservation-audit.cjs
