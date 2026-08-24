@@ -148,7 +148,6 @@ async function assertRouteLaunch(page,key,pattern) {
     await assertLearnCoreIntact(page);
 
     await assertCollectionsLaunch(page);
-    assert.equal(document !== null,true);
     await assertRouteLaunch(page,'library',/library|bible|book|chapter|reader/i);
     await reopenLearn(page,'.pr5-primary-nav [data-pr5-nav="learn"]');
     await assertNamedCards(page,'learn',['collections','library','progress']);
