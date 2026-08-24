@@ -4,7 +4,7 @@
  */
 (()=>{'use strict';
 
-const VERSION='P0C.2';
+const VERSION='P0C.3';
 if(window.TBC_P0C?.version)return;
 
 const FEATURES={
@@ -34,16 +34,16 @@ const FEATURES={
 const STORAGE_CONTRACTS=['theBibleChallenge_v21','theBibleChallenge_v21_recovery'];
 const REQUIRED=['collections','library','progress','journey','path','review','duel','campaign','expedition'];
 
-const state={scheduled:false,observer:null,observed:Object.create(null)};
+const state={scheduled:false,observer:null,observed:Object.create(null),needsNativePrime:false};
 const norm=v=>String(v||'').replace(/\s+/g,' ').trim().toLowerCase();
 const own=el=>Boolean(el?.closest?.('[data-p0c-ui],[data-pr5-ui],[data-pr6-ui]'));
 
-function clickables(){
-  return Array.from(document.querySelectorAll('button,a[href],[role="button"]')).filter(el=>!own(el));
+function clickables(root=document){
+  return Array.from(root.querySelectorAll('button,a[href],[role="button"]')).filter(el=>!own(el));
 }
 function label(el){return String(el?.getAttribute?.('aria-label')||el?.getAttribute?.('title')||el?.textContent||'').trim()}
-function findByTerms(terms=[]){
-  const candidates=clickables().map(el=>{
+function findByTerms(terms=[],root=document){
+  const candidates=clickables(root).map(el=>{
     const text=norm(label(el));
     let score=-1;
     terms.forEach((term,index)=>{
@@ -65,6 +65,12 @@ function legacyTarget(key){
   }
   return findByTerms(feature.terms||[]);
 }
+function nativeDomainTarget(domain){
+  const terms=domain==='play'?['Play']:domain==='learn'?['Learn']:domain==='library'?['Library','Books']:[];
+  if(!terms.length)return null;
+  const nav=document.querySelector('.pr5-native-nav')||Array.from(document.querySelectorAll('.nav')).find(el=>!own(el));
+  return nav?findByTerms(terms,nav):null;
+}
 function available(key){
   const feature=FEATURES[key];
   if(!feature)return false;
@@ -83,10 +89,30 @@ function launch(key){
   const target=legacyTarget(key);
   if(!target)return false;
   state.observed[key]=true;
+  state.needsNativePrime=true;
   window.TBC_PR6?.deactivate?.();
   target.click();
   document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key}}));
   return true;
+}
+
+/* PR6 caches which legacy domain was last primed. A P0C handoff deliberately
+ * leaves that domain for a legacy feature. On the next PR5 Play/Learn click,
+ * normalize the hidden native view at window-capture time, before PR6's
+ * document-capture router runs. This prevents stale Campaign/Library/etc.
+ * content from being mistaken for a freshly primed Play/Learn surface. */
+function normalizeReentry(event){
+  if(!state.needsNativePrime)return;
+  const target=event.target?.closest?.('[data-pr5-nav],.pr5-utility-link,.brand');
+  if(!target)return;
+  const nav=target.closest?.('[data-pr5-nav]');
+  const domain=nav?.dataset?.pr5Nav;
+  if(domain==='play'||domain==='learn'){
+    nativeDomainTarget(domain)?.click();
+    state.needsNativePrime=false;
+  }else if(domain==='home'||domain==='library'||target.closest?.('.pr5-utility-link,.brand')){
+    state.needsNativePrime=false;
+  }
 }
 
 function featureCard(key,title,copy,cta='Open'){
@@ -160,6 +186,8 @@ function audit(){
     required:[...REQUIRED],
     features:featureStatus,
     storage,
+    reentryGuard:Boolean(window.__TBC_P0C_REENTRY_BOUND__),
+    pendingNativePrime:state.needsNativePrime,
     playPreservation:Boolean(document.querySelector('[data-p0c-preserved="play"]')),
     learnPreservation:Boolean(document.querySelector('[data-p0c-preserved="learn"]')),
     pass:REQUIRED.every(key=>featureStatus[key])
@@ -167,6 +195,10 @@ function audit(){
 }
 function start(){
   document.documentElement.setAttribute('data-p0c-preservation',VERSION);
+  if(!window.__TBC_P0C_REENTRY_BOUND__){
+    window.__TBC_P0C_REENTRY_BOUND__=true;
+    window.addEventListener('click',normalizeReentry,true);
+  }
   state.observer=new MutationObserver(scheduleSync);
   state.observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden','data-pr6-flow']});
   scheduleSync();
