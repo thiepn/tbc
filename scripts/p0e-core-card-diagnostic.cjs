@@ -10,31 +10,37 @@ const BASE='http://127.0.0.1:4173/';
   await page.waitForTimeout(700);
   await page.evaluate(()=>{if(typeof closeModal==='function')closeModal()});
 
-  const data=await page.evaluate(()=>{
-    const needles=['v24CollectionsPanel','collections','libraryScreen','v292LibraryScreen'];
-    const callers=[];
-    for(const key of Object.keys(window).sort()){
-      let fn,source='';
-      try{fn=window[key];if(typeof fn!=='function')continue;source=String(fn).replace(/\s+/g,' ')}catch{continue}
-      if(needles.some(n=>source.includes(n))){
-        callers.push({key,source:source.slice(0,1800)});
-      }
-    }
-    const specifics={};
-    for(const key of ['v292Go','navTo','v24PracticeScreen','v24PracticeFilters','v24SetPracticeTab','v24SetPracticeView','studyScreen','learningScreen','playScreen','libraryScreen']){
-      try{if(typeof window[key]==='function')specifics[key]=String(window[key]).replace(/\s+/g,' ').slice(0,2600)}catch{}
-    }
-    return {callers,specifics,p0c:window.TBC_P0C.audit(),pr6:window.TBC_PR6.audit()};
-  });
-  console.log('P0E COLLECTION ROUTE DIAGNOSTIC '+JSON.stringify(data));
+  async function snap(label){
+    const data=await page.evaluate(()=>({
+      title:document.querySelector('.topbar h1')?.textContent?.trim()||null,
+      bodyDomain:document.body.dataset.pr5Domain||null,flow:document.body.dataset.pr6Flow||null,
+      screen:typeof screen!=='undefined'?screen:null,
+      playSection:window.state?.uiPreferences?.playSection||null,
+      collectionList:Boolean(document.querySelector('.v24-collection-list')),
+      collectionCards:document.querySelectorAll('.v24-collection-card').length,
+      collectionTab:[...document.querySelectorAll('[role="tab"]')].find(el=>/collections/i.test(el.textContent||''))?.getAttribute('aria-selected')||null,
+      bibleSignals:Boolean(document.querySelector('.v390-library,.v330-bible-reader,[data-v330-reader]'))||/Bible/i.test(document.querySelector('.topbar h1')?.textContent||''),
+      visibleText:String(document.querySelector('.content')?.innerText||'').replace(/\s+/g,' ').trim().slice(0,1200)
+    }));
+    console.log(`P0E ROUTE COMMAND ${label} ${JSON.stringify(data)}`);
+  }
 
-  await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
-  await page.waitForFunction(()=>document.body.dataset.pr6Flow==='learn',null,{timeout:7000});
+  await page.evaluate(()=>{
+    window.TBC_PR6?.deactivate?.();
+    if(typeof v292Go==='function')v292Go('play','now');
+  });
   await page.waitForTimeout(500);
-  const learn=await page.evaluate(()=>({
-    html:document.querySelector('.pr6-root:not([hidden]) [data-pr6-view]')?.innerHTML.slice(0,9000)||'',
-    p0c:window.TBC_P0C.audit()
-  }));
-  console.log('P0E COLLECTION ROUTE LEARN '+JSON.stringify(learn));
+  await page.evaluate(()=>{if(typeof v24SetPracticeTab==='function')v24SetPracticeTab('collections')});
+  await page.waitForTimeout(700);
+  await snap('COLLECTIONS');
+
+  await page.evaluate(()=>{if(typeof v292Go==='function')v292Go('library')});
+  await page.waitForTimeout(800);
+  await snap('LIBRARY');
+
+  await page.evaluate(()=>{if(typeof v292Go==='function')v292Go('progress')});
+  await page.waitForTimeout(800);
+  await snap('PROGRESS');
+
   await context.close();await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
