@@ -4,7 +4,7 @@
  */
 (()=>{'use strict';
 
-const VERSION='P0C.1';
+const VERSION='P0C.2';
 if(window.TBC_P0C?.version)return;
 
 const FEATURES={
@@ -16,15 +16,25 @@ const FEATURES={
   review:{label:'Adaptive Review',pr6:'review',domain:'learn'},
   duel:{label:'Duel',ids:['pvpBtn'],terms:['PvP Duel','Duel'],domain:'play'},
   campaign:{label:'Campaign',ids:['campaignBtn'],terms:['Campaign'],domain:'play'},
-  expedition:{label:'Expedition',ids:['expeditionBtn'],terms:['Expedition'],domain:'play'}
+  expedition:{label:'Expedition',ids:['expeditionBtn'],terms:['Expedition'],domain:'play'},
+
+  /* Adjacent legacy surfaces covered by the same bridge when present. They
+   * are intentionally not duplicated into the main hubs unless the legacy
+   * product already exposes them there. */
+  challenges:{label:'Challenges',ids:['challengesBtn','challengeBtn'],terms:['Challenges','Challenge Mode'],domain:'play',optional:true},
+  reader:{label:'Bible Reader Practice',ids:['bibleReaderBtn','readerBtn'],terms:['Bible Reader Practice','Bible Reader','Reader Practice'],domain:'library',optional:true},
+  achievements:{label:'Achievements',ids:['achievementsBtn'],terms:['Achievements'],domain:'utility',optional:true},
+  profile:{label:'Profile',ids:['profileBtn'],terms:['Profile'],domain:'utility',optional:true},
+  settings:{label:'Settings',ids:['settingsBtn'],terms:['Settings','Preferences'],domain:'utility',optional:true},
+  memory:{label:'Memory Helper',ids:['memoryBtn','memoryVerseBtn'],terms:['Memory Helper','Memory Verse'],domain:'learn',optional:true},
+  custom:{label:'Custom Questions',ids:['customQuestionsBtn','customBtn'],terms:['Custom Questions','Custom Practice'],domain:'play',optional:true}
 };
 
-const STORAGE_CONTRACTS=[
-  'tbc_v4_progress','tbc_v4_custom','tbc_v4_verses','tbc_v4_collection',
-  'tbc_v4_achievements','tbc_v4_profile','tbc_v4_theme','tbc_v4_locale'
-];
+/* Canonical v4.1.0 browser-state contract verified by P0A runtime probes. */
+const STORAGE_CONTRACTS=['theBibleChallenge_v21','theBibleChallenge_v21_recovery'];
+const REQUIRED=['collections','library','progress','journey','path','review','duel','campaign','expedition'];
 
-const state={scheduled:false,observer:null};
+const state={scheduled:false,observer:null,observed:Object.create(null)};
 const norm=v=>String(v||'').replace(/\s+/g,' ').trim().toLowerCase();
 const own=el=>Boolean(el?.closest?.('[data-p0c-ui],[data-pr5-ui],[data-pr6-ui]'));
 
@@ -55,15 +65,24 @@ function legacyTarget(key){
   }
   return findByTerms(feature.terms||[]);
 }
+function available(key){
+  const feature=FEATURES[key];
+  if(!feature)return false;
+  const ok=Boolean(feature.pr6?window.TBC_PR6?.open:legacyTarget(key));
+  if(ok)state.observed[key]=true;
+  return ok;
+}
 function launch(key){
   const feature=FEATURES[key];
   if(!feature)return false;
   if(feature.pr6&&window.TBC_PR6?.open){
+    state.observed[key]=true;
     window.TBC_PR6.open(feature.pr6);
     return true;
   }
   const target=legacyTarget(key);
   if(!target)return false;
+  state.observed[key]=true;
   window.TBC_PR6?.deactivate?.();
   target.click();
   document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key}}));
@@ -75,10 +94,6 @@ function featureCard(key,title,copy,cta='Open'){
   return `<button type="button" class="pr6-flow-card" data-p0c-ui="true" data-p0c-feature="${key}">
     <strong>${title}</strong><span>${copy}</span><b>${cta} <i aria-hidden="true">→</i></b>
   </button>`;
-}
-function available(key){
-  const feature=FEATURES[key];
-  return Boolean(feature&&(feature.pr6?window.TBC_PR6?.open:legacyTarget(key)));
 }
 function injectPlayModes(root){
   if(root.querySelector('[data-p0c-preserved="play"]'))return;
@@ -94,7 +109,7 @@ function injectPlayModes(root){
   section.dataset.p0cPreserved='play';
   section.dataset.p0cUi='true';
   section.className='pr6-explain';
-  section.innerHTML=`<span class="pr6-section-label">Existing game modes</span><div class="pr6-intro-grid three">${cards}</div>`;
+  section.innerHTML=`<span class="pr6-section-label">Existing game modes</span><div class="p0c-preserved-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cards}</div>`;
   view.appendChild(section);
 }
 function injectLearnUtilities(root){
@@ -111,7 +126,7 @@ function injectLearnUtilities(root){
   section.dataset.p0cPreserved='learn';
   section.dataset.p0cUi='true';
   section.className='pr6-explain';
-  section.innerHTML=`<span class="pr6-section-label">Your existing study data</span><div class="pr6-intro-grid three">${cards}</div>`;
+  section.innerHTML=`<span class="pr6-section-label">Your existing study data</span><div class="p0c-preserved-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cards}</div>`;
   view.appendChild(section);
 }
 function bind(root=document){
@@ -137,17 +152,17 @@ function scheduleSync(){
   requestAnimationFrame(sync);
 }
 function audit(){
-  const featureStatus=Object.fromEntries(Object.keys(FEATURES).map(key=>[key,available(key)]));
+  const featureStatus=Object.fromEntries(Object.keys(FEATURES).map(key=>[key,Boolean(state.observed[key]||available(key))]));
   const storage=Object.fromEntries(STORAGE_CONTRACTS.map(key=>[key,{present:localStorage.getItem(key)!==null}]));
-  const required=['collections','library','progress','journey','path','review','duel','campaign','expedition'];
   return {
     version:VERSION,
     legacyStateUntouched:true,
+    required:[...REQUIRED],
     features:featureStatus,
     storage,
     playPreservation:Boolean(document.querySelector('[data-p0c-preserved="play"]')),
     learnPreservation:Boolean(document.querySelector('[data-p0c-preserved="learn"]')),
-    pass:required.every(key=>featureStatus[key])
+    pass:REQUIRED.every(key=>featureStatus[key])
   };
 }
 function start(){
