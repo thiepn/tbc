@@ -35,7 +35,9 @@ const TIERS = ['Beginner', 'Easy', 'Standard', 'Advanced', 'Expert'];
 
     const bootWrites = await page.evaluate(() => window.__P0A_STORAGE_WRITES__ || []);
     assert.ok(bootWrites.some(x => x.key === 'theBibleChallenge_v21'), 'boot must write the canonical persisted state');
-    assert.ok(bootWrites.some(x => x.key === 'theBibleChallenge_v21_recovery'), 'boot must create the recovery save');
+    await page.waitForFunction(() => Boolean(localStorage.getItem('theBibleChallenge_v21_recovery')), null, { timeout: 5000 });
+    const recoveryPresent = await page.evaluate(() => Boolean(localStorage.getItem('theBibleChallenge_v21_recovery')));
+    assert.equal(recoveryPresent, true, 'boot must create the recovery save');
 
     const beginner = modal.getByRole('button').filter({ hasText: /Beginner/i }).first();
     assert.ok(await beginner.count(), 'Beginner onboarding control must exist');
