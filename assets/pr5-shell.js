@@ -51,3 +51,11 @@ const current=document.currentScript;
 const base=new URL('.',current?.src||document.baseURI);
 if(!document.querySelector('script[data-p0c-script]')){const script=document.createElement('script');script.src=new URL('p0c-existing-feature-preservation.js',base).href;script.defer=true;script.dataset.p0cScript='true';document.head.appendChild(script)}
 })();
+
+/* P0B loader — restores access to legacy player controls from reconstructed flows. */
+(()=>{'use strict';
+if(window.__TBC_P0B_LOADER__)return;window.__TBC_P0B_LOADER__=true;
+const current=document.currentScript;
+const base=new URL('.',current?.src||document.baseURI);
+if(!document.querySelector('script[data-p0b-script]')){const script=document.createElement('script');script.src=new URL('p0b-player-controls.js',base).href;script.defer=true;script.dataset.p0bScript='true';document.head.appendChild(script)}
+})();
