@@ -1,0 +1,55 @@
+name: P0A Preservation Audit
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - p0a-preservation-audit
+      - 'p0*'
+      - 'pr7*'
+
+permissions:
+  contents: read
+
+jobs:
+  preservation:
+    name: Preserve v4.1.0 surfaces
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run static preservation audit
+        run: node scripts/p0a-preservation-audit.cjs
+        continue-on-error: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local application
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p0a-server.log 2>&1 &
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-p0a-server.log
+          exit 1
+
+      - name: Run runtime preservation probe
+        run: node scripts/p0a-runtime-probe.cjs
+
+      - name: Enforce static preservation gate
+        run: node scripts/p0a-preservation-audit.cjs
