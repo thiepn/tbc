@@ -23,9 +23,9 @@ const TIERS = ['Beginner', 'Easy', 'Standard', 'Advanced', 'Expert'];
   try {
     await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForFunction(() => document.documentElement.getAttribute('data-pr5-foundation') === 'PR5.1', null, { timeout: 20000 });
-    await page.waitForTimeout(1000);
 
     const modal = page.locator('#modalRoot .modal-backdrop');
+    await modal.waitFor({ state: 'visible', timeout: 15000 });
     assert.equal(await modal.isVisible(), true, 'fresh profile must show the onboarding difficulty chooser');
     const onboardingText = (await modal.innerText()).replace(/\s+/g, ' ').trim();
     assert.match(onboardingText, /CHOOSE YOUR BIBLE DIFFICULTY/i);
@@ -43,7 +43,14 @@ const TIERS = ['Beginner', 'Easy', 'Standard', 'Advanced', 'Expert'];
     assert.ok(await beginner.count(), 'Beginner onboarding control must exist');
     assert.equal(await beginner.isVisible(), true, 'Beginner onboarding control must be visible');
     await beginner.click();
-    await page.waitForTimeout(500);
+    await page.waitForFunction(() => {
+      try {
+        const raw = localStorage.getItem('theBibleChallenge_v21');
+        if (!raw) return false;
+        const state = JSON.parse(raw);
+        return state?.onboarded === true && String(state?.settings?.difficulty || '').toLowerCase() === 'beginner';
+      } catch { return false; }
+    }, null, { timeout: 5000 });
 
     const persisted = await page.evaluate(() => {
       const raw = localStorage.getItem('theBibleChallenge_v21');
