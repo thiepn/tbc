@@ -50,10 +50,12 @@ for(const id of ['collectionsBtn','libraryBtn','progressBtn','pvpBtn','campaignB
   check(`P0C direct legacy bridge ${id}`,has(p0c,id),id);
 }
 
+check('P0C version is current',has(p0c,"const VERSION='P0C.3'"));
 check('P0C uses canonical browser state contract',has(p0c,"'theBibleChallenge_v21'")&&has(p0c,"'theBibleChallenge_v21_recovery'"));
 check('P0C contains no obsolete tbc_v4 state contract',!has(p0c,'tbc_v4_'));
 check('P0C exposes Play preservation surface',has(p0c,'data-p0c-preserved="play"')&&has(p0c,'injectPlayModes'));
 check('P0C exposes Learn/data preservation surface',has(p0c,'data-p0c-preserved="learn"')&&has(p0c,'injectLearnUtilities'));
+check('P0C preserves PR6 re-entry after legacy handoffs',has(p0c,'needsNativePrime')&&has(p0c,'normalizeReentry')&&has(p0c,"window.addEventListener('click',normalizeReentry,true)"));
 check('P0C preservation grids do not alter PR6 core-card test counts',has(p0c,'p0c-preserved-grid')&&!has(p0c,'<div class="pr6-intro-grid three">${cards}</div>'));
 check('P0C does not write localStorage',!has(p0c,'localStorage.setItem('));
 check('P0C does not write sessionStorage',!has(p0c,'sessionStorage.setItem('));
