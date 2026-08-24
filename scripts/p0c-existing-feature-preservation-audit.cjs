@@ -47,9 +47,12 @@ for(const key of required)check(`P0C registry preserves ${key}`,new RegExp(`\\b$
 for(const key of ['challenges','reader','achievements','profile','settings','memory','custom']){
   check(`P0C adjacent bridge covers ${key}`,new RegExp(`\\b${key}:\\{`).test(p0c),key);
 }
-for(const id of ['collectionsBtn','libraryBtn','progressBtn','pvpBtn','campaignBtn','expeditionBtn']){
-  check(`P0C direct legacy bridge ${id}`,has(p0c,id),id);
-}
+
+check('P0C Collections uses retained panel engine',has(p0c,"route:'collections'")&&has(p0c,"window.v24CollectionsPanel")&&has(p0c,'window.openModal(html,true)'));
+check('P0C Library uses current v292 route',has(p0c,"route:'library'")&&has(p0c,'window.v292Go(route)'));
+check('P0C Progress uses current v292 route',has(p0c,"route:'progress'")&&has(p0c,'window.v292Go(route)'));
+check('P0C Duel uses canonical function entrypoint',has(p0c,"functions:['v31OpenDuelSetup']")&&has(p0c,'legacyFunction(key)'));
+for(const id of ['campaignBtn','expeditionBtn'])check(`P0C retained legacy bridge ${id}`,has(p0c,id),id);
 
 check('P0C version is current',has(p0c,"const VERSION='P0C.3'"));
 check('P0C uses canonical browser state contract',has(p0c,"'theBibleChallenge_v21'")&&has(p0c,"'theBibleChallenge_v21_recovery'"));
