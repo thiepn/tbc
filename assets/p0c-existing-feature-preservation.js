@@ -135,11 +135,13 @@ function launch(key){
   return false;
 }
 
-/* PR6 caches which legacy domain was last primed. A P0C handoff deliberately
- * leaves that domain for a legacy feature. On the next PR5 Play/Learn click,
- * normalize the hidden native view at window-capture time, before PR6's
- * document-capture router runs. This prevents stale Campaign/Library/etc.
- * content from being mistaken for a freshly primed Play/Learn surface. */
+function waitForNativeSettle(){
+  return new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>setTimeout(resolve,32))));
+}
+/* A P0C handoff leaves the hidden legacy content on Campaign, Expedition,
+ * Duel, Library, etc. When the user returns to reconstructed Play/Learn,
+ * consume that navigation click at window-capture time, restore the legacy
+ * domain first, allow its DOM to settle, and only then reopen PR6. */
 function normalizeReentry(event){
   if(!state.needsNativePrime)return;
   const target=event.target?.closest?.('[data-pr5-nav],.pr5-utility-link,.brand');
@@ -147,8 +149,13 @@ function normalizeReentry(event){
   const nav=target.closest?.('[data-pr5-nav]');
   const domain=nav?.dataset?.pr5Nav;
   if(domain==='play'||domain==='learn'){
-    nativeDomainTarget(domain)?.click();
+    const native=nativeDomainTarget(domain);
+    if(!native){state.needsNativePrime=false;return}
+    event.preventDefault();
+    event.stopImmediatePropagation();
     state.needsNativePrime=false;
+    native.click();
+    waitForNativeSettle().then(()=>window.TBC_PR6?.open?.(domain));
   }else if(domain==='home'||domain==='library'||target.closest?.('.pr5-utility-link,.brand')){
     state.needsNativePrime=false;
   }
