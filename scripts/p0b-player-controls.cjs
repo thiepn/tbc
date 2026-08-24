@@ -6,7 +6,7 @@ const STORAGE_KEY = 'theBibleChallenge_v21';
 const TIERS = ['Beginner', 'Easy', 'Standard', 'Advanced', 'Expert'];
 
 const esc = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const tierRe = tier => new RegExp(`\\b${esc(tier)}\\b`, 'i');
+const tierRe = tier => new RegExp(esc(tier), 'i');
 
 async function waitForShell(page) {
   await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 });
@@ -40,6 +40,7 @@ async function chooseOnboardingTier(page, tier) {
   const text = (await modal.innerText()).replace(/\s+/g, ' ').trim();
   assert.match(text, /CHOOSE YOUR BIBLE DIFFICULTY/i, 'fresh profile must open the difficulty onboarding');
   for (const expected of TIERS) {
+    assert.match(text, new RegExp(esc(expected), 'i'), `onboarding text must expose ${expected}`);
     const control = modal.getByRole('button').filter({ hasText: tierRe(expected) }).first();
     assert.ok(await control.count(), `onboarding must expose ${expected}`);
     assert.equal(await control.isVisible(), true, `${expected} onboarding control must be visible`);
@@ -201,9 +202,9 @@ async function setExpertFromVisibleControl(page, surface) {
       await surface.select.selectOption(expert.value);
     });
   } else {
-    const expertButton = page.getByRole('button').filter({ hasText: tierRe('Expert') });
+    const expertButton = page.getByRole('button').filter({ hasText: /Expert/i });
     const expertRadio = page.getByRole('radio', { name: /Expert/i });
-    const expertLabel = page.locator('label').filter({ hasText: tierRe('Expert') });
+    const expertLabel = page.locator('label').filter({ hasText: /Expert/i });
     if (await expertButton.count() && await expertButton.first().isVisible().catch(() => false)) await expertButton.first().click();
     else if (await expertRadio.count() && await expertRadio.first().isVisible().catch(() => false)) await expertRadio.first().check();
     else if (await expertLabel.count() && await expertLabel.first().isVisible().catch(() => false)) await expertLabel.first().click();
