@@ -3,10 +3,27 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 
 const BASE = 'http://127.0.0.1:4173/';
+const STORAGE_KEY = 'theBibleChallenge_v21';
 
-async function dismissBlockingModal(page) {
+async function resolveBlockingModal(page) {
   const modal = page.locator('#modalRoot .modal-backdrop');
   if (!(await modal.count()) || !(await modal.isVisible())) return;
+  const text = (await modal.innerText()).replace(/\s+/g, ' ').trim();
+
+  if (/CHOOSE YOUR BIBLE DIFFICULTY/i.test(text)) {
+    const standard = modal.getByRole('button').filter({ hasText: /^\s*Standard\b/i }).first();
+    assert.ok(await standard.count(), 'P0C smoke setup must be able to complete onboarding');
+    await standard.click();
+    await page.waitForFunction(key => {
+      try {
+        const state = JSON.parse(localStorage.getItem(key));
+        return state?.onboarded === true && String(state?.settings?.difficulty || '').toLowerCase() === 'standard';
+      } catch { return false; }
+    }, STORAGE_KEY, { timeout: 7000 });
+    await page.waitForFunction(() => !document.querySelector('#modalRoot .modal-backdrop'), null, { timeout: 7000 });
+    return;
+  }
+
   const closedByApi = await page.evaluate(() => {
     if (typeof closeModal === 'function') { closeModal(); return true; }
     return false;
@@ -35,8 +52,8 @@ async function openCheckedPage(browser, viewport) {
   await page.waitForFunction(() => window.TBC_P0C?.version === 'P0C.3', null, { timeout: 20000 });
   await page.waitForSelector('.pr5-primary-nav', { state: 'attached', timeout: 20000 });
   await page.waitForTimeout(650);
-  await dismissBlockingModal(page);
-  await page.waitForTimeout(200);
+  await resolveBlockingModal(page);
+  await page.waitForTimeout(250);
   return { context, page, pageErrors, consoleErrors };
 }
 
@@ -52,8 +69,8 @@ async function assertNamedCards(page, section, names) {
   await root.waitFor({ state: 'visible', timeout: 7000 });
   for (const name of names) {
     const card = root.locator(`[data-p0c-feature="${name}"]`);
+    await card.waitFor({ state: 'visible', timeout: 7000 });
     assert.equal(await card.count(), 1, `${section} preservation must expose ${name}`);
-    assert.equal(await card.isVisible(), true, `${name} preservation card must be visible`);
   }
 }
 
