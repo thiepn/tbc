@@ -10,6 +10,7 @@ const suites=[
   ['PR5 reconstructed shell','scripts/pr5-browser-smoke.cjs'],
   ['PR6 play/learning flows','scripts/pr6-browser-smoke.cjs'],
   ['P0C existing systems + re-entry','scripts/p0c-browser-smoke.cjs'],
+  ['P0C Duel direct launch','scripts/p0c-duel-launch-smoke.cjs'],
   ['P0D visual/UI integrity','scripts/p0d-browser-smoke.cjs']
 ];
 
