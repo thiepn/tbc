@@ -2,16 +2,22 @@
 'use strict';
 
 /**
- * TBC P0A — Static Preservation Audit
+ * TBC P0A — Core Content Preservation Audit
  *
- * Read-only guard for the proven v4.1.0 content/product contract.
- * Runtime-only systems are verified separately by p0a-runtime-probe.cjs.
+ * Read-only guard for the proven v4.1.0 content contract.
+ * The legacy monolith is frozen against the final pre-reconstruction build;
+ * reconstruction work must be layered on through external modules.
  */
 
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
+const BASELINE = '58b5ec8a5ecd2fd87a74f11eea7a94a9bc4195bb';
+const EXPECTED_INDEX_ADDITIONS = 3;
+const EXPECTED_INDEX_DELETIONS = 0;
+
 const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
 const src = {
   app: read('index.html'),
@@ -35,28 +41,44 @@ const TIERS = ['Beginner', 'Easy', 'Standard', 'Advanced', 'Expert'];
 const any = (text, patterns) => patterns.some(re => re.test(text));
 const everyText = (text, values) => values.every(value => text.includes(value));
 
+function legacyIndexDelta() {
+  const out = execFileSync('git', ['diff', '--numstat', BASELINE, '--', 'index.html'], {
+    cwd: ROOT,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  }).trim();
+  if (!out) return { additions: 0, deletions: 0, path: 'index.html' };
+  const [additions, deletions, file] = out.split(/\s+/);
+  return { additions: Number(additions), deletions: Number(deletions), path: file };
+}
+
 const checks = [
+  ['legacy-monolith-frozen', `index.html must remain the v4.1.0 baseline plus exactly ${EXPECTED_INDEX_ADDITIONS} approved reconstruction-loader lines`, () => {
+    const delta = legacyIndexDelta();
+    return delta.path === 'index.html' && delta.additions === EXPECTED_INDEX_ADDITIONS && delta.deletions === EXPECTED_INDEX_DELETIONS;
+  }],
   ['monolith-not-truncated', 'index.html remains a substantial production build (>3.5 MB)', () => Buffer.byteLength(src.app, 'utf8') > 3_500_000],
   ['canonical-bank-contract', '5,799 canonical questions remain the frozen playable-bank contract', () => /5,799\s+(?:canonical\s+)?questions/i.test(src.readme)],
   ['structured-question-contract', '203 structured questions remain declared', () => /203\s+structured\s+questions/i.test(src.readme)],
   ['whole-bible-contract', 'all 66 books remain declared', () => /66\s+books/i.test(src.readme)],
   ['five-difficulty-contract', 'Beginner, Easy, Standard, Advanced, Expert all remain present', () => everyText(all, TIERS)],
-  ['difficulty-distribution-contract', 'frozen v4.1.0 tier distribution remains documented', () => ['1,338','1,666','1,133','1,141','521'].every(n => src.readme.includes(n))],
+  ['difficulty-distribution-contract', 'frozen v4.1.0 tier distribution remains 1,338 / 1,666 / 1,133 / 1,141 / 521', () => ['1,338','1,666','1,133','1,141','521'].every(n => src.readme.includes(n))],
+  ['canonical-dedup-contract', '273 redundant aliases remain excluded and exact playable duplicates remain eliminated', () => /273\s+redundant\s+aliases/i.test(src.readme) && /no\s+remaining\s+exact\s+playable\s+duplicate\s+groups/i.test(src.readme)],
   ['collections-contract', '22 curated collections remain part of the product contract', () => /22\s+(?:curated\s+)?(?:thematic\s+)?collections/i.test(src.readme)],
   ['journey-path-contract', '25 Journey stages and 63 Learning Path stages remain declared', () => /25\s+(?:guided\s+)?stages/i.test(src.readme) && /63\s+(?:routed\s+)?learning\s+stages/i.test(src.readme)],
   ['all-66-book-routes', 'PR6 still carries routing for all 66 biblical books', () => BOOKS.length === 66 && everyText(src.pr6, BOOKS)],
+  ['question-quality-surface', 'reviewed-question feedback/evidence/explainer surfaces remain represented', () => /reviewed\s+questions/i.test(src.app) && /feedback/i.test(src.app) && /evidence/i.test(src.app) && /explain/i.test(src.app)],
   ['onboarding-source', 'onboarding / first-run implementation markers remain packaged', () => any(src.app, [/onboard(?:ing)?/i,/first[-_ ]?run/i,/welcome[\s\S]{0,180}(?:difficulty|level|tier)/i,/(?:difficulty|level|tier)[\s\S]{0,180}welcome/i])],
   ['level-selector-source', 'difficulty/level selector implementation markers remain packaged', () => any(src.app, [/(?:difficulty|level|tier)[\s\S]{0,160}(?:selector|select|choose|picker|option)/i,/(?:selector|select|choose|picker|option)[\s\S]{0,160}(?:difficulty|level|tier)/i,/data-[^=\s]*(?:difficulty|level|tier)/i])],
-  ['question-quality-surface', 'reviewed-question feedback/evidence/explainer surfaces remain represented', () => /reviewed\s+questions/i.test(src.app) && /feedback/i.test(src.app) && /evidence/i.test(src.app) && /explain/i.test(src.app)],
-  ['canonical-dedup-contract', '273 redundant aliases remain excluded and exact playable duplicates remain eliminated', () => /273\s+redundant\s+aliases/i.test(src.readme) && /no\s+remaining\s+exact\s+playable\s+duplicate\s+groups/i.test(src.readme)],
-  ['persistence-bootstrap-source', 'packaged bootstrap still references browser persistence; runtime audit verifies full save/import/export behavior', () => /localStorage/i.test(src.app) && /sessionStorage/i.test(src.app) && /getItem/i.test(src.app)],
+  ['persistence-bootstrap-source', 'packaged bootstrap still references browser persistence', () => /localStorage/i.test(src.app) && /sessionStorage/i.test(src.app) && /getItem/i.test(src.app)],
   ['theme-surface', 'dark and high-contrast theme support remains represented', () => /dark/i.test(all) && /contrast/i.test(all)],
   ['pr5-state-preservation', 'PR5 remains explicitly non-mutating toward TBC game state', () => /does\s+not\s+read,\s*write,\s*or\s+mutate\s+TBC\s+game\s+state/i.test(src.pr5)],
   ['pr6-question-preservation', 'PR6 remains explicitly non-mutating toward quiz/question state', () => /never\s+rewrites\s+quiz\/question\s+state/i.test(src.pr6)],
 ];
 
 let failures = 0;
-console.log('TBC P0A — Static Preservation Audit');
+console.log('TBC P0A — Core Content Preservation Audit');
+console.log(`Baseline: ${BASELINE}`);
 console.log(`index.html: ${(Buffer.byteLength(src.app, 'utf8') / 1024 / 1024).toFixed(2)} MiB\n`);
 
 for (const [id, detail, test] of checks) {
@@ -73,5 +95,5 @@ if (failures) {
   console.error(`P0A STATIC FAILED: ${failures} preservation invariant(s) need review.`);
   process.exitCode = 1;
 } else {
-  console.log('P0A STATIC PASSED.');
+  console.log('P0A STATIC PASSED. Legacy v4.1.0 core content is frozen.');
 }
