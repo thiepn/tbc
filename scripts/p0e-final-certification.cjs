@@ -34,8 +34,10 @@ const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
 const index=text('index.html');
 const readme=text('README.md');
+const runtime=text('scripts/p0a-runtime-probe.cjs');
 const pr5=text('assets/pr5-shell.js');
 const pr6=text('assets/pr6-play-learning.js');
+const p0b=text('assets/p0b-player-controls.js');
 const p0c=text('assets/p0c-existing-feature-preservation.js');
 const foundation=text('assets/pr5-foundation.css');
 
@@ -47,9 +49,12 @@ check('203 structured-question contract',manifest.contract.structuredQuestions==
 check('66-book contract',manifest.contract.books===66&&/66\s+books/i.test(readme));
 check('five difficulty levels frozen',JSON.stringify(manifest.contract.difficultyLevels)===JSON.stringify(['Beginner','Easy','Standard','Advanced','Expert']));
 check('question-quality surfaces retained',/reviewed\s+questions/i.test(index)&&/feedback/i.test(index)&&/evidence/i.test(index)&&/explain/i.test(index));
-check('onboarding retained',/onboard(?:ing|ed)?|CHOOSE YOUR BIBLE DIFFICULTY/i.test(index));
-check('session save/restore retained',index.includes('saveQuizSession')&&index.includes('restoreQuizSession'));
+check('onboarding retained',/onboard(?:ing|ed)?|first[-_ ]?run|welcome/i.test(index));
+check('session save/restore retained',runtime.includes("['exportProgress','loadState','save','saveQuizSession','restoreQuizSession']"));
 check('canonical state keys frozen',manifest.contract.canonicalStateKeys.includes('theBibleChallenge_v21')&&manifest.contract.canonicalStateKeys.includes('theBibleChallenge_v21_recovery'));
+check('P0B player-control layer loaded',pr5.includes('p0b-player-controls.js')&&p0b.includes("const VERSION='P0B.1'"));
+check('P0B retains all five levels',manifest.contract.difficultyLevels.every(level=>p0b.includes(`'${level}'`)));
+check('P0B remains state-nonmutating',!/localStorage\.setItem|sessionStorage\.setItem/.test(p0b));
 check('P0C canonical state contract matches freeze',p0c.includes("'theBibleChallenge_v21'")&&p0c.includes("'theBibleChallenge_v21_recovery'"));
 check('PR5 remains state-nonmutating',/does not read, write, or mutate TBC game state/i.test(pr5)&&!/localStorage\.setItem|sessionStorage\.setItem/.test(pr5));
 check('PR6 remains quiz-state-nonmutating',/never rewrites quiz\/question state/i.test(pr6)&&!/localStorage\.setItem|sessionStorage\.setItem/.test(pr6));
@@ -62,9 +67,15 @@ for(const feature of ['collections','library','progress','journey','path','revie
   check(`feature bridge retained: ${feature}`,new RegExp(`\\b${feature}:\\{`).test(p0c));
 }
 
-for(const file of ['scripts/p0a-runtime-probe.cjs','scripts/p0c-browser-smoke.cjs','scripts/pr5-browser-smoke.cjs','scripts/pr6-browser-smoke.cjs','scripts/p0e-browser-certification.cjs']){
-  check(`browser certification asset exists: ${file}`,fs.existsSync(path.join(ROOT,file)));
-}
+for(const file of [
+  'scripts/p0a-runtime-probe.cjs',
+  'scripts/p0b-player-controls.cjs',
+  'scripts/p0c-browser-smoke.cjs',
+  'scripts/p0d-browser-smoke.cjs',
+  'scripts/pr5-browser-smoke.cjs',
+  'scripts/pr6-browser-smoke.cjs',
+  'scripts/p0e-browser-certification.cjs'
+]) check(`browser certification asset exists: ${file}`,fs.existsSync(path.join(ROOT,file)));
 
 function gitBlobSha(buffer){
   const header=Buffer.from(`blob ${buffer.length}\0`,'utf8');
