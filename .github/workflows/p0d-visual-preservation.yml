@@ -1,0 +1,64 @@
+name: P0D Visual Identity Preservation
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - main
+      - 'p0d*'
+
+permissions:
+  contents: read
+
+jobs:
+  visual-preservation:
+    name: Preserve controls, features, themes and layout
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enforce P0A core-content preservation
+        run: node scripts/p0a-preservation-audit.cjs
+
+      - name: Enforce current P0C existing-feature preservation
+        run: node scripts/p0c-existing-feature-preservation-audit.cjs
+
+      - name: Enforce P0D static visual contract
+        run: node scripts/p0d-visual-preservation.cjs
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local application
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p0d-server.log 2>&1 &
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-p0d-server.log
+          exit 1
+
+      - name: Recheck P0B five-level player controls
+        run: node scripts/p0b-player-controls.cjs
+
+      - name: Recheck current P0C feature handoffs
+        run: node scripts/p0c-browser-smoke.cjs
+
+      - name: Run P0D browser visual regression probe
+        run: node scripts/p0d-visual-runtime.cjs
