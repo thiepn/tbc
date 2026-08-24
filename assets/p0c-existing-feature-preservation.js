@@ -121,39 +121,45 @@ function featureCard(key,title,copy,cta='Open'){
     <strong>${title}</strong><span>${copy}</span><b>${cta} <i aria-hidden="true">→</i></b>
   </button>`;
 }
-function injectPlayModes(root){
-  if(root.querySelector('[data-p0c-preserved="play"]'))return;
+function ensureSection(root,kind,labelText){
   const view=root.querySelector('[data-pr6-view]');
-  if(!view)return;
-  const cards=[
-    featureCard('duel','Duel','Open the existing PvP Duel mode and its established rules, rating, and room flow.','Play'),
-    featureCard('campaign','Campaign','Continue the existing mission ladder without replacing campaign progress.','Continue'),
-    featureCard('expedition','Expedition','Open the existing branching expedition mode and saved run state.','Explore')
-  ].filter(Boolean).join('');
-  if(!cards)return;
-  const section=document.createElement('section');
-  section.dataset.p0cPreserved='play';
+  if(!view)return null;
+  let section=root.querySelector(`[data-p0c-preserved="${kind}"]`);
+  if(section)return section;
+  section=document.createElement('section');
+  section.dataset.p0cPreserved=kind;
   section.dataset.p0cUi='true';
   section.className='pr6-explain';
-  section.innerHTML=`<span class="pr6-section-label">Existing game modes</span><div class="p0c-preserved-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cards}</div>`;
+  section.innerHTML=`<span class="pr6-section-label">${labelText}</span><div class="p0c-preserved-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px"></div>`;
   view.appendChild(section);
+  return section;
+}
+function ensureCards(section,definitions){
+  if(!section)return;
+  const grid=section.querySelector('.p0c-preserved-grid');
+  if(!grid)return;
+  for(const [key,title,copy,cta] of definitions){
+    if(grid.querySelector(`[data-p0c-feature="${key}"]`))continue;
+    const html=featureCard(key,title,copy,cta);
+    if(!html)continue;
+    grid.insertAdjacentHTML('beforeend',html);
+  }
+}
+function injectPlayModes(root){
+  const section=ensureSection(root,'play','Existing game modes');
+  ensureCards(section,[
+    ['duel','Duel','Open the existing PvP Duel mode and its established rules, rating, and room flow.','Play'],
+    ['campaign','Campaign','Continue the existing mission ladder without replacing campaign progress.','Continue'],
+    ['expedition','Expedition','Open the existing branching expedition mode and saved run state.','Explore']
+  ]);
 }
 function injectLearnUtilities(root){
-  if(root.querySelector('[data-p0c-preserved="learn"]'))return;
-  const view=root.querySelector('[data-pr6-view]');
-  if(!view)return;
-  const cards=[
-    featureCard('collections','Collections','Open your existing saved question and verse collections.','Open'),
-    featureCard('library','Library','Browse the existing Bible library and book-focused content.','Browse'),
-    featureCard('progress','Progress & Mastery','Open detailed mastery, book progress, and retained performance statistics.','View')
-  ].filter(Boolean).join('');
-  if(!cards)return;
-  const section=document.createElement('section');
-  section.dataset.p0cPreserved='learn';
-  section.dataset.p0cUi='true';
-  section.className='pr6-explain';
-  section.innerHTML=`<span class="pr6-section-label">Your existing study data</span><div class="p0c-preserved-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cards}</div>`;
-  view.appendChild(section);
+  const section=ensureSection(root,'learn','Your existing study data');
+  ensureCards(section,[
+    ['collections','Collections','Open your existing saved question and verse collections.','Open'],
+    ['library','Library','Browse the existing Bible library and book-focused content.','Browse'],
+    ['progress','Progress & Mastery','Open detailed mastery, book progress, and retained performance statistics.','View']
+  ]);
 }
 function bind(root=document){
   root.querySelectorAll('[data-p0c-feature]:not([data-p0c-bound])').forEach(button=>{
