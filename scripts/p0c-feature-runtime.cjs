@@ -2,7 +2,6 @@ const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 
 const BASE = 'http://127.0.0.1:4173/';
-
 const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
 
 async function visibleClickableTexts(page) {
@@ -63,11 +62,25 @@ async function clickNativeNav(page, label) {
 
 async function assertVisibleFeature(page, name, pattern) {
   const texts = await visibleClickableTexts(page);
-  assert.ok(texts.some(text => pattern.test(text)), `${name} must remain visibly reachable; visible controls: ${texts.slice(0, 60).join(' | ')}`);
+  assert.ok(texts.some(text => pattern.test(text)), `${name} must remain visibly reachable; visible controls: ${texts.slice(0, 70).join(' | ')}`);
 }
 
 async function featureText(page) {
   return clean(await page.locator('body').innerText());
+}
+
+async function waitForFlow(page, flow, title) {
+  await page.waitForFunction(expected => {
+    const root = document.querySelector('.pr6-root:not([hidden])');
+    return document.body.dataset.pr6Flow === expected.flow &&
+      root?.querySelector('h2')?.textContent?.trim() === expected.title &&
+      !root.querySelector('.pr6-loading');
+  }, { flow, title }, { timeout: 8000 });
+}
+
+async function openFlow(page, flow, title) {
+  await page.evaluate(id => window.TBC_PR6.open(id), flow);
+  await waitForFlow(page, flow, title);
 }
 
 (async () => {
@@ -93,38 +106,53 @@ async function featureText(page) {
     await assertVisibleFeature(page, 'Progress', /^Progress$/i);
     await assertVisibleFeature(page, 'Settings', /^Settings$/i);
 
-    const pr6 = await page.evaluate(() => window.TBC_PR6.audit());
-    assert.equal(pr6.pass, true, `PR6 compatibility audit failed: ${JSON.stringify(pr6)}`);
-    for (const key of ['quickTarget','focusedTarget','journeyTarget','pathTarget','reviewTarget']) {
-      assert.equal(pr6[key], true, `${key} must remain resolved`);
+    // Exercise the reconstructed player paths in the same sequence a player uses them.
+    await page.locator('.pr5-primary-nav [data-pr5-nav="play"]').click();
+    await waitForFlow(page, 'play', 'Play');
+    await assertVisibleFeature(page, 'Quick Play', /Quick Play/i);
+    await assertVisibleFeature(page, 'Focused Practice', /Focused Practice/i);
+    await openFlow(page, 'quick', 'Quick Play');
+    assert.ok(await page.locator('.pr6-root [data-pr6-action="quick-start"]').count(), 'Quick Play launch action must remain present');
+    await openFlow(page, 'focused', 'Focused Practice');
+    assert.ok(await page.locator('.pr6-root [data-pr6-book-search]').count(), 'Focused Practice book search must remain present');
+
+    await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
+    await waitForFlow(page, 'learn', 'Learn');
+    for (const [flow, title] of [['journey','Bible Journey'],['path','Learning Path'],['review','Adaptive Review']]) {
+      await openFlow(page, flow, title);
+      assert.equal(clean(await page.locator('.pr6-root h2').innerText()), title, `${title} must render`);
     }
 
+    // Home entry points that existed before reconstruction must remain available.
     await page.locator('.pr5-primary-nav [data-pr5-nav="home"]').click();
     await page.waitForTimeout(450);
-    await assertVisibleFeature(page, 'Quick Play', /Quick Play/i);
-    await assertVisibleFeature(page, 'Bible Journey', /Bible Journey/i);
-    await assertVisibleFeature(page, 'Book practice', /Practice a Book|Book Practice/i);
-    await assertVisibleFeature(page, 'Adaptive Review', /Adaptive Review/i);
-
+    await assertVisibleFeature(page, 'Quick Play home action', /Quick Play/i);
+    await assertVisibleFeature(page, 'Bible Journey home action', /Bible Journey/i);
+    await assertVisibleFeature(page, 'Book practice home action', /Practice a Book|Book Practice/i);
+    await assertVisibleFeature(page, 'Adaptive Review home action', /Adaptive Review/i);
     const readerOnHome = (await visibleClickableTexts(page)).some(text => /Read Bible|Bible Reader/i.test(text));
 
+    // Enter authoritative Play to verify modes not reconstructed by PR6.
     await page.evaluate(() => window.TBC_PR6?.deactivate?.());
     await clickNativeNav(page, 'Play');
     await assertVisibleFeature(page, 'Campaign', /Campaign/i);
     await assertVisibleFeature(page, 'Expedition', /Expedition/i);
     const duelOnPlay = (await visibleClickableTexts(page)).some(text => /\bDuel\b/i.test(text));
 
+    // Library/collections must still render through the authoritative route.
     await page.evaluate(() => window.TBC_PR6?.deactivate?.());
     await clickNativeNav(page, 'Library');
     const libraryText = await featureText(page);
     assert.match(libraryText, /Library|Books/i, 'Library route must render library/book content');
     assert.match(libraryText, /Collection/i, 'Collections must remain reachable from Library');
 
+    // Progress/mastery remains a reachable utility.
     const progressClicked = await clickVisible(page, /^Progress$/i);
     assert.equal(progressClicked, true, 'Progress utility must remain clickable');
     const progressText = await featureText(page);
     assert.match(progressText, /Progress|Mastery|Retention|Coverage/i, 'Progress route must expose progress/mastery information');
 
+    // Settings and save-management surfaces remain reachable.
     const settingsClicked = await clickVisible(page, /^Settings$/i);
     assert.equal(settingsClicked, true, 'Settings utility must remain clickable');
     const settingsText = await featureText(page);
@@ -142,13 +170,14 @@ async function featureText(page) {
     assert.equal(runtime.importProgress, true, 'progress import implementation must remain callable');
     assert.ok(runtime.fileInputs >= 1, 'file import surface must remain packaged');
 
+    // Source-only survival is not enough for these legacy player-facing modes.
     assert.equal(readerOnHome, true, 'Bible Reader must retain a visible player-facing entry point');
     assert.equal(duelOnPlay, true, 'Duel must retain a visible player-facing Play entry point');
 
     assert.deepEqual(pageErrors, [], `page errors: ${pageErrors.join(' | ')}`);
     assert.deepEqual(consoleErrors, [], `console errors: ${consoleErrors.join(' | ')}`);
 
-    console.log('P0C RUNTIME PASSED: Home, Play/Learn flows, Campaign, Expedition, Duel, Bible Reader, Library/Collections, Progress/Mastery, Settings, export/import, and session restoration remain reachable.');
+    console.log('P0C RUNTIME PASSED: Quick/Focused, Journey/Path/Review, Campaign, Expedition, Duel, Bible Reader, Library/Collections, Progress/Mastery, Settings, export/import, and session restoration remain reachable.');
   } finally {
     await context.close();
     await browser.close();
