@@ -1,4 +1,4 @@
-name: P0A Preservation Audit
+name: P0 Preservation Audit
 
 on:
   pull_request:
@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   preservation:
-    name: Preserve v4.1.0 core
+    name: Preserve v4.1.0 core and existing features
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -26,6 +26,10 @@ jobs:
 
       - name: Run static core-preservation audit
         run: node scripts/p0a-preservation-audit.cjs
+        continue-on-error: true
+
+      - name: Run static existing-feature preservation audit
+        run: node scripts/p0c-existing-feature-preservation-audit.cjs
         continue-on-error: true
 
       - name: Set up Node
@@ -41,18 +45,24 @@ jobs:
       - name: Start local application
         shell: bash
         run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p0a-server.log 2>&1 &
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p0-server.log 2>&1 &
           for i in {1..20}; do
             if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
               exit 0
             fi
             sleep 1
           done
-          cat /tmp/tbc-p0a-server.log
+          cat /tmp/tbc-p0-server.log
           exit 1
 
-      - name: Run runtime preservation probe
+      - name: Run core runtime preservation probe
         run: node scripts/p0a-runtime-probe.cjs
+
+      - name: Run existing-feature browser smoke
+        run: node scripts/p0c-browser-smoke.cjs
 
       - name: Enforce static core-preservation gate
         run: node scripts/p0a-preservation-audit.cjs
+
+      - name: Enforce static existing-feature gate
+        run: node scripts/p0c-existing-feature-preservation-audit.cjs
