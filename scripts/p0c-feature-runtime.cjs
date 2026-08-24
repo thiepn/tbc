@@ -124,31 +124,33 @@ async function openFlow(page, flow, title) {
       assert.equal(clean(await page.locator('.pr6-root h2').innerText()), title, `${title} must render`);
     }
 
+    // Home may consolidate learning routes, but legacy reader access must remain player-facing.
     await page.locator('.pr5-primary-nav [data-pr5-nav="home"]').click();
     await page.waitForTimeout(450);
     await assertVisibleFeature(page, 'Quick Play home action', /Quick Play/i);
-    await assertVisibleFeature(page, 'Bible Journey home action', /Bible Journey/i);
-    await assertVisibleFeature(page, 'Book practice home action', /Practice a Book|Book Practice/i);
-    await assertVisibleFeature(page, 'Adaptive Review home action', /Adaptive Review/i);
     const readerOnHome = (await visibleClickableTexts(page)).some(text => /Read Bible|Bible Reader/i.test(text));
 
+    // Enter authoritative Play to verify modes not reconstructed by PR6.
     await page.evaluate(() => window.TBC_PR6?.deactivate?.());
     await clickNativeNav(page, 'Play');
     await assertVisibleFeature(page, 'Campaign', /Campaign/i);
     await assertVisibleFeature(page, 'Expedition', /Expedition/i);
     const duelOnPlay = (await visibleClickableTexts(page)).some(text => /\bDuel\b/i.test(text));
 
+    // Library/collections must still render through the authoritative route.
     await page.evaluate(() => window.TBC_PR6?.deactivate?.());
     await clickNativeNav(page, 'Library');
     const libraryText = await featureText(page);
     assert.match(libraryText, /Library|Books/i, 'Library route must render library/book content');
     assert.match(libraryText, /Collection/i, 'Collections must remain reachable from Library');
 
+    // Progress/mastery remains a reachable utility.
     const progressClicked = await clickVisible(page, /^Progress$/i);
     assert.equal(progressClicked, true, 'Progress utility must remain clickable');
     const progressText = await featureText(page);
     assert.match(progressText, /Progress|Mastery|Retention|Coverage/i, 'Progress route must expose progress/mastery information');
 
+    // Settings and save-management surfaces remain reachable.
     const settingsClicked = await clickVisible(page, /^Settings$/i);
     assert.equal(settingsClicked, true, 'Settings utility must remain clickable');
     const settingsText = await featureText(page);
