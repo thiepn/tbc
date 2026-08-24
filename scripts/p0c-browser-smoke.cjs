@@ -32,7 +32,7 @@ async function openCheckedPage(browser, viewport) {
   await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await page.waitForFunction(() => document.documentElement.getAttribute('data-pr5-foundation') === 'PR5.1', null, { timeout: 20000 });
   await page.waitForFunction(() => window.TBC_PR6?.version === 'PR6.0', null, { timeout: 20000 });
-  await page.waitForFunction(() => window.TBC_P0C?.version === 'P0C.2', null, { timeout: 20000 });
+  await page.waitForFunction(() => window.TBC_P0C?.version === 'P0C.3', null, { timeout: 20000 });
   await page.waitForSelector('.pr5-primary-nav', { state: 'attached', timeout: 20000 });
   await page.waitForTimeout(650);
   await dismissBlockingModal(page);
@@ -70,6 +70,16 @@ async function assertNamedCards(page, section, names) {
 
     const corePlayCards = await page.locator('.pr6-root [data-pr6-open="quick"], .pr6-root [data-pr6-open="focused"]').count();
     assert.equal(corePlayCards, 2, 'P0C must not replace PR6 Quick Play or Focused Practice');
+
+    const campaignLaunched = await page.evaluate(() => window.TBC_P0C.launch('campaign'));
+    assert.equal(campaignLaunched, true, 'Campaign bridge must hand off to the legacy mode');
+    await page.waitForTimeout(150);
+    await page.locator('.pr5-primary-nav [data-pr5-nav="play"]').click();
+    await waitForFlow(page, 'play');
+    const reentry = await page.evaluate(() => ({p0c:window.TBC_P0C.audit(),pr6:window.TBC_PR6.audit()}));
+    assert.equal(reentry.p0c.pendingNativePrime, false, 'legacy handoff must be re-primed before PR6 resumes');
+    assert.equal(reentry.p0c.reentryGuard, true, 'P0C re-entry guard must be active');
+    assert.equal(reentry.pr6.focusedTarget, true, 'Play re-entry must restore the native focused-practice target');
 
     await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
     await waitForFlow(page, 'learn');
@@ -119,7 +129,7 @@ async function assertNamedCards(page, section, names) {
     assert.ok(source.includes("'theBibleChallenge_v21'"), 'P0C must track the canonical v4.1.0 state contract');
     assert.equal(source.includes('tbc_v4_'), false, 'obsolete storage contracts must not return');
 
-    console.log('P0C browser smoke passed: Collections, Library, Progress/Mastery, Journey, Learning Path, Adaptive Review, Duel, Campaign, Expedition, canonical persistence, desktop/mobile access, and runtime stability.');
+    console.log('P0C browser smoke passed: Collections, Library, Progress/Mastery, Journey, Learning Path, Adaptive Review, Duel, Campaign, Expedition, legacy re-entry, canonical persistence, desktop/mobile access, and runtime stability.');
   } finally {
     await browser.close();
   }
