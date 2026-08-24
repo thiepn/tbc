@@ -12,6 +12,27 @@ async function visibleClickableTexts(page) {
   }).map(el => String(el.innerText || el.textContent || el.getAttribute('aria-label') || el.getAttribute('title') || '').replace(/\s+/g, ' ').trim()).filter(Boolean));
 }
 
+async function dismissBlockingModal(page) {
+  const modal = page.locator('#modalRoot .modal-backdrop');
+  if (!(await modal.count()) || !(await modal.isVisible().catch(() => false))) return;
+  const closedByApi = await page.evaluate(() => {
+    if (typeof closeModal === 'function') {
+      closeModal();
+      return true;
+    }
+    return false;
+  });
+  if (!closedByApi) {
+    const preferred = modal.getByRole('button', { name: /close|got it|continue|start|okay|ok|dismiss|not now|cancel/i }).last();
+    if (await preferred.count()) await preferred.click();
+    else {
+      const buttons = modal.getByRole('button');
+      if (await buttons.count()) await buttons.last().click();
+    }
+  }
+  await page.waitForFunction(() => !document.querySelector('#modalRoot .modal-backdrop'), null, { timeout: 5000 }).catch(() => {});
+}
+
 async function chooseStandard(page) {
   const modal = page.locator('#modalRoot .modal-backdrop');
   if (!(await modal.count()) || !(await modal.isVisible().catch(() => false))) return;
@@ -26,10 +47,11 @@ async function chooseStandard(page) {
         return raw && JSON.parse(raw)?.onboarded === true;
       } catch { return false; }
     }, null, { timeout: 7000 });
+    await page.waitForTimeout(250);
+    await dismissBlockingModal(page);
     return;
   }
-  const close = modal.getByRole('button', { name: /close|continue|start|okay|ok|dismiss|not now|cancel/i }).last();
-  if (await close.count()) await close.click();
+  await dismissBlockingModal(page);
 }
 
 async function clickVisible(page, pattern) {
@@ -106,7 +128,6 @@ async function openFlow(page, flow, title) {
     await assertVisibleFeature(page, 'Progress', /^Progress$/i);
     await assertVisibleFeature(page, 'Settings', /^Settings$/i);
 
-    // Exercise the reconstructed player paths in the same sequence a player uses them.
     await page.locator('.pr5-primary-nav [data-pr5-nav="play"]').click();
     await waitForFlow(page, 'play', 'Play');
     await assertVisibleFeature(page, 'Quick Play', /Quick Play/i);
@@ -123,7 +144,6 @@ async function openFlow(page, flow, title) {
       assert.equal(clean(await page.locator('.pr6-root h2').innerText()), title, `${title} must render`);
     }
 
-    // Home entry points that existed before reconstruction must remain available.
     await page.locator('.pr5-primary-nav [data-pr5-nav="home"]').click();
     await page.waitForTimeout(450);
     await assertVisibleFeature(page, 'Quick Play home action', /Quick Play/i);
@@ -132,27 +152,23 @@ async function openFlow(page, flow, title) {
     await assertVisibleFeature(page, 'Adaptive Review home action', /Adaptive Review/i);
     const readerOnHome = (await visibleClickableTexts(page)).some(text => /Read Bible|Bible Reader/i.test(text));
 
-    // Enter authoritative Play to verify modes not reconstructed by PR6.
     await page.evaluate(() => window.TBC_PR6?.deactivate?.());
     await clickNativeNav(page, 'Play');
     await assertVisibleFeature(page, 'Campaign', /Campaign/i);
     await assertVisibleFeature(page, 'Expedition', /Expedition/i);
     const duelOnPlay = (await visibleClickableTexts(page)).some(text => /\bDuel\b/i.test(text));
 
-    // Library/collections must still render through the authoritative route.
     await page.evaluate(() => window.TBC_PR6?.deactivate?.());
     await clickNativeNav(page, 'Library');
     const libraryText = await featureText(page);
     assert.match(libraryText, /Library|Books/i, 'Library route must render library/book content');
     assert.match(libraryText, /Collection/i, 'Collections must remain reachable from Library');
 
-    // Progress/mastery remains a reachable utility.
     const progressClicked = await clickVisible(page, /^Progress$/i);
     assert.equal(progressClicked, true, 'Progress utility must remain clickable');
     const progressText = await featureText(page);
     assert.match(progressText, /Progress|Mastery|Retention|Coverage/i, 'Progress route must expose progress/mastery information');
 
-    // Settings and save-management surfaces remain reachable.
     const settingsClicked = await clickVisible(page, /^Settings$/i);
     assert.equal(settingsClicked, true, 'Settings utility must remain clickable');
     const settingsText = await featureText(page);
@@ -170,7 +186,6 @@ async function openFlow(page, flow, title) {
     assert.equal(runtime.importProgress, true, 'progress import implementation must remain callable');
     assert.ok(runtime.fileInputs >= 1, 'file import surface must remain packaged');
 
-    // Source-only survival is not enough for these legacy player-facing modes.
     assert.equal(readerOnHome, true, 'Bible Reader must retain a visible player-facing entry point');
     assert.equal(duelOnPlay, true, 'Duel must retain a visible player-facing Play entry point');
 
