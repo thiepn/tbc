@@ -8,9 +8,9 @@ const VERSION='P0C.3';
 if(window.TBC_P0C?.version)return;
 
 const FEATURES={
-  collections:{label:'Collections',ids:['collectionsBtn'],terms:['Collections'],domain:'learn'},
-  library:{label:'Library',ids:['libraryBtn'],terms:['Library','Book Library'],domain:'library'},
-  progress:{label:'Progress & Mastery',ids:['progressBtn'],terms:['Progress','Mastery','Stats'],domain:'progress'},
+  collections:{label:'Collections',route:'collections',ids:['collectionsBtn'],terms:['Collections'],domain:'learn'},
+  library:{label:'Library',route:'library',ids:['libraryBtn'],terms:['Library','Book Library','Bible'],domain:'library'},
+  progress:{label:'Progress & Mastery',route:'progress',ids:['progressBtn'],terms:['Progress','Mastery','Stats'],domain:'progress'},
   journey:{label:'Bible Journey',pr6:'journey',domain:'learn'},
   path:{label:'Learning Path',pr6:'path',domain:'learn'},
   review:{label:'Adaptive Review',pr6:'review',domain:'learn'},
@@ -65,6 +65,33 @@ function legacyFunction(key){
   }
   return null;
 }
+function hasLegacyRoute(key){
+  const route=FEATURES[key]?.route;
+  if(route==='collections')return typeof window.openModal==='function'&&typeof window.v24CollectionsPanel==='function';
+  if(route==='library'||route==='progress')return typeof window.v292Go==='function';
+  return false;
+}
+function launchLegacyRoute(key){
+  const route=FEATURES[key]?.route;
+  if(route==='collections'){
+    if(!hasLegacyRoute(key))return false;
+    const body=window.v24CollectionsPanel();
+    const html=`<div class="modal p0c-collections-modal" role="dialog" aria-modal="true" aria-labelledby="p0cCollectionsTitle">
+      <div class="modal-head"><div><h2 id="p0cCollectionsTitle">Collections</h2><p>Curated Bible practice scopes</p></div><button type="button" class="icon-btn" aria-label="Close" onclick="closeModal()">×</button></div>
+      <div class="modal-body">${body}</div>
+    </div>`;
+    window.openModal(html,true);
+    return true;
+  }
+  if(route==='library'||route==='progress'){
+    if(!hasLegacyRoute(key))return false;
+    state.needsNativePrime=true;
+    window.TBC_PR6?.deactivate?.();
+    window.v292Go(route);
+    return true;
+  }
+  return false;
+}
 function legacyTarget(key){
   const feature=FEATURES[key];
   if(!feature)return null;
@@ -75,7 +102,7 @@ function legacyTarget(key){
   return findByTerms(feature.terms||[]);
 }
 function nativeDomainTarget(domain){
-  const terms=domain==='play'?['Play']:domain==='learn'?['Learn']:domain==='library'?['Library','Books']:[];
+  const terms=domain==='play'?['Play']:domain==='learn'?['Learn','Study']:domain==='library'?['Library','Books','Bible']:[];
   if(!terms.length)return null;
   const nav=document.querySelector('.pr5-native-nav')||Array.from(document.querySelectorAll('.nav')).find(el=>!own(el));
   return nav?findByTerms(terms,nav):null;
@@ -83,7 +110,7 @@ function nativeDomainTarget(domain){
 function available(key){
   const feature=FEATURES[key];
   if(!feature)return false;
-  const ok=Boolean(feature.pr6?window.TBC_PR6?.open:(legacyFunction(key)||legacyTarget(key)));
+  const ok=Boolean(feature.pr6?window.TBC_PR6?.open:(legacyFunction(key)||hasLegacyRoute(key)||legacyTarget(key)));
   if(ok)state.observed[key]=true;
   return ok;
 }
@@ -100,6 +127,13 @@ function launch(key){
     state.observed[key]=true;
     direct();
     document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key,entry:'function'}}));
+    return true;
+  }
+  if(hasLegacyRoute(key)){
+    const launched=launchLegacyRoute(key);
+    if(!launched)return false;
+    state.observed[key]=true;
+    document.dispatchEvent(new CustomEvent('tbc:p0c-launch',{detail:{feature:key,entry:'route'}}));
     return true;
   }
   const target=legacyTarget(key);
@@ -164,7 +198,7 @@ function injectPlayModes(root){
 }
 function injectLearnUtilities(root){
   const cards=[
-    featureCard('collections','Collections','Open your existing saved question and verse collections.','Open'),
+    featureCard('collections','Collections','Open the retained curated collection browser and practice scopes.','Open'),
     featureCard('library','Library','Browse the existing Bible library and book-focused content.','Browse'),
     featureCard('progress','Progress & Mastery','Open detailed mastery, book progress, and retained performance statistics.','View')
   ].filter(Boolean).join('');
