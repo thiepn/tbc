@@ -42,3 +42,12 @@ const base=new URL('.',current?.src||document.baseURI);
 if(!document.querySelector('link[data-pr6-style]')){const link=document.createElement('link');link.rel='stylesheet';link.href=new URL('pr6-play-learning.css',base).href;link.dataset.pr6Style='true';document.head.appendChild(link)}
 if(!document.querySelector('script[data-pr6-script]')){const script=document.createElement('script');script.src=new URL('pr6-play-learning.js',base).href;script.defer=true;script.dataset.pr6Script='true';document.head.appendChild(script)}
 })();
+
+/* P0C loader — feature-access preservation stays isolated from the frozen
+ * legacy document and can be removed without altering saved game state. */
+(()=>{'use strict';
+if(window.__TBC_P0C_LOADER__)return;window.__TBC_P0C_LOADER__=true;
+const current=document.currentScript;
+const base=new URL('.',current?.src||document.baseURI);
+if(!document.querySelector('script[data-p0c-script]')){const script=document.createElement('script');script.src=new URL('p0c-existing-feature-preservation.js',base).href;script.defer=true;script.dataset.p0cScript='true';document.head.appendChild(script)}
+})();
