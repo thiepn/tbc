@@ -138,9 +138,6 @@ function deactivate(){
   delete document.body.dataset.pr6Flow;
   if(state.root)state.root.hidden=true;
   state.flow=null;
-  /* Any external legacy handoff may replace the native content under PR6.
-     Never reuse a domain-prime cache after reconstruction is deactivated. */
-  state.primed=null;
 }
 function focusHeading(){
   requestAnimationFrame(()=>{
@@ -161,79 +158,143 @@ function rail(activeDomain){
 function subnav(flow){
   const domain=FLOW_META[flow].domain;
   const items=domain==='play'?[['quick','Quick Play'],['focused','Focused Practice']]:[['journey','Bible Journey'],['path','Learning Path'],['review','Adaptive Review']];
-  return `<nav class="pr6-subnav" aria-label="${domain==='play'?'Play modes':'Learning modes'}">${items.map(([id,name])=>`<button type="button" data-pr6-open="${id}" class="${flow===id?'active':''}"${flow===id?' aria-current="page"':''}>${name}</button>`).join('')}</nav>`;
+  return `<div class="pr6-subnav" role="navigation" aria-label="${domain==='play'?'Play':'Learning'} flows">${items.map(([id,name])=>`<button type="button" data-pr6-open="${id}" class="${flow===id?'active':''}"${flow===id?' aria-current="page"':''}>${name}</button>`).join('')}</div>`;
 }
-function shell(flow,body,status=''){
+function shell(flow,body,description){
   const meta=FLOW_META[flow],domain=meta.domain;
-  return `${rail(domain)}${subnav(flow)}<div class="pr6-shell-head"><span>${meta.eyebrow}</span><h2 tabindex="-1">${meta.title}</h2></div><div data-pr6-view>${body}</div><div class="pr6-status" role="status" aria-live="polite" data-pr6-status>${escapeHtml(status)}</div>`;
+  return `${rail(domain)}${subnav(flow==='play'?'quick':flow==='learn'?'journey':flow)}
+    <header class="pr6-page-head">
+      <div>
+        <span class="pr6-eyebrow">${meta.eyebrow}</span>
+        <h2 tabindex="-1">${meta.title}</h2>
+        <p>${description}</p>
+      </div>
+    </header>
+    <div data-pr6-view>${body}</div>
+    <div class="pr6-status" data-pr6-status role="status"></div>`;
+}
+function card({title,copy,flow,action,labelText='Open',primary=false,meta=''}) {
+  const attrs=flow?`data-pr6-open="${flow}"`:`data-pr6-action="${action}"`;
+  return `<button type="button" class="pr6-flow-card${primary?' primary':''}" ${attrs}>
+    ${meta?`<span class="pr6-card-meta">${escapeHtml(meta)}</span>`:''}
+    <strong>${escapeHtml(title)}</strong><span>${escapeHtml(copy)}</span><b>${escapeHtml(labelText)} <i aria-hidden="true">→</i></b>
+  </button>`;
 }
 
 function renderPlay(){
-  return `<section class="pr6-page-head"><div><span>Practice with purpose</span><h3>Choose the kind of session you need.</h3><p>Start immediately or narrow practice to a book. Your existing Bible Challenge question engine, settings, scores, and progress remain in control.</p></div><div class="pr6-head-mark" aria-hidden="true"><b>66</b><span>books</span></div></section>
-  <section class="pr6-intro-grid" aria-label="Play choices">
-    <button type="button" class="pr6-flow-card primary" data-pr6-action="quick-start"><span class="pr6-card-index">01</span><strong>Quick Play</strong><span>Start a mixed session using your current settings.</span><b>Start now <i aria-hidden="true">→</i></b></button>
-    <button type="button" class="pr6-flow-card" data-pr6-open="focused"><span class="pr6-card-index">02</span><strong>Focused Practice</strong><span>Choose any biblical book and practice it directly.</span><b>Choose a book <i aria-hidden="true">→</i></b></button>
-  </section>
-  <section class="pr6-explain"><span class="pr6-section-label">What stays the same</span><div class="pr6-feature-row"><article><b>01</b><strong>Same question engine</strong><p>PR6 hands sessions back to the existing game instead of creating a second scoring system.</p></article><article><b>02</b><strong>Same settings</strong><p>Question count, difficulty, collections, accessibility, and other player settings continue to come from the proven application.</p></article><article><b>03</b><strong>Same progress</strong><p>Your saved statistics and mastery data remain untouched by this reconstructed navigation layer.</p></article></div></section>`;
+  return shell('play',`
+    <section class="pr6-intro-grid" aria-label="Play choices">
+      ${card({title:'Quick Play',copy:'Start immediately with the game’s default mixed practice. No setup required.',action:'quick-start',labelText:'Start now',primary:true})}
+      ${card({title:'Focused Practice',copy:'Choose a specific book or practice route before starting the round.',flow:'focused',labelText:'Choose focus'})}
+    </section>
+    <section class="pr6-explain">
+      <span class="pr6-section-label">Two ways to practice</span>
+      <div class="pr6-explain-grid"><div><b>1</b><strong>Need reps?</strong><p>Use Quick Play when the goal is immediate recall practice.</p></div><div><b>2</b><strong>Know the weak area?</strong><p>Use Focused Practice when you want deliberate work on a narrower scope.</p></div></div>
+    </section>`,'Start a round immediately or narrow the practice target first.');
 }
 function renderQuick(){
-  const target=flowTarget('quick');
-  return `<section class="pr6-focus-top"><div><span class="pr6-section-label">Quick session</span><h3>Mixed practice, ready to go.</h3><p>${target?'The existing Quick Play launcher is ready.':'Quick Play is still part of the application, but its launcher could not be matched on this screen.'}</p></div><button type="button" class="pr6-button primary" data-pr6-action="quick-start" ${target?'':'disabled'}>${target?'Start Quick Play':'Launcher unavailable'}</button></section>
-  <section class="pr6-steps" aria-label="Quick Play steps"><article><span>1</span><div><strong>Use your current setup</strong><p>Difficulty, question count, active collection, and accessibility settings stay exactly where the game already stores them.</p></div></article><article><span>2</span><div><strong>Play in the native engine</strong><p>The reconstructed shell disappears when the quiz starts, keeping established gameplay behavior intact.</p></div></article><article><span>3</span><div><strong>Keep your progress</strong><p>Results continue through the existing scoring and progression system.</p></div></article></section>`;
-}
-function renderFocused(){
-  const grouped=BOOK_GROUPS.map(([group,books])=>`<section class="pr6-book-group" data-pr6-book-group="${escapeHtml(group)}"><h4>${escapeHtml(group)}</h4><div class="pr6-book-grid">${books.map(book=>`<button type="button" data-pr6-book="${escapeHtml(book)}">${escapeHtml(book)}</button>`).join('')}</div></section>`).join('');
-  return `<section class="pr6-focus-top"><div><span class="pr6-section-label">Focused practice</span><h3>Practice any book directly.</h3><p>All 66 books are available here. Selecting one hands the session to the existing practice engine.</p></div></section>
-  <section class="pr6-book-tools"><div class="pr6-book-search"><label for="pr6-book-search">Find a book</label><input id="pr6-book-search" type="search" placeholder="Search Genesis, John, Romans…" autocomplete="off" data-pr6-book-search></div><div class="pr6-testament-filter" role="group" aria-label="Filter books"><button type="button" class="active" data-pr6-testament="all">All 66</button><button type="button" data-pr6-testament="ot">Old Testament</button><button type="button" data-pr6-testament="nt">New Testament</button></div></section>
-  <div class="pr6-book-groups">${grouped}</div>`;
+  return shell('quick',`
+    <section class="pr6-feature">
+      <div class="pr6-feature-copy"><span class="pr6-section-label">Zero setup</span><h3>One action. Straight into questions.</h3><p>Quick Play uses your current game settings and takes you straight into a mixed round.</p>
+      <div class="pr6-actions"><button class="pr6-button primary" type="button" data-pr6-action="quick-start">Start Quick Play</button><button class="pr6-button" type="button" data-pr6-open="focused">Choose a focus instead</button></div></div>
+      <div class="pr6-feature-steps" aria-label="Quick Play flow"><div><b>01</b><span>Start</span></div><div><b>02</b><span>Answer</span></div><div><b>03</b><span>Review result</span></div></div>
+    </section>`,'Start a mixed practice round with the fewest possible decisions.');
 }
 
-function learningItems(){
-  const root=content();if(!root)return[];
-  const groups=[];
-  const candidates=Array.from(root.querySelectorAll('button,a[href],[role="button"]')).filter(el=>!own(el));
-  candidates.forEach(el=>{
-    const text=clean(label(el));if(!text)return;
-    if(/journey|learning path|review|continue|chapter|stage|lesson|weak|due/i.test(text))groups.push({el,text});
+function bookTarget(name){
+  const root=content(); if(!root)return null;
+  const wanted=norm(name);
+  const candidates=clickables(root).filter(el=>{
+    const t=norm(label(el));
+    return t===wanted||t.startsWith(wanted+' ')||t.endsWith(' '+wanted)||t.includes(' '+wanted+' ');
   });
-  return groups.slice(0,60);
+  if(candidates.length)return candidates[0];
+  const cards=Array.from(root.querySelectorAll('.book-card,[data-book],[class*="book"]')).filter(el=>!own(el));
+  const card=cards.find(el=>{const t=norm(el.getAttribute('data-book')||el.textContent);return t===wanted||t.startsWith(wanted+' ')});
+  return card?.matches('button,a,[role="button"]')?card:card?.querySelector('button,a,[role="button"]')||null;
+}
+function detectedBooks(){
+  return BOOKS.filter(name=>bookTarget(name));
+}
+function renderFocused(){
+  const available=new Set(detectedBooks());
+  const groups=BOOK_GROUPS.map(([group,books])=>{
+    const usable=books.filter(name=>available.has(name));
+    if(!usable.length)return'';
+    return `<section class="pr6-book-group"><div class="pr6-book-group-head"><h3>${escapeHtml(group)}</h3><span>${usable.length} available</span></div><div class="pr6-book-grid">${usable.map(name=>`<button type="button" data-pr6-book="${escapeHtml(name)}">${escapeHtml(name)}</button>`).join('')}</div></section>`;
+  }).join('');
+  const practice=flowTarget('focused');
+  return shell('focused',`
+    <section class="pr6-focus-top">
+      <div><span class="pr6-section-label">Targeted recall</span><h3>Practice what you intend to strengthen.</h3><p>Choose a book below to practice it directly, or open the full practice setup for more options.</p></div>
+      ${practice?'<button class="pr6-button primary" type="button" data-pr6-action="focused-open">Open practice setup</button>':''}
+    </section>
+    <div class="pr6-book-tools"><label>Find a book <input type="search" data-pr6-book-search placeholder="Genesis, John, Romans…" autocomplete="off"></label><div role="group" aria-label="Testament filter"><button type="button" class="active" data-pr6-testament="all">All</button><button type="button" data-pr6-testament="ot">Old Testament</button><button type="button" data-pr6-testament="nt">New Testament</button></div></div>
+    <div data-pr6-books>${groups||`<div class="pr6-empty"><strong>Book shortcuts are unavailable here.</strong><p>Open the full practice setup to choose your focus.</p><button class="pr6-button primary" type="button" data-pr6-action="focused-open">Open practice setup</button></div>`}</div>
+  `,'Choose a book or open the full focused-practice setup.');
 }
 function renderLearnHub(){
-  return `<section class="pr6-page-head"><div><span>Build knowledge over time</span><h3>Learn, review, and retain.</h3><p>Use the guided journey, continue your learning path, or review material that needs another pass.</p></div><div class="pr6-head-mark" aria-hidden="true"><b>3</b><span>paths</span></div></section>
-  <section class="pr6-intro-grid three" aria-label="Learning choices">
-    <button type="button" class="pr6-flow-card primary" data-pr6-open="journey"><span class="pr6-card-index">01</span><strong>Bible Journey</strong><span>Move through the Bible in an ordered, guided sequence.</span><b>Open journey <i aria-hidden="true">→</i></b></button>
-    <button type="button" class="pr6-flow-card" data-pr6-open="path"><span class="pr6-card-index">02</span><strong>Learning Path</strong><span>Continue the structured progression already in the game.</span><b>Continue path <i aria-hidden="true">→</i></b></button>
-    <button type="button" class="pr6-flow-card" data-pr6-open="review"><span class="pr6-card-index">03</span><strong>Adaptive Review</strong><span>Return to due, weak, or previously missed material.</span><b>Review now <i aria-hidden="true">→</i></b></button>
-  </section>`;
+  return shell('learn',`
+    <section class="pr6-intro-grid three" aria-label="Learning choices">
+      ${card({title:'Bible Journey',copy:'Move through Scripture in a guided whole-Bible sequence.',flow:'journey',labelText:'Continue journey',primary:true})}
+      ${card({title:'Learning Path',copy:'Follow the game’s structured learning plan and current next step.',flow:'path',labelText:'Open path'})}
+      ${card({title:'Adaptive Review',copy:'Return to material the game identifies as due or weak.',flow:'review',labelText:'Review'})}
+    </section>`,'Choose a guided sequence, structured path, or targeted review.');
 }
 function renderJourney(){
-  const items=learningItems();
-  const sample=items.filter(x=>/journey|chapter|stage/i.test(x.text)).slice(0,8);
-  return `<section class="pr6-focus-top"><div><span class="pr6-section-label">Bible Journey</span><h3>Follow the guided route.</h3><p>${sample.length?'Your existing journey steps are available below.':'The guided journey remains in the application; open the native journey to continue from your saved stage.'}</p></div><button class="pr6-button primary" type="button" data-pr6-action="journey-start">Continue journey</button></section>${sample.length?`<section class="pr6-learning-list">${sample.map((x,i)=>`<button type="button" data-pr6-learning-index="${items.indexOf(x)}"><span>${String(i+1).padStart(2,'0')}</span><strong>${escapeHtml(x.text)}</strong><b aria-hidden="true">→</b></button>`).join('')}</section>`:''}`;
+  const target=flowTarget('journey');
+  return shell('journey',`
+    <section class="pr6-feature compact">
+      <div class="pr6-feature-copy"><span class="pr6-section-label">Whole-Bible sequence</span><h3>Keep the big picture visible.</h3><p>Bible Journey guides you through all 66 books while keeping your existing progress and scoring.</p>
+      <div class="pr6-actions"><button class="pr6-button primary"${target?'':' disabled'} type="button" data-pr6-action="journey-start">${target?'Continue Bible Journey':'Journey unavailable'}</button></div></div>
+    </section>
+    <section class="pr6-roadmap" aria-label="Bible Journey roadmap">${BOOK_GROUPS.map(([group,books],i)=>`<div><span>${String(i+1).padStart(2,'0')}</span><strong>${escapeHtml(group)}</strong><small>${books.length} books</small></div>`).join('')}</section>
+  `,'Follow a guided sequence across the whole Bible.');
+}
+function learningItems(){
+  const root=content(); if(!root)return[];
+  const candidates=Array.from(root.querySelectorAll('.v27-plan-strip,.v27-learn-workspace button,[class*="learning"] button,[class*="path"] button')).filter(el=>!own(el));
+  const seen=new Set(),out=[];
+  for(const el of candidates){
+    const t=clean(el.textContent); if(!t||t.length>220)continue;
+    const key=norm(t); if(seen.has(key))continue; seen.add(key);
+    const parts=t.split(/\n+/).map(clean).filter(Boolean);
+    out.push({el,title:parts[0]||'Learning step',copy:parts.slice(1).join(' ')||'Continue this learning step.'});
+    if(out.length>=6)break;
+  }
+  return out;
 }
 function renderPath(){
   const items=learningItems();
-  const sample=items.filter(x=>/learning|continue|lesson|stage|chapter/i.test(x.text)).slice(0,10);
-  return `<section class="pr6-focus-top"><div><span class="pr6-section-label">Learning Path</span><h3>Continue the next useful step.</h3><p>The reconstructed view surfaces your existing route; completion and mastery remain owned by the original learning system.</p></div><button class="pr6-button primary" type="button" data-pr6-action="path-start">Open learning path</button></section>${sample.length?`<section class="pr6-learning-list">${sample.map((x,i)=>`<button type="button" data-pr6-learning-index="${items.indexOf(x)}"><span>${String(i+1).padStart(2,'0')}</span><strong>${escapeHtml(x.text)}</strong><b aria-hidden="true">→</b></button>`).join('')}</section>`:''}`;
+  const target=flowTarget('path');
+  return shell('path',`
+    <section class="pr6-focus-top"><div><span class="pr6-section-label">Structured progression</span><h3>One clear next learning step.</h3><p>Your current path steps and progress stay in sync as you continue learning.</p></div>${target?'<button class="pr6-button primary" type="button" data-pr6-action="path-start">Continue path</button>':''}</section>
+    <section class="pr6-path-list">${items.length?items.map((item,i)=>`<button type="button" data-pr6-learning-index="${i}"><span>${String(i+1).padStart(2,'0')}</span><div><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.copy)}</small></div><b aria-hidden="true">→</b></button>`).join(''):`<div class="pr6-empty"><strong>No individual path steps are exposed here.</strong><p>Continue through your current Learning Path.</p>${target?'<button class="pr6-button primary" type="button" data-pr6-action="path-start">Continue Learning Path</button>':''}</div>`}</section>
+  `,'Follow your structured plan and continue from your current step.');
+}
+function reviewSnapshot(){
+  const root=content(); if(!root)return[];
+  const selectors=['.v26-review-scheduler','.v26-retention-hero','.v25-mistake-list','.v26-mistake-insight','[class*="review"]','[class*="mistake"]'];
+  const seen=new Set(),items=[];
+  for(const el of root.querySelectorAll(selectors.join(','))){
+    if(own(el))continue;
+    const text=clean(el.textContent);
+    if(text.length<8||text.length>420)continue;
+    const key=norm(text); if(seen.has(key))continue;seen.add(key);
+    const first=text.match(/\b\d+\b/)?.[0]||'';
+    const title=/mistake/i.test(text)?'Mistakes':/due|schedule/i.test(text)?'Due review':/retention|weak|master/i.test(text)?'Retention':'Review signal';
+    items.push({title,value:first||'Active',copy:text.slice(0,150)+(text.length>150?'…':'')});
+    if(items.length>=3)break;
+  }
+  return items;
 }
 function renderReview(){
-  const items=learningItems();
-  const sample=items.filter(x=>/review|weak|due|miss/i.test(x.text)).slice(0,8);
-  return `<section class="pr6-focus-top"><div><span class="pr6-section-label">Adaptive Review</span><h3>Strengthen what needs another pass.</h3><p>${sample.length?'Your existing review targets are available below.':'The existing review engine remains available and will decide what should be revisited.'}</p></div><button class="pr6-button primary" type="button" data-pr6-action="review-start">Start review</button></section>${sample.length?`<section class="pr6-learning-list">${sample.map((x,i)=>`<button type="button" data-pr6-learning-index="${items.indexOf(x)}"><span>${String(i+1).padStart(2,'0')}</span><strong>${escapeHtml(x.text)}</strong><b aria-hidden="true">→</b></button>`).join('')}</section>`:''}`;
-}
-
-function filterBooks(query,testament){
-  const root=state.root;if(!root)return;
-  const q=norm(query),ntStart=BOOKS.indexOf('Matthew');
-  root.querySelectorAll('[data-pr6-book]').forEach(b=>{
-    const name=b.dataset.pr6Book,idx=BOOKS.indexOf(name);
-    const testamentMatch=testament==='all'||(testament==='ot'&&idx>=0&&idx<ntStart)||(testament==='nt'&&idx>=ntStart);
-    b.hidden=!(testamentMatch&&(!q||norm(name).includes(q)));
-  });
-  root.querySelectorAll('.pr6-book-group').forEach(group=>{
-    const visible=Array.from(group.querySelectorAll('[data-pr6-book]')).some(b=>!b.hidden);
-    group.hidden=!visible;
-  });
+  const target=flowTarget('review'),snap=reviewSnapshot();
+  return shell('review',`
+    <section class="pr6-focus-top"><div><span class="pr6-section-label">Retention loop</span><h3>Review what deserves another retrieval.</h3><p>Adaptive Review uses your existing retention and mistake history to prioritize what to revisit.</p></div><button class="pr6-button primary"${target?'':' disabled'} type="button" data-pr6-action="review-start">${target?'Start Adaptive Review':'Review unavailable'}</button></section>
+    ${snap.length?`<section class="pr6-signal-grid" aria-label="Current review signals">${snap.map(s=>`<article><span>${escapeHtml(s.title)}</span><strong>${escapeHtml(s.value)}</strong><p>${escapeHtml(s.copy)}</p></article>`).join('')}</section>`:''}
+    <section class="pr6-review-loop"><div><b>1</b><strong>Retrieve</strong><span>Answer before seeing the explanation.</span></div><div><b>2</b><strong>Correct</strong><span>Use the result to identify the gap.</span></div><div><b>3</b><strong>Return</strong><span>Revisit the material when the game schedules it again.</span></div></section>
+  `,'Use due reviews, mistakes, and weak areas to strengthen retention.');
 }
 
 async function render(flow){
@@ -328,6 +389,19 @@ function bindDynamic(){
     root.querySelectorAll('[data-pr6-testament]').forEach(x=>x.classList.toggle('active',x===b));
     filterBooks(search?.value||'',b.dataset.pr6Testament);
   }));
+}
+function filterBooks(query,testament){
+  const root=state.root;if(!root)return;
+  const q=norm(query),ntStart=BOOKS.indexOf('Matthew');
+  root.querySelectorAll('[data-pr6-book]').forEach(b=>{
+    const name=b.dataset.pr6Book,idx=BOOKS.indexOf(name);
+    const testamentMatch=testament==='all'||(testament==='ot'&&idx>=0&&idx<ntStart)||(testament==='nt'&&idx>=ntStart);
+    b.hidden=!(testamentMatch&&(!q||norm(name).includes(q)));
+  });
+  root.querySelectorAll('.pr6-book-group').forEach(group=>{
+    const visible=Array.from(group.querySelectorAll('[data-pr6-book]')).some(b=>!b.hidden);
+    group.hidden=!visible;
+  });
 }
 
 function intercept(event){
