@@ -57,6 +57,9 @@ jobs:
       - name: Recheck P0B five-level player controls
         run: node scripts/p0b-player-controls.cjs
 
+      - name: Map Learn-side legacy feature entrypoints
+        run: node scripts/p0d-feature-map-probe.cjs
+
       - name: Recheck current P0C feature handoffs
         run: node scripts/p0c-browser-smoke.cjs
 
