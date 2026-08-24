@@ -41,6 +41,7 @@ check('baseline manifest version',manifest.version==='P0E.1');
 check('legacy core baseline is pinned',manifest.legacyCoreBaselineCommit==='58b5ec8a5ecd2fd87a74f11eea7a94a9bc4195bb');
 check('repaired visual baseline is pinned',manifest.repairedVisualBaselineCommit==='7114e43466d0fc2c5c00bd87651aaa94e42cdf3a');
 check('repaired player-controls baseline is pinned',manifest.repairedPlayerControlsBaselineCommit==='079f307d0ca206c8e12c9ce8b803b1b9be9a1078');
+check('repaired feature bridge baseline is pinned',manifest.repairedFeatureBridgeBaselineCommit==='491b3be3092504fb24ff95d3b80d50332b986655');
 check('5,799-question contract',manifest.contract.questions===5799&&/5,799\s+(?:canonical\s+)?questions/i.test(readme));
 check('203 structured-question contract',manifest.contract.structuredQuestions===203&&/203\s+structured\s+questions/i.test(readme));
 check('66-book contract',manifest.contract.books===66&&/66\s+books/i.test(readme));
@@ -54,6 +55,7 @@ check('P0B retains all five levels',manifest.contract.difficultyLevels.every(lev
 check('P0B delegates changes through legacy state API',p0b.includes("window.setSetting('difficulty',lower(tier))")&&p0b.includes('window.save()'));
 check('P0B remains direct-storage-write-free',!/localStorage\.setItem|sessionStorage\.setItem/.test(p0b));
 check('P0C canonical state contract matches freeze',p0c.includes("'theBibleChallenge_v21'")&&p0c.includes("'theBibleChallenge_v21_recovery'"));
+check('P0C Duel uses canonical legacy function entrypoint',p0c.includes("functions:['v31OpenDuelSetup']")&&p0c.includes('legacyFunction(key)'));
 check('PR5 remains state-nonmutating',/does not read, write, or mutate TBC game state/i.test(pr5)&&!/localStorage\.setItem|sessionStorage\.setItem/.test(pr5));
 check('PR6 remains quiz-state-nonmutating',/never rewrites quiz\/question state/i.test(pr6)&&!/localStorage\.setItem|sessionStorage\.setItem/.test(pr6));
 check('P0C remains state-nonmutating',!/localStorage\.setItem|sessionStorage\.setItem/.test(p0c));
@@ -64,7 +66,7 @@ check('contrast theme compatibility retained',foundation.includes('body.contrast
 for(const feature of ['collections','library','progress','journey','path','review','duel','campaign','expedition','challenges','reader','achievements','profile','settings','memory','custom']){
   check(`feature bridge retained: ${feature}`,new RegExp(`\\b${feature}:\\{`).test(p0c));
 }
-for(const file of ['scripts/p0a-runtime-probe.cjs','scripts/p0b-player-controls.cjs','scripts/p0c-browser-smoke.cjs','scripts/p0d-browser-smoke.cjs','scripts/pr5-browser-smoke.cjs','scripts/pr6-browser-smoke.cjs','scripts/p0e-browser-certification.cjs']){
+for(const file of ['scripts/p0a-runtime-probe.cjs','scripts/p0b-player-controls.cjs','scripts/p0c-browser-smoke.cjs','scripts/p0c-duel-launch-smoke.cjs','scripts/p0d-browser-smoke.cjs','scripts/pr5-browser-smoke.cjs','scripts/pr6-browser-smoke.cjs','scripts/p0e-browser-certification.cjs']){
   check(`browser certification asset exists: ${file}`,fs.existsSync(path.join(ROOT,file)));
 }
 
