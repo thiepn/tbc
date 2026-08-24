@@ -56,6 +56,18 @@ async function snapshot(page, label) {
   return map;
 }
 
+async function clickExactVisible(page, text) {
+  const candidates = page.locator('button,a[href],[role="button"]').filter({ hasText: new RegExp(`^${text}$`, 'i') });
+  for (let i = 0; i < await candidates.count(); i++) {
+    const candidate = candidates.nth(i);
+    if (await candidate.isVisible().catch(() => false)) {
+      await candidate.click();
+      return true;
+    }
+  }
+  return false;
+}
+
 (async () => {
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
@@ -74,11 +86,8 @@ async function snapshot(page, label) {
       console.log(`P0C ${mode.toUpperCase()} EXACT VISIBLE TARGETS: ${exact.length}`);
     }
 
-    const quick = page.locator('button,a[href],[role="button"]').filter({ hasText: /^Quick Play$/i }).filter({ visible: true }).first();
-    if (await quick.count()) {
-      await quick.click();
-      await page.waitForTimeout(650);
-    }
+    await clickExactVisible(page, 'Quick Play');
+    await page.waitForTimeout(650);
     const quickMap = await snapshot(page, 'LEGACY QUICK PLAY');
     const duelExact = quickMap.controls.filter(item => /^Duel$/i.test(item.text) && item.visible);
     const duelLike = quickMap.controls.filter(item => /duel/i.test(`${item.text} ${item.cls} ${item.aria} ${item.title} ${item.parent}`) && item.visible);
