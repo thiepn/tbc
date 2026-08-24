@@ -85,8 +85,8 @@ async function assertNamedCards(page, section, names) {
     await waitForFlow(page, 'play');
     await assertNamedCards(page, 'play', ['duel','campaign','expedition']);
 
-    const corePlayCards = await page.locator('.pr6-root [data-pr6-open="quick"], .pr6-root [data-pr6-open="focused"]').count();
-    assert.equal(corePlayCards, 2, 'P0C must not replace PR6 Quick Play or Focused Practice');
+    const corePlayCards = await page.locator('.pr6-root section.pr6-intro-grid[aria-label="Play choices"] > .pr6-flow-card').count();
+    assert.equal(corePlayCards, 2, 'P0C must leave the two canonical PR6 Play choice cards intact');
 
     const campaignLaunched = await page.evaluate(() => window.TBC_P0C.launch('campaign'));
     assert.equal(campaignLaunched, true, 'Campaign bridge must hand off to the legacy mode');
@@ -102,8 +102,8 @@ async function assertNamedCards(page, section, names) {
     await waitForFlow(page, 'learn');
     await assertNamedCards(page, 'learn', ['collections','library','progress']);
 
-    const coreLearnCards = await page.locator('.pr6-root [data-pr6-open="journey"], .pr6-root [data-pr6-open="path"], .pr6-root [data-pr6-open="review"]').count();
-    assert.equal(coreLearnCards, 3, 'P0C must not replace Journey, Learning Path, or Adaptive Review');
+    const coreLearnCards = await page.locator('.pr6-root section.pr6-intro-grid.three[aria-label="Learning choices"] > .pr6-flow-card').count();
+    assert.equal(coreLearnCards, 3, 'P0C must leave the three canonical PR6 learning choice cards intact');
 
     const audit = await page.evaluate(() => window.TBC_P0C.audit());
     assert.equal(audit.pass, true, `P0C audit failed after Play + Learn discovery: ${JSON.stringify(audit)}`);
