@@ -5,21 +5,27 @@ const fs = require('node:fs');
 const BASE = 'http://127.0.0.1:4173/';
 
 async function dismissBlockingModal(page) {
-  const modal = page.locator('#modalRoot .modal-backdrop');
-  if (!(await modal.count()) || !(await modal.isVisible())) return;
-  const closedByApi = await page.evaluate(() => {
-    if (typeof closeModal === 'function') { closeModal(); return true; }
-    return false;
-  });
-  if (!closedByApi) {
-    const preferred = modal.getByRole('button', { name: /close|got it|continue|start|okay|ok|dismiss|not now|cancel/i }).last();
-    if (await preferred.count()) await preferred.click();
-    else {
-      const buttons = modal.getByRole('button');
-      if (await buttons.count()) await buttons.last().click();
+  for(let attempt=0;attempt<8;attempt++){
+    await page.waitForTimeout(attempt===0?250:120);
+    const modal = page.locator('#modalRoot .modal-backdrop:visible');
+    if (!(await modal.count())) continue;
+    const closedByApi = await page.evaluate(() => {
+      if (typeof closeModal === 'function') { closeModal(); return true; }
+      return false;
+    });
+    if (!closedByApi) {
+      const preferred = modal.getByRole('button', { name: /close|got it|continue|start|okay|ok|dismiss|not now|cancel/i }).last();
+      if (await preferred.count()) await preferred.click({force:true});
+      else {
+        const buttons = modal.getByRole('button');
+        if (await buttons.count()) await buttons.last().click({force:true});
+      }
     }
   }
-  await page.waitForFunction(() => !document.querySelector('#modalRoot .modal-backdrop'), null, { timeout: 5000 });
+  await page.waitForFunction(() => ![...document.querySelectorAll('#modalRoot .modal-backdrop')].some(el => {
+    const s=getComputedStyle(el),r=el.getBoundingClientRect();
+    return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0;
+  }), null, { timeout: 5000 });
 }
 
 async function openCheckedPage(browser, viewport) {
@@ -34,9 +40,7 @@ async function openCheckedPage(browser, viewport) {
   await page.waitForFunction(() => window.TBC_PR6?.version === 'PR6.0', null, { timeout: 20000 });
   await page.waitForFunction(() => window.TBC_P0C?.version === 'P0C.3', null, { timeout: 20000 });
   await page.waitForSelector('.pr5-primary-nav', { state: 'attached', timeout: 20000 });
-  await page.waitForTimeout(650);
   await dismissBlockingModal(page);
-  await page.waitForTimeout(200);
   return { context, page, pageErrors, consoleErrors };
 }
 
@@ -77,6 +81,40 @@ async function assertLearnCoreIntact(page) {
   }
 }
 
+async function reopenLearn(page, navSelector) {
+  await dismissBlockingModal(page);
+  await page.locator(navSelector).click();
+  await waitForFlow(page,'learn');
+}
+
+async function assertCollectionsLaunch(page) {
+  const launched=await page.evaluate(()=>window.TBC_P0C.launch('collections'));
+  assert.equal(launched,true,'Collections bridge must open the retained collection engine');
+  const modal=page.locator('#modalRoot .modal-backdrop:visible');
+  await modal.waitFor({state:'visible',timeout:5000});
+  assert.ok(await modal.locator('.v24-collection-card').count()>=18,'Collections modal must render retained collection cards');
+  const text=(await modal.innerText()).replace(/\s+/g,' ');
+  assert.match(text,/22 collections match/i,'Collections modal must expose all 22 retained collections');
+  assert.match(text,/Practice \d+/i,'Collections modal must retain practice actions');
+  assert.match(text,/\bTest\b/i,'Collections modal must retain test actions');
+  await page.evaluate(()=>{if(typeof closeModal==='function')closeModal()});
+  await dismissBlockingModal(page);
+}
+
+async function assertRouteLaunch(page,key,pattern) {
+  const launched=await page.evaluate(feature=>window.TBC_P0C.launch(feature),key);
+  assert.equal(launched,true,`${key} bridge must launch through the current legacy route`);
+  await page.waitForFunction(source=>{
+    const re=new RegExp(source,'i');
+    const title=document.querySelector('.topbar h1')?.textContent||'';
+    const text=document.querySelector('.main')?.innerText||'';
+    return re.test(title)||re.test(text);
+  },pattern.source,{timeout:7000});
+  assert.equal(await page.locator('.pr6-root:not([hidden])').count(),0,`${key} handoff must leave reconstructed PR6 while the legacy surface is active`);
+  const visibleText=(await page.locator('.main').innerText()).replace(/\s+/g,' ');
+  assert.match(visibleText,pattern,`${key} legacy surface must be visible`);
+}
+
 (async () => {
   fs.mkdirSync('artifacts/p0c', { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -107,6 +145,18 @@ async function assertLearnCoreIntact(page) {
     await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
     await waitForFlow(page, 'learn');
     await assertNamedCards(page, 'learn', ['collections','library','progress']);
+    await assertLearnCoreIntact(page);
+
+    await assertCollectionsLaunch(page);
+    assert.equal(document !== null,true);
+    await assertRouteLaunch(page,'library',/library|bible|book|chapter|reader/i);
+    await reopenLearn(page,'.pr5-primary-nav [data-pr5-nav="learn"]');
+    await assertNamedCards(page,'learn',['collections','library','progress']);
+    await assertLearnCoreIntact(page);
+
+    await assertRouteLaunch(page,'progress',/progress|mastery|coverage|retention|stats/i);
+    await reopenLearn(page,'.pr5-primary-nav [data-pr5-nav="learn"]');
+    await assertNamedCards(page,'learn',['collections','library','progress']);
     await assertLearnCoreIntact(page);
 
     const audit = await page.evaluate(() => window.TBC_P0C.audit());
@@ -152,7 +202,7 @@ async function assertLearnCoreIntact(page) {
     assert.ok(source.includes("'theBibleChallenge_v21'"), 'P0C must track the canonical v4.1.0 state contract');
     assert.equal(source.includes('tbc_v4_'), false, 'obsolete storage contracts must not return');
 
-    console.log('P0C browser smoke passed: Collections, Library, Progress/Mastery, Journey, Learning Path, Adaptive Review, Duel, Campaign, Expedition, PR6 core Play/Learn surfaces, legacy re-entry baseline preservation, canonical persistence, desktop/mobile access, and runtime stability.');
+    console.log('P0C browser smoke passed: retained Collections engine, current Library and Progress routes, Journey, Learning Path, Adaptive Review, Duel, Campaign, Expedition, PR6 core Play/Learn surfaces, legacy re-entry preservation, canonical persistence, desktop/mobile access, and runtime stability.');
   } finally {
     await browser.close();
   }
