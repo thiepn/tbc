@@ -11,7 +11,7 @@ async function resolveBlockingModal(page) {
   const text = (await modal.innerText()).replace(/\s+/g, ' ').trim();
 
   if (/CHOOSE YOUR BIBLE DIFFICULTY/i.test(text)) {
-    const standard = modal.getByRole('button').filter({ hasText: /^\s*Standard\b/i }).first();
+    const standard = modal.getByRole('button').filter({ hasText: /Standard/i }).first();
     assert.ok(await standard.count(), 'P0C smoke setup must be able to complete onboarding');
     await standard.click();
     await page.waitForFunction(key => {
