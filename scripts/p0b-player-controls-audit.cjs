@@ -19,11 +19,12 @@ const tiers=['Beginner','Easy','Standard','Advanced','Expert'];
 
 check('onboarding source remains packaged',/onboard(?:ing|ed)?|first[-_ ]?run|welcome/i.test(index));
 check('P0A owns the five-tier core contract',tiers.every(tier=>p0a.includes(`'${tier}'`)));
-check('P0B version is current',p0b.includes("const VERSION='P0B.1'"));
+check('P0B version is current',p0b.includes("const VERSION='P0B.2'"));
 check('P0B preserves all five tiers',tiers.every(tier=>p0b.includes(`'${tier}'`)));
-check('P0B delegates to the legacy difficulty target',p0b.includes('legacyDifficultyTarget')&&p0b.includes('target.click()'));
-check('P0B exits PR6 before legacy handoff',p0b.includes('window.TBC_PR6?.deactivate?.()'));
-check('P0B exposes a reconstructed difficulty control',p0b.includes('data-p0b-difficulty')&&p0b.includes('Choose difficulty'));
+check('P0B exposes a five-option selector',p0b.includes("document.createElement('select')")&&p0b.includes('data-p0b-difficulty'));
+check('P0B delegates difficulty changes to legacy setter',p0b.includes("window.setSetting('difficulty',lower(tier))"));
+check('P0B delegates persistence to legacy save API',p0b.includes("typeof window.save==='function'")&&p0b.includes('window.save()'));
+check('P0B uses canonical state key read-only',p0b.includes("const STORAGE_KEY='theBibleChallenge_v21'"));
 check('P0B uses legacy theme tokens',p0b.includes('var(--surface)')&&p0b.includes('var(--text)')&&p0b.includes('var(--indigo)'));
 check('P0B supports dark and contrast themes',p0b.includes('body.dark')&&p0b.includes('body.contrast'));
 check('P0B does not write localStorage',!p0b.includes('localStorage.setItem'));
@@ -47,4 +48,4 @@ if(failed.length){
   console.error(`P0B FAILED: ${failed.length} player-control invariant(s) failed.`);
   process.exit(1);
 }
-console.log('P0B PASSED: onboarding, all five difficulty levels, selector access, legacy handoff, and session-control contracts are preserved.');
+console.log('P0B PASSED: onboarding, all five difficulty levels, selector access, legacy setting delegation, and session-control contracts are preserved.');
