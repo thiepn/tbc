@@ -10,7 +10,7 @@ async function visibleClickableTexts(page) {
     const r = el.getBoundingClientRect();
     const s = getComputedStyle(el);
     return s.display !== 'none' && s.visibility !== 'hidden' && Number(s.opacity || 1) !== 0 && r.width > 0 && r.height > 0;
-  }).map(el => clean(el.innerText || el.textContent || el.getAttribute('aria-label') || el.getAttribute('title'))).filter(Boolean));
+  }).map(el => String(el.innerText || el.textContent || el.getAttribute('aria-label') || el.getAttribute('title') || '').replace(/\s+/g, ' ').trim()).filter(Boolean));
 }
 
 async function chooseStandard(page) {
@@ -87,21 +87,18 @@ async function featureText(page) {
     await chooseStandard(page);
     await page.waitForTimeout(500);
 
-    // Reconstructed shell must retain the primary domains and utility routes.
     for (const label of ['Home','Play','Learn','Library']) {
       assert.equal(await page.locator(`.pr5-primary-nav [data-pr5-nav="${label.toLowerCase()}"]`).count(), 1, `${label} primary route must remain present`);
     }
     await assertVisibleFeature(page, 'Progress', /^Progress$/i);
     await assertVisibleFeature(page, 'Settings', /^Settings$/i);
 
-    // PR6 must still resolve every reconstructed play/learning feature to the authoritative app.
     const pr6 = await page.evaluate(() => window.TBC_PR6.audit());
     assert.equal(pr6.pass, true, `PR6 compatibility audit failed: ${JSON.stringify(pr6)}`);
     for (const key of ['quickTarget','focusedTarget','journeyTarget','pathTarget','reviewTarget']) {
       assert.equal(pr6[key], true, `${key} must remain resolved`);
     }
 
-    // Home entry points that existed before reconstruction must remain available to players.
     await page.locator('.pr5-primary-nav [data-pr5-nav="home"]').click();
     await page.waitForTimeout(450);
     await assertVisibleFeature(page, 'Quick Play', /Quick Play/i);
@@ -109,30 +106,25 @@ async function featureText(page) {
     await assertVisibleFeature(page, 'Book practice', /Practice a Book|Book Practice/i);
     await assertVisibleFeature(page, 'Adaptive Review', /Adaptive Review/i);
 
-    // Reader must still have a reachable action somewhere in the active shell/home surface.
     const readerOnHome = (await visibleClickableTexts(page)).some(text => /Read Bible|Bible Reader/i.test(text));
 
-    // Enter the authoritative Play route to verify modes that PR6 does not reconstruct.
     await page.evaluate(() => window.TBC_PR6?.deactivate?.());
     await clickNativeNav(page, 'Play');
     await assertVisibleFeature(page, 'Campaign', /Campaign/i);
     await assertVisibleFeature(page, 'Expedition', /Expedition/i);
     const duelOnPlay = (await visibleClickableTexts(page)).some(text => /\bDuel\b/i.test(text));
 
-    // Library and collection surfaces must remain reachable through the authoritative route.
     await page.evaluate(() => window.TBC_PR6?.deactivate?.());
     await clickNativeNav(page, 'Library');
     const libraryText = await featureText(page);
     assert.match(libraryText, /Library|Books/i, 'Library route must render library/book content');
     assert.match(libraryText, /Collection/i, 'Collections must remain reachable from Library');
 
-    // Progress/mastery must remain reachable.
     const progressClicked = await clickVisible(page, /^Progress$/i);
     assert.equal(progressClicked, true, 'Progress utility must remain clickable');
     const progressText = await featureText(page);
     assert.match(progressText, /Progress|Mastery|Retention|Coverage/i, 'Progress route must expose progress/mastery information');
 
-    // Settings and save-management surfaces must remain reachable.
     const settingsClicked = await clickVisible(page, /^Settings$/i);
     assert.equal(settingsClicked, true, 'Settings utility must remain clickable');
     const settingsText = await featureText(page);
@@ -150,7 +142,6 @@ async function featureText(page) {
     assert.equal(runtime.importProgress, true, 'progress import implementation must remain callable');
     assert.ok(runtime.fileInputs >= 1, 'file import surface must remain packaged');
 
-    // Do not silently accept modes that remain in source but lost every player-facing entry point.
     assert.equal(readerOnHome, true, 'Bible Reader must retain a visible player-facing entry point');
     assert.equal(duelOnPlay, true, 'Duel must retain a visible player-facing Play entry point');
 
