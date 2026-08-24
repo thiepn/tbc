@@ -28,8 +28,8 @@ const contracts=[
   ['Learning Path',/63\s+(?:routed\s+)?learning\s+stages/i],
   ['Adaptive Review',/Adaptive Review/i],
   ['Duel',/Duel/i],
-  ['Campaign',/72\s+Campaign missions/i],
-  ['Expedition',/12\s+Expedition arcs/i],
+  ['Campaign',/Campaign missions\s*\|\s*\*\*72\*\*/i],
+  ['Expedition',/Expedition arcs\s*\|\s*\*\*12\*\*/i],
   ['Challenges',/collections, challenges, Bible Reader practice/i],
   ['Bible Reader practice',/Bible Reader practice/i]
 ];
