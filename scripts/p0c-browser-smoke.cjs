@@ -96,7 +96,17 @@ async function assertNamedCards(page, section, names) {
     const reentry = await page.evaluate(() => ({p0c:window.TBC_P0C.audit(),pr6:window.TBC_PR6.audit()}));
     assert.equal(reentry.p0c.pendingNativePrime, false, 'legacy handoff must be re-primed before PR6 resumes');
     assert.equal(reentry.p0c.reentryGuard, true, 'P0C re-entry guard must be active');
-    assert.equal(reentry.pr6.focusedTarget, true, 'Play re-entry must restore the native focused-practice target');
+    assert.equal(reentry.pr6.pass, true, `PR6 shell contract must remain healthy after legacy re-entry: ${JSON.stringify(reentry.pr6)}`);
+    assert.equal(reentry.pr6.activeFlow, 'play', 'legacy re-entry must return to the reconstructed Play hub');
+    await assertNamedCards(page, 'play', ['duel','campaign','expedition']);
+    assert.equal(await page.locator('.pr6-root section.pr6-intro-grid[aria-label="Play choices"] > .pr6-flow-card').count(), 2, 'Play re-entry must restore both canonical Play choices');
+
+    await page.locator('.pr6-root [data-pr6-open="focused"]').first().click();
+    await waitForFlow(page, 'focused');
+    assert.equal(await page.locator('.pr6-root [data-pr6-book-search]').count(), 1, 'Focused Practice must remain behaviorally reachable after Campaign re-entry');
+    await page.locator('.pr6-root [data-pr6-open="play"]').first().click();
+    await waitForFlow(page, 'play');
+    await assertNamedCards(page, 'play', ['duel','campaign','expedition']);
 
     await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
     await waitForFlow(page, 'learn');
