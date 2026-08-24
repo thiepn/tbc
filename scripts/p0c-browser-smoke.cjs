@@ -57,6 +57,26 @@ async function assertNamedCards(page, section, names) {
   }
 }
 
+async function assertSingleVisible(page, selector, message) {
+  const locator = page.locator(selector);
+  assert.equal(await locator.count(), 1, `${message} must exist exactly once`);
+  assert.equal(await locator.isVisible(), true, `${message} must be visible`);
+}
+
+async function assertPlayCoreIntact(page) {
+  await assertSingleVisible(page, '.pr6-root:not([hidden]) [data-pr6-view] .pr6-intro-grid [data-pr6-action="quick-start"]', 'PR6 Quick Play hub action');
+  await assertSingleVisible(page, '.pr6-root:not([hidden]) [data-pr6-view] .pr6-intro-grid [data-pr6-open="focused"]', 'PR6 Focused Practice hub card');
+  await assertSingleVisible(page, '.pr6-root:not([hidden]) .pr6-subnav [data-pr6-open="quick"]', 'PR6 Quick Play sub-navigation route');
+  await assertSingleVisible(page, '.pr6-root:not([hidden]) .pr6-subnav [data-pr6-open="focused"]', 'PR6 Focused Practice sub-navigation route');
+}
+
+async function assertLearnCoreIntact(page) {
+  for (const flow of ['journey','path','review']) {
+    await assertSingleVisible(page, `.pr6-root:not([hidden]) [data-pr6-view] .pr6-intro-grid [data-pr6-open="${flow}"]`, `PR6 ${flow} hub card`);
+    await assertSingleVisible(page, `.pr6-root:not([hidden]) .pr6-subnav [data-pr6-open="${flow}"]`, `PR6 ${flow} sub-navigation route`);
+  }
+}
+
 (async () => {
   fs.mkdirSync('artifacts/p0c', { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -67,9 +87,7 @@ async function assertNamedCards(page, section, names) {
     await page.locator('.pr5-primary-nav [data-pr5-nav="play"]').click();
     await waitForFlow(page, 'play');
     await assertNamedCards(page, 'play', ['duel','campaign','expedition']);
-
-    const corePlayCards = await page.locator('.pr6-root [data-pr6-open="quick"], .pr6-root [data-pr6-open="focused"]').count();
-    assert.equal(corePlayCards, 2, 'P0C must not replace PR6 Quick Play or Focused Practice');
+    await assertPlayCoreIntact(page);
 
     const campaignLaunched = await page.evaluate(() => window.TBC_P0C.launch('campaign'));
     assert.equal(campaignLaunched, true, 'Campaign bridge must hand off to the legacy mode');
@@ -80,13 +98,12 @@ async function assertNamedCards(page, section, names) {
     assert.equal(reentry.p0c.pendingNativePrime, false, 'legacy handoff must be re-primed before PR6 resumes');
     assert.equal(reentry.p0c.reentryGuard, true, 'P0C re-entry guard must be active');
     assert.equal(reentry.pr6.focusedTarget, true, 'Play re-entry must restore the native focused-practice target');
+    await assertPlayCoreIntact(page);
 
     await page.locator('.pr5-primary-nav [data-pr5-nav="learn"]').click();
     await waitForFlow(page, 'learn');
     await assertNamedCards(page, 'learn', ['collections','library','progress']);
-
-    const coreLearnCards = await page.locator('.pr6-root [data-pr6-open="journey"], .pr6-root [data-pr6-open="path"], .pr6-root [data-pr6-open="review"]').count();
-    assert.equal(coreLearnCards, 3, 'P0C must not replace Journey, Learning Path, or Adaptive Review');
+    await assertLearnCoreIntact(page);
 
     const audit = await page.evaluate(() => window.TBC_P0C.audit());
     assert.equal(audit.pass, true, `P0C audit failed after Play + Learn discovery: ${JSON.stringify(audit)}`);
@@ -108,9 +125,11 @@ async function assertNamedCards(page, section, names) {
     await mobilePage.locator('.pr5-mobile-nav [data-pr5-nav="play"]').click();
     await waitForFlow(mobilePage, 'play');
     await assertNamedCards(mobilePage, 'play', ['duel','campaign','expedition']);
+    await assertPlayCoreIntact(mobilePage);
     await mobilePage.locator('.pr5-mobile-nav [data-pr5-nav="learn"]').click();
     await waitForFlow(mobilePage, 'learn');
     await assertNamedCards(mobilePage, 'learn', ['collections','library','progress']);
+    await assertLearnCoreIntact(mobilePage);
 
     const mobileMetrics = await mobilePage.evaluate(() => ({
       overflow: document.documentElement.scrollWidth - window.innerWidth,
@@ -129,7 +148,7 @@ async function assertNamedCards(page, section, names) {
     assert.ok(source.includes("'theBibleChallenge_v21'"), 'P0C must track the canonical v4.1.0 state contract');
     assert.equal(source.includes('tbc_v4_'), false, 'obsolete storage contracts must not return');
 
-    console.log('P0C browser smoke passed: Collections, Library, Progress/Mastery, Journey, Learning Path, Adaptive Review, Duel, Campaign, Expedition, legacy re-entry, canonical persistence, desktop/mobile access, and runtime stability.');
+    console.log('P0C browser smoke passed: Collections, Library, Progress/Mastery, Journey, Learning Path, Adaptive Review, Duel, Campaign, Expedition, PR6 core Play/Learn surfaces, legacy re-entry, canonical persistence, desktop/mobile access, and runtime stability.');
   } finally {
     await browser.close();
   }
