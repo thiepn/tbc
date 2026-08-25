@@ -32,7 +32,7 @@ check('pr7-still-p1a-certified-component',()=>assert.match(pr7,/const VERSION='P
 check('pr7-still-state-nonowning',()=>assert.match(pr7,/directStorageWrites:false/));
 check('guard-reconciles-pr6-handoff',()=>assert.match(guard,/data-pr6-flow/));
 check('no-p1b-direct-storage-write',()=>{assert.doesNotMatch(p1b,/localStorage\.(?:setItem|removeItem|clear)|sessionStorage\.(?:setItem|removeItem|clear)/)});
-check('historical-p0e-baseline-preserved',()=>assert.ok(exists('certification/p0e-final-baseline.json')||exists('certification/p0e-baseline.json')));
+check('historical-p0e-baseline-preserved',()=>assert.ok(exists('certification/p0e-preservation-baseline.json')));
 check('historical-p0f-baseline-preserved',()=>assert.ok(exists('certification/p0f-production-baseline.json')));
 check('historical-p1a-baseline-preserved',()=>assert.ok(exists('certification/p1a-pr7-staging-baseline.json')));
 
