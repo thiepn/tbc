@@ -1,0 +1,20 @@
+{
+  "version": "P1B.0",
+  "phase": "P1B — Controlled PR7 Production Activation",
+  "parentP1AMerge": "6ab50b944e434c42cae96eab2341573f51eeaf3a",
+  "historicalP0FParent": "762f02de4227bb4719232db95b2657644ada4fcd",
+  "productionUrl": "https://thiepn.github.io/tbc/",
+  "productionActive": true,
+  "questionCount": 5799,
+  "structuredQuestionCount": 203,
+  "bookCount": 66,
+  "collectionCount": 22,
+  "difficultyLevels": ["Beginner", "Easy", "Standard", "Advanced", "Expert"],
+  "canonicalStateKeys": ["theBibleChallenge_v21", "theBibleChallenge_v21_recovery"],
+  "stateOwnership": "legacy/P0C/PR6",
+  "directStorageWrites": false,
+  "activatedSurfaces": ["Library", "Collections", "Progress", "Mastery"],
+  "handoffSurfaces": ["Quick Play", "Focused Practice", "Bible Journey", "Learning Path", "Adaptive Review"],
+  "historicalGates": ["P0E", "P0F", "P1A"],
+  "successorGate": "P1B PR7 Production Activation"
+}
