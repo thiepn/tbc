@@ -2,7 +2,7 @@ name: P2B Mechanical Integrity Audit
 
 on:
   push:
-    branches: [p2b-mechanical-integrity-audit]
+    branches: [p2b-mechanical-integrity-audit, main]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -29,6 +29,9 @@ jobs:
 
       - name: Repair only mechanically confirmed source defects
         run: node scripts/p2b-question-bank-repair.cjs
+
+      - name: Prove no unrelated monolith changes
+        run: node scripts/p2b-preservation-audit.cjs
 
       - name: Install Playwright
         run: |
