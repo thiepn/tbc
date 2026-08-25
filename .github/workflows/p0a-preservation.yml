@@ -58,6 +58,9 @@ jobs:
       - name: Run core runtime preservation probe
         run: node scripts/p0a-runtime-probe.cjs
 
+      - name: Diagnose PR5 Settings routing
+        run: node scripts/p0e-settings-diagnostic.cjs
+
       - name: Run existing-feature browser smoke
         run: node scripts/p0c-browser-smoke.cjs
 
