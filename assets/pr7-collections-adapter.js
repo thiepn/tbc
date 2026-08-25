@@ -69,10 +69,11 @@ function reconcileRouteOwnership(){
   const pr7Owns=Boolean(body.dataset.pr7Flow);
   const pr6Owns=Boolean(body.dataset.pr6Flow&&document.querySelector('.pr6-root:not([hidden])'));
   if(!pr7Owns&&pr6Owns){
-    root.hidden=true;
-    body.classList.remove('pr7-native-active');
-    document.documentElement.removeAttribute('data-pr7-stage-active');
-    return true;
+    let changed=false;
+    if(!root.hidden){root.hidden=true;changed=true}
+    if(body.classList.contains('pr7-native-active')){body.classList.remove('pr7-native-active');changed=true}
+    if(document.documentElement.hasAttribute('data-pr7-stage-active')){document.documentElement.removeAttribute('data-pr7-stage-active');changed=true}
+    return changed;
   }
   return false;
 }
@@ -89,7 +90,7 @@ const routeObserver=new MutationObserver(()=>settle());
 function start(){
   wrapP0C();
   activationObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-pr7-activated']});
-  if(document.body)routeObserver.observe(document.body,{attributes:true,subtree:true,attributeFilter:['data-pr6-flow','data-pr7-flow','hidden']});
+  if(document.body)routeObserver.observe(document.body,{attributes:true,attributeFilter:['data-pr6-flow','data-pr7-flow']});
   settle();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
