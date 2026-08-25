@@ -6,9 +6,12 @@
 (()=>{'use strict';
 if(window.TBC_PR7_COLLECTIONS?.version)return;
 const VERSION='P1A.1';
+const EXPECTED=22;
 const pending=new WeakSet();
+const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 function active(){return Boolean(document.documentElement.getAttribute('data-pr7-activated'))}
 function eligible(button){return Boolean(button?.isConnected&&!button.disabled&&button.getAttribute('aria-disabled')!=='true')}
+function count(root=document){return root.querySelectorAll?.('#modalRoot .v24-collection-card')?.length||0}
 function expand(root=document){
   if(!active())return 0;
   let scheduled=0;
@@ -16,8 +19,8 @@ function expand(root=document){
     if(!eligible(button)||pending.has(button))continue;
     pending.add(button);
     scheduled++;
-    /* The retained modal can insert the control before its own click handler is
-     * fully bound. Delay one task, then permit a bounded retry if it remains. */
+    /* Mutation observers can see the control before the retained modal finishes
+     * binding it. Passive expansion therefore remains delayed and retryable. */
     setTimeout(()=>{
       if(active()&&eligible(button))button.click();
       setTimeout(()=>pending.delete(button),70);
@@ -25,13 +28,28 @@ function expand(root=document){
   }
   return scheduled;
 }
+async function ensure(root=document,expected=EXPECTED){
+  if(!active())return count(root);
+  /* Called by PR7 only after P0C has opened and settled the retained modal.
+   * At that point invoke the native control directly and verify the resulting
+   * catalog instead of trusting observer timing. */
+  for(let attempt=0;attempt<8;attempt++){
+    const cards=count(root);
+    const button=root.querySelector?.('#modalRoot .v24-show-more');
+    if(cards>=expected||!eligible(button))return cards;
+    pending.delete(button);
+    button.click();
+    await delay(90);
+  }
+  return count(root);
+}
 function settle(){
   if(!active())return;
   let attempt=0;
   const tick=()=>{
     if(!active()||attempt++>=12)return;
     expand(document);
-    if(document.querySelectorAll('#modalRoot .v24-collection-card').length>=22&&!document.querySelector('#modalRoot .v24-show-more'))return;
+    if(count(document)>=EXPECTED&&!document.querySelector('#modalRoot .v24-show-more'))return;
     setTimeout(tick,40);
   };
   tick();
@@ -54,5 +72,5 @@ function start(){
   settle();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
-window.TBC_PR7_COLLECTIONS={version:VERSION,expand,settle,audit:()=>({version:VERSION,active:active(),directStorageWrites:false,nativeControl:'.v24-show-more'})};
+window.TBC_PR7_COLLECTIONS={version:VERSION,expand,ensure,settle,audit:()=>({version:VERSION,active:active(),expected:EXPECTED,directStorageWrites:false,nativeControl:'.v24-show-more'})};
 })();
