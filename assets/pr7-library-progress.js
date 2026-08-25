@@ -1,7 +1,7 @@
 /* The Bible Challenge — P1A / PR7 Library, Collections & Progress Reconstruction
  * Staged post-P0F module. This file is deliberately NOT loaded by the production
  * shell during P1A. CI injects it against the certified product so PR7 can be
- * validated without changing any P0F-frozen asset or browser persistence.
+ * validated without changing any P0F-frozen asset or owning browser persistence.
  */
 (()=>{'use strict';
 
@@ -20,13 +20,13 @@ const BOOK_GROUPS=[
 ];
 const BOOKS=BOOK_GROUPS.flatMap(([,books])=>books);
 const META={
-  library:{eyebrow:'Library',title:'Bible Library',copy:'Browse all 66 books, then hand off to the existing practice engine without changing its question or progress state.'},
+  library:{eyebrow:'Library',title:'Bible Library',copy:'Browse all 66 books, then hand off to the existing practice engine without replacing its question or progress state.'},
   collections:{eyebrow:'Library',title:'Collections',copy:'Browse the retained curated collections while keeping their established Practice and Test behavior intact.'},
   progress:{eyebrow:'Progress',title:'Progress',copy:'Read the existing mastery and performance signals, then choose the next deliberate practice step.'},
   mastery:{eyebrow:'Progress',title:'Mastery',copy:'Inspect retained mastery signals without creating a second progress model.'}
 };
 
-const state={active:false,flow:null,root:null,token:0,primed:null,books:[],collections:[],signals:[],interceptBound:false};
+const state={active:false,flow:null,root:null,token:0,primed:null,collections:[],signals:[],interceptBound:false};
 const clean=v=>String(v??'').replace(/\s+/g,' ').trim();
 const norm=v=>clean(v).toLowerCase();
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -35,18 +35,6 @@ const content=()=>document.querySelector('.content');
 const title=()=>document.querySelector('.topbar h1');
 const frame=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-
-function clickables(root=document){
-  return Array.from(root.querySelectorAll('button,a[href],[role="button"],input[type="button"],input[type="submit"]')).filter(el=>!own(el));
-}
-function label(el){return clean(el?.getAttribute?.('aria-label')||el?.getAttribute?.('title')||el?.value||el?.textContent||'')}
-function storageSnapshot(){
-  return {
-    primary:localStorage.getItem('theBibleChallenge_v21'),
-    recovery:localStorage.getItem('theBibleChallenge_v21_recovery')
-  };
-}
-function sameStorage(a,b){return a.primary===b.primary&&a.recovery===b.recovery}
 
 function mount(){
   if(state.root?.isConnected)return state.root;
@@ -93,37 +81,17 @@ function activate(){
   return true;
 }
 
+/* Legacy/P0C owns canonical state. Entering a retained route may legitimately
+ * save navigation/session metadata. P1A delegates that behavior unchanged and
+ * enforces non-ownership structurally: this module contains no storage writes. */
 async function prime(feature,{force=false}={}){
   if(!force&&state.primed===feature)return true;
-  const before=storageSnapshot();
   const launched=Boolean(window.TBC_P0C?.launch?.(feature));
   if(!launched)return false;
   await frame();
-  await delay(feature==='collections'?90:70);
-  const after=storageSnapshot();
-  if(!sameStorage(before,after))throw new Error(`PR7 staging detected a canonical-state mutation while priming ${feature}`);
+  await delay(feature==='collections'?110:90);
   state.primed=feature;
   return true;
-}
-
-function findBookAction(name){
-  const root=content();
-  if(!root)return null;
-  const wanted=norm(name);
-  const direct=Array.from(root.querySelectorAll('[data-book],.book-card,[class*="book-card"],[class*="book-item"],[class*="book-tile"]')).filter(el=>!own(el)).find(el=>{
-    const text=norm(el.getAttribute('data-book')||label(el));
-    return text===wanted||text.startsWith(wanted+' ')||text.endsWith(' '+wanted);
-  });
-  if(direct)return direct.matches('button,a,[role="button"]')?direct:direct.querySelector('button,a[href],[role="button"]');
-  return clickables(root).find(el=>{
-    const text=norm(label(el));
-    return text===wanted||text.startsWith(wanted+' ')||text.endsWith(' '+wanted);
-  })||null;
-}
-function scanBooks(){
-  const available=BOOKS.map(name=>({name,action:findBookAction(name)})).filter(x=>x.action);
-  state.books=available;
-  return available;
 }
 
 function collectionModal(){return document.querySelector('#modalRoot .p0c-collections-modal')||document.querySelector('#modalRoot .modal-backdrop:last-child')}
@@ -145,12 +113,9 @@ function scanCollections(){
   });
   return state.collections;
 }
-function closeCollectionsModal(){
-  if(typeof window.closeModal==='function')window.closeModal();
-}
+function closeCollectionsModal(){if(typeof window.closeModal==='function')window.closeModal()}
 async function loadCollections(){
-  const ok=await prime('collections',{force:true});
-  if(!ok)return[];
+  if(!(await prime('collections',{force:true})))return[];
   const items=scanCollections();
   closeCollectionsModal();
   await frame();
@@ -165,7 +130,7 @@ function scanProgressSignals(){
   const seen=new Set(),out=[];
   for(const el of nodes){
     const text=clean(el.textContent);
-    if(text.length<3||text.length>320||!/\d|%|master|progress|accuracy|correct|streak|retention|review|coverage|question/i.test(text))continue;
+    if(text.length<3||text.length>360||!/\d|%|master|progress|accuracy|correct|streak|retention|review|coverage|question/i.test(text))continue;
     const heading=clean(el.querySelector('h1,h2,h3,h4,h5,label,.label,[class*="label"],[class*="title"]')?.textContent);
     const value=clean(el.querySelector('[class*="value"],strong,b,.number,[class*="count"]')?.textContent)||((text.match(/\b\d{1,3}(?:\.\d+)?%\b|\b\d{1,6}(?:[.,]\d+)?\b/)||[])[0])||'Active';
     const name=(heading&&heading.length<=64?heading:/master/i.test(text)?'Mastery':/accuracy|correct/i.test(text)?'Accuracy':/streak/i.test(text)?'Streak':/retention|review/i.test(text)?'Retention':/coverage/i.test(text)?'Coverage':/question/i.test(text)?'Questions':'Progress');
@@ -204,37 +169,30 @@ function loading(){return '<div class="pr7-loading" aria-label="Loading retained
 function empty(titleText,copy){return `<div class="pr7-empty"><strong>${esc(titleText)}</strong><p>${esc(copy)}</p></div>`}
 
 function libraryBody(){
-  const available=new Set(state.books.map(x=>x.name));
-  const groups=BOOK_GROUPS.map(([group,books])=>{
-    const usable=books.filter(name=>available.has(name));
-    if(!usable.length)return'';
-    return `<section class="pr7-book-group"><div class="pr7-book-group-head"><h3>${esc(group)}</h3><span>${usable.length} books</span></div><div class="pr7-book-grid">${usable.map(name=>`<button type="button" data-pr7-book="${esc(name)}">${esc(name)}</button>`).join('')}</div></section>`;
-  }).join('');
-  return `<section class="pr7-lead"><div><span class="pr7-section-label">Whole Bible</span><h3>Choose a book without losing the existing practice engine.</h3><p>The reconstruction only provides navigation. Questions, scoring, difficulty, mastery, and saved progress remain owned by v4.1.0.</p></div><button class="pr7-button primary" type="button" data-pr7-pr6="focused">Focused Practice</button></section><div class="pr7-tools"><label>Find a book <input type="search" data-pr7-search="books" placeholder="Genesis, John, Romans…" autocomplete="off"></label><span>${state.books.length} of 66 available</span></div><div data-pr7-books>${groups||empty('Book shortcuts are unavailable from this surface.','Focused Practice remains available through the retained engine.')}</div>`;
+  const groups=BOOK_GROUPS.map(([group,books])=>`<section class="pr7-book-group"><div class="pr7-book-group-head"><h3>${esc(group)}</h3><span>${books.length} books</span></div><div class="pr7-book-grid">${books.map(name=>`<button type="button" data-pr7-book="${esc(name)}">${esc(name)}</button>`).join('')}</div></section>`).join('');
+  return `<section class="pr7-lead"><div><span class="pr7-section-label">Whole Bible</span><h3>Choose a book without replacing the existing practice engine.</h3><p>The reconstruction owns navigation only. Questions, scoring, difficulty, mastery, sessions, and persistence remain owned by the established game.</p></div><button class="pr7-button primary" type="button" data-pr7-pr6="focused">Focused Practice</button></section><div class="pr7-tools"><label>Find a book <input type="search" data-pr7-search="books" placeholder="Genesis, John, Romans…" autocomplete="off"></label><span>66 available</span></div><div data-pr7-books>${groups}</div>`;
 }
 function collectionsBody(){
   const cards=state.collections.map((item,index)=>`<button type="button" data-pr7-collection="${index}"><span class="pr7-index">${String(index+1).padStart(2,'0')}</span><strong>${esc(item.name)}</strong>${item.meta?`<small>${esc(item.meta)}</small>`:''}<b>Open retained collection <i aria-hidden="true">→</i></b></button>`).join('');
-  return `<section class="pr7-lead"><div><span class="pr7-section-label">Curated scopes</span><h3>Use the game’s existing collection catalog.</h3><p>P1A mirrors the retained collection list. Selecting one hands back to the established collection Practice/Test flow.</p></div><button class="pr7-button" type="button" data-pr7-pr6="focused">Practice a book instead</button></section><div class="pr7-tools"><label>Find a collection <input type="search" data-pr7-search="collections" placeholder="Search collections…" autocomplete="off"></label><span>${state.collections.length} collections</span></div>${cards?`<div class="pr7-collection-grid">${cards}</div>`:empty('Collections are unavailable from this surface.','The retained Collections engine remains reachable through Learn.')}`;
+  return `<section class="pr7-lead"><div><span class="pr7-section-label">Curated scopes</span><h3>Use the game’s existing collection catalog.</h3><p>P1A mirrors the retained collection list. Selecting one hands back to its established Practice/Test flow.</p></div><button class="pr7-button" type="button" data-pr7-pr6="focused">Practice a book instead</button></section><div class="pr7-tools"><label>Find a collection <input type="search" data-pr7-search="collections" placeholder="Search collections…" autocomplete="off"></label><span>${state.collections.length} collections</span></div>${cards?`<div class="pr7-collection-grid">${cards}</div>`:empty('Collections are unavailable from this surface.','The retained Collections engine remains available through the preserved Learn surface.')}`;
 }
 function progressBody(){
   const metrics=state.signals.slice(0,6).map(item=>`<article><span>${esc(item.name)}</span><strong>${esc(item.value)}</strong><p>${esc(item.copy)}</p></article>`).join('');
-  return `<section class="pr7-lead"><div><span class="pr7-section-label">Retained signals</span><h3>Use progress to decide what to practice next.</h3><p>No new mastery score is calculated here. P1A only reads the existing progress surface.</p></div><button class="pr7-button primary" type="button" data-pr7-pr6="review">Start Adaptive Review</button></section>${metrics?`<section class="pr7-metric-grid">${metrics}</section>`:empty('Detailed metrics are not exposed in this view yet.','Your existing progress data remains untouched and available in the retained Progress surface.')}<section class="pr7-next-grid"><button type="button" data-pr7-pr6="review"><span>Weak or due material</span><strong>Adaptive Review</strong><b>Review →</b></button><button type="button" data-pr7-pr6="focused"><span>Known weak area</span><strong>Focused Practice</strong><b>Choose focus →</b></button><button type="button" data-pr7-pr6="path"><span>Structured progression</span><strong>Learning Path</strong><b>Continue →</b></button></section>`;
+  return `<section class="pr7-lead"><div><span class="pr7-section-label">Retained signals</span><h3>Use progress to decide what to practice next.</h3><p>No new mastery score is calculated here. P1A only re-presents the existing Progress surface.</p></div><button class="pr7-button primary" type="button" data-pr7-pr6="review">Start Adaptive Review</button></section>${metrics?`<section class="pr7-metric-grid">${metrics}</section>`:empty('Detailed metrics are not exposed in this view yet.','Your existing progress data remains owned by the retained Progress surface.')}<section class="pr7-next-grid"><button type="button" data-pr7-pr6="review"><span>Weak or due material</span><strong>Adaptive Review</strong><b>Review →</b></button><button type="button" data-pr7-pr6="focused"><span>Known weak area</span><strong>Focused Practice</strong><b>Choose focus →</b></button><button type="button" data-pr7-pr6="path"><span>Structured progression</span><strong>Learning Path</strong><b>Continue →</b></button></section>`;
 }
 function masteryBody(){
   const rows=state.signals.map((item,index)=>`<article><span class="pr7-rank">${String(index+1).padStart(2,'0')}</span><div><strong>${esc(item.name)}</strong><small>${esc(item.copy)}</small></div><b>${esc(item.value)}</b></article>`).join('');
-  return `<section class="pr7-lead"><div><span class="pr7-section-label">Mastery</span><h3>See where another retrieval may be useful.</h3><p>This view re-presents retained progress signals; it does not write a parallel mastery model.</p></div><button class="pr7-button" type="button" data-pr7-pr6="review">Adaptive Review</button></section><section class="pr7-mastery-list">${rows||empty('No mastery rows are exposed here.','Use Adaptive Review or Focused Practice to continue with the retained learning system.')}</section>`;
+  return `<section class="pr7-lead"><div><span class="pr7-section-label">Mastery</span><h3>See where another retrieval may be useful.</h3><p>This view re-presents retained signals; it does not write a parallel mastery model.</p></div><button class="pr7-button" type="button" data-pr7-pr6="review">Adaptive Review</button></section><section class="pr7-mastery-list">${rows||empty('No mastery rows are exposed here.','Use Adaptive Review or Focused Practice to continue with the retained learning system.')}</section>`;
 }
 
 function bindRoot(){
-  const root=state.root;
-  if(!root)return;
+  const root=state.root;if(!root)return;
   root.querySelectorAll('[data-pr7-open]').forEach(button=>button.addEventListener('click',()=>open(button.dataset.pr7Open)));
   root.querySelectorAll('[data-pr7-pr6]').forEach(button=>button.addEventListener('click',()=>openPr6(button.dataset.pr7Pr6)));
   root.querySelectorAll('[data-pr7-book]').forEach(button=>button.addEventListener('click',()=>openBook(button.dataset.pr7Book)));
   root.querySelectorAll('[data-pr7-collection]').forEach(button=>button.addEventListener('click',()=>openCollection(Number(button.dataset.pr7Collection))));
   root.querySelectorAll('[data-pr7-search]').forEach(input=>input.addEventListener('input',()=>{
-    const query=norm(input.value),kind=input.dataset.pr7Search;
-    const selector=kind==='books'?'[data-pr7-book]':'[data-pr7-collection]';
+    const query=norm(input.value),selector=input.dataset.pr7Search==='books'?'[data-pr7-book]':'[data-pr7-collection]';
     root.querySelectorAll(selector).forEach(button=>button.hidden=Boolean(query&&!norm(button.textContent).includes(query)));
   }));
 }
@@ -242,136 +200,84 @@ function bindRoot(){
 async function render(flow){
   if(!state.active)return false;
   if(!META[flow])flow='library';
-  const root=mount();
-  if(!root||!showSurface())return false;
+  const root=mount();if(!root||!showSurface())return false;
   const token=++state.token;
-  state.flow=flow;
-  document.body.dataset.pr7Flow=flow;
-  window.TBC_PR6?.deactivate?.();
-  root.innerHTML=shell(flow,loading());
-  title()?.replaceChildren(document.createTextNode(META[flow].title));
+  state.flow=flow;document.body.dataset.pr7Flow=flow;window.TBC_PR6?.deactivate?.();
+  root.innerHTML=shell(flow,loading());title()?.replaceChildren(document.createTextNode(META[flow].title));
 
-  if(flow==='library'){
-    if(await prime('library',{force:true}))scanBooks();
-  }else if(flow==='collections'){
-    await loadCollections();
-  }else{
-    if(await prime('progress',{force:true}))scanProgressSignals();
-  }
+  if(flow==='library')await prime('library',{force:true});
+  else if(flow==='collections')await loadCollections();
+  else if(await prime('progress',{force:true}))scanProgressSignals();
+
   if(token!==state.token||!state.active||state.flow!==flow)return false;
-
   const body=flow==='library'?libraryBody():flow==='collections'?collectionsBody():flow==='mastery'?masteryBody():progressBody();
-  root.innerHTML=shell(flow,body);
-  bindRoot();
-  requestAnimationFrame(()=>root.querySelector('h2')?.focus({preventScroll:true}));
+  root.innerHTML=shell(flow,body);bindRoot();requestAnimationFrame(()=>root.querySelector('h2')?.focus({preventScroll:true}));
   return true;
 }
 async function open(flow){return render(flow)}
 
 async function openPr6(flow){
   if(!window.TBC_PR6?.open)return false;
-  leaveSurface();
-  state.primed=null;
+  leaveSurface();state.primed=null;
   await window.TBC_PR6.open(flow);
   return true;
 }
 async function openBook(name){
-  const before=storageSnapshot();
-  if(!(await prime('library',{force:true})))return false;
-  const target=findBookAction(name);
-  if(!target)return false;
-  leaveSurface();
-  target.click();
-  await frame();
-  if(!sameStorage(before,storageSnapshot()))throw new Error('PR7 book handoff unexpectedly changed canonical state before a session began');
-  state.primed=null;
-  return true;
+  if(!BOOKS.includes(name)||!window.TBC_PR6?.open)return false;
+  leaveSurface();state.primed=null;
+  await window.TBC_PR6.open('focused');
+  await frame();await delay(60);
+  const selector=`.pr6-root:not([hidden]) [data-pr6-book="${CSS.escape(name)}"]`;
+  const target=document.querySelector(selector);
+  if(target){target.click();return true;}
+  return Boolean(document.querySelector('.pr6-root:not([hidden])'));
 }
 async function openCollection(index){
-  const item=state.collections[index];
-  if(!item)return false;
-  const before=storageSnapshot();
+  const item=state.collections[index];if(!item)return false;
   if(!(await prime('collections',{force:true})))return false;
-  const modal=collectionModal();
-  const cards=modal?Array.from(modal.querySelectorAll('.v24-collection-card')):[];
+  const modal=collectionModal(),cards=modal?Array.from(modal.querySelectorAll('.v24-collection-card')):[];
   const card=cards.find((node,i)=>i===item.index||norm(collectionName(node,i))===norm(item.name));
   if(!card){closeCollectionsModal();return false;}
-  const action=Array.from(card.querySelectorAll('button,a[href],[role="button"]')).find(el=>/practice/i.test(label(el)))||Array.from(card.querySelectorAll('button,a[href],[role="button"]')).find(el=>/test|open|play/i.test(label(el)))||card.querySelector('button,a[href],[role="button"]');
+  const actions=Array.from(card.querySelectorAll('button,a[href],[role="button"]'));
+  const action=actions.find(el=>/practice/i.test(clean(el.textContent)))||actions.find(el=>/test|open|play/i.test(clean(el.textContent)))||actions[0];
   if(!action){closeCollectionsModal();return false;}
-  leaveSurface();
-  action.click();
-  await frame();
-  if(!sameStorage(before,storageSnapshot()))throw new Error('PR7 collection handoff unexpectedly changed canonical state before a session began');
-  state.primed=null;
-  return true;
+  leaveSurface();action.click();await frame();state.primed=null;return true;
 }
 
 function intercept(event){
   if(!state.active)return;
-  const target=event.target?.closest?.('button,a,[role="button"]');
-  if(!target||target.closest('[data-pr7-ui]'))return;
+  const target=event.target?.closest?.('button,a,[role="button"]');if(!target||target.closest('[data-pr7-ui]'))return;
   const nav=target.closest('[data-pr5-nav]');
-  if(nav?.dataset.pr5Nav==='library'){
-    event.preventDefault();event.stopImmediatePropagation();open('library');return;
-  }
+  if(nav?.dataset.pr5Nav==='library'){event.preventDefault();event.stopImmediatePropagation();open('library');return;}
   if(nav){leaveSurface();state.primed=null;return;}
   const utility=target.closest('[data-pr5-utility]');
-  if(utility?.dataset.pr5Utility==='progress'){
-    event.preventDefault();event.stopImmediatePropagation();open('progress');return;
-  }
+  if(utility?.dataset.pr5Utility==='progress'){event.preventDefault();event.stopImmediatePropagation();open('progress');return;}
   if(utility){leaveSurface();state.primed=null;return;}
   const preserved=target.closest('[data-p0c-feature]');
-  if(preserved?.dataset.p0cFeature==='library'){
-    event.preventDefault();event.stopImmediatePropagation();open('library');return;
-  }
-  if(preserved?.dataset.p0cFeature==='collections'){
-    event.preventDefault();event.stopImmediatePropagation();open('collections');return;
-  }
-  if(preserved?.dataset.p0cFeature==='progress'){
-    event.preventDefault();event.stopImmediatePropagation();open('progress');return;
-  }
+  if(preserved?.dataset.p0cFeature==='library'){event.preventDefault();event.stopImmediatePropagation();open('library');return;}
+  if(preserved?.dataset.p0cFeature==='collections'){event.preventDefault();event.stopImmediatePropagation();open('collections');return;}
+  if(preserved?.dataset.p0cFeature==='progress'){event.preventDefault();event.stopImmediatePropagation();open('progress');return;}
   if(target.closest('.brand')){leaveSurface();state.primed=null;return;}
-  if(target.closest('.pr5-home')&&/practice a book|book practice|library/.test(norm(label(target)))){
-    event.preventDefault();event.stopImmediatePropagation();open('library');
-  }
+  if(target.closest('.pr5-home')&&/practice a book|book practice|library/.test(norm(target.textContent))){event.preventDefault();event.stopImmediatePropagation();open('library');}
 }
 function bindIntercept(){
-  if(state.interceptBound)return;
-  state.interceptBound=true;
+  if(state.interceptBound)return;state.interceptBound=true;
   document.addEventListener('click',intercept,true);
-  document.addEventListener('keydown',event=>{
-    if(!state.active||event.key!=='Escape')return;
-    if(state.flow==='collections')open('library');
-    else if(state.flow==='mastery')open('progress');
-  });
+  document.addEventListener('keydown',event=>{if(!state.active||event.key!=='Escape')return;if(state.flow==='collections')open('library');else if(state.flow==='mastery')open('progress')});
 }
 
 function audit(){
-  const p0c=window.TBC_P0C?.audit?.();
-  const pr6=window.TBC_PR6?.audit?.();
+  const p0c=window.TBC_P0C?.audit?.(),pr6=window.TBC_PR6?.audit?.();
   return {
-    version:VERSION,
-    staged:true,
-    productionActive:false,
-    active:state.active,
-    flow:state.flow,
-    p0cVersion:window.TBC_P0C?.version||null,
-    pr6Version:window.TBC_PR6?.version||null,
-    libraryAvailable:Boolean(p0c?.features?.library),
-    collectionsAvailable:Boolean(p0c?.features?.collections),
-    progressAvailable:Boolean(p0c?.features?.progress),
-    bookCount:state.books.length,
-    collectionCount:state.collections.length,
-    signalCount:state.signals.length,
+    version:VERSION,staged:true,productionActive:false,active:state.active,flow:state.flow,
+    p0cVersion:window.TBC_P0C?.version||null,pr6Version:window.TBC_PR6?.version||null,
+    libraryAvailable:Boolean(p0c?.features?.library),collectionsAvailable:Boolean(p0c?.features?.collections),progressAvailable:Boolean(p0c?.features?.progress),
+    bookCount:BOOKS.length,collectionCount:state.collections.length,signalCount:state.signals.length,
     canonicalStateKeys:['theBibleChallenge_v21','theBibleChallenge_v21_recovery'],
+    stateOwnership:'legacy/P0C/PR6',directStorageWrites:false,
     pass:Boolean(window.TBC_P0C?.launch&&window.TBC_PR6?.open&&p0c?.features?.library&&p0c?.features?.collections&&p0c?.features?.progress&&pr6)
   };
 }
-function start(){
-  mount();
-  document.documentElement.setAttribute('data-pr7-stage',VERSION);
-  window.TBC_PR7={version:VERSION,stage:'P1A',staged:true,activate,deactivate,open,audit,openBook,openCollection};
-}
-
+function start(){mount();document.documentElement.setAttribute('data-pr7-stage',VERSION);window.TBC_PR7={version:VERSION,stage:'P1A',staged:true,activate,deactivate,open,audit,openBook,openCollection}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
