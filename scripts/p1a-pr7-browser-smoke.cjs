@@ -42,7 +42,8 @@ async function injectStage(page){
   await page.addStyleTag({path:'assets/pr7-library-progress.css'});
   await page.addScriptTag({path:'assets/pr7-collections-adapter.js'});
   await page.addScriptTag({path:'assets/pr7-library-progress.js'});
-  await page.waitForFunction(()=>window.TBC_PR7?.version==='P1A.1'&&window.TBC_PR7_COLLECTIONS?.version==='P1A.1',null,{timeout:5000});
+  await page.addScriptTag({path:'assets/pr7-navigation-guard.js'});
+  await page.waitForFunction(()=>window.TBC_PR7?.version==='P1A.1'&&window.TBC_PR7_COLLECTIONS?.version==='P1A.1'&&window.__TBC_PR7_NAV_GUARD__===true,null,{timeout:5000});
   const before=await page.evaluate(()=>({
     audit:window.TBC_PR7.audit(),
     adapter:window.TBC_PR7_COLLECTIONS.audit(),
@@ -143,6 +144,7 @@ function assertCanonicalHealthy(before,after,label){
     await waitPr7(page,'library');
     await page.locator('.pr5-primary-nav [data-pr5-nav="play"]').click();
     await waitPr6(page,'play');
+    await page.waitForTimeout(80);
     const playExitDiagnostic=await page.evaluate(()=>({
       pr5Domain:document.body.dataset.pr5Domain||null,
       pr6Flow:document.body.dataset.pr6Flow||null,
@@ -158,6 +160,7 @@ function assertCanonicalHealthy(before,after,label){
     }));
     console.log('P1A PLAY EXIT DIAGNOSTIC',JSON.stringify(playExitDiagnostic));
     assert.equal(await page.locator('.pr7-root:not([hidden])').count(),0,'Play navigation must cleanly leave staged PR7');
+    assert.equal(playExitDiagnostic.pr7Audit.active,false,'native Play hand-off must deactivate stale PR7 routing until explicit re-entry');
 
     const desktopOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
     assert.ok(desktopOverflow<=1,`P1A desktop horizontal overflow: ${desktopOverflow}px`);
