@@ -102,3 +102,18 @@ function start(){
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
+
+/* P1B production loader — P0B remains the last dependency loaded by PR5, so it
+ * is the narrowest safe bootstrap point for the post-P0F PR7 activation layer. */
+(()=>{'use strict';
+if(window.__TBC_P1B_LOADER__)return;window.__TBC_P1B_LOADER__=true;
+const current=document.currentScript;
+const base=new URL('.',current?.src||document.baseURI);
+if(!document.querySelector('script[data-p1b-production]')){
+  const script=document.createElement('script');
+  script.src=new URL('p1b-pr7-production.js',base).href;
+  script.defer=true;
+  script.dataset.p1bProduction='true';
+  document.head.appendChild(script);
+}
+})();
