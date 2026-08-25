@@ -26,7 +26,7 @@ const META={
   mastery:{eyebrow:'Progress',title:'Mastery',copy:'Inspect retained mastery signals without creating a second progress model.'}
 };
 
-const state={active:false,flow:null,root:null,token:0,routeLock:false,primed:null,collections:[],signals:[],interceptBound:false};
+const state={active:false,flow:null,root:null,token:0,routeLock:false,lastUnlock:null,primed:null,collections:[],signals:[],interceptBound:false};
 const clean=v=>String(v??'').replace(/\s+/g,' ').trim();
 const norm=v=>clean(v).toLowerCase();
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -67,7 +67,7 @@ function leaveSurface({lock=false}={}){
   if(state.root)state.root.hidden=true;
   state.flow=null;
 }
-function unlockSurface(){state.routeLock=false}
+function unlockSurface(reason='explicit'){state.routeLock=false;state.lastUnlock=reason}
 function deactivate(){
   state.active=false;
   state.routeLock=true;
@@ -79,7 +79,7 @@ function deactivate(){
 function activate(){
   if(!window.TBC_P0C?.launch||!window.TBC_PR6?.open)return false;
   state.active=true;
-  state.routeLock=false;
+  unlockSurface('activate');
   bindIntercept();
   mount();
   document.documentElement.setAttribute('data-pr7-activated',VERSION);
@@ -250,22 +250,27 @@ async function openCollection(index){
   leaveSurface({lock:true});action.click();await frame();state.primed=null;return true;
 }
 
+function trustedOpen(event,flow,reason){
+  event.preventDefault();event.stopImmediatePropagation();
+  if(!event.isTrusted)return false;
+  unlockSurface(reason);open(flow);return true;
+}
 function intercept(event){
   if(!state.active)return;
   const target=event.target?.closest?.('button,a,[role="button"]');if(!target||target.closest('[data-pr7-ui]'))return;
   const nav=target.closest('[data-pr5-nav]');
-  if(nav?.dataset.pr5Nav==='library'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('library');return;}
+  if(nav?.dataset.pr5Nav==='library'){trustedOpen(event,'library','trusted-pr5-library');return;}
   if(nav){leaveSurface({lock:true});state.primed=null;return;}
   const utility=target.closest('[data-pr5-utility]');
-  if(utility?.dataset.pr5Utility==='progress'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('progress');return;}
+  if(utility?.dataset.pr5Utility==='progress'){trustedOpen(event,'progress','trusted-pr5-progress');return;}
   if(utility){leaveSurface({lock:true});state.primed=null;return;}
   const preserved=target.closest('[data-p0c-feature]');
-  if(preserved?.dataset.p0cFeature==='library'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('library');return;}
-  if(preserved?.dataset.p0cFeature==='collections'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('collections');return;}
-  if(preserved?.dataset.p0cFeature==='progress'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('progress');return;}
+  if(preserved?.dataset.p0cFeature==='library'){trustedOpen(event,'library','trusted-p0c-library');return;}
+  if(preserved?.dataset.p0cFeature==='collections'){trustedOpen(event,'collections','trusted-p0c-collections');return;}
+  if(preserved?.dataset.p0cFeature==='progress'){trustedOpen(event,'progress','trusted-p0c-progress');return;}
   if(preserved){leaveSurface({lock:true});state.primed=null;return;}
   if(target.closest('.brand')){leaveSurface({lock:true});state.primed=null;return;}
-  if(target.closest('.pr5-home')&&/practice a book|book practice|library/.test(norm(target.textContent))){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('library');}
+  if(target.closest('.pr5-home')&&/practice a book|book practice|library/.test(norm(target.textContent))){trustedOpen(event,'library','trusted-pr5-home-library');}
 }
 function bindIntercept(){
   if(state.interceptBound)return;state.interceptBound=true;
@@ -276,7 +281,7 @@ function bindIntercept(){
 function audit(){
   const p0c=window.TBC_P0C?.audit?.(),pr6=window.TBC_PR6?.audit?.();
   return {
-    version:VERSION,staged:true,productionActive:false,active:state.active,flow:state.flow,routeLocked:state.routeLock,
+    version:VERSION,staged:true,productionActive:false,active:state.active,flow:state.flow,routeLocked:state.routeLock,lastUnlock:state.lastUnlock,
     p0cVersion:window.TBC_P0C?.version||null,pr6Version:window.TBC_PR6?.version||null,
     libraryAvailable:Boolean(p0c?.features?.library),collectionsAvailable:Boolean(p0c?.features?.collections),progressAvailable:Boolean(p0c?.features?.progress),
     bookCount:BOOKS.length,collectionCount:state.collections.length,signalCount:state.signals.length,
