@@ -1,0 +1,107 @@
+name: P2A Question Bank Extraction
+
+on:
+  push:
+    branches: [p2a-question-bank-extraction, main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract-and-certify:
+    name: Canonical bank extraction and deterministic audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Preserve P1B production contracts
+        run: |
+          node scripts/p0a-preservation-audit.cjs
+          node scripts/p0c-existing-feature-preservation-audit.cjs
+          node scripts/p1b-pr7-activation-audit.cjs
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start read-only local candidate
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p2a-server.log 2>&1 &
+          for i in {1..25}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-p2a-server.log
+          exit 1
+
+      - name: Extract canonical bank — pass 1
+        run: node scripts/p2a-question-bank-extract.cjs
+
+      - name: Audit canonical bank — pass 1
+        run: node scripts/p2a-question-bank-audit.cjs
+
+      - name: Extract canonical bank — deterministic repeat
+        env:
+          P2A_OUT_DIR: artifacts/p2a-repeat
+        run: node scripts/p2a-question-bank-extract.cjs
+
+      - name: Audit canonical bank — deterministic repeat
+        env:
+          P2A_OUT_DIR: artifacts/p2a-repeat
+        run: node scripts/p2a-question-bank-audit.cjs
+
+      - name: Verify byte-for-byte deterministic extraction
+        shell: bash
+        run: |
+          cmp artifacts/p2a/question-bank.json artifacts/p2a-repeat/question-bank.json
+          cmp artifacts/p2a/structured-questions.json artifacts/p2a-repeat/structured-questions.json
+          node - <<'NODE'
+          const fs=require('fs');
+          const a=JSON.parse(fs.readFileSync('artifacts/p2a/question-bank-summary.json','utf8'));
+          const b=JSON.parse(fs.readFileSync('artifacts/p2a-repeat/question-bank-summary.json','utf8'));
+          if(a.hashes.canonicalBank!==b.hashes.canonicalBank)throw new Error('Canonical aggregate hash is non-deterministic');
+          if(a.hashes.structuredBank!==b.hashes.structuredBank)throw new Error('Structured aggregate hash is non-deterministic');
+          console.log(`Deterministic canonical SHA-256: ${a.hashes.canonicalBank}`);
+          console.log(`Deterministic structured SHA-256: ${a.hashes.structuredBank}`);
+          NODE
+
+      - name: Require frozen P2A hashes before merge
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const baseline=JSON.parse(fs.readFileSync('certification/p2a-question-bank-extraction-baseline.json','utf8'));
+          const summary=JSON.parse(fs.readFileSync('artifacts/p2a/question-bank-summary.json','utf8'));
+          for(const [key,value] of Object.entries({canonicalBankSha256:summary.hashes.canonicalBank,structuredBankSha256:summary.hashes.structuredBank})){
+            if(!baseline.hashes[key])throw new Error(`${key} has not been frozen in the P2A baseline. Candidate value: ${value}`);
+            if(baseline.hashes[key]!==value)throw new Error(`${key} mismatch: expected ${baseline.hashes[key]}, got ${value}`);
+          }
+          console.log('P2A aggregate hashes match the frozen certification baseline.');
+          NODE
+
+      - name: Upload P2A audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p2a-question-bank-audit-${{ github.sha }}
+          path: |
+            artifacts/p2a/
+            artifacts/p2a-repeat/
+            index.html
+          if-no-files-found: warn
+          retention-days: 30
