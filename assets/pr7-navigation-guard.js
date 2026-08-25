@@ -26,6 +26,10 @@ const exitsPr7=target=>{
   return Boolean(target.closest?.('.brand'));
 };
 
+function deactivate(){
+  const api=window.TBC_PR7;
+  if(api?.audit?.().active)api.deactivate?.();
+}
 function handle(event){
   const target=event.target?.closest?.('button,a,[role="button"]');
   if(!target||pr7Target(target))return;
@@ -37,13 +41,27 @@ function handle(event){
     if(api.activate())api.open(flow);
     return;
   }
-  if(exitsPr7(target)&&api.audit?.().active){
-    /* Deactivate before native routing runs. This invalidates every in-flight
-     * PR7 render token immediately; synthetic clicks emitted by the destination
-     * cannot revive PR7 because re-entry accepts trusted user input only. */
-    api.deactivate?.();
+  if(exitsPr7(target)&&api.audit?.().active)deactivate();
+}
+
+/* Native routing can complete after click propagation. Reconcile against the
+ * authoritative PR5/PR6 route markers so PR7 cannot remain visible even when a
+ * retained handler performs additional navigation work after our capture pass. */
+const routeObserver=new MutationObserver(records=>{
+  const api=window.TBC_PR7;if(!api?.audit?.().active)return;
+  for(const record of records){
+    if(record.attributeName==='data-pr6-flow'&&document.body.dataset.pr6Flow){deactivate();return;}
+    if(record.attributeName==='data-pr5-domain'){
+      const domain=document.body.dataset.pr5Domain;
+      if(domain&&domain!=='library'){deactivate();return;}
+    }
   }
+});
+function observeRoutes(){
+  if(!document.body)return;
+  routeObserver.observe(document.body,{attributes:true,attributeFilter:['data-pr5-domain','data-pr6-flow']});
 }
 
 document.addEventListener('click',handle,true);
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',observeRoutes,{once:true});else observeRoutes();
 })();
