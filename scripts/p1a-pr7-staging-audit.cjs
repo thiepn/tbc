@@ -16,9 +16,11 @@ const files={
   css:'assets/pr7-library-progress.css',
   docs:'docs/P1A-PR7-STAGED-RECONSTRUCTION.md',
   smoke:'scripts/p1a-pr7-browser-smoke.cjs',
-  workflow:'.github/workflows/p1a-pr7-staging.yml'
+  workflow:'.github/workflows/p1a-pr7-staging.yml',
+  baseline:'certification/p1a-pr7-staging-baseline.json'
 };
 const js=read(files.js),css=read(files.css),docs=read(files.docs);
+const p1a=JSON.parse(read(files.baseline));
 const p0f=JSON.parse(read('certification/p0f-production-baseline.json'));
 const p0e=JSON.parse(read('certification/p0e-preservation-baseline.json'));
 const pr5=read('assets/pr5-shell.js');
@@ -27,8 +29,10 @@ const index=read('index.html');
 const checks=[];
 const add=(name,detail,test)=>checks.push([name,detail,test]);
 
-add('p0f-parent-pinned','P1A begins from the certified P0F main commit',()=>P0F_COMMIT==='762f02de4227bb4719232db95b2657644ada4fcd');
-add('old-pr7-reference-only','the obsolete PR7 branch is recorded as reference material only',()=>docs.includes(OLD_PR7_COMMIT)||docs.includes('codex/pr7-library-progress-reconstruction'));
+add('p1a-baseline-version','P1A baseline is current',()=>p1a.version==='P1A.1');
+add('p0f-parent-pinned','P1A begins from the certified P0F main commit',()=>P0F_COMMIT==='762f02de4227bb4719232db95b2657644ada4fcd'&&p1a.parentProductionCommit===P0F_COMMIT);
+add('old-pr7-reference-only','the obsolete PR7 branch is recorded as reference material only',()=>p1a.referenceOnlyLegacyPr7Commit===OLD_PR7_COMMIT&&(docs.includes(OLD_PR7_COMMIT)||docs.includes('codex/pr7-library-progress-reconstruction')));
+add('production-activation-false','P1A baseline explicitly forbids production activation',()=>p1a.productionActivation===false&&p1a.contract.productionFilesMustRemainP0FIdentical===true);
 add('stage-version','PR7 staging module identifies P1A.1',()=>js.includes("const VERSION='P1A.1'"));
 add('stage-inert-by-default','PR7 exposes explicit activation and does not auto-activate',()=>js.includes('function activate()')&&js.includes('staged:true')&&!/\bactivate\(\);\s*(?:\n|$)/.test(js));
 add('p0c-delegation','Library, Collections, and Progress delegate through P0C',()=>js.includes("prime('library'")&&js.includes("prime('collections'")&&js.includes("prime('progress'")&&js.includes('window.TBC_P0C?.launch'));
@@ -37,7 +41,7 @@ add('all-66-books-staged','the staged Library carries all 66 canonical book name
   const books=['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalms','Proverbs','Ecclesiastes','Song of Songs','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
   return books.length===66&&books.every(book=>js.includes(`'${book}'`));
 });
-add('retained-collection-engine','P1A scans the current retained v24 collection cards',()=>js.includes('.v24-collection-card')&&js.includes("P0C?.launch?.(feature)"));
+add('retained-collection-engine','P1A scans the current retained v24 collection cards',()=>js.includes('.v24-collection-card')&&js.includes('window.TBC_P0C?.launch?.(feature)'));
 add('canonical-state-keys','P1A recognizes the canonical state keys only',()=>js.includes('theBibleChallenge_v21')&&js.includes('theBibleChallenge_v21_recovery')&&!js.includes('tbc_v4_'));
 add('no-storage-writes','PR7 does not write localStorage/sessionStorage directly',()=>!/localStorage\.setItem|sessionStorage\.setItem|localStorage\.removeItem|sessionStorage\.removeItem/.test(js));
 add('no-question-model','PR7 does not define or rewrite quiz/question banks',()=>!/QUESTION_BANK\s*=|correctAnswer\s*=|mastery\s*=|score\s*=/.test(js));
@@ -52,7 +56,7 @@ add('frozen-pr6-still-frozen','PR6 logic remains byte-identical to P0E/P0F',()=>
 add('frozen-p0c-still-frozen','P0C bridge remains byte-identical to P0E/P0F',()=>sha('assets/p0c-existing-feature-preservation.js')===p0e.frozenProductFiles['assets/p0c-existing-feature-preservation.js']);
 add('not-production-loaded','P1A staged PR7 is not referenced by the live index or frozen PR5 loader',()=>!index.includes('pr7-library-progress')&&!pr5.includes('pr7-library-progress'));
 add('p0f-url-unchanged','the production URL remains the certified GitHub Pages URL',()=>p0f.productionUrl==='https://thiepn.github.io/tbc/');
-add('historical-freezes-untouched','P0E/P0F manifests remain their existing versions',()=>p0e.version==='P0E.1'&&p0f.version==='P0F.1');
+add('historical-freezes-untouched','P0E/P0F manifests remain their existing versions',()=>p0e.version==='P0E.1'&&p0f.version==='P0F.0');
 add('staging-doc','P1A activation boundary is documented',()=>docs.includes('P1B is the controlled activation phase')&&docs.includes('P1A does not silently weaken or rewrite the P0E/P0F freeze'));
 for(const [key,file] of Object.entries(files))add(`asset-${key}`,`P1A asset exists: ${file}`,()=>fs.existsSync(path.join(ROOT,file)));
 
