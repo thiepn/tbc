@@ -14,30 +14,26 @@ const { chromium } = require('playwright');
     await page.evaluate(()=>window.TBC_P0C.launch('collections'));
     await page.waitForSelector('#modalRoot .modal-backdrop:visible',{timeout:7000});
     await page.waitForTimeout(300);
-    const before=await page.locator('#modalRoot .v24-collection-card').count();
-    const clickProbe=await page.evaluate(()=>{
-      const button=document.querySelector('#modalRoot .v24-show-more');
-      if(!button)return {present:false};
-      const info={present:true,onclick:typeof button.onclick,outerHTML:button.outerHTML.slice(0,500)};
-      button.click();
-      return info;
+    const probe=await page.evaluate(()=>{
+      const count=()=>document.querySelectorAll('#modalRoot .v24-collection-card').length;
+      const fn=window.v24ShowMorePractice;
+      const names=Object.getOwnPropertyNames(window).filter(name=>/^v24/i.test(name)).sort();
+      const globals={};
+      for(const name of names){
+        const value=window[name];
+        if(typeof value==='function')globals[name]=String(value).slice(0,1800);
+        else if(['string','number','boolean'].includes(typeof value))globals[name]=value;
+      }
+      const before=count();
+      let directError=null;
+      try{if(typeof fn==='function')fn()}catch(err){directError=String(err?.stack||err)}
+      return {before,afterImmediate:count(),directError,source:typeof fn==='function'?String(fn):null,globals};
     });
     await page.waitForTimeout(180);
-    const after=await page.locator('#modalRoot .v24-collection-card').count();
-    const info=await page.evaluate(()=>{
-      const modal=document.querySelector('#modalRoot .p0c-collections-modal')||[...document.querySelectorAll('#modalRoot .modal-backdrop')].find(el=>getComputedStyle(el).display!=='none');
-      const clean=v=>String(v||'').replace(/\s+/g,' ').trim();
-      return {
-        text:clean(modal?.innerText).slice(-2600),
-        cards:[...(modal?.querySelectorAll('.v24-collection-card')||[])].map((el,i)=>({i,text:clean(el.innerText).slice(0,160)})),
-        controls:[...(modal?.querySelectorAll('button,a,[role="button"],input')||[])].map((el,i)=>({
-          i,tag:el.tagName,text:clean(el.textContent||el.value),aria:el.getAttribute('aria-label'),title:el.getAttribute('title'),
-          disabled:Boolean(el.disabled),ariaDisabled:el.getAttribute('aria-disabled'),cls:String(el.className),data:{...el.dataset}
-        }))
-      };
-    });
+    probe.afterSettled=await page.locator('#modalRoot .v24-collection-card').count();
+    probe.button=await page.locator('#modalRoot .v24-show-more').evaluate(el=>el.outerHTML).catch(()=>null);
     console.log('P1A COLLECTIONS DIAGNOSTIC START');
-    console.log(JSON.stringify({before,clickProbe,after,info},null,2));
+    console.log(JSON.stringify(probe,null,2));
     console.log('P1A COLLECTIONS DIAGNOSTIC END');
   }finally{await browser.close()}
 })().catch(err=>{console.error(err);process.exit(1)});
