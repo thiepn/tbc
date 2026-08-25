@@ -42,7 +42,7 @@ check('legacy core baseline is pinned',manifest.legacyCoreBaselineCommit==='58b5
 check('repaired visual baseline is pinned',manifest.repairedVisualBaselineCommit==='7114e43466d0fc2c5c00bd87651aaa94e42cdf3a');
 check('repaired player-controls baseline is pinned',manifest.repairedPlayerControlsBaselineCommit==='079f307d0ca206c8e12c9ce8b803b1b9be9a1078');
 check('repaired feature bridge baseline is pinned',manifest.repairedFeatureBridgeBaselineCommit==='f7875725c12f14844ae0fca04248a085a3978bd0');
-check('repaired navigation baseline is pinned',manifest.repairedNavigationBaselineCommit==='031a3dcd0dd62e07ee708990dec923fe917087ae');
+check('repaired navigation baseline is pinned',manifest.repairedNavigationBaselineCommit==='bbbe7f4679f1992a6930ca8e398b0e8e2ae196ed');
 check('5,799-question contract',manifest.contract.questions===5799&&/5,799\s+(?:canonical\s+)?questions/i.test(readme));
 check('203 structured-question contract',manifest.contract.structuredQuestions===203&&/203\s+structured\s+questions/i.test(readme));
 check('66-book contract',manifest.contract.books===66&&/66\s+books/i.test(readme));
@@ -59,7 +59,7 @@ check('P0C canonical state contract matches freeze',p0c.includes("'theBibleChall
 check('P0C Collections uses retained collection engine',p0c.includes("route:'collections'")&&p0c.includes('window.v24CollectionsPanel()')&&p0c.includes('window.openModal(html,true)'));
 check('P0C Library/Progress use current legacy router',p0c.includes("route:'library'")&&p0c.includes("route:'progress'")&&p0c.includes('window.v292Go(route)'));
 check('P0C Duel uses canonical legacy function entrypoint',p0c.includes("functions:['v31OpenDuelSetup']")&&p0c.includes('legacyFunction(key)'));
-check('PR5 utility domain stabilization retained',pr5.includes('function classifyVisibleSurface()')&&pr5.includes("if(domain==='progress'||domain==='settings')setDomain(domain,{render:false})"));
+check('PR5 Settings uses canonical legacy route',pr5.includes('function classifyVisibleSurface()')&&pr5.includes("if(domain==='settings'&&typeof window.navTo==='function')")&&pr5.includes("window.navTo('settings')"));
 check('PR5 remains state-nonmutating',/does not read, write, or mutate TBC game state/i.test(pr5)&&!/localStorage\.setItem|sessionStorage\.setItem/.test(pr5));
 check('PR6 remains quiz-state-nonmutating',/never rewrites quiz\/question state/i.test(pr6)&&!/localStorage\.setItem|sessionStorage\.setItem/.test(pr6));
 check('P0C remains state-nonmutating',!/localStorage\.setItem|sessionStorage\.setItem/.test(p0c));
