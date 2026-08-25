@@ -1,0 +1,33 @@
+{
+  "name": "TBC P2A Question Bank Extraction Baseline",
+  "schemaVersion": "P2A.1",
+  "parentP1BMerge": "33252c17f89e7aa750c7df60f495a22b19d3c673",
+  "source": {
+    "indexBlobSha1": "13c6d46bc8787b36fcc0920535a2d32b282a66ff"
+  },
+  "expected": {
+    "canonical": 5799,
+    "registry": 6072,
+    "structured": 203,
+    "books": 66,
+    "difficultyDistribution": {
+      "Beginner": 1338,
+      "Easy": 1666,
+      "Standard": 1133,
+      "Advanced": 1141,
+      "Expert": 521
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "canonicalBankSha256": null,
+    "structuredBankSha256": null
+  },
+  "policy": {
+    "readOnly": true,
+    "gameplayMutation": false,
+    "stateMutation": false,
+    "generatedArtifactsCommitted": false,
+    "hashFreezeRequiredBeforeMerge": true
+  }
+}
