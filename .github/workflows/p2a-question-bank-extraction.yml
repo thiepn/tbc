@@ -102,5 +102,6 @@ jobs:
           path: |
             artifacts/p2a/
             artifacts/p2a-repeat/
+            index.html
           if-no-files-found: warn
           retention-days: 30
