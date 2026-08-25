@@ -3,7 +3,7 @@
   "schemaVersion": "P2A.1",
   "parentP1BMerge": "33252c17f89e7aa750c7df60f495a22b19d3c673",
   "source": {
-    "indexBlobSha1": "13c6d46bc8787b36fcc0920535a2d32b282a66ff"
+    "indexBlobSha1": "bff0e864625e376eb909ff46fb01795740f8abce"
   },
   "expected": {
     "canonical": 5799,
@@ -20,9 +20,9 @@
   },
   "hashes": {
     "algorithm": "sha256",
-    "canonicalBankSha256": "37ca60a790b65036fa24136b912fdaef3ea0ca3762488f8ff218fdcfec774ed8",
-    "structuredBankSha256": "638c285db0d13358ce9e6d66fde7270337d6a9de92e51ea422a3d8275ef09183",
-    "registryBankSha256": "2235fd5463b00f7527b32512c3eb89d6e62636d5a8098874c13e1b9ed2009611"
+    "canonicalBankSha256": "ccbca62eec0966e28c7c80a8b7bc237ca9db38d7c20b43d97270e8fd4da51952",
+    "structuredBankSha256": "4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb",
+    "registryBankSha256": "a81ab64731a21c23d819b1ea10adc3ae63ffc2f6d467b6c1b6fd16883131e12d"
   },
   "policy": {
     "readOnly": true,
@@ -30,5 +30,13 @@
     "stateMutation": false,
     "generatedArtifactsCommitted": false,
     "hashFreezeRequiredBeforeMerge": true
+  },
+  "p2b": {
+    "phase": "P2B",
+    "mechanicalIntegrity": true,
+    "canonicalQuestions": 5799,
+    "confirmedDefectsRemaining": 0,
+    "repairedQuestions": 30,
+    "repairedInvariantFailures": 31
   }
 }
