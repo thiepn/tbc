@@ -50,6 +50,9 @@ jobs:
           cat /tmp/tbc-p1a-server.log
           exit 1
 
+      - name: Diagnose retained Collections pagination
+        run: node scripts/p1a-collections-diagnostic.cjs
+
       - name: Inject and certify staged PR7
         run: node scripts/p1a-pr7-browser-smoke.cjs
 
