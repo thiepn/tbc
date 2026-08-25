@@ -5,10 +5,10 @@
  * retained limit through v24ShowMorePractice(), then asks the retained P0C
  * launcher to regenerate the modal snapshot. No collection data is duplicated.
  *
- * This bridge also enforces cross-surface ownership after a retained PR5/PR6
- * navigation handoff. Some legacy render paths can clear `hidden` after PR7's
- * capture-phase exit; when PR6 owns the route, the staged PR7 root is therefore
- * re-hidden after that handoff rather than competing with the retained surface.
+ * The bridge also gives retained PR5 navigation the final word on route exit.
+ * PR7 hides immediately in its capture listener, then this adapter re-applies
+ * that exit after the retained click handler completes so a later legacy render
+ * cannot leave the staged PR7 surface exposed beside Play/Learn/Home/Settings.
  */
 (()=>{'use strict';
 if(window.TBC_PR7_COLLECTIONS?.version)return;
@@ -16,6 +16,7 @@ const VERSION='P1A.1';
 const EXPECTED=22;
 const NATIVE_CONTROL='.v24-show-more';
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+let postNavigationBound=false;
 function active(){return Boolean(document.documentElement.getAttribute('data-pr7-activated'))}
 function count(root=document){return root.querySelectorAll?.('#modalRoot .v24-collection-card')?.length||0}
 function originalLaunch(){
@@ -27,8 +28,6 @@ function regenerate(args=[]){
   const p0c=window.TBC_P0C;
   const launch=originalLaunch();
   if(typeof window.v24ShowMorePractice!=='function'||typeof launch!=='function')return count(document);
-  /* This changes only v24's in-memory display limit. Its current render cannot
-   * mutate P0C's already-created modal, so discard that snapshot and recreate it. */
   window.v24ShowMorePractice();
   if(typeof window.closeModal==='function')window.closeModal();
   launch.call(p0c,'collections',...args);
@@ -61,41 +60,57 @@ function wrapP0C(){
   p0c.launch=launch;
   return true;
 }
-function reconcileRouteOwnership(){
-  if(!active())return false;
+function forceRouteExit(){
   const body=document.body;
   const root=document.querySelector('.pr7-root');
   if(!body||!root)return false;
-  const pr7Owns=Boolean(body.dataset.pr7Flow);
-  const pr6Owns=Boolean(body.dataset.pr6Flow&&document.querySelector('.pr6-root:not([hidden])'));
-  if(!pr7Owns&&pr6Owns){
-    let changed=false;
-    if(!root.hidden){root.hidden=true;changed=true}
-    if(body.classList.contains('pr7-native-active')){body.classList.remove('pr7-native-active');changed=true}
-    if(document.documentElement.hasAttribute('data-pr7-stage-active')){document.documentElement.removeAttribute('data-pr7-stage-active');changed=true}
-    return changed;
-  }
-  return false;
+  let changed=false;
+  if(body.dataset.pr7Flow){delete body.dataset.pr7Flow;changed=true}
+  if(!root.hidden){root.hidden=true;changed=true}
+  if(body.classList.contains('pr7-native-active')){body.classList.remove('pr7-native-active');changed=true}
+  if(document.documentElement.hasAttribute('data-pr7-stage-active')){document.documentElement.removeAttribute('data-pr7-stage-active');changed=true}
+  return changed;
+}
+function scheduleRouteExit(){
+  forceRouteExit();
+  queueMicrotask(forceRouteExit);
+  requestAnimationFrame(forceRouteExit);
+  setTimeout(forceRouteExit,0);
+}
+function bindPostNavigation(){
+  if(postNavigationBound)return;
+  postNavigationBound=true;
+  document.addEventListener('click',event=>{
+    if(!active())return;
+    const target=event.target?.closest?.('button,a,[role="button"]');
+    if(!target||target.closest('[data-pr7-ui]'))return;
+    const nav=target.closest('[data-pr5-nav]');
+    const utility=target.closest('[data-pr5-utility]');
+    const exitsPr7=Boolean(
+      (nav&&nav.dataset.pr5Nav!=='library')||
+      (utility&&utility.dataset.pr5Utility!=='progress')||
+      target.closest('.brand')
+    );
+    if(exitsPr7)scheduleRouteExit();
+  },false);
 }
 function settle(){
   if(!active())return;
   wrapP0C();
-  queueMicrotask(reconcileRouteOwnership);
-  requestAnimationFrame(reconcileRouteOwnership);
+  bindPostNavigation();
 }
 const activationObserver=new MutationObserver(records=>{
   if(records.some(record=>record.type==='attributes'&&record.target===document.documentElement))settle();
 });
-const routeObserver=new MutationObserver(()=>settle());
 function start(){
   wrapP0C();
+  bindPostNavigation();
   activationObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-pr7-activated']});
-  if(document.body)routeObserver.observe(document.body,{attributes:true,attributeFilter:['data-pr6-flow','data-pr7-flow']});
   settle();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 window.TBC_PR7_COLLECTIONS={
-  version:VERSION,ensure,regenerate,settle,wrapP0C,reconcileRouteOwnership,
-  audit:()=>({version:VERSION,active:active(),expected:EXPECTED,directStorageWrites:false,nativeControl:NATIVE_CONTROL,snapshotStrategy:'retained-limit-relaunch',launcherWrapped:Boolean(window.TBC_P0C?.launch?.__pr7CollectionsAdapter),routeOwnershipGuard:true})
+  version:VERSION,ensure,regenerate,settle,wrapP0C,forceRouteExit,scheduleRouteExit,
+  audit:()=>({version:VERSION,active:active(),expected:EXPECTED,directStorageWrites:false,nativeControl:NATIVE_CONTROL,snapshotStrategy:'retained-limit-relaunch',launcherWrapped:Boolean(window.TBC_P0C?.launch?.__pr7CollectionsAdapter),postNavigationExit:true})
 };
 })();
