@@ -38,17 +38,22 @@ async function openBase(browser,viewport){
 
 async function injectStage(page){
   assert.equal(await page.evaluate(()=>Boolean(window.TBC_PR7)),false,'PR7 must not be loaded by the P0F production shell during P1A');
+  assert.equal(await page.evaluate(()=>Boolean(window.TBC_PR7_COLLECTIONS)),false,'P1A Collections adapter must not be production-loaded');
   await page.addStyleTag({path:'assets/pr7-library-progress.css'});
+  await page.addScriptTag({path:'assets/pr7-collections-adapter.js'});
   await page.addScriptTag({path:'assets/pr7-library-progress.js'});
-  await page.waitForFunction(()=>window.TBC_PR7?.version==='P1A.1',null,{timeout:5000});
+  await page.waitForFunction(()=>window.TBC_PR7?.version==='P1A.1'&&window.TBC_PR7_COLLECTIONS?.version==='P1A.1',null,{timeout:5000});
   const before=await page.evaluate(()=>({
     audit:window.TBC_PR7.audit(),
+    adapter:window.TBC_PR7_COLLECTIONS.audit(),
     rootHidden:document.querySelector('.pr7-root')?.hidden,
     stageActive:document.documentElement.hasAttribute('data-pr7-stage-active')
   }));
   assert.equal(before.audit.staged,true,'PR7 must identify itself as staged');
   assert.equal(before.audit.productionActive,false,'P1A must not claim production activation');
   assert.equal(before.audit.directStorageWrites,false,'P1A must declare legacy ownership of persistence');
+  assert.equal(before.adapter.directStorageWrites,false,'Collections adapter must not own persistence');
+  assert.equal(before.adapter.nativeControl,'.v24-show-more','Collections adapter must target the observed retained show-more control');
   assert.equal(before.audit.pass,true,`P1A prerequisite audit failed: ${JSON.stringify(before.audit)}`);
   assert.equal(before.rootHidden,true,'staged PR7 root must remain hidden until explicit activation');
   assert.equal(before.stageActive,false,'staged PR7 must not activate routing automatically');
@@ -179,7 +184,7 @@ function assertCanonicalHealthy(before,after,label){
     assert.deepEqual(mobile.consoleErrors,[],`P1A mobile console errors: ${mobile.consoleErrors.join(' | ')}`);
     await mobile.context.close();
 
-    console.log('P1A browser smoke passed: staged PR7 carries 66 books, mirrors 22 retained collections, reads Progress/Mastery signals, hands off to PR6, preserves canonical-state health, inherits themes, and remains desktop/mobile safe without production activation.');
+    console.log('P1A browser smoke passed: staged PR7 carries 66 books, expands and mirrors all 22 retained collections, reads Progress/Mastery signals, hands off to PR6, preserves canonical-state health, inherits themes, and remains desktop/mobile safe without production activation.');
   }finally{
     await browser.close();
   }
