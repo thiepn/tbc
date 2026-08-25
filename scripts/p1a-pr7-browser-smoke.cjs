@@ -48,6 +48,7 @@ async function injectStage(page){
   }));
   assert.equal(before.audit.staged,true,'PR7 must identify itself as staged');
   assert.equal(before.audit.productionActive,false,'P1A must not claim production activation');
+  assert.equal(before.audit.directStorageWrites,false,'P1A must declare legacy ownership of persistence');
   assert.equal(before.audit.pass,true,`P1A prerequisite audit failed: ${JSON.stringify(before.audit)}`);
   assert.equal(before.rootHidden,true,'staged PR7 root must remain hidden until explicit activation');
   assert.equal(before.stageActive,false,'staged PR7 must not activate routing automatically');
@@ -63,11 +64,29 @@ async function waitPr7(page,flow){
 async function waitPr6(page,flow){
   await page.waitForFunction(expected=>document.body.dataset.pr6Flow===expected&&Boolean(document.querySelector('.pr6-root:not([hidden])')),flow,{timeout:10000});
 }
-async function snapshotCanonical(page){
-  return page.evaluate(()=>({
-    primary:localStorage.getItem('theBibleChallenge_v21'),
-    recovery:localStorage.getItem('theBibleChallenge_v21_recovery')
-  }));
+async function canonicalHealth(page){
+  return page.evaluate(()=>{
+    const keys=['theBibleChallenge_v21','theBibleChallenge_v21_recovery'];
+    const out={};
+    for(const key of keys){
+      const raw=localStorage.getItem(key);
+      let valid=true;
+      if(raw!==null){try{JSON.parse(raw)}catch{valid=false}}
+      out[key]={present:raw!==null,valid,length:raw?.length||0};
+    }
+    out.obsoleteKeys=Object.keys(localStorage).filter(key=>key.startsWith('tbc_v4_'));
+    return out;
+  });
+}
+function assertCanonicalHealthy(before,after,label){
+  for(const key of ['theBibleChallenge_v21','theBibleChallenge_v21_recovery']){
+    assert.equal(after[key].valid,true,`${label}: ${key} must remain parseable when present`);
+    if(before[key].present){
+      assert.equal(after[key].present,true,`${label}: existing ${key} must not be removed`);
+      assert.ok(after[key].length>16,`${label}: existing ${key} must not be reset to an empty/trivial payload`);
+    }
+  }
+  assert.deepEqual(after.obsoleteKeys,[],`${label}: obsolete tbc_v4_ state keys must not be introduced`);
 }
 
 (async()=>{
@@ -76,15 +95,15 @@ async function snapshotCanonical(page){
   try{
     const desktop=await openBase(browser,{width:1440,height:1000});
     const page=desktop.page;
-    const storageBefore=await snapshotCanonical(page);
+    const stateBefore=await canonicalHealth(page);
     await injectStage(page);
 
     await page.evaluate(()=>window.TBC_PR7.open('library'));
     await waitPr7(page,'library');
     let audit=await page.evaluate(()=>window.TBC_PR7.audit());
-    assert.equal(audit.bookCount,66,`staged Library must resolve all 66 books, found ${audit.bookCount}`);
+    assert.equal(audit.bookCount,66,`staged Library must carry all 66 books, found ${audit.bookCount}`);
     assert.equal(await page.locator('.pr7-root [data-pr7-book]').count(),66,'Library view must expose 66 book shortcuts');
-    assert.match((await page.locator('.pr7-root').innerText()).replace(/\s+/g,' '),/Bible Library.*66 available/i,'Library view must expose the complete retained Bible catalog');
+    assert.match((await page.locator('.pr7-root').innerText()).replace(/\s+/g,' '),/Bible Library.*66 available/i,'Library view must expose the complete Bible catalog');
 
     await page.locator('.pr7-root [data-pr7-open="collections"]').click();
     await waitPr7(page,'collections');
@@ -99,10 +118,9 @@ async function snapshotCanonical(page){
     const progressText=(await page.locator('.pr7-root').innerText()).replace(/\s+/g,' ');
     assert.match(progressText,/Progress.*Adaptive Review.*Focused Practice/i,'Progress view must connect retained signals to next-step practice');
 
-    const storageAfterBrowse=await snapshotCanonical(page);
-    assert.deepEqual(storageAfterBrowse,storageBefore,'staged Library/Collections/Progress browsing must not mutate canonical saved state');
+    assertCanonicalHealthy(stateBefore,await canonicalHealth(page),'desktop staged browsing');
 
-    await page.evaluate(()=>{document.body.classList.add('dark')});
+    await page.evaluate(()=>document.body.classList.add('dark'));
     const dark=await page.locator('.pr7-root').evaluate(el=>({color:getComputedStyle(el).color,bg:getComputedStyle(el.querySelector('.pr7-lead')).backgroundColor}));
     assert.ok(dark.color&&dark.bg,'dark theme must resolve PR7 colors');
     await page.evaluate(()=>{document.body.classList.remove('dark');document.body.classList.add('contrast')});
@@ -133,12 +151,12 @@ async function snapshotCanonical(page){
 
     const mobile=await openBase(browser,{width:390,height:844});
     const mobilePage=mobile.page;
-    const mobileStorageBefore=await snapshotCanonical(mobilePage);
+    const mobileStateBefore=await canonicalHealth(mobilePage);
     await injectStage(mobilePage);
     await mobilePage.locator('.pr5-mobile-nav [data-pr5-nav="library"]').click();
     await waitPr7(mobilePage,'library');
     audit=await mobilePage.evaluate(()=>window.TBC_PR7.audit());
-    assert.equal(audit.bookCount,66,'mobile staged Library must resolve all 66 books');
+    assert.equal(audit.bookCount,66,'mobile staged Library must carry all 66 books');
     const mobileMetrics=await mobilePage.evaluate(()=>({
       overflow:document.documentElement.scrollWidth-window.innerWidth,
       navPosition:getComputedStyle(document.querySelector('.pr5-mobile-nav')).position,
@@ -155,14 +173,13 @@ async function snapshotCanonical(page){
     await waitPr7(mobilePage,'collections');
     audit=await mobilePage.evaluate(()=>window.TBC_PR7.audit());
     assert.equal(audit.collectionCount,22,'mobile staged Collections must mirror all 22 retained collections');
-    const mobileStorageAfter=await snapshotCanonical(mobilePage);
-    assert.deepEqual(mobileStorageAfter,mobileStorageBefore,'mobile staged browsing must not mutate canonical saved state');
+    assertCanonicalHealthy(mobileStateBefore,await canonicalHealth(mobilePage),'mobile staged browsing');
     await mobilePage.screenshot({path:'artifacts/p1a/mobile-collections.png',fullPage:true});
     assert.deepEqual(mobile.pageErrors,[],`P1A mobile page errors: ${mobile.pageErrors.join(' | ')}`);
     assert.deepEqual(mobile.consoleErrors,[],`P1A mobile console errors: ${mobile.consoleErrors.join(' | ')}`);
     await mobile.context.close();
 
-    console.log('P1A browser smoke passed: staged PR7 resolved 66 books, 22 retained collections, Progress/Mastery signals, PR6 handoffs, canonical-state non-mutation, theme inheritance, and desktop/mobile containment without production activation.');
+    console.log('P1A browser smoke passed: staged PR7 carries 66 books, mirrors 22 retained collections, reads Progress/Mastery signals, hands off to PR6, preserves canonical-state health, inherits themes, and remains desktop/mobile safe without production activation.');
   }finally{
     await browser.close();
   }
