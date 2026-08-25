@@ -143,6 +143,20 @@ function assertCanonicalHealthy(before,after,label){
     await waitPr7(page,'library');
     await page.locator('.pr5-primary-nav [data-pr5-nav="play"]').click();
     await waitPr6(page,'play');
+    const playExitDiagnostic=await page.evaluate(()=>({
+      pr5Domain:document.body.dataset.pr5Domain||null,
+      pr6Flow:document.body.dataset.pr6Flow||null,
+      pr7Flow:document.body.dataset.pr7Flow||null,
+      topbar:document.querySelector('.topbar h1')?.textContent||null,
+      pr7Hidden:document.querySelector('.pr7-root')?.hidden,
+      pr7StageActive:document.documentElement.hasAttribute('data-pr7-stage-active'),
+      pr7NativeActive:document.body.classList.contains('pr7-native-active'),
+      pr7Audit:window.TBC_PR7?.audit?.(),
+      adapterAudit:window.TBC_PR7_COLLECTIONS?.audit?.(),
+      visiblePr6:[...document.querySelectorAll('.pr6-root:not([hidden])')].map(el=>el.getAttribute('data-pr6-ui')||el.className),
+      visiblePr7:document.querySelectorAll('.pr7-root:not([hidden])').length
+    }));
+    console.log('P1A PLAY EXIT DIAGNOSTIC',JSON.stringify(playExitDiagnostic));
     assert.equal(await page.locator('.pr7-root:not([hidden])').count(),0,'Play navigation must cleanly leave staged PR7');
 
     const desktopOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
