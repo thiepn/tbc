@@ -27,20 +27,21 @@ const exitsPr7=target=>{
 };
 
 function handle(event){
-  if(!event.isTrusted)return;
   const target=event.target?.closest?.('button,a,[role="button"]');
   if(!target||pr7Target(target))return;
   const api=window.TBC_PR7;if(!api)return;
   const flow=reentryFlow(target);
   if(flow&&!api.audit?.().active){
+    if(!event.isTrusted)return;
     event.preventDefault();event.stopImmediatePropagation();
     if(api.activate())api.open(flow);
     return;
   }
   if(exitsPr7(target)&&api.audit?.().active){
-    /* Run after the destination's own handler. Deactivation invalidates any
-     * in-flight PR7 render token and guarantees the old surface stays hidden. */
-    setTimeout(()=>api.deactivate?.(),0);
+    /* Deactivate before native routing runs. This invalidates every in-flight
+     * PR7 render token immediately; synthetic clicks emitted by the destination
+     * cannot revive PR7 because re-entry accepts trusted user input only. */
+    api.deactivate?.();
   }
 }
 
