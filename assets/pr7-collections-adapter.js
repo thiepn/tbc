@@ -1,9 +1,14 @@
-/* The Bible Challenge — P1A retained Collections adapter
+/* The Bible Challenge — P1A retained Collections / route adapter
  * The retained v24 catalog is complete (22 collections) but its P0C modal is a
  * snapshot: the first snapshot contains 18 cards and the native show-more action
  * only advances v24's internal practice limit. PR7 therefore advances that
  * retained limit through v24ShowMorePractice(), then asks the retained P0C
  * launcher to regenerate the modal snapshot. No collection data is duplicated.
+ *
+ * This bridge also enforces cross-surface ownership after a retained PR5/PR6
+ * navigation handoff. Some legacy render paths can clear `hidden` after PR7's
+ * capture-phase exit; when PR6 owns the route, the staged PR7 root is therefore
+ * re-hidden after that handoff rather than competing with the retained surface.
  */
 (()=>{'use strict';
 if(window.TBC_PR7_COLLECTIONS?.version)return;
@@ -56,18 +61,40 @@ function wrapP0C(){
   p0c.launch=launch;
   return true;
 }
-function settle(){if(active())wrapP0C()}
-const observer=new MutationObserver(records=>{
+function reconcileRouteOwnership(){
+  if(!active())return false;
+  const body=document.body;
+  const root=document.querySelector('.pr7-root');
+  if(!body||!root)return false;
+  const pr7Owns=Boolean(body.dataset.pr7Flow);
+  const pr6Owns=Boolean(body.dataset.pr6Flow&&document.querySelector('.pr6-root:not([hidden])'));
+  if(!pr7Owns&&pr6Owns){
+    root.hidden=true;
+    body.classList.remove('pr7-native-active');
+    document.documentElement.removeAttribute('data-pr7-stage-active');
+    return true;
+  }
+  return false;
+}
+function settle(){
+  if(!active())return;
+  wrapP0C();
+  queueMicrotask(reconcileRouteOwnership);
+  requestAnimationFrame(reconcileRouteOwnership);
+}
+const activationObserver=new MutationObserver(records=>{
   if(records.some(record=>record.type==='attributes'&&record.target===document.documentElement))settle();
 });
+const routeObserver=new MutationObserver(()=>settle());
 function start(){
   wrapP0C();
-  observer.observe(document.documentElement,{attributes:true,attributeFilter:['data-pr7-activated']});
+  activationObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-pr7-activated']});
+  if(document.body)routeObserver.observe(document.body,{attributes:true,subtree:true,attributeFilter:['data-pr6-flow','data-pr7-flow','hidden']});
   settle();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 window.TBC_PR7_COLLECTIONS={
-  version:VERSION,ensure,regenerate,settle,wrapP0C,
-  audit:()=>({version:VERSION,active:active(),expected:EXPECTED,directStorageWrites:false,nativeControl:NATIVE_CONTROL,snapshotStrategy:'retained-limit-relaunch',launcherWrapped:Boolean(window.TBC_P0C?.launch?.__pr7CollectionsAdapter)})
+  version:VERSION,ensure,regenerate,settle,wrapP0C,reconcileRouteOwnership,
+  audit:()=>({version:VERSION,active:active(),expected:EXPECTED,directStorageWrites:false,nativeControl:NATIVE_CONTROL,snapshotStrategy:'retained-limit-relaunch',launcherWrapped:Boolean(window.TBC_P0C?.launch?.__pr7CollectionsAdapter),routeOwnershipGuard:true})
 };
 })();
