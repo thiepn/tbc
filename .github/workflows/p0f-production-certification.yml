@@ -1,0 +1,57 @@
+name: P0F Production Deployment Certification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  certify-production:
+    name: Production deployment gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Enforce P0E freeze and P0F local release contract
+        run: node scripts/p0f-production-certification.cjs
+
+      - name: Certify deployed production bytes
+        env:
+          TBC_PRODUCTION_URL: https://thiepn.github.io/tbc/
+        run: node scripts/p0f-live-byte-certification.cjs
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run live production browser smoke
+        env:
+          TBC_PRODUCTION_URL: https://thiepn.github.io/tbc/
+        run: node scripts/p0f-live-browser-smoke.cjs
+
+      - name: Re-run frozen local release gate
+        run: node scripts/p0f-production-certification.cjs
+
+      - name: Upload P0F production evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p0f-production-evidence
+          path: artifacts/p0f/
+          if-no-files-found: ignore
+          retention-days: 14

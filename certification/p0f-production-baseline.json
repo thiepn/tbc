@@ -1,0 +1,24 @@
+{
+  "name": "TBC P0F Production Deployment Baseline",
+  "version": "P0F.0",
+  "frozenAt": "2026-08-25",
+  "p0eFreezeCommit": "41732fa118154e007549e9094f31b515acfa9e2a",
+  "productionUrl": "https://thiepn.github.io/tbc/",
+  "contract": {
+    "questions": 5799,
+    "structuredQuestions": 203,
+    "books": 66,
+    "difficultyLevels": ["Beginner", "Easy", "Standard", "Advanced", "Expert"],
+    "canonicalStateKeys": ["theBibleChallenge_v21", "theBibleChallenge_v21_recovery"],
+    "requiredBrowserSuites": 7
+  },
+  "deployedProductFiles": {
+    "index.html": "13c6d46bc8787b36fcc0920535a2d32b282a66ff",
+    "assets/pr5-foundation.css": "6bd97b4ec9f8e6894d37480679790e1e9ce32e8f",
+    "assets/pr5-shell.js": "1d27e85dafe765a33e358c1902e70a647af1c33b",
+    "assets/pr6-play-learning.css": "115c03c589fc2445397e517294d67a3be7bdc9c9",
+    "assets/pr6-play-learning.js": "dcfbe5d21c84ae50138765412a35ab5b095ef2a0",
+    "assets/p0b-player-controls.js": "151262b97a0500aa528836b7cb3ec605ffc0cc9b",
+    "assets/p0c-existing-feature-preservation.js": "526a112d876cb20622fb95836dc601bd8f97c0ec"
+  }
+}
