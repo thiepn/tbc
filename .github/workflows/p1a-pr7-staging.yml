@@ -1,0 +1,71 @@
+name: P1A PR7 Staged Reconstruction
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  certify-stage:
+    name: PR7 safe-rebase staging gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Enforce frozen P0F release contract
+        run: node scripts/p0f-production-certification.cjs
+
+      - name: Audit staged PR7 boundaries
+        run: node scripts/p1a-pr7-staging-audit.cjs
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local certified TBC
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p1a-server.log 2>&1 &
+          for i in {1..25}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-p1a-server.log
+          exit 1
+
+      - name: Diagnose retained Collections pagination
+        run: node scripts/p1a-collections-diagnostic.cjs
+
+      - name: Inject and certify staged PR7
+        run: node scripts/p1a-pr7-browser-smoke.cjs
+
+      - name: Re-run frozen and staged gates
+        run: |
+          node scripts/p0f-production-certification.cjs
+          node scripts/p1a-pr7-staging-audit.cjs
+
+      - name: Upload P1A staging evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1a-pr7-staging-evidence
+          path: artifacts/p1a/
+          if-no-files-found: ignore
+          retention-days: 14
