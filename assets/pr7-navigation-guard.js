@@ -44,22 +44,16 @@ function handle(event){
   if(exitsPr7(target)&&api.audit?.().active)deactivate();
 }
 
-/* Native routing can complete after click propagation. Reconcile against the
- * authoritative PR5/PR6 route markers so PR7 cannot remain visible even when a
- * retained handler performs additional navigation work after our capture pass. */
+/* PR7 primes retained Library/Progress surfaces internally, so generic PR5
+ * domain changes are not a safe exit signal. A truthy PR6 flow is authoritative:
+ * it only appears when PR6 has taken navigation ownership. */
 const routeObserver=new MutationObserver(records=>{
   const api=window.TBC_PR7;if(!api?.audit?.().active)return;
-  for(const record of records){
-    if(record.attributeName==='data-pr6-flow'&&document.body.dataset.pr6Flow){deactivate();return;}
-    if(record.attributeName==='data-pr5-domain'){
-      const domain=document.body.dataset.pr5Domain;
-      if(domain&&domain!=='library'){deactivate();return;}
-    }
-  }
+  if(records.some(record=>record.attributeName==='data-pr6-flow')&&document.body.dataset.pr6Flow)deactivate();
 });
 function observeRoutes(){
   if(!document.body)return;
-  routeObserver.observe(document.body,{attributes:true,attributeFilter:['data-pr5-domain','data-pr6-flow']});
+  routeObserver.observe(document.body,{attributes:true,attributeFilter:['data-pr6-flow']});
 }
 
 document.addEventListener('click',handle,true);
