@@ -20,8 +20,9 @@
   },
   "hashes": {
     "algorithm": "sha256",
-    "canonicalBankSha256": null,
-    "structuredBankSha256": null
+    "canonicalBankSha256": "37ca60a790b65036fa24136b912fdaef3ea0ca3762488f8ff218fdcfec774ed8",
+    "structuredBankSha256": "638c285db0d13358ce9e6d66fde7270337d6a9de92e51ea422a3d8275ef09183",
+    "registryBankSha256": "2235fd5463b00f7527b32512c3eb89d6e62636d5a8098874c13e1b9ed2009611"
   },
   "policy": {
     "readOnly": true,
