@@ -5,7 +5,7 @@
  */
 (()=>{'use strict';
 if(window.TBC_PR7_COLLECTIONS?.version)return;
-const VERSION='P1A.2';
+const VERSION='P1A.1';
 const pending=new WeakSet();
 function active(){return Boolean(document.documentElement.getAttribute('data-pr7-activated'))}
 function eligible(button){return Boolean(button?.isConnected&&!button.disabled&&button.getAttribute('aria-disabled')!=='true')}
