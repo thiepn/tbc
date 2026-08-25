@@ -26,7 +26,7 @@ const META={
   mastery:{eyebrow:'Progress',title:'Mastery',copy:'Inspect retained mastery signals without creating a second progress model.'}
 };
 
-const state={active:false,flow:null,root:null,token:0,primed:null,collections:[],signals:[],interceptBound:false};
+const state={active:false,flow:null,root:null,token:0,routeLock:false,primed:null,collections:[],signals:[],interceptBound:false};
 const clean=v=>String(v??'').replace(/\s+/g,' ').trim();
 const norm=v=>clean(v).toLowerCase();
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -52,21 +52,25 @@ function mount(){
 }
 function showSurface(){
   const root=mount();
-  if(!root)return false;
+  if(!root||state.routeLock)return false;
   root.hidden=false;
   document.body.classList.add('pr7-native-active');
   document.documentElement.setAttribute('data-pr7-stage-active','true');
   return true;
 }
-function leaveSurface(){
+function leaveSurface({lock=false}={}){
+  if(lock)state.routeLock=true;
+  state.token++;
   document.body.classList.remove('pr7-native-active');
   document.documentElement.removeAttribute('data-pr7-stage-active');
   delete document.body.dataset.pr7Flow;
   if(state.root)state.root.hidden=true;
   state.flow=null;
 }
+function unlockSurface(){state.routeLock=false}
 function deactivate(){
   state.active=false;
+  state.routeLock=true;
   state.primed=null;
   leaveSurface();
   document.documentElement.removeAttribute('data-pr7-activated');
@@ -75,6 +79,7 @@ function deactivate(){
 function activate(){
   if(!window.TBC_P0C?.launch||!window.TBC_PR6?.open)return false;
   state.active=true;
+  state.routeLock=false;
   bindIntercept();
   mount();
   document.documentElement.setAttribute('data-pr7-activated',VERSION);
@@ -198,10 +203,11 @@ function bindRoot(){
 }
 
 async function render(flow){
-  if(!state.active)return false;
+  if(!state.active||state.routeLock)return false;
   if(!META[flow])flow='library';
-  const root=mount();if(!root||!showSurface())return false;
+  const root=mount();if(!root)return false;
   const token=++state.token;
+  if(!showSurface())return false;
   state.flow=flow;document.body.dataset.pr7Flow=flow;window.TBC_PR6?.deactivate?.();
   root.innerHTML=shell(flow,loading());title()?.replaceChildren(document.createTextNode(META[flow].title));
 
@@ -209,7 +215,7 @@ async function render(flow){
   else if(flow==='collections')await loadCollections();
   else if(await prime('progress',{force:true}))scanProgressSignals();
 
-  if(token!==state.token||!state.active||state.flow!==flow)return false;
+  if(token!==state.token||!state.active||state.routeLock||state.flow!==flow)return false;
   const body=flow==='library'?libraryBody():flow==='collections'?collectionsBody():flow==='mastery'?masteryBody():progressBody();
   root.innerHTML=shell(flow,body);bindRoot();requestAnimationFrame(()=>root.querySelector('h2')?.focus({preventScroll:true}));
   return true;
@@ -218,13 +224,13 @@ async function open(flow){return render(flow)}
 
 async function openPr6(flow){
   if(!window.TBC_PR6?.open)return false;
-  leaveSurface();state.primed=null;
+  leaveSurface({lock:true});state.primed=null;
   await window.TBC_PR6.open(flow);
   return true;
 }
 async function openBook(name){
   if(!BOOKS.includes(name)||!window.TBC_PR6?.open)return false;
-  leaveSurface();state.primed=null;
+  leaveSurface({lock:true});state.primed=null;
   await window.TBC_PR6.open('focused');
   await frame();await delay(60);
   const selector=`.pr6-root:not([hidden]) [data-pr6-book="${CSS.escape(name)}"]`;
@@ -241,35 +247,36 @@ async function openCollection(index){
   const actions=Array.from(card.querySelectorAll('button,a[href],[role="button"]'));
   const action=actions.find(el=>/practice/i.test(clean(el.textContent)))||actions.find(el=>/test|open|play/i.test(clean(el.textContent)))||actions[0];
   if(!action){closeCollectionsModal();return false;}
-  leaveSurface();action.click();await frame();state.primed=null;return true;
+  leaveSurface({lock:true});action.click();await frame();state.primed=null;return true;
 }
 
 function intercept(event){
   if(!state.active)return;
   const target=event.target?.closest?.('button,a,[role="button"]');if(!target||target.closest('[data-pr7-ui]'))return;
   const nav=target.closest('[data-pr5-nav]');
-  if(nav?.dataset.pr5Nav==='library'){event.preventDefault();event.stopImmediatePropagation();open('library');return;}
-  if(nav){leaveSurface();state.primed=null;return;}
+  if(nav?.dataset.pr5Nav==='library'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('library');return;}
+  if(nav){leaveSurface({lock:true});state.primed=null;return;}
   const utility=target.closest('[data-pr5-utility]');
-  if(utility?.dataset.pr5Utility==='progress'){event.preventDefault();event.stopImmediatePropagation();open('progress');return;}
-  if(utility){leaveSurface();state.primed=null;return;}
+  if(utility?.dataset.pr5Utility==='progress'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('progress');return;}
+  if(utility){leaveSurface({lock:true});state.primed=null;return;}
   const preserved=target.closest('[data-p0c-feature]');
-  if(preserved?.dataset.p0cFeature==='library'){event.preventDefault();event.stopImmediatePropagation();open('library');return;}
-  if(preserved?.dataset.p0cFeature==='collections'){event.preventDefault();event.stopImmediatePropagation();open('collections');return;}
-  if(preserved?.dataset.p0cFeature==='progress'){event.preventDefault();event.stopImmediatePropagation();open('progress');return;}
-  if(target.closest('.brand')){leaveSurface();state.primed=null;return;}
-  if(target.closest('.pr5-home')&&/practice a book|book practice|library/.test(norm(target.textContent))){event.preventDefault();event.stopImmediatePropagation();open('library');}
+  if(preserved?.dataset.p0cFeature==='library'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('library');return;}
+  if(preserved?.dataset.p0cFeature==='collections'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('collections');return;}
+  if(preserved?.dataset.p0cFeature==='progress'){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('progress');return;}
+  if(preserved){leaveSurface({lock:true});state.primed=null;return;}
+  if(target.closest('.brand')){leaveSurface({lock:true});state.primed=null;return;}
+  if(target.closest('.pr5-home')&&/practice a book|book practice|library/.test(norm(target.textContent))){event.preventDefault();event.stopImmediatePropagation();unlockSurface();open('library');}
 }
 function bindIntercept(){
   if(state.interceptBound)return;state.interceptBound=true;
   document.addEventListener('click',intercept,true);
-  document.addEventListener('keydown',event=>{if(!state.active||event.key!=='Escape')return;if(state.flow==='collections')open('library');else if(state.flow==='mastery')open('progress')});
+  document.addEventListener('keydown',event=>{if(!state.active||state.routeLock||event.key!=='Escape')return;if(state.flow==='collections')open('library');else if(state.flow==='mastery')open('progress')});
 }
 
 function audit(){
   const p0c=window.TBC_P0C?.audit?.(),pr6=window.TBC_PR6?.audit?.();
   return {
-    version:VERSION,staged:true,productionActive:false,active:state.active,flow:state.flow,
+    version:VERSION,staged:true,productionActive:false,active:state.active,flow:state.flow,routeLocked:state.routeLock,
     p0cVersion:window.TBC_P0C?.version||null,pr6Version:window.TBC_PR6?.version||null,
     libraryAvailable:Boolean(p0c?.features?.library),collectionsAvailable:Boolean(p0c?.features?.collections),progressAvailable:Boolean(p0c?.features?.progress),
     bookCount:BOOKS.length,collectionCount:state.collections.length,signalCount:state.signals.length,
