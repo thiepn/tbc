@@ -25,8 +25,10 @@
   "stagedFiles": [
     "assets/pr7-library-progress.js",
     "assets/pr7-library-progress.css",
+    "assets/pr7-collections-adapter.js",
     "scripts/p1a-pr7-staging-audit.cjs",
     "scripts/p1a-pr7-browser-smoke.cjs",
+    "scripts/p1a-collections-diagnostic.cjs",
     ".github/workflows/p1a-pr7-staging.yml",
     "docs/P1A-PR7-STAGED-RECONSTRUCTION.md"
   ],
