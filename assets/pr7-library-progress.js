@@ -43,6 +43,7 @@ function mount(){
   const root=document.createElement('section');
   root.className='pr7-root';
   root.dataset.pr7Ui='true';
+  root.dataset.pr5Ui='pr7-isolation';
   root.hidden=true;
   root.setAttribute('aria-live','polite');
   root.setAttribute('aria-label','Library and progress reconstruction');
@@ -78,8 +79,9 @@ function deactivate(){
 }
 function activate(){
   if(!window.TBC_P0C?.launch||!window.TBC_PR6?.open)return false;
+  const firstActivation=!state.active;
   state.active=true;
-  unlockSurface('activate');
+  if(firstActivation)unlockSurface('activate');
   bindIntercept();
   mount();
   document.documentElement.setAttribute('data-pr7-activated',VERSION);
