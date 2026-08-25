@@ -12,10 +12,15 @@ P1A adds only new, unreferenced staging assets and certification infrastructure:
 
 - `assets/pr7-library-progress.js`
 - `assets/pr7-library-progress.css`
+- `assets/pr7-collections-adapter.js`
 - `scripts/p1a-pr7-staging-audit.cjs`
 - `scripts/p1a-pr7-browser-smoke.cjs`
+- `scripts/p1a-collections-diagnostic.cjs`
 - `.github/workflows/p1a-pr7-staging.yml`
 - `certification/p1a-pr7-staging-baseline.json`
+- `docs/P1A-PR7-STAGED-RECONSTRUCTION.md`
+
+The Collections adapter is staging-only. It expands the retained v24 catalog's native `Show 4 more` control after that control is fully interactive, so PR7 mirrors the complete 22-collection catalog rather than an 18-card initial viewport. It does not invent collection data or own persistence.
 
 ## Hard preservation boundary
 
@@ -40,11 +45,11 @@ The P0E and P0F manifests remain historical release evidence and are not rewritt
 The staged reconstruction then validates:
 
 1. Bible Library discovery against the retained Library route.
-2. The retained 22-collection engine through P0C.
+2. The retained 22-collection engine through P0C, including expansion of its native 18 + 4 pagination state.
 3. Progress/Mastery discovery through the retained Progress route.
 4. Hand-off to PR6 Focused Practice, Adaptive Review, and Learning Path.
 5. Desktop and mobile containment, fixed mobile navigation, dark/contrast inheritance, and keyboard-safe focus.
-6. No competing storage implementation (`localStorage.setItem` / `sessionStorage.setItem`) in PR7.
+6. No competing storage implementation (`localStorage.setItem` / `sessionStorage.setItem`) in PR7 or its Collections adapter.
 7. Existing P0A–P0F gates remain green.
 
 ## State ownership
