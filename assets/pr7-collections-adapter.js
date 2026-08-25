@@ -9,6 +9,7 @@
 if(window.TBC_PR7_COLLECTIONS?.version)return;
 const VERSION='P1A.1';
 const EXPECTED=22;
+const NATIVE_CONTROL='.v24-show-more';
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 function active(){return Boolean(document.documentElement.getAttribute('data-pr7-activated'))}
 function count(root=document){return root.querySelectorAll?.('#modalRoot .v24-collection-card')?.length||0}
@@ -67,6 +68,6 @@ function start(){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 window.TBC_PR7_COLLECTIONS={
   version:VERSION,ensure,regenerate,settle,wrapP0C,
-  audit:()=>({version:VERSION,active:active(),expected:EXPECTED,directStorageWrites:false,snapshotStrategy:'retained-limit-relaunch',launcherWrapped:Boolean(window.TBC_P0C?.launch?.__pr7CollectionsAdapter)})
+  audit:()=>({version:VERSION,active:active(),expected:EXPECTED,directStorageWrites:false,nativeControl:NATIVE_CONTROL,snapshotStrategy:'retained-limit-relaunch',launcherWrapped:Boolean(window.TBC_P0C?.launch?.__pr7CollectionsAdapter)})
 };
 })();
