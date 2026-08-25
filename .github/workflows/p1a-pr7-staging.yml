@@ -1,10 +1,6 @@
-name: P1A PR7 Staged Reconstruction
+name: P1A PR7 Staged Reconstruction (Historical)
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -12,7 +8,7 @@ permissions:
 
 jobs:
   certify-stage:
-    name: PR7 safe-rebase staging gate
+    name: Historical PR7 safe-rebase staging gate
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
