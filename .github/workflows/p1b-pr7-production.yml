@@ -1,0 +1,72 @@
+name: P1B PR7 Production Activation
+
+on:
+  push:
+    branches: [main, p1b-pr7-production-activation]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  certify-production-activation:
+    name: PR7 controlled production activation gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Preserve frozen core content
+        run: node scripts/p0a-preservation-audit.cjs
+
+      - name: Preserve retained feature contracts
+        run: node scripts/p0c-existing-feature-preservation-audit.cjs
+
+      - name: Audit P1B production activation
+        run: node scripts/p1b-pr7-activation-audit.cjs
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local P1B candidate
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p1b-server.log 2>&1 &
+          for i in {1..25}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-p1b-server.log
+          exit 1
+
+      - name: Certify production PR7 behavior
+        run: node scripts/p1b-pr7-browser-smoke.cjs
+
+      - name: Re-run static successor gate
+        run: |
+          node scripts/p0a-preservation-audit.cjs
+          node scripts/p0c-existing-feature-preservation-audit.cjs
+          node scripts/p1b-pr7-activation-audit.cjs
+
+      - name: Upload P1B evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1b-pr7-production-evidence
+          path: artifacts/p1b/
+          if-no-files-found: ignore
+          retention-days: 14
