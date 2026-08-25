@@ -5,18 +5,21 @@
  * TBC P0A — Core Content Preservation Audit
  *
  * Read-only guard for the proven v4.1.0 content contract.
- * The legacy monolith is frozen against the final pre-reconstruction build;
- * reconstruction work must be layered on through external modules.
+ * The legacy monolith remains frozen unless a later certified content phase
+ * explicitly freezes an exact replacement source hash while preserving every
+ * other production contract.
  */
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const BASELINE = '58b5ec8a5ecd2fd87a74f11eea7a94a9bc4195bb';
 const EXPECTED_INDEX_ADDITIONS = 3;
 const EXPECTED_INDEX_DELETIONS = 0;
+const P2A_BASELINE_PATH = path.join(ROOT, 'certification/p2a-question-bank-extraction-baseline.json');
 
 const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
 const src = {
@@ -52,10 +55,29 @@ function legacyIndexDelta() {
   return { additions: Number(additions), deletions: Number(deletions), path: file };
 }
 
+function gitBlobSha1(buffer) {
+  return crypto.createHash('sha1')
+    .update(Buffer.from(`blob ${buffer.length}\0`))
+    .update(buffer)
+    .digest('hex');
+}
+
+function certifiedP2BMonolith() {
+  if (!fs.existsSync(P2A_BASELINE_PATH)) return false;
+  const baseline = JSON.parse(fs.readFileSync(P2A_BASELINE_PATH, 'utf8'));
+  const certification = baseline?.p2b;
+  if (!certification || certification.phase !== 'P2B' || certification.mechanicalIntegrity !== true) return false;
+  if (certification.confirmedDefectsRemaining !== 0 || certification.repairedQuestions !== 30) return false;
+  const expectedSha = String(baseline?.source?.indexBlobSha1 || '');
+  if (!/^[0-9a-f]{40}$/.test(expectedSha)) return false;
+  return gitBlobSha1(Buffer.from(src.app, 'utf8')) === expectedSha;
+}
+
 const checks = [
-  ['legacy-monolith-frozen', `index.html must remain the v4.1.0 baseline plus exactly ${EXPECTED_INDEX_ADDITIONS} approved reconstruction-loader lines`, () => {
+  ['legacy-monolith-frozen', `index.html must remain the v4.1.0 baseline plus exactly ${EXPECTED_INDEX_ADDITIONS} approved reconstruction-loader lines, or match an exact P2B-certified corrected source hash`, () => {
     const delta = legacyIndexDelta();
-    return delta.path === 'index.html' && delta.additions === EXPECTED_INDEX_ADDITIONS && delta.deletions === EXPECTED_INDEX_DELETIONS;
+    const legacyFrozen = delta.path === 'index.html' && delta.additions === EXPECTED_INDEX_ADDITIONS && delta.deletions === EXPECTED_INDEX_DELETIONS;
+    return legacyFrozen || certifiedP2BMonolith();
   }],
   ['monolith-not-truncated', 'index.html remains a substantial production build (>3.5 MB)', () => Buffer.byteLength(src.app, 'utf8') > 3_500_000],
   ['canonical-bank-contract', '5,799 canonical questions remain the frozen playable-bank contract', () => /5,799\s+(?:canonical\s+)?questions/i.test(src.readme)],
@@ -95,5 +117,5 @@ if (failures) {
   console.error(`P0A STATIC FAILED: ${failures} preservation invariant(s) need review.`);
   process.exitCode = 1;
 } else {
-  console.log('P0A STATIC PASSED. Legacy v4.1.0 core content is frozen.');
+  console.log('P0A STATIC PASSED. Core production contracts remain preserved under the active certified source baseline.');
 }
