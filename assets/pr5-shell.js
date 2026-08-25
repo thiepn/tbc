@@ -55,13 +55,20 @@ function setDomain(domain,{render=true}={}){
   if(render)scheduleEnhance();
 }
 function activateDomain(domain){
+  if(domain==='settings'&&typeof window.navTo==='function'){
+    setDomain('settings',{render:false});
+    window.TBC_PR6?.deactivate?.();
+    window.navTo('settings');
+    setTimeout(scheduleEnhance,0);
+    return true;
+  }
   const target=routeTarget(domain);
   setDomain(domain,{render:false});
-  if(domain==='progress'||domain==='settings')window.TBC_PR6?.deactivate?.();
+  if(domain==='progress')window.TBC_PR6?.deactivate?.();
   if(target){
     target.click();
     setTimeout(()=>{
-      if(domain==='progress'||domain==='settings')setDomain(domain,{render:false});
+      if(domain==='progress')setDomain(domain,{render:false});
       scheduleEnhance();
     },0);
     return true;
