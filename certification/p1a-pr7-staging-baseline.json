@@ -1,0 +1,34 @@
+{
+  "name": "TBC P1A PR7 Staged Reconstruction Baseline",
+  "version": "P1A.1",
+  "stagedAt": "2026-08-25",
+  "parentProductionCommit": "762f02de4227bb4719232db95b2657644ada4fcd",
+  "parentProductionGate": "P0F.0",
+  "referenceOnlyLegacyPr7Commit": "ce3bfac560c53516f4cea7ee2976a16c360fe11b",
+  "productionActivation": false,
+  "scope": [
+    "Bible Library",
+    "Collections",
+    "Progress",
+    "Mastery",
+    "PR6 practice handoffs"
+  ],
+  "contract": {
+    "books": 66,
+    "collections": 22,
+    "canonicalStateKeys": ["theBibleChallenge_v21", "theBibleChallenge_v21_recovery"],
+    "requiresP0C": "P0C.3",
+    "requiresPR6": "PR6.0",
+    "productionFilesMustRemainP0FIdentical": true,
+    "directStorageWritesAllowed": false
+  },
+  "stagedFiles": [
+    "assets/pr7-library-progress.js",
+    "assets/pr7-library-progress.css",
+    "scripts/p1a-pr7-staging-audit.cjs",
+    "scripts/p1a-pr7-browser-smoke.cjs",
+    ".github/workflows/p1a-pr7-staging.yml",
+    "docs/P1A-PR7-STAGED-RECONSTRUCTION.md"
+  ],
+  "nextPhase": "P1B — Controlled PR7 production activation and new post-P0F release baseline"
+}
