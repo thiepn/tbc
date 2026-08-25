@@ -14,6 +14,16 @@ const { chromium } = require('playwright');
     await page.evaluate(()=>window.TBC_P0C.launch('collections'));
     await page.waitForSelector('#modalRoot .modal-backdrop:visible',{timeout:7000});
     await page.waitForTimeout(300);
+    const before=await page.locator('#modalRoot .v24-collection-card').count();
+    const clickProbe=await page.evaluate(()=>{
+      const button=document.querySelector('#modalRoot .v24-show-more');
+      if(!button)return {present:false};
+      const info={present:true,onclick:typeof button.onclick,outerHTML:button.outerHTML.slice(0,500)};
+      button.click();
+      return info;
+    });
+    await page.waitForTimeout(180);
+    const after=await page.locator('#modalRoot .v24-collection-card').count();
     const info=await page.evaluate(()=>{
       const modal=document.querySelector('#modalRoot .p0c-collections-modal')||[...document.querySelectorAll('#modalRoot .modal-backdrop')].find(el=>getComputedStyle(el).display!=='none');
       const clean=v=>String(v||'').replace(/\s+/g,' ').trim();
@@ -27,7 +37,7 @@ const { chromium } = require('playwright');
       };
     });
     console.log('P1A COLLECTIONS DIAGNOSTIC START');
-    console.log(JSON.stringify(info,null,2));
+    console.log(JSON.stringify({before,clickProbe,after,info},null,2));
     console.log('P1A COLLECTIONS DIAGNOSTIC END');
   }finally{await browser.close()}
 })().catch(err=>{console.error(err);process.exit(1)});
