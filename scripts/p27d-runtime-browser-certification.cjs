@@ -48,7 +48,10 @@ async function openCandidate(browser, viewport, extra = {}) {
     window.TBC_P1B?.audit?.().ready === true,
   null, { timeout: 20000 });
   await dismissModal(page);
-  await page.waitForTimeout(250);
+  await page.waitForFunction(() => Boolean(document.querySelector(
+    '.pr5-primary-nav [data-pr5-nav][aria-current="page"], .pr5-mobile-nav [data-pr5-nav][aria-current="page"]',
+  )), null, { timeout: 10000 });
+  await page.waitForTimeout(100);
   return { context, page, pageErrors, consoleErrors };
 }
 
@@ -217,6 +220,9 @@ function assertStoragePreserved(before, after, label) {
     await page.reload({ waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForFunction(() => window.TBC_P1B?.audit?.().ready === true, null, { timeout: 20000 });
     await dismissModal(page);
+    await page.waitForFunction(() => Boolean(document.querySelector(
+      '.pr5-primary-nav [data-pr5-nav][aria-current="page"], .pr5-mobile-nav [data-pr5-nav][aria-current="page"]',
+    )), null, { timeout: 10000 });
     const afterReloadAudit = await runtimeAudit(page, 'desktop post-reload');
     assertStoragePreserved(beforeReload, afterReloadAudit.storage, 'desktop reload');
     await page.screenshot({ path: `${ARTIFACT_DIR}/desktop-final.png`, fullPage: true });
