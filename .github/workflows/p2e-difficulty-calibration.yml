@@ -30,6 +30,9 @@ jobs:
       - name: Prove P2E is the only monolith delta from P2D
         run: node scripts/p2e-preservation-audit.cjs
 
+      - name: Locate QB11 frozen difficulty contract
+        run: node scripts/p2e-freeze-diagnostic.cjs
+
       - name: Install Playwright
         run: |
           npm install --no-save --no-package-lock playwright@1.55.0
