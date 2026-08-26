@@ -1,20 +1,17 @@
 name: P27B apply release identity
 
 on:
-  push:
+  pull_request:
     branches:
-      - p27b-release-truth-validation-repair
-    paths:
-      - release.json
-      - scripts/apply-p27b-release-identity.py
-      - .github/workflows/p27b-apply-release-identity.yml
+      - main
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
 
 jobs:
   apply-release-identity:
-    if: ${{ !contains(github.event.head_commit.message, '[p27b-identity-applied]') }}
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'p27b-release-truth-validation-repair' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -31,7 +28,7 @@ jobs:
       - name: Apply surgical release identity repair
         run: python3 scripts/apply-p27b-release-identity.py
 
-      - name: Verify only release identity changed
+      - name: Verify exactly one literal changed
         shell: bash
         run: |
           python3 - <<'PY'
@@ -41,17 +38,21 @@ jobs:
 
           before = Path('/tmp/index-before-p27b.html').read_text(encoding='utf-8')
           after = Path('index.html').read_text(encoding='utf-8')
-          release = json.loads(Path('release.json').read_text(encoding='utf-8'))
+          new = json.loads(Path('release.json').read_text(encoding='utf-8'))['version']
           old = '1.0.0'
-          new = release['version']
           pkg = re.compile(r'(<script id="tbc-engine-package" type="application/octet-stream">)([A-Za-z0-9+/=\r\n]+)(</script>)')
           b = pkg.search(before)
           a = pkg.search(after)
           assert b and a, 'embedded engine package missing'
           assert b.group(2) == a.group(2), 'embedded engine/question payload changed'
           assert before != after, 'index identity did not change'
-          assert new in after, 'current application version absent after repair'
-          print('P27B guard passed: release identity changed; embedded engine/question payload unchanged')
+          changed = False
+          for i in range(len(after) - len(new) + 1):
+              if after[i:i+len(new)] == new and after[:i] + old + after[i+len(new):] == before:
+                  changed = True
+                  break
+          assert changed, 'index diff is not exactly one 1.0.0 -> current version substitution'
+          print('P27B guard passed: exactly one release-identity literal changed; embedded engine/question payload unchanged')
           PY
 
       - name: Commit application identity repair
@@ -64,5 +65,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add index.html
-          git commit -m 'P27B: align application identity with v4.1.0 [p27b-identity-applied]'
+          git commit -m 'P27B: align application identity with release.json [p27b-identity-applied]'
           git push origin HEAD:p27b-release-truth-validation-repair
