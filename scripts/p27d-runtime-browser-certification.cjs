@@ -141,8 +141,17 @@ async function keyboardPrimaryRoute(page, domain, expectedFlow) {
   const selector = `.pr5-primary-nav [data-pr5-nav="${domain}"]`;
   const control = page.locator(selector);
   assert.equal(await control.count(), 1, `desktop ${domain} navigation control must exist`);
+
+  // Programmatic focus does not always match :focus-visible after pointer input.
+  // Move away and back with real keyboard navigation so the assertion tests the
+  // browser's keyboard-focus modality rather than Playwright's focus() semantics.
   await control.focus();
-  assert.equal(await control.evaluate(el => document.activeElement === el), true, `${domain} navigation control must be keyboard-focusable`);
+  assert.equal(await control.evaluate(el => document.activeElement === el), true, `${domain} navigation control must be focusable`);
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Shift+Tab');
+  assert.equal(await control.evaluate(el => document.activeElement === el), true, `${domain} navigation control must be keyboard-reachable`);
+  assert.equal(await control.evaluate(el => el.matches(':focus-visible')), true, `${domain} navigation control must match :focus-visible after keyboard navigation`);
+
   const focusStyle = await control.evaluate(el => {
     const style = getComputedStyle(el);
     return { outlineStyle: style.outlineStyle, outlineWidth: style.outlineWidth, boxShadow: style.boxShadow };
