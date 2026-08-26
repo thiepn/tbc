@@ -48,12 +48,12 @@ for(const q of qs){
 const promptExpectations={
   'd4.easy.mode.parables.luke-good-samaritan.16':'Which statement best captures the closing challenge of the cited parable?',
   'd4.easy.mode.parables.matt-tenants.09':'Which parable is associated with the cited passage?',
-  'phase6.jesus.luke.cross.criminal':'What does Jesus promise the criminal who asks to be remembered?',
+  'phase6.jesus.luke.cross.criminal':'What assurance is given to the criminal who asks to be remembered?',
   'phase8.wp.joel.spirit.scope':'What is notable about the people who receive the Spirit in Joel’s promise?',
-  'phase9.nt.2-peter.2.meaning':'What contradiction does 2 Peter 2 expose in false teachers who promise freedom?',
+  'phase9.nt.2-peter.2.meaning':'What contradiction does 2 Peter 2 expose in the false teachers’ condition?',
   'd4.easy.major.1-chronicles-inventory-1.01':'Which statement best summarizes the significance of the genealogies in 1 Chronicles 1–9?',
-  'phase9.nt.1-timothy.2.context':'Why does 1 Timothy 2 place prayer for rulers within a wider salvation perspective?',
-  'v402.miracle.feeding-bread-discourse':'Why does John place the feeding sign before the Bread of Life discourse?',
+  'phase9.nt.1-timothy.2.context':'How does 1 Timothy 2 connect public intercession with the letter’s wider mission?',
+  'v402.miracle.feeding-bread-discourse':'How does John connect the feeding sign with the discourse that follows?',
   'v21.clueReduction.39':'Which person is identified by the cited evidence?'
 };
 for(const [id,prompt] of Object.entries(promptExpectations)){
