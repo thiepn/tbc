@@ -24,16 +24,29 @@ The canonical validator owns the current release decision. Phase-era scripts (P0
 The validator verifies:
 
 1. release/version identity is internally consistent and matches README, this QA document, and the application;
-2. obsolete `1.0.0` application identity is absent;
-3. current certification counts, tier distribution, and frozen question-bank hashes match `certification/p2a-question-bank-extraction-baseline.json`;
-4. the runtime question-bank APIs are healthy and no page/runtime extraction errors occur;
-5. current shell, Play/Learn, and Library/Progress browser smoke suites pass.
+2. `.github/workflows/release-validate.yml` is the sole automatic PR/`main` release authority and no historical workflow competes with it;
+3. obsolete `1.0.0` application identity is absent;
+4. current certification counts, tier distribution, and frozen question-bank hashes match `certification/p2a-question-bank-extraction-baseline.json`;
+5. the runtime question-bank APIs are healthy and no page/runtime extraction errors occur;
+6. current shell, Play/Learn, and Library/Progress browser smoke suites pass.
 
 The workflow `.github/workflows/release-validate.yml` installs the browser dependency, starts the local application, and runs that same canonical command. CI does not maintain a separate definition of release correctness.
 
+## CI authority
+
+`release-validate.yml` is the only workflow allowed to run as a general release gate on pull requests to `main` and pushes to `main`.
+
+Completed phase workflows are historical tools. They remain available through explicit `workflow_dispatch` where retained, but they must not automatically run on ordinary pull requests or `main` pushes. Historical P2 repair/certification workflows are read-only at repository level and do not write corrected monoliths or baselines back to phase branches.
+
+A narrowly branch-scoped implementation workflow may retain automatic execution when it is tied only to its own historical implementation branch and cannot act as a general `main`/PR gate. `pr5-apply.yml` is currently the retained example.
+
+The canonical release validator inspects workflow trigger blocks and fails if another workflow regains automatic pull-request or `main` authority.
+
 ## Question-bank preservation rule
 
-P27B is release/validation repair only. It must not edit question records, answers, distractors, difficulty assignments, routing, or structured-question content. The validator compares the runtime bank against the frozen certification hashes rather than treating whole-file byte identity as a proxy for question preservation. This allows release metadata to be repaired without redefining the bank.
+P27B repaired release/version truth without redefining the certified question bank. P27C changes CI/workflow authority only. Neither phase edits question records, answers, distractors, difficulty assignments, routing, structured-question content, or the frozen certification payload.
+
+The validator compares the runtime bank against the frozen certification hashes rather than treating whole-file byte identity as a proxy for question preservation. This allows release and CI metadata to be repaired without redefining the bank.
 
 ## Historical certification documents
 
