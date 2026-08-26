@@ -16,6 +16,8 @@ const readme = read('README.md');
 const qa = read('docs/QA.md');
 const failures = [];
 const LEGACY_APP_VERSION = '1.0.0';
+const WORKFLOW_DIR = path.join(ROOT, '.github', 'workflows');
+const CANONICAL_WORKFLOW = 'release-validate.yml';
 
 function check(name, pass, detail = '') {
   const ok = Boolean(pass);
@@ -48,6 +50,28 @@ function runNode(script, env = {}) {
   });
 }
 
+function workflowOnBlock(text) {
+  const marker = '\non:\n';
+  const start = text.indexOf(marker);
+  if (start < 0) return '';
+  const bodyStart = start + marker.length;
+  const permissions = text.indexOf('\npermissions:', bodyStart);
+  return text.slice(bodyStart, permissions < 0 ? text.length : permissions);
+}
+
+function automaticMainAuthority(file, text) {
+  const block = workflowOnBlock(text);
+  const pullRequest = /^\s*pull_request\s*:/m.test(block);
+  const push = /^\s*push\s*:/m.test(block);
+  const mainBranch = /branches\s*:\s*\[[^\]]*\bmain\b[^\]]*\]/m.test(block) || /^\s*-\s*main\s*$/m.test(block);
+  return {
+    file,
+    pullRequest,
+    pushToMain: push && mainBranch,
+    automatic: pullRequest || (push && mainBranch),
+  };
+}
+
 console.log('TBC — Canonical Release Validation');
 console.log(`Release: ${release.release} / application ${release.version}\n`);
 
@@ -63,6 +87,21 @@ check(
   'QA release identity',
   qa.includes(`Canonical release: \`${release.release}\``) &&
     qa.includes(`Application version: \`${release.version}\``),
+);
+
+const workflowFiles = fs.readdirSync(WORKFLOW_DIR).filter((file) => /\.ya?ml$/i.test(file)).sort();
+const workflowAuthorities = workflowFiles.map((file) => automaticMainAuthority(file, fs.readFileSync(path.join(WORKFLOW_DIR, file), 'utf8')));
+const canonicalAuthority = workflowAuthorities.find((entry) => entry.file === CANONICAL_WORKFLOW);
+const competingAuthorities = workflowAuthorities.filter((entry) => entry.file !== CANONICAL_WORKFLOW && entry.automatic);
+check(
+  'canonical release workflow owns PR/main automation',
+  canonicalAuthority?.pullRequest === true && canonicalAuthority?.pushToMain === true,
+  canonicalAuthority ? JSON.stringify(canonicalAuthority) : `${CANONICAL_WORKFLOW} missing`,
+);
+check(
+  'no competing historical workflow owns PR/main automation',
+  competingAuthorities.length === 0,
+  competingAuthorities.map((entry) => entry.file).join(', '),
 );
 
 const staleIdentity = identityContexts(index, LEGACY_APP_VERSION);
@@ -114,4 +153,4 @@ try { fs.rmSync(temp, { recursive: true, force: true }); } catch {}
 
 console.log(`\n${failures.length ? 'RELEASE VALIDATION FAILED' : 'RELEASE VALIDATION PASSED'}: ${failures.length} failure(s).`);
 if (failures.length) process.exit(1);
-console.log(`${release.release} is internally coherent and the certified question bank remains unchanged.`);
+console.log(`${release.release} is internally coherent, CI authority is singular, and the certified question bank remains unchanged.`);
