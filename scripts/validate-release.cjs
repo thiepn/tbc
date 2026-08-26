@@ -15,6 +15,7 @@ const index = read('index.html');
 const readme = read('README.md');
 const qa = read('docs/QA.md');
 const failures = [];
+const LEGACY_APP_VERSION = '1.0.0';
 
 function check(name, pass, detail = '') {
   const ok = Boolean(pass);
@@ -39,26 +40,34 @@ function identityContexts(text, version) {
 }
 
 function runNode(script, env = {}) {
-  const result = spawnSync(process.execPath, [script], {
+  return spawnSync(process.execPath, [script], {
     cwd: ROOT,
     env: { ...process.env, ...env },
     encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
   });
-  return result;
 }
 
 console.log('TBC — Canonical Release Validation');
 console.log(`Release: ${release.release} / application ${release.version}\n`);
 
+check('release identity fields present', typeof release.release === 'string' && release.release.length > 1 && typeof release.version === 'string' && release.version.length > 0);
 check('release identity shape', release.release === `v${release.version}`, `${release.release} vs v${release.version}`);
-check('current release is v4.1.0', release.release === 'v4.1.0' && release.version === '4.1.0');
-check('README release identity', readme.includes('Current release: **v4.1.0**') && readme.includes('`release.json`'));
-check('QA release identity', qa.includes('Canonical release: `v4.1.0`') && qa.includes('Application version: `4.1.0`'));
+check(
+  'README release identity',
+  readme.includes(`Current release: **${release.release}**`) &&
+    readme.includes(`Application version: **${release.version}**`) &&
+    readme.includes('`release.json`'),
+);
+check(
+  'QA release identity',
+  qa.includes(`Canonical release: \`${release.release}\``) &&
+    qa.includes(`Application version: \`${release.version}\``),
+);
 
-const staleIdentity = identityContexts(index, '1.0.0');
+const staleIdentity = identityContexts(index, LEGACY_APP_VERSION);
 const currentIdentity = identityContexts(index, release.version);
-check('obsolete 1.0.0 application identity absent', staleIdentity.length === 0, `${staleIdentity.length} identity-context occurrence(s)`);
+check(`obsolete ${LEGACY_APP_VERSION} application identity absent`, staleIdentity.length === 0, `${staleIdentity.length} identity-context occurrence(s)`);
 check('current application identity present', currentIdentity.length > 0, `no ${release.version} application identity found`);
 
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'tbc-release-validation-'));
