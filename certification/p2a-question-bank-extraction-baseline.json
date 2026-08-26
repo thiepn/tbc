@@ -3,7 +3,7 @@
   "schemaVersion": "P2A.1",
   "parentP1BMerge": "33252c17f89e7aa750c7df60f495a22b19d3c673",
   "source": {
-    "indexBlobSha1": "e2919d277595a4c7aee527ec4fc09972688efac8"
+    "indexBlobSha1": "915ec2f5c4eeb270f63b3a04d442b8a8429c5993"
   },
   "expected": {
     "canonical": 5799,
@@ -12,15 +12,15 @@
     "books": 66,
     "difficultyDistribution": {
       "Beginner": 1338,
-      "Easy": 1666,
-      "Standard": 1133,
-      "Advanced": 1141,
+      "Easy": 1668,
+      "Standard": 1132,
+      "Advanced": 1140,
       "Expert": 521
     }
   },
   "hashes": {
     "algorithm": "sha256",
-    "canonicalBankSha256": "e029080345a6a0ec597273ab4525c5aa61a0dcc5ea80b3b2c1908bb502b7941d",
+    "canonicalBankSha256": "1f795f1ca8d24fe393a9a4d77ac30dbeb10083c30e63c483e613c9c4bda6885b",
     "structuredBankSha256": "4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb",
     "registryBankSha256": "9f03475faa42b2ba6317c950dc3eb4049e7acf8001df7bfee92e83dffba05f9d"
   },
@@ -67,5 +67,32 @@
     "certifiedDifficultyPins": 6,
     "difficultyDistributionPreserved": true,
     "warningsNonBlocking": true
+  },
+  "p2e": {
+    "phase": "P2E",
+    "difficultyCalibration": true,
+    "canonicalQuestionsReviewed": 5799,
+    "confirmedDefectsRemaining": 0,
+    "deferredPinsReviewed": 10,
+    "deferredPinsRemoved": 10,
+    "recalibratedQuestions": 4,
+    "tierChanges": 4,
+    "unchangedDeferredQuestions": 6,
+    "qb6FreezeUpdated": true,
+    "qb11FreezeUpdated": true,
+    "previousDifficultyDistribution": {
+      "Beginner": 1338,
+      "Easy": 1666,
+      "Standard": 1133,
+      "Advanced": 1141,
+      "Expert": 521
+    },
+    "difficultyDistribution": {
+      "Beginner": 1338,
+      "Easy": 1668,
+      "Standard": 1132,
+      "Advanced": 1140,
+      "Expert": 521
+    }
   }
 }

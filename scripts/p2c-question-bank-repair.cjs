@@ -3,9 +3,11 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const zlib=require('node:zlib');
+const crypto=require('node:crypto');
 
 const ROOT=path.resolve(__dirname,'..');
 const INDEX=process.env.P2C_INDEX||path.join(ROOT,'index.html');
+const BASELINE=path.join(ROOT,'certification/p2a-question-bank-extraction-baseline.json');
 const pkgRe=/(<script id="tbc-engine-package" type="application\/octet-stream">)([A-Za-z0-9+/=\r\n]+)(<\/script>)/;
 const fail=msg=>{throw new Error(`P2C repair: ${msg}`)};
 
@@ -34,6 +36,14 @@ let engine=zlib.gunzipSync(Buffer.from(m[2].replace(/\s+/g,''),'base64')).toStri
 let fieldMutations=0;
 let policyMutation=0;
 const repairedQuestions=new Set();
+
+function blobSha1(buffer){return crypto.createHash('sha1').update(Buffer.from(`blob ${buffer.length}\0`)).update(buffer).digest('hex')}
+function isExactP2ESuccessor(){
+  if(!fs.existsSync(BASELINE)||process.env.P2C_INDEX)return false;
+  const b=JSON.parse(fs.readFileSync(BASELINE,'utf8'));
+  const e=b?.p2e;
+  return e?.phase==='P2E'&&e?.difficultyCalibration===true&&e?.confirmedDefectsRemaining===0&&e?.deferredPinsRemoved===10&&e?.tierChanges===4&&blobSha1(Buffer.from(html,'utf8'))===b?.source?.indexBlobSha1;
+}
 
 function repairOverridePrompt(id,bad,good){
   const startToken=`"itemId":"${id}","fields":{`;
@@ -78,6 +88,7 @@ function repairSourceToken(id,oldToken,newToken,label){
 }
 
 function preserveCertifiedDifficulty(){
+  if(isExactP2ESuccessor())return;
   const marker='      row.finalDifficulty = tierForScore(row.score);\n      row.withinTierDifficulty = withinTier(row.score,row.finalDifficulty);';
   const injected=`      row.finalDifficulty = tierForScore(row.score);\n      const p2cDifficultyPins=${JSON.stringify(DIFFICULTY_PINS)};\n      const p2cPin=p2cDifficultyPins[row.id];\n      if(p2cPin){row.finalDifficulty=p2cPin[0];row.score=p2cPin[1];row.p2cDifficultyPreserved=true;}\n      row.withinTierDifficulty = withinTier(row.score,row.finalDifficulty);`;
   if(engine.includes(marker)){
