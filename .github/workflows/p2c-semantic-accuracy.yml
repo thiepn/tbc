@@ -51,6 +51,9 @@ jobs:
           cat /tmp/tbc-p2c-server.log
           exit 1
 
+      - name: Diagnose inherited QB1 leakage gate
+        run: node scripts/p2c-qb1-diagnostic.cjs
+
       - name: Extract corrected canonical bank — pass 1
         run: node scripts/p2a-question-bank-extract.cjs
 
