@@ -3,7 +3,7 @@
   "schemaVersion": "P2A.1",
   "parentP1BMerge": "33252c17f89e7aa750c7df60f495a22b19d3c673",
   "source": {
-    "indexBlobSha1": "bff0e864625e376eb909ff46fb01795740f8abce"
+    "indexBlobSha1": "eabd6be26274dcc05d25216de2cea92c510e8d1e"
   },
   "expected": {
     "canonical": 5799,
@@ -20,9 +20,9 @@
   },
   "hashes": {
     "algorithm": "sha256",
-    "canonicalBankSha256": "ccbca62eec0966e28c7c80a8b7bc237ca9db38d7c20b43d97270e8fd4da51952",
+    "canonicalBankSha256": "d7b3dc2ec392679643ceb5ce93bf6fe4a5744c9ab3327c6f801865ab66689b24",
     "structuredBankSha256": "4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb",
-    "registryBankSha256": "a81ab64731a21c23d819b1ea10adc3ae63ffc2f6d467b6c1b6fd16883131e12d"
+    "registryBankSha256": "06e75e59639443993cc607414999e3967005f8c5b0e2ee2a44fbb60561f7bb28"
   },
   "policy": {
     "readOnly": true,
@@ -38,5 +38,17 @@
     "confirmedDefectsRemaining": 0,
     "repairedQuestions": 30,
     "repairedInvariantFailures": 31
+  },
+  "p2c": {
+    "phase": "P2C",
+    "semanticAccuracy": true,
+    "canonicalQuestionsReviewed": 5799,
+    "confirmedDefectsRemaining": 0,
+    "repairedQuestions": 12,
+    "repairedFieldTransformations": 15,
+    "stemDomainRepairs": 9,
+    "evidenceRepairs": 2,
+    "formalReferenceRepairs": 1,
+    "acceptedCrossBookExceptions": 1
   }
 }
