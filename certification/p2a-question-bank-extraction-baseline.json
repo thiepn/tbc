@@ -3,7 +3,7 @@
   "schemaVersion": "P2A.1",
   "parentP1BMerge": "33252c17f89e7aa750c7df60f495a22b19d3c673",
   "source": {
-    "indexBlobSha1": "eabd6be26274dcc05d25216de2cea92c510e8d1e"
+    "indexBlobSha1": "e2919d277595a4c7aee527ec4fc09972688efac8"
   },
   "expected": {
     "canonical": 5799,
@@ -20,9 +20,9 @@
   },
   "hashes": {
     "algorithm": "sha256",
-    "canonicalBankSha256": "d7b3dc2ec392679643ceb5ce93bf6fe4a5744c9ab3327c6f801865ab66689b24",
+    "canonicalBankSha256": "e029080345a6a0ec597273ab4525c5aa61a0dcc5ea80b3b2c1908bb502b7941d",
     "structuredBankSha256": "4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb",
-    "registryBankSha256": "06e75e59639443993cc607414999e3967005f8c5b0e2ee2a44fbb60561f7bb28"
+    "registryBankSha256": "9f03475faa42b2ba6317c950dc3eb4049e7acf8001df7bfee92e83dffba05f9d"
   },
   "policy": {
     "readOnly": true,
@@ -53,5 +53,19 @@
     "difficultyPolicyTransformations": 1,
     "certifiedDifficultyPins": 4,
     "difficultyDistributionPreserved": true
+  },
+  "p2d": {
+    "phase": "P2D",
+    "questionQuality": true,
+    "canonicalQuestionsReviewed": 5799,
+    "choiceQuestionsReviewed": 5596,
+    "confirmedDefectsRemaining": 0,
+    "repairedQuestions": 6,
+    "repairedFieldTransformations": 6,
+    "stemTaskRepairs": 6,
+    "difficultyPolicyTransformations": 1,
+    "certifiedDifficultyPins": 6,
+    "difficultyDistributionPreserved": true,
+    "warningsNonBlocking": true
   }
 }
