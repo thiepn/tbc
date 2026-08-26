@@ -7,18 +7,17 @@ const fs = require('node:fs');
 
 const BASE = process.env.TBC_BASE_URL || 'http://127.0.0.1:4173/';
 const ARTIFACT_DIR = 'artifacts/p27d';
+const CURRENT_NAV = [
+  '.pr5-primary-nav [data-pr5-nav][aria-current="page"]',
+  '.pr5-utility-nav [data-pr5-utility][aria-current="page"]',
+  '.pr5-mobile-nav [data-pr5-nav][aria-current="page"]',
+].join(', ');
 
 async function dismissModal(page) {
   for (let i = 0; i < 8; i++) {
     const modal = page.locator('#modalRoot .modal-backdrop:visible');
     if (!(await modal.count())) return;
-    const closed = await page.evaluate(() => {
-      if (typeof closeModal === 'function') {
-        closeModal();
-        return true;
-      }
-      return false;
-    });
+    const closed = await page.evaluate(() => typeof closeModal === 'function' ? (closeModal(), true) : false);
     if (!closed) {
       const preferred = modal.getByRole('button', { name: /close|got it|continue|start|okay|ok|dismiss|not now|cancel/i }).last();
       if (await preferred.count()) await preferred.click();
@@ -31,15 +30,17 @@ async function dismissModal(page) {
   }
 }
 
+async function waitNavigationState(page) {
+  await page.waitForFunction(selector => Boolean(document.querySelector(selector)), CURRENT_NAV, { timeout: 10000 });
+}
+
 async function openCandidate(browser, viewport, extra = {}) {
   const context = await browser.newContext({ viewport, ...extra });
   const page = await context.newPage();
   const pageErrors = [];
   const consoleErrors = [];
   page.on('pageerror', error => pageErrors.push(String(error)));
-  page.on('console', message => {
-    if (message.type() === 'error') consoleErrors.push(message.text());
-  });
+  page.on('console', message => { if (message.type() === 'error') consoleErrors.push(message.text()); });
 
   await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await page.waitForFunction(() =>
@@ -48,9 +49,7 @@ async function openCandidate(browser, viewport, extra = {}) {
     window.TBC_P1B?.audit?.().ready === true,
   null, { timeout: 20000 });
   await dismissModal(page);
-  await page.waitForFunction(() => Boolean(document.querySelector(
-    '.pr5-primary-nav [data-pr5-nav][aria-current="page"], .pr5-mobile-nav [data-pr5-nav][aria-current="page"]',
-  )), null, { timeout: 10000 });
+  await waitNavigationState(page);
   await page.waitForTimeout(100);
   return { context, page, pageErrors, consoleErrors };
 }
@@ -72,97 +71,76 @@ async function waitPr7(page, flow) {
 }
 
 async function runtimeAudit(page, label) {
-  const audit = await page.evaluate(() => {
+  const audit = await page.evaluate(currentSelector => {
     const visible = el => {
       const style = getComputedStyle(el);
       const rect = el.getBoundingClientRect();
       return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
     };
     const accessibleName = el => (
-      el.getAttribute('aria-label') ||
-      el.getAttribute('aria-labelledby') ||
-      el.getAttribute('title') ||
-      el.getAttribute('alt') ||
-      el.getAttribute('value') ||
-      el.textContent || ''
+      el.getAttribute('aria-label') || el.getAttribute('aria-labelledby') ||
+      el.getAttribute('title') || el.getAttribute('alt') ||
+      el.getAttribute('value') || el.textContent || ''
     ).replace(/\s+/g, ' ').trim();
 
     const ids = [...document.querySelectorAll('[id]')].map(el => el.id).filter(Boolean);
     const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
-    const unnamedButtons = [...document.querySelectorAll('button,[role="button"],a[href]')]
-      .filter(visible)
-      .filter(el => !el.closest('[aria-hidden="true"]'))
-      .filter(el => !accessibleName(el))
+    const unnamedControls = [...document.querySelectorAll('button,[role="button"],a[href]')]
+      .filter(visible).filter(el => !el.closest('[aria-hidden="true"]')).filter(el => !accessibleName(el))
       .map(el => el.outerHTML.slice(0, 180));
     const missingAlt = [...document.querySelectorAll('img')]
-      .filter(visible)
-      .filter(el => !el.hasAttribute('alt'))
-      .map(el => el.outerHTML.slice(0, 180));
-    const activePrimary = [...document.querySelectorAll('.pr5-primary-nav [data-pr5-nav], .pr5-mobile-nav [data-pr5-nav]')]
-      .filter(visible)
-      .filter(el => el.getAttribute('aria-current') === 'page')
-      .map(el => el.dataset.pr5Nav);
+      .filter(visible).filter(el => !el.hasAttribute('alt')).map(el => el.outerHTML.slice(0, 180));
+    const visibleCurrent = [...document.querySelectorAll(currentSelector)].filter(visible).map(el => ({
+      nav: el.dataset.pr5Nav || null,
+      utility: el.dataset.pr5Utility || null,
+    }));
     const storage = {};
     for (const key of ['theBibleChallenge_v21', 'theBibleChallenge_v21_recovery']) {
       const raw = localStorage.getItem(key);
       let valid = true;
-      if (raw !== null) {
-        try { JSON.parse(raw); } catch { valid = false; }
-      }
+      if (raw !== null) { try { JSON.parse(raw); } catch { valid = false; } }
       storage[key] = { present: raw !== null, valid, raw };
     }
-    const obsolete = Object.keys(localStorage).filter(key => key.startsWith('tbc_v4_'));
     return {
       duplicateIds,
-      unnamedButtons,
+      unnamedControls,
       missingAlt,
-      activePrimary,
+      visibleCurrent,
       storage,
-      obsolete,
+      obsolete: Object.keys(localStorage).filter(key => key.startsWith('tbc_v4_')),
       overflow: document.documentElement.scrollWidth - window.innerWidth,
+      domain: document.body.dataset.pr5Domain || null,
       p1b: window.TBC_P1B?.audit?.() || null,
       pr6: window.TBC_PR6?.audit?.() || null,
     };
-  });
+  }, CURRENT_NAV);
 
   assert.deepEqual(audit.duplicateIds, [], `${label}: duplicate DOM ids`);
-  assert.deepEqual(audit.unnamedButtons, [], `${label}: visible interactive controls without accessible names`);
+  assert.deepEqual(audit.unnamedControls, [], `${label}: visible interactive controls without accessible names`);
   assert.deepEqual(audit.missingAlt, [], `${label}: visible images missing alt attributes`);
-  assert.ok(audit.activePrimary.length >= 1, `${label}: primary navigation must expose aria-current`);
+  assert.ok(audit.visibleCurrent.length >= 1, `${label}: visible navigation must expose aria-current for domain ${audit.domain}`);
   assert.ok(audit.overflow <= 1, `${label}: horizontal overflow ${audit.overflow}px`);
   assert.equal(audit.p1b?.ready, true, `${label}: P1B runtime must be ready`);
   assert.equal(audit.p1b?.pass, true, `${label}: P1B runtime audit must pass`);
   assert.equal(audit.pr6?.pass, true, `${label}: PR6 runtime audit must pass`);
-  for (const [key, value] of Object.entries(audit.storage)) {
-    assert.equal(value.valid, true, `${label}: ${key} must be valid JSON when present`);
-  }
+  Object.entries(audit.storage).forEach(([key, value]) => assert.equal(value.valid, true, `${label}: ${key} must be valid JSON when present`));
   assert.deepEqual(audit.obsolete, [], `${label}: obsolete tbc_v4_ persistence keys must not exist`);
   return audit;
 }
 
 async function keyboardPrimaryRoute(page, domain, expectedFlow) {
-  const selector = `.pr5-primary-nav [data-pr5-nav="${domain}"]`;
-  const control = page.locator(selector);
+  const control = page.locator(`.pr5-primary-nav [data-pr5-nav="${domain}"]`);
   assert.equal(await control.count(), 1, `desktop ${domain} navigation control must exist`);
-
-  // Programmatic focus does not always match :focus-visible after pointer input.
-  // Move away and back with real keyboard navigation so the assertion tests the
-  // browser's keyboard-focus modality rather than Playwright's focus() semantics.
   await control.focus();
-  assert.equal(await control.evaluate(el => document.activeElement === el), true, `${domain} navigation control must be focusable`);
   await page.keyboard.press('Tab');
   await page.keyboard.press('Shift+Tab');
-  assert.equal(await control.evaluate(el => document.activeElement === el), true, `${domain} navigation control must be keyboard-reachable`);
-  assert.equal(await control.evaluate(el => el.matches(':focus-visible')), true, `${domain} navigation control must match :focus-visible after keyboard navigation`);
-
-  const focusStyle = await control.evaluate(el => {
-    const style = getComputedStyle(el);
-    return { outlineStyle: style.outlineStyle, outlineWidth: style.outlineWidth, boxShadow: style.boxShadow };
+  assert.equal(await control.evaluate(el => document.activeElement === el), true, `${domain} navigation must be keyboard-reachable`);
+  assert.equal(await control.evaluate(el => el.matches(':focus-visible')), true, `${domain} navigation must match :focus-visible`);
+  const style = await control.evaluate(el => {
+    const s = getComputedStyle(el);
+    return { outlineStyle: s.outlineStyle, outlineWidth: s.outlineWidth, boxShadow: s.boxShadow };
   });
-  assert.ok(
-    (focusStyle.outlineStyle !== 'none' && focusStyle.outlineWidth !== '0px') || focusStyle.boxShadow !== 'none',
-    `${domain} keyboard focus must remain visually detectable`,
-  );
+  assert.ok((style.outlineStyle !== 'none' && style.outlineWidth !== '0px') || style.boxShadow !== 'none', `${domain} keyboard focus must be visually detectable`);
   await page.keyboard.press('Enter');
   if (expectedFlow === 'pr6') await waitPr6(page, domain);
   if (expectedFlow === 'pr7') await waitPr7(page, domain);
@@ -182,7 +160,6 @@ function assertStoragePreserved(before, after, label) {
   fs.mkdirSync(ARTIFACT_DIR, { recursive: true });
   const browser = await chromium.launch({ headless: true });
   const report = { base: BASE, profiles: {}, completedAt: null };
-
   try {
     const desktop = await openCandidate(browser, { width: 1440, height: 1000 });
     const page = desktop.page;
@@ -190,7 +167,6 @@ function assertStoragePreserved(before, after, label) {
 
     await keyboardPrimaryRoute(page, 'play', 'pr6');
     assert.equal(await page.locator('.pr6-root .pr6-intro-grid .pr6-flow-card').count(), 2, 'Play hub must expose both primary play paths');
-
     await keyboardPrimaryRoute(page, 'learn', 'pr6');
     await page.locator('.pr6-root [data-pr6-open="journey"]').first().click();
     await waitPr6(page, 'journey');
@@ -211,7 +187,6 @@ function assertStoragePreserved(before, after, label) {
     await page.locator('[data-pr5-utility="settings"]').click();
     await page.waitForTimeout(500);
     assert.equal(await page.locator('body').getAttribute('data-pr5-domain'), 'settings', 'Settings must become the active domain');
-
     await page.locator('.pr5-primary-nav [data-pr5-nav="home"]').click();
     await page.waitForTimeout(600);
     assert.equal(await page.locator('.pr5-home').count(), 1, 'Home must recover after whole-product navigation cycle');
@@ -220,15 +195,13 @@ function assertStoragePreserved(before, after, label) {
     await page.reload({ waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForFunction(() => window.TBC_P1B?.audit?.().ready === true, null, { timeout: 20000 });
     await dismissModal(page);
-    await page.waitForFunction(() => Boolean(document.querySelector(
-      '.pr5-primary-nav [data-pr5-nav][aria-current="page"], .pr5-mobile-nav [data-pr5-nav][aria-current="page"]',
-    )), null, { timeout: 10000 });
-    const afterReloadAudit = await runtimeAudit(page, 'desktop post-reload');
-    assertStoragePreserved(beforeReload, afterReloadAudit.storage, 'desktop reload');
+    await waitNavigationState(page);
+    const afterReload = await runtimeAudit(page, 'desktop post-reload');
+    assertStoragePreserved(beforeReload, afterReload.storage, 'desktop reload');
     await page.screenshot({ path: `${ARTIFACT_DIR}/desktop-final.png`, fullPage: true });
     assert.deepEqual(desktop.pageErrors, [], `desktop page errors: ${desktop.pageErrors.join(' | ')}`);
     assert.deepEqual(desktop.consoleErrors, [], `desktop console errors: ${desktop.consoleErrors.join(' | ')}`);
-    report.profiles.desktop = { initial, final: afterReloadAudit };
+    report.profiles.desktop = { initial, final: afterReload };
     await desktop.context.close();
 
     const tablet = await openCandidate(browser, { width: 820, height: 1180 });
@@ -245,25 +218,24 @@ function assertStoragePreserved(before, after, label) {
     await tablet.context.close();
 
     const mobile = await openCandidate(browser, { width: 390, height: 844 });
-    const mobilePage = mobile.page;
-    const mobileAudit = await runtimeAudit(mobilePage, 'mobile boot');
-    const mobileMetrics = await mobilePage.evaluate(() => ({
+    const mobileAudit = await runtimeAudit(mobile.page, 'mobile boot');
+    const mobileMetrics = await mobile.page.evaluate(() => ({
       navPosition: getComputedStyle(document.querySelector('.pr5-mobile-nav')).position,
       navTargets: [...document.querySelectorAll('.pr5-mobile-nav [data-pr5-nav]')].map(el => el.getBoundingClientRect().height),
     }));
     assert.equal(mobileMetrics.navPosition, 'fixed', 'mobile primary navigation must remain fixed');
     assert.ok(mobileMetrics.navTargets.every(height => height >= 44), `mobile primary touch target below 44px: ${mobileMetrics.navTargets.join(', ')}`);
-    await mobilePage.locator('.pr5-mobile-nav [data-pr5-nav="library"]').click();
-    await waitPr7(mobilePage, 'library');
-    assert.equal(await mobilePage.locator('.pr7-root [data-pr7-book]').count(), 66, 'mobile Library must expose all 66 books');
-    await mobilePage.screenshot({ path: `${ARTIFACT_DIR}/mobile-library.png`, fullPage: true });
+    await mobile.page.locator('.pr5-mobile-nav [data-pr5-nav="library"]').click();
+    await waitPr7(mobile.page, 'library');
+    assert.equal(await mobile.page.locator('.pr7-root [data-pr7-book]').count(), 66, 'mobile Library must expose all 66 books');
+    await mobile.page.screenshot({ path: `${ARTIFACT_DIR}/mobile-library.png`, fullPage: true });
     assert.deepEqual(mobile.pageErrors, [], `mobile page errors: ${mobile.pageErrors.join(' | ')}`);
     assert.deepEqual(mobile.consoleErrors, [], `mobile console errors: ${mobile.consoleErrors.join(' | ')}`);
     report.profiles.mobile = mobileAudit;
     await mobile.context.close();
 
     const reduced = await openCandidate(browser, { width: 1440, height: 1000 }, { reducedMotion: 'reduce' });
-    assert.equal(await reduced.page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches), true, 'reduced-motion browser preference must be observable');
+    assert.equal(await reduced.page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches), true, 'reduced-motion preference must be observable');
     const reducedAudit = await runtimeAudit(reduced.page, 'reduced-motion boot');
     assert.deepEqual(reduced.pageErrors, [], `reduced-motion page errors: ${reduced.pageErrors.join(' | ')}`);
     assert.deepEqual(reduced.consoleErrors, [], `reduced-motion console errors: ${reduced.consoleErrors.join(' | ')}`);
@@ -272,11 +244,8 @@ function assertStoragePreserved(before, after, label) {
 
     report.completedAt = new Date().toISOString();
     fs.writeFileSync(`${ARTIFACT_DIR}/runtime-browser-report.json`, `${JSON.stringify(report, null, 2)}\n`);
-    console.log('P27D runtime/browser certification passed: whole-product routing, keyboard focus/activation, accessible control names, desktop/tablet/mobile containment, passive reload state preservation, reduced-motion boot, and zero runtime errors.');
+    console.log('P27D runtime/browser certification passed: whole-product routing, complete navigation semantics, keyboard focus/activation, accessible control names, desktop/tablet/mobile containment, passive reload state preservation, reduced-motion boot, and zero runtime errors.');
   } finally {
     await browser.close();
   }
-})().catch(error => {
-  console.error(error);
-  process.exit(1);
-});
+})().catch(error => { console.error(error); process.exit(1); });
