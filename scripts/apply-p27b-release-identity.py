@@ -2,7 +2,6 @@
 from pathlib import Path
 import json
 import re
-import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / 'index.html'
@@ -33,45 +32,30 @@ for match in occurrences:
         candidates.append((start, end, context))
 
 print(f'P27B: found {len(occurrences)} raw {OLD} occurrence(s); {len(candidates)} application-identity candidate(s).')
-if not candidates:
-    for i, match in enumerate(occurrences[:20], 1):
-        start, end = match.span()
-        context = re.sub(r'\s+', ' ', html[max(0, start - 180):min(len(html), end + 180)]).strip()
-        print(f'context {i}: {context}')
-    raise SystemExit('P27B: no safely identifiable stale application identity found; index.html left unchanged')
+for i, (_, _, context) in enumerate(candidates, 1):
+    print(f'identity candidate {i}: {re.sub(r"\s+", " ", context).strip()}')
 
-# Rebuild from exact spans. Nothing outside the identified version literals may change.
-parts = []
-cursor = 0
-for start, end, _ in candidates:
-    if start < cursor:
-        continue
-    parts.append(html[cursor:start])
-    parts.append(NEW)
-    cursor = end
-parts.append(html[cursor:])
-updated = ''.join(parts)
+if len(candidates) != 1:
+    if not candidates:
+        for i, match in enumerate(occurrences[:20], 1):
+            start, end = match.span()
+            context = re.sub(r'\s+', ' ', html[max(0, start - 180):min(len(html), end + 180)]).strip()
+            print(f'raw context {i}: {context}')
+    raise SystemExit(f'P27B: expected exactly one stale application identity, found {len(candidates)}; index.html left unchanged')
 
-if updated == html:
-    raise SystemExit('P27B: identity repair produced no change')
-if OLD == NEW:
-    raise SystemExit('P27B: old and new versions are identical')
+start, end, _ = candidates[0]
+updated = html[:start] + NEW + html[end:]
+if updated == html or OLD == NEW:
+    raise SystemExit('P27B: identity repair produced no valid change')
+
+# Strong single-edit proof: reversing exactly the replacement recreates the original file.
+if updated[:start] + OLD + updated[start + len(NEW):] != html:
+    raise SystemExit('P27B: repair is not a single literal substitution')
 
 package_after = package_re.search(updated)
-if not package_after:
-    raise SystemExit('P27B: embedded engine package disappeared during repair')
-if package_after.group(2) != engine_payload_before:
+if not package_after or package_after.group(2) != engine_payload_before:
     raise SystemExit('P27B: embedded engine/question payload changed; refusing repair')
 
-remaining_candidates = []
-for match in re.finditer(re.escape(OLD), updated):
-    start, end = match.span()
-    context = updated[max(0, start - 320):min(len(updated), end + 320)]
-    if identity_marker.search(context):
-        remaining_candidates.append(re.sub(r'\s+', ' ', context).strip())
-if remaining_candidates:
-    raise SystemExit(f'P27B: {len(remaining_candidates)} stale application identity occurrence(s) remain')
-
 INDEX.write_text(updated, encoding='utf-8')
-print(f'P27B: replaced {len(candidates)} stale application identity occurrence(s): {OLD} -> {NEW}.')
+print(f'P27B: replaced exactly one stale application identity: {OLD} -> {NEW}.')
 print('P27B: embedded engine/question payload is byte-for-byte unchanged.')
