@@ -1,0 +1,68 @@
+name: P27B apply release identity
+
+on:
+  push:
+    branches:
+      - p27b-release-truth-validation-repair
+    paths:
+      - release.json
+      - scripts/apply-p27b-release-identity.py
+      - .github/workflows/p27b-apply-release-identity.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-release-identity:
+    if: ${{ !contains(github.event.head_commit.message, '[p27b-identity-applied]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repair branch
+        uses: actions/checkout@v4
+        with:
+          ref: p27b-release-truth-validation-repair
+          fetch-depth: 2
+          persist-credentials: true
+
+      - name: Preserve pre-repair monolith
+        run: cp index.html /tmp/index-before-p27b.html
+
+      - name: Apply surgical release identity repair
+        run: python3 scripts/apply-p27b-release-identity.py
+
+      - name: Verify only release identity changed
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          import re
+
+          before = Path('/tmp/index-before-p27b.html').read_text(encoding='utf-8')
+          after = Path('index.html').read_text(encoding='utf-8')
+          release = json.loads(Path('release.json').read_text(encoding='utf-8'))
+          old = '1.0.0'
+          new = release['version']
+          pkg = re.compile(r'(<script id="tbc-engine-package" type="application/octet-stream">)([A-Za-z0-9+/=\r\n]+)(</script>)')
+          b = pkg.search(before)
+          a = pkg.search(after)
+          assert b and a, 'embedded engine package missing'
+          assert b.group(2) == a.group(2), 'embedded engine/question payload changed'
+          assert before != after, 'index identity did not change'
+          assert new in after, 'current application version absent after repair'
+          print('P27B guard passed: release identity changed; embedded engine/question payload unchanged')
+          PY
+
+      - name: Commit application identity repair
+        shell: bash
+        run: |
+          if git diff --quiet -- index.html; then
+            echo 'No index.html change to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'P27B: align application identity with v4.1.0 [p27b-identity-applied]'
+          git push origin HEAD:p27b-release-truth-validation-repair
