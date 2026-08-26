@@ -49,7 +49,7 @@ On a push to `main`, `release-validate.yml` additionally runs:
 node scripts/p27d-deployment-certification.cjs
 ```
 
-against the GitHub Pages project URL derived from the repository owner/name.
+against the GitHub Pages project URL derived from the repository owner/name. For this repository the expected production target is `https://thiepn.github.io/tbc/`.
 
 The deployment probe retries while Pages converges and then requires:
 
