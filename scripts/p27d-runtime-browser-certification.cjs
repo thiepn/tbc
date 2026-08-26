@@ -31,7 +31,11 @@ async function dismissModal(page) {
 }
 
 async function waitNavigationState(page) {
-  await page.waitForFunction(selector => Boolean(document.querySelector(selector)), CURRENT_NAV, { timeout: 10000 });
+  await page.waitForFunction(selector => [...document.querySelectorAll(selector)].some(el => {
+    const style = getComputedStyle(el);
+    const rect = el.getBoundingClientRect();
+    return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
+  }), CURRENT_NAV, { timeout: 10000 });
 }
 
 async function openCandidate(browser, viewport, extra = {}) {
