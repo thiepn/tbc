@@ -52,7 +52,7 @@ jobs:
           exit 1
 
       - name: Extract repaired canonical bank — pass 1
-        run: node scripts/p2a-question-bank-extract.cjs
+        run: node scripts/p2a-question-bank-extract-certified.cjs
 
       - name: P2B exhaustive mechanical audit — pass 1
         run: node scripts/p2b-mechanical-integrity-audit.cjs
@@ -66,7 +66,7 @@ jobs:
       - name: Extract repaired canonical bank — deterministic repeat
         env:
           P2A_OUT_DIR: artifacts/p2a-repeat
-        run: node scripts/p2a-question-bank-extract.cjs
+        run: node scripts/p2a-question-bank-extract-certified.cjs
 
       - name: P2B exhaustive mechanical audit — repeat
         env:
