@@ -55,7 +55,7 @@ jobs:
         run: node scripts/p2c-qb1-diagnostic.cjs
 
       - name: Extract quality-corrected canonical bank — pass 1
-        run: node scripts/p2a-question-bank-extract.cjs
+        run: node scripts/p2a-question-bank-extract-certified.cjs
 
       - name: Preserve P2B mechanical integrity — pass 1
         run: node scripts/p2b-mechanical-integrity-audit.cjs
@@ -80,7 +80,7 @@ jobs:
       - name: Extract quality-corrected canonical bank — deterministic repeat
         env:
           P2A_OUT_DIR: artifacts/p2a-repeat
-        run: node scripts/p2a-question-bank-extract.cjs
+        run: node scripts/p2a-question-bank-extract-certified.cjs
 
       - name: Preserve P2B mechanical integrity — repeat
         env:
