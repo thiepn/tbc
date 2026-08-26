@@ -20,12 +20,19 @@ const PROMPT_FIXES=[
   ['v402.miracle.feeding-bread-discourse','Which option identifies the place associated with the cited passage?','Why does John place the feeding sign before the Bread of Life discourse?'],
   ['v21.clueReduction.39','Which option best identifies the event supported by the cited evidence?','Which person is identified by the cited evidence?'],
 ];
+const DIFFICULTY_PINS={
+  'd4.easy.major.1-chronicles-inventory-1.01':['advanced',63],
+  'd4.easy.mode.parables.luke-good-samaritan.16':['expert',97],
+  'phase9.nt.romans.7.structure':['standard',42],
+  'v402.miracle.feeding-bread-discourse':['advanced',60],
+};
 
 if(!fs.existsSync(INDEX))fail(`missing ${INDEX}`);
 let html=fs.readFileSync(INDEX,'utf8');
 const m=html.match(pkgRe);if(!m)fail('embedded engine package not found');
 let engine=zlib.gunzipSync(Buffer.from(m[2].replace(/\s+/g,''),'base64')).toString('utf8');
-let mutations=0;
+let fieldMutations=0;
+let policyMutation=0;
 const repairedQuestions=new Set();
 
 function repairOverridePrompt(id,bad,good){
@@ -44,7 +51,7 @@ function repairOverridePrompt(id,bad,good){
       engine=engine.slice(0,pos)+next+engine.slice(end);
       const delta=next.length-segment.length;
       cursor=end+delta;
-      badCount++;mutations++;repairedQuestions.add(id);
+      badCount++;fieldMutations++;repairedQuestions.add(id);
     }else{
       if(segment.includes(goodToken))goodCount++;
       cursor=end+1;
@@ -64,9 +71,20 @@ function repairSourceToken(id,oldToken,newToken,label){
   if(segment.includes(oldToken)){
     const next=segment.replace(oldToken,newToken);
     engine=engine.slice(0,pos)+next+engine.slice(end);
-    mutations++;repairedQuestions.add(id);
+    fieldMutations++;repairedQuestions.add(id);
   }else if(!segment.includes(newToken)){
     fail(`${id} ${label} matches neither defective nor repaired signature`);
+  }
+}
+
+function preserveCertifiedDifficulty(){
+  const marker='      row.finalDifficulty = tierForScore(row.score);\n      row.withinTierDifficulty = withinTier(row.score,row.finalDifficulty);';
+  const injected=`      row.finalDifficulty = tierForScore(row.score);\n      const p2cDifficultyPins=${JSON.stringify(DIFFICULTY_PINS)};\n      const p2cPin=p2cDifficultyPins[row.id];\n      if(p2cPin){row.finalDifficulty=p2cPin[0];row.score=p2cPin[1];row.p2cDifficultyPreserved=true;}\n      row.withinTierDifficulty = withinTier(row.score,row.finalDifficulty);`;
+  if(engine.includes(marker)){
+    if(engine.indexOf(marker)!==engine.lastIndexOf(marker))fail('QB5 final-difficulty marker is not unique');
+    engine=engine.replace(marker,injected);policyMutation=1;
+  }else if(!engine.includes('const p2cDifficultyPins=')){
+    fail('QB5 difficulty preservation marker not found');
   }
 }
 
@@ -75,15 +93,17 @@ repairSourceToken('phase9.nt.romans.7.structure','"biblicalEvidence":["Romans 8"
 repairSourceToken('phase9.nt.romans.8.book-understanding','"biblicalEvidence":["Romans 9-11"]','"biblicalEvidence":["Romans 8","Romans 9-11"]','evidence');
 repairSourceToken('phase11.connection.passover-christ','"reference":"Exodus 12; 1 Corinthians 5:7; Gospel Passion narratives"','"reference":"Exodus 12; 1 Corinthians 5:7; John 19:14, 36"','reference');
 repairSourceToken('phase11.connection.passover-christ','"biblicalEvidence":["Exodus 12; 1 Corinthians 5:7; Gospel Passion narratives"]','"biblicalEvidence":["Exodus 12; 1 Corinthians 5:7; John 19:14, 36"]','evidence');
+preserveCertifiedDifficulty();
 
-if(mutations!==0&&mutations!==15)fail(`expected 15 first-pass field transformations or 0 idempotent transformations, got ${mutations}`);
-if(mutations!==0&&repairedQuestions.size!==12)fail(`expected 12 repaired questions, got ${repairedQuestions.size}`);
+if(fieldMutations!==0&&fieldMutations!==15)fail(`expected 15 first-pass field transformations or 0 idempotent field transformations, got ${fieldMutations}`);
+if(fieldMutations!==0&&repairedQuestions.size!==12)fail(`expected 12 repaired questions, got ${repairedQuestions.size}`);
+if(fieldMutations===0&&policyMutation!==0)fail('difficulty policy changed without semantic field repairs');
 
-if(mutations){
+if(fieldMutations||policyMutation){
   const gz=zlib.gzipSync(Buffer.from(engine,'utf8'),{level:9});
   const b64=gz.toString('base64');
   if(zlib.gunzipSync(Buffer.from(b64,'base64')).toString('utf8')!==engine)fail('engine re-pack round-trip mismatch');
   html=html.replace(pkgRe,(_,open,_payload,close)=>open+b64+close);
   fs.writeFileSync(INDEX,html,'utf8');
 }
-console.log(`P2C repair complete: ${mutations} field transformation(s) across ${repairedQuestions.size} semantic defect question(s).`);
+console.log(`P2C repair complete: ${fieldMutations} field transformation(s) across ${repairedQuestions.size} semantic defect question(s); ${policyMutation} certified-difficulty preservation injection(s).`);
