@@ -28,9 +28,46 @@ The validator verifies:
 3. obsolete `1.0.0` application identity is absent;
 4. current certification counts, tier distribution, and frozen question-bank hashes match `certification/p2a-question-bank-extraction-baseline.json`;
 5. the runtime question-bank APIs are healthy and no page/runtime extraction errors occur;
-6. current shell, Play/Learn, and Library/Progress browser smoke suites pass.
+6. current shell, Play/Learn, and Library/Progress browser smoke suites pass;
+7. P27D whole-product browser certification passes across desktop, tablet, mobile, keyboard navigation, accessible control naming, passive reload preservation, reduced-motion boot, containment, and runtime error checks.
 
 The workflow `.github/workflows/release-validate.yml` installs the browser dependency, starts the local application, and runs that same canonical command. CI does not maintain a separate definition of release correctness.
+
+## Runtime/browser certification
+
+`scripts/p27d-runtime-browser-certification.cjs` is the current whole-product browser layer. It complements the narrower PR5/PR6/P1B smoke suites rather than replacing them.
+
+It certifies:
+
+- the PR5, PR6 and PR7/P1B runtime layers boot together;
+- Home → Play → Learn → Library → Collections → Progress → Settings → Home routing remains coherent;
+- primary navigation is keyboard-focusable and keyboard-activatable with a visible focus indicator;
+- visible interactive controls have accessible names and visible images have `alt` attributes;
+- duplicate DOM ids are absent;
+- desktop, tablet and mobile layouts do not overflow horizontally;
+- mobile primary navigation remains fixed and its primary touch targets remain at least 44 px high;
+- canonical persistence keys remain parseable and passive reload does not rewrite existing canonical state;
+- obsolete `tbc_v4_` persistence keys are not introduced;
+- reduced-motion browser preference boots without runtime failure;
+- browser/page console errors remain empty.
+
+The script writes evidence to `artifacts/p27d/`.
+
+## Deployment certification
+
+On pushes to `main`, the same `release-validate.yml` workflow also runs:
+
+```bash
+node scripts/p27d-deployment-certification.cjs
+```
+
+The deployment probe targets the repository's GitHub Pages project URL. It polls until the public deployment converges, then verifies:
+
+- deployed `release.json` matches the canonical release/version identity;
+- deployed `index.html` is byte-for-byte identical to merged `main`;
+- deployed PR5, PR6, PR7 and P1B runtime assets are byte-for-byte identical to merged `main`.
+
+A successful local release gate is therefore necessary but not sufficient for a post-merge deployment certification: the public static deployment must also converge to the merged repository state.
 
 ## CI authority
 
@@ -44,9 +81,11 @@ The canonical release validator inspects workflow trigger blocks and fails if an
 
 ## Question-bank preservation rule
 
-P27B repaired release/version truth without redefining the certified question bank. P27C changes CI/workflow authority only. Neither phase edits question records, answers, distractors, difficulty assignments, routing, structured-question content, or the frozen certification payload.
+P27B repaired release/version truth without redefining the certified question bank. P27C changed CI/workflow authority only. P27D changes release certification, browser evidence, deployment verification, and QA documentation only.
 
-The validator compares the runtime bank against the frozen certification hashes rather than treating whole-file byte identity as a proxy for question preservation. This allows release and CI metadata to be repaired without redefining the bank.
+These phases do not edit question records, answers, distractors, difficulty assignments, routing data, structured-question content, or the frozen certification payload.
+
+The validator compares the runtime bank against the frozen certification hashes rather than treating whole-file byte identity as a proxy for question preservation. This allows release/CI/certification metadata to be hardened without redefining the bank.
 
 ## Historical certification documents
 
