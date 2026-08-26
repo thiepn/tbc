@@ -18,6 +18,16 @@ An offline-ready whole-Bible learning game with guided progression, adaptive rev
 
 </div>
 
+## Current release & validation
+
+Current release: **v4.1.0** · Application version: **4.1.0**
+
+- [`release.json`](./release.json) is the machine-readable release/version source of truth.
+- [`docs/QA.md`](./docs/QA.md) is the current QA contract.
+- `node scripts/validate-release.cjs` is the canonical validation command used by CI.
+- Phase-specific P0/P1/P2 and PR5/PR6/PR7 validators remain historical evidence or implementation helpers; they are not separate release authorities.
+- Release/QA metadata changes must preserve the frozen certified question-bank hashes.
+
 ## What awaits you
 
 | 🗺️ **Bible Journey** | ⚡ **Quick Play** | 🧠 **Adaptive Review** |
@@ -52,7 +62,7 @@ The v4.1.0 reconstruction rebuilt the question bank from the ground up for accur
 
 | Beginner | Easy | Standard | Advanced | Expert |
 |---:|---:|---:|---:|---:|
-| **1,338** | **1,666** | **1,133** | **1,141** | **521** |
+| **1,338** | **1,668** | **1,132** | **1,140** | **521** |
 
 The original 6,072-question registry is preserved for compatibility, while **273 redundant aliases** are excluded from normal question selection. The playable bank therefore contains 5,799 canonical questions with no remaining exact playable duplicate groups.
 

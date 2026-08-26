@@ -1,29 +1,25 @@
-name: Shell browser validation
+name: Release validation
 
 on:
   pull_request:
     branches:
       - main
-    paths:
-      - index.html
-      - assets/pr5-foundation.css
-      - assets/pr5-shell.js
-      - assets/pr6-play-learning.css
-      - assets/pr6-play-learning.js
-      - scripts/pr5-browser-smoke.cjs
-      - scripts/pr6-browser-smoke.cjs
-      - .github/workflows/pr5-validate.yml
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
 
 jobs:
-  browser-smoke:
+  validate-release:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -38,30 +34,29 @@ jobs:
       - name: Start local application
         shell: bash
         run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-shell-server.log 2>&1 &
-          echo $! > /tmp/tbc-shell-server.pid
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-release-server.log 2>&1 &
+          echo $! > /tmp/tbc-release-server.pid
           for i in {1..20}; do
             if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
               exit 0
             fi
             sleep 1
           done
-          cat /tmp/tbc-shell-server.log
+          cat /tmp/tbc-release-server.log
           exit 1
 
-      - name: Run PR5 shell smoke tests
-        run: node scripts/pr5-browser-smoke.cjs
+      - name: Run canonical release validator
+        run: node scripts/validate-release.cjs
 
-      - name: Run PR6 play and learning smoke tests
-        run: node scripts/pr6-browser-smoke.cjs
-
-      - name: Upload visual evidence
+      - name: Upload validation evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: shell-browser-evidence
+          name: release-validation-evidence
           path: |
             artifacts/pr5
             artifacts/pr6
+            artifacts/p1b
+            artifacts/release-validation
           if-no-files-found: ignore
           retention-days: 7

@@ -1,5 +1,7 @@
 # P0F — Production Deployment & Live-Site Certification
 
+> **Historical phase record.** P0F documents the production gate used for the P0E-era freeze. It is no longer the canonical current QA entry point. See [`docs/QA.md`](./QA.md) and run `node scripts/validate-release.cjs` for current release validation.
+
 P0F is the post-P0E release gate. P0E proves the repaired product locally as one frozen whole-product baseline; P0F proves that the public GitHub Pages deployment is serving that exact product and remains usable in a real browser.
 
 ## Frozen prerequisite
@@ -20,7 +22,7 @@ P0F does not redefine or update any gameplay, question, progression, state, navi
 
 `scripts/p0f-production-certification.cjs` executes P0E first and then verifies that every production-deployed file still matches the hashes frozen in `certification/p0e-preservation-baseline.json`.
 
-A mismatch is a release-blocking regression.
+A mismatch is a release-blocking regression for the historical P0F freeze; later certified release metadata and product changes are validated by the current QA contract instead.
 
 ## Gate 2 — Deployed-byte identity
 
@@ -43,9 +45,9 @@ The probe retries for a bounded deployment-convergence window so a normal GitHub
 - no page exceptions or failed same-origin JS/CSS/HTML requests occur;
 - desktop and mobile evidence screenshots are captured.
 
-## Release rule
+## Historical release rule
 
-P0F passes only when all of the following are green in the same workflow:
+P0F passed only when all of the following were green in the same workflow:
 
 1. complete P0E preservation certification;
 2. P0F local byte identity;
@@ -53,4 +55,4 @@ P0F passes only when all of the following are green in the same workflow:
 4. live desktop/mobile browser smoke;
 5. final local freeze recheck after the browser run.
 
-When this gate is green on `main`, the deployed P0E product is considered production-certified. Any future product-file change requires an intentional new preservation baseline rather than silently drifting the P0F production freeze.
+A green P0F run certifies the product frozen at that phase. It must not be interpreted as the current release definition after subsequent certified changes. Current release identity and QA are defined by `release.json`, `docs/QA.md`, and `scripts/validate-release.cjs`.
