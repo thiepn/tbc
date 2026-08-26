@@ -12,12 +12,12 @@ const fail=msg=>{throw new Error(`P2C repair: ${msg}`)};
 const PROMPT_FIXES=[
   ['d4.easy.mode.parables.luke-good-samaritan.16','Which option identifies the person associated with the cited passage?','Which statement best captures the closing challenge of the cited parable?'],
   ['d4.easy.mode.parables.matt-tenants.09','Which option identifies the person associated with the cited passage?','Which parable is associated with the cited passage?'],
-  ['phase6.jesus.luke.cross.criminal','Which option identifies the person associated with the cited passage?','What does Jesus promise the criminal who asks to be remembered?'],
+  ['phase6.jesus.luke.cross.criminal','Which option identifies the person associated with the cited passage?','What assurance is given to the criminal who asks to be remembered?'],
   ['phase8.wp.joel.spirit.scope','Which option identifies the person associated with the cited passage?','What is notable about the people who receive the Spirit in Joel’s promise?'],
-  ['phase9.nt.2-peter.2.meaning','Which option identifies the person associated with the cited passage?','What contradiction does 2 Peter 2 expose in false teachers who promise freedom?'],
+  ['phase9.nt.2-peter.2.meaning','Which option identifies the person associated with the cited passage?','What contradiction does 2 Peter 2 expose in the false teachers’ condition?'],
   ['d4.easy.major.1-chronicles-inventory-1.01','Which option identifies the place associated with the cited passage?','Which statement best summarizes the significance of the genealogies in 1 Chronicles 1–9?'],
-  ['phase9.nt.1-timothy.2.context','Which option identifies the place associated with the cited passage?','Why does 1 Timothy 2 place prayer for rulers within a wider salvation perspective?'],
-  ['v402.miracle.feeding-bread-discourse','Which option identifies the place associated with the cited passage?','Why does John place the feeding sign before the Bread of Life discourse?'],
+  ['phase9.nt.1-timothy.2.context','Which option identifies the place associated with the cited passage?','How does 1 Timothy 2 connect public intercession with the letter’s wider mission?'],
+  ['v402.miracle.feeding-bread-discourse','Which option identifies the place associated with the cited passage?','How does John connect the feeding sign with the discourse that follows?'],
   ['v21.clueReduction.39','Which option best identifies the event supported by the cited evidence?','Which person is identified by the cited evidence?'],
 ];
 const DIFFICULTY_PINS={
