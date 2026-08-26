@@ -1,0 +1,65 @@
+name: P2E Difficulty Calibration & Tier Integrity
+
+on:
+  push:
+    branches: [p2e-difficulty-calibration-audit]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    name: Recalculate deferred difficulty tiers
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Remove ten deferred P2C/P2D difficulty pins
+        run: node scripts/p2e-difficulty-calibration-repair.cjs
+
+      - name: Prove P2E is the only monolith delta from P2D
+        run: node scripts/p2e-preservation-audit.cjs
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start recalibrated local candidate
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p2e-server.log 2>&1 &
+          for i in {1..25}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/tbc-p2e-server.log
+          exit 1
+
+      - name: Extract recalibrated bank for discovery
+        continue-on-error: true
+        run: node scripts/p2a-question-bank-extract.cjs
+
+      - name: Report deferred-pin recalibration
+        run: node scripts/p2e-difficulty-calibration-diagnostic.cjs
+
+      - name: Upload P2E discovery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p2e-difficulty-discovery-${{ github.sha }}
+          path: |
+            artifacts/p2a/
+            artifacts/p2e/
+          if-no-files-found: warn
+          retention-days: 30
