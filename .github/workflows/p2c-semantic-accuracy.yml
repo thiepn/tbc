@@ -1,0 +1,139 @@
+name: P2C Biblical & Semantic Accuracy
+
+on:
+  push:
+    branches: [p2c-semantic-accuracy-audit, main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair-and-certify:
+    name: Biblical and semantic accuracy certification
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Repair only confirmed P2C semantic defects
+        run: node scripts/p2c-question-bank-repair.cjs
+
+      - name: Prove P2C is the only monolith delta from P2B
+        run: node scripts/p2c-preservation-audit.cjs
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start semantically repaired local candidate
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p2c-server.log 2>&1 &
+          for i in {1..25}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-p2c-server.log
+          exit 1
+
+      - name: Extract corrected canonical bank — pass 1
+        run: node scripts/p2a-question-bank-extract.cjs
+
+      - name: Preserve P2B mechanical integrity — pass 1
+        run: node scripts/p2b-mechanical-integrity-audit.cjs
+
+      - name: P2C semantic accuracy audit — pass 1
+        run: node scripts/p2c-semantic-accuracy-audit.cjs
+
+      - name: Freeze P2C-corrected P2A source and hashes
+        run: node scripts/p2c-freeze-p2a-baseline.cjs
+
+      - name: P2A deterministic audit against P2C baseline — pass 1
+        run: node scripts/p2a-question-bank-audit.cjs
+
+      - name: Accept P2C as a certified P2B successor
+        run: node scripts/p2b-preservation-audit.cjs
+
+      - name: Extract corrected canonical bank — deterministic repeat
+        env:
+          P2A_OUT_DIR: artifacts/p2a-repeat
+        run: node scripts/p2a-question-bank-extract.cjs
+
+      - name: Preserve P2B mechanical integrity — repeat
+        env:
+          P2A_OUT_DIR: artifacts/p2a-repeat
+        run: node scripts/p2b-mechanical-integrity-audit.cjs
+
+      - name: P2C semantic accuracy audit — repeat
+        env:
+          P2A_OUT_DIR: artifacts/p2a-repeat
+        run: node scripts/p2c-semantic-accuracy-audit.cjs
+
+      - name: P2A deterministic audit — repeat
+        env:
+          P2A_OUT_DIR: artifacts/p2a-repeat
+        run: node scripts/p2a-question-bank-audit.cjs
+
+      - name: Verify deterministic extraction byte-for-byte
+        shell: bash
+        run: |
+          cmp artifacts/p2a/question-bank.json artifacts/p2a-repeat/question-bank.json
+          cmp artifacts/p2a/structured-questions.json artifacts/p2a-repeat/structured-questions.json
+          cmp artifacts/p2a/question-registry.json artifacts/p2a-repeat/question-registry.json
+          node - <<'NODE'
+          const fs=require('fs');
+          const a=JSON.parse(fs.readFileSync('artifacts/p2a/question-bank-summary.json','utf8'));
+          const b=JSON.parse(fs.readFileSync('artifacts/p2a-repeat/question-bank-summary.json','utf8'));
+          for(const key of ['canonicalBank','structuredBank','registry']){
+            if(a.hashes[key]!==b.hashes[key])throw new Error(`${key} is non-deterministic`);
+          }
+          console.log('P2C deterministic extraction confirmed.');
+          NODE
+
+      - name: Preserve production behavior contracts
+        run: |
+          node scripts/p0a-preservation-audit.cjs
+          node scripts/p0c-existing-feature-preservation-audit.cjs
+          node scripts/p1b-pr7-activation-audit.cjs
+
+      - name: Commit repaired monolith and corrected baseline on P2C branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/p2c-semantic-accuracy-audit'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html certification/p2a-question-bank-extraction-baseline.json
+          if git diff --cached --quiet; then
+            echo "P2C source/baseline already clean; no CI repair commit needed."
+            exit 0
+          fi
+          git commit -m "P2C: repair confirmed semantic question defects"
+          git push origin HEAD:p2c-semantic-accuracy-audit
+
+      - name: Upload P2C audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p2c-semantic-accuracy-${{ github.sha }}
+          path: |
+            artifacts/p2a/
+            artifacts/p2a-repeat/
+            certification/p2a-question-bank-extraction-baseline.json
+            certification/P2C-SEMANTIC-ACCURACY.md
+          if-no-files-found: warn
+          retention-days: 30
