@@ -30,7 +30,10 @@ baseline.p2c={
   stemDomainRepairs:9,
   evidenceRepairs:2,
   formalReferenceRepairs:1,
-  acceptedCrossBookExceptions:1
+  acceptedCrossBookExceptions:1,
+  difficultyPolicyTransformations:1,
+  certifiedDifficultyPins:4,
+  difficultyDistributionPreserved:true
 };
 fs.writeFileSync(baselinePath,JSON.stringify(baseline,null,2)+'\n');
 console.log('P2C froze the semantically corrected P2A source and aggregate hashes.');
