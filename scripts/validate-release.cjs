@@ -141,10 +141,11 @@ if (!failures.length) {
     'scripts/pr5-browser-smoke.cjs',
     'scripts/pr6-browser-smoke.cjs',
     'scripts/p1b-pr7-browser-smoke.cjs',
+    'scripts/p27d-runtime-browser-certification.cjs',
   ]) {
     const result = runNode(script);
     const pass = result.status === 0;
-    check(`browser suite: ${path.basename(script)}`, pass, (result.stderr || result.stdout || '').trim().slice(-1200));
+    check(`browser suite: ${path.basename(script)}`, pass, (result.stderr || result.stdout || '').trim().slice(-1600));
     if (!pass) break;
   }
 }
@@ -153,4 +154,4 @@ try { fs.rmSync(temp, { recursive: true, force: true }); } catch {}
 
 console.log(`\n${failures.length ? 'RELEASE VALIDATION FAILED' : 'RELEASE VALIDATION PASSED'}: ${failures.length} failure(s).`);
 if (failures.length) process.exit(1);
-console.log(`${release.release} is internally coherent, CI authority is singular, and the certified question bank remains unchanged.`);
+console.log(`${release.release} is internally coherent, CI authority is singular, whole-product browser certification passes, and the certified question bank remains unchanged.`);
