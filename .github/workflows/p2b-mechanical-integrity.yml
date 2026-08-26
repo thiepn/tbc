@@ -1,18 +1,14 @@
-name: P2B Mechanical Integrity Audit
+name: P2B Mechanical Integrity Audit (Historical)
 
 on:
-  push:
-    branches: [p2b-mechanical-integrity-audit, main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   repair-and-certify:
-    name: Exhaustive mechanical repair and certification
+    name: Historical exhaustive mechanical repair and certification
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -20,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ github.sha }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -100,19 +96,8 @@ jobs:
           node scripts/p0c-existing-feature-preservation-audit.cjs
           node scripts/p1b-pr7-activation-audit.cjs
 
-      - name: Commit repaired monolith and corrected baseline on P2B branch
-        if: github.event_name == 'push' && github.ref == 'refs/heads/p2b-mechanical-integrity-audit'
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html certification/p2a-question-bank-extraction-baseline.json
-          if git diff --cached --quiet; then
-            echo "P2B source/baseline already clean; no CI repair commit needed."
-            exit 0
-          fi
-          git commit -m "P2B: repair mechanically confirmed question defects"
-          git push origin HEAD:p2b-mechanical-integrity-audit
+      - name: Historical phase branch writeback disabled
+        run: echo "P27C keeps historical P2B runnable for evidence but does not allow it to mutate repository state."
 
       - name: Upload P2B audit evidence
         if: always()

@@ -1,10 +1,6 @@
-name: P1B PR7 Production Activation
+name: P1B PR7 Production Activation (Historical)
 
 on:
-  push:
-    branches: [main, p1b-pr7-production-activation]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -12,7 +8,7 @@ permissions:
 
 jobs:
   certify-production-activation:
-    name: PR7 controlled production activation gate
+    name: Historical PR7 controlled production activation gate
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:

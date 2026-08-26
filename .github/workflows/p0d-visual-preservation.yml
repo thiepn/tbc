@@ -1,27 +1,6 @@
-name: P0D Visual Preservation
+name: P0D Visual Preservation (Historical)
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'index.html'
-      - 'assets/pr5-foundation.css'
-      - 'assets/pr6-play-learning.css'
-      - 'assets/p0c-existing-feature-preservation.js'
-      - 'scripts/p0a-preservation-audit.cjs'
-      - 'scripts/p0c-existing-feature-preservation-audit.cjs'
-      - 'scripts/p0d-visual-preservation-audit.cjs'
-      - '.github/workflows/p0d-visual-preservation.yml'
-  pull_request:
-    paths:
-      - 'index.html'
-      - 'assets/pr5-foundation.css'
-      - 'assets/pr6-play-learning.css'
-      - 'assets/p0c-existing-feature-preservation.js'
-      - 'scripts/p0a-preservation-audit.cjs'
-      - 'scripts/p0c-existing-feature-preservation-audit.cjs'
-      - 'scripts/p0d-visual-preservation-audit.cjs'
-      - '.github/workflows/p0d-visual-preservation.yml'
   workflow_dispatch:
 
 permissions:
@@ -29,7 +8,7 @@ permissions:
 
 jobs:
   preserve:
-    name: Core + features + visual contract
+    name: Historical core, feature, and visual preservation gate
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

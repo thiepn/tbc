@@ -1,20 +1,14 @@
-name: P0B Player Controls Preservation
+name: P0B Player Controls Preservation (Historical)
 
 on:
-  pull_request:
-    branches: [main]
-  push:
-    branches:
-      - main
-      - 'p0b*'
-      - 'pr7*'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   player-controls:
-    name: Preserve onboarding and difficulty controls
+    name: Historical onboarding and difficulty-controls preservation gate
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
