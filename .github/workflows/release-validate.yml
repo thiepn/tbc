@@ -14,7 +14,7 @@ permissions:
 jobs:
   validate-release:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -48,6 +48,14 @@ jobs:
       - name: Run canonical release validator
         run: node scripts/validate-release.cjs
 
+      - name: Certify deployed GitHub Pages release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          P27D_DEPLOYMENT_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+          P27D_DEPLOYMENT_ATTEMPTS: '30'
+          P27D_DEPLOYMENT_RETRY_MS: '10000'
+        run: node scripts/p27d-deployment-certification.cjs
+
       - name: Upload validation evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -57,6 +65,7 @@ jobs:
             artifacts/pr5
             artifacts/pr6
             artifacts/p1b
+            artifacts/p27d
             artifacts/release-validation
           if-no-files-found: ignore
-          retention-days: 7
+          retention-days: 14
