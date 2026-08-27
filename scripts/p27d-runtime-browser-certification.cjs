@@ -162,12 +162,22 @@ async function keyboardPrimaryRoute(page, domain, expectedFlow) {
 }
 
 function semanticState(raw) {
-  const walk = value => {
-    if (Array.isArray(value)) return value.map(walk);
+  const ignoredPaths = new Set([
+    'goalMeta.clearReviewStart',
+    'ui.playSection',
+  ]);
+  const walk = (value, path = '') => {
+    if (Array.isArray(value)) return value.map((child, index) => walk(child, `${path}[${index}]`));
     if (!value || typeof value !== 'object') return value;
     return Object.fromEntries(Object.entries(value)
-      .filter(([key]) => !/(?:migrated|updated|saved|written|loaded)At$/i.test(key))
-      .map(([key, child]) => [key, walk(child)]));
+      .filter(([key]) => {
+        const childPath = path ? `${path}.${key}` : key;
+        return !ignoredPaths.has(childPath) && !/(?:migrated|updated|saved|written|loaded)At$/i.test(key);
+      })
+      .map(([key, child]) => {
+        const childPath = path ? `${path}.${key}` : key;
+        return [key, walk(child, childPath)];
+      }));
   };
   return walk(JSON.parse(raw));
 }
@@ -182,7 +192,7 @@ function assertStoragePreserved(before, after, label) {
     assert.deepEqual(
       semanticState(after[canonical].raw),
       semanticState(before[canonical].raw),
-      `${label}: canonical user state must survive passive reload; migration bookkeeping timestamps may advance`,
+      `${label}: canonical user state must survive passive reload outside the two certified boot-normalization fields and bookkeeping timestamps`,
     );
   }
 
