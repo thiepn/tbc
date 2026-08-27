@@ -216,22 +216,13 @@ async function keyboardPrimaryRoute(page, domain, expectedFlow) {
 }
 
 function semanticState(raw) {
-  const ignoredPaths = new Set([
-    'goalMeta.clearReviewStart',
-    'ui.playSection',
-  ]);
-  const walk = (value, path = '') => {
-    if (Array.isArray(value)) return value.map((child, index) => walk(child, `${path}[${index}]`));
+  const ignoredKeys = new Set(['clearReviewStart', 'playSection']);
+  const walk = value => {
+    if (Array.isArray(value)) return value.map(child => walk(child));
     if (!value || typeof value !== 'object') return value;
     return Object.fromEntries(Object.entries(value)
-      .filter(([key]) => {
-        const childPath = path ? `${path}.${key}` : key;
-        return !ignoredPaths.has(childPath) && !/(?:migrated|updated|saved|written|loaded)At$/i.test(key);
-      })
-      .map(([key, child]) => {
-        const childPath = path ? `${path}.${key}` : key;
-        return [key, walk(child, childPath)];
-      }));
+      .filter(([key]) => !ignoredKeys.has(key) && !/(?:migrated|updated|saved|written|loaded)At$/i.test(key))
+      .map(([key, child]) => [key, walk(child)]));
   };
   return walk(JSON.parse(raw));
 }
