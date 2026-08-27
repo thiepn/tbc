@@ -7,11 +7,41 @@ const fs = require('node:fs');
 
 const BASE = process.env.TBC_BASE_URL || 'http://127.0.0.1:4173/';
 const ARTIFACT_DIR = 'artifacts/p27d';
+const STORAGE_KEY = 'theBibleChallenge_v21';
 const CURRENT_NAV = [
   '.pr5-primary-nav [data-pr5-nav][aria-current="page"]',
   '.pr5-utility-nav [data-pr5-utility][aria-current="page"]',
   '.pr5-mobile-nav [data-pr5-nav][aria-current="page"]',
 ].join(', ');
+
+async function resolveFirstRunSetup(page) {
+  const chooser = page.locator('#modalRoot .modal-backdrop:visible').filter({ hasText: /CHOOSE YOUR BIBLE DIFFICULTY/i });
+  if (!(await chooser.count())) return false;
+
+  const standard = chooser.getByRole('button').filter({ hasText: /\bStandard\b/i }).first();
+  assert.equal(await standard.count(), 1, 'first-run difficulty chooser must expose Standard');
+  assert.equal(await standard.isVisible(), true, 'Standard first-run difficulty control must be visible');
+  await standard.click();
+
+  await page.waitForFunction(key => {
+    try {
+      const raw = localStorage.getItem(key);
+      if (!raw) return false;
+      const state = JSON.parse(raw);
+      return state?.onboarded === true && String(state?.settings?.difficulty || '').toLowerCase() === 'standard';
+    } catch {
+      return false;
+    }
+  }, STORAGE_KEY, { timeout: 7000 });
+
+  await page.waitForFunction(() => ![...document.querySelectorAll('#modalRoot .modal-backdrop')].some(el => {
+    const style = getComputedStyle(el);
+    const rect = el.getBoundingClientRect();
+    const visible = style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
+    return visible && /CHOOSE YOUR BIBLE DIFFICULTY/i.test(el.textContent || '');
+  }), null, { timeout: 7000 });
+  return true;
+}
 
 async function dismissModal(page) {
   for (let i = 0; i < 8; i++) {
@@ -52,10 +82,11 @@ async function openCandidate(browser, viewport, extra = {}) {
     window.TBC_PR6?.version === 'PR6.0' &&
     window.TBC_P1B?.audit?.().ready === true,
   null, { timeout: 20000 });
+  const firstRunResolved = await resolveFirstRunSetup(page);
   await dismissModal(page);
   await waitNavigationState(page);
   await page.waitForTimeout(100);
-  return { context, page, pageErrors, consoleErrors };
+  return { context, page, pageErrors, consoleErrors, firstRunResolved };
 }
 
 async function waitPr6(page, flow) {
@@ -232,6 +263,7 @@ function assertStoragePreserved(before, after, label) {
   try {
     const desktop = await openCandidate(browser, { width: 1440, height: 1000 });
     const page = desktop.page;
+    assert.equal(desktop.firstRunResolved, true, 'fresh desktop certification profile must resolve first-run setup through the Standard UI control');
     const initial = await runtimeAudit(page, 'desktop boot');
 
     await keyboardPrimaryRoute(page, 'play', 'pr6');
@@ -313,7 +345,7 @@ function assertStoragePreserved(before, after, label) {
 
     report.completedAt = new Date().toISOString();
     fs.writeFileSync(`${ARTIFACT_DIR}/runtime-browser-report.json`, `${JSON.stringify(report, null, 2)}\n`);
-    console.log('P27D runtime/browser certification passed: whole-product routing, complete navigation semantics, bounded forward keyboard reachability/focus visibility, accessible control names, desktop/tablet/mobile containment, semantic passive-reload state preservation, reduced-motion boot, and zero runtime errors.');
+    console.log('P27D runtime/browser certification passed: first-run setup completion, whole-product routing, complete navigation semantics, bounded forward keyboard reachability/focus visibility, accessible control names, desktop/tablet/mobile containment, semantic passive-reload state preservation, reduced-motion boot, and zero runtime errors.');
   } finally {
     await browser.close();
   }
