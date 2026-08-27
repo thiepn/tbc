@@ -26,7 +26,7 @@ The P27D browser certification checks the integrated product rather than one his
 
 - PR5 shell, PR6 Play/Learn and PR7/P1B Library/Progress all boot in one browser session.
 - Home → Play → Learn → Library → Collections → Progress → Settings → Home navigation remains coherent.
-- Desktop primary navigation supports keyboard focus and Enter activation.
+- Desktop primary navigation is reachable by forward keyboard traversal and supports Enter activation.
 - Focus remains visually detectable.
 - Visible interactive controls have accessible names.
 - Visible images have `alt` attributes.
@@ -34,7 +34,8 @@ The P27D browser certification checks the integrated product rather than one his
 - Desktop 1440×1000, tablet 820×1180 and mobile 390×844 profiles have no horizontal overflow.
 - Mobile primary navigation remains fixed with 44 px minimum primary touch-target height.
 - Canonical persistence keys are parseable when present.
-- Passive reload does not rewrite already-present canonical state.
+- Passive reload preserves canonical semantic user state; migration/normalization bookkeeping timestamps may advance.
+- A pre-existing recovery snapshot remains parseable and available after reload.
 - Obsolete `tbc_v4_` persistence keys are not introduced.
 - Reduced-motion preference boots without runtime or console errors.
 - Page errors and console errors remain empty.
