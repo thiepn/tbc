@@ -15,8 +15,8 @@ const CURRENT_NAV = [
 ].join(', ');
 
 async function resolveFirstRunSetup(page) {
-  const chooser = page.locator('#modalRoot .modal-backdrop:visible').filter({ hasText: /CHOOSE YOUR BIBLE DIFFICULTY/i });
-  if (!(await chooser.count())) return false;
+  const chooser = page.locator('#modalRoot .modal-backdrop').filter({ hasText: /CHOOSE YOUR BIBLE DIFFICULTY/i });
+  await chooser.waitFor({ state: 'visible', timeout: 8000 });
 
   const standard = chooser.getByRole('button').filter({ hasText: /\bStandard\b/i }).first();
   assert.equal(await standard.count(), 1, 'first-run difficulty chooser must expose Standard');
