@@ -132,14 +132,25 @@ async function runtimeAudit(page, label) {
   return audit;
 }
 
+async function focusPrimaryByKeyboard(page, control, domain) {
+  const brand = page.locator('.sidebar .brand');
+  assert.equal(await brand.count(), 1, 'desktop sidebar brand must provide the keyboard traversal anchor');
+  await brand.focus();
+
+  let reached = false;
+  for (let step = 0; step < 16; step++) {
+    await page.keyboard.press('Tab');
+    reached = await control.evaluate(el => document.activeElement === el);
+    if (reached) break;
+  }
+  assert.equal(reached, true, `${domain} navigation must be reachable by forward Tab traversal`);
+}
+
 async function keyboardPrimaryRoute(page, domain, expectedFlow) {
   const control = page.locator(`.pr5-primary-nav [data-pr5-nav="${domain}"]`);
   assert.equal(await control.count(), 1, `desktop ${domain} navigation control must exist`);
-  await control.focus();
-  await page.keyboard.press('Tab');
-  await page.keyboard.press('Shift+Tab');
-  assert.equal(await control.evaluate(el => document.activeElement === el), true, `${domain} navigation must be keyboard-reachable`);
-  assert.equal(await control.evaluate(el => el.matches(':focus-visible')), true, `${domain} navigation must match :focus-visible`);
+  await focusPrimaryByKeyboard(page, control, domain);
+  assert.equal(await control.evaluate(el => el.matches(':focus-visible')), true, `${domain} navigation must match :focus-visible after keyboard traversal`);
   const style = await control.evaluate(el => {
     const s = getComputedStyle(el);
     return { outlineStyle: s.outlineStyle, outlineWidth: s.outlineWidth, boxShadow: s.boxShadow };
@@ -269,7 +280,7 @@ function assertStoragePreserved(before, after, label) {
 
     report.completedAt = new Date().toISOString();
     fs.writeFileSync(`${ARTIFACT_DIR}/runtime-browser-report.json`, `${JSON.stringify(report, null, 2)}\n`);
-    console.log('P27D runtime/browser certification passed: whole-product routing, complete navigation semantics, keyboard focus/activation, accessible control names, desktop/tablet/mobile containment, semantic passive-reload state preservation, reduced-motion boot, and zero runtime errors.');
+    console.log('P27D runtime/browser certification passed: whole-product routing, complete navigation semantics, forward keyboard reachability/focus visibility, accessible control names, desktop/tablet/mobile containment, semantic passive-reload state preservation, reduced-motion boot, and zero runtime errors.');
   } finally {
     await browser.close();
   }
