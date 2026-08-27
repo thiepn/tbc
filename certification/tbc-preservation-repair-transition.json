@@ -1,0 +1,210 @@
+{
+  "version": "TBC-PRESERVATION-REPAIR.1",
+  "predecessor": "915ec2f5c4eeb270f63b3a04d442b8a8429c5993",
+  "successor": "ce1b30a8fe2c07822001b9542271eea60174f4f1",
+  "predecessorEngineSha256": "68a7cae70307a0840f976fbe8c9bd7d9067d803b3a56a19ccf2e4fa85c9d7b36",
+  "successorEngineSha256": "78252b20700261601ad565e1dfa6a5c3cf66952d8241111ef899ebe412454405",
+  "description": "Ordered exact replacements replaying the bounded verified repair; no question or asset payload is included.",
+  "edits": [
+    {
+      "from": "current=V18_QUESTION_MAP.get(x.itemId);if(current){if(x.answer!==current.answer",
+      "to": "current=v25QuestionSource(x.itemId);if(current){if(x.answer!==current.answer",
+      "count": 1
+    },
+    {
+      "from": "/* Retired recurring modes cannot be resurrected by stale history or old inline actions. */",
+      "to": "/* Recurring modes use the retained launch, scoring and persistence path. */",
+      "count": 1
+    },
+    {
+      "from": " if(mode===\"daily\"||mode===\"weekly\"){v292Go(\"play\",\"now\");return}\n",
+      "to": "",
+      "count": 1
+    },
+    {
+      "from": "startWeekly=function(){v292Go(\"play\",\"now\")};",
+      "to": "startWeekly=function(){startQuiz(\"weekly\",15,v20WeekKey(),{origin:captureViewContext()})};",
+      "count": 1
+    },
+    {
+      "from": "const V316_RETIRED_ROUND_MODES=new Set([\"daily\",\"weekly\"]);",
+      "to": "const V316_RETIRED_ROUND_MODES=new Set(); // Daily Five and Weekly Challenge are supported.",
+      "count": 1
+    },
+    {
+      "from": "function quick(count=10,t=state?.settings?.difficulty,r=Math.random,track=true){t=tier(t);return selectDiverse(routePool('quick',{tier:t}),count,{rng:r,recentKey:`quick|${t}`,",
+      "to": "function quick(count=10,t=state?.settings?.difficulty,r=Math.random,track=true,recentKey=null){t=tier(t);return selectDiverse(routePool('quick',{tier:t}),count,{rng:r,recentKey:recentKey||`quick|${t}`,",
+      "count": 1
+    },
+    {
+      "from": "function challengeBuild(scope,count=10,t=state?.settings?.difficulty,r=Math.random,track=true){",
+      "to": "function challengeBuild(scope,count=10,t=state?.settings?.difficulty,r=Math.random,track=true,recentKey=null){",
+      "count": 1
+    },
+    {
+      "from": "recentKey:`challenge|${t}|${key}`,structuredCap,",
+      "to": "recentKey:recentKey||`challenge|${t}|${key}`,structuredCap,",
+      "count": 1
+    },
+    {
+      "from": "rngFor(`qb9-weekly|${k}|${t}`),false)}",
+      "to": "rngFor(`qb9-weekly|${k}|${t}`),false,`weekly|${t}|${k}`)}",
+      "count": 1
+    },
+    {
+      "from": "if(mode==='quick')return quick(count,t,Math.random,true);",
+      "to": "if(mode==='quick')return quick(count,t,Math.random,true);if(mode==='daily')return quick(5,t,rngFor(v22RoundSeed('daily',scope,stageId,phase)),false,`daily|${t}|${dateKey()}`);",
+      "count": 1
+    },
+    {
+      "from": "const current=V18_QUESTION_MAP.get(q.itemId);if(!current||!q.family)continue;",
+      "to": "const current=v25QuestionSource(q.itemId);if(!current||!q.family)continue;",
+      "count": 2
+    },
+    {
+      "from": "const current=V18_QUESTION_MAP.get(saved.itemId);if(!current)return;",
+      "to": "const current=v25QuestionSource(saved.itemId);if(!current)return;",
+      "count": 1
+    },
+    {
+      "from": "current=v25QuestionSource(x.itemId);if(current){",
+      "to": "current=v25QuestionSource(x.itemId);if([\"quick\",\"daily\",\"weekly\"].includes(raw.mode)&&(!current||[\"type\",\"label\",\"prompt\",\"display\",\"explanation\",\"reference\",\"difficulty\",\"interaction\"].some(key=>x[key]!==current[key])))throw Error(\"Knowledge question changed\");if(current){",
+      "count": 1
+    },
+    {
+      "from": "hydrateQuizSession=function(raw){if(raw&&Array.isArray(raw.questions))for(const saved of raw.questions){",
+      "to": "hydrateQuizSession=function(raw){if([\"quick\",\"daily\",\"weekly\"].includes(raw?.mode)&&Array.isArray(raw.questions)&&raw.questions.some(q=>!window.TBC_QB6?.isActiveId?.(q?.itemId)))return null;if(raw&&Array.isArray(raw.questions))for(const saved of raw.questions){",
+      "count": 1
+    },
+    {
+      "from": "M3 — retired Daily/Weekly rounds are no longer valid resumable sessions.",
+      "to": "M3 — recurring rounds use normal question, mode and answer integrity checks.",
+      "count": 1
+    },
+    {
+      "from": "${icon('play')} Start Quick Play</button></section><section class=\"v3180-mode-section\">",
+      "to": "${icon('play')} Start Quick Play</button></section><div class=\"v292-actions\"><button class=\"btn btn-soft\" onclick=\"startQuiz('daily',5)\">Daily Five</button><button class=\"btn btn-soft\" onclick=\"startWeekly()\">Weekly Challenge</button></div><section class=\"v3180-mode-section\">",
+      "count": 1
+    },
+    {
+      "from": "x.knowledgeIds.filter(id=>V18_ENTITY_MAP.has(id)||String(id).startsWith(\"passage.\")||String(id).startsWith(\"teaching.\"))",
+      "to": "x.knowledgeIds.filter(id=>current?.knowledgeIds?.includes(id)||V18_ENTITY_MAP.has(id)||String(id).startsWith(\"passage.\")||String(id).startsWith(\"teaching.\"))",
+      "count": 1
+    },
+    {
+      "from": "if([\"quick\",\"daily\",\"weekly\"].includes(raw?.mode)&&Array.isArray(raw.questions)&&raw.questions.some(q=>!window.TBC_QB6?.isActiveId?.(q?.itemId)))return null;",
+      "to": "if([\"quick\",\"daily\",\"weekly\"].includes(raw?.mode)&&!v25SavedQuestionsAreCurrent(raw))return null;",
+      "count": 1
+    },
+    {
+      "from": "function v25QuestionSource(itemId){",
+      "to": "\n// Saved identities belong to the supported registry, not the fresh-selection pool.\nfunction v25SavedQuestionsAreCurrent(raw){\n try{\n  const qb=window.TBC_QB6,rows=window.TBC_QB0?.registry?.();\n  if(!qb||!Array.isArray(rows)||!Array.isArray(raw?.questions)||!raw.questions.length||raw.questions.length>40)return false;\n  const records=new Map();\n  for(const row of rows){const id=row?.itemId;if(records.has(id))records.set(id,null);else records.set(id,row)}\n  for(const saved of raw.questions){\n   const id=saved?.itemId,record=records.get(id),alias=qb.aliasInfo(id),target=alias?alias.canonicalId:id;\n   if(typeof id!==\"string\"||!record||record.active===false||typeof target!==\"string\"||!target)return false;\n   const canonical=records.get(target);\n   if(!canonical||canonical.active===false||qb.aliasInfo(target)||qb.canonicalId(id)!==target)return false;\n   const current=v25QuestionSource(id),resolved=target===id?current:v25QuestionSource(target);\n   if(!current||current.itemId!==id||!resolved||resolved.itemId!==target||current.qb6CanonicalId!==target)return false;\n   // Aliases retain their authored identity; the declared target is not a replacement.\n   if([\"type\",\"label\",\"prompt\",\"display\",\"answer\",\"explanation\",\"reference\",\"difficulty\",\"interaction\"].some(key=>saved[key]!==current[key]))return false;\n   if(!sameOptionSet(saved.options,current.options))return false;\n  }\n  return true;\n }catch{return false}\n}\nfunction v25QuestionSource(itemId){",
+      "count": 1
+    },
+    {
+      "from": "function restoreQuizSession(){let raws=[];try{const r=localStorage.getItem(SESSION_STORAGE);if(r)raws.push(r)}catch{}try{const r=sessionStorage.getItem(SESSION_STORAGE);if(r&&!raws.includes(r))raws.push(r)}catch{}for(const raw of raws){try{let restored=hydrateQuizSession(JSON.parse(raw));if(restored){try{localStorage.setItem(SESSION_STORAGE,raw)}catch{}try{sessionStorage.setItem(SESSION_STORAGE,raw)}catch{}return restored}}catch(e){console.warn(\"Saved active-round copy was invalid\",e)}}if(raws.length)clearQuizSession();return null}",
+      "to": "function restoreQuizSession(){\n const copies=[];\n for(const getStore of [()=>localStorage,()=>sessionStorage])try{const store=getStore(),raw=store.getItem(SESSION_STORAGE);if(raw!==null)copies.push({store,raw,restored:null})}catch{}\n // Evaluate both copies before any repair/removal. A failed copy cannot poison its peer.\n for(const copy of copies)try{\n  copy.restored=hydrateQuizSession(JSON.parse(copy.raw));\n  if(copy.restored?.v30RunId){const run=v30LoadRun();if(!run?.active||run.id!==copy.restored.v30RunId)copy.restored=null}\n }catch(error){console.warn(\"Saved active-round copy was invalid\",error)}\n const valid=copies.find(copy=>copy.restored);\n if(valid){\n  for(const copy of copies)if(!copy.restored)try{copy.store.setItem(SESSION_STORAGE,valid.raw)}catch{}\n  return valid.restored;\n }\n for(const copy of copies)try{copy.store.removeItem(SESSION_STORAGE)}catch{}\n return null;\n}",
+      "count": 1
+    },
+    {
+      "from": "restoreQuizSession=function(){try{const raw=localStorage.getItem(SESSION_STORAGE);if(raw){const restored=hydrateQuizSession(JSON.parse(raw));if(restored)return restored}}catch(error){console.warn(\"v2.3 active round could not be restored\",error)}return V23_RESTORE_SESSION_LEGACY()}",
+      "to": "restoreQuizSession=function(){return V23_RESTORE_SESSION_LEGACY()}",
+      "count": 1
+    },
+    {
+      "from": "q.matchChoices=[...new Set(current.matchPairs.map(x=>x[1]))];const keys=",
+      "to": "const expectedChoices=[...new Set(current.matchPairs.map(x=>x[1]))];if(!Array.isArray(q.matchChoices)||!sameOptionSet(q.matchChoices,expectedChoices))throw Error(\"Matching choices changed\");const keys=",
+      "count": 1
+    },
+    {
+      "from": "async function v296ImportProgress(event){const input=event.currentTarget,file=input.files?.[0];if(!file)return;const previousState=clone(state),previousScreen=screen,previousQuiz=quiz,previousStage=activeStageId,previousBook=activeBookName;let previousSave=null,previousBackup=null,previousSession=null,changed=false;try{previousSave=localStorage.getItem(STORAGE);previousBackup=localStorage.getItem(V213_IMPORT_BACKUP);previousSession=localStorage.getItem(SESSION_STORAGE);if(file.size>V281_IMPORT_LIMIT_BYTES)throw Error(\"Save file is too large\");const parsed=JSON.parse(await file.text()),incoming=parsed?.state??parsed;if(!v213CurrentSaveLike(incoming)&&!v213LegacySaveLike(incoming))throw Error(\"Not a compatible save\");const candidate=sanitizeState(v213CurrentSaveLike(incoming)?incoming:migrateLegacy(incoming));candidate.labNotebook=v281CompactNotebookMap(candidate.labNotebook);if(v281JsonBytes(candidate)>V281_SAVE_BUDGET_BYTES)throw Error(\"Imported progress exceeds the supported storage budget\");if(previousSave)localStorage.setItem(V213_IMPORT_BACKUP,previousSave);state=candidate;quiz=null;clearQuizSession();activeStageId=null;activeBookName=\"\";screen=TOP_SCREENS.includes(state.screen)?state.screen:\"home\";changed=true;if(!save())throw Error(\"Imported progress could not be persisted\");history.replaceState({tbc:true,screen},\"\",`#${screen}`);render();toast(v213LegacySaveLike(incoming)?\"Legacy progress imported safely\":\"Progress imported safely\")}catch(error){if(changed){state=previousState;screen=previousScreen;quiz=previousQuiz;activeStageId=previousStage;activeBookName=previousBook}try{if(previousSave===null)localStorage.removeItem(STORAGE);else localStorage.setItem(STORAGE,previousSave);if(previousBackup===null)localStorage.removeItem(V213_IMPORT_BACKUP);else localStorage.setItem(V213_IMPORT_BACKUP,previousBackup);if(previousSession===null)localStorage.removeItem(SESSION_STORAGE);else localStorage.setItem(SESSION_STORAGE,previousSession)}catch{}if(changed)render();toast(`Import failed: ${String(error.message||error).slice(0,120)}`)}finally{input.value=\"\"}}",
+      "to": "async function v296ImportProgress(event){const input=event.currentTarget,file=input.files?.[0];if(!file)return;const previousState=clone(state),previousScreen=screen,previousQuiz=quiz,previousStage=activeStageId,previousBook=activeBookName;let previousSave=null,previousBackup=null,previousSession=null,previousSessionBackup=null,changed=false;try{previousSave=localStorage.getItem(STORAGE);previousBackup=localStorage.getItem(V213_IMPORT_BACKUP);previousSession=localStorage.getItem(SESSION_STORAGE);previousSessionBackup=sessionStorage.getItem(SESSION_STORAGE);if(file.size>V281_IMPORT_LIMIT_BYTES)throw Error(\"Save file is too large\");const parsed=JSON.parse(await file.text()),incoming=parsed?.state??parsed;if(!v213CurrentSaveLike(incoming)&&!v213LegacySaveLike(incoming))throw Error(\"Not a compatible save\");const candidate=sanitizeState(v213CurrentSaveLike(incoming)?incoming:migrateLegacy(incoming));candidate.labNotebook=v281CompactNotebookMap(candidate.labNotebook);const importedRound=parsed?.activeRound==null?null:([\"quick\",\"daily\",\"weekly\"].includes(parsed.activeRound.mode)?hydrateQuizSession(parsed.activeRound):null);if(parsed?.activeRound!=null&&!importedRound)throw Error(\"Imported active round failed integrity checks\");if(v281JsonBytes(candidate)>V281_SAVE_BUDGET_BYTES)throw Error(\"Imported progress exceeds the supported storage budget\");if(previousSave)localStorage.setItem(V213_IMPORT_BACKUP,previousSave);state=candidate;quiz=importedRound;if(!quiz)clearQuizSession();activeStageId=null;activeBookName=\"\";screen=quiz?\"quiz\":TOP_SCREENS.includes(state.screen)?state.screen:\"home\";changed=true;if(!save())throw Error(\"Imported progress could not be persisted\");history.replaceState({tbc:true,screen},\"\",`#${screen}`);render();toast(v213LegacySaveLike(incoming)?\"Legacy progress imported safely\":\"Progress imported safely\")}catch(error){if(changed){state=previousState;screen=previousScreen;quiz=previousQuiz;activeStageId=previousStage;activeBookName=previousBook}try{if(previousSave===null)localStorage.removeItem(STORAGE);else localStorage.setItem(STORAGE,previousSave);if(previousBackup===null)localStorage.removeItem(V213_IMPORT_BACKUP);else localStorage.setItem(V213_IMPORT_BACKUP,previousBackup);if(previousSession===null)localStorage.removeItem(SESSION_STORAGE);else localStorage.setItem(SESSION_STORAGE,previousSession)}catch{}try{if(previousSessionBackup===null)sessionStorage.removeItem(SESSION_STORAGE);else sessionStorage.setItem(SESSION_STORAGE,previousSessionBackup)}catch{}if(changed)render();toast(`Import failed: ${String(error.message||error).slice(0,120)}`)}finally{input.value=\"\"}}",
+      "count": 1
+    },
+    {
+      "from": "v30Run=null;v30SaveRun();clearQuizSession()",
+      "to": "v30Run=null;v30SaveRun();if(!quiz)clearQuizSession()",
+      "count": 1
+    },
+    {
+      "from": "exportProgress=function(){const payload={app:\"The Bible Challenge\",version:V402_VERSION,exported:new Date().toISOString(),state,expeditionRecords:v30LoadRecords()},blob=new Blob([JSON.stringify(payload,null,2)],{type:\"application/json\"}),url=URL.createObjectURL(blob),a=document.createElement(\"a\");a.href=url;a.download=`the-bible-challenge-progress-${dateKey()}.json`;a.hidden=true;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1e3);toast(\"Progress exported\")}",
+      "to": "exportProgress=function(){const payload={app:\"The Bible Challenge\",version:V402_VERSION,exported:new Date().toISOString(),state,activeRound:[\"quick\",\"daily\",\"weekly\"].includes(quiz?.mode)?serializeQuizSession():null,expeditionRecords:v30LoadRecords()},blob=new Blob([JSON.stringify(payload,null,2)],{type:\"application/json\"}),url=URL.createObjectURL(blob),a=document.createElement(\"a\");a.href=url;a.download=`the-bible-challenge-progress-${dateKey()}.json`;a.hidden=true;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1e3);toast(\"Progress exported\")}",
+      "count": 1
+    },
+    {
+      "from": "question.responseMode=saved.responseMode;question.retrievalStage=",
+      "to": "question.responseMode=saved.responseMode;if(saved.responseMode===void 0&&question.responseMode===\"choice\")delete question.responseMode;question.retrievalStage=",
+      "count": 1
+    },
+    {
+      "from": "/^[a-zA-Z]{2,20}$/",
+      "to": "/^[a-zA-Z][a-zA-Z-]{1,19}$/",
+      "count": 2
+    },
+    {
+      "from": "if(saved.responseMode===void 0&&question.responseMode===\"choice\")",
+      "to": "if([\"quick\",\"daily\",\"weekly\"].includes(restored.mode)&&saved.responseMode===void 0&&question.responseMode===\"choice\")",
+      "count": 1
+    },
+    {
+      "from": "if(!Array.isArray(q.matchChoices)||!sameOptionSet(q.matchChoices,expectedChoices))throw Error(\"Matching choices changed\");",
+      "to": "if([\"quick\",\"daily\",\"weekly\"].includes(restored.mode)){if(!Array.isArray(q.matchChoices)||!sameOptionSet(q.matchChoices,expectedChoices))throw Error(\"Matching choices changed\")}else q.matchChoices=expectedChoices;",
+      "count": 1
+    },
+    {
+      "from": "/^[a-zA-Z][a-zA-Z-]{1,19}$/",
+      "to": "/^(?=.{2,20}$)[a-zA-Z]+(?:-[a-zA-Z]+)*$/",
+      "count": 2
+    },
+    {
+      "from": "for(const copy of copies)try{\n  copy.restored=hydrateQuizSession(JSON.parse(copy.raw));\n  if(copy.restored?.v30RunId){const run=v30LoadRun();if(!run?.active||run.id!==copy.restored.v30RunId)copy.restored=null}\n }catch(error){console.warn(\"Saved active-round copy was invalid\",error)}",
+      "to": "for(const copy of copies){\n  const knownIds=new Set(V18_QUESTION_MAP.keys());\n  try{\n   copy.restored=hydrateQuizSession(JSON.parse(copy.raw));\n   if(copy.restored?.v30RunId){const run=v30LoadRun();if(!run?.active||run.id!==copy.restored.v30RunId)copy.restored=null}\n  }catch(error){copy.restored=null;console.warn(\"Saved active-round copy was invalid\",error)}\n  finally{if(!copy.restored)for(const id of V18_QUESTION_MAP.keys())if(!knownIds.has(id))V18_QUESTION_MAP.delete(id)}\n }",
+      "count": 1
+    },
+    {
+      "from": "previousSessionBackup=null,changed=false",
+      "to": "previousSessionBackup=void 0,changed=false",
+      "count": 1
+    },
+    {
+      "from": "previousSessionBackup=sessionStorage.getItem(SESSION_STORAGE);",
+      "to": "try{previousSessionBackup=sessionStorage.getItem(SESSION_STORAGE)}catch{}",
+      "count": 1
+    },
+    {
+      "from": "try{if(previousSessionBackup===null)sessionStorage.removeItem(SESSION_STORAGE);else sessionStorage.setItem(SESSION_STORAGE,previousSessionBackup)}catch{}",
+      "to": "try{if(previousSessionBackup!==void 0){if(previousSessionBackup===null)sessionStorage.removeItem(SESSION_STORAGE);else sessionStorage.setItem(SESSION_STORAGE,previousSessionBackup)}}catch{}",
+      "count": 1
+    },
+    {
+      "from": "if([\"quick\",\"daily\",\"weekly\"].includes(raw?.mode)&&!v25SavedQuestionsAreCurrent(raw))return null;",
+      "to": "if([\"quick\",\"daily\",\"weekly\"].includes(raw?.mode)){if(!v25SavedQuestionsAreCurrent(raw))return null;return V23_HYDRATE_ROUND_LEGACY(raw)}",
+      "count": 1
+    },
+    {
+      "from": "if([\"quick\",\"daily\",\"weekly\"].includes(restored.mode)&&saved.responseMode===void 0&&question.responseMode===\"choice\")delete question.responseMode;",
+      "to": "if([\"quick\",\"daily\",\"weekly\"].includes(restored.mode)&&saved.responseMode===void 0)delete question.responseMode;",
+      "count": 1
+    },
+    {
+      "from": "function sanitizeState(",
+      "to": "\n// Retain authored type keys without admitting arbitrary new key formats.\nfunction v18SavedTypeIsValid(type){return /^[a-zA-Z]{2,20}$/.test(type)||[\"apocalyptic-dream\",\"apocalyptic-prophecy\",\"apocalyptic-vision\",\"beginner-connection\",\"beginner-detail\",\"beginner-detail-context\",\"beginner-event\",\"beginner-major\",\"beginner-miracle\",\"beginner-parable\",\"beginner-person\",\"beginner-person-role\",\"beginner-place\",\"beginner-relationship\",\"beginner-sequence\",\"bespoke-curriculum\",\"birth-preparation\",\"church-mission\",\"communal-lament\",\"court-tale\",\"covenant-oracle\",\"curriculum-depth\",\"curriculum-v2\",\"divine-speech\",\"easy-connection\",\"easy-detail\",\"easy-event\",\"easy-key-passage\",\"easy-major\",\"easy-miracles-pairing\",\"easy-miracles-supplement\",\"easy-parables-pairing\",\"easy-parables-supplement\",\"easy-person\",\"easy-place\",\"easy-relationship\",\"easy-sequence\",\"epistle-argument\",\"exile-return\",\"focused-enrichment\",\"general-epistle\",\"lament-poetry\",\"lament-psalm\",\"lament-restoration\",\"love-poetry\",\"messianic-oracle\",\"pastoral-epistle\",\"penitential-psalm\",\"praise-psalm\",\"prayer-poetry\",\"prophetic-call\",\"prophetic-confrontation\",\"prophetic-dialogue\",\"prophetic-disputation\",\"prophetic-invitation\",\"prophetic-lawsuit\",\"prophetic-letter\",\"prophetic-narrative\",\"prophetic-oracle\",\"prophetic-poetry\",\"prophetic-sermon\",\"prophetic-sign\",\"prophetic-vision\",\"restoration-oracle\",\"royal-psalm\",\"sermon-letter\",\"servant-song\",\"trust-psalm\",\"wisdom-epistle\",\"wisdom-narrative\",\"wisdom-poetry\",\"wisdom-psalm\",\"wisdom-reflection\",\"wisdom-sayings\",\"wisdom-teaching\"].includes(type)}\nfunction sanitizeState(",
+      "count": 1
+    },
+    {
+      "from": "/^(?=.{2,20}$)[a-zA-Z]+(?:-[a-zA-Z]+)*$/.test(t)",
+      "to": "v18SavedTypeIsValid(t)",
+      "count": 1
+    },
+    {
+      "from": "/^(?=.{2,20}$)[a-zA-Z]+(?:-[a-zA-Z]+)*$/.test(x)",
+      "to": "v18SavedTypeIsValid(x)",
+      "count": 1
+    },
+    {
+      "from": "if(!sameOptionSet(saved.options,current.options))return false;",
+      "to": "const prepared=current.interaction===\"insertion\"?window.TBC_QB8?.prepare(current):current;\n   if(!sameOptionSet(saved.options,current.options)&&!sameOptionSet(saved.options,prepared?.options))return false;\n   if(current.interaction===\"insertion\"&&(saved.insertionItem!==current.insertionItem||JSON.stringify(saved.insertionAnchors)!==JSON.stringify(current.insertionAnchors)))return false;",
+      "count": 1
+    }
+  ]
+}

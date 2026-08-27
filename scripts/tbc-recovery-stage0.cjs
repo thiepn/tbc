@@ -7,6 +7,7 @@ const crypto = require('node:crypto');
 const assert = require('node:assert/strict');
 const { spawn, execFileSync } = require('node:child_process');
 const { worktreeBlob } = require('./tbc-source-identity.cjs');
+const { validateTransition } = require('./tbc-successor-transition.cjs');
 const ROOT = path.resolve(__dirname, '..');
 const BASELINE = 'f84d5eff6a93046642c681e9163baa1b0b6b31a2';
 const PRODUCT = ['index.html', 'assets/pr5-foundation.css', 'assets/pr5-shell.js',
@@ -24,14 +25,9 @@ const evidence = { schemaVersion: 1, baseline: BASELINE, startedAt: new Date().t
   browserChannel: ['build', 'deploy-check'].includes(process.argv[2]) ? 'not used' : process.env.TBC_BROWSER_CHANNEL || 'bundled Chromium', results: [] };
 
 function build() {
-  for (const file of PRODUCT) {
-    assert.ok(fs.existsSync(path.join(ROOT, file)), `missing deployed file: ${file}`);
-    assert.equal(worktreeBlob(file), git('rev-parse', `${BASELINE}:${file}`), `product changed outside Stage 0: ${file}`);
-  }
-  assert.equal(worktreeBlob('certification/p2a-question-bank-extraction-baseline.json'),
-    git('rev-parse', `${BASELINE}:certification/p2a-question-bank-extraction-baseline.json`), 'P2A manifest must not be re-frozen');
+  evidence.successor = validateTransition();
   git('merge-base', '--is-ancestor', '25d2ff4975e91c031a78ba07ce57fab4c46d80f0', 'HEAD');
-  console.log(`BUILD PASS: ${PRODUCT.length} deployed files preserved; no bundle emitted; P2A merge is an ancestor.`);
+  console.log(`BUILD PASS: ${PRODUCT.length} deployed files match the authorized successor; exact repair replay, protected evidence, schema/keys and acceptance test preserved; no bundle emitted.`);
 }
 
 function server() {
@@ -58,11 +54,11 @@ function server() {
   });
 }
 
-async function run(script, env = {}, args = []) {
-  console.log(`\n=== ${script} ${args.join(' ')} ===`);
+async function run(script, env = {}, args = [], scriptArgs = []) {
+  console.log(`\n=== ${script} ${[...args, ...scriptArgs].join(' ')} ===`);
   const started = Date.now();
   const code = await new Promise((resolve, reject) => {
-    const child = spawn(process.execPath, [...args, path.join(ROOT, script)], {
+    const child = spawn(process.execPath, [...args, path.join(ROOT, script), ...scriptArgs], {
       cwd: ROOT, env: { ...process.env, ...env,
         NODE_OPTIONS: `${process.env.NODE_OPTIONS || ''} --require="${path.join(__dirname, 'tbc-browser-runtime.cjs').replace(/\\/g, '/')}"`.trim()
       }, stdio: 'inherit', windowsHide: true
@@ -70,14 +66,15 @@ async function run(script, env = {}, args = []) {
     child.once('error', reject);
     child.once('exit', (status, signal) => resolve(status ?? (signal ? 1 : 0)));
   });
-  evidence.results.push({ script, exitCode: code, milliseconds: Date.now() - started });
+  evidence.results.push({ script, args: [...args, ...scriptArgs], exitCode: code, milliseconds: Date.now() - started });
   return code === 0;
 }
 
 async function tests() {
   for (const script of ['p0a-preservation-audit', 'p0b-player-controls-audit',
     'p0c-existing-feature-preservation-audit', 'p0d-visual-preservation-audit',
-    'p1b-pr7-activation-audit', 'p2e-preservation-audit', 'tbc-stage0-invariants',
+    'p1b-pr7-activation-audit', 'tbc-historical-preservation', 'tbc-stage0-invariants',
+    'tbc-preservation-repair', 'tbc-session-compatibility',
     'p0e-browser-certification', 'p1b-pr7-browser-smoke']) {
     await run(`scripts/${script}.cjs`);
   }
@@ -92,6 +89,7 @@ async function audit() {
       P2E_OUT_DIR: `artifacts/p2e${i ? '-repeat' : ''}` };
     assert.ok(await run('scripts/p2a-question-bank-extract-certified.cjs', passEnv), `extraction pass ${i + 1} failed`);
     assert.ok(await run('scripts/p2a-question-bank-audit.cjs', passEnv), `P2A audit pass ${i + 1} failed`);
+    await run('scripts/tbc-product-identity.cjs', passEnv, [], ['--content', dirs[i]]);
     for (const script of ['p2b-mechanical-integrity-audit', 'p2c-semantic-accuracy-audit',
       'p2d-question-quality-audit', 'p2e-difficulty-calibration-audit']) await run(`scripts/${script}.cjs`, passEnv);
   }
@@ -104,6 +102,7 @@ async function audit() {
     console.log(`DETERMINISTIC PASS: ${file}`);
   }
   await run('scripts/tbc-p2a-infrastructure.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
+  await run('scripts/tbc-product-identity.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
 }
 
 async function deployment() {

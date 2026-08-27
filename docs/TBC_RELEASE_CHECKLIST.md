@@ -21,12 +21,15 @@ git diff --check
 git status --short --branch
 ```
 
-- `build`: validates the existing single-file core, 12 supporting deployed files,
-  manifest and P2A ancestry; emits no bundle and never rewrites the product.
-- `test`: static P0A/B/C/D/P1B and P2E preservation, Stage 0 runtime/persistence,
-  all seven P0E browser suites, and P1B desktop/mobile smoke.
+- `build`: validates the pinned current identity, exact authorized repair replay,
+  12 unchanged supporting files, protected evidence, storage/schema, acceptance
+  test and P2A ancestry; emits no bundle and never rewrites the product.
+- `test`: current static P0A/B/C/D/P1B, original-source historical preservation,
+  Stage 0 runtime/persistence, the 19-case repair and 27-case compatibility
+  suites, all seven P0E browser suites, and P1B desktop/mobile smoke.
 - `audit:p2a`: certified extraction twice, audit twice, read-only successor audits,
-  five-file byte comparison and corruption/missing/stale-artifact negative tests.
+  five-file byte comparison, successor content proof, and both P2A and successor
+  corruption/missing/stale-artifact and tampering negative suites.
 - `verify`: the complete local Stage 0 gate (`build` + `test` + `audit:p2a`).
   It serves the working candidate itself and exits nonzero on any failed suite.
 - `deploy:verify`: read-only HTTPS fetch of all 13 deployed files, comparing their
@@ -50,10 +53,14 @@ Edge with the locked Playwright package. It is **not** a bundled-Chromium CI pas
 - Run the complete gate and record every command, environment, pass/fail and
   unresolved risk. Do not label an API-presence probe a behavior test.
 - Review the diff, especially generated files, workflow permissions and scripts.
-  For Stage 0 this must show no product or manifest changes:
+  Stage 0 itself made no product or manifest changes. Its explicitly authorized
+  successor is limited to the exact repair and source-only P2A update documented
+  in `TBC_PRODUCT_IDENTITY.md`. Never print the embedded payload diff; inspect
+  bounded repair replay and the source-pin diff instead:
 
   ```sh
-  git diff f84d5eff6a93046642c681e9163baa1b0b6b31a2 -- index.html assets/ favicon.svg certification/p2a-question-bank-extraction-baseline.json
+  node scripts/tbc-successor-transition.cjs
+  git diff f84d5eff6a93046642c681e9163baa1b0b6b31a2 -- assets/ favicon.svg certification/p2a-question-bank-extraction-baseline.json
   git diff --check
   ```
 

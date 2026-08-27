@@ -25,10 +25,11 @@ generated interaction variations are not additional canonical questions.
 Effective/playable pool sizes depend on mode, tier, progress and eligibility;
 they must not be summed into a second authoritative bank total.
 
-Current frozen identities (do not re-freeze to conceal a failure):
+Frozen content identities and recognized product successor (do not re-freeze to conceal a failure):
 
 ```text
-index Git blob: 915ec2f5c4eeb270f63b3a04d442b8a8429c5993
+predecessor index Git blob: 915ec2f5c4eeb270f63b3a04d442b8a8429c5993
+authorized successor index Git blob: ce1b30a8fe2c07822001b9542271eea60174f4f1
 canonical SHA-256: 1f795f1ca8d24fe393a9a4d77ac30dbeb10083c30e63c483e613c9c4bda6885b
 structured SHA-256: 4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb
 registry SHA-256: 9f03475faa42b2ba6317c950dc3eb4049e7acf8001df7bfee92e83dffba05f9d
@@ -54,7 +55,10 @@ The five generated P2A JSON files must be byte-identical across repeat runs.
   settings must remain distinct. Never reset user progress to satisfy tests.
 - Preserve the single-file embedded core and current enhancement assets.
   No compile/bundle rewrite is required. `npm run build` proves all 13 deployed
-  files and the P2A manifest match the recovery baseline under Git normalization.
+  files match the pinned current identity under Git normalization, replays the
+  exact authorized predecessor-to-successor repair, and permits only P2A's source
+  pin to differ from Stage 0. See `TBC_PRODUCT_IDENTITY.md`; historical evidence
+  and all content hashes remain immutable.
 - Preserve mobile/desktop support and existing offline functionality. The core
   is embedded; enhancement assets are separate. There is no service-worker
   offline-refresh guarantee. Loaded-core offline checks are not proof that a
