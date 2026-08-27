@@ -18,7 +18,7 @@ async function resolveFirstRunSetup(page) {
   const chooser = page.locator('#modalRoot .modal-backdrop').filter({ hasText: /CHOOSE YOUR BIBLE DIFFICULTY/i });
   await chooser.waitFor({ state: 'visible', timeout: 8000 });
 
-  const standard = chooser.getByRole('button').filter({ hasText: /\bStandard\b/i }).first();
+  const standard = chooser.getByRole('button').filter({ hasText: /Standard/i }).first();
   assert.equal(await standard.count(), 1, 'first-run difficulty chooser must expose Standard');
   assert.equal(await standard.isVisible(), true, 'Standard first-run difficulty control must be visible');
   await standard.click();
