@@ -47,7 +47,8 @@ It certifies:
 - desktop, tablet and mobile layouts do not overflow horizontally;
 - mobile primary navigation remains fixed and its primary touch targets remain at least 44 px high;
 - canonical persistence keys remain parseable and present when expected;
-- passive reload preserves canonical semantic user state while allowing migration/normalization bookkeeping timestamps to advance;
+- passive reload preserves canonical semantic user state;
+- reload comparison permits only bookkeeping `*At` timestamps plus the two observed boot-normalization paths `goalMeta.clearReviewStart` and `ui.playSection` to differ;
 - the recovery snapshot remains parseable and available when it existed before reload;
 - obsolete `tbc_v4_` persistence keys are not introduced;
 - reduced-motion browser preference boots without runtime failure;
