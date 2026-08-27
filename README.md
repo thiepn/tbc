@@ -52,9 +52,11 @@ The v4.1.0 reconstruction rebuilt the question bank from the ground up for accur
 
 | Beginner | Easy | Standard | Advanced | Expert |
 |---:|---:|---:|---:|---:|
-| **1,338** | **1,666** | **1,133** | **1,141** | **521** |
+| **1,338** | **1,668** | **1,132** | **1,140** | **521** |
 
 The original 6,072-question registry is preserved for compatibility, while **273 redundant aliases** are excluded from normal question selection. The playable bank therefore contains 5,799 canonical questions with no remaining exact playable duplicate groups.
+
+The distribution above is the committed P2E successor baseline. See [repository status](docs/TBC_STATUS.md), [preservation invariants](docs/TBC_INVARIANTS.md), and [release commands](docs/TBC_RELEASE_CHECKLIST.md) for verified evidence and limitations.
 
 ## Built for focused learning
 

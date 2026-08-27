@@ -12,7 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
+const { worktreeBlob } = require('./tbc-source-identity.cjs');
 const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -55,14 +55,7 @@ function legacyIndexDelta() {
   return { additions: Number(additions), deletions: Number(deletions), path: file };
 }
 
-function gitBlobSha1(buffer) {
-  return crypto.createHash('sha1')
-    .update(Buffer.from(`blob ${buffer.length}\0`))
-    .update(buffer)
-    .digest('hex');
-}
-
-function certifiedP2BMonolith() {
+function certifiedSuccessorMonolith() {
   if (!fs.existsSync(P2A_BASELINE_PATH)) return false;
   const baseline = JSON.parse(fs.readFileSync(P2A_BASELINE_PATH, 'utf8'));
   const certification = baseline?.p2b;
@@ -70,21 +63,24 @@ function certifiedP2BMonolith() {
   if (certification.confirmedDefectsRemaining !== 0 || certification.repairedQuestions !== 30) return false;
   const expectedSha = String(baseline?.source?.indexBlobSha1 || '');
   if (!/^[0-9a-f]{40}$/.test(expectedSha)) return false;
-  return gitBlobSha1(Buffer.from(src.app, 'utf8')) === expectedSha;
+  return worktreeBlob('index.html') === expectedSha;
 }
 
 const checks = [
-  ['legacy-monolith-frozen', `index.html must remain the v4.1.0 baseline plus exactly ${EXPECTED_INDEX_ADDITIONS} approved reconstruction-loader lines, or match an exact P2B-certified corrected source hash`, () => {
+  ['legacy-monolith-frozen', `index.html must remain the v4.1.0 baseline plus exactly ${EXPECTED_INDEX_ADDITIONS} approved reconstruction-loader lines, or match the exact committed certified-successor source hash`, () => {
     const delta = legacyIndexDelta();
     const legacyFrozen = delta.path === 'index.html' && delta.additions === EXPECTED_INDEX_ADDITIONS && delta.deletions === EXPECTED_INDEX_DELETIONS;
-    return legacyFrozen || certifiedP2BMonolith();
+    return legacyFrozen || certifiedSuccessorMonolith();
   }],
   ['monolith-not-truncated', 'index.html remains a substantial production build (>3.5 MB)', () => Buffer.byteLength(src.app, 'utf8') > 3_500_000],
   ['canonical-bank-contract', '5,799 canonical questions remain the frozen playable-bank contract', () => /5,799\s+(?:canonical\s+)?questions/i.test(src.readme)],
   ['structured-question-contract', '203 structured questions remain declared', () => /203\s+structured\s+questions/i.test(src.readme)],
   ['whole-bible-contract', 'all 66 books remain declared', () => /66\s+books/i.test(src.readme)],
   ['five-difficulty-contract', 'Beginner, Easy, Standard, Advanced, Expert all remain present', () => everyText(all, TIERS)],
-  ['difficulty-distribution-contract', 'frozen v4.1.0 tier distribution remains 1,338 / 1,666 / 1,133 / 1,141 / 521', () => ['1,338','1,666','1,133','1,141','521'].every(n => src.readme.includes(n))],
+  ['difficulty-distribution-contract', 'README agrees with the current committed certified tier distribution', () => {
+    const distribution = JSON.parse(read('certification/p2a-question-bank-extraction-baseline.json')).expected.difficultyDistribution;
+    return TIERS.every(tier => src.readme.includes(distribution[tier].toLocaleString('en-US')));
+  }],
   ['canonical-dedup-contract', '273 redundant aliases remain excluded and exact playable duplicates remain eliminated', () => /273\s+redundant\s+aliases/i.test(src.readme) && /no\s+remaining\s+exact\s+playable\s+duplicate\s+groups/i.test(src.readme)],
   ['collections-contract', '22 curated collections remain part of the product contract', () => /22\s+(?:curated\s+)?(?:thematic\s+)?collections/i.test(src.readme)],
   ['journey-path-contract', '25 Journey stages and 63 Learning Path stages remain declared', () => /25\s+(?:guided\s+)?stages/i.test(src.readme) && /63\s+(?:routed\s+)?learning\s+stages/i.test(src.readme)],

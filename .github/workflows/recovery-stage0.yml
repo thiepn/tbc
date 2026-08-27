@@ -1,8 +1,8 @@
-name: P2A Question Bank Extraction
+name: Recovery Stage 0 Preservation
 
 on:
   push:
-    branches: [p2a-question-bank-extraction, main]
+    branches: [main, 'codex/recovery-stage0']
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -11,8 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  extract-and-certify:
-    name: Canonical bank extraction and deterministic audit
+  preservation:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -25,18 +24,17 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Preserve P1B production contracts
+      - name: Complete read-only recovery gate
+        run: npm run verify
+      - name: Require clean tracked files
         run: |
-          node scripts/p0a-preservation-audit.cjs
-          node scripts/p0c-existing-feature-preservation-audit.cjs
-          node scripts/p1b-pr7-activation-audit.cjs
-      - name: Extract twice, validate five artifacts and three frozen hashes
-        run: npm run audit:p2a
-      - name: Upload audit evidence
+          git diff --check
+          git diff --exit-code
+      - name: Upload preservation evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: p2a-question-bank-audit-${{ github.sha }}
+          name: recovery-stage0-${{ github.sha }}
           path: artifacts/
           if-no-files-found: warn
           retention-days: 30
