@@ -34,7 +34,8 @@ The P27D browser certification checks the integrated product rather than one his
 - Desktop 1440×1000, tablet 820×1180 and mobile 390×844 profiles have no horizontal overflow.
 - Mobile primary navigation remains fixed with 44 px minimum primary touch-target height.
 - Canonical persistence keys are parseable when present.
-- Passive reload preserves canonical semantic user state; migration/normalization bookkeeping timestamps may advance.
+- Passive reload preserves canonical semantic user state.
+- Reload comparison permits only bookkeeping `*At` timestamps plus the two observed boot-normalization paths `goalMeta.clearReviewStart` and `ui.playSection` to differ.
 - A pre-existing recovery snapshot remains parseable and available after reload.
 - Obsolete `tbc_v4_` persistence keys are not introduced.
 - Reduced-motion preference boots without runtime or console errors.
