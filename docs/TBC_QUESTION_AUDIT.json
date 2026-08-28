@@ -5,10 +5,21 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unresolved—human decision required",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 16:11",
+            "detail": "1 Chronicles 16:1-13, 7-36: David appoints thanks after bringing the ark to Jerusalem and calls Israel to seek the LORD and his strength."
+          }
+        ],
+        "rationale": "The keyed context is accurate, but another option describes the same ark-arrival thanksgiving event and is therefore a defensible answer. Replacing that distractor changes the existing question content under a stable ID. Current session-integrity rules deliberately reject stale saved content; this content-only task forbids the persistence compatibility work needed to retain both recovery copies for an old active round. Resolve the save-compatibility approach before editing this question.",
+        "changes": [
+          {
+            "proposed": "Replace the semantically equivalent ark-arrival distractor with a distinct false setting.",
+            "reason": "Restore exactly one defensible answer."
+          }
+        ]
       },
       "bibleReference": "1 Chronicles 16:11",
       "book": "1 Chronicles",
@@ -61,10 +72,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 16:11",
+            "detail": "1 Chronicles 16:1-13, 7-36: David appoints thanks after bringing the ark to Jerusalem and calls Israel to seek the LORD and his strength."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 16:11",
       "book": "1 Chronicles",
@@ -118,10 +135,21 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unresolved—human decision required",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 16:34",
+            "detail": "1 Chronicles 16:7-36: David gives Asaph and his associates a psalm of thanks when the ark is brought to Jerusalem."
+          }
+        ],
+        "rationale": "The keyed context is accurate, but another option describes the same ark-arrival thanksgiving event and is therefore a defensible answer. Replacing that distractor changes the existing question content under a stable ID. Current session-integrity rules deliberately reject stale saved content; this content-only task forbids the persistence compatibility work needed to retain both recovery copies for an old active round. Resolve the save-compatibility approach before editing this question.",
+        "changes": [
+          {
+            "proposed": "Replace the semantically equivalent ark-arrival distractor with a distinct false setting.",
+            "reason": "Restore exactly one defensible answer."
+          }
+        ]
       },
       "bibleReference": "1 Chronicles 16:34",
       "book": "1 Chronicles",
@@ -174,10 +202,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 16:34",
+            "detail": "1 Chronicles 16:7-36: David gives Asaph and his associates a psalm of thanks when the ark is brought to Jerusalem."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 16:34",
       "book": "1 Chronicles",
@@ -231,10 +265,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 28:9",
+            "detail": "1 Chronicles 28:1, 9-10: David addresses Solomon and commissions him to build the sanctuary."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 28:9",
       "book": "1 Chronicles",
@@ -287,10 +327,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 28:9",
+            "detail": "1 Chronicles 28:1, 9-10: David addresses Solomon and commissions him to build the sanctuary."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 28:9",
       "book": "1 Chronicles",
@@ -344,10 +390,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 29:11",
+            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 29:11",
       "book": "1 Chronicles",
@@ -400,10 +452,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 29:11",
+            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 29:11",
       "book": "1 Chronicles",
@@ -457,10 +515,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 29:11",
+            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 29:11",
       "book": "1 Chronicles",
@@ -514,10 +578,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 29:11",
+            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 29:11",
       "book": "1 Chronicles",
@@ -570,10 +640,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 29:14",
+            "detail": "1 Chronicles 29:10-20: David says the people’s gifts came from God’s hand."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 29:14",
       "book": "1 Chronicles",
@@ -627,10 +703,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Chronicles 29:14",
+            "detail": "1 Chronicles 29:10-20: David says the people’s gifts came from God’s hand."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Chronicles 29:14",
       "book": "1 Chronicles",
@@ -684,10 +766,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 1:18",
+            "detail": "1 Corinthians 1:10-25: Paul contrasts the cross as foolishness to those perishing with God’s power for those being saved."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 1:18",
       "book": "1 Corinthians",
@@ -740,10 +828,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 1:18",
+            "detail": "1 Corinthians 1:10-25: Paul contrasts the cross as foolishness to those perishing with God’s power for those being saved."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 1:18",
       "book": "1 Corinthians",
@@ -797,10 +891,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 10:13",
+            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 10:13",
       "book": "1 Corinthians",
@@ -853,10 +953,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 10:13",
+            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 10:13",
       "book": "1 Corinthians",
@@ -909,10 +1015,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 10:13",
+            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 10:13",
       "book": "1 Corinthians",
@@ -966,10 +1078,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 10:13",
+            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 10:13",
       "book": "1 Corinthians",
@@ -1022,10 +1140,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 10:31",
+            "detail": "1 Corinthians 10:23-33: Paul directs eating, drinking, and all conduct to God’s glory and the good of many."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 10:31",
       "book": "1 Corinthians",
@@ -1078,10 +1202,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 10:31",
+            "detail": "1 Corinthians 10:23-33: Paul directs eating, drinking, and all conduct to God’s glory and the good of many."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 10:31",
       "book": "1 Corinthians",
@@ -1135,10 +1265,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 12:12-13",
+            "detail": "1 Corinthians 12:4-27: Paul uses the one-body image and baptism by one Spirit to explain unity amid diverse members."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 12:12-13",
       "book": "1 Corinthians",
@@ -1191,10 +1327,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 12:12-13",
+            "detail": "1 Corinthians 12:4-27: Paul uses the one-body image and baptism by one Spirit to explain unity amid diverse members."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 12:12-13",
       "book": "1 Corinthians",
@@ -1247,10 +1389,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 12:12-13",
+            "detail": "1 Corinthians 12:4-27: Paul uses the one-body image and baptism by one Spirit to explain unity amid diverse members."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 12:12-13",
       "book": "1 Corinthians",
@@ -1304,10 +1452,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 13:13",
+            "detail": "1 Corinthians 13:1-13: Paul concludes that faith, hope, and love remain, and identifies love as greatest."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 13:13",
       "book": "1 Corinthians",
@@ -1360,10 +1514,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 13:13",
+            "detail": "1 Corinthians 13:1-13: Paul concludes that faith, hope, and love remain, and identifies love as greatest."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 13:13",
       "book": "1 Corinthians",
@@ -1417,10 +1577,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 13:5-7",
+            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 13:5-7",
       "book": "1 Corinthians",
@@ -1473,10 +1639,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 13:5-7",
+            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 13:5-7",
       "book": "1 Corinthians",
@@ -1529,10 +1701,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 13:5-7",
+            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 13:5-7",
       "book": "1 Corinthians",
@@ -1586,10 +1764,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 13:5-7",
+            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 13:5-7",
       "book": "1 Corinthians",
@@ -1642,10 +1826,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 15:3",
+            "detail": "1 Corinthians 15:1-11: Paul passes on Christ’s death for sins, burial, resurrection, and appearances as the received gospel."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 15:3",
       "book": "1 Corinthians",
@@ -1698,10 +1888,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 15:3",
+            "detail": "1 Corinthians 15:1-11: Paul passes on Christ’s death for sins, burial, resurrection, and appearances as the received gospel."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 15:3",
       "book": "1 Corinthians",
@@ -1755,10 +1951,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 15:55-57",
+            "detail": "1 Corinthians 15:50-58: Paul celebrates death’s defeat and thanks God for victory through Jesus Christ."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 15:55-57",
       "book": "1 Corinthians",
@@ -1811,10 +2013,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 15:55-57",
+            "detail": "1 Corinthians 15:50-58: Paul celebrates death’s defeat and thanks God for victory through Jesus Christ."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 15:55-57",
       "book": "1 Corinthians",
@@ -1868,10 +2076,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 15:58",
+            "detail": "1 Corinthians 15:50-58: the resurrection argument concludes with steadfast work in the Lord."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 15:58",
       "book": "1 Corinthians",
@@ -1924,10 +2138,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 15:58",
+            "detail": "1 Corinthians 15:50-58: the resurrection argument concludes with steadfast work in the Lord."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 15:58",
       "book": "1 Corinthians",
@@ -1981,10 +2201,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 3:16",
+            "detail": "1 Corinthians 3:1-23: in the divisive church-building argument, Paul calls the congregation God’s temple with God’s Spirit among them."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 3:16",
       "book": "1 Corinthians",
@@ -2037,10 +2263,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 3:16",
+            "detail": "1 Corinthians 3:1-23: in the divisive church-building argument, Paul calls the congregation God’s temple with God’s Spirit among them."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 3:16",
       "book": "1 Corinthians",
@@ -2094,10 +2326,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 6:19",
+            "detail": "1 Corinthians 6:12-20: Paul applies belonging to Christ and the Spirit’s temple to bodily holiness."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 6:19",
       "book": "1 Corinthians",
@@ -2150,10 +2388,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 6:19",
+            "detail": "1 Corinthians 6:12-20: Paul applies belonging to Christ and the Spirit’s temple to bodily holiness."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 6:19",
       "book": "1 Corinthians",
@@ -2207,10 +2451,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 6:20",
+            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 6:20",
       "book": "1 Corinthians",
@@ -2263,10 +2513,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 6:20",
+            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 6:20",
       "book": "1 Corinthians",
@@ -2319,10 +2575,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 6:20",
+            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 6:20",
       "book": "1 Corinthians",
@@ -2376,10 +2638,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Corinthians 6:20",
+            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
+        "changes": []
       },
       "bibleReference": "1 Corinthians 6:20",
       "book": "1 Corinthians",
@@ -2432,10 +2700,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 1:9",
+            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
+        "changes": []
       },
       "bibleReference": "1 John 1:9",
       "book": "1 John",
@@ -2488,10 +2762,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 1:9",
+            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 John 1:9",
       "book": "1 John",
@@ -2544,10 +2824,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 1:9",
+            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 John 1:9",
       "book": "1 John",
@@ -2601,10 +2887,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 1:9",
+            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
+        "changes": []
       },
       "bibleReference": "1 John 1:9",
       "book": "1 John",
@@ -2657,10 +2949,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 2:1",
+            "detail": "1 John 1:8-2:2: John writes against sin while naming Jesus Christ the Righteous One as advocate when believers sin."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
+        "changes": []
       },
       "bibleReference": "1 John 2:1",
       "book": "1 John",
@@ -2713,10 +3011,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 2:1",
+            "detail": "1 John 1:8-2:2: John writes against sin while naming Jesus Christ the Righteous One as advocate when believers sin."
+          }
+        ],
+        "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
+        "changes": []
       },
       "bibleReference": "1 John 2:1",
       "book": "1 John",
@@ -2769,10 +3073,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 2:1",
+            "detail": "1 John 1:8-2:2: John writes against sin while naming Jesus Christ the Righteous One as advocate when believers sin."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
+        "changes": []
       },
       "bibleReference": "1 John 2:1",
       "book": "1 John",

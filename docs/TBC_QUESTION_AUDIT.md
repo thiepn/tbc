@@ -3,9 +3,9 @@
 This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activeQuestions()` as extracted by P2A; aliases are compatibility mappings, not additional questions.
 
 - Canonical runtime questions: **5799**
-- Individually completed: **0**
-- Pending individual review: **5799**
-- Unresolved human decisions: **0**
+- Individually completed: **48**
+- Pending individual review: **5749**
+- Unresolved human decisions: **2**
 - Complete inventory fields, aliases, mode eligibility, and per-entry audit evidence are in [`TBC_QUESTION_AUDIT.json`](TBC_QUESTION_AUDIT.json).
 - Validate against a fresh P2A extraction with `node scripts/tbc-question-audit-ledger.cjs check`; use `--require-complete` only after every entry is reviewed.
 
@@ -13,56 +13,56 @@ This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activ
 
 | Canonical ID | Runtime source index | Bible reference | Tier | Audit status |
 | --- | ---: | --- | --- | --- |
-| `1-chronicles-16-11-context` | 1267 | 1 Chronicles 16:11 | Advanced | pending individual review |
-| `1-chronicles-16-11-meaning` | 1266 | 1 Chronicles 16:11 | Easy | pending individual review |
-| `1-chronicles-16-34-context` | 1273 | 1 Chronicles 16:34 | Advanced | pending individual review |
-| `1-chronicles-16-34-meaning` | 1272 | 1 Chronicles 16:34 | Easy | pending individual review |
-| `1-chronicles-28-9-context` | 1275 | 1 Chronicles 28:9 | Advanced | pending individual review |
-| `1-chronicles-28-9-meaning` | 1274 | 1 Chronicles 28:9 | Easy | pending individual review |
-| `1-chronicles-29-11-book` | 1270 | 1 Chronicles 29:11 | Standard | pending individual review |
-| `1-chronicles-29-11-context` | 1269 | 1 Chronicles 29:11 | Standard | pending individual review |
-| `1-chronicles-29-11-meaning` | 1268 | 1 Chronicles 29:11 | Beginner | pending individual review |
-| `1-chronicles-29-11-reference` | 1271 | 1 Chronicles 29:11 | Advanced | pending individual review |
-| `1-chronicles-29-14-context` | 1277 | 1 Chronicles 29:14 | Advanced | pending individual review |
-| `1-chronicles-29-14-meaning` | 1276 | 1 Chronicles 29:14 | Easy | pending individual review |
-| `1-corinthians-1-18-context` | 3087 | 1 Corinthians 1:18 | Advanced | pending individual review |
-| `1-corinthians-1-18-meaning` | 3086 | 1 Corinthians 1:18 | Easy | pending individual review |
-| `1-corinthians-10-13-book` | 3073 | 1 Corinthians 10:13 | Standard | pending individual review |
-| `1-corinthians-10-13-context` | 3072 | 1 Corinthians 10:13 | Standard | pending individual review |
-| `1-corinthians-10-13-meaning` | 3071 | 1 Corinthians 10:13 | Beginner | pending individual review |
-| `1-corinthians-10-13-reference` | 3074 | 1 Corinthians 10:13 | Advanced | pending individual review |
-| `1-corinthians-10-31-context` | 3082 | 1 Corinthians 10:31 | Advanced | pending individual review |
-| `1-corinthians-10-31-meaning` | 3081 | 1 Corinthians 10:31 | Easy | pending individual review |
-| `1-corinthians-12-12-13-book` | 3085 | 1 Corinthians 12:12-13 | Standard | pending individual review |
-| `1-corinthians-12-12-13-context` | 3084 | 1 Corinthians 12:12-13 | Standard | pending individual review |
-| `1-corinthians-12-12-13-meaning` | 3083 | 1 Corinthians 12:12-13 | Beginner | pending individual review |
-| `1-corinthians-13-13-context` | 3076 | 1 Corinthians 13:13 | Advanced | pending individual review |
-| `1-corinthians-13-13-meaning` | 3075 | 1 Corinthians 13:13 | Easy | pending individual review |
-| `1-corinthians-13-5-7-book` | 3098 | 1 Corinthians 13:5-7 | Standard | pending individual review |
-| `1-corinthians-13-5-7-context` | 3097 | 1 Corinthians 13:5-7 | Standard | pending individual review |
-| `1-corinthians-13-5-7-meaning` | 3096 | 1 Corinthians 13:5-7 | Beginner | pending individual review |
-| `1-corinthians-13-5-7-reference` | 3099 | 1 Corinthians 13:5-7 | Advanced | pending individual review |
-| `1-corinthians-15-3-context` | 3089 | 1 Corinthians 15:3 | Standard | pending individual review |
-| `1-corinthians-15-3-meaning` | 3088 | 1 Corinthians 15:3 | Easy | pending individual review |
-| `1-corinthians-15-55-57-context` | 3101 | 1 Corinthians 15:55-57 | Advanced | pending individual review |
-| `1-corinthians-15-55-57-meaning` | 3100 | 1 Corinthians 15:55-57 | Easy | pending individual review |
-| `1-corinthians-15-58-context` | 3078 | 1 Corinthians 15:58 | Advanced | pending individual review |
-| `1-corinthians-15-58-meaning` | 3077 | 1 Corinthians 15:58 | Easy | pending individual review |
-| `1-corinthians-3-16-context` | 3091 | 1 Corinthians 3:16 | Advanced | pending individual review |
-| `1-corinthians-3-16-meaning` | 3090 | 1 Corinthians 3:16 | Easy | pending individual review |
-| `1-corinthians-6-19-context` | 3080 | 1 Corinthians 6:19 | Advanced | pending individual review |
-| `1-corinthians-6-19-meaning` | 3079 | 1 Corinthians 6:19 | Easy | pending individual review |
-| `1-corinthians-6-20-book` | 3094 | 1 Corinthians 6:20 | Standard | pending individual review |
-| `1-corinthians-6-20-context` | 3093 | 1 Corinthians 6:20 | Standard | pending individual review |
-| `1-corinthians-6-20-meaning` | 3092 | 1 Corinthians 6:20 | Beginner | pending individual review |
-| `1-corinthians-6-20-reference` | 3095 | 1 Corinthians 6:20 | Advanced | pending individual review |
-| `1-john-1-9-book` | 3631 | 1 John 1:9 | Standard | pending individual review |
-| `1-john-1-9-context` | 3630 | 1 John 1:9 | Standard | pending individual review |
-| `1-john-1-9-meaning` | 3629 | 1 John 1:9 | Beginner | pending individual review |
-| `1-john-1-9-reference` | 3632 | 1 John 1:9 | Advanced | pending individual review |
-| `1-john-2-1-book` | 3647 | 1 John 2:1 | Standard | pending individual review |
-| `1-john-2-1-context` | 3646 | 1 John 2:1 | Standard | pending individual review |
-| `1-john-2-1-meaning` | 3645 | 1 John 2:1 | Beginner | pending individual review |
+| `1-chronicles-16-11-context` | 1267 | 1 Chronicles 16:11 | Advanced | unresolved—human decision required |
+| `1-chronicles-16-11-meaning` | 1266 | 1 Chronicles 16:11 | Easy | unchanged and verified |
+| `1-chronicles-16-34-context` | 1273 | 1 Chronicles 16:34 | Advanced | unresolved—human decision required |
+| `1-chronicles-16-34-meaning` | 1272 | 1 Chronicles 16:34 | Easy | unchanged and verified |
+| `1-chronicles-28-9-context` | 1275 | 1 Chronicles 28:9 | Advanced | unchanged and verified |
+| `1-chronicles-28-9-meaning` | 1274 | 1 Chronicles 28:9 | Easy | unchanged and verified |
+| `1-chronicles-29-11-book` | 1270 | 1 Chronicles 29:11 | Standard | unchanged and verified |
+| `1-chronicles-29-11-context` | 1269 | 1 Chronicles 29:11 | Standard | unchanged and verified |
+| `1-chronicles-29-11-meaning` | 1268 | 1 Chronicles 29:11 | Beginner | unchanged and verified |
+| `1-chronicles-29-11-reference` | 1271 | 1 Chronicles 29:11 | Advanced | unchanged and verified |
+| `1-chronicles-29-14-context` | 1277 | 1 Chronicles 29:14 | Advanced | unchanged and verified |
+| `1-chronicles-29-14-meaning` | 1276 | 1 Chronicles 29:14 | Easy | unchanged and verified |
+| `1-corinthians-1-18-context` | 3087 | 1 Corinthians 1:18 | Advanced | unchanged and verified |
+| `1-corinthians-1-18-meaning` | 3086 | 1 Corinthians 1:18 | Easy | unchanged and verified |
+| `1-corinthians-10-13-book` | 3073 | 1 Corinthians 10:13 | Standard | unchanged and verified |
+| `1-corinthians-10-13-context` | 3072 | 1 Corinthians 10:13 | Standard | unchanged and verified |
+| `1-corinthians-10-13-meaning` | 3071 | 1 Corinthians 10:13 | Beginner | unchanged and verified |
+| `1-corinthians-10-13-reference` | 3074 | 1 Corinthians 10:13 | Advanced | unchanged and verified |
+| `1-corinthians-10-31-context` | 3082 | 1 Corinthians 10:31 | Advanced | unchanged and verified |
+| `1-corinthians-10-31-meaning` | 3081 | 1 Corinthians 10:31 | Easy | unchanged and verified |
+| `1-corinthians-12-12-13-book` | 3085 | 1 Corinthians 12:12-13 | Standard | unchanged and verified |
+| `1-corinthians-12-12-13-context` | 3084 | 1 Corinthians 12:12-13 | Standard | unchanged and verified |
+| `1-corinthians-12-12-13-meaning` | 3083 | 1 Corinthians 12:12-13 | Beginner | unchanged and verified |
+| `1-corinthians-13-13-context` | 3076 | 1 Corinthians 13:13 | Advanced | unchanged and verified |
+| `1-corinthians-13-13-meaning` | 3075 | 1 Corinthians 13:13 | Easy | unchanged and verified |
+| `1-corinthians-13-5-7-book` | 3098 | 1 Corinthians 13:5-7 | Standard | unchanged and verified |
+| `1-corinthians-13-5-7-context` | 3097 | 1 Corinthians 13:5-7 | Standard | unchanged and verified |
+| `1-corinthians-13-5-7-meaning` | 3096 | 1 Corinthians 13:5-7 | Beginner | unchanged and verified |
+| `1-corinthians-13-5-7-reference` | 3099 | 1 Corinthians 13:5-7 | Advanced | unchanged and verified |
+| `1-corinthians-15-3-context` | 3089 | 1 Corinthians 15:3 | Standard | unchanged and verified |
+| `1-corinthians-15-3-meaning` | 3088 | 1 Corinthians 15:3 | Easy | unchanged and verified |
+| `1-corinthians-15-55-57-context` | 3101 | 1 Corinthians 15:55-57 | Advanced | unchanged and verified |
+| `1-corinthians-15-55-57-meaning` | 3100 | 1 Corinthians 15:55-57 | Easy | unchanged and verified |
+| `1-corinthians-15-58-context` | 3078 | 1 Corinthians 15:58 | Advanced | unchanged and verified |
+| `1-corinthians-15-58-meaning` | 3077 | 1 Corinthians 15:58 | Easy | unchanged and verified |
+| `1-corinthians-3-16-context` | 3091 | 1 Corinthians 3:16 | Advanced | unchanged and verified |
+| `1-corinthians-3-16-meaning` | 3090 | 1 Corinthians 3:16 | Easy | unchanged and verified |
+| `1-corinthians-6-19-context` | 3080 | 1 Corinthians 6:19 | Advanced | unchanged and verified |
+| `1-corinthians-6-19-meaning` | 3079 | 1 Corinthians 6:19 | Easy | unchanged and verified |
+| `1-corinthians-6-20-book` | 3094 | 1 Corinthians 6:20 | Standard | unchanged and verified |
+| `1-corinthians-6-20-context` | 3093 | 1 Corinthians 6:20 | Standard | unchanged and verified |
+| `1-corinthians-6-20-meaning` | 3092 | 1 Corinthians 6:20 | Beginner | unchanged and verified |
+| `1-corinthians-6-20-reference` | 3095 | 1 Corinthians 6:20 | Advanced | unchanged and verified |
+| `1-john-1-9-book` | 3631 | 1 John 1:9 | Standard | unchanged and verified |
+| `1-john-1-9-context` | 3630 | 1 John 1:9 | Standard | unchanged and verified |
+| `1-john-1-9-meaning` | 3629 | 1 John 1:9 | Beginner | unchanged and verified |
+| `1-john-1-9-reference` | 3632 | 1 John 1:9 | Advanced | unchanged and verified |
+| `1-john-2-1-book` | 3647 | 1 John 2:1 | Standard | unchanged and verified |
+| `1-john-2-1-context` | 3646 | 1 John 2:1 | Standard | unchanged and verified |
+| `1-john-2-1-meaning` | 3645 | 1 John 2:1 | Beginner | unchanged and verified |
 | `1-john-2-1-reference` | 3648 | 1 John 2:1 | Advanced | pending individual review |
 | `1-john-3-1-context` | 3636 | 1 John 3:1 | Advanced | pending individual review |
 | `1-john-3-1-meaning` | 3635 | 1 John 3:1 | Easy | pending individual review |

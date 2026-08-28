@@ -131,12 +131,19 @@ function check(requireComplete) {
   if (requireComplete) assert.equal(pending + unresolved, 0, `${pending} pending and ${unresolved} unresolved audit entries remain`);
   console.log(`QUESTION AUDIT LEDGER: ${ledger.entries.length}/${questions.length} unique canonical IDs; completed=${completed}; pending=${pending}; unresolved=${unresolved}.`);
 }
+function render() {
+  assert.ok(fs.existsSync(LEDGER), 'question audit ledger missing');
+  const ledger = read(LEDGER);
+  fs.writeFileSync(LEDGER_MD, renderMarkdown(ledger));
+  console.log(`QUESTION AUDIT LEDGER: rendered ${ledger.entries.length} primary-entry rows.`);
+}
 
 const command = process.argv[2] || 'check';
 try {
   if (command === 'init') initialise();
   else if (command === 'check') check(process.argv.includes('--require-complete'));
-  else throw new Error('usage: tbc-question-audit-ledger.cjs [init|check] [--require-complete]');
+  else if (command === 'render') render();
+  else throw new Error('usage: tbc-question-audit-ledger.cjs [init|render|check] [--require-complete]');
 } catch (error) {
   console.error(`QUESTION AUDIT LEDGER FAILED: ${error.stack || error.message}`);
   process.exitCode = 1;

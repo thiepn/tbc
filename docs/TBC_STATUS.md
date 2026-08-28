@@ -902,3 +902,41 @@ The next exact task is to complete the first individually evidenced batch (no
 more than 50 canonical IDs), record each status and Scripture evidence in the
 ledger, and stop any source edit that would invalidate active saved sessions
 until a compatible non-destructive handling path is established.
+
+### Batch 01 — first 50 canonical IDs
+
+Batch 01 reviewed the first 50 lexically ordered canonical IDs, spanning 1
+Chronicles 16, 28–29; 1 Corinthians 1, 3, 6, 10, 12, 13, and 15; and 1 John
+1–2. Each entry records its direct Scripture evidence and an individual audit
+rationale in `TBC_QUESTION_AUDIT.json`.
+
+- **48** entries are `unchanged and verified`: the cited text supports the
+  keyed answer; reference/book/context alternatives are distinguishable; and
+  the concise paraphrases avoid a translation-dependent answer key.
+- **2** entries are `unresolved—human decision required`:
+  `1-chronicles-16-11-context` and `1-chronicles-16-34-context`. Each offers
+  a differently worded description of the same ark-arrival thanksgiving event
+  as a distractor, so each has two defensible choices. 1 Chronicles 16:1–13,
+  7–36 is direct primary evidence.
+
+No question text, answer, distractor, tier, ID, alias, question-loading logic,
+or save code has been changed. Changing either ambiguous distractor under its
+existing ID would intentionally make a saved active round fail the strict
+changed-question integrity check. The current content-only authorization also
+forbids the persistence compatibility work needed to retain an old active
+round’s two recovery copies. This is the exact blocking decision for those two
+corrections, not an approval of the defect.
+
+Current ledger check: **5,799/5,799** canonical IDs, **48** complete,
+**5,749** pending, **2** unresolved. The next exact task is batch 02 (the next
+50 canonical IDs), with the same direct-Scripture evidence standard, while the
+two stable-ID/session-compatibility corrections remain blocked pending a
+separate authorized strategy.
+
+Focused batch checks: `node --check scripts/tbc-question-audit-ledger.cjs` and
+the ledger completeness command passed; the existing P2A audit passed **58/58**
+with all frozen source/content hashes unchanged; the Edge fallback session
+compatibility matrix passed **27/27**, including canonical/retained-alias
+rounds, primary/backup recovery precedence, corrupt-payload recovery, repeated
+reload, export/import, and fresh-selection eligibility. `git diff --check`
+passed. Bundled Chromium and Linux/Node-22 remain CI-only limitations.
