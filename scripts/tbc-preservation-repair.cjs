@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('playwright');
+const { installCalendarFixture, setCalendarTime, assertCalendarFixture } = require('./tbc-calendar-fixture.cjs');
 const SAVE = 'theBibleChallenge_v21', SESSION = SAVE + '_activeRound';
 const OUT = path.resolve(__dirname, '../artifacts/preservation-repair');
 const results = [];
@@ -18,10 +19,11 @@ async function open(browser, tier = 'standard', mobile = false) {
   const context = await browser.newContext({ viewport: mobile ? { width: 390, height: 844 } : { width: 1440, height: 1000 }, timezoneId: 'Europe/Berlin' });
   const page = await context.newPage(), errors = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.clock.setFixedTime(FIXED);
+  await installCalendarFixture(page, FIXED);
   await page.addInitScript(() => { let seed = 1701; Math.random = () => ((seed = (1664525 * seed + 1013904223) >>> 0) / 4294967296); });
   await page.goto('http://127.0.0.1:4173/', { waitUntil: 'domcontentloaded' });
   await ready(page);
+  await assertCalendarFixture(page, FIXED);
   await page.locator('#modalRoot .modal-backdrop').getByRole('button').filter({ hasText: /Standard/i }).first().click();
   await page.evaluate(tier => { setSetting('difficulty', tier); setSetting('autoNext', false); }, tier);
   return { context, page, errors };
@@ -51,6 +53,7 @@ function exact(round) {
 async function reloadExact(page, before) {
   const progress = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), SAVE);
   await page.reload({ waitUntil: 'domcontentloaded' }); await ready(page);
+  await assertCalendarFixture(page);
   const restored = await page.evaluate(() => serializeQuizSession());
   assert.deepEqual(exact(restored), exact(before), 'automatic restoration must preserve the exact active round');
   assert.equal(new URL(page.url()).hash, '#quiz');
@@ -134,7 +137,8 @@ async function main() {
           assert.equal(replay.attempts, 2); assert.equal(mode === 'daily' ? replay.correct : replay.first, COUNTS[mode]);
           if (mode === 'daily') { assert.equal(replay.last, 4); assert.equal(await page.evaluate(() => state.stats.daily), 1); }
           else assert.equal(replay.best, 15);
-          await page.clock.setFixedTime(new Date('2026-09-03T12:00:00+02:00'));
+          await setCalendarTime(page, new Date('2026-09-03T12:00:00+02:00'));
+          await assertCalendarFixture(page, new Date('2026-09-03T12:00:00+02:00'));
           const nextPeriod = await deterministic(page, mode);
           assert.deepEqual(nextPeriod.before, nextPeriod.after); assert.notDeepEqual(nextPeriod.before, identity.before);
         }

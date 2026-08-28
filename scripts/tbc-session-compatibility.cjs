@@ -7,6 +7,7 @@ const crypto = require('node:crypto');
 const { execFileSync } = require('node:child_process');
 const { chromium } = require('playwright');
 const { ready, exact, snapshot, reloadExact, answerOne } = require('./tbc-preservation-repair.cjs');
+const { installCalendarFixture, assertCalendarFixture } = require('./tbc-calendar-fixture.cjs');
 const BASE = 'f84d5eff6a93046642c681e9163baa1b0b6b31a2';
 const URL = 'http://127.0.0.1:4173/', SAVE = 'theBibleChallenge_v21', SESSION = SAVE + '_activeRound';
 const OUT = path.resolve(__dirname, '../artifacts/preservation-repair');
@@ -23,10 +24,10 @@ async function check(name, fn) {
 async function open(browser, html) {
   const context = await browser.newContext({ timezoneId: 'Europe/Berlin', viewport: { width: 1440, height: 1000 } });
   const page = await context.newPage();
-  await page.clock.setFixedTime(new Date('2026-08-27T12:00:00+02:00'));
+  await installCalendarFixture(page, new Date('2026-08-27T12:00:00+02:00'));
   await page.addInitScript(() => { let seed = 1701; Math.random = () => ((seed = (1664525 * seed + 1013904223) >>> 0) / 4294967296); });
   if (html) await page.route(URL, r => r.fulfill({ contentType: 'text/html', body: html }));
-  await page.goto(URL); await ready(page);
+  await page.goto(URL); await ready(page); await assertCalendarFixture(page, new Date('2026-08-27T12:00:00+02:00'));
   await page.locator('#modalRoot .modal-backdrop').getByRole('button').filter({ hasText: /Standard/i }).first().click();
   return page;
 }

@@ -24,13 +24,24 @@ async function verify(browser,viewport,mobile=false){
   const nav=mobile?'.pr5-mobile-nav [data-pr5-nav="play"]':'.pr5-primary-nav [data-pr5-nav="play"]';
   await page.locator(nav).click();
   await page.waitForFunction(()=>document.body.dataset.pr6Flow==='play'&&document.querySelector('.pr6-root:not([hidden])'),null,{timeout:7000});
-  const card=page.locator('[data-p0c-preserved="play"] [data-p0c-feature="duel"]');
-  await card.waitFor({state:'visible',timeout:7000});
-  assert.equal(await card.count(),1,'Duel preservation card must be exposed exactly once');
+  const cardSelector='[data-p0c-preserved="play"] [data-p0c-feature="duel"]';
+  await page.waitForFunction(selector=>{
+    const cards=[...document.querySelectorAll(selector)];
+    const card=cards[0];
+    return cards.length===1&&Boolean(card)&&card.checkVisibility()&&!card.disabled&&card.getAttribute('aria-disabled')!=='true';
+  },cardSelector,{timeout:7000});
+  const clicked=await page.evaluate(selector=>{
+    const cards=[...document.querySelectorAll(selector)];
+    if(cards.length!==1||cards[0].disabled||cards[0].getAttribute('aria-disabled')==='true')return false;
+    cards[0].click(); return true;
+  },cardSelector);
+  assert.equal(clicked,true,'Duel preservation card must remain usable after the exact-one assertion');
+  const modal=page.locator('#modalRoot .modal.v31-duel-shell');
+  await modal.waitFor({state:'visible',timeout:5000});
+  await page.evaluate(()=>{if(typeof closeModal==='function')closeModal()});
 
   const launched=await page.evaluate(()=>window.TBC_P0C.launch('duel'));
   assert.equal(launched,true,'P0C Duel bridge must resolve the canonical legacy entrypoint');
-  const modal=page.locator('#modalRoot .modal.v31-duel-shell');
   await modal.waitFor({state:'visible',timeout:5000});
   const text=(await modal.innerText()).replace(/\s+/g,' ').trim();
   assert.match(text,/Duel/i,'Duel setup modal must render');

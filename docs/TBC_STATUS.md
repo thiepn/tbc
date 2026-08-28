@@ -811,6 +811,58 @@ content/identity, combined-diff and clean-tree checks. Preserve those post-commi
 results under `artifacts/reconciliation/postcommit-*` and report them in the
 handoff; pre-commit results alone do not certify the final commit.
 
+## PR #32 CI-harness repair — 2026-08-28
+
+PR #32's first `Release validation / validate-release` failure was isolated to
+the Linux bundled-Chromium test harness, not a product, dependency-install or
+identity failure. The job used Node 22 and successfully installed the locked
+Playwright 1.55.1 Chromium 140 build. Its first failing preservation assertion
+reported Playwright's injected-clock error, `Cannot clear timer: timer created
+with requestIdleCallback() but cleared with clearTimeout()`. Four preservation
+cases then failed only because the strict existing no-page-error assertion saw
+that injected-clock exception. A separate P0E child observed the dynamically
+reconciled Duel card as absent between a visible wait and a one-time count.
+
+The committed product is unchanged. Test-only corrections are limited to:
+
+- `scripts/tbc-calendar-fixture.cjs`: a shared init-time mutable `Date`
+  fixture for preservation and compatibility browser contexts. It controls
+  `new Date()` and `Date.now()`, retains its selected calendar value across
+  reloads, and explicitly proves that `setTimeout`, `clearTimeout`,
+  `setInterval`, `clearInterval`, `requestIdleCallback`, `cancelIdleCallback`,
+  `requestAnimationFrame` and `cancelAnimationFrame` retain their native
+  identities. No scheduler API is patched, and the existing no-page-error
+  assertions remain unchanged.
+- `scripts/p0c-duel-launch-smoke.cjs`: the Play view now polls the exact
+  one-card, visible, enabled condition itself, invokes that current card in the
+  page, and retains the direct canonical Duel bridge/modal/audit checks. It no
+  longer samples a potentially detached locator after a separate visible wait.
+
+Focused Windows/Edge 151.0.4129.107 evidence:
+
+| Command / check | Result |
+| --- | --- |
+| Shared fixture initial navigation, updated calendar reload, and all eight native scheduling identities | PASS |
+| `scripts/tbc-preservation-repair.cjs` | 19/19; Daily Five and Weekly cases completed with zero page errors |
+| `scripts/tbc-session-compatibility.cjs` | 27/27 |
+| `scripts/p0c-duel-launch-smoke.cjs` | PASS on three consecutive runs |
+| `TBC_BROWSER_CHANNEL=msedge npm.cmd run verify` | PASS, 29/29 child commands |
+| `TBC_BROWSER_CHANNEL=msedge npm.cmd test` | PASS, 13/13 child commands |
+| `node --check` over 62 `scripts/*.cjs` files; `git diff --check` | PASS |
+
+No `index.html`, supporting asset, question/alias/tier data, storage schema,
+manifest, historical certificate, package lock, Playwright version, workflow or
+deployment configuration changed. The product identity and both P2A extraction
+passes remained valid within the complete aggregate run. Ignored evidence is in
+`artifacts/reconciliation/ci-harness-*` and the existing `artifacts/` reports.
+
+Bundled Chromium is unavailable locally; no browser download or dependency
+change was made. GitHub Actions on Linux/Node 22 with the lockfile Chromium is
+the remaining confirmation after the authorized push. The next exact task is to
+commit this test-infrastructure-only repair, run the post-commit aggregate
+verification, push only `codex/preservation-repair-reconcile`, and inspect PR
+#32's replacement CI run. Do not merge or deploy.
+
 ### Exact next task after post-commit verification
 
 Obtain separate authorization for the push-and-PR phase: push only the reviewed
