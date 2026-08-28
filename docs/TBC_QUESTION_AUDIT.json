@@ -5,21 +5,48 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unresolved—human decision required",
-        "evidence": [
-          {
-            "type": "Direct Scripture",
-            "reference": "1 Chronicles 16:11",
-            "detail": "1 Chronicles 16:1-13, 7-36: David appoints thanks after bringing the ark to Jerusalem and calls Israel to seek the LORD and his strength."
-          }
-        ],
-        "rationale": "The keyed context is accurate, but another option describes the same ark-arrival thanksgiving event and is therefore a defensible answer. Replacing that distractor changes the existing question content under a stable ID. Current session-integrity rules deliberately reject stale saved content; this content-only task forbids the persistence compatibility work needed to retain both recovery copies for an old active round. Resolve the save-compatibility approach before editing this question.",
         "changes": [
           {
-            "proposed": "Replace the semantically equivalent ark-arrival distractor with a distinct false setting.",
-            "reason": "Restore exactly one defensible answer."
+            "answerPosition": 3,
+            "compatibilityRevision": {
+              "fingerprint": "2442dadbfa4301d4fee93f43dc049211108281e1b8282b9923ecfd895b235aad",
+              "id": "1-chronicles-16-11-context",
+              "predecessor": "e09333f1b532ef5fe5d3179335eafbba5e61d53b",
+              "version": 1
+            },
+            "correctedOptions": [
+              "Nathan delivers God’s covenant promise to David.",
+              "David instructs Solomon before the temple project",
+              "David’s final prayer",
+              "A song of thanksgiving when the ark is brought to Jerusalem."
+            ],
+            "newFingerprint": "4919490f3d37ec5a7d9309b753853ed99d6e011bb78d307ccd62fc5c2f26fb6d",
+            "oldFingerprint": "2442dadbfa4301d4fee93f43dc049211108281e1b8282b9923ecfd895b235aad",
+            "previousDefect": "The keyed context is accurate, but another option describes the same ark-arrival thanksgiving event and is therefore a defensible answer. Replacing that distractor changes the existing question content under a stable ID. Current session-integrity rules deliberately reject stale saved content; this content-only task forbids the persistence compatibility work needed to retain both recovery copies for an old active round. Resolve the save-compatibility approach before editing this question.",
+            "previousOptions": [
+              "David’s song accompanies the ark’s arrival in Jerusalem.",
+              "David instructs Solomon before the temple project",
+              "David’s final prayer",
+              "A song of thanksgiving when the ark is brought to Jerusalem."
+            ]
           }
-        ]
+        ],
+        "evidence": [
+          {
+            "detail": "Verse 11 is in the thanksgiving song introduced after the ark arrives (16:1–7), not Nathan’s later covenant message (17:1–15), David’s instructions to Solomon (28:9), or David’s final prayer (29:10–20). The replaced distractor described the same ark-arrival song as the keyed answer.",
+            "reference": "1 Chronicles 16:1–7, 11",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_chronicles/16.htm"
+          },
+          {
+            "detail": "Verse 11 is in the thanksgiving song introduced after the ark arrives (16:1–7), not Nathan’s later covenant message (17:1–15), David’s instructions to Solomon (28:9), or David’s final prayer (29:10–20). The replaced distractor described the same ark-arrival song as the keyed answer.",
+            "reference": "1 Chronicles 17:1–15",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_chronicles/17.htm"
+          }
+        ],
+        "rationale": "Verse 11 is in the thanksgiving song introduced after the ark arrives (16:1–7), not Nathan’s later covenant message (17:1–15), David’s instructions to Solomon (28:9), or David’s final prayer (29:10–20). The replaced distractor described the same ark-arrival song as the keyed answer.",
+        "status": "corrected"
       },
       "bibleReference": "1 Chronicles 16:11",
       "book": "1 Chronicles",
@@ -55,7 +82,7 @@
         "weekly"
       ],
       "options": [
-        "David’s song accompanies the ark’s arrival in Jerusalem.",
+        "Nathan delivers God’s covenant promise to David.",
         "David instructs Solomon before the temple project",
         "David’s final prayer",
         "A song of thanksgiving when the ark is brought to Jerusalem."
@@ -63,7 +90,7 @@
       "question": "Which situation best describes this passage’s immediate context?",
       "questionType": "context",
       "source": {
-        "contentSha256": "d8f753ae8ee7763ad108af1ca33bb8c1bc12453c65598e83b4de396961e84de9",
+        "contentSha256": "46b032130bd37bbbddce5ed0f34127d42319eaae36474c950f583b5f91b8bc9a",
         "index": 1267,
         "origin": "TBC_QB6.activeQuestions()"
       },
@@ -135,21 +162,48 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unresolved—human decision required",
-        "evidence": [
-          {
-            "type": "Direct Scripture",
-            "reference": "1 Chronicles 16:34",
-            "detail": "1 Chronicles 16:7-36: David gives Asaph and his associates a psalm of thanks when the ark is brought to Jerusalem."
-          }
-        ],
-        "rationale": "The keyed context is accurate, but another option describes the same ark-arrival thanksgiving event and is therefore a defensible answer. Replacing that distractor changes the existing question content under a stable ID. Current session-integrity rules deliberately reject stale saved content; this content-only task forbids the persistence compatibility work needed to retain both recovery copies for an old active round. Resolve the save-compatibility approach before editing this question.",
         "changes": [
           {
-            "proposed": "Replace the semantically equivalent ark-arrival distractor with a distinct false setting.",
-            "reason": "Restore exactly one defensible answer."
+            "answerPosition": 1,
+            "compatibilityRevision": {
+              "fingerprint": "db94271ca553bc1ca4872f899223b24223d3b041abc6783385634a88b9062e18",
+              "id": "1-chronicles-16-34-context",
+              "predecessor": "e09333f1b532ef5fe5d3179335eafbba5e61d53b",
+              "version": 1
+            },
+            "correctedOptions": [
+              "Nathan delivers God’s covenant promise to David.",
+              "David’s song accompanies the ark’s arrival in Jerusalem.",
+              "David instructs Solomon before the temple project",
+              "David’s final prayer"
+            ],
+            "newFingerprint": "54fa0b4615b8301e9f72b1c3c5942d2ea2408d511fea174402076948ba1d46c4",
+            "oldFingerprint": "db94271ca553bc1ca4872f899223b24223d3b041abc6783385634a88b9062e18",
+            "previousDefect": "The keyed context is accurate, but another option describes the same ark-arrival thanksgiving event and is therefore a defensible answer. Replacing that distractor changes the existing question content under a stable ID. Current session-integrity rules deliberately reject stale saved content; this content-only task forbids the persistence compatibility work needed to retain both recovery copies for an old active round. Resolve the save-compatibility approach before editing this question.",
+            "previousOptions": [
+              "A song of thanksgiving when the ark is brought to Jerusalem.",
+              "David’s song accompanies the ark’s arrival in Jerusalem.",
+              "David instructs Solomon before the temple project",
+              "David’s final prayer"
+            ]
           }
-        ]
+        ],
+        "evidence": [
+          {
+            "detail": "Verse 34 remains inside the same ark-arrival thanksgiving song (16:7–36). Nathan’s later covenant message, David’s instructions to Solomon, and David’s final prayer are separate scenes. The removed alternative was another description of the correct event.",
+            "reference": "1 Chronicles 16:1–7, 34–36",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_chronicles/16.htm"
+          },
+          {
+            "detail": "Verse 34 remains inside the same ark-arrival thanksgiving song (16:7–36). Nathan’s later covenant message, David’s instructions to Solomon, and David’s final prayer are separate scenes. The removed alternative was another description of the correct event.",
+            "reference": "1 Chronicles 17:1–15",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_chronicles/17.htm"
+          }
+        ],
+        "rationale": "Verse 34 remains inside the same ark-arrival thanksgiving song (16:7–36). Nathan’s later covenant message, David’s instructions to Solomon, and David’s final prayer are separate scenes. The removed alternative was another description of the correct event.",
+        "status": "corrected"
       },
       "bibleReference": "1 Chronicles 16:34",
       "book": "1 Chronicles",
@@ -185,7 +239,7 @@
         "weekly"
       ],
       "options": [
-        "A song of thanksgiving when the ark is brought to Jerusalem.",
+        "Nathan delivers God’s covenant promise to David.",
         "David’s song accompanies the ark’s arrival in Jerusalem.",
         "David instructs Solomon before the temple project",
         "David’s final prayer"
@@ -193,7 +247,7 @@
       "question": "Which situation best describes this passage’s immediate context?",
       "questionType": "context",
       "source": {
-        "contentSha256": "8fa0c93cac03e001e33b826dc75730dc14dfcc35f90c81274f1e1ad4379cd340",
+        "contentSha256": "a561fe324c740f034ea209ad3ec5972513cd8bcea2d94f303f8b9a9cd1223d1f",
         "index": 1273,
         "origin": "TBC_QB6.activeQuestions()"
       },
@@ -5008,21 +5062,48 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unresolved—human decision required",
-        "evidence": [
-          {
-            "type": "Direct Scripture",
-            "reference": "1 Kings 8:27",
-            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple."
-          }
-        ],
-        "rationale": "The keyed answer is accurate, but two alternatives are also true descriptions of the same temple-dedication prayer setting. Rewriting choices under this stable ID changes question content and triggers the existing changed-question session-integrity rejection. This content-only scope forbids the compatibility work required to preserve old active-session recovery copies.",
         "changes": [
           {
-            "proposed": "Replace the overlapping temple-dedication context alternatives with distinct false settings.",
-            "reason": "Restore one defensible contextual answer."
+            "answerPosition": 3,
+            "compatibilityRevision": {
+              "fingerprint": "224711cafb38f728a84af6f593fcabea18a6eb14955d1dcf0f47d7f4d4440267",
+              "id": "1-kings-8-27-context",
+              "predecessor": "e09333f1b532ef5fe5d3179335eafbba5e61d53b",
+              "version": 1
+            },
+            "correctedOptions": [
+              "Rehoboam refuses to ease the people’s burdens",
+              "Solomon asks God for wisdom at the beginning of his reign.",
+              "Elijah confronts Israel on Mount Carmel",
+              "Solomon prays at the dedication of the temple"
+            ],
+            "newFingerprint": "b51eac33d1d43c89187473bf3781fc33fecf72ed7bdb2770b4a5f8d03bff71f9",
+            "oldFingerprint": "224711cafb38f728a84af6f593fcabea18a6eb14955d1dcf0f47d7f4d4440267",
+            "previousDefect": "The keyed answer is accurate, but two alternatives are also true descriptions of the same temple-dedication prayer setting. Rewriting choices under this stable ID changes question content and triggers the existing changed-question session-integrity rejection. This content-only scope forbids the compatibility work required to preserve old active-session recovery copies.",
+            "previousOptions": [
+              "Temple construction and dedication",
+              "Solomon asks God for wisdom at the beginning of his reign.",
+              "Elijah confronts Israel on Mount Carmel",
+              "Solomon prays at the dedication of the temple"
+            ]
           }
-        ]
+        ],
+        "evidence": [
+          {
+            "detail": "Solomon is praying at the temple dedication in 8:22–30. The former construction-and-dedication distractor also encompassed that event. Rehoboam’s refusal occurs after Solomon’s reign (12:1–20); Solomon’s wisdom request (3:5–15) and Elijah at Carmel (18:20–40) are separate contexts.",
+            "reference": "1 Kings 8:22–30",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_kings/8.htm"
+          },
+          {
+            "detail": "Solomon is praying at the temple dedication in 8:22–30. The former construction-and-dedication distractor also encompassed that event. Rehoboam’s refusal occurs after Solomon’s reign (12:1–20); Solomon’s wisdom request (3:5–15) and Elijah at Carmel (18:20–40) are separate contexts.",
+            "reference": "1 Kings 12:1–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_kings/12.htm"
+          }
+        ],
+        "rationale": "Solomon is praying at the temple dedication in 8:22–30. The former construction-and-dedication distractor also encompassed that event. Rehoboam’s refusal occurs after Solomon’s reign (12:1–20); Solomon’s wisdom request (3:5–15) and Elijah at Carmel (18:20–40) are separate contexts.",
+        "status": "corrected"
       },
       "bibleReference": "1 Kings 8:27",
       "book": "1 Kings",
@@ -5058,7 +5139,7 @@
         "weekly"
       ],
       "options": [
-        "Temple construction and dedication",
+        "Rehoboam refuses to ease the people’s burdens",
         "Solomon asks God for wisdom at the beginning of his reign.",
         "Elijah confronts Israel on Mount Carmel",
         "Solomon prays at the dedication of the temple"
@@ -5066,7 +5147,7 @@
       "question": "Which situation best describes this passage’s immediate context?",
       "questionType": "context",
       "source": {
-        "contentSha256": "09c196fdc46ff3844f45cb0fc18b0a055a167153d6203aa623e57e2af87af028",
+        "contentSha256": "b49de4b1852fa5195de4f7e1505f5bd524079a9d37c140af7e15d7608a4e183f",
         "index": 1162,
         "origin": "TBC_QB6.activeQuestions()"
       },
@@ -5200,21 +5281,48 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unresolved—human decision required",
-        "evidence": [
-          {
-            "type": "Direct Scripture",
-            "reference": "1 Kings 8:61",
-            "detail": "1 Kings 8:54-61: Solomon concludes the dedication prayer by calling Israel to wholehearted loyalty and obedience."
-          }
-        ],
-        "rationale": "The keyed answer is accurate, but two alternatives are also true descriptions of the same temple-dedication prayer setting. Rewriting choices under this stable ID changes question content and triggers the existing changed-question session-integrity rejection. This content-only scope forbids the compatibility work required to preserve old active-session recovery copies.",
         "changes": [
           {
-            "proposed": "Replace the overlapping temple-dedication context alternatives with distinct false settings.",
-            "reason": "Restore one defensible contextual answer."
+            "answerPosition": 0,
+            "compatibilityRevision": {
+              "fingerprint": "a7ca5c0526c47044fb45a28dea52b7747b57f529ecb5247eae296b7fc1bb17a9",
+              "id": "1-kings-8-61-context",
+              "predecessor": "e09333f1b532ef5fe5d3179335eafbba5e61d53b",
+              "version": 1
+            },
+            "correctedOptions": [
+              "Temple construction and dedication",
+              "The kingdom divides under Rehoboam",
+              "Jeroboam establishes calf worship at Bethel and Dan",
+              "Elijah confronts Israel on Mount Carmel"
+            ],
+            "newFingerprint": "a1499c4ebb66b08405546826015964feb40e26831a88706798dc199f51839891",
+            "oldFingerprint": "a7ca5c0526c47044fb45a28dea52b7747b57f529ecb5247eae296b7fc1bb17a9",
+            "previousDefect": "The keyed answer is accurate, but two alternatives are also true descriptions of the same temple-dedication prayer setting. Rewriting choices under this stable ID changes question content and triggers the existing changed-question session-integrity rejection. This content-only scope forbids the compatibility work required to preserve old active-session recovery copies.",
+            "previousOptions": [
+              "Temple construction and dedication",
+              "Solomon prays at the dedication of the temple",
+              "Solomon begins his temple-dedication prayer.",
+              "Elijah confronts Israel on Mount Carmel"
+            ]
           }
-        ]
+        ],
+        "evidence": [
+          {
+            "detail": "The prompt asks for the larger literary context. Verse 61 concludes Solomon’s blessing after his prayer (8:54–61), within the construction/dedication account in chapters 5–8. The two prayer-setting alternatives overlapped that account. Division under Rehoboam and Jeroboam’s calf worship occur later in chapter 12, and Elijah’s Carmel confrontation is later still (chapter 18).",
+            "reference": "1 Kings 8:54–66; 1 Kings 5–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_kings/8.htm"
+          },
+          {
+            "detail": "The prompt asks for the larger literary context. Verse 61 concludes Solomon’s blessing after his prayer (8:54–61), within the construction/dedication account in chapters 5–8. The two prayer-setting alternatives overlapped that account. Division under Rehoboam and Jeroboam’s calf worship occur later in chapter 12, and Elijah’s Carmel confrontation is later still (chapter 18).",
+            "reference": "1 Kings 12:16–33",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_kings/12.htm"
+          }
+        ],
+        "rationale": "The prompt asks for the larger literary context. Verse 61 concludes Solomon’s blessing after his prayer (8:54–61), within the construction/dedication account in chapters 5–8. The two prayer-setting alternatives overlapped that account. Division under Rehoboam and Jeroboam’s calf worship occur later in chapter 12, and Elijah’s Carmel confrontation is later still (chapter 18).",
+        "status": "corrected"
       },
       "bibleReference": "1 Kings 8:61",
       "book": "1 Kings",
@@ -5252,14 +5360,14 @@
       ],
       "options": [
         "Temple construction and dedication",
-        "Solomon prays at the dedication of the temple",
-        "Solomon begins his temple-dedication prayer.",
+        "The kingdom divides under Rehoboam",
+        "Jeroboam establishes calf worship at Bethel and Dan",
         "Elijah confronts Israel on Mount Carmel"
       ],
       "question": "Which larger literary context best frames this Key Passage?",
       "questionType": "context",
       "source": {
-        "contentSha256": "9830d9c989b4c83661657039d9cccd495f00e3f9ff65f71b0d8ed02dfb0ae39f",
+        "contentSha256": "0528c7a6cbe1d09e22cf835f0338997e6a3912fb43af60e7c7a6baae8d026efa",
         "index": 1154,
         "origin": "TBC_QB6.activeQuestions()"
       },

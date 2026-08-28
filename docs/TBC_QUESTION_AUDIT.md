@@ -3,9 +3,9 @@
 This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activeQuestions()` as extracted by P2A; aliases are compatibility mappings, not additional questions.
 
 - Canonical runtime questions: **5799**
-- Individually completed: **96**
+- Individually completed: **100**
 - Pending individual review: **5699**
-- Unresolved human decisions: **4**
+- Unresolved human decisions: **0**
 - Complete inventory fields, aliases, mode eligibility, and per-entry audit evidence are in [`TBC_QUESTION_AUDIT.json`](TBC_QUESTION_AUDIT.json).
 - Validate against a fresh P2A extraction with `node scripts/tbc-question-audit-ledger.cjs check`; use `--require-complete` only after every entry is reviewed.
 
@@ -13,9 +13,9 @@ This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activ
 
 | Canonical ID | Runtime source index | Bible reference | Tier | Audit status |
 | --- | ---: | --- | --- | --- |
-| `1-chronicles-16-11-context` | 1267 | 1 Chronicles 16:11 | Advanced | unresolved—human decision required |
+| `1-chronicles-16-11-context` | 1267 | 1 Chronicles 16:11 | Advanced | corrected |
 | `1-chronicles-16-11-meaning` | 1266 | 1 Chronicles 16:11 | Easy | unchanged and verified |
-| `1-chronicles-16-34-context` | 1273 | 1 Chronicles 16:34 | Advanced | unresolved—human decision required |
+| `1-chronicles-16-34-context` | 1273 | 1 Chronicles 16:34 | Advanced | corrected |
 | `1-chronicles-16-34-meaning` | 1272 | 1 Chronicles 16:34 | Easy | unchanged and verified |
 | `1-chronicles-28-9-context` | 1275 | 1 Chronicles 28:9 | Advanced | unchanged and verified |
 | `1-chronicles-28-9-meaning` | 1274 | 1 Chronicles 28:9 | Easy | unchanged and verified |
@@ -93,10 +93,10 @@ This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activ
 | `1-kings-8-23-context` | 1158 | 1 Kings 8:23 | Advanced | unchanged and verified |
 | `1-kings-8-23-meaning` | 1157 | 1 Kings 8:23 | Easy | unchanged and verified |
 | `1-kings-8-27-book` | 1163 | 1 Kings 8:27 | Standard | unchanged and verified |
-| `1-kings-8-27-context` | 1162 | 1 Kings 8:27 | Standard | unresolved—human decision required |
+| `1-kings-8-27-context` | 1162 | 1 Kings 8:27 | Standard | corrected |
 | `1-kings-8-27-meaning` | 1161 | 1 Kings 8:27 | Beginner | unchanged and verified |
 | `1-kings-8-27-reference` | 1164 | 1 Kings 8:27 | Advanced | unchanged and verified |
-| `1-kings-8-61-context` | 1154 | 1 Kings 8:61 | Advanced | unresolved—human decision required |
+| `1-kings-8-61-context` | 1154 | 1 Kings 8:61 | Advanced | corrected |
 | `1-kings-8-61-meaning` | 1153 | 1 Kings 8:61 | Easy | unchanged and verified |
 | `1-peter-1-15-context` | 3577 | 1 Peter 1:15 | Advanced | unchanged and verified |
 | `1-peter-1-15-meaning` | 3576 | 1 Peter 1:15 | Easy | unchanged and verified |
