@@ -1205,3 +1205,174 @@ scoped successor-certification process for the compatibility code and these four
 content corrections without rewriting historical evidence, then rerun the full
 identity/negative/browser gates. Do not resume the remaining 5,699-question audit
 as part of this task.
+
+### Question-revision successor certification — 2026-08-28
+
+Scope: certify the existing content checkpoint on `codex/question-bank-quality`,
+starting from clean HEAD `1ca52ecb9ba3781c4212610d2b3fff83e2c11b6e`. No product,
+question, revision/hydration, asset, package, lockfile or workflow edit is part of
+this certification. No additional question has been reviewed.
+
+#### Append-only authority and preservation proof
+
+The predecessor comes from the unchanged authoritative
+`certification/tbc-product-identity.json`, whose successor index blob is
+`ce1b30a8fe2c07822001b9542271eea60174f4f1`, deployed by production commit
+`e09333f1b532ef5fe5d3179335eafbba5e61d53b`. New records
+`certification/tbc-question-revision-identity.json` and
+`certification/tbc-question-revision-transition.json` recognize the exact content
+commit above, with index blob `2009bc20e2fb95646ccd54976342d79bbabe0223`.
+The new identity's normalized SHA-256 is
+`4a7223016877c31279b5c22f547accac49594d4498fe6df7ad4900b802784bb7`;
+the transition's is
+`5f233492e16859c880ae8f6ac74c6d7390201d9f28d1803e337122dad95b1efe`.
+They are independently pinned by the validator and identity respectively.
+
+The normalized deployed index SHA-256 changes from
+`336466308c69f7a32da66eba9a3680fb9e8d20c6d2b2b75400561c256eae6d76` to
+`77bcecf2c702088fa50e713e50586139728955cfb626b30364d5be38698ddadb`.
+Canonical/registry semantic hashes are the corrected values recorded in Commit
+B's section above; the structured hash remains unchanged. This task records
+those already-existing product differences; it does not make them.
+
+The original identity, original forty-edit transition and eight older phase
+records remain unchanged. P2A changes only its designated current source pin;
+its historical content hashes, counts, tier distribution and phase metadata
+remain intact. The read-only `currentP2ABaseline()` supplies the new canonical
+and registry expectations from the pinned successor after validating historical
+evidence and the exact source-only P2A substitution. P2A and release-validator
+assertions remain in place; the reconciliation mock uses that same authority.
+
+Build still replays all forty historical edits against their own predecessor.
+It then replays thirteen bounded edits from production to the candidate, checks
+the complete engine and unchanged outer shell, storage names and schema, and
+verifies all four archived fingerprints. Content validation substitutes only the
+four recorded predecessor rows back into current canonical/registry artifacts
+and requires the original full artifact hashes. Thus every other ID/field,
+all aliases and the exact structured subset are protected. Fresh predecessor
+extraction in an isolated local clone independently matched the old authority.
+No broad freezer or automatic updater ran.
+
+Derived changes already present in Commit B include feedback metadata for the
+five replaced distractors and `1-chronicles-16-34-context`'s measured maximum
+option length changing from 11 to 8 words. The exact transition rows cover these
+derived fields as well as the option arrays. No tier assignment changes.
+
+The deployed inventory is still exactly thirteen files:
+`index.html`, `assets/pr5-foundation.css`, `assets/pr5-shell.js`,
+`assets/pr6-play-learning.css`, `assets/pr6-play-learning.js`,
+`assets/p0b-player-controls.js`, `assets/p0c-existing-feature-preservation.js`,
+`assets/p1b-pr7-production.js`, `assets/pr7-library-progress.css`,
+`assets/pr7-collections-adapter.js`, `assets/pr7-library-progress.js`,
+`assets/pr7-navigation-guard.js`, and `favicon.svg`.
+All twelve supporting files are unchanged. The readable revision core,
+revision validator, revision tests and quality tests are tooling-only; the
+runtime core is already embedded, with no new deployed dependency.
+
+#### Certification execution
+
+Environment: Windows, Node **24.16.0**, locked Playwright **1.55.1** and Edge
+**151.0.4129.107**. `npm.cmd ci --offline` passed without package/lockfile changes.
+The attempted `npx.cmd playwright install chromium` did not complete and was
+stopped; the locked revision 1193 executables are absent. Available cached
+Chromium revision 1234, browser **151.0.7922.34**, is exercised through the
+explicit ignored `artifacts/question-successor/cached-chromium.cjs` launch hook.
+This is not a bundled-revision-1193, Linux or Node-22 CI result. Some unchanged
+suite reports use their default label `bundled Chromium`; the launch logs record
+the actual executable/version. Browser contexts are isolated from user storage.
+
+- `npm.cmd run build`: initial expected frozen-source failure before the new
+  identity; **PASS** after the narrow records/validators were in place.
+- With `$env:TBC_BROWSER_CHANNEL='msedge'`, `npm.cmd run verify`: **30/30 child commands exit
+  zero**, with successful initial/final build checks. It was 29 children before
+  the additional seven-test successor negative suite was included. Exact report:
+  `artifacts/question-successor/verify-precommit.json`; full output:
+  `artifacts/question-successor/verify-precommit.log`.
+- Within that aggregate: P0A **20/20**, reconciliation **15/15**, P0B **23/23**,
+  P0C **52/52**, P0D **45/45**, P1B static **23/23**, historical adapter **5/5**,
+  unchanged Stage 0 **7/7**, preservation **19/19**, compatibility **27/27**,
+  P0E **7/7 browser suites**, P1B desktop/mobile **PASS**, release validation
+  **zero failures**, and P27D **4/4 profiles** (desktop, tablet, mobile and
+  reduced motion). The explicit Edge P27D report is retained separately.
+- Both fresh P2A extractions/audits: **58/58 each**; all five output files are
+  byte-identical across runs. Current content validation passes against both.
+  Both passes of the read-only P2B, P2C, P2D and P2E commands exit zero, with
+  zero confirmed defects. Existing warnings remain: one cross-book matrix,
+  877 P2D heuristic warnings and 459 P2E boundary warnings. P2E's printed four
+  tier changes describe historical pins, not changes in this task.
+- Standalone and aggregate negative runs both pass: unchanged
+  `node --test scripts/tbc-p2a-infrastructure.test.cjs` **11/11** and
+  `node --test scripts/tbc-product-identity.test.cjs` **31/31**; new
+  `node --test scripts/tbc-question-successor.test.cjs` **7/7**. All positive
+  controls pass; all mutation cases reach their intended assertions. **Zero
+  failed, skipped, cancelled or prerequisite-blocked cases** remain in these
+  runs. LF/CRLF, raw-byte and Git-normalized identity regressions remain intact.
+- `node artifacts/question-successor/scope-check.cjs`: **PASS**, 77 JavaScript
+  files, 13 JSON files and the full embedded engine parse; all thirteen product
+  files and ten historical records match task-entry raw hashes. The only P2A
+  difference is its source pin. `git diff --check`: **PASS**.
+
+- With the cached-Chromium hook below, standalone `npm.cmd test`: **13/13 child
+  commands exit zero**. This independently repeats Stage 0 **7/7**, preservation
+  **19/19**, compatibility **27/27**, P0E **7/7**, P1B and all **4/4 P27D profiles**
+  in Chromium. Full output/report: `test-chromium.log` / `test-chromium.json`;
+  the actual Chromium P27D report is `p27d-chromium.json` in the same directory.
+- `node scripts/tbc-question-revision-tests.cjs`: **57/57**, zero page errors,
+  in cached Chromium. Its **24/24 exact-predecessor lifecycle cases** cover the
+  four IDs times Quick/Daily/Weekly times answered/unasked. All recovery paths,
+  exact snapshot/order/progress/score, repeated reloads, continuation, one-time
+  completion and real export/import are exercised. Foundation archive negatives,
+  unknown fingerprints, multiple revisions, forged metadata, safe corruption
+  recovery, intentional abandonment and fresh-pool exclusion also pass. Exact
+  output/report: `revisions-chromium.log` / `revisions-chromium.json`.
+- `node scripts/tbc-question-revisions.cjs`: **PASS**, four exact archived
+  predecessor records, four current fingerprints and preserved counts, aliases,
+  tiers, schema and deterministic pools. Fresh source-bound captures were used.
+- `node scripts/tbc-four-question-quality.cjs`: **4/4**. No additional editorial
+  review or alteration occurred; this checks the already reviewed corrections.
+- `node artifacts/question-revisions/all-current-identities.cjs`: **6,275/6,275**
+  current serialized identities accepted (all 6,072 registry entries plus all
+  203 prepared structured forms), zero page errors, in cached Chromium. This is
+  an identity-guard probe, not 6,275 complete gameplay lifecycle tests.
+
+Exact cached-Chromium setup in PowerShell, before the browser commands above:
+
+```powershell
+Remove-Item Env:TBC_BROWSER_CHANNEL -ErrorAction SilentlyContinue
+$env:NODE_OPTIONS='--require=./artifacts/question-successor/cached-chromium.cjs'
+```
+
+Standalone revision/probe commands use `node scripts/tbc-recovery-stage0.cjs
+serve` on port 4173; the owned server was stopped before aggregate commands.
+No real user storage is accessed. Evidence is retained under ignored
+`artifacts/question-successor/`, `artifacts/question-revisions/` and the normal
+suite directories. These are precommit results; mandatory postcommit
+`npm.cmd run build` and Edge `npm.cmd run verify` are recorded in
+`artifacts/question-successor/build-postcommit.log`, `verify-postcommit.log` and
+`verify-postcommit.json`, and reported with the certification commit SHA in the
+final task report. A commit alone is not proof those postcommit gates passed.
+
+#### Final scope and next task
+
+This certification changes only the two new successor JSON records, P2A's
+source pin, `docs/TBC_PRODUCT_IDENTITY.md`, this status file, and these scripts:
+`p2a-question-bank-audit.cjs`, `tbc-product-identity.cjs`,
+`tbc-question-successor.test.cjs`, `tbc-reconciliation.test.cjs`,
+`tbc-recovery-stage0.cjs`, `tbc-successor-transition.cjs`, `validate-release.cjs`.
+The existing 31-case successor, 11-case P2A, Stage 0, compatibility, preservation,
+revision and quality test files remain unchanged. Historical records, product
+files, ledger, revision core and archive, storage schema **27**, keys, aliases,
+counts, tiers and supporting assets have no certification-task changes.
+
+This is local certification only: no push, PR, merge or deployment. Linux,
+Node-22 CI and the locked bundled Chromium revision remain unverified locally.
+Revision/quality checks remain explicit standalone certification gates. Unknown
+unarchived revisions still fail closed; additional predecessors or corrections
+require separately reviewed provenance and fixtures. The whole bank has not
+been audited: **100 reviewed, 96 unchanged/verified, 4 corrected, 0 unresolved
+among reviewed entries, 5,699 pending**.
+
+The exact next audit position, after separate authorization, is ledger entry
+**101**, `1-peter-3-15-meaning`, **1 Peter 3:15**, runtime source index **3568**.
+It remains pending; do not treat this certificate as authorization to continue
+the editorial audit or publish the branch.

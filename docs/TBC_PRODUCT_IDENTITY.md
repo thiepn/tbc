@@ -1,5 +1,8 @@
 # TBC preservation-repair successor identity
 
+The sections below retain the first successor's process. The current identity
+is the append-only question-revision successor described at the end of this file.
+
 This is the narrowly scoped successor process authorized after the preservation
 repair's behavioral verification. It recognizes one exact product; it is not a
 general baseline freezer or permission for further product edits.
@@ -98,3 +101,47 @@ and changing only the P2A source field. No P2B–P2E freezer was used. There is 
 automatic update command: a future product change requires a separate explicit
 authorization, reviewed transition and content-preservation proof. Do not update
 the manifest digest just to make a failed test pass.
+
+## Authorized question-revision successor
+
+The certified production predecessor is `e09333f1b532ef5fe5d3179335eafbba5e61d53b`.
+Its authoritative identity remains in `certification/tbc-product-identity.json`:
+index Git blob `ce1b30a8fe2c07822001b9542271eea60174f4f1`. That manifest and the
+original forty-edit transition are unchanged historical records.
+
+The new, independently pinned `certification/tbc-question-revision-identity.json`
+recognizes content commit `1ca52ecb9ba3781c4212610d2b3fff83e2c11b6e`, index blob
+`2009bc20e2fb95646ccd54976342d79bbabe0223`. Its append-only transition is
+`certification/tbc-question-revision-transition.json`. This record contains old
+and new product/content hashes, thirteen bounded positional engine edits, the
+four changed IDs and their exact fingerprints, predecessor/current audit rows,
+archive guarantees and the incomplete review count: 100 reviewed, 5,699 pending.
+It is not a whole-bank editorial certificate.
+
+The deployed surface remains the same thirteen files. The readable revision
+core and its fixtures are tooling; their core is already embedded in index.html.
+No new script is fetched by the deployed application. The twelve supporting
+assets retain their original identities. Runtime source and question data do not
+change during this certification.
+
+P2A's designated `source.indexBlobSha1` moves to the new product. Its historical
+hashes, counts, tier distribution and P2B–P2E evidence remain untouched. The
+read-only `currentP2ABaseline()` validates that exact source-only substitution,
+then supplies only the new canonical/registry hash expectations from the pinned
+successor. Both the P2A audit and release validator use that explicit authority;
+none of their structural or runtime assertions are removed. The structured hash
+is unchanged. Editing either authority cannot self-authorize another product.
+
+Build replays the historical transition against its historical source and then
+the new transition against production. Content validation reverses only the four
+recorded canonical/registry rows and requires byte-identical predecessor artifact
+hashes, proving that all other IDs, fields, aliases and structured content remain
+unchanged. Git-filtered and independently checked LF/CRLF identities remain
+distinct checks; deployed-byte verification stays strict.
+
+The original 31 successor negatives and 11 P2A negatives remain intact. Seven
+additional successor tests protect authority separation, old records and missing
+new records; `npm run verify` now includes that additional negative suite. The
+57-case revision suite and four-question quality gate remain explicit standalone
+certification commands, alongside the aggregate, with results in TBC_STATUS.md.
+No freezer or automatic identity updater is introduced.

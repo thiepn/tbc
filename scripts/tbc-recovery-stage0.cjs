@@ -104,6 +104,7 @@ async function audit() {
   }
   await run('scripts/tbc-p2a-infrastructure.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
   await run('scripts/tbc-product-identity.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
+  await run('scripts/tbc-question-successor.test.cjs', {}, ['--test']);
 }
 
 async function deployment() {

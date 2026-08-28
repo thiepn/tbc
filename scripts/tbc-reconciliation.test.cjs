@@ -113,10 +113,11 @@ test('every runnable workflow uses the same locked Playwright toolchain', () => 
 function runRelease(extractionStatus) {
   const calls = [];
   const logs = [];
+  const current = require('./tbc-product-identity.cjs').currentP2ABaseline();
   const summary = { counts: { canonical: baseline.expected.canonical, registry: baseline.expected.registry,
     structured: baseline.expected.structured, books: baseline.expected.books },
     difficultyDistribution: baseline.expected.difficultyDistribution,
-    hashes: { canonicalBank: baseline.hashes.canonicalBankSha256, structuredBank: baseline.hashes.structuredBankSha256, registry: baseline.hashes.registryBankSha256 },
+    hashes: { canonicalBank: current.hashes.canonicalBankSha256, structuredBank: current.hashes.structuredBankSha256, registry: current.hashes.registryBankSha256 },
     runtimeHealth: { qb11BankAudit: { passed: true }, qb8SchemaAudit: { passed: true }, qb8InteractionAudit: { passed: true }, pageErrors: [], consoleErrors: [] } };
   const summaryFile = path.join(ROOT, 'artifacts', 'synthetic-release', 'p2a', 'question-bank-summary.json');
   const fakeFs = { ...fs, mkdtempSync: () => path.dirname(path.dirname(summaryFile)), rmSync: () => {},

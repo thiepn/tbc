@@ -11,7 +11,7 @@ const ROOT = path.resolve(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
 const readJson = (file) => JSON.parse(read(file));
 const release = readJson('release.json');
-const baseline = readJson('certification/p2a-question-bank-extraction-baseline.json');
+const baseline = require('./tbc-product-identity.cjs').currentP2ABaseline(ROOT);
 const index = read('index.html');
 const readme = read('README.md');
 const qa = read('docs/QA.md');
