@@ -871,3 +871,34 @@ Linux/Node-22 CI with the lockfile's bundled Chromium. Do not merge main or depl
 as part of this local reconciliation or infer that local browser evidence is a
 remote CI/deployment certificate. No content-quality or workflow-cleanup task is
 included.
+
+## Canonical question-content audit — started 2026-08-28
+
+Starting baseline is merged `main` commit
+`e09333f1b532ef5fe5d3179335eafbba5e61d53b`. The local-only audit branch is
+`codex/question-bank-quality`, created cleanly from that exact commit. No push,
+PR, merge, deployment, freezer, manifest update, historical-evidence update, or
+successor certification is authorized for this work.
+
+The authoritative runtime inventory has been extracted without changing product
+content: `TBC_QB6.activeQuestions()` reports 5,799 unique canonical questions;
+`TBC_QB0.registry()` reports 6,072 records including 273 aliases; QB8 reports a
+203-question structured subset; all 66 books and the frozen five-tier
+distribution are present. The initial P2A extraction and audit passed **58/58**
+with the committed canonical, structured, and registry hashes.
+
+`docs/TBC_QUESTION_AUDIT.json` is the non-certification per-question inventory;
+it records each canonical ID exactly once with runtime source/index/content hash,
+text, choices, answer, Bible evidence, explanation, aliases, collections, mode
+eligibility, and audit state. `docs/TBC_QUESTION_AUDIT.md` is its readable
+primary-entry index. `node scripts/tbc-question-audit-ledger.cjs check` proves
+the inventory has exactly the current runtime IDs, no duplicates or nonexistent
+records, and current content/alias identities. Initial result: **5,799/5,799**
+entries, **0** complete, **5,799** pending, **0** unresolved. The checker uses
+linear membership comparison after an initial quadratic `Set` deep comparison
+exhausted Node memory; no product data was involved.
+
+The next exact task is to complete the first individually evidenced batch (no
+more than 50 canonical IDs), record each status and Scripture evidence in the
+ledger, and stop any source edit that would invalidate active saved sessions
+until a compatible non-destructive handling path is established.
