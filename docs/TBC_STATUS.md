@@ -940,3 +940,22 @@ compatibility matrix passed **27/27**, including canonical/retained-alias
 rounds, primary/backup recovery precedence, corrupt-payload recovery, repeated
 reload, export/import, and fresh-selection eligibility. `git diff --check`
 passed. Bundled Chromium and Linux/Node-22 remain CI-only limitations.
+
+### Batch 02 — canonical IDs 51–100
+
+Batch 02 reviewed 1 John 2–5, 1 Kings 3, 8, and 18, and 1 Peter 1–3. Direct
+Scripture evidence is recorded per entry. **48** entries are `unchanged and
+verified`; their keyed answers and alternatives remain distinct and
+translation-neutral summaries of the cited passages.
+
+Two further context-choice defects are `unresolved—human decision required`:
+`1-kings-8-27-context` and `1-kings-8-61-context`. In each, multiple options
+are true descriptions of Solomon’s same temple-dedication prayer setting (1
+Kings 8:22–30 and 8:54–61). The needed distractor rewrite is blocked by the
+same existing-ID active-session compatibility decision documented for Batch 01.
+
+Current ledger check: **5,799/5,799** canonical IDs, **96** complete,
+**5,699** pending, **4** unresolved. No product/question source, tier, alias,
+schema, manifest, or historical evidence changed. The next exact task is batch
+03 (canonical IDs 101–150), then a separately authorized decision on how a
+stable-ID question correction can preserve old active-session recovery copies.

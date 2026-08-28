@@ -3,9 +3,9 @@
 This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activeQuestions()` as extracted by P2A; aliases are compatibility mappings, not additional questions.
 
 - Canonical runtime questions: **5799**
-- Individually completed: **48**
-- Pending individual review: **5749**
-- Unresolved human decisions: **2**
+- Individually completed: **96**
+- Pending individual review: **5699**
+- Unresolved human decisions: **4**
 - Complete inventory fields, aliases, mode eligibility, and per-entry audit evidence are in [`TBC_QUESTION_AUDIT.json`](TBC_QUESTION_AUDIT.json).
 - Validate against a fresh P2A extraction with `node scripts/tbc-question-audit-ledger.cjs check`; use `--require-complete` only after every entry is reviewed.
 
@@ -63,56 +63,56 @@ This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activ
 | `1-john-2-1-book` | 3647 | 1 John 2:1 | Standard | unchanged and verified |
 | `1-john-2-1-context` | 3646 | 1 John 2:1 | Standard | unchanged and verified |
 | `1-john-2-1-meaning` | 3645 | 1 John 2:1 | Beginner | unchanged and verified |
-| `1-john-2-1-reference` | 3648 | 1 John 2:1 | Advanced | pending individual review |
-| `1-john-3-1-context` | 3636 | 1 John 3:1 | Advanced | pending individual review |
-| `1-john-3-1-meaning` | 3635 | 1 John 3:1 | Easy | pending individual review |
-| `1-john-3-16-book` | 3651 | 1 John 3:16 | Standard | pending individual review |
-| `1-john-3-16-context` | 3650 | 1 John 3:16 | Standard | pending individual review |
-| `1-john-3-16-meaning` | 3649 | 1 John 3:16 | Beginner | pending individual review |
-| `1-john-3-16-reference` | 3652 | 1 John 3:16 | Advanced | pending individual review |
-| `1-john-4-10-book` | 3655 | 1 John 4:10 | Standard | pending individual review |
-| `1-john-4-10-context` | 3654 | 1 John 4:10 | Standard | pending individual review |
-| `1-john-4-10-meaning` | 3653 | 1 John 4:10 | Beginner | pending individual review |
-| `1-john-4-10-reference` | 3656 | 1 John 4:10 | Advanced | pending individual review |
-| `1-john-4-19-context` | 3640 | 1 John 4:19 | Advanced | pending individual review |
-| `1-john-4-19-meaning` | 3639 | 1 John 4:19 | Easy | pending individual review |
-| `1-john-4-4-context` | 3638 | 1 John 4:4 | Advanced | pending individual review |
-| `1-john-4-4-meaning` | 3637 | 1 John 4:4 | Easy | pending individual review |
-| `1-john-4-8-context` | 3634 | 1 John 4:8 | Advanced | pending individual review |
-| `1-john-4-8-meaning` | 3633 | 1 John 4:8 | Easy | pending individual review |
-| `1-john-5-11-context` | 3642 | 1 John 5:11 | Standard | pending individual review |
-| `1-john-5-11-meaning` | 3641 | 1 John 5:11 | Easy | pending individual review |
-| `1-john-5-14-context` | 3644 | 1 John 5:14 | Standard | pending individual review |
-| `1-john-5-14-meaning` | 3643 | 1 John 5:14 | Easy | pending individual review |
-| `1-john-5-4-context` | 3658 | 1 John 5:4 | Standard | pending individual review |
-| `1-john-5-4-meaning` | 3657 | 1 John 5:4 | Easy | pending individual review |
-| `1-kings-18-21-context` | 1160 | 1 Kings 18:21 | Advanced | pending individual review |
-| `1-kings-18-21-meaning` | 1159 | 1 Kings 18:21 | Easy | pending individual review |
-| `1-kings-3-9-context` | 1156 | 1 Kings 3:9 | Standard | pending individual review |
-| `1-kings-3-9-meaning` | 1155 | 1 Kings 3:9 | Easy | pending individual review |
-| `1-kings-8-23-context` | 1158 | 1 Kings 8:23 | Advanced | pending individual review |
-| `1-kings-8-23-meaning` | 1157 | 1 Kings 8:23 | Easy | pending individual review |
-| `1-kings-8-27-book` | 1163 | 1 Kings 8:27 | Standard | pending individual review |
-| `1-kings-8-27-context` | 1162 | 1 Kings 8:27 | Standard | pending individual review |
-| `1-kings-8-27-meaning` | 1161 | 1 Kings 8:27 | Beginner | pending individual review |
-| `1-kings-8-27-reference` | 1164 | 1 Kings 8:27 | Advanced | pending individual review |
-| `1-kings-8-61-context` | 1154 | 1 Kings 8:61 | Advanced | pending individual review |
-| `1-kings-8-61-meaning` | 1153 | 1 Kings 8:61 | Easy | pending individual review |
-| `1-peter-1-15-context` | 3577 | 1 Peter 1:15 | Advanced | pending individual review |
-| `1-peter-1-15-meaning` | 3576 | 1 Peter 1:15 | Easy | pending individual review |
-| `1-peter-1-3-context` | 3575 | 1 Peter 1:3 | Advanced | pending individual review |
-| `1-peter-1-3-meaning` | 3574 | 1 Peter 1:3 | Easy | pending individual review |
-| `1-peter-2-2-book` | 3580 | 1 Peter 2:2 | Standard | pending individual review |
-| `1-peter-2-2-context` | 3579 | 1 Peter 2:2 | Standard | pending individual review |
-| `1-peter-2-2-meaning` | 3578 | 1 Peter 2:2 | Beginner | pending individual review |
-| `1-peter-2-2-reference` | 3581 | 1 Peter 2:2 | Advanced | pending individual review |
-| `1-peter-2-24-book` | 3584 | 1 Peter 2:24 | Standard | pending individual review |
-| `1-peter-2-24-context` | 3583 | 1 Peter 2:24 | Standard | pending individual review |
-| `1-peter-2-24-meaning` | 3582 | 1 Peter 2:24 | Beginner | pending individual review |
-| `1-peter-2-24-reference` | 3585 | 1 Peter 2:24 | Advanced | pending individual review |
-| `1-peter-2-9-context` | 3571 | 1 Peter 2:9 | Standard | pending individual review |
-| `1-peter-2-9-meaning` | 3570 | 1 Peter 2:9 | Easy | pending individual review |
-| `1-peter-3-15-context` | 3569 | 1 Peter 3:15 | Advanced | pending individual review |
+| `1-john-2-1-reference` | 3648 | 1 John 2:1 | Advanced | unchanged and verified |
+| `1-john-3-1-context` | 3636 | 1 John 3:1 | Advanced | unchanged and verified |
+| `1-john-3-1-meaning` | 3635 | 1 John 3:1 | Easy | unchanged and verified |
+| `1-john-3-16-book` | 3651 | 1 John 3:16 | Standard | unchanged and verified |
+| `1-john-3-16-context` | 3650 | 1 John 3:16 | Standard | unchanged and verified |
+| `1-john-3-16-meaning` | 3649 | 1 John 3:16 | Beginner | unchanged and verified |
+| `1-john-3-16-reference` | 3652 | 1 John 3:16 | Advanced | unchanged and verified |
+| `1-john-4-10-book` | 3655 | 1 John 4:10 | Standard | unchanged and verified |
+| `1-john-4-10-context` | 3654 | 1 John 4:10 | Standard | unchanged and verified |
+| `1-john-4-10-meaning` | 3653 | 1 John 4:10 | Beginner | unchanged and verified |
+| `1-john-4-10-reference` | 3656 | 1 John 4:10 | Advanced | unchanged and verified |
+| `1-john-4-19-context` | 3640 | 1 John 4:19 | Advanced | unchanged and verified |
+| `1-john-4-19-meaning` | 3639 | 1 John 4:19 | Easy | unchanged and verified |
+| `1-john-4-4-context` | 3638 | 1 John 4:4 | Advanced | unchanged and verified |
+| `1-john-4-4-meaning` | 3637 | 1 John 4:4 | Easy | unchanged and verified |
+| `1-john-4-8-context` | 3634 | 1 John 4:8 | Advanced | unchanged and verified |
+| `1-john-4-8-meaning` | 3633 | 1 John 4:8 | Easy | unchanged and verified |
+| `1-john-5-11-context` | 3642 | 1 John 5:11 | Standard | unchanged and verified |
+| `1-john-5-11-meaning` | 3641 | 1 John 5:11 | Easy | unchanged and verified |
+| `1-john-5-14-context` | 3644 | 1 John 5:14 | Standard | unchanged and verified |
+| `1-john-5-14-meaning` | 3643 | 1 John 5:14 | Easy | unchanged and verified |
+| `1-john-5-4-context` | 3658 | 1 John 5:4 | Standard | unchanged and verified |
+| `1-john-5-4-meaning` | 3657 | 1 John 5:4 | Easy | unchanged and verified |
+| `1-kings-18-21-context` | 1160 | 1 Kings 18:21 | Advanced | unchanged and verified |
+| `1-kings-18-21-meaning` | 1159 | 1 Kings 18:21 | Easy | unchanged and verified |
+| `1-kings-3-9-context` | 1156 | 1 Kings 3:9 | Standard | unchanged and verified |
+| `1-kings-3-9-meaning` | 1155 | 1 Kings 3:9 | Easy | unchanged and verified |
+| `1-kings-8-23-context` | 1158 | 1 Kings 8:23 | Advanced | unchanged and verified |
+| `1-kings-8-23-meaning` | 1157 | 1 Kings 8:23 | Easy | unchanged and verified |
+| `1-kings-8-27-book` | 1163 | 1 Kings 8:27 | Standard | unchanged and verified |
+| `1-kings-8-27-context` | 1162 | 1 Kings 8:27 | Standard | unresolved—human decision required |
+| `1-kings-8-27-meaning` | 1161 | 1 Kings 8:27 | Beginner | unchanged and verified |
+| `1-kings-8-27-reference` | 1164 | 1 Kings 8:27 | Advanced | unchanged and verified |
+| `1-kings-8-61-context` | 1154 | 1 Kings 8:61 | Advanced | unresolved—human decision required |
+| `1-kings-8-61-meaning` | 1153 | 1 Kings 8:61 | Easy | unchanged and verified |
+| `1-peter-1-15-context` | 3577 | 1 Peter 1:15 | Advanced | unchanged and verified |
+| `1-peter-1-15-meaning` | 3576 | 1 Peter 1:15 | Easy | unchanged and verified |
+| `1-peter-1-3-context` | 3575 | 1 Peter 1:3 | Advanced | unchanged and verified |
+| `1-peter-1-3-meaning` | 3574 | 1 Peter 1:3 | Easy | unchanged and verified |
+| `1-peter-2-2-book` | 3580 | 1 Peter 2:2 | Standard | unchanged and verified |
+| `1-peter-2-2-context` | 3579 | 1 Peter 2:2 | Standard | unchanged and verified |
+| `1-peter-2-2-meaning` | 3578 | 1 Peter 2:2 | Beginner | unchanged and verified |
+| `1-peter-2-2-reference` | 3581 | 1 Peter 2:2 | Advanced | unchanged and verified |
+| `1-peter-2-24-book` | 3584 | 1 Peter 2:24 | Standard | unchanged and verified |
+| `1-peter-2-24-context` | 3583 | 1 Peter 2:24 | Standard | unchanged and verified |
+| `1-peter-2-24-meaning` | 3582 | 1 Peter 2:24 | Beginner | unchanged and verified |
+| `1-peter-2-24-reference` | 3585 | 1 Peter 2:24 | Advanced | unchanged and verified |
+| `1-peter-2-9-context` | 3571 | 1 Peter 2:9 | Standard | unchanged and verified |
+| `1-peter-2-9-meaning` | 3570 | 1 Peter 2:9 | Easy | unchanged and verified |
+| `1-peter-3-15-context` | 3569 | 1 Peter 3:15 | Advanced | unchanged and verified |
 | `1-peter-3-15-meaning` | 3568 | 1 Peter 3:15 | Easy | pending individual review |
 | `1-peter-4-8-context` | 3573 | 1 Peter 4:8 | Advanced | pending individual review |
 | `1-peter-4-8-meaning` | 3572 | 1 Peter 4:8 | Easy | pending individual review |

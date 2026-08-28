@@ -3136,10 +3136,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 2:1",
+            "detail": "1 John 1:8-2:2: John names Jesus Christ the Righteous One as advocate when believers sin."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
+        "changes": []
       },
       "bibleReference": "1 John 2:1",
       "book": "1 John",
@@ -3192,10 +3198,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 3:1",
+            "detail": "1 John 2:28-3:24: John calls believers God’s children and develops love expressed in action."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 John 3:1",
       "book": "1 John",
@@ -3248,10 +3260,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 3:1",
+            "detail": "1 John 2:28-3:24: John calls believers God’s children and develops love expressed in action."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 John 3:1",
       "book": "1 John",
@@ -3305,10 +3323,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 3:16",
+            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and each alternative is another book.",
+        "changes": []
       },
       "bibleReference": "1 John 3:16",
       "book": "1 John",
@@ -3361,10 +3385,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 3:16",
+            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 John 3:16",
       "book": "1 John",
@@ -3417,10 +3447,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 3:16",
+            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 John 3:16",
       "book": "1 John",
@@ -3474,10 +3510,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 3:16",
+            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
+        "changes": []
       },
       "bibleReference": "1 John 3:16",
       "book": "1 John",
@@ -3530,10 +3572,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:10",
+            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and each alternative is another book.",
+        "changes": []
       },
       "bibleReference": "1 John 4:10",
       "book": "1 John",
@@ -3586,10 +3634,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:10",
+            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 John 4:10",
       "book": "1 John",
@@ -3642,10 +3696,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:10",
+            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 John 4:10",
       "book": "1 John",
@@ -3699,10 +3759,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:10",
+            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
+        "changes": []
       },
       "bibleReference": "1 John 4:10",
       "book": "1 John",
@@ -3755,10 +3821,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:19",
+            "detail": "1 John 4:7-21: love for others follows God’s prior love for believers."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 John 4:19",
       "book": "1 John",
@@ -3811,10 +3883,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:19",
+            "detail": "1 John 4:7-21: love for others follows God’s prior love for believers."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 John 4:19",
       "book": "1 John",
@@ -3868,10 +3946,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:4",
+            "detail": "1 John 4:1-6: John contrasts the Spirit of truth with the spirit of falsehood and says the one in believers is greater."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 John 4:4",
       "book": "1 John",
@@ -3924,10 +4008,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:4",
+            "detail": "1 John 4:1-6: John contrasts the Spirit of truth with the spirit of falsehood and says the one in believers is greater."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 John 4:4",
       "book": "1 John",
@@ -3981,10 +4071,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:8",
+            "detail": "1 John 4:7-21: failure to love contradicts knowing God, because God is love."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 John 4:8",
       "book": "1 John",
@@ -4037,10 +4133,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 4:8",
+            "detail": "1 John 4:7-21: failure to love contradicts knowing God, because God is love."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 John 4:8",
       "book": "1 John",
@@ -4094,10 +4196,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 5:11",
+            "detail": "1 John 5:6-12: God’s testimony is eternal life in his Son."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 John 5:11",
       "book": "1 John",
@@ -4150,10 +4258,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 5:11",
+            "detail": "1 John 5:6-12: God’s testimony is eternal life in his Son."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 John 5:11",
       "book": "1 John",
@@ -4207,10 +4321,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 5:14",
+            "detail": "1 John 5:13-17: assurance of eternal life frames confidence that God hears requests according to his will."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 John 5:14",
       "book": "1 John",
@@ -4263,10 +4383,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 5:14",
+            "detail": "1 John 5:13-17: assurance of eternal life frames confidence that God hears requests according to his will."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 John 5:14",
       "book": "1 John",
@@ -4320,10 +4446,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 5:4",
+            "detail": "1 John 5:1-5: those born of God overcome the world through faith in Jesus as the Son of God."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 John 5:4",
       "book": "1 John",
@@ -4376,10 +4508,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 John 5:4",
+            "detail": "1 John 5:1-5: those born of God overcome the world through faith in Jesus as the Son of God."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 John 5:4",
       "book": "1 John",
@@ -4433,10 +4571,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 18:21",
+            "detail": "1 Kings 18:16-39: Elijah confronts Israel at Carmel over divided loyalty before the LORD answers by fire."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 Kings 18:21",
       "book": "1 Kings",
@@ -4489,10 +4633,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 18:21",
+            "detail": "1 Kings 18:16-39: Elijah confronts Israel at Carmel over divided loyalty before the LORD answers by fire."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Kings 18:21",
       "book": "1 Kings",
@@ -4546,10 +4696,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 3:9",
+            "detail": "1 Kings 3:3-15: early in his reign Solomon asks for a discerning heart to govern."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 Kings 3:9",
       "book": "1 Kings",
@@ -4602,10 +4758,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 3:9",
+            "detail": "1 Kings 3:3-15: early in his reign Solomon asks for a discerning heart to govern."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Kings 3:9",
       "book": "1 Kings",
@@ -4659,10 +4821,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 8:23",
+            "detail": "1 Kings 8:22-30: Solomon begins his temple-dedication prayer by confessing the LORD’s incomparable covenant faithfulness."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 Kings 8:23",
       "book": "1 Kings",
@@ -4715,10 +4883,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 8:23",
+            "detail": "1 Kings 8:22-30: Solomon begins his temple-dedication prayer by confessing the LORD’s incomparable covenant faithfulness."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Kings 8:23",
       "book": "1 Kings",
@@ -4772,10 +4946,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 8:27",
+            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and each alternative is another book.",
+        "changes": []
       },
       "bibleReference": "1 Kings 8:27",
       "book": "1 Kings",
@@ -4828,10 +5008,21 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unresolved—human decision required",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 8:27",
+            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple."
+          }
+        ],
+        "rationale": "The keyed answer is accurate, but two alternatives are also true descriptions of the same temple-dedication prayer setting. Rewriting choices under this stable ID changes question content and triggers the existing changed-question session-integrity rejection. This content-only scope forbids the compatibility work required to preserve old active-session recovery copies.",
+        "changes": [
+          {
+            "proposed": "Replace the overlapping temple-dedication context alternatives with distinct false settings.",
+            "reason": "Restore one defensible contextual answer."
+          }
+        ]
       },
       "bibleReference": "1 Kings 8:27",
       "book": "1 Kings",
@@ -4884,10 +5075,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 8:27",
+            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Kings 8:27",
       "book": "1 Kings",
@@ -4941,10 +5138,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 8:27",
+            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
+        "changes": []
       },
       "bibleReference": "1 Kings 8:27",
       "book": "1 Kings",
@@ -4997,10 +5200,21 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unresolved—human decision required",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 8:61",
+            "detail": "1 Kings 8:54-61: Solomon concludes the dedication prayer by calling Israel to wholehearted loyalty and obedience."
+          }
+        ],
+        "rationale": "The keyed answer is accurate, but two alternatives are also true descriptions of the same temple-dedication prayer setting. Rewriting choices under this stable ID changes question content and triggers the existing changed-question session-integrity rejection. This content-only scope forbids the compatibility work required to preserve old active-session recovery copies.",
+        "changes": [
+          {
+            "proposed": "Replace the overlapping temple-dedication context alternatives with distinct false settings.",
+            "reason": "Restore one defensible contextual answer."
+          }
+        ]
       },
       "bibleReference": "1 Kings 8:61",
       "book": "1 Kings",
@@ -5054,10 +5268,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Kings 8:61",
+            "detail": "1 Kings 8:54-61: Solomon concludes the dedication prayer by calling Israel to wholehearted loyalty and obedience."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Kings 8:61",
       "book": "1 Kings",
@@ -5111,10 +5331,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 1:15",
+            "detail": "1 Peter 1:13-21: Peter grounds holy conduct in God’s holiness and redemption."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 Peter 1:15",
       "book": "1 Peter",
@@ -5167,10 +5393,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 1:15",
+            "detail": "1 Peter 1:13-21: Peter grounds holy conduct in God’s holiness and redemption."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Peter 1:15",
       "book": "1 Peter",
@@ -5224,10 +5456,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 1:3",
+            "detail": "1 Peter 1:3-12: Peter blesses God for new birth into living hope through Jesus’ resurrection."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 Peter 1:3",
       "book": "1 Peter",
@@ -5280,10 +5518,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 1:3",
+            "detail": "1 Peter 1:3-12: Peter blesses God for new birth into living hope through Jesus’ resurrection."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Peter 1:3",
       "book": "1 Peter",
@@ -5337,10 +5581,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:2",
+            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and each alternative is another book.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:2",
       "book": "1 Peter",
@@ -5393,10 +5643,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:2",
+            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:2",
       "book": "1 Peter",
@@ -5449,10 +5705,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:2",
+            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:2",
       "book": "1 Peter",
@@ -5506,10 +5768,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:2",
+            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:2",
       "book": "1 Peter",
@@ -5562,10 +5830,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:24",
+            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness."
+          }
+        ],
+        "rationale": "The cited reference is in the keyed book and each alternative is another book.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:24",
       "book": "1 Peter",
@@ -5618,10 +5892,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:24",
+            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:24",
       "book": "1 Peter",
@@ -5674,10 +5954,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:24",
+            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:24",
       "book": "1 Peter",
@@ -5731,10 +6017,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:24",
+            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness."
+          }
+        ],
+        "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:24",
       "book": "1 Peter",
@@ -5787,10 +6079,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:9",
+            "detail": "1 Peter 2:4-12: the church receives covenant people language to declare God’s praises."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:9",
       "book": "1 Peter",
@@ -5843,10 +6141,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 2:9",
+            "detail": "1 Peter 2:4-12: the church receives covenant people language to declare God’s praises."
+          }
+        ],
+        "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
+        "changes": []
       },
       "bibleReference": "1 Peter 2:9",
       "book": "1 Peter",
@@ -5900,10 +6204,16 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "status": "unchanged and verified",
+        "evidence": [
+          {
+            "type": "Direct Scripture",
+            "reference": "1 Peter 3:15",
+            "detail": "1 Peter 3:13-22: Peter joins honoring Christ with a gentle, respectful defense of hope amid suffering."
+          }
+        ],
+        "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
+        "changes": []
       },
       "bibleReference": "1 Peter 3:15",
       "book": "1 Peter",
