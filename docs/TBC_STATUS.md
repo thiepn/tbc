@@ -959,3 +959,76 @@ Current ledger check: **5,799/5,799** canonical IDs, **96** complete,
 schema, manifest, or historical evidence changed. The next exact task is batch
 03 (canonical IDs 101–150), then a separately authorized decision on how a
 stable-ID question correction can preserve old active-session recovery copies.
+
+### Authorized revision foundation — Commit A, 2026-08-28
+
+The new authorization supersedes the next-batch instruction above. This task
+stops after a compatibility foundation and corrections to the four already
+identified defects; the remaining 5,699 questions are not being reviewed.
+
+Implemented the embedded version-1 archive and saved-only ID/fingerprint
+resolver described in `TBC_QUESTION_REVISIONS.md`. The deployed archive is empty
+in this foundation. Canonical sources and fresh selection stay unchanged;
+historical snapshots are never registered as canonical entries or aliases.
+The existing synchronous hydration, mode/scope/answer checks, recovery-copy
+precedence, export/import rollback, storage keys and schema 27 remain intact.
+
+Executed with Node 24.16.0, locked Playwright 1.55.1 and Windows Edge:
+
+- `TBC_BROWSER_CHANNEL=msedge NODE_OPTIONS=--require=./scripts/tbc-browser-runtime.cjs node scripts/tbc-question-revision-tests.cjs`: **24/24**.
+  Synthetic archives prove two revisions of one ID, changed-answer scoring,
+  primary/backup/both recovery, repeated reloads, completion/cleanup, real
+  export/import, unknown-content rejection and malformed-archive rejection.
+  All browser page-error assertions passed. The exact `e09333f…` runtime and
+  candidate have identical 5,799 sources, 6,072 registry rows, 273 aliases, 203
+  structured IDs, tier assignments, schema and sampled deterministic pools.
+- `node scripts/tbc-question-revisions.cjs`: **PASS**, zero changed IDs and zero
+  unnecessary archive records; captures are bound to actual source hashes.
+- Unchanged `scripts/tbc-session-compatibility.cjs` with the Edge hook: **27/27**,
+  including all retained aliases, structured restoration and recovery rollback.
+- Embedded engine and all three new JS files parse; `git diff --check`: **PASS**.
+
+Development failures were investigated before this commit: mutable mastery
+`v21Evidence` was incorrectly included in immutable identity and has been
+excluded without changing its V213 validation. A new test's synchronous finish
+loop hit the existing microtask-based duplicate-next guard; the test now drives
+separate browser turns. JSON capture omits non-serializable `undefined` fields.
+These are fixed; the final focused run passed all cases.
+
+No supporting assets, question content, aliases, tiers, schema, package files,
+workflows, manifests or historical evidence changed. This is local compatibility
+work, not certification. Bundled Chromium is unavailable; Linux/Node-22 CI was
+not run. The exact next task is Commit B: archive the four exact `e09333f…`
+predecessors, correct only their ambiguous distractors, run the authorized
+behavioral/preservation gates and record expected frozen-identity failures.
+
+#### Foundation review follow-up, before the four corrections
+
+The unpublished foundation was strengthened and re-tested with the canonical
+data still unchanged and its deployed archive empty. Current saved identities
+now require exact fingerprints of the current source or authoritative QB8
+prepared representation. Historical reconstruction permits only recognized
+schema-27 round state over the trusted snapshot; arbitrary saved metadata cannot
+replace its learning objective, Scripture evidence, verse or QB5/QB6 metadata.
+Both gaps were reproduced before fixing them. No current question source,
+selection rule, scoring formula or storage contract was changed.
+
+Final foundation evidence supersedes the initial focused count above:
+
+- `scripts/tbc-question-revision-tests.cjs` with the Edge hook: **29/29**,
+  including unknown current/alias fingerprints, forged historical metadata and
+  intentional abandonment, in addition to all original lifecycle checks.
+- Unchanged `scripts/tbc-session-compatibility.cjs`: **27/27** after hardening.
+- `node scripts/tbc-question-revisions.cjs`: **PASS**, zero canonical changes,
+  zero deployed historical records and unchanged runtime counts/pools.
+- Independent eligibility probe: **626/626** valid fingerprints (273 retained
+  aliases, 203 prepared structured questions, and 150 fresh questions covering
+  all five tiers and Quick/Daily/Weekly).
+- `npm.cmd ci --offline`: **PASS**, locked Playwright 1.55.1 retained; no package
+  or lockfile changes. Parsing and `git diff --check` passed.
+
+The two hardening changes are folded into Commit A before Commit B, so the
+foundation is independently complete. The next exact task remains the four
+archived distractor corrections and their final aggregate verification. An
+intermediate aggregate run was deliberately interrupted for this review;
+it is not counted as a completed gate.
