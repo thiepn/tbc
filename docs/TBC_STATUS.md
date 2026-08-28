@@ -611,3 +611,211 @@ merge readiness. Obtain separate authorization before pushing, merging or
 deploying; then run the unchanged full gate in the release environment and the
 read-only deployment comparison only after an authorized release. Do not start
 content work or historical-workflow cleanup as part of this repair.
+
+## Local reconciliation — 2026-08-28
+
+Authorization is limited to reconciling the known audit/CI overlaps locally.
+Initial HEAD was clean at `af683dd8943d24c6c6f4b251bbbbe2dd99ffde7f`.
+`git fetch --all --prune` succeeded; `origin/main` remains
+`4eab35e7a615dd714ecf4aa86acc64e54add962f`, with no newly introduced overlap.
+The reconciliation branch starts at the unchanged certified repair; its prior
+certification is not evidence for the combined tree. No push, PR, main merge or
+deployment is authorized in this phase.
+
+### Responsibility map recorded before merge/resolution
+
+| Source / responsibility | Combined-tree enforcement |
+| --- | --- |
+| Stage 0 `9dbd277`: single-file and 13-asset identity, unchanged acceptance test, repeat extraction, all child exit codes, no gate mutations | Keep the aggregate runner, build/replay checks, both P2A audits and negatives; transfer `recovery-stage0.yml`'s npm-ci, full verify, clean-tree assertion and evidence upload to `release-validate.yml` before retiring the duplicate workflow. |
+| Repair `af683dd`: canonical and retained-alias saves, independent recovery copies, import/export, recurring challenge completion and deterministic exact reload | Keep the unchanged 7/7 acceptance, 27/27 compatibility and 19/19 preservation suites. Keep 31/31 successor negatives, historical adapters and successor replay/current-content checks. Do not apply P27D's passive-reload normalizer to these exact-round tests. |
+| P27B `7025ef5`: P2B certification metadata and integer certified tier counts in README | Preserve every metadata/tier assertion. Explicitly check Git-normalized candidate identity and raw text identity allowing only LF/CRLF representation; focused fixtures must reject substantive changes even if a Git filter would hide them. |
+| P27C `9cc81be`: exactly one automatic PR/main authority | Retain the authority assertions in the release validator, add LF/CRLF trigger fixtures, and keep only `release-validate.yml` automatic for PR/main. Historical dispatch workflows and the branch-specific PR5 helper remain outside release authority. |
+| P27D `667ecb3`, `c83c7ac`: whole-product runtime, keyboard/focus, accessible controls, layout profiles, passive reload | Keep the runtime script and all four release-validator browser children, including its established field-name normalizer. Run the release validator inside the complete aggregate using the same server/browser runtime. |
+| P27D `142e104`: read-only post-main deployed-byte comparison | Retain the release workflow's conditional deployment probe and evidence. Do not contact or deploy production during this local reconciliation. |
+| Playwright dependency/runtime | Use exact 1.55.1 from the existing package/lockfile pair, including playwright-core; replace active workflow ad-hoc 1.55.0 installs with npm ci. P27D requires browser certification, not a documented 1.55.0-specific behavior. Keeping the certified locked pair avoids an untracked runtime override or a downgrade; prove the combined browser suites on it. |
+| Historical/product identity | Keep all af683dd product bytes, supporting assets, identity/transition records and historical certification unchanged. No freezer or new identity record is planned. |
+
+### Resolution
+
+The no-commit, non-rebase merge had one textual conflict:
+`scripts/p0a-preservation-audit.cjs`. P27B's cached manifest, integer tier-count
+checks and P2B metadata checks remain. P0A now reports 20 checks, explicitly
+separating `git-normalized-certified-source` (Git filters applied to the actual
+working file) from `raw-text-certified-source` (raw Git blob hash, or the hash
+after only CRLF-to-LF conversion). The second check is independent of clean
+filters and cannot hide substantive bytes. Raw deployed-byte comparison remains
+strict in the unchanged P27D deployment probe. No hash authority was re-frozen.
+
+`release-validate.yml` is the sole automatic PR/main certification workflow.
+It runs npm ci, installs Chromium, runs the complete `npm run verify`, requires
+clean tracked files, retains the push-main-only read-only deployment probe, and
+uploads all ignored artifacts for 30 days. Its timeout is 60 minutes to cover
+the union of suites and deployment retries. The duplicate recovery workflow was
+removed after the responsibility map above was recorded and its checks moved.
+Twelve manual phase workflows remain, plus the existing PR5 branch-only helper;
+none is a second automatic PR/main release authority. Historical mutation/freezer
+helpers were not run and are not part of the authoritative aggregate.
+
+The aggregate now has 29 child commands: its prior 27, plus the reconciliation
+regressions and the full release validator. That validator retains its four
+browser children (PR5, PR6, P1B, P27D) and all release/content assertions. It now
+uses the established certified extractor and requires its exit code to be zero,
+even if a summary exists. Its P27C trigger reader is shared with focused tests
+and accepts LF/CRLF checkouts. P27D's runtime script, field-name passive-reload
+comparison, and the repair's stricter exact-round suites are unchanged; their
+different assertions were not collapsed into a weaker common comparison.
+
+Playwright remains exactly 1.55.1 in package.json, package-lock.json and
+playwright-core. All eleven former workflow ad-hoc 1.55.0 installs now use npm ci
+(including the surviving release workflow); the P2A workflow already used it.
+This preserves the repair's locked toolchain and the release checklist's minimal
+patch selection instead of overriding it with an untracked install. No package
+or lockfile edit was needed. The 15 reconciliation regressions exercise raw and
+Git-normalized LF/CRLF identity, substantive changes, certification/tier/README
+negatives, workflow authority on both line endings, toolchain agreement and
+release-extractor failure propagation with all browser children retained.
+
+No index, supporting asset, question, schema, alias, tier, acceptance test,
+successor manifest, transition record or protected historical certificate changed
+relative to af683dd. The upstream P0F documentation's historical labeling is
+retained as fetched; its frozen certification records are unchanged. The existing
+successor identity is sufficient: no append-only transition or new identity is
+structurally required. The source-only P2A pin difference seen against origin/main
+is the already-certified af683dd change, not a new manifest update.
+
+### Executed combined-tree evidence
+
+Environment: Windows, Node 24.16.0, npm 11.13.0, locked Playwright 1.55.1,
+Edge 151.0.4129.107 (`TBC_BROWSER_CHANNEL=msedge`). `npm.cmd ci` exited 0.
+`npm.cmd run build` exited 0. The full `npm.cmd run verify` ran from
+**2026-08-28 05:00:34 to 05:22:50 UTC**, exited 0, and all **29/29** child
+commands exited zero. Build/current identity/replay checks passed before and
+after the run. This tested the combined worktree while HEAD was still af683dd,
+with MERGE_HEAD 4eab35e7; it does not claim the old repair certification covers
+the reconciliation. Exact child arguments, timings and exits are retained in
+`artifacts/reconciliation/precommit-verify-report.json`; full output is in
+`artifacts/reconciliation/precommit-verify.log`.
+
+| Executed gate in the combined aggregate | Result |
+| --- | --- |
+| Reconciliation LF/CRLF, metadata/tier, workflow, toolchain and orchestration regressions | 15/15 |
+| P0A / P0B / P0D static | 20/20 / 23/23 / 45/45 |
+| P0C existing-feature static | Exit 0 |
+| P1B static + desktop/mobile browser | 23/23; browser exit 0 |
+| Original-source historical P0E/P0F/P1A/P1B/P2E adapters | 5/5 children exit 0 |
+| Unchanged Stage 0 behavioral invariants | 7/7 |
+| Unchanged preservation matrix | 19/19 |
+| Unchanged legacy/alias/recovery/import compatibility matrix | 27/27 |
+| P0E whole-product browser | 7/7 children pass |
+| Release validator, including unchanged P27D runtime/reload and all four browser children | Exit 0, zero failures; four P27D profiles complete |
+| Fresh P2A extraction/audit, twice | Both extraction exits 0; both audits 58/58 |
+| P2B/P2C/P2D/P2E read-only audits, both passes | All eight exits 0 |
+| Current successor content proof against both extractions | Both exits 0; all five repeat files byte-identical |
+| Unchanged P2A negatives / successor negatives | 11/11 / 31/31 |
+
+`node artifacts/preservation-repair/successor-final-comparison.cjs` exited 0;
+its copied report is `artifacts/reconciliation/precommit-content-comparison.json`.
+This independently confirms all five repeat files, all three full content files
+against predecessor evidence, 5,799 canonical / 203 structured / 273 aliases /
+6,072 registry / 66 books, all tier totals, question hashes, alias targets,
+schema 27, the 12 supporting files and eight historical certificates.
+`node artifacts/reconciliation/review-combined-tree.cjs` exited 0 and inventories
+all 46 files differing from origin/main (including the two new regression/helper
+files). All other differences are the exact inherited Stage 0/repair bytes;
+all certification files equal af683dd and both P27D scripts equal origin/main.
+No embedded payload diff was printed.
+
+`node --check` passed for all 69 JavaScript files under scripts/assets; the build
+also parsed the embedded engine and outer inline scripts. Node `JSON.parse`
+accepted all 10 tracked JSON files. An initial PowerShell ConvertFrom-Json probe
+rejected package-lock.json's valid empty-string package key; the authoritative
+Node parse passed without any JSON edit. `git diff --check` and
+`git diff --cached --check` passed.
+
+Additional browser evidence: the unchanged P27D script passed all four profiles
+with cached Chromium **151.0.7922.34**, still using Playwright 1.55.1, via
+`node --require ./artifacts/reconciliation/cached-chromium.cjs scripts/p27d-runtime-browser-certification.cjs`.
+Output and copied screenshots/report are in
+`artifacts/reconciliation/cached-chromium-p27d.log` and
+`artifacts/reconciliation/cached-chromium-p27d/`. The preload is ignored local
+test tooling, not product or CI code. This is explicitly an alternate cached
+Chromium run, not the pinned Playwright browser or a Linux CI result.
+
+Browser-install limitation: `npx.cmd playwright install chromium` stalled in the
+sandbox; an approved retry with a 20-second connection timeout downloaded to
+100% but stalled before installing the executable. Only those identified install
+processes were stopped. The required Edge suite and the available alternate
+Chromium P27D suite passed; bundled Chromium 1193 and Linux/Node-22 CI remain
+unverified locally. No production probe, push, PR, deployment, remote CI run,
+historical freezer or content-quality work was performed. Existing heuristic
+quality warnings and the prior legacy-corpus coverage limits remain unchanged.
+
+The standalone `npm.cmd test` with `TBC_BROWSER_CHANNEL=msedge` ran from
+**05:23:15 to 05:42:22 UTC** on 2026-08-28 and exited 0: **13/13** child
+commands passed, repeating the 15 reconciliation regressions, all static and
+historical checks, Stage 0 7/7, preservation 19/19, compatibility 27/27,
+P0E 7/7, P1B browser, and the complete release validator including P27D.
+Evidence: `artifacts/reconciliation/precommit-test.log` and
+`artifacts/reconciliation/precommit-test-report.json`.
+
+### Reconciliation decision and changed paths
+
+All available pre-commit gates pass. The reviewed combined tree preserves the
+union of Stage 0, repair, P27B, P27C and P27D responsibilities without product
+changes or historical-certificate rewrites. Proceed with one local non-rebase
+merge commit on `codex/preservation-repair-reconcile`, with parents
+`af683dd8943d24c6c6f4b251bbbbe2dd99ffde7f` and
+`4eab35e7a615dd714ecf4aa86acc64e54add962f`. Keep the original repair branch at
+af683dd. No new identity/transition record or manifest update is needed.
+
+The 31 changed paths relative to the certified repair include the fetched remote
+additions and workflow retirement, as well as the bounded local resolutions:
+
+```text
+.github/workflows/p0a-preservation.yml
+.github/workflows/p0b-player-controls.yml
+.github/workflows/p0d-visual-preservation.yml
+.github/workflows/p0e-final-certification.yml
+.github/workflows/p0f-production-certification.yml
+.github/workflows/p1a-pr7-staging.yml
+.github/workflows/p1b-pr7-production.yml
+.github/workflows/p2a-question-bank-extraction.yml
+.github/workflows/p2b-mechanical-integrity.yml
+.github/workflows/p2c-semantic-accuracy.yml
+.github/workflows/p2d-question-quality.yml
+.github/workflows/p2e-difficulty-calibration.yml
+.github/workflows/pr5-validate.yml (retired by upstream release-workflow replacement)
+.github/workflows/recovery-stage0.yml (responsibilities transferred; removed)
+.github/workflows/release-validate.yml
+README.md
+docs/P0F-PRODUCTION-DEPLOYMENT-CONTRACT.md
+docs/P27C-CI-GATE-CONSOLIDATION.md
+docs/P27D-RUNTIME-BROWSER-CERTIFICATION.md
+docs/QA.md
+docs/TBC_RELEASE_CHECKLIST.md
+docs/TBC_STATUS.md
+release.json
+scripts/p0a-preservation-audit.cjs
+scripts/p27d-deployment-certification.cjs
+scripts/p27d-runtime-browser-certification.cjs
+scripts/tbc-reconciliation.test.cjs
+scripts/tbc-recovery-stage0.cjs
+scripts/tbc-source-identity.cjs
+scripts/tbc-workflow-authority.cjs
+scripts/validate-release.cjs
+```
+
+After committing, rerun `npm.cmd run build` and the complete
+`TBC_BROWSER_CHANNEL=msedge npm.cmd run verify` on the resulting SHA, plus parse,
+content/identity, combined-diff and clean-tree checks. Preserve those post-commit
+results under `artifacts/reconciliation/postcommit-*` and report them in the
+handoff; pre-commit results alone do not certify the final commit.
+
+### Exact next task after post-commit verification
+
+Obtain separate authorization for the push-and-PR phase: push only the reviewed
+reconciliation branch, open its PR against main, and run the combined gate in
+Linux/Node-22 CI with the lockfile's bundled Chromium. Do not merge main or deploy
+as part of this local reconciliation or infer that local browser evidence is a
+remote CI/deployment certificate. No content-quality or workflow-cleanup task is
+included.

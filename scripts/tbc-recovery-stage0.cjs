@@ -71,11 +71,12 @@ async function run(script, env = {}, args = [], scriptArgs = []) {
 }
 
 async function tests() {
+  await run('scripts/tbc-reconciliation.test.cjs', {}, ['--test']);
   for (const script of ['p0a-preservation-audit', 'p0b-player-controls-audit',
     'p0c-existing-feature-preservation-audit', 'p0d-visual-preservation-audit',
     'p1b-pr7-activation-audit', 'tbc-historical-preservation', 'tbc-stage0-invariants',
     'tbc-preservation-repair', 'tbc-session-compatibility',
-    'p0e-browser-certification', 'p1b-pr7-browser-smoke']) {
+    'p0e-browser-certification', 'p1b-pr7-browser-smoke', 'validate-release']) {
     await run(`scripts/${script}.cjs`);
   }
 }

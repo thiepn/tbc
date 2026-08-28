@@ -26,7 +26,8 @@ git status --short --branch
   test and P2A ancestry; emits no bundle and never rewrites the product.
 - `test`: current static P0A/B/C/D/P1B, original-source historical preservation,
   Stage 0 runtime/persistence, the 19-case repair and 27-case compatibility
-  suites, all seven P0E browser suites, and P1B desktop/mobile smoke.
+  suites, all seven P0E browser suites, P1B desktop/mobile smoke, reconciliation
+  regressions, and the release validator including P27D runtime/reload coverage.
 - `audit:p2a`: certified extraction twice, audit twice, read-only successor audits,
   five-file byte comparison, successor content proof, and both P2A and successor
   corruption/missing/stale-artifact and tampering negative suites.
@@ -38,6 +39,9 @@ git status --short --branch
   deploys nor proves a workflow ran. Override only deliberately with
   `npm run deploy:verify -- --url=https://example.test/tbc/`.
 
+Only `release-validate.yml` automatically certifies PR/main. It incorporates the
+retired Recovery Stage 0 workflow's full gate, clean-tree check and evidence
+upload; all workflow Playwright installs use the exact existing lockfile via npm ci.
 CI installs Chromium with `npx playwright install --with-deps chromium` and runs
 the same commands. Evidence is in ignored `artifacts/`; CI uploads it on success
 or failure. Do not track regenerated question dumps or screenshots.

@@ -1,21 +1,14 @@
-name: P0 Preservation Audit
+name: P0 Preservation Audit (Historical)
 
 on:
-  pull_request:
-    branches: [main]
-  push:
-    branches:
-      - main
-      - p0a-preservation-audit
-      - 'p0*'
-      - 'pr7*'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   preservation:
-    name: Preserve v4.1.0 core and existing features
+    name: Historical v4.1.0 core and existing-feature preservation gate
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -39,7 +32,7 @@ jobs:
 
       - name: Install Playwright
         run: |
-          npm install --no-save --no-package-lock playwright@1.55.0
+          npm ci
           npx playwright install --with-deps chromium
 
       - name: Start local application

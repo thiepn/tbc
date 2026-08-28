@@ -12,7 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { worktreeBlob } = require('./tbc-source-identity.cjs');
+const { worktreeBlob, rawTextIdentityMatches } = require('./tbc-source-identity.cjs');
 const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -20,6 +20,9 @@ const BASELINE = '58b5ec8a5ecd2fd87a74f11eea7a94a9bc4195bb';
 const EXPECTED_INDEX_ADDITIONS = 3;
 const EXPECTED_INDEX_DELETIONS = 0;
 const P2A_BASELINE_PATH = path.join(ROOT, 'certification/p2a-question-bank-extraction-baseline.json');
+const P2A_BASELINE = fs.existsSync(P2A_BASELINE_PATH)
+  ? JSON.parse(fs.readFileSync(P2A_BASELINE_PATH, 'utf8'))
+  : null;
 
 const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
 const src = {
@@ -43,6 +46,7 @@ const TIERS = ['Beginner', 'Easy', 'Standard', 'Advanced', 'Expert'];
 
 const any = (text, patterns) => patterns.some(re => re.test(text));
 const everyText = (text, values) => values.every(value => text.includes(value));
+const formatCount = (value) => Number(value).toLocaleString('en-US');
 
 function legacyIndexDelta() {
   const out = execFileSync('git', ['diff', '--numstat', BASELINE, '--', 'index.html'], {
@@ -56,8 +60,8 @@ function legacyIndexDelta() {
 }
 
 function certifiedSuccessorMonolith() {
-  if (!fs.existsSync(P2A_BASELINE_PATH)) return false;
-  const baseline = JSON.parse(fs.readFileSync(P2A_BASELINE_PATH, 'utf8'));
+  const baseline = P2A_BASELINE;
+  if (!baseline) return false;
   const certification = baseline?.p2b;
   if (!certification || certification.phase !== 'P2B' || certification.mechanicalIntegrity !== true) return false;
   if (certification.confirmedDefectsRemaining !== 0 || certification.repairedQuestions !== 30) return false;
@@ -66,21 +70,26 @@ function certifiedSuccessorMonolith() {
   return worktreeBlob('index.html') === expectedSha;
 }
 
+function certifiedDifficultyDistributionDeclared() {
+  const distribution = P2A_BASELINE?.expected?.difficultyDistribution;
+  if (!distribution) return false;
+  return TIERS.every((tier) => Number.isInteger(distribution[tier]) && src.readme.includes(formatCount(distribution[tier])));
+}
+
 const checks = [
   ['legacy-monolith-frozen', `index.html must remain the v4.1.0 baseline plus exactly ${EXPECTED_INDEX_ADDITIONS} approved reconstruction-loader lines, or match the exact committed certified-successor source hash`, () => {
     const delta = legacyIndexDelta();
     const legacyFrozen = delta.path === 'index.html' && delta.additions === EXPECTED_INDEX_ADDITIONS && delta.deletions === EXPECTED_INDEX_DELETIONS;
     return legacyFrozen || certifiedSuccessorMonolith();
   }],
+  ['git-normalized-certified-source', 'actual candidate bytes, filtered by Git, match the certified source on LF and CRLF checkouts', () => worktreeBlob('index.html') === P2A_BASELINE?.source?.indexBlobSha1],
+  ['raw-text-certified-source', 'raw candidate bytes match the certified source allowing only CRLF-to-LF representation, independently of Git filters', () => rawTextIdentityMatches(fs.readFileSync(path.join(ROOT, 'index.html')), P2A_BASELINE?.source?.indexBlobSha1)],
   ['monolith-not-truncated', 'index.html remains a substantial production build (>3.5 MB)', () => Buffer.byteLength(src.app, 'utf8') > 3_500_000],
   ['canonical-bank-contract', '5,799 canonical questions remain the frozen playable-bank contract', () => /5,799\s+(?:canonical\s+)?questions/i.test(src.readme)],
   ['structured-question-contract', '203 structured questions remain declared', () => /203\s+structured\s+questions/i.test(src.readme)],
   ['whole-bible-contract', 'all 66 books remain declared', () => /66\s+books/i.test(src.readme)],
   ['five-difficulty-contract', 'Beginner, Easy, Standard, Advanced, Expert all remain present', () => everyText(all, TIERS)],
-  ['difficulty-distribution-contract', 'README agrees with the current committed certified tier distribution', () => {
-    const distribution = JSON.parse(read('certification/p2a-question-bank-extraction-baseline.json')).expected.difficultyDistribution;
-    return TIERS.every(tier => src.readme.includes(distribution[tier].toLocaleString('en-US')));
-  }],
+  ['difficulty-distribution-contract', 'README tier distribution matches the active certified P2A/P2E baseline', certifiedDifficultyDistributionDeclared],
   ['canonical-dedup-contract', '273 redundant aliases remain excluded and exact playable duplicates remain eliminated', () => /273\s+redundant\s+aliases/i.test(src.readme) && /no\s+remaining\s+exact\s+playable\s+duplicate\s+groups/i.test(src.readme)],
   ['collections-contract', '22 curated collections remain part of the product contract', () => /22\s+(?:curated\s+)?(?:thematic\s+)?collections/i.test(src.readme)],
   ['journey-path-contract', '25 Journey stages and 63 Learning Path stages remain declared', () => /25\s+(?:guided\s+)?stages/i.test(src.readme) && /63\s+(?:routed\s+)?learning\s+stages/i.test(src.readme)],
