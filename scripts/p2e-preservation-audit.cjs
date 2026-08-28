@@ -12,6 +12,7 @@ const INDEX=path.join(ROOT,'index.html');
 const pkgRe=/(<script id="tbc-engine-package" type="application\/octet-stream">)([A-Za-z0-9+/=\r\n]+)(<\/script>)/;
 const fail=msg=>{throw new Error(`P2E preservation: ${msg}`)};
 function split(html){
+  html=html.replace(/\r\n/g,'\n'); // Git text normalization; no product mutation.
   const m=html.match(pkgRe);if(!m)fail('embedded engine package missing');
   return {shell:html.replace(pkgRe,`${m[1]}__P2E_ENGINE_PAYLOAD__${m[3]}`),engine:zlib.gunzipSync(Buffer.from(m[2].replace(/\s+/g,''),'base64')).toString('utf8')};
 }
@@ -27,6 +28,6 @@ try{
   if(expected.engine!==current.engine)fail('engine differs from P2D by more than the ten-pin removal and the two approved QB6/QB11 tier-freeze updates');
 }finally{try{fs.unlinkSync(tmp)}catch{}}
 console.log('TBC P2E — Exact Preservation Audit');
-console.log(`PASS  outer HTML remains byte-equivalent to P2D production source ${P2D_SOURCE}`);
+console.log(`PASS  outer HTML remains Git-text-equivalent to P2D production source ${P2D_SOURCE}`);
 console.log('PASS  engine equals P2D plus exactly the ten-pin removal and two tier-freeze contract updates');
 console.log('P2E PRESERVATION PASSED: no unrelated monolith changes detected.');

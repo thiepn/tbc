@@ -18,6 +18,7 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const crypto=require('node:crypto');
+const {worktreeBlob}=require('./tbc-source-identity.cjs');
 
 const ROOT=path.resolve(__dirname,'..');
 const INDEX=path.join(ROOT,'index.html');
@@ -25,7 +26,7 @@ const OUT=path.resolve(ROOT,process.env.P2A_OUT_DIR||'artifacts/p2a');
 const SCHEMA_VERSION='P2A.1';
 const EXPECTED={canonical:5799,registry:6072,aliases:273,structured:203,books:66};
 const TIERS=['Beginner','Easy','Standard','Advanced','Expert'];
-const EXPECTED_TIERS={Beginner:1338,Easy:1666,Standard:1133,Advanced:1141,Expert:521};
+const EXPECTED_TIERS={Beginner:1338,Easy:1668,Standard:1132,Advanced:1140,Expert:521};
 const BOOKS=[
   'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
   '1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther',
@@ -39,7 +40,6 @@ const BOOKS=[
 function stable(v){if(Array.isArray(v))return v.map(stable);if(v&&typeof v==='object'){const o={};for(const k of Object.keys(v).sort())o[k]=stable(v[k]);return o}if(typeof v==='undefined')return null;if(typeof v==='number'&&!Number.isFinite(v))return String(v);return v}
 function stableJson(v,pretty=false){return JSON.stringify(stable(v),null,pretty?2:0)}
 function sha256(v){return crypto.createHash('sha256').update(typeof v==='string'?v:stableJson(v)).digest('hex')}
-function gitBlobSha1(buffer){return crypto.createHash('sha1').update(Buffer.from(`blob ${buffer.length}\0`)).update(buffer).digest('hex')}
 function norm(v){return String(v??'').replace(/\s+/g,' ').trim()}
 function lower(v){return norm(v).toLowerCase()}
 function clone(v,depth=0){if(depth>12)return'[max-depth]';if(v==null||['string','number','boolean'].includes(typeof v))return v;if(Array.isArray(v))return v.map(x=>clone(x,depth+1));if(v&&typeof v==='object'){const o={};for(const k of Object.keys(v).sort()){const x=v[k];if(typeof x!=='function'&&typeof x!=='symbol')o[k]=clone(x,depth+1)}return o}return String(v)}
@@ -141,7 +141,7 @@ async function extractRuntime(){
 async function main(){
   if(!fs.existsSync(INDEX))throw new Error('index.html missing');
   fs.mkdirSync(OUT,{recursive:true});
-  const source=fs.readFileSync(INDEX);
+  const sourceBlob=worktreeBlob('index.html');
   const runtime=await extractRuntime();
   const registry=runtime.registry||[];
   const canonicalRaw=runtime.canonical||[];
@@ -162,7 +162,7 @@ async function main(){
   const summary={
     schemaVersion:SCHEMA_VERSION,
     source:{
-      indexBlobSha1:gitBlobSha1(source),
+      indexBlobSha1:sourceBlob,
       authority:'QB11 frozen runtime',
       registryApi:'TBC_QB0.registry()',
       canonicalApi:'TBC_QB6.activeQuestions()',

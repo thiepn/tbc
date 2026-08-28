@@ -14,7 +14,7 @@ permissions:
 jobs:
   validate-release:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,28 +25,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
 
       - name: Install Playwright
         run: |
-          npm install --no-save --no-package-lock playwright@1.55.0
+          npm ci
           npx playwright install --with-deps chromium
 
-      - name: Start local application
-        shell: bash
-        run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-release-server.log 2>&1 &
-          echo $! > /tmp/tbc-release-server.pid
-          for i in {1..20}; do
-            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
-              exit 0
-            fi
-            sleep 1
-          done
-          cat /tmp/tbc-release-server.log
-          exit 1
+      - name: Complete combined release and preservation gate
+        run: npm run verify
 
-      - name: Run canonical release validator
-        run: node scripts/validate-release.cjs
+      - name: Require clean tracked files
+        run: |
+          git diff --check
+          git diff --exit-code
 
       - name: Certify deployed GitHub Pages release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -61,11 +53,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: release-validation-evidence
-          path: |
-            artifacts/pr5
-            artifacts/pr6
-            artifacts/p1b
-            artifacts/p27d
-            artifacts/release-validation
-          if-no-files-found: ignore
-          retention-days: 14
+          path: artifacts/
+          if-no-files-found: warn
+          retention-days: 30

@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const { automaticMainAuthority } = require('./tbc-workflow-authority.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
@@ -50,28 +51,6 @@ function runNode(script, env = {}) {
   });
 }
 
-function workflowOnBlock(text) {
-  const marker = '\non:\n';
-  const start = text.indexOf(marker);
-  if (start < 0) return '';
-  const bodyStart = start + marker.length;
-  const permissions = text.indexOf('\npermissions:', bodyStart);
-  return text.slice(bodyStart, permissions < 0 ? text.length : permissions);
-}
-
-function automaticMainAuthority(file, text) {
-  const block = workflowOnBlock(text);
-  const pullRequest = /^\s*pull_request\s*:/m.test(block);
-  const push = /^\s*push\s*:/m.test(block);
-  const mainBranch = /branches\s*:\s*\[[^\]]*\bmain\b[^\]]*\]/m.test(block) || /^\s*-\s*main\s*$/m.test(block);
-  return {
-    file,
-    pullRequest,
-    pushToMain: push && mainBranch,
-    automatic: pullRequest || (push && mainBranch),
-  };
-}
-
 console.log('TBC — Canonical Release Validation');
 console.log(`Release: ${release.release} / application ${release.version}\n`);
 
@@ -111,7 +90,8 @@ check('current application identity present', currentIdentity.length > 0, `no ${
 
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'tbc-release-validation-'));
 const extractDir = path.join(temp, 'p2a');
-const extraction = runNode('scripts/p2a-question-bank-extract.cjs', { P2A_OUT_DIR: extractDir });
+const extraction = runNode('scripts/p2a-question-bank-extract-certified.cjs', { P2A_OUT_DIR: extractDir, P2A_EXPECTED_TIERS: '' });
+check('certified runtime extraction exits successfully', extraction.status === 0, (extraction.stderr || extraction.stdout || '').slice(-1600));
 const summaryPath = path.join(extractDir, 'question-bank-summary.json');
 check('runtime question-bank snapshot produced', fs.existsSync(summaryPath), `legacy collector exit=${extraction.status}`);
 

@@ -1,95 +1,79 @@
-# TBC P2A — Question Bank Extraction & Audit Infrastructure
+# TBC P2A — question-bank extraction and audit infrastructure
 
-## Purpose
+P2A creates a deterministic, read-only audit representation of the initialized
+runtime. It does not edit questions, selection, scoring, navigation or saves.
+P2A originally followed P1B (`33252c17f89e7aa750c7df60f495a22b19d3c673`);
+the committed manifest now incorporates already-merged P2B–P2E changes.
+See `TBC_STATUS.md` for the exact recovery baseline and executed results.
 
-P2A creates a deterministic, read-only audit representation of the playable TBC question bank. It does not modify gameplay, question selection, scoring, themes, navigation, progression, or browser persistence.
+## Authority and counts
 
-Parent production baseline: `33252c17f89e7aa750c7df60f495a22b19d3c673` (P1B).
+- `TBC_QB0.registry()`: 6,072 source records, including 273 retained aliases.
+- `TBC_QB6.activeQuestions()`: 5,799 unique canonical questions.
+- `TBC_QB8.canonicalStructured()`: 203 questions **within** the 5,799.
+- `TBC_QB11.freezeManifest` / `bankAudit()`: current release assertions.
+- All 66 books; five tiers: Beginner 1,338, Easy 1,668, Standard 1,132,
+  Advanced 1,140, Expert 521. The original P1B distribution is historical.
 
-## Canonical contract
+Aliases and derived mode pools are not additional canonical questions.
+Current runtime IDs are required; no missing-ID hash fallback is implemented.
+P2A requires a running browser runtime, not a best-effort static fallback.
 
-P2A must recover and represent:
+## Commands and files
 
-- 5,799 canonical playable questions;
-- the preserved 6,072-question source registry before the 273 redundant aliases are excluded;
-- 203 structured questions;
-- all 66 biblical books;
-- exactly five difficulty tiers: Beginner, Easy, Standard, Advanced, Expert;
-- the frozen P1B difficulty distribution: 1,338 / 1,666 / 1,133 / 1,141 / 521.
+Use `npm ci`, `npx playwright install chromium`, then `npm run audit:p2a`.
+The runner owns a local server on port 4173 and performs both extraction passes.
+Low-level commands (server must already be running) are:
 
-## Extraction model
+```sh
+node scripts/p2a-question-bank-extract-certified.cjs
+node scripts/p2a-question-bank-audit.cjs
+```
 
-`scripts/p2a-question-bank-extract.cjs` reads the frozen production document and, when available, its initialized browser runtime. It locates the canonical question registry without changing the application.
+The certified wrapper reads tier expectations from the committed manifest and
+executes the shared `p2a-question-bank-extract.cjs`; it is not duplicate bank
+logic. Its historical `P2A_EXPECTED_TIERS` override is for deliberate maintenance,
+not certification; the aggregate gate clears that override. `P2A_OUT_DIR` selects
+the evidence directory. The authoritative gate fixes the local candidate URL.
 
-The extractor normalizes each question into an audit schema containing, where represented by the source question:
+Five generated files live under `artifacts/p2a/` and `artifacts/p2a-repeat/`:
 
-- canonical ID;
-- question text;
-- correct answer;
-- distractors and answer options;
-- Bible reference;
-- book;
-- category/topic;
-- difficulty;
-- explanation;
-- evidence;
-- memory cue;
-- collection membership;
-- mode eligibility;
-- question/interaction type;
-- source field names.
+| File | Contents |
+| --- | --- |
+| `question-bank.json` | Normalized canonical records and per-record content hashes |
+| `structured-questions.json` | Exact canonical structured subset |
+| `question-registry.json` | Full source records and alias metadata |
+| `question-bank-summary.json` | Counts, books, tiers, coverage, source identity, runtime audits, aggregate hashes |
+| `candidate-discovery.json` | Authority, counts and runtime-health diagnostics |
 
-Runtime IDs are preserved when available. If a source item does not expose a stable ID, P2A derives a deterministic SHA-256-based audit ID from the question identity fields. Content hashes intentionally exclude the audit ID and source-array position so later revisions can be compared semantically.
+Normalized fields include question/answer/distractors/options, reference/book,
+category, difficulty, explanation/evidence/memory cue, collections, mode
+eligibility, interaction type, quality metadata and source keys. Nullable fields
+do not imply authored evidence exists for every record; coverage is reported.
+Generated dumps are ignored and uploaded as CI evidence, never deployed.
 
-## Generated evidence
+## Hashes and fail-closed validation
 
-The workflow generates, but does not commit, the following files:
+The frozen contract is `certification/p2a-question-bank-extraction-baseline.json`
+(schema `P2A.1`). Exact source blob and three SHA-256 values are in
+`TBC_INVARIANTS.md`. Each canonical content hash excludes audit ID, ID-source
+label, source origin, source-array index and the hash field itself. Canonical
+and structured aggregates hash ordered ID/content-hash pairs. The registry
+aggregate hashes sorted raw ID/record-hash pairs. These are not file-byte hashes.
 
-- `artifacts/p2a/question-bank.json` — all canonical questions in normalized audit form;
-- `artifacts/p2a/structured-questions.json` — the structured-question subset/registry;
-- `artifacts/p2a/question-bank-summary.json` — counts, field coverage, source strategy and aggregate hashes;
-- `artifacts/p2a/candidate-discovery.json` — extraction diagnostics used to make source discovery reviewable.
+The audit requires all five files, unique IDs, exact counts/tiers/books,
+recomputed content/aggregate hashes, three nonempty frozen hashes, exact
+structured subset, registry integrity, current candidate source identity and
+healthy QB11/QB8 runtime reports. Git source identity uses the actual candidate
+with Git text filters; LF/CRLF differences do not conceal substantive changes.
+Both passes must produce byte-identical **all five** JSON files.
 
-The full extraction is uploaded as a GitHub Actions artifact. Keeping generated question data out of the repository prevents P2A from increasing the production application payload.
+`scripts/tbc-p2a-infrastructure.test.cjs` tests normalization and rejects missing
+registry, registry tampering, removed/invalid alias, canonical/structured tampering,
+stale source identity, runtime errors and stale discovery health. The complete command also runs existing
+read-only P2B–P2E audits against each extraction; it never runs a freezer.
 
-## Deterministic hashing
-
-Every normalized question receives a SHA-256 content hash. P2A then computes aggregate hashes over the ordered canonical ID/content-hash pairs for:
-
-1. the complete canonical bank; and
-2. the structured-question bank.
-
-The workflow performs the extraction twice from the same checkout and requires byte-for-byte identical question JSON plus identical aggregate hashes. The accepted hashes are frozen in `certification/p2a-question-bank-extraction-baseline.json` before P2A may merge.
-
-## Audit gate
-
-`scripts/p2a-question-bank-audit.cjs` requires:
-
-1. exactly 5,799 canonical audit records;
-2. exactly 203 structured audit records;
-3. exactly 66 observed books;
-4. only the five approved difficulty levels;
-5. the frozen difficulty distribution;
-6. unique canonical audit IDs;
-7. deterministic per-question content hashes;
-8. all normalized audit-schema fields to be represented;
-9. aggregate hashes to be self-consistent and, once frozen, equal to the P2A baseline;
-10. source identity to remain tied to the P1B monolith unless a later phase intentionally establishes a new baseline.
-
-## Explicit non-goals
-
-P2A does **not** claim that all 5,799 questions are biblically correct or pedagogically optimal. It establishes the infrastructure required to make those claims auditable in P2B–P2J.
-
-P2A does not:
-
-- rewrite any question;
-- judge theological or factual accuracy;
-- rebalance difficulty;
-- remove semantic duplicates;
-- alter Duel/Campaign/Expedition behavior;
-- write `localStorage` or `sessionStorage`;
-- replace canonical game-state ownership.
-
-## Completion criterion
-
-P2A is complete when the branch has a green `P2A Question Bank Extraction` workflow, both deterministic aggregate hashes are frozen in the baseline, all 5,799 canonical questions and all 203 structured questions are represented in the generated audit evidence, and the branch is merged to `main`.
+P2A integrity is not biblical/pedagogical certification. Implemented, tested,
+committed, merged and deployed are separate states. Historical P2A is committed
+and merged; recovery tooling is not merged/deployed merely because local tests
+pass. Never re-freeze the manifest just to make a recovery check green.

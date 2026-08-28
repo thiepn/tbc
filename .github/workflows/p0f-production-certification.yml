@@ -32,7 +32,7 @@ jobs:
 
       - name: Install Playwright
         run: |
-          npm install --no-save --no-package-lock playwright@1.55.0
+          npm ci
           npx playwright install --with-deps chromium
 
       - name: Run live production browser smoke

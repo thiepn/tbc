@@ -12,7 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
+const { worktreeBlob, rawTextIdentityMatches } = require('./tbc-source-identity.cjs');
 const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -59,14 +59,7 @@ function legacyIndexDelta() {
   return { additions: Number(additions), deletions: Number(deletions), path: file };
 }
 
-function gitBlobSha1(buffer) {
-  return crypto.createHash('sha1')
-    .update(Buffer.from(`blob ${buffer.length}\0`))
-    .update(buffer)
-    .digest('hex');
-}
-
-function certifiedP2BMonolith() {
+function certifiedSuccessorMonolith() {
   const baseline = P2A_BASELINE;
   if (!baseline) return false;
   const certification = baseline?.p2b;
@@ -74,7 +67,7 @@ function certifiedP2BMonolith() {
   if (certification.confirmedDefectsRemaining !== 0 || certification.repairedQuestions !== 30) return false;
   const expectedSha = String(baseline?.source?.indexBlobSha1 || '');
   if (!/^[0-9a-f]{40}$/.test(expectedSha)) return false;
-  return gitBlobSha1(Buffer.from(src.app, 'utf8')) === expectedSha;
+  return worktreeBlob('index.html') === expectedSha;
 }
 
 function certifiedDifficultyDistributionDeclared() {
@@ -84,11 +77,13 @@ function certifiedDifficultyDistributionDeclared() {
 }
 
 const checks = [
-  ['legacy-monolith-frozen', `index.html must remain the v4.1.0 baseline plus exactly ${EXPECTED_INDEX_ADDITIONS} approved reconstruction-loader lines, or match an exact P2B-certified corrected source hash`, () => {
+  ['legacy-monolith-frozen', `index.html must remain the v4.1.0 baseline plus exactly ${EXPECTED_INDEX_ADDITIONS} approved reconstruction-loader lines, or match the exact committed certified-successor source hash`, () => {
     const delta = legacyIndexDelta();
     const legacyFrozen = delta.path === 'index.html' && delta.additions === EXPECTED_INDEX_ADDITIONS && delta.deletions === EXPECTED_INDEX_DELETIONS;
-    return legacyFrozen || certifiedP2BMonolith();
+    return legacyFrozen || certifiedSuccessorMonolith();
   }],
+  ['git-normalized-certified-source', 'actual candidate bytes, filtered by Git, match the certified source on LF and CRLF checkouts', () => worktreeBlob('index.html') === P2A_BASELINE?.source?.indexBlobSha1],
+  ['raw-text-certified-source', 'raw candidate bytes match the certified source allowing only CRLF-to-LF representation, independently of Git filters', () => rawTextIdentityMatches(fs.readFileSync(path.join(ROOT, 'index.html')), P2A_BASELINE?.source?.indexBlobSha1)],
   ['monolith-not-truncated', 'index.html remains a substantial production build (>3.5 MB)', () => Buffer.byteLength(src.app, 'utf8') > 3_500_000],
   ['canonical-bank-contract', '5,799 canonical questions remain the frozen playable-bank contract', () => /5,799\s+(?:canonical\s+)?questions/i.test(src.readme)],
   ['structured-question-contract', '203 structured questions remain declared', () => /203\s+structured\s+questions/i.test(src.readme)],

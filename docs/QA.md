@@ -16,10 +16,10 @@ This document is the current QA source of truth for The Bible Challenge.
 Run:
 
 ```bash
-node scripts/validate-release.cjs
+npm run verify
 ```
 
-The canonical validator owns the current release decision. Phase-era scripts (P0/P1/P2, PR5/PR6/PR7) are retained as historical evidence or implementation helpers, but none of them is independently the canonical release validator.
+The combined aggregate owns the current release decision. It serves the candidate and runs `scripts/validate-release.cjs` alongside every Stage 0 and preservation-repair gate. Phase-era scripts (P0/P1/P2, PR5/PR6/PR7) are retained as historical evidence or implementation helpers, but none of them is independently the canonical release validator.
 
 The validator verifies:
 
@@ -31,7 +31,7 @@ The validator verifies:
 6. current shell, Play/Learn, and Library/Progress browser smoke suites pass;
 7. P27D whole-product browser certification passes across desktop, tablet, mobile, keyboard navigation, accessible control naming, semantic passive-reload preservation, reduced-motion boot, containment, and runtime error checks.
 
-The workflow `.github/workflows/release-validate.yml` installs the browser dependency, starts the local application, and runs that same canonical command. CI does not maintain a separate definition of release correctness.
+The workflow `.github/workflows/release-validate.yml` installs the exact Playwright 1.55.1 package/lockfile with `npm ci`, installs Chromium, and runs that same aggregate command. The aggregate owns the local server and includes P0E, P1B, Stage 0 (7), exact preservation (19), compatibility (27), two P2A extractions/audits, content/identity proof, historical adapters, both negative suites and reconciliation regressions. The release validator retains all its distinct assertions and browser children. CI also requires clean tracked files and uploads all evidence. `recovery-stage0.yml` was retired only after these responsibilities were transferred. The combined job allows 60 minutes for the expanded gate and the conditional deployment probe.
 
 ## Runtime/browser certification
 
