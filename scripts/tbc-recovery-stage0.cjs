@@ -76,6 +76,7 @@ async function tests() {
     'p0c-existing-feature-preservation-audit', 'p0d-visual-preservation-audit',
     'p1b-pr7-activation-audit', 'tbc-historical-preservation', 'tbc-stage0-invariants',
     'tbc-preservation-repair', 'tbc-session-compatibility',
+    'tbc-question-revision-tests', 'tbc-four-question-quality',
     'p0e-browser-certification', 'p1b-pr7-browser-smoke', 'validate-release']) {
     await run(`scripts/${script}.cjs`);
   }
