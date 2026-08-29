@@ -13,6 +13,7 @@
 const fs = require('fs');
 const path = require('path');
 const { worktreeBlob, rawTextIdentityMatches } = require('./tbc-source-identity.cjs');
+const { currentP2ABaseline, SUCCESSOR } = require('./tbc-product-identity.cjs');
 const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -23,6 +24,7 @@ const P2A_BASELINE_PATH = path.join(ROOT, 'certification/p2a-question-bank-extra
 const P2A_BASELINE = fs.existsSync(P2A_BASELINE_PATH)
   ? JSON.parse(fs.readFileSync(P2A_BASELINE_PATH, 'utf8'))
   : null;
+const CURRENT_P2A = currentP2ABaseline(ROOT);
 
 const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
 const src = {
@@ -65,7 +67,8 @@ function certifiedSuccessorMonolith() {
   const certification = baseline?.p2b;
   if (!certification || certification.phase !== 'P2B' || certification.mechanicalIntegrity !== true) return false;
   if (certification.confirmedDefectsRemaining !== 0 || certification.repairedQuestions !== 30) return false;
-  const expectedSha = String(baseline?.source?.indexBlobSha1 || '');
+  if (baseline?.source?.indexBlobSha1 !== SUCCESSOR) return false;
+  const expectedSha = String(CURRENT_P2A?.source?.indexBlobSha1 || '');
   if (!/^[0-9a-f]{40}$/.test(expectedSha)) return false;
   return worktreeBlob('index.html') === expectedSha;
 }
@@ -82,8 +85,8 @@ const checks = [
     const legacyFrozen = delta.path === 'index.html' && delta.additions === EXPECTED_INDEX_ADDITIONS && delta.deletions === EXPECTED_INDEX_DELETIONS;
     return legacyFrozen || certifiedSuccessorMonolith();
   }],
-  ['git-normalized-certified-source', 'actual candidate bytes, filtered by Git, match the certified source on LF and CRLF checkouts', () => worktreeBlob('index.html') === P2A_BASELINE?.source?.indexBlobSha1],
-  ['raw-text-certified-source', 'raw candidate bytes match the certified source allowing only CRLF-to-LF representation, independently of Git filters', () => rawTextIdentityMatches(fs.readFileSync(path.join(ROOT, 'index.html')), P2A_BASELINE?.source?.indexBlobSha1)],
+  ['git-normalized-certified-source', 'actual candidate bytes, filtered by Git, match the active certified source on LF and CRLF checkouts', () => P2A_BASELINE?.source?.indexBlobSha1 === SUCCESSOR && worktreeBlob('index.html') === CURRENT_P2A?.source?.indexBlobSha1],
+  ['raw-text-certified-source', 'raw candidate bytes match the active certified source allowing only CRLF-to-LF representation, independently of Git filters', () => P2A_BASELINE?.source?.indexBlobSha1 === SUCCESSOR && rawTextIdentityMatches(fs.readFileSync(path.join(ROOT, 'index.html')), CURRENT_P2A?.source?.indexBlobSha1)],
   ['monolith-not-truncated', 'index.html remains a substantial production build (>3.5 MB)', () => Buffer.byteLength(src.app, 'utf8') > 3_500_000],
   ['canonical-bank-contract', '5,799 canonical questions remain the frozen playable-bank contract', () => /5,799\s+(?:canonical\s+)?questions/i.test(src.readme)],
   ['structured-question-contract', '203 structured questions remain declared', () => /203\s+structured\s+questions/i.test(src.readme)],

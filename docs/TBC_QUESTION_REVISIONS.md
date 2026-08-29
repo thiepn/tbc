@@ -86,5 +86,21 @@ needs an explicit extension of this audit's predecessor policy; the runtime
 format already supports multiple revisions. No freezer or manifest update is
 part of this process.
 
+## Current authorized predecessor policy
+
+The read-only validator recognizes two explicit production predecessors. The four
+PR #34 corrections retain their exact `e09333f1b532ef5fe5d3179335eafbba5e61d53b`
+snapshots. Batch 03 adds only `1-samuel-12-24-context` from certified production
+commit `dded986a1fce1683acc04b621939e67288084c17`. Each ID is bound to its declared
+predecessor; a record cannot substitute another valid commit or borrow another
+question's snapshot.
+
+The browser suite captures both commits independently. Its current 64 cases
+include the original 24 exact-predecessor lifecycle rows and six equivalent rows
+for the Batch 03 correction, plus one export/import and unknown-revision case per
+archived ID. The separate Batch 03 quality gate proves the correction changes one
+distractor, retains the keyed answer and position, and limits ledger edits to
+entries 101–150. These checks do not certify a new product identity.
+
 Frozen source/content gates intentionally block release after a source or
 question change. Passing these focused tests is not successor certification.

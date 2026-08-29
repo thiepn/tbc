@@ -8,7 +8,8 @@ const { execFileSync, spawnSync } = require('node:child_process');
 const { ROOT, validateCurrent, gitText } = require('./tbc-product-identity.cjs');
 const { validateTransition } = require('./tbc-successor-transition.cjs');
 function main() {
-  const manifest = validateCurrent();
+  validateCurrent();
+  const manifest = require('./tbc-product-identity.cjs').loadManifest();
   validateTransition();
   const out = path.join(ROOT, 'artifacts/product-identity');
   fs.mkdirSync(out, { recursive: true });

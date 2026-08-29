@@ -1,0 +1,49 @@
+{
+  "version": "TBC-BATCH03-QUESTION-REVISION-TRANSITION.1",
+  "predecessor": "2009bc20e2fb95646ccd54976342d79bbabe0223",
+  "predecessorCommit": "dded986a1fce1683acc04b621939e67288084c17",
+  "successor": "29994bf8bf0357a92a9c84bd84d327d3f5538221",
+  "predecessorEngineSha256": "e2f21f4af710ee51f539bbcf41be2d7d2c9945b257053cf4f9f72a0b71203aa6",
+  "successorEngineSha256": "be8a07c477e509a3256b8c53e0290d605acb67126097b357c6438f2b4d66866d",
+  "productSha256": {
+    "predecessor": "77bcecf2c702088fa50e713e50586139728955cfb626b30364d5be38698ddadb",
+    "successor": "587506df65e6510671c7ca9d5744e23b4028e349c3b43d19e9a7944309715bc3"
+  },
+  "question": {
+    "id": "1-samuel-12-24-context",
+    "predecessorFingerprint": "d3a978c6e242352386f36b4a85ac5be803298dfa7e245d4221ee2ae8f38e9039",
+    "predecessorSnapshotSha256": "56a7fe38ce049add5c365b88268ca8b4a618399f4ab8344332e015660a5a2b73",
+    "successorFingerprint": "33d3d115f40c70ddd92c819a2e189a6a7663ae25082da67d04577e3ccb7a7ede",
+    "from": "Samuel reassures Israel after they confess the sin of demanding a king.",
+    "to": "Samuel sets up the Ebenezer stone after God gives Israel victory over the Philistines."
+  },
+  "edits": [
+    {
+      "kind": "archive-append",
+      "offset": 767100,
+      "anchor": "]};\nconst TBC_QUESTION_REVISIONS = tbcCreateQuestionRevisions(TBC_QUESTION_REVISION_ARCHIVE);"
+    },
+    {
+      "kind": "option-replacement",
+      "offset": 13359164,
+      "from": "Samuel reassures Israel after they confess the sin of demanding a king.",
+      "to": "Samuel sets up the Ebenezer stone after God gives Israel victory over the Philistines."
+    }
+  ],
+  "invariants": {
+    "canonical": 5799,
+    "registry": 6072,
+    "aliases": 273,
+    "structured": 203,
+    "difficultyDistribution": {
+      "Beginner": 1338,
+      "Easy": 1668,
+      "Standard": 1132,
+      "Advanced": 1140,
+      "Expert": 521
+    },
+    "saveSchema": 27,
+    "supportingAssetsChanged": 0
+  },
+  "intent": "Append one exact predecessor snapshot and replace only the ambiguous distractor of 1-samuel-12-24-context; all current selection stays current-only."
+}
