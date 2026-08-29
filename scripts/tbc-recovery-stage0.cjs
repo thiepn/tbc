@@ -76,6 +76,7 @@ async function tests() {
     'p0c-existing-feature-preservation-audit', 'p0d-visual-preservation-audit',
     'p1b-pr7-activation-audit', 'tbc-historical-preservation', 'tbc-stage0-invariants',
     'tbc-preservation-repair', 'tbc-session-compatibility',
+    'tbc-question-revision-tests', 'tbc-four-question-quality',
     'p0e-browser-certification', 'p1b-pr7-browser-smoke', 'validate-release']) {
     await run(`scripts/${script}.cjs`);
   }
@@ -104,6 +105,7 @@ async function audit() {
   }
   await run('scripts/tbc-p2a-infrastructure.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
   await run('scripts/tbc-product-identity.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
+  await run('scripts/tbc-question-successor.test.cjs', {}, ['--test']);
 }
 
 async function deployment() {

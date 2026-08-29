@@ -1,0 +1,3887 @@
+{
+  "version": "TBC-QUESTION-REVISION-SUCCESSOR.1",
+  "predecessor": "ce1b30a8fe2c07822001b9542271eea60174f4f1",
+  "successor": "2009bc20e2fb95646ccd54976342d79bbabe0223",
+  "predecessorSource": {
+    "commit": "e09333f1b532ef5fe5d3179335eafbba5e61d53b",
+    "identityManifest": "certification/tbc-product-identity.json",
+    "manifestSha256": "aea7b85689a2ee39dad4ae0b74ba76a3e707fb1f47a371abcbf329b25f84a773"
+  },
+  "candidateContentCommit": "1ca52ecb9ba3781c4212610d2b3fff83e2c11b6e",
+  "foundationCommit": "a45d08ade061fa5b519b193927eb7cc55921a758",
+  "predecessorEngineSha256": "78252b20700261601ad565e1dfa6a5c3cf66952d8241111ef899ebe412454405",
+  "successorEngineSha256": "e2f21f4af710ee51f539bbcf41be2d7d2c9945b257053cf4f9f72a0b71203aa6",
+  "productSha256": {
+    "predecessor": "336466308c69f7a32da66eba9a3680fb9e8d20c6d2b2b75400561c256eae6d76",
+    "successor": "77bcecf2c702088fa50e713e50586139728955cfb626b30364d5be38698ddadb"
+  },
+  "contentHashes": {
+    "predecessor": {
+      "algorithm": "sha256",
+      "canonicalBank": "1f795f1ca8d24fe393a9a4d77ac30dbeb10083c30e63c483e613c9c4bda6885b",
+      "registry": "9f03475faa42b2ba6317c950dc3eb4049e7acf8001df7bfee92e83dffba05f9d",
+      "structuredBank": "4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb"
+    },
+    "successor": {
+      "algorithm": "sha256",
+      "canonicalBank": "2fa5e43e8588b2490568d3ee09ea57818faab5e0dfd359f4960a3de746e900c9",
+      "registry": "38136fac01d14fb7f5d49b181de8c35adda288ee9d30ba651956ee5f1d6204f4",
+      "structuredBank": "4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb"
+    }
+  },
+  "changedStableIds": [
+    "1-chronicles-16-11-context",
+    "1-chronicles-16-34-context",
+    "1-kings-8-27-context",
+    "1-kings-8-61-context"
+  ],
+  "questions": [
+    {
+      "id": "1-chronicles-16-11-context",
+      "predecessorFingerprint": "2442dadbfa4301d4fee93f43dc049211108281e1b8282b9923ecfd895b235aad",
+      "successorFingerprint": "4919490f3d37ec5a7d9309b753853ed99d6e011bb78d307ccd62fc5c2f26fb6d",
+      "archiveSnapshotSha256": "28fb9c43a2d925e1ea31275634763b9f9bb867a63a514486a209cc158d8f81f6",
+      "predecessorQuestion": {
+        "bibleReference": "1 Chronicles 16:11",
+        "book": "1 Chronicles",
+        "canonicalId": "1-chronicles-16-11-context",
+        "category": "passages",
+        "collections": [],
+        "contentSha256": "d8f753ae8ee7763ad108af1ca33bb8c1bc12453c65598e83b4de396961e84de9",
+        "correctAnswer": "A song of thanksgiving when the ark is brought to Jerusalem.",
+        "difficulty": "Advanced",
+        "distractors": [
+          "David’s song accompanies the ark’s arrival in Jerusalem.",
+          "David instructs Solomon before the temple project",
+          "David’s final prayer"
+        ],
+        "evidence": [
+          "1 Chronicles 16:11"
+        ],
+        "explanation": "Immediate context: A song of thanksgiving when the ark is brought to Jerusalem. This setting clarifies the passage’s main point: God’s people are to seek the LORD continually, depending on His strength and presence.",
+        "idSource": "runtime:itemId",
+        "interactionType": "choice",
+        "memoryCue": "Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.",
+        "modeEligibility": [
+          "quick",
+          "focusedPlay",
+          "studyPractice",
+          "collections",
+          "bookPractice",
+          "readerPractice",
+          "deepPassage",
+          "focusedTest",
+          "learningPath",
+          "finalTest",
+          "adaptiveReview",
+          "dueReview",
+          "mistakeReview",
+          "campaign",
+          "recallTrial",
+          "expedition",
+          "duel",
+          "daily",
+          "weekly"
+        ],
+        "options": [
+          "David’s song accompanies the ark’s arrival in Jerusalem.",
+          "David instructs Solomon before the temple project",
+          "David’s final prayer",
+          "A song of thanksgiving when the ark is brought to Jerusalem."
+        ],
+        "qualityMetadata": {
+          "learningObjective": "Locate the displayed passage in its immediate literary or narrative setting.",
+          "qb5Difficulty": {
+            "difficultySignal": 61,
+            "dimensions": {
+              "chronologySpan": "none",
+              "contextSupport": "reference-only",
+              "distractorSimilarity": "same-story",
+              "inferenceSteps": 2,
+              "interpretationLoad": "direct-context",
+              "obscurity": "book-specific",
+              "recallSpecificity": "identity"
+            },
+            "exactDuplicateGroupSize": 1,
+            "finalTier": "advanced",
+            "interactionBurden": 10,
+            "originalTier": "expert",
+            "readingBurden": 8,
+            "reasons": [
+              "task:context",
+              "less-familiar content"
+            ],
+            "version": "4.1.0-qb5",
+            "withinTierDifficulty": 5
+          },
+          "qb6Active": true,
+          "qb6CanonicalId": "1-chronicles-16-11-context",
+          "qb6Disposition": "active",
+          "qb6RedundancyReasons": [],
+          "qb6VariantRole": "context",
+          "qb6Version": "4.1.0-qb6",
+          "qb7Feedback": {
+            "answer": "A song of thanksgiving when the ark is brought to Jerusalem.",
+            "distractors": [
+              {
+                "kind": "cross-question-evidence",
+                "option": "David’s song accompanies the ark’s arrival in Jerusalem.",
+                "sourceId": "1-chronicles-16-34-context",
+                "sourceReference": "1 Chronicles 16:34",
+                "text": "“David’s song accompanies the ark’s arrival in Jerusalem.” fits 1 Chronicles 16:34; this question is anchored in 1 Chronicles 16:11, where the reviewed answer is “A song of thanksgiving when the ark is brought to Jerusalem.”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "David instructs Solomon before the temple project",
+                "sourceId": "1-chronicles-28-9-context",
+                "sourceReference": "1 Chronicles 28:9",
+                "text": "“David instructs Solomon before the temple project” fits 1 Chronicles 28:9; this question is anchored in 1 Chronicles 16:11, where the reviewed answer is “A song of thanksgiving when the ark is brought to Jerusalem.”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "David’s final prayer",
+                "sourceId": "1-chronicles-29-11-context",
+                "sourceReference": "1 Chronicles 29:11",
+                "text": "“David’s final prayer” fits 1 Chronicles 29:11; this question is anchored in 1 Chronicles 16:11, where the reviewed answer is “A song of thanksgiving when the ark is brought to Jerusalem.”. 1 Chronicles 29:11 belongs within David’s final prayer (1 Chronicles 29:10-20). David praises God as the sovereign owner and ruler of all things."
+              }
+            ],
+            "evidence": [
+              "1 Chronicles 16:11"
+            ],
+            "learningFocus": "Locate the displayed passage in its immediate literary or narrative setting.",
+            "memoryCue": "Ask what happens immediately around the cited text and what role this moment plays in the surrounding story or argument.",
+            "questionId": "1-chronicles-16-11-context",
+            "selectedRationale": null,
+            "version": "4.1.0-qb7",
+            "whyCorrect": "Immediate context: A song of thanksgiving when the ark is brought to Jerusalem. This setting clarifies the passage’s main point: God’s people are to seek the LORD continually, depending on His strength and presence."
+          },
+          "qualityFlags": [],
+          "registryDifficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 0,
+              "explanationWords": 34,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "registryReview": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "reviewStatus": "approved"
+        },
+        "question": "Which situation best describes this passage’s immediate context?",
+        "questionType": "context",
+        "registryMetadata": {
+          "canonicalId": null,
+          "difficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 0,
+              "explanationWords": 34,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "disposition": null,
+          "evidence": {
+            "adequacy": "unreviewed",
+            "hasEvidence": true,
+            "references": [
+              "1 Chronicles 16:11"
+            ],
+            "sourceTextFidelity": "unreviewed",
+            "status": "unreviewed",
+            "supportClass": "unclassified"
+          },
+          "modeEligibility": {
+            "allow": [],
+            "deny": [],
+            "legacyHints": [],
+            "pending": [
+              "quick",
+              "focusedPlay",
+              "studyPractice",
+              "collections",
+              "bookPractice",
+              "readerPractice",
+              "deepPassage",
+              "focusedTest",
+              "learningPath",
+              "finalTest",
+              "adaptiveReview",
+              "dueReview",
+              "mistakeReview",
+              "campaign",
+              "recallTrial",
+              "expedition",
+              "duel",
+              "daily",
+              "weekly"
+            ],
+            "status": "unreviewed"
+          },
+          "review": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "sourceId": null
+        },
+        "sourceIndex": 1267,
+        "sourceKeys": [
+          "answer",
+          "biblicalEvidence",
+          "difficulty",
+          "distractorPackId",
+          "domain",
+          "editorialVersion",
+          "explanation",
+          "hint",
+          "itemId",
+          "knowledgeIds",
+          "label",
+          "learningObjective",
+          "options",
+          "prompt",
+          "qb5Difficulty",
+          "qb6Active",
+          "qb6CanonicalId",
+          "qb6Disposition",
+          "qb6RedundancyReasons",
+          "qb6VariantRole",
+          "qb6Version",
+          "qualityFlags",
+          "reference",
+          "reviewStatus",
+          "skill",
+          "task",
+          "tier",
+          "type",
+          "verse"
+        ],
+        "sourceOrigin": "TBC_QB6.activeQuestions()",
+        "sourceQuestionId": null,
+        "structured": false
+      },
+      "successorQuestion": {
+        "bibleReference": "1 Chronicles 16:11",
+        "book": "1 Chronicles",
+        "canonicalId": "1-chronicles-16-11-context",
+        "category": "passages",
+        "collections": [],
+        "contentSha256": "46b032130bd37bbbddce5ed0f34127d42319eaae36474c950f583b5f91b8bc9a",
+        "correctAnswer": "A song of thanksgiving when the ark is brought to Jerusalem.",
+        "difficulty": "Advanced",
+        "distractors": [
+          "Nathan delivers God’s covenant promise to David.",
+          "David instructs Solomon before the temple project",
+          "David’s final prayer"
+        ],
+        "evidence": [
+          "1 Chronicles 16:11"
+        ],
+        "explanation": "Immediate context: A song of thanksgiving when the ark is brought to Jerusalem. This setting clarifies the passage’s main point: God’s people are to seek the LORD continually, depending on His strength and presence.",
+        "idSource": "runtime:itemId",
+        "interactionType": "choice",
+        "memoryCue": "Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.",
+        "modeEligibility": [
+          "quick",
+          "focusedPlay",
+          "studyPractice",
+          "collections",
+          "bookPractice",
+          "readerPractice",
+          "deepPassage",
+          "focusedTest",
+          "learningPath",
+          "finalTest",
+          "adaptiveReview",
+          "dueReview",
+          "mistakeReview",
+          "campaign",
+          "recallTrial",
+          "expedition",
+          "duel",
+          "daily",
+          "weekly"
+        ],
+        "options": [
+          "Nathan delivers God’s covenant promise to David.",
+          "David instructs Solomon before the temple project",
+          "David’s final prayer",
+          "A song of thanksgiving when the ark is brought to Jerusalem."
+        ],
+        "qualityMetadata": {
+          "learningObjective": "Locate the displayed passage in its immediate literary or narrative setting.",
+          "qb5Difficulty": {
+            "difficultySignal": 61,
+            "dimensions": {
+              "chronologySpan": "none",
+              "contextSupport": "reference-only",
+              "distractorSimilarity": "same-story",
+              "inferenceSteps": 2,
+              "interpretationLoad": "direct-context",
+              "obscurity": "book-specific",
+              "recallSpecificity": "identity"
+            },
+            "exactDuplicateGroupSize": 1,
+            "finalTier": "advanced",
+            "interactionBurden": 10,
+            "originalTier": "expert",
+            "readingBurden": 8,
+            "reasons": [
+              "task:context",
+              "less-familiar content"
+            ],
+            "version": "4.1.0-qb5",
+            "withinTierDifficulty": 5
+          },
+          "qb6Active": true,
+          "qb6CanonicalId": "1-chronicles-16-11-context",
+          "qb6Disposition": "active",
+          "qb6RedundancyReasons": [],
+          "qb6VariantRole": "context",
+          "qb6Version": "4.1.0-qb6",
+          "qb7Feedback": {
+            "answer": "A song of thanksgiving when the ark is brought to Jerusalem.",
+            "distractors": [
+              {
+                "kind": "contextual-fallback",
+                "option": "Nathan delivers God’s covenant promise to David.",
+                "text": "“Nathan delivers God’s covenant promise to David.” does not fit this question’s specific clue at 1 Chronicles 16:11. The reviewed answer is “A song of thanksgiving when the ark is brought to Jerusalem.”; re-check how the cited source connects to the prompt."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "David instructs Solomon before the temple project",
+                "sourceId": "1-chronicles-28-9-context",
+                "sourceReference": "1 Chronicles 28:9",
+                "text": "“David instructs Solomon before the temple project” fits 1 Chronicles 28:9; this question is anchored in 1 Chronicles 16:11, where the reviewed answer is “A song of thanksgiving when the ark is brought to Jerusalem.”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "David’s final prayer",
+                "sourceId": "1-chronicles-29-11-context",
+                "sourceReference": "1 Chronicles 29:11",
+                "text": "“David’s final prayer” fits 1 Chronicles 29:11; this question is anchored in 1 Chronicles 16:11, where the reviewed answer is “A song of thanksgiving when the ark is brought to Jerusalem.”. 1 Chronicles 29:11 belongs within David’s final prayer (1 Chronicles 29:10-20). David praises God as the sovereign owner and ruler of all things."
+              }
+            ],
+            "evidence": [
+              "1 Chronicles 16:11"
+            ],
+            "learningFocus": "Locate the displayed passage in its immediate literary or narrative setting.",
+            "memoryCue": "Ask what happens immediately around the cited text and what role this moment plays in the surrounding story or argument.",
+            "questionId": "1-chronicles-16-11-context",
+            "selectedRationale": null,
+            "version": "4.1.0-qb7",
+            "whyCorrect": "Immediate context: A song of thanksgiving when the ark is brought to Jerusalem. This setting clarifies the passage’s main point: God’s people are to seek the LORD continually, depending on His strength and presence."
+          },
+          "qualityFlags": [],
+          "registryDifficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 0,
+              "explanationWords": 34,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "registryReview": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "reviewStatus": "approved"
+        },
+        "question": "Which situation best describes this passage’s immediate context?",
+        "questionType": "context",
+        "registryMetadata": {
+          "canonicalId": null,
+          "difficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 0,
+              "explanationWords": 34,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "disposition": null,
+          "evidence": {
+            "adequacy": "unreviewed",
+            "hasEvidence": true,
+            "references": [
+              "1 Chronicles 16:11"
+            ],
+            "sourceTextFidelity": "unreviewed",
+            "status": "unreviewed",
+            "supportClass": "unclassified"
+          },
+          "modeEligibility": {
+            "allow": [],
+            "deny": [],
+            "legacyHints": [],
+            "pending": [
+              "quick",
+              "focusedPlay",
+              "studyPractice",
+              "collections",
+              "bookPractice",
+              "readerPractice",
+              "deepPassage",
+              "focusedTest",
+              "learningPath",
+              "finalTest",
+              "adaptiveReview",
+              "dueReview",
+              "mistakeReview",
+              "campaign",
+              "recallTrial",
+              "expedition",
+              "duel",
+              "daily",
+              "weekly"
+            ],
+            "status": "unreviewed"
+          },
+          "review": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "sourceId": null
+        },
+        "sourceIndex": 1267,
+        "sourceKeys": [
+          "answer",
+          "biblicalEvidence",
+          "difficulty",
+          "distractorPackId",
+          "domain",
+          "editorialVersion",
+          "explanation",
+          "hint",
+          "itemId",
+          "knowledgeIds",
+          "label",
+          "learningObjective",
+          "options",
+          "prompt",
+          "qb5Difficulty",
+          "qb6Active",
+          "qb6CanonicalId",
+          "qb6Disposition",
+          "qb6RedundancyReasons",
+          "qb6VariantRole",
+          "qb6Version",
+          "qualityFlags",
+          "reference",
+          "reviewStatus",
+          "skill",
+          "task",
+          "tier",
+          "type",
+          "verse"
+        ],
+        "sourceOrigin": "TBC_QB6.activeQuestions()",
+        "sourceQuestionId": null,
+        "structured": false
+      },
+      "predecessorRegistry": {
+        "active": true,
+        "canonical": {
+          "family": {
+            "source": "type-fallback",
+            "status": "unreviewed",
+            "value": "context"
+          },
+          "primaryBook": {
+            "source": "reference-derived",
+            "status": "unreviewed",
+            "value": "1 Chronicles"
+          },
+          "skill": {
+            "source": "legacy",
+            "status": "unreviewed",
+            "value": "context"
+          }
+        },
+        "defects": {
+          "pendingFamilies": [
+            "L",
+            "D",
+            "A",
+            "B",
+            "T",
+            "R",
+            "F",
+            "S",
+            "M",
+            "U",
+            "C"
+          ],
+          "resolved": [
+            "D1",
+            "D2",
+            "D3",
+            "D6",
+            "D7",
+            "D8",
+            "D10",
+            "D11",
+            "D12",
+            "D13"
+          ],
+          "seeded": [
+            "D14",
+            "C2"
+          ]
+        },
+        "difficulty": {
+          "currentTier": "expert",
+          "dimensions": {
+            "chronologySpan": null,
+            "contextSupport": null,
+            "distractorCloseness": null,
+            "empiricalCalibration": null,
+            "familiarity": null,
+            "inferenceSteps": null,
+            "interpretiveLoad": null,
+            "recallSpecificity": null,
+            "synthesisLoad": null
+          },
+          "finalTier": null,
+          "measuredLoad": {
+            "displayWords": 0,
+            "explanationWords": 34,
+            "interactionComponents": 4,
+            "maxOptionWords": 11,
+            "stemWords": 8
+          },
+          "status": "unreviewed"
+        },
+        "evidence": {
+          "adequacy": "unreviewed",
+          "hasEvidence": true,
+          "references": [
+            "1 Chronicles 16:11"
+          ],
+          "sourceTextFidelity": "unreviewed",
+          "status": "unreviewed",
+          "supportClass": "unclassified"
+        },
+        "identity": {
+          "answerTargetId": "d35afe9cd7698c3e",
+          "crossTierExactDuplicate": false,
+          "exactGroupSize": 1,
+          "exactParentId": "1-chronicles-16-11-context",
+          "exactSurfaceId": "3b8117967193e6f4",
+          "knowledgeGroupId": "16410d4d191e93fb",
+          "knowledgeGroupSize": 2,
+          "knowledgeParentId": "1-chronicles-16-11-context",
+          "referenceAnswerId": "75dc16a2ec1fca34",
+          "sourceHash": "87643e195fe27f7f"
+        },
+        "itemId": "1-chronicles-16-11-context",
+        "modeEligibility": {
+          "allow": [],
+          "deny": [],
+          "legacyHints": [],
+          "pending": [
+            "quick",
+            "focusedPlay",
+            "studyPractice",
+            "collections",
+            "bookPractice",
+            "readerPractice",
+            "deepPassage",
+            "focusedTest",
+            "learningPath",
+            "finalTest",
+            "adaptiveReview",
+            "dueReview",
+            "mistakeReview",
+            "campaign",
+            "recallTrial",
+            "expedition",
+            "duel",
+            "daily",
+            "weekly"
+          ],
+          "status": "unreviewed"
+        },
+        "registryVersion": "4.1.0-qb0",
+        "review": {
+          "disposition": "edit",
+          "pendingDimensions": [
+            "biblicalValidity",
+            "testIntegrity",
+            "distractors",
+            "ambiguity",
+            "difficulty",
+            "redundancy",
+            "feedback",
+            "structuredIntegrity",
+            "modeEligibility",
+            "runtimeUsability",
+            "adversarial"
+          ],
+          "status": "in-review",
+          "trustedCertified": false
+        },
+        "roundIsolation": {
+          "answerTargetId": "d35afe9cd7698c3e",
+          "referenceAnswerId": "75dc16a2ec1fca34",
+          "semanticGroupId": "16410d4d191e93fb",
+          "status": "unreviewed",
+          "surfaceGroupId": "3b8117967193e6f4"
+        },
+        "snapshot": {
+          "answer": "A song of thanksgiving when the ark is brought to Jerusalem.",
+          "curriculumNodeIds": [],
+          "display": "",
+          "knowledgeIds": [
+            "passage.1-chronicles-16-11"
+          ],
+          "options": [
+            "David’s song accompanies the ark’s arrival in Jerusalem.",
+            "David instructs Solomon before the temple project",
+            "David’s final prayer",
+            "A song of thanksgiving when the ark is brought to Jerusalem."
+          ],
+          "prompt": "Which situation best describes this passage’s immediate context?",
+          "reference": "1 Chronicles 16:11"
+        },
+        "source": {
+          "difficulty": "expert",
+          "editorialVersion": "2.3.0",
+          "interaction": "choice",
+          "legacyQualityScore": null,
+          "legacyReviewStatus": "approved",
+          "type": "context"
+        },
+        "variant": {
+          "exactDuplicate": false,
+          "parentId": "1-chronicles-16-11-context",
+          "role": "unassigned",
+          "status": "unreviewed"
+        }
+      },
+      "successorRegistry": {
+        "active": true,
+        "canonical": {
+          "family": {
+            "source": "type-fallback",
+            "status": "unreviewed",
+            "value": "context"
+          },
+          "primaryBook": {
+            "source": "reference-derived",
+            "status": "unreviewed",
+            "value": "1 Chronicles"
+          },
+          "skill": {
+            "source": "legacy",
+            "status": "unreviewed",
+            "value": "context"
+          }
+        },
+        "defects": {
+          "pendingFamilies": [
+            "L",
+            "D",
+            "A",
+            "B",
+            "T",
+            "R",
+            "F",
+            "S",
+            "M",
+            "U",
+            "C"
+          ],
+          "resolved": [
+            "D1",
+            "D2",
+            "D3",
+            "D6",
+            "D7",
+            "D8",
+            "D10",
+            "D11",
+            "D12",
+            "D13"
+          ],
+          "seeded": [
+            "D14",
+            "C2"
+          ]
+        },
+        "difficulty": {
+          "currentTier": "expert",
+          "dimensions": {
+            "chronologySpan": null,
+            "contextSupport": null,
+            "distractorCloseness": null,
+            "empiricalCalibration": null,
+            "familiarity": null,
+            "inferenceSteps": null,
+            "interpretiveLoad": null,
+            "recallSpecificity": null,
+            "synthesisLoad": null
+          },
+          "finalTier": null,
+          "measuredLoad": {
+            "displayWords": 0,
+            "explanationWords": 34,
+            "interactionComponents": 4,
+            "maxOptionWords": 11,
+            "stemWords": 8
+          },
+          "status": "unreviewed"
+        },
+        "evidence": {
+          "adequacy": "unreviewed",
+          "hasEvidence": true,
+          "references": [
+            "1 Chronicles 16:11"
+          ],
+          "sourceTextFidelity": "unreviewed",
+          "status": "unreviewed",
+          "supportClass": "unclassified"
+        },
+        "identity": {
+          "answerTargetId": "d35afe9cd7698c3e",
+          "crossTierExactDuplicate": false,
+          "exactGroupSize": 1,
+          "exactParentId": "1-chronicles-16-11-context",
+          "exactSurfaceId": "524f7e243b761ebe",
+          "knowledgeGroupId": "16410d4d191e93fb",
+          "knowledgeGroupSize": 2,
+          "knowledgeParentId": "1-chronicles-16-11-context",
+          "referenceAnswerId": "75dc16a2ec1fca34",
+          "sourceHash": "46e687b353902555"
+        },
+        "itemId": "1-chronicles-16-11-context",
+        "modeEligibility": {
+          "allow": [],
+          "deny": [],
+          "legacyHints": [],
+          "pending": [
+            "quick",
+            "focusedPlay",
+            "studyPractice",
+            "collections",
+            "bookPractice",
+            "readerPractice",
+            "deepPassage",
+            "focusedTest",
+            "learningPath",
+            "finalTest",
+            "adaptiveReview",
+            "dueReview",
+            "mistakeReview",
+            "campaign",
+            "recallTrial",
+            "expedition",
+            "duel",
+            "daily",
+            "weekly"
+          ],
+          "status": "unreviewed"
+        },
+        "registryVersion": "4.1.0-qb0",
+        "review": {
+          "disposition": "edit",
+          "pendingDimensions": [
+            "biblicalValidity",
+            "testIntegrity",
+            "distractors",
+            "ambiguity",
+            "difficulty",
+            "redundancy",
+            "feedback",
+            "structuredIntegrity",
+            "modeEligibility",
+            "runtimeUsability",
+            "adversarial"
+          ],
+          "status": "in-review",
+          "trustedCertified": false
+        },
+        "roundIsolation": {
+          "answerTargetId": "d35afe9cd7698c3e",
+          "referenceAnswerId": "75dc16a2ec1fca34",
+          "semanticGroupId": "16410d4d191e93fb",
+          "status": "unreviewed",
+          "surfaceGroupId": "524f7e243b761ebe"
+        },
+        "snapshot": {
+          "answer": "A song of thanksgiving when the ark is brought to Jerusalem.",
+          "curriculumNodeIds": [],
+          "display": "",
+          "knowledgeIds": [
+            "passage.1-chronicles-16-11"
+          ],
+          "options": [
+            "Nathan delivers God’s covenant promise to David.",
+            "David instructs Solomon before the temple project",
+            "David’s final prayer",
+            "A song of thanksgiving when the ark is brought to Jerusalem."
+          ],
+          "prompt": "Which situation best describes this passage’s immediate context?",
+          "reference": "1 Chronicles 16:11"
+        },
+        "source": {
+          "difficulty": "expert",
+          "editorialVersion": "2.3.0",
+          "interaction": "choice",
+          "legacyQualityScore": null,
+          "legacyReviewStatus": "approved",
+          "type": "context"
+        },
+        "variant": {
+          "exactDuplicate": false,
+          "parentId": "1-chronicles-16-11-context",
+          "role": "unassigned",
+          "status": "unreviewed"
+        }
+      }
+    },
+    {
+      "id": "1-chronicles-16-34-context",
+      "predecessorFingerprint": "db94271ca553bc1ca4872f899223b24223d3b041abc6783385634a88b9062e18",
+      "successorFingerprint": "54fa0b4615b8301e9f72b1c3c5942d2ea2408d511fea174402076948ba1d46c4",
+      "archiveSnapshotSha256": "550e4eccb14dfdbb11fd28e41f1f11b07cca0642e98c5f77b59f63161518cc50",
+      "predecessorQuestion": {
+        "bibleReference": "1 Chronicles 16:34",
+        "book": "1 Chronicles",
+        "canonicalId": "1-chronicles-16-34-context",
+        "category": "passages",
+        "collections": [],
+        "contentSha256": "8fa0c93cac03e001e33b826dc75730dc14dfcc35f90c81274f1e1ad4379cd340",
+        "correctAnswer": "David’s song accompanies the ark’s arrival in Jerusalem.",
+        "difficulty": "Advanced",
+        "distractors": [
+          "A song of thanksgiving when the ark is brought to Jerusalem.",
+          "David instructs Solomon before the temple project",
+          "David’s final prayer"
+        ],
+        "evidence": [
+          "1 Chronicles 16:34"
+        ],
+        "explanation": "Immediate context: David’s song accompanies the ark’s arrival in Jerusalem. This setting clarifies the passage’s main point: God deserves thanksgiving because He is good and His covenant love endures.",
+        "idSource": "runtime:itemId",
+        "interactionType": "choice",
+        "memoryCue": "Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.",
+        "modeEligibility": [
+          "quick",
+          "focusedPlay",
+          "studyPractice",
+          "collections",
+          "bookPractice",
+          "readerPractice",
+          "deepPassage",
+          "focusedTest",
+          "learningPath",
+          "finalTest",
+          "adaptiveReview",
+          "dueReview",
+          "mistakeReview",
+          "campaign",
+          "recallTrial",
+          "expedition",
+          "duel",
+          "daily",
+          "weekly"
+        ],
+        "options": [
+          "A song of thanksgiving when the ark is brought to Jerusalem.",
+          "David’s song accompanies the ark’s arrival in Jerusalem.",
+          "David instructs Solomon before the temple project",
+          "David’s final prayer"
+        ],
+        "qualityMetadata": {
+          "learningObjective": "Locate the displayed passage in its immediate literary or narrative setting.",
+          "qb5Difficulty": {
+            "difficultySignal": 61,
+            "dimensions": {
+              "chronologySpan": "none",
+              "contextSupport": "reference-only",
+              "distractorSimilarity": "same-story",
+              "inferenceSteps": 2,
+              "interpretationLoad": "direct-context",
+              "obscurity": "book-specific",
+              "recallSpecificity": "identity"
+            },
+            "exactDuplicateGroupSize": 1,
+            "finalTier": "advanced",
+            "interactionBurden": 10,
+            "originalTier": "expert",
+            "readingBurden": 8,
+            "reasons": [
+              "task:context",
+              "less-familiar content"
+            ],
+            "version": "4.1.0-qb5",
+            "withinTierDifficulty": 5
+          },
+          "qb6Active": true,
+          "qb6CanonicalId": "1-chronicles-16-34-context",
+          "qb6Disposition": "active",
+          "qb6RedundancyReasons": [],
+          "qb6VariantRole": "context",
+          "qb6Version": "4.1.0-qb6",
+          "qb7Feedback": {
+            "answer": "David’s song accompanies the ark’s arrival in Jerusalem.",
+            "distractors": [
+              {
+                "kind": "cross-question-evidence",
+                "option": "A song of thanksgiving when the ark is brought to Jerusalem.",
+                "sourceId": "1-chronicles-16-11-context",
+                "sourceReference": "1 Chronicles 16:11",
+                "text": "“A song of thanksgiving when the ark is brought to Jerusalem.” fits 1 Chronicles 16:11; this question is anchored in 1 Chronicles 16:34, where the reviewed answer is “David’s song accompanies the ark’s arrival in Jerusalem.”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "David instructs Solomon before the temple project",
+                "sourceId": "1-chronicles-28-9-context",
+                "sourceReference": "1 Chronicles 28:9",
+                "text": "“David instructs Solomon before the temple project” fits 1 Chronicles 28:9; this question is anchored in 1 Chronicles 16:34, where the reviewed answer is “David’s song accompanies the ark’s arrival in Jerusalem.”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "David’s final prayer",
+                "sourceId": "1-chronicles-29-11-context",
+                "sourceReference": "1 Chronicles 29:11",
+                "text": "“David’s final prayer” fits 1 Chronicles 29:11; this question is anchored in 1 Chronicles 16:34, where the reviewed answer is “David’s song accompanies the ark’s arrival in Jerusalem.”. 1 Chronicles 29:11 belongs within David’s final prayer (1 Chronicles 29:10-20). David praises God as the sovereign owner and ruler of all things."
+              }
+            ],
+            "evidence": [
+              "1 Chronicles 16:34"
+            ],
+            "learningFocus": "Locate the displayed passage in its immediate literary or narrative setting.",
+            "memoryCue": "Ask what happens immediately around the cited text and what role this moment plays in the surrounding story or argument.",
+            "questionId": "1-chronicles-16-34-context",
+            "selectedRationale": null,
+            "version": "4.1.0-qb7",
+            "whyCorrect": "Immediate context: David’s song accompanies the ark’s arrival in Jerusalem. This setting clarifies the passage’s main point: God deserves thanksgiving because He is good and His covenant love endures."
+          },
+          "qualityFlags": [],
+          "registryDifficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 0,
+              "explanationWords": 29,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "registryReview": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "reviewStatus": "approved"
+        },
+        "question": "Which situation best describes this passage’s immediate context?",
+        "questionType": "context",
+        "registryMetadata": {
+          "canonicalId": null,
+          "difficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 0,
+              "explanationWords": 29,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "disposition": null,
+          "evidence": {
+            "adequacy": "unreviewed",
+            "hasEvidence": true,
+            "references": [
+              "1 Chronicles 16:34"
+            ],
+            "sourceTextFidelity": "unreviewed",
+            "status": "unreviewed",
+            "supportClass": "unclassified"
+          },
+          "modeEligibility": {
+            "allow": [],
+            "deny": [],
+            "legacyHints": [],
+            "pending": [
+              "quick",
+              "focusedPlay",
+              "studyPractice",
+              "collections",
+              "bookPractice",
+              "readerPractice",
+              "deepPassage",
+              "focusedTest",
+              "learningPath",
+              "finalTest",
+              "adaptiveReview",
+              "dueReview",
+              "mistakeReview",
+              "campaign",
+              "recallTrial",
+              "expedition",
+              "duel",
+              "daily",
+              "weekly"
+            ],
+            "status": "unreviewed"
+          },
+          "review": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "sourceId": null
+        },
+        "sourceIndex": 1273,
+        "sourceKeys": [
+          "answer",
+          "biblicalEvidence",
+          "difficulty",
+          "distractorPackId",
+          "domain",
+          "editorialVersion",
+          "explanation",
+          "hint",
+          "itemId",
+          "knowledgeIds",
+          "label",
+          "learningObjective",
+          "options",
+          "prompt",
+          "qb5Difficulty",
+          "qb6Active",
+          "qb6CanonicalId",
+          "qb6Disposition",
+          "qb6RedundancyReasons",
+          "qb6VariantRole",
+          "qb6Version",
+          "qualityFlags",
+          "reference",
+          "reviewStatus",
+          "skill",
+          "task",
+          "tier",
+          "type",
+          "verse"
+        ],
+        "sourceOrigin": "TBC_QB6.activeQuestions()",
+        "sourceQuestionId": null,
+        "structured": false
+      },
+      "successorQuestion": {
+        "bibleReference": "1 Chronicles 16:34",
+        "book": "1 Chronicles",
+        "canonicalId": "1-chronicles-16-34-context",
+        "category": "passages",
+        "collections": [],
+        "contentSha256": "a561fe324c740f034ea209ad3ec5972513cd8bcea2d94f303f8b9a9cd1223d1f",
+        "correctAnswer": "David’s song accompanies the ark’s arrival in Jerusalem.",
+        "difficulty": "Advanced",
+        "distractors": [
+          "Nathan delivers God’s covenant promise to David.",
+          "David instructs Solomon before the temple project",
+          "David’s final prayer"
+        ],
+        "evidence": [
+          "1 Chronicles 16:34"
+        ],
+        "explanation": "Immediate context: David’s song accompanies the ark’s arrival in Jerusalem. This setting clarifies the passage’s main point: God deserves thanksgiving because He is good and His covenant love endures.",
+        "idSource": "runtime:itemId",
+        "interactionType": "choice",
+        "memoryCue": "Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.",
+        "modeEligibility": [
+          "quick",
+          "focusedPlay",
+          "studyPractice",
+          "collections",
+          "bookPractice",
+          "readerPractice",
+          "deepPassage",
+          "focusedTest",
+          "learningPath",
+          "finalTest",
+          "adaptiveReview",
+          "dueReview",
+          "mistakeReview",
+          "campaign",
+          "recallTrial",
+          "expedition",
+          "duel",
+          "daily",
+          "weekly"
+        ],
+        "options": [
+          "Nathan delivers God’s covenant promise to David.",
+          "David’s song accompanies the ark’s arrival in Jerusalem.",
+          "David instructs Solomon before the temple project",
+          "David’s final prayer"
+        ],
+        "qualityMetadata": {
+          "learningObjective": "Locate the displayed passage in its immediate literary or narrative setting.",
+          "qb5Difficulty": {
+            "difficultySignal": 61,
+            "dimensions": {
+              "chronologySpan": "none",
+              "contextSupport": "reference-only",
+              "distractorSimilarity": "same-story",
+              "inferenceSteps": 2,
+              "interpretationLoad": "direct-context",
+              "obscurity": "book-specific",
+              "recallSpecificity": "identity"
+            },
+            "exactDuplicateGroupSize": 1,
+            "finalTier": "advanced",
+            "interactionBurden": 10,
+            "originalTier": "expert",
+            "readingBurden": 8,
+            "reasons": [
+              "task:context",
+              "less-familiar content"
+            ],
+            "version": "4.1.0-qb5",
+            "withinTierDifficulty": 5
+          },
+          "qb6Active": true,
+          "qb6CanonicalId": "1-chronicles-16-34-context",
+          "qb6Disposition": "active",
+          "qb6RedundancyReasons": [],
+          "qb6VariantRole": "context",
+          "qb6Version": "4.1.0-qb6",
+          "qb7Feedback": {
+            "answer": "David’s song accompanies the ark’s arrival in Jerusalem.",
+            "distractors": [
+              {
+                "kind": "contextual-fallback",
+                "option": "Nathan delivers God’s covenant promise to David.",
+                "text": "“Nathan delivers God’s covenant promise to David.” does not fit this question’s specific clue at 1 Chronicles 16:34. The reviewed answer is “David’s song accompanies the ark’s arrival in Jerusalem.”; re-check how the cited source connects to the prompt."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "David instructs Solomon before the temple project",
+                "sourceId": "1-chronicles-28-9-context",
+                "sourceReference": "1 Chronicles 28:9",
+                "text": "“David instructs Solomon before the temple project” fits 1 Chronicles 28:9; this question is anchored in 1 Chronicles 16:34, where the reviewed answer is “David’s song accompanies the ark’s arrival in Jerusalem.”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "David’s final prayer",
+                "sourceId": "1-chronicles-29-11-context",
+                "sourceReference": "1 Chronicles 29:11",
+                "text": "“David’s final prayer” fits 1 Chronicles 29:11; this question is anchored in 1 Chronicles 16:34, where the reviewed answer is “David’s song accompanies the ark’s arrival in Jerusalem.”. 1 Chronicles 29:11 belongs within David’s final prayer (1 Chronicles 29:10-20). David praises God as the sovereign owner and ruler of all things."
+              }
+            ],
+            "evidence": [
+              "1 Chronicles 16:34"
+            ],
+            "learningFocus": "Locate the displayed passage in its immediate literary or narrative setting.",
+            "memoryCue": "Ask what happens immediately around the cited text and what role this moment plays in the surrounding story or argument.",
+            "questionId": "1-chronicles-16-34-context",
+            "selectedRationale": null,
+            "version": "4.1.0-qb7",
+            "whyCorrect": "Immediate context: David’s song accompanies the ark’s arrival in Jerusalem. This setting clarifies the passage’s main point: God deserves thanksgiving because He is good and His covenant love endures."
+          },
+          "qualityFlags": [],
+          "registryDifficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 0,
+              "explanationWords": 29,
+              "interactionComponents": 4,
+              "maxOptionWords": 8,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "registryReview": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "reviewStatus": "approved"
+        },
+        "question": "Which situation best describes this passage’s immediate context?",
+        "questionType": "context",
+        "registryMetadata": {
+          "canonicalId": null,
+          "difficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 0,
+              "explanationWords": 29,
+              "interactionComponents": 4,
+              "maxOptionWords": 8,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "disposition": null,
+          "evidence": {
+            "adequacy": "unreviewed",
+            "hasEvidence": true,
+            "references": [
+              "1 Chronicles 16:34"
+            ],
+            "sourceTextFidelity": "unreviewed",
+            "status": "unreviewed",
+            "supportClass": "unclassified"
+          },
+          "modeEligibility": {
+            "allow": [],
+            "deny": [],
+            "legacyHints": [],
+            "pending": [
+              "quick",
+              "focusedPlay",
+              "studyPractice",
+              "collections",
+              "bookPractice",
+              "readerPractice",
+              "deepPassage",
+              "focusedTest",
+              "learningPath",
+              "finalTest",
+              "adaptiveReview",
+              "dueReview",
+              "mistakeReview",
+              "campaign",
+              "recallTrial",
+              "expedition",
+              "duel",
+              "daily",
+              "weekly"
+            ],
+            "status": "unreviewed"
+          },
+          "review": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "sourceId": null
+        },
+        "sourceIndex": 1273,
+        "sourceKeys": [
+          "answer",
+          "biblicalEvidence",
+          "difficulty",
+          "distractorPackId",
+          "domain",
+          "editorialVersion",
+          "explanation",
+          "hint",
+          "itemId",
+          "knowledgeIds",
+          "label",
+          "learningObjective",
+          "options",
+          "prompt",
+          "qb5Difficulty",
+          "qb6Active",
+          "qb6CanonicalId",
+          "qb6Disposition",
+          "qb6RedundancyReasons",
+          "qb6VariantRole",
+          "qb6Version",
+          "qualityFlags",
+          "reference",
+          "reviewStatus",
+          "skill",
+          "task",
+          "tier",
+          "type",
+          "verse"
+        ],
+        "sourceOrigin": "TBC_QB6.activeQuestions()",
+        "sourceQuestionId": null,
+        "structured": false
+      },
+      "predecessorRegistry": {
+        "active": true,
+        "canonical": {
+          "family": {
+            "source": "type-fallback",
+            "status": "unreviewed",
+            "value": "context"
+          },
+          "primaryBook": {
+            "source": "reference-derived",
+            "status": "unreviewed",
+            "value": "1 Chronicles"
+          },
+          "skill": {
+            "source": "legacy",
+            "status": "unreviewed",
+            "value": "context"
+          }
+        },
+        "defects": {
+          "pendingFamilies": [
+            "L",
+            "D",
+            "A",
+            "B",
+            "T",
+            "R",
+            "F",
+            "S",
+            "M",
+            "U",
+            "C"
+          ],
+          "resolved": [
+            "D1",
+            "D2",
+            "D3",
+            "D6",
+            "D7",
+            "D8",
+            "D10",
+            "D11",
+            "D12",
+            "D13"
+          ],
+          "seeded": [
+            "D14",
+            "C2"
+          ]
+        },
+        "difficulty": {
+          "currentTier": "expert",
+          "dimensions": {
+            "chronologySpan": null,
+            "contextSupport": null,
+            "distractorCloseness": null,
+            "empiricalCalibration": null,
+            "familiarity": null,
+            "inferenceSteps": null,
+            "interpretiveLoad": null,
+            "recallSpecificity": null,
+            "synthesisLoad": null
+          },
+          "finalTier": null,
+          "measuredLoad": {
+            "displayWords": 0,
+            "explanationWords": 29,
+            "interactionComponents": 4,
+            "maxOptionWords": 11,
+            "stemWords": 8
+          },
+          "status": "unreviewed"
+        },
+        "evidence": {
+          "adequacy": "unreviewed",
+          "hasEvidence": true,
+          "references": [
+            "1 Chronicles 16:34"
+          ],
+          "sourceTextFidelity": "unreviewed",
+          "status": "unreviewed",
+          "supportClass": "unclassified"
+        },
+        "identity": {
+          "answerTargetId": "f32ab97270e5e5e0",
+          "crossTierExactDuplicate": false,
+          "exactGroupSize": 1,
+          "exactParentId": "1-chronicles-16-34-context",
+          "exactSurfaceId": "288f9b2440da954e",
+          "knowledgeGroupId": "0d3c81f454040ae2",
+          "knowledgeGroupSize": 2,
+          "knowledgeParentId": "1-chronicles-16-34-context",
+          "referenceAnswerId": "3e1a5c65520ffb03",
+          "sourceHash": "a3ab65c0782d73e2"
+        },
+        "itemId": "1-chronicles-16-34-context",
+        "modeEligibility": {
+          "allow": [],
+          "deny": [],
+          "legacyHints": [],
+          "pending": [
+            "quick",
+            "focusedPlay",
+            "studyPractice",
+            "collections",
+            "bookPractice",
+            "readerPractice",
+            "deepPassage",
+            "focusedTest",
+            "learningPath",
+            "finalTest",
+            "adaptiveReview",
+            "dueReview",
+            "mistakeReview",
+            "campaign",
+            "recallTrial",
+            "expedition",
+            "duel",
+            "daily",
+            "weekly"
+          ],
+          "status": "unreviewed"
+        },
+        "registryVersion": "4.1.0-qb0",
+        "review": {
+          "disposition": "edit",
+          "pendingDimensions": [
+            "biblicalValidity",
+            "testIntegrity",
+            "distractors",
+            "ambiguity",
+            "difficulty",
+            "redundancy",
+            "feedback",
+            "structuredIntegrity",
+            "modeEligibility",
+            "runtimeUsability",
+            "adversarial"
+          ],
+          "status": "in-review",
+          "trustedCertified": false
+        },
+        "roundIsolation": {
+          "answerTargetId": "f32ab97270e5e5e0",
+          "referenceAnswerId": "3e1a5c65520ffb03",
+          "semanticGroupId": "0d3c81f454040ae2",
+          "status": "unreviewed",
+          "surfaceGroupId": "288f9b2440da954e"
+        },
+        "snapshot": {
+          "answer": "David’s song accompanies the ark’s arrival in Jerusalem.",
+          "curriculumNodeIds": [],
+          "display": "",
+          "knowledgeIds": [
+            "passage.1-chronicles-16-34"
+          ],
+          "options": [
+            "A song of thanksgiving when the ark is brought to Jerusalem.",
+            "David’s song accompanies the ark’s arrival in Jerusalem.",
+            "David instructs Solomon before the temple project",
+            "David’s final prayer"
+          ],
+          "prompt": "Which situation best describes this passage’s immediate context?",
+          "reference": "1 Chronicles 16:34"
+        },
+        "source": {
+          "difficulty": "expert",
+          "editorialVersion": "2.3.0",
+          "interaction": "choice",
+          "legacyQualityScore": null,
+          "legacyReviewStatus": "approved",
+          "type": "context"
+        },
+        "variant": {
+          "exactDuplicate": false,
+          "parentId": "1-chronicles-16-34-context",
+          "role": "unassigned",
+          "status": "unreviewed"
+        }
+      },
+      "successorRegistry": {
+        "active": true,
+        "canonical": {
+          "family": {
+            "source": "type-fallback",
+            "status": "unreviewed",
+            "value": "context"
+          },
+          "primaryBook": {
+            "source": "reference-derived",
+            "status": "unreviewed",
+            "value": "1 Chronicles"
+          },
+          "skill": {
+            "source": "legacy",
+            "status": "unreviewed",
+            "value": "context"
+          }
+        },
+        "defects": {
+          "pendingFamilies": [
+            "L",
+            "D",
+            "A",
+            "B",
+            "T",
+            "R",
+            "F",
+            "S",
+            "M",
+            "U",
+            "C"
+          ],
+          "resolved": [
+            "D1",
+            "D2",
+            "D3",
+            "D6",
+            "D7",
+            "D8",
+            "D10",
+            "D11",
+            "D12",
+            "D13"
+          ],
+          "seeded": [
+            "D14",
+            "C2"
+          ]
+        },
+        "difficulty": {
+          "currentTier": "expert",
+          "dimensions": {
+            "chronologySpan": null,
+            "contextSupport": null,
+            "distractorCloseness": null,
+            "empiricalCalibration": null,
+            "familiarity": null,
+            "inferenceSteps": null,
+            "interpretiveLoad": null,
+            "recallSpecificity": null,
+            "synthesisLoad": null
+          },
+          "finalTier": null,
+          "measuredLoad": {
+            "displayWords": 0,
+            "explanationWords": 29,
+            "interactionComponents": 4,
+            "maxOptionWords": 8,
+            "stemWords": 8
+          },
+          "status": "unreviewed"
+        },
+        "evidence": {
+          "adequacy": "unreviewed",
+          "hasEvidence": true,
+          "references": [
+            "1 Chronicles 16:34"
+          ],
+          "sourceTextFidelity": "unreviewed",
+          "status": "unreviewed",
+          "supportClass": "unclassified"
+        },
+        "identity": {
+          "answerTargetId": "f32ab97270e5e5e0",
+          "crossTierExactDuplicate": false,
+          "exactGroupSize": 1,
+          "exactParentId": "1-chronicles-16-34-context",
+          "exactSurfaceId": "ee8255a6fabf1f5c",
+          "knowledgeGroupId": "0d3c81f454040ae2",
+          "knowledgeGroupSize": 2,
+          "knowledgeParentId": "1-chronicles-16-34-context",
+          "referenceAnswerId": "3e1a5c65520ffb03",
+          "sourceHash": "3777a5de5a147674"
+        },
+        "itemId": "1-chronicles-16-34-context",
+        "modeEligibility": {
+          "allow": [],
+          "deny": [],
+          "legacyHints": [],
+          "pending": [
+            "quick",
+            "focusedPlay",
+            "studyPractice",
+            "collections",
+            "bookPractice",
+            "readerPractice",
+            "deepPassage",
+            "focusedTest",
+            "learningPath",
+            "finalTest",
+            "adaptiveReview",
+            "dueReview",
+            "mistakeReview",
+            "campaign",
+            "recallTrial",
+            "expedition",
+            "duel",
+            "daily",
+            "weekly"
+          ],
+          "status": "unreviewed"
+        },
+        "registryVersion": "4.1.0-qb0",
+        "review": {
+          "disposition": "edit",
+          "pendingDimensions": [
+            "biblicalValidity",
+            "testIntegrity",
+            "distractors",
+            "ambiguity",
+            "difficulty",
+            "redundancy",
+            "feedback",
+            "structuredIntegrity",
+            "modeEligibility",
+            "runtimeUsability",
+            "adversarial"
+          ],
+          "status": "in-review",
+          "trustedCertified": false
+        },
+        "roundIsolation": {
+          "answerTargetId": "f32ab97270e5e5e0",
+          "referenceAnswerId": "3e1a5c65520ffb03",
+          "semanticGroupId": "0d3c81f454040ae2",
+          "status": "unreviewed",
+          "surfaceGroupId": "ee8255a6fabf1f5c"
+        },
+        "snapshot": {
+          "answer": "David’s song accompanies the ark’s arrival in Jerusalem.",
+          "curriculumNodeIds": [],
+          "display": "",
+          "knowledgeIds": [
+            "passage.1-chronicles-16-34"
+          ],
+          "options": [
+            "Nathan delivers God’s covenant promise to David.",
+            "David’s song accompanies the ark’s arrival in Jerusalem.",
+            "David instructs Solomon before the temple project",
+            "David’s final prayer"
+          ],
+          "prompt": "Which situation best describes this passage’s immediate context?",
+          "reference": "1 Chronicles 16:34"
+        },
+        "source": {
+          "difficulty": "expert",
+          "editorialVersion": "2.3.0",
+          "interaction": "choice",
+          "legacyQualityScore": null,
+          "legacyReviewStatus": "approved",
+          "type": "context"
+        },
+        "variant": {
+          "exactDuplicate": false,
+          "parentId": "1-chronicles-16-34-context",
+          "role": "unassigned",
+          "status": "unreviewed"
+        }
+      }
+    },
+    {
+      "id": "1-kings-8-27-context",
+      "predecessorFingerprint": "224711cafb38f728a84af6f593fcabea18a6eb14955d1dcf0f47d7f4d4440267",
+      "successorFingerprint": "b51eac33d1d43c89187473bf3781fc33fecf72ed7bdb2770b4a5f8d03bff71f9",
+      "archiveSnapshotSha256": "9d5d7a2ab428d64695f61b9d58fb2fe7d543225e5991acbcd60dcfd0b16b76e8",
+      "predecessorQuestion": {
+        "bibleReference": "1 Kings 8:27",
+        "book": "1 Kings",
+        "canonicalId": "1-kings-8-27-context",
+        "category": "passages",
+        "collections": [],
+        "contentSha256": "09c196fdc46ff3844f45cb0fc18b0a055a167153d6203aa623e57e2af87af028",
+        "correctAnswer": "Solomon prays at the dedication of the temple",
+        "difficulty": "Standard",
+        "distractors": [
+          "Temple construction and dedication",
+          "Solomon asks God for wisdom at the beginning of his reign.",
+          "Elijah confronts Israel on Mount Carmel"
+        ],
+        "evidence": [
+          "1 Kings 8:27"
+        ],
+        "explanation": "Immediate context: Solomon prays at the dedication of the temple. This setting clarifies the passage’s main point: God cannot be contained by any building, even while He graciously meets His people there.",
+        "idSource": "runtime:itemId",
+        "interactionType": "choice",
+        "memoryCue": "Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.",
+        "modeEligibility": [
+          "quick",
+          "focusedPlay",
+          "studyPractice",
+          "collections",
+          "bookPractice",
+          "readerPractice",
+          "deepPassage",
+          "focusedTest",
+          "learningPath",
+          "finalTest",
+          "adaptiveReview",
+          "dueReview",
+          "mistakeReview",
+          "campaign",
+          "recallTrial",
+          "expedition",
+          "duel",
+          "daily",
+          "weekly"
+        ],
+        "options": [
+          "Temple construction and dedication",
+          "Solomon asks God for wisdom at the beginning of his reign.",
+          "Elijah confronts Israel on Mount Carmel",
+          "Solomon prays at the dedication of the temple"
+        ],
+        "qualityMetadata": {
+          "learningObjective": "Locate the displayed passage in its immediate literary or narrative setting.",
+          "qb5Difficulty": {
+            "difficultySignal": 49,
+            "dimensions": {
+              "chronologySpan": "none",
+              "contextSupport": "reference-plus-cue",
+              "distractorSimilarity": "same-story",
+              "inferenceSteps": 2,
+              "interpretationLoad": "direct-context",
+              "obscurity": "common",
+              "recallSpecificity": "identity"
+            },
+            "exactDuplicateGroupSize": 1,
+            "finalTier": "standard",
+            "interactionBurden": 10,
+            "originalTier": "expert",
+            "readingBurden": 8,
+            "reasons": [
+              "task:context"
+            ],
+            "version": "4.1.0-qb5",
+            "withinTierDifficulty": 47
+          },
+          "qb6Active": true,
+          "qb6CanonicalId": "1-kings-8-27-context",
+          "qb6Disposition": "active",
+          "qb6RedundancyReasons": [],
+          "qb6VariantRole": "context",
+          "qb6Version": "4.1.0-qb6",
+          "qb7Feedback": {
+            "answer": "Solomon prays at the dedication of the temple",
+            "distractors": [
+              {
+                "kind": "cross-question-evidence",
+                "option": "Temple construction and dedication",
+                "sourceId": "1-kings-8-61-context",
+                "sourceReference": "1 Kings 8:61",
+                "text": "“Temple construction and dedication” fits 1 Kings 8:61; this question is anchored in 1 Kings 8:27, where the reviewed answer is “Solomon prays at the dedication of the temple”. 1 Kings 8:61 belongs within Temple construction and dedication (1 Kings 5-8). Solomon exhorts Israel at the temple dedication."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "Solomon asks God for wisdom at the beginning of his reign.",
+                "sourceId": "1-kings-3-9-context",
+                "sourceReference": "1 Kings 3:9",
+                "text": "“Solomon asks God for wisdom at the beginning of his reign.” fits 1 Kings 3:9; this question is anchored in 1 Kings 8:27, where the reviewed answer is “Solomon prays at the dedication of the temple”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "Elijah confronts Israel on Mount Carmel",
+                "sourceId": "1-kings-18-21-context",
+                "sourceReference": "1 Kings 18:21",
+                "text": "“Elijah confronts Israel on Mount Carmel” fits 1 Kings 18:21; this question is anchored in 1 Kings 8:27, where the reviewed answer is “Solomon prays at the dedication of the temple”."
+              }
+            ],
+            "evidence": [
+              "1 Kings 8:27"
+            ],
+            "learningFocus": "Locate the displayed passage in its immediate literary or narrative setting.",
+            "memoryCue": "Ask what happens immediately around the cited text and what role this moment plays in the surrounding story or argument.",
+            "questionId": "1-kings-8-27-context",
+            "selectedRationale": null,
+            "version": "4.1.0-qb7",
+            "whyCorrect": "Immediate context: Solomon prays at the dedication of the temple. This setting clarifies the passage’s main point: God cannot be contained by any building, even while He graciously meets His people there."
+          },
+          "qualityFlags": [],
+          "registryDifficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 6,
+              "explanationWords": 32,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "registryReview": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "reviewStatus": "approved"
+        },
+        "question": "Which situation best describes this passage’s immediate context?",
+        "questionType": "context",
+        "registryMetadata": {
+          "canonicalId": null,
+          "difficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 6,
+              "explanationWords": 32,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "disposition": null,
+          "evidence": {
+            "adequacy": "unreviewed",
+            "hasEvidence": true,
+            "references": [
+              "1 Kings 8:27"
+            ],
+            "sourceTextFidelity": "unreviewed",
+            "status": "unreviewed",
+            "supportClass": "unclassified"
+          },
+          "modeEligibility": {
+            "allow": [],
+            "deny": [],
+            "legacyHints": [],
+            "pending": [
+              "quick",
+              "focusedPlay",
+              "studyPractice",
+              "collections",
+              "bookPractice",
+              "readerPractice",
+              "deepPassage",
+              "focusedTest",
+              "learningPath",
+              "finalTest",
+              "adaptiveReview",
+              "dueReview",
+              "mistakeReview",
+              "campaign",
+              "recallTrial",
+              "expedition",
+              "duel",
+              "daily",
+              "weekly"
+            ],
+            "status": "unreviewed"
+          },
+          "review": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "sourceId": null
+        },
+        "sourceIndex": 1162,
+        "sourceKeys": [
+          "answer",
+          "biblicalEvidence",
+          "difficulty",
+          "display",
+          "distractorPackId",
+          "domain",
+          "editorialVersion",
+          "explanation",
+          "hint",
+          "itemId",
+          "knowledgeIds",
+          "label",
+          "learningObjective",
+          "options",
+          "prompt",
+          "qb5Difficulty",
+          "qb6Active",
+          "qb6CanonicalId",
+          "qb6Disposition",
+          "qb6RedundancyReasons",
+          "qb6VariantRole",
+          "qb6Version",
+          "qualityFlags",
+          "reference",
+          "reviewStatus",
+          "skill",
+          "task",
+          "tier",
+          "type",
+          "verse"
+        ],
+        "sourceOrigin": "TBC_QB6.activeQuestions()",
+        "sourceQuestionId": null,
+        "structured": false
+      },
+      "successorQuestion": {
+        "bibleReference": "1 Kings 8:27",
+        "book": "1 Kings",
+        "canonicalId": "1-kings-8-27-context",
+        "category": "passages",
+        "collections": [],
+        "contentSha256": "b49de4b1852fa5195de4f7e1505f5bd524079a9d37c140af7e15d7608a4e183f",
+        "correctAnswer": "Solomon prays at the dedication of the temple",
+        "difficulty": "Standard",
+        "distractors": [
+          "Rehoboam refuses to ease the people’s burdens",
+          "Solomon asks God for wisdom at the beginning of his reign.",
+          "Elijah confronts Israel on Mount Carmel"
+        ],
+        "evidence": [
+          "1 Kings 8:27"
+        ],
+        "explanation": "Immediate context: Solomon prays at the dedication of the temple. This setting clarifies the passage’s main point: God cannot be contained by any building, even while He graciously meets His people there.",
+        "idSource": "runtime:itemId",
+        "interactionType": "choice",
+        "memoryCue": "Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.",
+        "modeEligibility": [
+          "quick",
+          "focusedPlay",
+          "studyPractice",
+          "collections",
+          "bookPractice",
+          "readerPractice",
+          "deepPassage",
+          "focusedTest",
+          "learningPath",
+          "finalTest",
+          "adaptiveReview",
+          "dueReview",
+          "mistakeReview",
+          "campaign",
+          "recallTrial",
+          "expedition",
+          "duel",
+          "daily",
+          "weekly"
+        ],
+        "options": [
+          "Rehoboam refuses to ease the people’s burdens",
+          "Solomon asks God for wisdom at the beginning of his reign.",
+          "Elijah confronts Israel on Mount Carmel",
+          "Solomon prays at the dedication of the temple"
+        ],
+        "qualityMetadata": {
+          "learningObjective": "Locate the displayed passage in its immediate literary or narrative setting.",
+          "qb5Difficulty": {
+            "difficultySignal": 49,
+            "dimensions": {
+              "chronologySpan": "none",
+              "contextSupport": "reference-plus-cue",
+              "distractorSimilarity": "same-story",
+              "inferenceSteps": 2,
+              "interpretationLoad": "direct-context",
+              "obscurity": "common",
+              "recallSpecificity": "identity"
+            },
+            "exactDuplicateGroupSize": 1,
+            "finalTier": "standard",
+            "interactionBurden": 10,
+            "originalTier": "expert",
+            "readingBurden": 8,
+            "reasons": [
+              "task:context"
+            ],
+            "version": "4.1.0-qb5",
+            "withinTierDifficulty": 47
+          },
+          "qb6Active": true,
+          "qb6CanonicalId": "1-kings-8-27-context",
+          "qb6Disposition": "active",
+          "qb6RedundancyReasons": [],
+          "qb6VariantRole": "context",
+          "qb6Version": "4.1.0-qb6",
+          "qb7Feedback": {
+            "answer": "Solomon prays at the dedication of the temple",
+            "distractors": [
+              {
+                "kind": "contextual-fallback",
+                "option": "Rehoboam refuses to ease the people’s burdens",
+                "text": "“Rehoboam refuses to ease the people’s burdens” does not fit this question’s specific clue at 1 Kings 8:27. The reviewed answer is “Solomon prays at the dedication of the temple”; re-check how the cited source connects to the prompt."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "Solomon asks God for wisdom at the beginning of his reign.",
+                "sourceId": "1-kings-3-9-context",
+                "sourceReference": "1 Kings 3:9",
+                "text": "“Solomon asks God for wisdom at the beginning of his reign.” fits 1 Kings 3:9; this question is anchored in 1 Kings 8:27, where the reviewed answer is “Solomon prays at the dedication of the temple”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "Elijah confronts Israel on Mount Carmel",
+                "sourceId": "1-kings-18-21-context",
+                "sourceReference": "1 Kings 18:21",
+                "text": "“Elijah confronts Israel on Mount Carmel” fits 1 Kings 18:21; this question is anchored in 1 Kings 8:27, where the reviewed answer is “Solomon prays at the dedication of the temple”."
+              }
+            ],
+            "evidence": [
+              "1 Kings 8:27"
+            ],
+            "learningFocus": "Locate the displayed passage in its immediate literary or narrative setting.",
+            "memoryCue": "Ask what happens immediately around the cited text and what role this moment plays in the surrounding story or argument.",
+            "questionId": "1-kings-8-27-context",
+            "selectedRationale": null,
+            "version": "4.1.0-qb7",
+            "whyCorrect": "Immediate context: Solomon prays at the dedication of the temple. This setting clarifies the passage’s main point: God cannot be contained by any building, even while He graciously meets His people there."
+          },
+          "qualityFlags": [],
+          "registryDifficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 6,
+              "explanationWords": 32,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "registryReview": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "reviewStatus": "approved"
+        },
+        "question": "Which situation best describes this passage’s immediate context?",
+        "questionType": "context",
+        "registryMetadata": {
+          "canonicalId": null,
+          "difficulty": {
+            "currentTier": "expert",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 6,
+              "explanationWords": 32,
+              "interactionComponents": 4,
+              "maxOptionWords": 11,
+              "stemWords": 8
+            },
+            "status": "unreviewed"
+          },
+          "disposition": null,
+          "evidence": {
+            "adequacy": "unreviewed",
+            "hasEvidence": true,
+            "references": [
+              "1 Kings 8:27"
+            ],
+            "sourceTextFidelity": "unreviewed",
+            "status": "unreviewed",
+            "supportClass": "unclassified"
+          },
+          "modeEligibility": {
+            "allow": [],
+            "deny": [],
+            "legacyHints": [],
+            "pending": [
+              "quick",
+              "focusedPlay",
+              "studyPractice",
+              "collections",
+              "bookPractice",
+              "readerPractice",
+              "deepPassage",
+              "focusedTest",
+              "learningPath",
+              "finalTest",
+              "adaptiveReview",
+              "dueReview",
+              "mistakeReview",
+              "campaign",
+              "recallTrial",
+              "expedition",
+              "duel",
+              "daily",
+              "weekly"
+            ],
+            "status": "unreviewed"
+          },
+          "review": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "sourceId": null
+        },
+        "sourceIndex": 1162,
+        "sourceKeys": [
+          "answer",
+          "biblicalEvidence",
+          "difficulty",
+          "display",
+          "distractorPackId",
+          "domain",
+          "editorialVersion",
+          "explanation",
+          "hint",
+          "itemId",
+          "knowledgeIds",
+          "label",
+          "learningObjective",
+          "options",
+          "prompt",
+          "qb5Difficulty",
+          "qb6Active",
+          "qb6CanonicalId",
+          "qb6Disposition",
+          "qb6RedundancyReasons",
+          "qb6VariantRole",
+          "qb6Version",
+          "qualityFlags",
+          "reference",
+          "reviewStatus",
+          "skill",
+          "task",
+          "tier",
+          "type",
+          "verse"
+        ],
+        "sourceOrigin": "TBC_QB6.activeQuestions()",
+        "sourceQuestionId": null,
+        "structured": false
+      },
+      "predecessorRegistry": {
+        "active": true,
+        "canonical": {
+          "family": {
+            "source": "type-fallback",
+            "status": "unreviewed",
+            "value": "context"
+          },
+          "primaryBook": {
+            "source": "reference-derived",
+            "status": "unreviewed",
+            "value": "1 Kings"
+          },
+          "skill": {
+            "source": "legacy",
+            "status": "unreviewed",
+            "value": "context"
+          }
+        },
+        "defects": {
+          "pendingFamilies": [
+            "L",
+            "D",
+            "A",
+            "B",
+            "T",
+            "R",
+            "F",
+            "S",
+            "M",
+            "U",
+            "C"
+          ],
+          "resolved": [
+            "L1",
+            "L10",
+            "L12",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6",
+            "L7",
+            "D1",
+            "D2",
+            "D3",
+            "D6",
+            "D7",
+            "D8",
+            "D10",
+            "D11",
+            "D12",
+            "D13"
+          ],
+          "seeded": [
+            "L14",
+            "D14",
+            "C2"
+          ]
+        },
+        "difficulty": {
+          "currentTier": "expert",
+          "dimensions": {
+            "chronologySpan": null,
+            "contextSupport": null,
+            "distractorCloseness": null,
+            "empiricalCalibration": null,
+            "familiarity": null,
+            "inferenceSteps": null,
+            "interpretiveLoad": null,
+            "recallSpecificity": null,
+            "synthesisLoad": null
+          },
+          "finalTier": null,
+          "measuredLoad": {
+            "displayWords": 6,
+            "explanationWords": 32,
+            "interactionComponents": 4,
+            "maxOptionWords": 11,
+            "stemWords": 8
+          },
+          "status": "unreviewed"
+        },
+        "evidence": {
+          "adequacy": "unreviewed",
+          "hasEvidence": true,
+          "references": [
+            "1 Kings 8:27"
+          ],
+          "sourceTextFidelity": "unreviewed",
+          "status": "unreviewed",
+          "supportClass": "unclassified"
+        },
+        "identity": {
+          "answerTargetId": "3e3bdbbe5cba778c",
+          "crossTierExactDuplicate": false,
+          "exactGroupSize": 1,
+          "exactParentId": "1-kings-8-27-context",
+          "exactSurfaceId": "731f3e0f6861f6ad",
+          "knowledgeGroupId": "bda1eb7516641ee3",
+          "knowledgeGroupSize": 4,
+          "knowledgeParentId": "1-kings-8-27-book",
+          "referenceAnswerId": "0ae6734ef38616a8",
+          "sourceHash": "618d8c8d48179c2f"
+        },
+        "itemId": "1-kings-8-27-context",
+        "modeEligibility": {
+          "allow": [],
+          "deny": [],
+          "legacyHints": [],
+          "pending": [
+            "quick",
+            "focusedPlay",
+            "studyPractice",
+            "collections",
+            "bookPractice",
+            "readerPractice",
+            "deepPassage",
+            "focusedTest",
+            "learningPath",
+            "finalTest",
+            "adaptiveReview",
+            "dueReview",
+            "mistakeReview",
+            "campaign",
+            "recallTrial",
+            "expedition",
+            "duel",
+            "daily",
+            "weekly"
+          ],
+          "status": "unreviewed"
+        },
+        "registryVersion": "4.1.0-qb0",
+        "review": {
+          "disposition": "edit",
+          "pendingDimensions": [
+            "biblicalValidity",
+            "testIntegrity",
+            "distractors",
+            "ambiguity",
+            "difficulty",
+            "redundancy",
+            "feedback",
+            "structuredIntegrity",
+            "modeEligibility",
+            "runtimeUsability",
+            "adversarial"
+          ],
+          "status": "in-review",
+          "trustedCertified": false
+        },
+        "roundIsolation": {
+          "answerTargetId": "3e3bdbbe5cba778c",
+          "referenceAnswerId": "0ae6734ef38616a8",
+          "semanticGroupId": "bda1eb7516641ee3",
+          "status": "unreviewed",
+          "surfaceGroupId": "731f3e0f6861f6ad"
+        },
+        "snapshot": {
+          "answer": "Solomon prays at the dedication of the temple",
+          "curriculumNodeIds": [],
+          "display": "Cited reference: 1 Kings 8:27",
+          "knowledgeIds": [
+            "passage.1-kings-8-27"
+          ],
+          "options": [
+            "Temple construction and dedication",
+            "Solomon asks God for wisdom at the beginning of his reign.",
+            "Elijah confronts Israel on Mount Carmel",
+            "Solomon prays at the dedication of the temple"
+          ],
+          "prompt": "Which situation best describes this passage’s immediate context?",
+          "reference": "1 Kings 8:27"
+        },
+        "source": {
+          "difficulty": "expert",
+          "editorialVersion": "2.3.0",
+          "interaction": "choice",
+          "legacyQualityScore": null,
+          "legacyReviewStatus": "approved",
+          "type": "context"
+        },
+        "variant": {
+          "exactDuplicate": false,
+          "parentId": "1-kings-8-27-context",
+          "role": "unassigned",
+          "status": "unreviewed"
+        }
+      },
+      "successorRegistry": {
+        "active": true,
+        "canonical": {
+          "family": {
+            "source": "type-fallback",
+            "status": "unreviewed",
+            "value": "context"
+          },
+          "primaryBook": {
+            "source": "reference-derived",
+            "status": "unreviewed",
+            "value": "1 Kings"
+          },
+          "skill": {
+            "source": "legacy",
+            "status": "unreviewed",
+            "value": "context"
+          }
+        },
+        "defects": {
+          "pendingFamilies": [
+            "L",
+            "D",
+            "A",
+            "B",
+            "T",
+            "R",
+            "F",
+            "S",
+            "M",
+            "U",
+            "C"
+          ],
+          "resolved": [
+            "L1",
+            "L10",
+            "L12",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6",
+            "L7",
+            "D1",
+            "D2",
+            "D3",
+            "D6",
+            "D7",
+            "D8",
+            "D10",
+            "D11",
+            "D12",
+            "D13"
+          ],
+          "seeded": [
+            "L14",
+            "D14",
+            "C2"
+          ]
+        },
+        "difficulty": {
+          "currentTier": "expert",
+          "dimensions": {
+            "chronologySpan": null,
+            "contextSupport": null,
+            "distractorCloseness": null,
+            "empiricalCalibration": null,
+            "familiarity": null,
+            "inferenceSteps": null,
+            "interpretiveLoad": null,
+            "recallSpecificity": null,
+            "synthesisLoad": null
+          },
+          "finalTier": null,
+          "measuredLoad": {
+            "displayWords": 6,
+            "explanationWords": 32,
+            "interactionComponents": 4,
+            "maxOptionWords": 11,
+            "stemWords": 8
+          },
+          "status": "unreviewed"
+        },
+        "evidence": {
+          "adequacy": "unreviewed",
+          "hasEvidence": true,
+          "references": [
+            "1 Kings 8:27"
+          ],
+          "sourceTextFidelity": "unreviewed",
+          "status": "unreviewed",
+          "supportClass": "unclassified"
+        },
+        "identity": {
+          "answerTargetId": "3e3bdbbe5cba778c",
+          "crossTierExactDuplicate": false,
+          "exactGroupSize": 1,
+          "exactParentId": "1-kings-8-27-context",
+          "exactSurfaceId": "e9a47411aa8e6597",
+          "knowledgeGroupId": "bda1eb7516641ee3",
+          "knowledgeGroupSize": 4,
+          "knowledgeParentId": "1-kings-8-27-book",
+          "referenceAnswerId": "0ae6734ef38616a8",
+          "sourceHash": "9711f8fd7ea586a3"
+        },
+        "itemId": "1-kings-8-27-context",
+        "modeEligibility": {
+          "allow": [],
+          "deny": [],
+          "legacyHints": [],
+          "pending": [
+            "quick",
+            "focusedPlay",
+            "studyPractice",
+            "collections",
+            "bookPractice",
+            "readerPractice",
+            "deepPassage",
+            "focusedTest",
+            "learningPath",
+            "finalTest",
+            "adaptiveReview",
+            "dueReview",
+            "mistakeReview",
+            "campaign",
+            "recallTrial",
+            "expedition",
+            "duel",
+            "daily",
+            "weekly"
+          ],
+          "status": "unreviewed"
+        },
+        "registryVersion": "4.1.0-qb0",
+        "review": {
+          "disposition": "edit",
+          "pendingDimensions": [
+            "biblicalValidity",
+            "testIntegrity",
+            "distractors",
+            "ambiguity",
+            "difficulty",
+            "redundancy",
+            "feedback",
+            "structuredIntegrity",
+            "modeEligibility",
+            "runtimeUsability",
+            "adversarial"
+          ],
+          "status": "in-review",
+          "trustedCertified": false
+        },
+        "roundIsolation": {
+          "answerTargetId": "3e3bdbbe5cba778c",
+          "referenceAnswerId": "0ae6734ef38616a8",
+          "semanticGroupId": "bda1eb7516641ee3",
+          "status": "unreviewed",
+          "surfaceGroupId": "e9a47411aa8e6597"
+        },
+        "snapshot": {
+          "answer": "Solomon prays at the dedication of the temple",
+          "curriculumNodeIds": [],
+          "display": "Cited reference: 1 Kings 8:27",
+          "knowledgeIds": [
+            "passage.1-kings-8-27"
+          ],
+          "options": [
+            "Rehoboam refuses to ease the people’s burdens",
+            "Solomon asks God for wisdom at the beginning of his reign.",
+            "Elijah confronts Israel on Mount Carmel",
+            "Solomon prays at the dedication of the temple"
+          ],
+          "prompt": "Which situation best describes this passage’s immediate context?",
+          "reference": "1 Kings 8:27"
+        },
+        "source": {
+          "difficulty": "expert",
+          "editorialVersion": "2.3.0",
+          "interaction": "choice",
+          "legacyQualityScore": null,
+          "legacyReviewStatus": "approved",
+          "type": "context"
+        },
+        "variant": {
+          "exactDuplicate": false,
+          "parentId": "1-kings-8-27-context",
+          "role": "unassigned",
+          "status": "unreviewed"
+        }
+      }
+    },
+    {
+      "id": "1-kings-8-61-context",
+      "predecessorFingerprint": "a7ca5c0526c47044fb45a28dea52b7747b57f529ecb5247eae296b7fc1bb17a9",
+      "successorFingerprint": "a1499c4ebb66b08405546826015964feb40e26831a88706798dc199f51839891",
+      "archiveSnapshotSha256": "51f6582d53c0d7da8b5fbf591e8aff67e12a671f6f181bd5cfa6831323500c2a",
+      "predecessorQuestion": {
+        "bibleReference": "1 Kings 8:61",
+        "book": "1 Kings",
+        "canonicalId": "1-kings-8-61-context",
+        "category": "passages",
+        "collections": [],
+        "contentSha256": "9830d9c989b4c83661657039d9cccd495f00e3f9ff65f71b0d8ed02dfb0ae39f",
+        "correctAnswer": "Temple construction and dedication",
+        "difficulty": "Advanced",
+        "distractors": [
+          "Solomon prays at the dedication of the temple",
+          "Solomon begins his temple-dedication prayer.",
+          "Elijah confronts Israel on Mount Carmel"
+        ],
+        "evidence": [
+          "1 Kings 8:61",
+          "1 Kings 5-8"
+        ],
+        "explanation": "1 Kings 8:61 belongs within Temple construction and dedication (1 Kings 5-8). Solomon exhorts Israel at the temple dedication.",
+        "idSource": "runtime:itemId",
+        "interactionType": "choice",
+        "memoryCue": "Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.",
+        "modeEligibility": [
+          "quick",
+          "focusedPlay",
+          "studyPractice",
+          "collections",
+          "bookPractice",
+          "readerPractice",
+          "deepPassage",
+          "focusedTest",
+          "learningPath",
+          "finalTest",
+          "adaptiveReview",
+          "dueReview",
+          "mistakeReview",
+          "campaign",
+          "recallTrial",
+          "expedition",
+          "duel",
+          "daily",
+          "weekly"
+        ],
+        "options": [
+          "Temple construction and dedication",
+          "Solomon prays at the dedication of the temple",
+          "Solomon begins his temple-dedication prayer.",
+          "Elijah confronts Israel on Mount Carmel"
+        ],
+        "qualityMetadata": {
+          "distractorRationales": [
+            "Compassion, faith, and identity is a real biblical context, but it is not the larger literary setting of 1 Kings 8:61.",
+            "Israel’s social and moral collapse is a real biblical context, but it is not the larger literary setting of 1 Kings 8:61.",
+            "Wall rebuilding amid opposition is a real biblical context, but it is not the larger literary setting of 1 Kings 8:61."
+          ],
+          "learningObjective": "Place the Key Passage within the larger story, argument, poem, prophecy, or discourse that gives it meaning.",
+          "qb5Difficulty": {
+            "difficultySignal": 62,
+            "dimensions": {
+              "chronologySpan": "none",
+              "contextSupport": "reference-plus-cue",
+              "distractorSimilarity": "same-story",
+              "inferenceSteps": 2,
+              "interpretationLoad": "book-level",
+              "obscurity": "book-specific",
+              "recallSpecificity": "argument-role"
+            },
+            "exactDuplicateGroupSize": 1,
+            "finalTier": "advanced",
+            "interactionBurden": 10,
+            "originalTier": "advanced",
+            "readingBurden": 8,
+            "reasons": [
+              "task:context",
+              "less-familiar content",
+              "context/synthesis depth"
+            ],
+            "version": "4.1.0-qb5",
+            "withinTierDifficulty": 11
+          },
+          "qb6Active": true,
+          "qb6CanonicalId": "1-kings-8-61-context",
+          "qb6Disposition": "active",
+          "qb6RedundancyReasons": [],
+          "qb6VariantRole": "context",
+          "qb6Version": "4.1.0-qb6",
+          "qb7Feedback": {
+            "answer": "Temple construction and dedication",
+            "distractors": [
+              {
+                "kind": "cross-question-evidence",
+                "option": "Solomon prays at the dedication of the temple",
+                "sourceId": "1-kings-8-27-context",
+                "sourceReference": "1 Kings 8:27",
+                "text": "“Solomon prays at the dedication of the temple” fits 1 Kings 8:27; this question is anchored in 1 Kings 8:61, where the reviewed answer is “Temple construction and dedication”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "Solomon begins his temple-dedication prayer.",
+                "sourceId": "1-kings-8-23-context",
+                "sourceReference": "1 Kings 8:23",
+                "text": "“Solomon begins his temple-dedication prayer.” fits 1 Kings 8:23; this question is anchored in 1 Kings 8:61, where the reviewed answer is “Temple construction and dedication”."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "Elijah confronts Israel on Mount Carmel",
+                "sourceId": "1-kings-18-21-context",
+                "sourceReference": "1 Kings 18:21",
+                "text": "“Elijah confronts Israel on Mount Carmel” fits 1 Kings 18:21; this question is anchored in 1 Kings 8:61, where the reviewed answer is “Temple construction and dedication”."
+              }
+            ],
+            "evidence": [
+              "1 Kings 8:61",
+              "1 Kings 5-8"
+            ],
+            "learningFocus": "Place the Key Passage within the larger story, argument, poem, prophecy, or discourse that gives it meaning.",
+            "memoryCue": "Ask what happens immediately around the cited text and what role this moment plays in the surrounding story or argument.",
+            "questionId": "1-kings-8-61-context",
+            "selectedRationale": null,
+            "version": "4.1.0-qb7",
+            "whyCorrect": "1 Kings 8:61 belongs within Temple construction and dedication (1 Kings 5-8). Solomon exhorts Israel at the temple dedication."
+          },
+          "qualityFlags": [],
+          "registryDifficulty": {
+            "currentTier": "advanced",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 6,
+              "explanationWords": 21,
+              "interactionComponents": 4,
+              "maxOptionWords": 8,
+              "stemWords": 9
+            },
+            "status": "unreviewed"
+          },
+          "registryReview": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "reviewStatus": "approved"
+        },
+        "question": "Which larger literary context best frames this Key Passage?",
+        "questionType": "context",
+        "registryMetadata": {
+          "canonicalId": null,
+          "difficulty": {
+            "currentTier": "advanced",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 6,
+              "explanationWords": 21,
+              "interactionComponents": 4,
+              "maxOptionWords": 8,
+              "stemWords": 9
+            },
+            "status": "unreviewed"
+          },
+          "disposition": null,
+          "evidence": {
+            "adequacy": "traceable",
+            "hasEvidence": true,
+            "references": [
+              "1 Kings 8:61",
+              "1 Kings 5-8"
+            ],
+            "sourceTextFidelity": "unchanged",
+            "status": "in-review",
+            "supportClass": "explicit-explanation-support"
+          },
+          "modeEligibility": {
+            "allow": [],
+            "deny": [],
+            "legacyHints": [],
+            "pending": [
+              "quick",
+              "focusedPlay",
+              "studyPractice",
+              "collections",
+              "bookPractice",
+              "readerPractice",
+              "deepPassage",
+              "focusedTest",
+              "learningPath",
+              "finalTest",
+              "adaptiveReview",
+              "dueReview",
+              "mistakeReview",
+              "campaign",
+              "recallTrial",
+              "expedition",
+              "duel",
+              "daily",
+              "weekly"
+            ],
+            "status": "unreviewed"
+          },
+          "review": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "sourceId": null
+        },
+        "sourceIndex": 1154,
+        "sourceKeys": [
+          "answer",
+          "biblicalEvidence",
+          "difficulty",
+          "display",
+          "distractorPackId",
+          "distractorRationales",
+          "domain",
+          "editorialVersion",
+          "explanation",
+          "hint",
+          "itemId",
+          "knowledgeIds",
+          "label",
+          "learningObjective",
+          "options",
+          "prompt",
+          "qb5Difficulty",
+          "qb6Active",
+          "qb6CanonicalId",
+          "qb6Disposition",
+          "qb6RedundancyReasons",
+          "qb6VariantRole",
+          "qb6Version",
+          "qualityFlags",
+          "reference",
+          "reviewStatus",
+          "skill",
+          "task",
+          "tier",
+          "type",
+          "verse"
+        ],
+        "sourceOrigin": "TBC_QB6.activeQuestions()",
+        "sourceQuestionId": null,
+        "structured": false
+      },
+      "successorQuestion": {
+        "bibleReference": "1 Kings 8:61",
+        "book": "1 Kings",
+        "canonicalId": "1-kings-8-61-context",
+        "category": "passages",
+        "collections": [],
+        "contentSha256": "0528c7a6cbe1d09e22cf835f0338997e6a3912fb43af60e7c7a6baae8d026efa",
+        "correctAnswer": "Temple construction and dedication",
+        "difficulty": "Advanced",
+        "distractors": [
+          "The kingdom divides under Rehoboam",
+          "Jeroboam establishes calf worship at Bethel and Dan",
+          "Elijah confronts Israel on Mount Carmel"
+        ],
+        "evidence": [
+          "1 Kings 8:61",
+          "1 Kings 5-8"
+        ],
+        "explanation": "1 Kings 8:61 belongs within Temple construction and dedication (1 Kings 5-8). Solomon exhorts Israel at the temple dedication.",
+        "idSource": "runtime:itemId",
+        "interactionType": "choice",
+        "memoryCue": "Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.",
+        "modeEligibility": [
+          "quick",
+          "focusedPlay",
+          "studyPractice",
+          "collections",
+          "bookPractice",
+          "readerPractice",
+          "deepPassage",
+          "focusedTest",
+          "learningPath",
+          "finalTest",
+          "adaptiveReview",
+          "dueReview",
+          "mistakeReview",
+          "campaign",
+          "recallTrial",
+          "expedition",
+          "duel",
+          "daily",
+          "weekly"
+        ],
+        "options": [
+          "Temple construction and dedication",
+          "The kingdom divides under Rehoboam",
+          "Jeroboam establishes calf worship at Bethel and Dan",
+          "Elijah confronts Israel on Mount Carmel"
+        ],
+        "qualityMetadata": {
+          "distractorRationales": [
+            "Compassion, faith, and identity is a real biblical context, but it is not the larger literary setting of 1 Kings 8:61.",
+            "Israel’s social and moral collapse is a real biblical context, but it is not the larger literary setting of 1 Kings 8:61.",
+            "Wall rebuilding amid opposition is a real biblical context, but it is not the larger literary setting of 1 Kings 8:61."
+          ],
+          "learningObjective": "Place the Key Passage within the larger story, argument, poem, prophecy, or discourse that gives it meaning.",
+          "qb5Difficulty": {
+            "difficultySignal": 62,
+            "dimensions": {
+              "chronologySpan": "none",
+              "contextSupport": "reference-plus-cue",
+              "distractorSimilarity": "same-story",
+              "inferenceSteps": 2,
+              "interpretationLoad": "book-level",
+              "obscurity": "book-specific",
+              "recallSpecificity": "argument-role"
+            },
+            "exactDuplicateGroupSize": 1,
+            "finalTier": "advanced",
+            "interactionBurden": 10,
+            "originalTier": "advanced",
+            "readingBurden": 8,
+            "reasons": [
+              "task:context",
+              "less-familiar content",
+              "context/synthesis depth"
+            ],
+            "version": "4.1.0-qb5",
+            "withinTierDifficulty": 11
+          },
+          "qb6Active": true,
+          "qb6CanonicalId": "1-kings-8-61-context",
+          "qb6Disposition": "active",
+          "qb6RedundancyReasons": [],
+          "qb6VariantRole": "context",
+          "qb6Version": "4.1.0-qb6",
+          "qb7Feedback": {
+            "answer": "Temple construction and dedication",
+            "distractors": [
+              {
+                "kind": "contextual-fallback",
+                "option": "The kingdom divides under Rehoboam",
+                "text": "“The kingdom divides under Rehoboam” does not fit this question’s specific clue at 1 Kings 8:61. The reviewed answer is “Temple construction and dedication”; re-check how the cited source connects to the prompt."
+              },
+              {
+                "kind": "contextual-fallback",
+                "option": "Jeroboam establishes calf worship at Bethel and Dan",
+                "text": "“Jeroboam establishes calf worship at Bethel and Dan” does not fit this question’s specific clue at 1 Kings 8:61. The reviewed answer is “Temple construction and dedication”; re-check how the cited source connects to the prompt."
+              },
+              {
+                "kind": "cross-question-evidence",
+                "option": "Elijah confronts Israel on Mount Carmel",
+                "sourceId": "1-kings-18-21-context",
+                "sourceReference": "1 Kings 18:21",
+                "text": "“Elijah confronts Israel on Mount Carmel” fits 1 Kings 18:21; this question is anchored in 1 Kings 8:61, where the reviewed answer is “Temple construction and dedication”."
+              }
+            ],
+            "evidence": [
+              "1 Kings 8:61",
+              "1 Kings 5-8"
+            ],
+            "learningFocus": "Place the Key Passage within the larger story, argument, poem, prophecy, or discourse that gives it meaning.",
+            "memoryCue": "Ask what happens immediately around the cited text and what role this moment plays in the surrounding story or argument.",
+            "questionId": "1-kings-8-61-context",
+            "selectedRationale": null,
+            "version": "4.1.0-qb7",
+            "whyCorrect": "1 Kings 8:61 belongs within Temple construction and dedication (1 Kings 5-8). Solomon exhorts Israel at the temple dedication."
+          },
+          "qualityFlags": [],
+          "registryDifficulty": {
+            "currentTier": "advanced",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 6,
+              "explanationWords": 21,
+              "interactionComponents": 4,
+              "maxOptionWords": 8,
+              "stemWords": 9
+            },
+            "status": "unreviewed"
+          },
+          "registryReview": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "reviewStatus": "approved"
+        },
+        "question": "Which larger literary context best frames this Key Passage?",
+        "questionType": "context",
+        "registryMetadata": {
+          "canonicalId": null,
+          "difficulty": {
+            "currentTier": "advanced",
+            "dimensions": {
+              "chronologySpan": null,
+              "contextSupport": null,
+              "distractorCloseness": null,
+              "empiricalCalibration": null,
+              "familiarity": null,
+              "inferenceSteps": null,
+              "interpretiveLoad": null,
+              "recallSpecificity": null,
+              "synthesisLoad": null
+            },
+            "finalTier": null,
+            "measuredLoad": {
+              "displayWords": 6,
+              "explanationWords": 21,
+              "interactionComponents": 4,
+              "maxOptionWords": 8,
+              "stemWords": 9
+            },
+            "status": "unreviewed"
+          },
+          "disposition": null,
+          "evidence": {
+            "adequacy": "traceable",
+            "hasEvidence": true,
+            "references": [
+              "1 Kings 8:61",
+              "1 Kings 5-8"
+            ],
+            "sourceTextFidelity": "unchanged",
+            "status": "in-review",
+            "supportClass": "explicit-explanation-support"
+          },
+          "modeEligibility": {
+            "allow": [],
+            "deny": [],
+            "legacyHints": [],
+            "pending": [
+              "quick",
+              "focusedPlay",
+              "studyPractice",
+              "collections",
+              "bookPractice",
+              "readerPractice",
+              "deepPassage",
+              "focusedTest",
+              "learningPath",
+              "finalTest",
+              "adaptiveReview",
+              "dueReview",
+              "mistakeReview",
+              "campaign",
+              "recallTrial",
+              "expedition",
+              "duel",
+              "daily",
+              "weekly"
+            ],
+            "status": "unreviewed"
+          },
+          "review": {
+            "disposition": "edit",
+            "pendingDimensions": [
+              "biblicalValidity",
+              "testIntegrity",
+              "distractors",
+              "ambiguity",
+              "difficulty",
+              "redundancy",
+              "feedback",
+              "structuredIntegrity",
+              "modeEligibility",
+              "runtimeUsability",
+              "adversarial"
+            ],
+            "status": "in-review",
+            "trustedCertified": false
+          },
+          "sourceId": null
+        },
+        "sourceIndex": 1154,
+        "sourceKeys": [
+          "answer",
+          "biblicalEvidence",
+          "difficulty",
+          "display",
+          "distractorPackId",
+          "distractorRationales",
+          "domain",
+          "editorialVersion",
+          "explanation",
+          "hint",
+          "itemId",
+          "knowledgeIds",
+          "label",
+          "learningObjective",
+          "options",
+          "prompt",
+          "qb5Difficulty",
+          "qb6Active",
+          "qb6CanonicalId",
+          "qb6Disposition",
+          "qb6RedundancyReasons",
+          "qb6VariantRole",
+          "qb6Version",
+          "qualityFlags",
+          "reference",
+          "reviewStatus",
+          "skill",
+          "task",
+          "tier",
+          "type",
+          "verse"
+        ],
+        "sourceOrigin": "TBC_QB6.activeQuestions()",
+        "sourceQuestionId": null,
+        "structured": false
+      },
+      "predecessorRegistry": {
+        "active": true,
+        "canonical": {
+          "family": {
+            "source": "type-fallback",
+            "status": "unreviewed",
+            "value": "context"
+          },
+          "primaryBook": {
+            "source": "reference-derived",
+            "status": "unreviewed",
+            "value": "1 Kings"
+          },
+          "skill": {
+            "source": "legacy",
+            "status": "unreviewed",
+            "value": "context"
+          }
+        },
+        "defects": {
+          "pendingFamilies": [
+            "L",
+            "D",
+            "A",
+            "B",
+            "T",
+            "R",
+            "F",
+            "S",
+            "M",
+            "U",
+            "C"
+          ],
+          "resolved": [
+            "A25",
+            "A6",
+            "D1",
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D2",
+            "D3",
+            "D6",
+            "D7",
+            "D8"
+          ],
+          "seeded": [
+            "A14",
+            "C2",
+            "D14"
+          ]
+        },
+        "difficulty": {
+          "currentTier": "advanced",
+          "dimensions": {
+            "chronologySpan": null,
+            "contextSupport": null,
+            "distractorCloseness": null,
+            "empiricalCalibration": null,
+            "familiarity": null,
+            "inferenceSteps": null,
+            "interpretiveLoad": null,
+            "recallSpecificity": null,
+            "synthesisLoad": null
+          },
+          "finalTier": null,
+          "measuredLoad": {
+            "displayWords": 6,
+            "explanationWords": 21,
+            "interactionComponents": 4,
+            "maxOptionWords": 8,
+            "stemWords": 9
+          },
+          "status": "unreviewed"
+        },
+        "evidence": {
+          "adequacy": "traceable",
+          "hasEvidence": true,
+          "references": [
+            "1 Kings 8:61",
+            "1 Kings 5-8"
+          ],
+          "sourceTextFidelity": "unchanged",
+          "status": "in-review",
+          "supportClass": "explicit-explanation-support"
+        },
+        "identity": {
+          "answerTargetId": "74b0cc2ab679b84c",
+          "crossTierExactDuplicate": false,
+          "exactGroupSize": 1,
+          "exactParentId": "1-kings-8-61-context",
+          "exactSurfaceId": "6b4cf7fb009fd769",
+          "knowledgeGroupId": "4fabcba7c58f46f1",
+          "knowledgeGroupSize": 2,
+          "knowledgeParentId": "1-kings-8-61-context",
+          "referenceAnswerId": "678611a4cc791c8e",
+          "sourceHash": "c5ea4be2429e5448"
+        },
+        "itemId": "1-kings-8-61-context",
+        "modeEligibility": {
+          "allow": [],
+          "deny": [],
+          "legacyHints": [],
+          "pending": [
+            "quick",
+            "focusedPlay",
+            "studyPractice",
+            "collections",
+            "bookPractice",
+            "readerPractice",
+            "deepPassage",
+            "focusedTest",
+            "learningPath",
+            "finalTest",
+            "adaptiveReview",
+            "dueReview",
+            "mistakeReview",
+            "campaign",
+            "recallTrial",
+            "expedition",
+            "duel",
+            "daily",
+            "weekly"
+          ],
+          "status": "unreviewed"
+        },
+        "registryVersion": "4.1.0-qb0",
+        "review": {
+          "disposition": "edit",
+          "pendingDimensions": [
+            "biblicalValidity",
+            "testIntegrity",
+            "distractors",
+            "ambiguity",
+            "difficulty",
+            "redundancy",
+            "feedback",
+            "structuredIntegrity",
+            "modeEligibility",
+            "runtimeUsability",
+            "adversarial"
+          ],
+          "status": "in-review",
+          "trustedCertified": false
+        },
+        "roundIsolation": {
+          "answerTargetId": "74b0cc2ab679b84c",
+          "referenceAnswerId": "678611a4cc791c8e",
+          "semanticGroupId": "4fabcba7c58f46f1",
+          "status": "unreviewed",
+          "surfaceGroupId": "6b4cf7fb009fd769"
+        },
+        "snapshot": {
+          "answer": "Temple construction and dedication",
+          "curriculumNodeIds": [],
+          "display": "Key Passage: 1 Kings 8:61",
+          "knowledgeIds": [
+            "passage.1-kings-8-61"
+          ],
+          "options": [
+            "Temple construction and dedication",
+            "Solomon prays at the dedication of the temple",
+            "Solomon begins his temple-dedication prayer.",
+            "Elijah confronts Israel on Mount Carmel"
+          ],
+          "prompt": "Which larger literary context best frames this Key Passage?",
+          "reference": "1 Kings 8:61"
+        },
+        "source": {
+          "difficulty": "advanced",
+          "editorialVersion": "3.14.0",
+          "interaction": "choice",
+          "legacyQualityScore": null,
+          "legacyReviewStatus": "approved",
+          "type": "context"
+        },
+        "variant": {
+          "exactDuplicate": false,
+          "parentId": "1-kings-8-61-context",
+          "role": "unassigned",
+          "status": "unreviewed"
+        }
+      },
+      "successorRegistry": {
+        "active": true,
+        "canonical": {
+          "family": {
+            "source": "type-fallback",
+            "status": "unreviewed",
+            "value": "context"
+          },
+          "primaryBook": {
+            "source": "reference-derived",
+            "status": "unreviewed",
+            "value": "1 Kings"
+          },
+          "skill": {
+            "source": "legacy",
+            "status": "unreviewed",
+            "value": "context"
+          }
+        },
+        "defects": {
+          "pendingFamilies": [
+            "L",
+            "D",
+            "A",
+            "B",
+            "T",
+            "R",
+            "F",
+            "S",
+            "M",
+            "U",
+            "C"
+          ],
+          "resolved": [
+            "A25",
+            "A6",
+            "D1",
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D2",
+            "D3",
+            "D6",
+            "D7",
+            "D8"
+          ],
+          "seeded": [
+            "A14",
+            "C2",
+            "D14"
+          ]
+        },
+        "difficulty": {
+          "currentTier": "advanced",
+          "dimensions": {
+            "chronologySpan": null,
+            "contextSupport": null,
+            "distractorCloseness": null,
+            "empiricalCalibration": null,
+            "familiarity": null,
+            "inferenceSteps": null,
+            "interpretiveLoad": null,
+            "recallSpecificity": null,
+            "synthesisLoad": null
+          },
+          "finalTier": null,
+          "measuredLoad": {
+            "displayWords": 6,
+            "explanationWords": 21,
+            "interactionComponents": 4,
+            "maxOptionWords": 8,
+            "stemWords": 9
+          },
+          "status": "unreviewed"
+        },
+        "evidence": {
+          "adequacy": "traceable",
+          "hasEvidence": true,
+          "references": [
+            "1 Kings 8:61",
+            "1 Kings 5-8"
+          ],
+          "sourceTextFidelity": "unchanged",
+          "status": "in-review",
+          "supportClass": "explicit-explanation-support"
+        },
+        "identity": {
+          "answerTargetId": "74b0cc2ab679b84c",
+          "crossTierExactDuplicate": false,
+          "exactGroupSize": 1,
+          "exactParentId": "1-kings-8-61-context",
+          "exactSurfaceId": "c681461fc85cd431",
+          "knowledgeGroupId": "4fabcba7c58f46f1",
+          "knowledgeGroupSize": 2,
+          "knowledgeParentId": "1-kings-8-61-context",
+          "referenceAnswerId": "678611a4cc791c8e",
+          "sourceHash": "2e60010e62b0bd20"
+        },
+        "itemId": "1-kings-8-61-context",
+        "modeEligibility": {
+          "allow": [],
+          "deny": [],
+          "legacyHints": [],
+          "pending": [
+            "quick",
+            "focusedPlay",
+            "studyPractice",
+            "collections",
+            "bookPractice",
+            "readerPractice",
+            "deepPassage",
+            "focusedTest",
+            "learningPath",
+            "finalTest",
+            "adaptiveReview",
+            "dueReview",
+            "mistakeReview",
+            "campaign",
+            "recallTrial",
+            "expedition",
+            "duel",
+            "daily",
+            "weekly"
+          ],
+          "status": "unreviewed"
+        },
+        "registryVersion": "4.1.0-qb0",
+        "review": {
+          "disposition": "edit",
+          "pendingDimensions": [
+            "biblicalValidity",
+            "testIntegrity",
+            "distractors",
+            "ambiguity",
+            "difficulty",
+            "redundancy",
+            "feedback",
+            "structuredIntegrity",
+            "modeEligibility",
+            "runtimeUsability",
+            "adversarial"
+          ],
+          "status": "in-review",
+          "trustedCertified": false
+        },
+        "roundIsolation": {
+          "answerTargetId": "74b0cc2ab679b84c",
+          "referenceAnswerId": "678611a4cc791c8e",
+          "semanticGroupId": "4fabcba7c58f46f1",
+          "status": "unreviewed",
+          "surfaceGroupId": "c681461fc85cd431"
+        },
+        "snapshot": {
+          "answer": "Temple construction and dedication",
+          "curriculumNodeIds": [],
+          "display": "Key Passage: 1 Kings 8:61",
+          "knowledgeIds": [
+            "passage.1-kings-8-61"
+          ],
+          "options": [
+            "Temple construction and dedication",
+            "The kingdom divides under Rehoboam",
+            "Jeroboam establishes calf worship at Bethel and Dan",
+            "Elijah confronts Israel on Mount Carmel"
+          ],
+          "prompt": "Which larger literary context best frames this Key Passage?",
+          "reference": "1 Kings 8:61"
+        },
+        "source": {
+          "difficulty": "advanced",
+          "editorialVersion": "3.14.0",
+          "interaction": "choice",
+          "legacyQualityScore": null,
+          "legacyReviewStatus": "approved",
+          "type": "context"
+        },
+        "variant": {
+          "exactDuplicate": false,
+          "parentId": "1-kings-8-61-context",
+          "role": "unassigned",
+          "status": "unreviewed"
+        }
+      }
+    }
+  ],
+  "edits": [
+    {
+      "offset": 400345,
+      "from": "QuestionSource(x.itemId",
+      "to": "SavedQuestionSource(x"
+    },
+    {
+      "offset": 400851,
+      "from": "q={...x,",
+      "to": "historical=v25HistoricalQuestion(x),q={...historical,...(historical?v25HistoricalState(x):x),verse:historical?.verse||"
+    },
+    {
+      "offset": 550163,
+      "from": "QuestionSource(q.itemId",
+      "to": "SavedQuestionSource(q"
+    },
+    {
+      "offset": 594775,
+      "from": ")return;const current=v25QuestionSource(saved.itemI",
+      "to": "||v25HistoricalQuestion(saved))return;const current=v25SavedQuestionSource(save"
+    },
+    {
+      "offset": 595585,
+      "from": "QuestionSource(q.itemId",
+      "to": "SavedQuestionSource(q"
+    },
+    {
+      "offset": 739245,
+      "from": "",
+      "to": "\n/* TBC QUESTION REVISIONS CORE */\n/* Embedded verbatim in index.html. No network, storage, registry or selection access. */\nfunction tbcCreateQuestionRevisions(archive) {\n  'use strict';\n  const fields = ['itemId', 'verseId', 'type', 'label', 'prompt', 'display', 'answer',\n    'options', 'explanation', 'note', 'skill', 'hint', 'domain', 'task', 'knowledgeIds',\n    'tier', 'reference', 'supportingReference', 'difficulty', 'interaction', 'family',\n    'importance', 'whyItMatters', 'solutionLabel', 'sequenceItems', 'matchPairs',\n    'insertionItem', 'insertionAnchors'];\n  // v21Evidence is mutable mastery-before/after progress, not Scripture evidence.\n  // Its existing v213 validator still sanitizes it alongside answer state.\n  const copy = value => JSON.parse(JSON.stringify(value));\n  function stable(value) {\n    if (Array.isArray(value)) return value.map(stable);\n    if (value && typeof value === 'object') return Object.fromEntries(Object.keys(value).sort().map(k => [k, stable(value[k])]));\n    return value;\n  }\n  // Synchronous SHA-256 (FIPS 180-4) keeps the existing synchronous hydrate API.\n  // Independently checked against node:crypto, including UTF-8 and multi-block inputs.\n  function sha256(text) {\n    const bytes = new TextEncoder().encode(text), size = Math.ceil((bytes.length + 9) / 64) * 64;\n    const buffer = new Uint8Array(size); buffer.set(bytes); buffer[bytes.length] = 128;\n    const view = new DataView(buffer.buffer);\n    view.setUint32(size - 8, Math.floor(bytes.length / 0x20000000));\n    view.setUint32(size - 4, bytes.length * 8);\n    const h = [0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];\n    const k = [0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,\n      0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,\n      0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,\n      0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,\n      0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,\n      0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,\n      0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,\n      0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];\n    const r = (x, n) => (x >>> n) | (x << (32 - n)), w = new Uint32Array(64);\n    for (let offset = 0; offset < size; offset += 64) {\n      for (let i = 0; i < 16; i++) w[i] = view.getUint32(offset + i * 4);\n      for (let i = 16; i < 64; i++) {\n        const x = w[i - 15], y = w[i - 2];\n        w[i] = w[i - 16] + (r(x,7)^r(x,18)^(x>>>3)) + w[i - 7] + (r(y,17)^r(y,19)^(y>>>10));\n      }\n      let [a,b,c,d,e,f,g,j] = h;\n      for (let i = 0; i < 64; i++) {\n        const t1 = (j + (r(e,6)^r(e,11)^r(e,25)) + ((e&f)^((~e)&g)) + k[i] + w[i]) | 0;\n        const t2 = ((r(a,2)^r(a,13)^r(a,22)) + ((a&b)^(a&c)^(b&c))) | 0;\n        j=g;g=f;f=e;e=(d+t1)|0;d=c;c=b;b=a;a=(t1+t2)|0;\n      }\n      [a,b,c,d,e,f,g,j].forEach((x,i) => { h[i] = (h[i] + x) >>> 0; });\n    }\n    return h.map(x => x.toString(16).padStart(8,'0')).join('');\n  }\n  function identity(question) {\n    if (!question || typeof question !== 'object' || Array.isArray(question)) throw Error('Invalid revision question');\n    const q = { ...question, verseId: question.verseId ?? question.verse?.id ?? null };\n    return Object.fromEntries(fields.map(key => [key, key === 'options' && Array.isArray(q[key]) ? q[key].slice().sort() : q[key] ?? null]));\n  }\n  const fingerprint = q => sha256(JSON.stringify(stable(identity(q))));\n  const snapshotHash = q => sha256(JSON.stringify(stable(q)));\n  function validate(input) {\n    if (!input || input.version !== 1 || !Array.isArray(input.records)) throw Error('Invalid revision archive version/records');\n    const keys = new Set();\n    for (const row of input.records) {\n      if (!row || typeof row.id !== 'string' || !row.id || !/^[0-9a-f]{40}$/.test(row.predecessor || '') ||\n          !/^[0-9a-f]{64}$/.test(row.fingerprint || '') || !/^[0-9a-f]{64}$/.test(row.snapshotSha256 || '')) throw Error('Malformed revision record');\n      const q = row.snapshot, key = row.id + ':' + row.fingerprint;\n      if (keys.has(key)) throw Error('Duplicate revision key');\n      keys.add(key);\n      if (!q || q.itemId !== row.id || q.qb6CanonicalId !== row.id || q.qb6Active !== true ||\n          !['beginner','easy','standard','advanced','expert'].includes(q.difficulty) ||\n          ['type','label','prompt','display','answer','explanation'].some(k => typeof q[k] !== 'string' || !q[k]) ||\n          !Array.isArray(q.options) || q.options.length < 2 || q.options.some(x => typeof x !== 'string' || !x) ||\n          new Set(q.options).size !== q.options.length || !q.options.includes(q.answer) ||\n          fingerprint(q) !== row.fingerprint || snapshotHash(q) !== row.snapshotSha256) throw Error('Invalid revision snapshot');\n    }\n    return true;\n  }\n  // A malformed embedded allowlist disables historical resolution, never startup\n  // or ordinary current-question validation. The offline validator reports it.\n  let records = new Map(), error = null;\n  try {\n    validate(archive);\n    records = new Map(archive.records.map(row => [row.id + ':' + row.fingerprint, copy(row.snapshot)]));\n  } catch (e) { error = e.message; }\n  function historical(saved) {\n    if (!records.size) return null;\n    try { const q = records.get(saved.itemId + ':' + fingerprint(saved)); return q ? copy(q) : null; }\n    catch { return null; }\n  }\n  return Object.freeze({ version: 1, fingerprint, snapshotHash, identity, sha256, validate, historical, error });\n}\nif (typeof module !== 'undefined' && module.exports) module.exports = tbcCreateQuestionRevisions;\n\n/* TBC QUESTION REVISIONS DATA */\nconst TBC_QUESTION_REVISION_ARCHIVE = {\"version\":1,\"records\":[{\"id\":\"1-chronicles-16-11-context\",\"fingerprint\":\"2442dadbfa4301d4fee93f43dc049211108281e1b8282b9923ecfd895b235aad\",\"snapshotSha256\":\"28fb9c43a2d925e1ea31275634763b9f9bb867a63a514486a209cc158d8f81f6\",\"predecessor\":\"e09333f1b532ef5fe5d3179335eafbba5e61d53b\",\"snapshot\":{\"type\":\"context\",\"label\":\"Context\",\"prompt\":\"Which situation best describes this passage’s immediate context?\",\"display\":\"Seek out the LORD and His strength; seek His face always.\",\"options\":[\"David’s song accompanies the ark’s arrival in Jerusalem.\",\"David instructs Solomon before the temple project\",\"David’s final prayer\",\"A song of thanksgiving when the ark is brought to Jerusalem.\"],\"answer\":\"A song of thanksgiving when the ark is brought to Jerusalem.\",\"explanation\":\"Immediate context: A song of thanksgiving when the ark is brought to Jerusalem. This setting clarifies the passage’s main point: God’s people are to seek the LORD continually, depending on His strength and presence.\",\"hint\":\"Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.\",\"verse\":{\"id\":\"1-chronicles-16-11\",\"book\":\"1 Chronicles\",\"ref\":\"1 Chronicles 16:11\",\"theme\":\"Seeking God\",\"cluster\":\"Prayer, Worship, and Scripture\",\"speaker\":\"David's song\",\"speakerEligible\":false,\"context\":\"A song of thanksgiving when the ark is brought to Jerusalem.\",\"teaching\":\"God’s people are to seek the LORD continually, depending on His strength and presence.\",\"popular\":2,\"collection\":\"essential\",\"source\":\"curated-500\",\"status\":\"Existing — retained and upgraded\",\"selectionReason\":\"Essential 340\",\"wordsOfJesus\":false,\"text\":\"Seek out the LORD and His strength; seek His face always.\",\"questions\":[{\"id\":\"1-chronicles-16-11-meaning\",\"type\":\"meaning\",\"label\":\"Main Idea\",\"prompt\":\"Which statement best expresses the main point of this passage?\",\"options\":[\"God’s people are to seek the LORD continually, depending on His strength and presence.\",\"God’s covenant with David establishes the royal hope ultimately fulfilled in the Messiah.\",\"God looks beyond outward appearance and knows the truth of the human heart.\",\"Covenant loyalty remains faithful in costly and uncertain circumstances.\"],\"answer\":\"God’s people are to seek the LORD continually, depending on His strength and presence.\",\"explanation\":\"Main point: God’s people are to seek the LORD continually, depending on His strength and presence. Context: A song of thanksgiving when the ark is brought to Jerusalem.\",\"skill\":\"wording\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-chronicles-16-11-context\",\"type\":\"context\",\"label\":\"Context\",\"prompt\":\"Which situation best describes this passage’s immediate context?\",\"options\":[\"A song of thanksgiving when the ark is brought to Jerusalem.\",\"David prays after the people give generously for the temple.\",\"God promises David an enduring house, kingdom, and throne.\",\"Gideon refuses hereditary kingship after Israel asks him to rule.\"],\"answer\":\"A song of thanksgiving when the ark is brought to Jerusalem.\",\"explanation\":\"Immediate context: A song of thanksgiving when the ark is brought to Jerusalem. This setting clarifies the passage’s main point: God’s people are to seek the LORD continually, depending on His strength and presence.\",\"skill\":\"context\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-chronicles-16-11-theme\",\"type\":\"theme\",\"label\":\"Theme\",\"prompt\":\"Which theme most directly captures this passage’s emphasis?\",\"options\":[\"Seeking God\",\"Peacemaking\",\"Forgiveness\",\"Deliverance\"],\"answer\":\"Seeking God\",\"explanation\":\"The central theme is Seeking God. God’s people are to seek the LORD continually, depending on His strength and presence.\",\"skill\":\"context\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-chronicles-16-11-reference\",\"type\":\"reference\",\"label\":\"Reference\",\"prompt\":\"Which Bible reference matches this teaching and setting?\",\"options\":[\"1 Chronicles 16:11\",\"1 Chronicles 16:34\",\"1 Chronicles 28:9\",\"1 Chronicles 29:11\"],\"answer\":\"1 Chronicles 16:11\",\"explanation\":\"1 Chronicles 16:11 is the matching reference. A song of thanksgiving when the ark is brought to Jerusalem.\",\"skill\":\"reference\",\"modes\":[\"quick\",\"daily\",\"journey\",\"reference\",\"review\",\"verse\"]}],\"speakerVerified\":false},\"skill\":\"context\",\"itemId\":\"1-chronicles-16-11-context\",\"domain\":\"passages\",\"task\":\"context\",\"knowledgeIds\":[\"passage.1-chronicles-16-11\"],\"reference\":\"1 Chronicles 16:11\",\"tier\":\"expanded\",\"difficulty\":\"advanced\",\"learningObjective\":\"Locate the displayed passage in its immediate literary or narrative setting.\",\"biblicalEvidence\":[\"1 Chronicles 16:11\"],\"reviewStatus\":\"approved\",\"qualityFlags\":[],\"editorialVersion\":\"2.3.0\",\"distractorPackId\":\"v23.pack.1-chronicles-16-11-context\",\"qb5Difficulty\":{\"version\":\"4.1.0-qb5\",\"originalTier\":\"expert\",\"finalTier\":\"advanced\",\"difficultySignal\":61,\"withinTierDifficulty\":5,\"readingBurden\":8,\"interactionBurden\":10,\"dimensions\":{\"inferenceSteps\":2,\"obscurity\":\"book-specific\",\"distractorSimilarity\":\"same-story\",\"contextSupport\":\"reference-only\",\"chronologySpan\":\"none\",\"interpretationLoad\":\"direct-context\",\"recallSpecificity\":\"identity\"},\"reasons\":[\"task:context\",\"less-familiar content\"],\"exactDuplicateGroupSize\":1},\"qb6CanonicalId\":\"1-chronicles-16-11-context\",\"qb6Disposition\":\"active\",\"qb6VariantRole\":\"context\",\"qb6RedundancyReasons\":[],\"qb6Active\":true,\"qb6Version\":\"4.1.0-qb6\"}},{\"id\":\"1-chronicles-16-34-context\",\"fingerprint\":\"db94271ca553bc1ca4872f899223b24223d3b041abc6783385634a88b9062e18\",\"snapshotSha256\":\"550e4eccb14dfdbb11fd28e41f1f11b07cca0642e98c5f77b59f63161518cc50\",\"predecessor\":\"e09333f1b532ef5fe5d3179335eafbba5e61d53b\",\"snapshot\":{\"type\":\"context\",\"label\":\"Context\",\"prompt\":\"Which situation best describes this passage’s immediate context?\",\"display\":\"Give thanks to the LORD, for He is good; His loving devotion endures forever.\",\"options\":[\"A song of thanksgiving when the ark is brought to Jerusalem.\",\"David’s song accompanies the ark’s arrival in Jerusalem.\",\"David instructs Solomon before the temple project\",\"David’s final prayer\"],\"answer\":\"David’s song accompanies the ark’s arrival in Jerusalem.\",\"explanation\":\"Immediate context: David’s song accompanies the ark’s arrival in Jerusalem. This setting clarifies the passage’s main point: God deserves thanksgiving because He is good and His covenant love endures.\",\"hint\":\"Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.\",\"verse\":{\"id\":\"1-chronicles-16-34\",\"book\":\"1 Chronicles\",\"ref\":\"1 Chronicles 16:34\",\"theme\":\"Thanksgiving\",\"cluster\":\"Prayer, Worship, and Scripture\",\"speaker\":\"Narrator\",\"speakerEligible\":false,\"context\":\"David’s song accompanies the ark’s arrival in Jerusalem.\",\"teaching\":\"God deserves thanksgiving because He is good and His covenant love endures.\",\"popular\":3,\"collection\":\"essential\",\"source\":\"curated-500\",\"status\":\"Existing — retained and upgraded\",\"selectionReason\":\"Essential 340\",\"wordsOfJesus\":false,\"text\":\"Give thanks to the LORD, for He is good; His loving devotion endures forever.\",\"questions\":[{\"id\":\"1-chronicles-16-34-meaning\",\"type\":\"meaning\",\"label\":\"Main Idea\",\"prompt\":\"Which statement best expresses the main point of this passage?\",\"options\":[\"God deserves thanksgiving because He is good and His covenant love endures.\",\"Rejecting God’s rule produces disorder, guilt, and destructive consequences.\",\"When God’s people have no power or strategy, they can fix their eyes on Him.\",\"God’s calling and presence define a servant beyond present fear and weakness.\"],\"answer\":\"God deserves thanksgiving because He is good and His covenant love endures.\",\"explanation\":\"Main point: God deserves thanksgiving because He is good and His covenant love endures. Context: David’s song accompanies the ark’s arrival in Jerusalem.\",\"skill\":\"wording\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-chronicles-16-34-context\",\"type\":\"context\",\"label\":\"Context\",\"prompt\":\"Which situation best describes this passage’s immediate context?\",\"options\":[\"David’s song accompanies the ark’s arrival in Jerusalem.\",\"Joshua gives his final address near the end of his life.\",\"Elisha reassures his servant when surrounded by an army.\",\"God reduces Gideon’s army before the battle with Midian.\"],\"answer\":\"David’s song accompanies the ark’s arrival in Jerusalem.\",\"explanation\":\"Immediate context: David’s song accompanies the ark’s arrival in Jerusalem. This setting clarifies the passage’s main point: God deserves thanksgiving because He is good and His covenant love endures.\",\"skill\":\"context\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-chronicles-16-34-theme\",\"type\":\"theme\",\"label\":\"Theme\",\"prompt\":\"Which theme most directly captures this passage’s emphasis?\",\"options\":[\"Thanksgiving\",\"Eternal Life\",\"New Covenant\",\"Faithfulness\"],\"answer\":\"Thanksgiving\",\"explanation\":\"The central theme is Thanksgiving. God deserves thanksgiving because He is good and His covenant love endures.\",\"skill\":\"context\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-chronicles-16-34-reference\",\"type\":\"reference\",\"label\":\"Reference\",\"prompt\":\"Which Bible reference matches this teaching and setting?\",\"options\":[\"1 Chronicles 16:34\",\"1 Chronicles 16:11\",\"1 Chronicles 28:9\",\"1 Chronicles 29:14\"],\"answer\":\"1 Chronicles 16:34\",\"explanation\":\"1 Chronicles 16:34 is the matching reference. David’s song accompanies the ark’s arrival in Jerusalem.\",\"skill\":\"reference\",\"modes\":[\"quick\",\"daily\",\"journey\",\"reference\",\"review\",\"verse\"]}],\"speakerVerified\":false},\"skill\":\"context\",\"itemId\":\"1-chronicles-16-34-context\",\"domain\":\"passages\",\"task\":\"context\",\"knowledgeIds\":[\"passage.1-chronicles-16-34\"],\"reference\":\"1 Chronicles 16:34\",\"tier\":\"expanded\",\"difficulty\":\"advanced\",\"learningObjective\":\"Locate the displayed passage in its immediate literary or narrative setting.\",\"biblicalEvidence\":[\"1 Chronicles 16:34\"],\"reviewStatus\":\"approved\",\"qualityFlags\":[],\"editorialVersion\":\"2.3.0\",\"distractorPackId\":\"v23.pack.1-chronicles-16-34-context\",\"qb5Difficulty\":{\"version\":\"4.1.0-qb5\",\"originalTier\":\"expert\",\"finalTier\":\"advanced\",\"difficultySignal\":61,\"withinTierDifficulty\":5,\"readingBurden\":8,\"interactionBurden\":10,\"dimensions\":{\"inferenceSteps\":2,\"obscurity\":\"book-specific\",\"distractorSimilarity\":\"same-story\",\"contextSupport\":\"reference-only\",\"chronologySpan\":\"none\",\"interpretationLoad\":\"direct-context\",\"recallSpecificity\":\"identity\"},\"reasons\":[\"task:context\",\"less-familiar content\"],\"exactDuplicateGroupSize\":1},\"qb6CanonicalId\":\"1-chronicles-16-34-context\",\"qb6Disposition\":\"active\",\"qb6VariantRole\":\"context\",\"qb6RedundancyReasons\":[],\"qb6Active\":true,\"qb6Version\":\"4.1.0-qb6\"}},{\"id\":\"1-kings-8-27-context\",\"fingerprint\":\"224711cafb38f728a84af6f593fcabea18a6eb14955d1dcf0f47d7f4d4440267\",\"snapshotSha256\":\"9d5d7a2ab428d64695f61b9d58fb2fe7d543225e5991acbcd60dcfd0b16b76e8\",\"predecessor\":\"e09333f1b532ef5fe5d3179335eafbba5e61d53b\",\"snapshot\":{\"type\":\"context\",\"label\":\"Context\",\"prompt\":\"Which situation best describes this passage’s immediate context?\",\"display\":\"Cited reference: 1 Kings 8:27\",\"options\":[\"Temple construction and dedication\",\"Solomon asks God for wisdom at the beginning of his reign.\",\"Elijah confronts Israel on Mount Carmel\",\"Solomon prays at the dedication of the temple\"],\"answer\":\"Solomon prays at the dedication of the temple\",\"explanation\":\"Immediate context: Solomon prays at the dedication of the temple. This setting clarifies the passage’s main point: God cannot be contained by any building, even while He graciously meets His people there.\",\"hint\":\"Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.\",\"verse\":{\"id\":\"1-kings-8-27\",\"book\":\"1 Kings\",\"ref\":\"1 Kings 8:27\",\"theme\":\"Greatness of God\",\"cluster\":\"God and Creation\",\"speaker\":\"Solomon\",\"speakerEligible\":true,\"context\":\"Solomon prays at the dedication of the temple.\",\"teaching\":\"God cannot be contained by any building, even while He graciously meets His people there.\",\"popular\":1,\"collection\":\"essential\",\"source\":\"curated-500\",\"status\":\"New for the 500-passage expansion\",\"selectionReason\":\"theology-core\",\"wordsOfJesus\":false,\"text\":\"But will God indeed dwell upon the earth? Even heaven, the highest heaven, cannot contain You, much less this temple I have built.\",\"questions\":[{\"id\":\"1-kings-8-27-meaning\",\"type\":\"meaning\",\"label\":\"Main Idea\",\"prompt\":\"Which statement best expresses the main point of this passage?\",\"options\":[\"God cannot be contained by any building, even while He graciously meets His people there.\",\"Joshua’s courage is grounded in God’s command and continuing presence, not in self-confidence.\",\"David praises God as the owner and sovereign ruler of all greatness, power, glory, and authority.\",\"Judah’s overwhelming crisis will be met by God’s action, so fear must give way to obedient trust.\"],\"answer\":\"God cannot be contained by any building, even while He graciously meets His people there.\",\"explanation\":\"Main point: God cannot be contained by any building, even while He graciously meets His people there. Context: Solomon prays at the dedication of the temple.\",\"skill\":\"wording\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-kings-8-27-context\",\"type\":\"context\",\"label\":\"Context\",\"prompt\":\"Which situation best describes this passage’s immediate context?\",\"options\":[\"Solomon prays at the dedication of the temple.\",\"The people are encouraged after hearing the Law.\",\"Samuel responds when the LORD calls him.\",\"David trusts God before facing Goliath.\"],\"answer\":\"Solomon prays at the dedication of the temple.\",\"explanation\":\"Immediate context: Solomon prays at the dedication of the temple. This setting clarifies the passage’s main point: God cannot be contained by any building, even while He graciously meets His people there.\",\"skill\":\"context\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-kings-8-27-theme\",\"type\":\"theme\",\"label\":\"Theme\",\"prompt\":\"Which theme most directly captures this passage’s emphasis?\",\"options\":[\"Greatness of God\",\"Return of Christ\",\"Davidic Covenant\",\"Character of God\"],\"answer\":\"Greatness of God\",\"explanation\":\"The central theme is Greatness of God. God cannot be contained by any building, even while He graciously meets His people there.\",\"skill\":\"context\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-kings-8-27-reference\",\"type\":\"reference\",\"label\":\"Reference\",\"prompt\":\"Which Bible reference matches this teaching and setting?\",\"options\":[\"1 Kings 8:27\",\"1 Kings 8:23\",\"1 Kings 8:61\",\"1 Kings 3:9\"],\"answer\":\"1 Kings 8:27\",\"explanation\":\"1 Kings 8:27 is the matching reference. Solomon prays at the dedication of the temple.\",\"skill\":\"reference\",\"modes\":[\"quick\",\"daily\",\"journey\",\"reference\",\"review\",\"verse\"]}],\"speakerVerified\":true},\"skill\":\"context\",\"itemId\":\"1-kings-8-27-context\",\"domain\":\"passages\",\"task\":\"context\",\"knowledgeIds\":[\"passage.1-kings-8-27\"],\"reference\":\"1 Kings 8:27\",\"tier\":\"core\",\"difficulty\":\"standard\",\"learningObjective\":\"Locate the displayed passage in its immediate literary or narrative setting.\",\"biblicalEvidence\":[\"1 Kings 8:27\"],\"reviewStatus\":\"approved\",\"qualityFlags\":[],\"editorialVersion\":\"2.3.0\",\"distractorPackId\":\"v23.pack.1-kings-8-27-context\",\"qb5Difficulty\":{\"version\":\"4.1.0-qb5\",\"originalTier\":\"expert\",\"finalTier\":\"standard\",\"difficultySignal\":49,\"withinTierDifficulty\":47,\"readingBurden\":8,\"interactionBurden\":10,\"dimensions\":{\"inferenceSteps\":2,\"obscurity\":\"common\",\"distractorSimilarity\":\"same-story\",\"contextSupport\":\"reference-plus-cue\",\"chronologySpan\":\"none\",\"interpretationLoad\":\"direct-context\",\"recallSpecificity\":\"identity\"},\"reasons\":[\"task:context\"],\"exactDuplicateGroupSize\":1},\"qb6CanonicalId\":\"1-kings-8-27-context\",\"qb6Disposition\":\"active\",\"qb6VariantRole\":\"context\",\"qb6RedundancyReasons\":[],\"qb6Active\":true,\"qb6Version\":\"4.1.0-qb6\"}},{\"id\":\"1-kings-8-61-context\",\"fingerprint\":\"a7ca5c0526c47044fb45a28dea52b7747b57f529ecb5247eae296b7fc1bb17a9\",\"snapshotSha256\":\"51f6582d53c0d7da8b5fbf591e8aff67e12a671f6f181bd5cfa6831323500c2a\",\"predecessor\":\"e09333f1b532ef5fe5d3179335eafbba5e61d53b\",\"snapshot\":{\"type\":\"context\",\"label\":\"Context\",\"prompt\":\"Which larger literary context best frames this Key Passage?\",\"display\":\"Key Passage: 1 Kings 8:61\",\"options\":[\"Temple construction and dedication\",\"Solomon prays at the dedication of the temple\",\"Solomon begins his temple-dedication prayer.\",\"Elijah confronts Israel on Mount Carmel\"],\"answer\":\"Temple construction and dedication\",\"explanation\":\"1 Kings 8:61 belongs within Temple construction and dedication (1 Kings 5-8). Solomon exhorts Israel at the temple dedication.\",\"hint\":\"Use the people, audience, event, and literary setting. The alternatives come from nearby biblical contexts.\",\"verse\":{\"id\":\"1-kings-8-61\",\"book\":\"1 Kings\",\"ref\":\"1 Kings 8:61\",\"theme\":\"Obedience\",\"cluster\":\"Mission and Discipleship\",\"speaker\":\"Solomon\",\"speakerEligible\":true,\"context\":\"Solomon exhorts Israel at the temple dedication.\",\"teaching\":\"At the temple dedication, Solomon calls Israel to wholehearted allegiance expressed through walking in God’s ways.\",\"popular\":3,\"collection\":\"essential\",\"source\":\"curated-500\",\"status\":\"Existing — retained and upgraded\",\"selectionReason\":\"Whole-Bible coverage\",\"wordsOfJesus\":false,\"text\":\"So let your heart be fully devoted to the LORD our God, as it is this day, to walk in His statutes and to keep His commandments.”\",\"questions\":[{\"id\":\"1-kings-8-61-meaning\",\"type\":\"meaning\",\"label\":\"Main Idea\",\"prompt\":\"Which statement best expresses the main point of this passage?\",\"options\":[\"At the temple dedication, Solomon calls Israel to wholehearted allegiance expressed through walking in God’s ways.\",\"God is a refuge for those who entrust themselves to Him, and faithful love deserves encouragement.\",\"God’s deliverance can turn fear into joy and make His people’s identity visible among the nations.\",\"Faithful biblical ministry joins careful study, personal obedience, and responsible teaching.\"],\"answer\":\"At the temple dedication, Solomon calls Israel to wholehearted allegiance expressed through walking in God’s ways.\",\"explanation\":\"Main point: At the temple dedication, Solomon calls Israel to wholehearted allegiance expressed through walking in God’s ways. Context: Solomon exhorts Israel at the temple dedication.\",\"skill\":\"wording\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-kings-8-61-context\",\"type\":\"context\",\"label\":\"Context\",\"prompt\":\"Which situation best describes this passage’s immediate context?\",\"options\":[\"Solomon exhorts Israel at the temple dedication.\",\"A summary of the moral disorder during the judges.\",\"Jehoshaphat prays as a vast army approaches Judah.\",\"Ezra's pattern was study, obedience, and teaching.\"],\"answer\":\"Solomon exhorts Israel at the temple dedication.\",\"explanation\":\"Immediate context: Solomon exhorts Israel at the temple dedication. This setting clarifies the passage’s main point: At the temple dedication, Solomon calls Israel to wholehearted allegiance expressed through walking in God’s ways.\",\"skill\":\"context\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-kings-8-61-theme\",\"type\":\"theme\",\"label\":\"Theme\",\"prompt\":\"Which theme most directly captures this passage’s emphasis?\",\"options\":[\"Obedience\",\"Provision\",\"Good News\",\"Salvation\"],\"answer\":\"Obedience\",\"explanation\":\"The central theme is Obedience. At the temple dedication, Solomon calls Israel to wholehearted allegiance expressed through walking in God’s ways.\",\"skill\":\"context\",\"modes\":[\"quick\",\"daily\",\"journey\",\"book\",\"review\",\"verse\"]},{\"id\":\"1-kings-8-61-reference\",\"type\":\"reference\",\"label\":\"Reference\",\"prompt\":\"Which Bible reference matches this teaching and setting?\",\"options\":[\"1 Kings 8:61\",\"1 Kings 8:27\",\"1 Kings 8:23\",\"1 Kings 3:9\"],\"answer\":\"1 Kings 8:61\",\"explanation\":\"1 Kings 8:61 is the matching reference. Solomon exhorts Israel at the temple dedication.\",\"skill\":\"reference\",\"modes\":[\"quick\",\"daily\",\"journey\",\"reference\",\"review\",\"verse\"]}],\"speakerVerified\":true},\"skill\":\"context\",\"itemId\":\"1-kings-8-61-context\",\"domain\":\"passages\",\"task\":\"context\",\"knowledgeIds\":[\"passage.1-kings-8-61\"],\"reference\":\"1 Kings 8:61\",\"tier\":\"expanded\",\"difficulty\":\"advanced\",\"learningObjective\":\"Place the Key Passage within the larger story, argument, poem, prophecy, or discourse that gives it meaning.\",\"biblicalEvidence\":[\"1 Kings 8:61\",\"1 Kings 5-8\"],\"reviewStatus\":\"approved\",\"qualityFlags\":[],\"editorialVersion\":\"3.14.0\",\"distractorPackId\":\"v3140.context.1-kings-8-61-context\",\"distractorRationales\":[\"Compassion, faith, and identity is a real biblical context, but it is not the larger literary setting of 1 Kings 8:61.\",\"Israel’s social and moral collapse is a real biblical context, but it is not the larger literary setting of 1 Kings 8:61.\",\"Wall rebuilding amid opposition is a real biblical context, but it is not the larger literary setting of 1 Kings 8:61.\"],\"qb5Difficulty\":{\"version\":\"4.1.0-qb5\",\"originalTier\":\"advanced\",\"finalTier\":\"advanced\",\"difficultySignal\":62,\"withinTierDifficulty\":11,\"readingBurden\":8,\"interactionBurden\":10,\"dimensions\":{\"inferenceSteps\":2,\"obscurity\":\"book-specific\",\"distractorSimilarity\":\"same-story\",\"contextSupport\":\"reference-plus-cue\",\"chronologySpan\":\"none\",\"interpretationLoad\":\"book-level\",\"recallSpecificity\":\"argument-role\"},\"reasons\":[\"task:context\",\"less-familiar content\",\"context/synthesis depth\"],\"exactDuplicateGroupSize\":1},\"qb6CanonicalId\":\"1-kings-8-61-context\",\"qb6Disposition\":\"active\",\"qb6VariantRole\":\"context\",\"qb6RedundancyReasons\":[],\"qb6Active\":true,\"qb6Version\":\"4.1.0-qb6\"}}]};\nconst TBC_QUESTION_REVISIONS = tbcCreateQuestionRevisions(TBC_QUESTION_REVISION_ARCHIVE);\n// This resolver is for saved questions only. v25QuestionSource and every pool\n// remain current-only; no historical source is registered or selected.\nfunction v25HistoricalQuestion(saved){\n const historical=TBC_QUESTION_REVISIONS.historical(saved);\n if(!historical)return null;\n const id=saved.itemId,qb=window.TBC_QB6,rows=window.TBC_QB0?.registry?.();\n if(!qb||!Array.isArray(rows)||qb.aliasInfo(id)||qb.canonicalId(id)!==id)return null;\n const matches=rows.filter(row=>row.itemId===id),current=v25QuestionSource(id);\n if(matches.length!==1||matches[0].active===false||!current||current.qb6Active!==true||current.qb6CanonicalId!==id)return null;\n if(TBC_QUESTION_REVISIONS.fingerprint(current)===TBC_QUESTION_REVISIONS.fingerprint(saved))return null;\n return historical\n}\nfunction v25SavedQuestionSource(saved){\n return v25HistoricalQuestion(saved)||v25QuestionSource(saved?.itemId)\n}\n// Only schema-27 round state may overlay an authenticated historical source.\n// Unserialized metadata (learningObjective, biblicalEvidence, verse, QB5/QB6)\n// comes exclusively from the archive, never from arbitrary save properties.\nfunction v25HistoricalState(saved){\n const fields=[\"reviewSkill\",\"hidden\",\"correct\",\"result\",\"selected\",\"whySeen\",\n  \"sequenceOrder\",\"matchChoices\",\"matchDraft\",\"v21Evidence\",\n  \"responseMode\",\"retrievalStage\",\"playerResponse\",\"selfGrade\",\"selfReveal\",\n  \"v25ReadingRequired\",\"v25ReadingComplete\",\"v25TransformSource\",\"v25Confidence\",\n  \"v25SourceMistakeId\",\"v25SourceItemId\",\"v28LabId\",\"v28LabCounted\",\n  \"v28XpAwarded\",\"v28XpAward\",\"v28LevelUp\",\"v30Clue\",\"v30Assisted\",\n  \"v30NodeType\",\"v30ExpeditionCounted\",\"qb8Structured\",\"qb8Schema\"];\n return Object.fromEntries(fields.filter(key=>Object.prototype.hasOwnProperty.call(saved,key)).map(key=>[key,saved[key]]))\n}\n/* END TBC QUESTION REVISIONS */\n"
+    },
+    {
+      "offset": 740039,
+      "from": "QuestionSource(id),resolved=target===id?current",
+      "to": "SavedQuestionSource(saved),resolved=target===id?v25QuestionSource(id)"
+    },
+    {
+      "offset": 740495,
+      "from": "current.interaction===\"insertion\"?window.TBC_QB8?.prepare(current):current",
+      "to": "window.TBC_QB8?.prepare(clone(current))||current;\n   const fingerprint=TBC_QUESTION_REVISIONS.fingerprint(saved);\n   if(fingerprint!==TBC_QUESTION_REVISIONS.fingerprint(current)&&fingerprint!==TBC_QUESTION_REVISIONS.fingerprint(prepared))return false"
+    },
+    {
+      "offset": 13364450,
+      "from": "Temple construction and dedication",
+      "to": "Rehoboam refuses to ease the people’s burdens"
+    },
+    {
+      "offset": 13382534,
+      "from": "David’s song accompanies the ark’s arrival in Jerusalem",
+      "to": "Nathan delivers God’s covenant promise to David"
+    },
+    {
+      "offset": 13385114,
+      "from": "A song of thanksgiving when the ark is brought to Jerusalem",
+      "to": "Nathan delivers God’s covenant promise to David"
+    },
+    {
+      "offset": 14435719,
+      "from": "Solomon prays at the dedication of the temple\",\"Solomon begins his temple-dedication prayer.",
+      "to": "The kingdom divides under Rehoboam\",\"Jeroboam establishes calf worship at Bethel and Dan"
+    },
+    {
+      "offset": 15710557,
+      "from": "",
+      "to": "const TBC_REVISION_RESTORE_BASE=restoredQuestionIsCurrent;\nrestoredQuestionIsCurrent=function(q,verse){return !!v25HistoricalQuestion(q)||TBC_REVISION_RESTORE_BASE(q,verse)};\n"
+    }
+  ],
+  "invariants": {
+    "counts": {
+      "aliases": 273,
+      "books": 66,
+      "canonical": 5799,
+      "registry": 6072,
+      "structured": 203
+    },
+    "difficultyDistribution": {
+      "Advanced": 1140,
+      "Beginner": 1338,
+      "Easy": 1668,
+      "Expert": 521,
+      "Standard": 1132
+    },
+    "saveSchema": 27,
+    "idsAdded": 0,
+    "idsRemoved": 0,
+    "idsRenamed": 0,
+    "supportingAssetsChanged": 0
+  },
+  "compatibility": {
+    "archiveVersion": 1,
+    "revisionCount": 4,
+    "identity": "Exact stable ID plus computed static fingerprint; trusted full snapshot hash and Git predecessor authority.",
+    "recovery": "Both valid copies retained; an invalid copy cannot destroy a valid alternate.",
+    "selection": "Archived revisions are saved-only and absent from canonical, alias and all fresh-selection registries.",
+    "unknownRevisions": "Fail closed; existing mode, scope, answer and corruption validation retained."
+  },
+  "intent": "Replace only five overlapping context distractors across four reviewed stable IDs. Correct answers, positions, tiers and memberships stay unchanged.",
+  "audit": {
+    "reviewed": 100,
+    "unchangedVerified": 96,
+    "corrected": 4,
+    "unresolved": 0,
+    "pending": 5699,
+    "wholeBankAudited": false
+  },
+  "toolingOnly": [
+    "scripts/tbc-question-revision-core.js",
+    "scripts/tbc-question-revisions.cjs",
+    "scripts/tbc-question-revision-tests.cjs",
+    "scripts/tbc-four-question-quality.cjs"
+  ]
+}

@@ -25,17 +25,14 @@ async function verify(browser,viewport,mobile=false){
   await page.locator(nav).click();
   await page.waitForFunction(()=>document.body.dataset.pr6Flow==='play'&&document.querySelector('.pr6-root:not([hidden])'),null,{timeout:7000});
   const cardSelector='[data-p0c-preserved="play"] [data-p0c-feature="duel"]';
-  await page.waitForFunction(selector=>{
+  const clicked=await (await page.waitForFunction(selector=>{
     const cards=[...document.querySelectorAll(selector)];
     const card=cards[0];
-    return cards.length===1&&Boolean(card)&&card.checkVisibility()&&!card.disabled&&card.getAttribute('aria-disabled')!=='true';
-  },cardSelector,{timeout:7000});
-  const clicked=await page.evaluate(selector=>{
-    const cards=[...document.querySelectorAll(selector)];
-    if(cards.length!==1||cards[0].disabled||cards[0].getAttribute('aria-disabled')==='true')return false;
-    cards[0].click(); return true;
-  },cardSelector);
-  assert.equal(clicked,true,'Duel preservation card must remain usable after the exact-one assertion');
+    if(cards.length!==1||!card||!card.checkVisibility()||card.disabled||card.getAttribute('aria-disabled')==='true')return false;
+    card.click();
+    return true;
+  },cardSelector,{timeout:7000})).jsonValue();
+  assert.equal(clicked,true,'Duel preservation card must be exactly one, visible, enabled, and clicked atomically');
   const modal=page.locator('#modalRoot .modal.v31-duel-shell');
   await modal.waitFor({state:'visible',timeout:5000});
   await page.evaluate(()=>{if(typeof closeModal==='function')closeModal()});

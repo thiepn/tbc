@@ -871,3 +871,508 @@ Linux/Node-22 CI with the lockfile's bundled Chromium. Do not merge main or depl
 as part of this local reconciliation or infer that local browser evidence is a
 remote CI/deployment certificate. No content-quality or workflow-cleanup task is
 included.
+
+## Canonical question-content audit — started 2026-08-28
+
+Starting baseline is merged `main` commit
+`e09333f1b532ef5fe5d3179335eafbba5e61d53b`. The local-only audit branch is
+`codex/question-bank-quality`, created cleanly from that exact commit. No push,
+PR, merge, deployment, freezer, manifest update, historical-evidence update, or
+successor certification is authorized for this work.
+
+The authoritative runtime inventory has been extracted without changing product
+content: `TBC_QB6.activeQuestions()` reports 5,799 unique canonical questions;
+`TBC_QB0.registry()` reports 6,072 records including 273 aliases; QB8 reports a
+203-question structured subset; all 66 books and the frozen five-tier
+distribution are present. The initial P2A extraction and audit passed **58/58**
+with the committed canonical, structured, and registry hashes.
+
+`docs/TBC_QUESTION_AUDIT.json` is the non-certification per-question inventory;
+it records each canonical ID exactly once with runtime source/index/content hash,
+text, choices, answer, Bible evidence, explanation, aliases, collections, mode
+eligibility, and audit state. `docs/TBC_QUESTION_AUDIT.md` is its readable
+primary-entry index. `node scripts/tbc-question-audit-ledger.cjs check` proves
+the inventory has exactly the current runtime IDs, no duplicates or nonexistent
+records, and current content/alias identities. Initial result: **5,799/5,799**
+entries, **0** complete, **5,799** pending, **0** unresolved. The checker uses
+linear membership comparison after an initial quadratic `Set` deep comparison
+exhausted Node memory; no product data was involved.
+
+The next exact task is to complete the first individually evidenced batch (no
+more than 50 canonical IDs), record each status and Scripture evidence in the
+ledger, and stop any source edit that would invalidate active saved sessions
+until a compatible non-destructive handling path is established.
+
+### Batch 01 — first 50 canonical IDs
+
+Batch 01 reviewed the first 50 lexically ordered canonical IDs, spanning 1
+Chronicles 16, 28–29; 1 Corinthians 1, 3, 6, 10, 12, 13, and 15; and 1 John
+1–2. Each entry records its direct Scripture evidence and an individual audit
+rationale in `TBC_QUESTION_AUDIT.json`.
+
+- **48** entries are `unchanged and verified`: the cited text supports the
+  keyed answer; reference/book/context alternatives are distinguishable; and
+  the concise paraphrases avoid a translation-dependent answer key.
+- **2** entries are `unresolved—human decision required`:
+  `1-chronicles-16-11-context` and `1-chronicles-16-34-context`. Each offers
+  a differently worded description of the same ark-arrival thanksgiving event
+  as a distractor, so each has two defensible choices. 1 Chronicles 16:1–13,
+  7–36 is direct primary evidence.
+
+No question text, answer, distractor, tier, ID, alias, question-loading logic,
+or save code has been changed. Changing either ambiguous distractor under its
+existing ID would intentionally make a saved active round fail the strict
+changed-question integrity check. The current content-only authorization also
+forbids the persistence compatibility work needed to retain an old active
+round’s two recovery copies. This is the exact blocking decision for those two
+corrections, not an approval of the defect.
+
+Current ledger check: **5,799/5,799** canonical IDs, **48** complete,
+**5,749** pending, **2** unresolved. The next exact task is batch 02 (the next
+50 canonical IDs), with the same direct-Scripture evidence standard, while the
+two stable-ID/session-compatibility corrections remain blocked pending a
+separate authorized strategy.
+
+Focused batch checks: `node --check scripts/tbc-question-audit-ledger.cjs` and
+the ledger completeness command passed; the existing P2A audit passed **58/58**
+with all frozen source/content hashes unchanged; the Edge fallback session
+compatibility matrix passed **27/27**, including canonical/retained-alias
+rounds, primary/backup recovery precedence, corrupt-payload recovery, repeated
+reload, export/import, and fresh-selection eligibility. `git diff --check`
+passed. Bundled Chromium and Linux/Node-22 remain CI-only limitations.
+
+### Batch 02 — canonical IDs 51–100
+
+Batch 02 reviewed 1 John 2–5, 1 Kings 3, 8, and 18, and 1 Peter 1–3. Direct
+Scripture evidence is recorded per entry. **48** entries are `unchanged and
+verified`; their keyed answers and alternatives remain distinct and
+translation-neutral summaries of the cited passages.
+
+Two further context-choice defects are `unresolved—human decision required`:
+`1-kings-8-27-context` and `1-kings-8-61-context`. In each, multiple options
+are true descriptions of Solomon’s same temple-dedication prayer setting (1
+Kings 8:22–30 and 8:54–61). The needed distractor rewrite is blocked by the
+same existing-ID active-session compatibility decision documented for Batch 01.
+
+Current ledger check: **5,799/5,799** canonical IDs, **96** complete,
+**5,699** pending, **4** unresolved. No product/question source, tier, alias,
+schema, manifest, or historical evidence changed. The next exact task is batch
+03 (canonical IDs 101–150), then a separately authorized decision on how a
+stable-ID question correction can preserve old active-session recovery copies.
+
+### Authorized revision foundation — Commit A, 2026-08-28
+
+The new authorization supersedes the next-batch instruction above. This task
+stops after a compatibility foundation and corrections to the four already
+identified defects; the remaining 5,699 questions are not being reviewed.
+
+Implemented the embedded version-1 archive and saved-only ID/fingerprint
+resolver described in `TBC_QUESTION_REVISIONS.md`. The deployed archive is empty
+in this foundation. Canonical sources and fresh selection stay unchanged;
+historical snapshots are never registered as canonical entries or aliases.
+The existing synchronous hydration, mode/scope/answer checks, recovery-copy
+precedence, export/import rollback, storage keys and schema 27 remain intact.
+
+Executed with Node 24.16.0, locked Playwright 1.55.1 and Windows Edge:
+
+- `TBC_BROWSER_CHANNEL=msedge NODE_OPTIONS=--require=./scripts/tbc-browser-runtime.cjs node scripts/tbc-question-revision-tests.cjs`: **24/24**.
+  Synthetic archives prove two revisions of one ID, changed-answer scoring,
+  primary/backup/both recovery, repeated reloads, completion/cleanup, real
+  export/import, unknown-content rejection and malformed-archive rejection.
+  All browser page-error assertions passed. The exact `e09333f…` runtime and
+  candidate have identical 5,799 sources, 6,072 registry rows, 273 aliases, 203
+  structured IDs, tier assignments, schema and sampled deterministic pools.
+- `node scripts/tbc-question-revisions.cjs`: **PASS**, zero changed IDs and zero
+  unnecessary archive records; captures are bound to actual source hashes.
+- Unchanged `scripts/tbc-session-compatibility.cjs` with the Edge hook: **27/27**,
+  including all retained aliases, structured restoration and recovery rollback.
+- Embedded engine and all three new JS files parse; `git diff --check`: **PASS**.
+
+Development failures were investigated before this commit: mutable mastery
+`v21Evidence` was incorrectly included in immutable identity and has been
+excluded without changing its V213 validation. A new test's synchronous finish
+loop hit the existing microtask-based duplicate-next guard; the test now drives
+separate browser turns. JSON capture omits non-serializable `undefined` fields.
+These are fixed; the final focused run passed all cases.
+
+No supporting assets, question content, aliases, tiers, schema, package files,
+workflows, manifests or historical evidence changed. This is local compatibility
+work, not certification. Bundled Chromium is unavailable; Linux/Node-22 CI was
+not run. The exact next task is Commit B: archive the four exact `e09333f…`
+predecessors, correct only their ambiguous distractors, run the authorized
+behavioral/preservation gates and record expected frozen-identity failures.
+
+#### Foundation review follow-up, before the four corrections
+
+The unpublished foundation was strengthened and re-tested with the canonical
+data still unchanged and its deployed archive empty. Current saved identities
+now require exact fingerprints of the current source or authoritative QB8
+prepared representation. Historical reconstruction permits only recognized
+schema-27 round state over the trusted snapshot; arbitrary saved metadata cannot
+replace its learning objective, Scripture evidence, verse or QB5/QB6 metadata.
+Both gaps were reproduced before fixing them. No current question source,
+selection rule, scoring formula or storage contract was changed.
+
+Final foundation evidence supersedes the initial focused count above:
+
+- `scripts/tbc-question-revision-tests.cjs` with the Edge hook: **29/29**,
+  including unknown current/alias fingerprints, forged historical metadata and
+  intentional abandonment, in addition to all original lifecycle checks.
+- Unchanged `scripts/tbc-session-compatibility.cjs`: **27/27** after hardening.
+- `node scripts/tbc-question-revisions.cjs`: **PASS**, zero canonical changes,
+  zero deployed historical records and unchanged runtime counts/pools.
+- Independent eligibility probe: **626/626** valid fingerprints (273 retained
+  aliases, 203 prepared structured questions, and 150 fresh questions covering
+  all five tiers and Quick/Daily/Weekly).
+- `npm.cmd ci --offline`: **PASS**, locked Playwright 1.55.1 retained; no package
+  or lockfile changes. Parsing and `git diff --check` passed.
+
+The two hardening changes are folded into Commit A before Commit B, so the
+foundation is independently complete. The next exact task remains the four
+archived distractor corrections and their final aggregate verification. An
+intermediate aggregate run was deliberately interrupted for this review;
+it is not counted as a completed gate.
+
+### Four archived question corrections — Commit B, 2026-08-28
+
+Commit A is `a45d08ade061fa5b519b193927eb7cc55921a758`. It was committed and
+verified with an empty deployed archive and unchanged canonical content before
+these corrections. Commit B adds exactly four full runtime snapshots from
+certified predecessor `e09333f1b532ef5fe5d3179335eafbba5e61d53b` and changes
+five distractors across the four approved IDs. No additional question was
+reviewed or corrected.
+
+#### Exact corrections and direct evidence
+
+All keyed answers, their positions, prompts, references, explanations, IDs,
+collections and tiers are retained. The option positions below are zero-based.
+
+| Stable ID | Distractor replacement | Scripture evidence |
+| --- | --- | --- |
+| `1-chronicles-16-11-context` | Option 0: “David’s song accompanies the ark’s arrival in Jerusalem.” → “Nathan delivers God’s covenant promise to David.” | [1 Chronicles 16:1–7, 11](https://biblehub.com/bsb/1_chronicles/16.htm) places verse 11 in the ark-arrival song; [17:1–15](https://biblehub.com/bsb/1_chronicles/17.htm) is Nathan’s distinct later message. |
+| `1-chronicles-16-34-context` | Option 0: “A song of thanksgiving when the ark is brought to Jerusalem.” → “Nathan delivers God’s covenant promise to David.” | [1 Chronicles 16:7–36](https://biblehub.com/bsb/1_chronicles/16.htm) contains verse 34 in that same thanksgiving song; Nathan’s message is in [17:1–15](https://biblehub.com/bsb/1_chronicles/17.htm). |
+| `1-kings-8-27-context` | Option 0: “Temple construction and dedication” → “Rehoboam refuses to ease the people’s burdens” | [1 Kings 8:22–30](https://biblehub.com/bsb/1_kings/8.htm) is Solomon’s dedication prayer; Rehoboam’s refusal belongs to [12:1–20](https://biblehub.com/bsb/1_kings/12.htm). |
+| `1-kings-8-61-context` | Option 1: “Solomon prays at the dedication of the temple” → “The kingdom divides under Rehoboam”; option 2: “Solomon begins his temple-dedication prayer.” → “Jeroboam establishes calf worship at Bethel and Dan” | The prompt asks for the larger literary context: [1 Kings 8:54–66](https://biblehub.com/bsb/1_kings/8.htm), within the construction/dedication account in chapters 5–8. The replacement contexts occur in [12:16–33](https://biblehub.com/bsb/1_kings/12.htm). |
+
+The review distinguishes the remaining alternatives using 1 Chronicles 28:9,
+29:10–20, 1 Kings 3:5–15 and 18:20–40. The focused assertions preserve these
+individually reviewed option sets; they are not an automated theological proof.
+The ledger retains each previous defect, old/new options, rationale, source
+URLs and its explicit compatibility record.
+
+#### Exact version-1 question fingerprints
+
+| Stable ID | Archived predecessor fingerprint | Current fingerprint |
+| --- | --- | --- |
+| `1-chronicles-16-11-context` | `2442dadbfa4301d4fee93f43dc049211108281e1b8282b9923ecfd895b235aad` | `4919490f3d37ec5a7d9309b753853ed99d6e011bb78d307ccd62fc5c2f26fb6d` |
+| `1-chronicles-16-34-context` | `db94271ca553bc1ca4872f899223b24223d3b041abc6783385634a88b9062e18` | `54fa0b4615b8301e9f72b1c3c5942d2ea2408d511fea174402076948ba1d46c4` |
+| `1-kings-8-27-context` | `224711cafb38f728a84af6f593fcabea18a6eb14955d1dcf0f47d7f4d4440267` | `b51eac33d1d43c89187473bf3781fc33fecf72ed7bdb2770b4a5f8d03bff71f9` |
+| `1-kings-8-61-context` | `a7ca5c0526c47044fb45a28dea52b7747b57f529ecb5247eae296b7fc1bb17a9` | `a1499c4ebb66b08405546826015964feb40e26831a88706798dc199f51839891` |
+
+#### Executed final candidate evidence
+
+Environment: Windows, Node **24.16.0**, locked Playwright **1.55.1**, installed
+Edge **151.0.4129.107**. Direct browser commands used
+`TBC_BROWSER_CHANNEL=msedge` and
+`NODE_OPTIONS=--require=./scripts/tbc-browser-runtime.cjs` with the read-only
+Stage 0 server on port 4173. Aggregate commands start their own server. No real
+user browser profile or storage was accessed.
+
+- `node scripts/tbc-question-revision-tests.cjs`: **57/57**, zero page errors.
+  This comprises 29 foundation/protection groups, 24 exact-predecessor lifecycle
+  cases (four IDs × Quick/Daily/Weekly × answered/unasked), and four real
+  export/import plus unknown-revision checks: **39 positive/mixed groups and 18
+  negative/protection groups**. Twelve malformed/tampered archive
+  variants are explicitly rejected, alongside missing/stale/unnecessary records,
+  forged provenance, unknown current/alias fingerprints and forged metadata.
+  Synthetic fixtures prove two revisions of one ID and a changed answer key.
+- `node scripts/tbc-question-revisions.cjs`: **PASS**, four changed IDs and four
+  exact predecessor records. Full snapshots match Git predecessor runtime data;
+  counts, aliases, tiers, schema and sampled deterministic pool identities match.
+- `node scripts/tbc-four-question-quality.cjs`: **4/4**. Captures are bound to
+  actual predecessor/candidate source hashes; only the reviewed option arrays
+  differ, and each keyed answer remains in its original position.
+- Supplemental ignored probe
+  `node artifacts/question-revisions/all-current-identities.cjs`: **6,275/6,275**
+  serialized current identities accepted (all 6,072 registry entries and all 203
+  QB8-prepared structured forms), zero page errors. This is an identity-guard
+  probe, not a claim of 6,275 complete gameplay lifecycles.
+- `node scripts/p2a-question-bank-extract-certified.cjs`, repeated with
+  `P2A_OUT_DIR=artifacts/p2a-repeat`: **both exit 0**. All five generated JSON
+  files are byte-identical across runs. The unchanged
+  `node scripts/p2a-question-bank-audit.cjs` against each directory reports
+  **55/58**: only frozen registry hash, frozen canonical hash and frozen monolith
+  source identity fail. All 55 other checks pass, including current-source
+  binding, alias targets, exact structured subset, schema/tier counts and runtime
+  health. No stale artifacts are used for these final audits.
+- `node scripts/p2b-mechanical-integrity-audit.cjs`,
+  `node scripts/p2c-semantic-accuracy-audit.cjs`,
+  `node scripts/p2d-question-quality-audit.cjs`, and
+  `node scripts/p2e-difficulty-calibration-audit.cjs`: **all exit 0**, zero
+  confirmed defects. Existing warnings remain: P2B/P2C one cross-book matrix;
+  P2D 877 heuristic review warnings; P2E 459 boundary warnings. P2E's printed
+  four tier changes describe historical pins, not changes in this task.
+- `node --test scripts/tbc-p2a-infrastructure.test.cjs`: **1 pass / 1 fail**
+  at the positive-control prerequisite; its nine mutation subcases are not
+  reached because the unaltered candidate intentionally fails frozen identities.
+  The LF/CRLF identity test passes. This is not an 11/11 negative-suite pass.
+- `node --test scripts/tbc-product-identity.test.cjs`: **7 pass / 24 fail**.
+  Frozen source/current-content prerequisites reject this candidate before
+  several tests reach their specific expected error. The source pin masks those
+  mutation assertions; no tests or manifests were rewritten to force them green.
+- `node scripts/p27d-runtime-browser-certification.cjs`: **PASS**, all four
+  profiles and zero runtime errors on the exact final product bytes. An initial
+  run alongside another browser suite timed out at the unchanged 8-second
+  first-run chooser wait; the standalone repeat passed without modifying its
+  timeout, assertions or production code. Both logs are retained.
+- `npm.cmd run build` and `npm.cmd run verify`: **exit 1**, expected frozen
+  `index.html` identity mismatch before aggregate children. These are failed
+  release gates, not a verification certificate.
+- Aggregate static checks: P0A **17/20** (only `legacy-monolith-frozen`,
+  `git-normalized-certified-source`, `raw-text-certified-source` fail);
+  reconciliation **14/15** (its P0A positive control fails for those same source
+  identities); P0B **23/23**, P0C **52/52**, P0D **45/45**, P1B **23/23** pass.
+  The historical adapter stops at the unchanged current-product source pin.
+- Final `npm.cmd test`: **exit 1 after all 13 children completed**. **9 exit 0**;
+  the four identity-blocked children are reconciliation, P0A, historical
+  preservation and `validate-release`. The last has exactly two failed checks:
+  frozen canonical and registry hashes. Its extraction, counts, tiers, QB8/QB11
+  health and page/console error checks pass. No non-identity failure was observed.
+- Within that final aggregate: unchanged Stage 0 **7/7**, preservation **19/19**,
+  compatibility **27/27**, P0E **7/7 browser suites**, and P1B desktop/mobile
+  browser smoke **PASS**. This includes alias/recovery/import regression cases,
+  five-tier Quick/Daily/Weekly reloads, navigation, ordinary modes and loaded-core
+  offline behavior. The release validator does not run its browser tail after
+  hash failures; PR5/PR6/P1B ran via the aggregate and P27D ran separately above.
+- Parse checks: **76 tracked/new JavaScript files, 11 JSON files and the full
+  embedded engine PASS**. `git diff --check`: **PASS**. Bounded reverse replay,
+  current-capture source binding and byte equality with the P27D-tested product
+  all pass. Protected assets, manifests, package files, workflows, invariants and
+  the unchanged Stage 0 acceptance script have no diff from `e09333f…`.
+
+Recovery tests preserve exact ordering, answers, progress, scores, mode and
+deterministic identity. Each authentic old fixture restores from primary-only,
+backup-only and both copies, continues with predecessor-equivalent scoring,
+survives consecutive reloads and records completion once. Two valid copies are
+not rewritten/deleted during restoration; a valid alternate survives an invalid
+copy. Unknown revisions still reject safely. Completion and explicit abandonment
+clear the old round. Fresh selection uses only current canonical sources; no
+historical snapshot enters the registry, aliases or selection caches.
+
+#### Scope, identities and remaining checkpoint
+
+The ledger checker reports **5,799/5,799**, **100 reviewed**, **96 unchanged and
+verified**, **4 corrected**, **0 unresolved**, **5,699 pending**. All other 5,795
+ledger entries are structurally identical to Commit A. A bounded reverse replay
+proves Commit B's engine delta is exactly the four editorial option arrays and
+archive data; the outer shell is unchanged.
+
+Preserved: 5,799 canonical questions, 6,072 registry rows, 273 aliases, 203
+structured questions, 66 books, tiers **1338/1668/1132/1140/521**, save schema
+**27**, storage keys, supporting assets, gameplay balance, routing, UI, package
+and lockfile, workflows, all manifests and historical evidence. No freezer ran.
+
+The unchanged structured SHA-256 is
+`4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb`.
+The corrected canonical SHA-256 is
+`2fa5e43e8588b2490568d3ee09ea57818faab5e0dfd359f4960a3de746e900c9`,
+and registry SHA-256 is
+`38136fac01d14fb7f5d49b181de8c35adda288ee9d30ba651956ee5f1d6204f4`.
+The candidate Git-normalized index blob is
+`2009bc20e2fb95646ccd54976342d79bbabe0223`; the frozen successor pin remains
+`ce1b30a8fe2c07822001b9542271eea60174f4f1`.
+
+Evidence is in ignored `artifacts/question-revisions/`, `artifacts/p2a/`,
+`artifacts/p2a-repeat/` and the normal aggregate suite directories. Bundled
+Chromium launch was attempted but its cached executable is absent. Linux,
+Node-22 CI and bundled Chromium were not run. Older unknown revisions remain
+fail-closed; future predecessor policies and corrected structured-question
+archives need their own explicit provenance and fixtures. The runtime format
+supports multiple revisions, but this audit's validator authorizes only `e09333f…`.
+The new revision and four-question gates are explicit standalone commands; the
+existing aggregate/workflow was not rewritten. Successor certification must
+include them as well as the currently identity-blocked negative gates.
+
+Commit B changes only `index.html`, `scripts/tbc-four-question-quality.cjs`,
+`docs/TBC_QUESTION_AUDIT.json`, `docs/TBC_QUESTION_AUDIT.md` and this status file.
+Commit A additionally introduced `scripts/tbc-question-revision-core.js`,
+`scripts/tbc-question-revisions.cjs`, `scripts/tbc-question-revision-tests.cjs`
+and `docs/TBC_QUESTION_REVISIONS.md`, alongside its index/status edits.
+
+This work is local and not certified: no push, PR, merge or deployment. The exact
+next task, requiring separate authorization, is to review and create a narrowly
+scoped successor-certification process for the compatibility code and these four
+content corrections without rewriting historical evidence, then rerun the full
+identity/negative/browser gates. Do not resume the remaining 5,699-question audit
+as part of this task.
+
+### Question-revision successor certification — 2026-08-28
+
+Scope: certify the existing content checkpoint on `codex/question-bank-quality`,
+starting from clean HEAD `1ca52ecb9ba3781c4212610d2b3fff83e2c11b6e`. No product,
+question, revision/hydration, asset, package, lockfile or workflow edit is part of
+this certification. No additional question has been reviewed.
+
+#### Append-only authority and preservation proof
+
+The predecessor comes from the unchanged authoritative
+`certification/tbc-product-identity.json`, whose successor index blob is
+`ce1b30a8fe2c07822001b9542271eea60174f4f1`, deployed by production commit
+`e09333f1b532ef5fe5d3179335eafbba5e61d53b`. New records
+`certification/tbc-question-revision-identity.json` and
+`certification/tbc-question-revision-transition.json` recognize the exact content
+commit above, with index blob `2009bc20e2fb95646ccd54976342d79bbabe0223`.
+The new identity's normalized SHA-256 is
+`4a7223016877c31279b5c22f547accac49594d4498fe6df7ad4900b802784bb7`;
+the transition's is
+`5f233492e16859c880ae8f6ac74c6d7390201d9f28d1803e337122dad95b1efe`.
+They are independently pinned by the validator and identity respectively.
+
+The normalized deployed index SHA-256 changes from
+`336466308c69f7a32da66eba9a3680fb9e8d20c6d2b2b75400561c256eae6d76` to
+`77bcecf2c702088fa50e713e50586139728955cfb626b30364d5be38698ddadb`.
+Canonical/registry semantic hashes are the corrected values recorded in Commit
+B's section above; the structured hash remains unchanged. This task records
+those already-existing product differences; it does not make them.
+
+The original identity, original forty-edit transition and eight older phase
+records remain unchanged. P2A changes only its designated current source pin;
+its historical content hashes, counts, tier distribution and phase metadata
+remain intact. The read-only `currentP2ABaseline()` supplies the new canonical
+and registry expectations from the pinned successor after validating historical
+evidence and the exact source-only P2A substitution. P2A and release-validator
+assertions remain in place; the reconciliation mock uses that same authority.
+
+Build still replays all forty historical edits against their own predecessor.
+It then replays thirteen bounded edits from production to the candidate, checks
+the complete engine and unchanged outer shell, storage names and schema, and
+verifies all four archived fingerprints. Content validation substitutes only the
+four recorded predecessor rows back into current canonical/registry artifacts
+and requires the original full artifact hashes. Thus every other ID/field,
+all aliases and the exact structured subset are protected. Fresh predecessor
+extraction in an isolated local clone independently matched the old authority.
+No broad freezer or automatic updater ran.
+
+Derived changes already present in Commit B include feedback metadata for the
+five replaced distractors and `1-chronicles-16-34-context`'s measured maximum
+option length changing from 11 to 8 words. The exact transition rows cover these
+derived fields as well as the option arrays. No tier assignment changes.
+
+The deployed inventory is still exactly thirteen files:
+`index.html`, `assets/pr5-foundation.css`, `assets/pr5-shell.js`,
+`assets/pr6-play-learning.css`, `assets/pr6-play-learning.js`,
+`assets/p0b-player-controls.js`, `assets/p0c-existing-feature-preservation.js`,
+`assets/p1b-pr7-production.js`, `assets/pr7-library-progress.css`,
+`assets/pr7-collections-adapter.js`, `assets/pr7-library-progress.js`,
+`assets/pr7-navigation-guard.js`, and `favicon.svg`.
+All twelve supporting files are unchanged. The readable revision core,
+revision validator, revision tests and quality tests are tooling-only; the
+runtime core is already embedded, with no new deployed dependency.
+
+#### Certification execution
+
+Environment: Windows, Node **24.16.0**, locked Playwright **1.55.1** and Edge
+**151.0.4129.107**. `npm.cmd ci --offline` passed without package/lockfile changes.
+The attempted `npx.cmd playwright install chromium` did not complete and was
+stopped; the locked revision 1193 executables are absent. Available cached
+Chromium revision 1234, browser **151.0.7922.34**, is exercised through the
+explicit ignored `artifacts/question-successor/cached-chromium.cjs` launch hook.
+This is not a bundled-revision-1193, Linux or Node-22 CI result. Some unchanged
+suite reports use their default label `bundled Chromium`; the launch logs record
+the actual executable/version. Browser contexts are isolated from user storage.
+
+- `npm.cmd run build`: initial expected frozen-source failure before the new
+  identity; **PASS** after the narrow records/validators were in place.
+- With `$env:TBC_BROWSER_CHANNEL='msedge'`, `npm.cmd run verify`: **30/30 child commands exit
+  zero**, with successful initial/final build checks. It was 29 children before
+  the additional seven-test successor negative suite was included. Exact report:
+  `artifacts/question-successor/verify-precommit.json`; full output:
+  `artifacts/question-successor/verify-precommit.log`.
+- Within that aggregate: P0A **20/20**, reconciliation **15/15**, P0B **23/23**,
+  P0C **52/52**, P0D **45/45**, P1B static **23/23**, historical adapter **5/5**,
+  unchanged Stage 0 **7/7**, preservation **19/19**, compatibility **27/27**,
+  P0E **7/7 browser suites**, P1B desktop/mobile **PASS**, release validation
+  **zero failures**, and P27D **4/4 profiles** (desktop, tablet, mobile and
+  reduced motion). The explicit Edge P27D report is retained separately.
+- Both fresh P2A extractions/audits: **58/58 each**; all five output files are
+  byte-identical across runs. Current content validation passes against both.
+  Both passes of the read-only P2B, P2C, P2D and P2E commands exit zero, with
+  zero confirmed defects. Existing warnings remain: one cross-book matrix,
+  877 P2D heuristic warnings and 459 P2E boundary warnings. P2E's printed four
+  tier changes describe historical pins, not changes in this task.
+- Standalone and aggregate negative runs both pass: unchanged
+  `node --test scripts/tbc-p2a-infrastructure.test.cjs` **11/11** and
+  `node --test scripts/tbc-product-identity.test.cjs` **31/31**; new
+  `node --test scripts/tbc-question-successor.test.cjs` **7/7**. All positive
+  controls pass; all mutation cases reach their intended assertions. **Zero
+  failed, skipped, cancelled or prerequisite-blocked cases** remain in these
+  runs. LF/CRLF, raw-byte and Git-normalized identity regressions remain intact.
+- `node artifacts/question-successor/scope-check.cjs`: **PASS**, 77 JavaScript
+  files, 13 JSON files and the full embedded engine parse; all thirteen product
+  files and ten historical records match task-entry raw hashes. The only P2A
+  difference is its source pin. `git diff --check`: **PASS**.
+
+- With the cached-Chromium hook below, standalone `npm.cmd test`: **13/13 child
+  commands exit zero**. This independently repeats Stage 0 **7/7**, preservation
+  **19/19**, compatibility **27/27**, P0E **7/7**, P1B and all **4/4 P27D profiles**
+  in Chromium. Full output/report: `test-chromium.log` / `test-chromium.json`;
+  the actual Chromium P27D report is `p27d-chromium.json` in the same directory.
+- `node scripts/tbc-question-revision-tests.cjs`: **57/57**, zero page errors,
+  in cached Chromium. Its **24/24 exact-predecessor lifecycle cases** cover the
+  four IDs times Quick/Daily/Weekly times answered/unasked. All recovery paths,
+  exact snapshot/order/progress/score, repeated reloads, continuation, one-time
+  completion and real export/import are exercised. Foundation archive negatives,
+  unknown fingerprints, multiple revisions, forged metadata, safe corruption
+  recovery, intentional abandonment and fresh-pool exclusion also pass. Exact
+  output/report: `revisions-chromium.log` / `revisions-chromium.json`.
+- `node scripts/tbc-question-revisions.cjs`: **PASS**, four exact archived
+  predecessor records, four current fingerprints and preserved counts, aliases,
+  tiers, schema and deterministic pools. Fresh source-bound captures were used.
+- `node scripts/tbc-four-question-quality.cjs`: **4/4**. No additional editorial
+  review or alteration occurred; this checks the already reviewed corrections.
+- `node artifacts/question-revisions/all-current-identities.cjs`: **6,275/6,275**
+  current serialized identities accepted (all 6,072 registry entries plus all
+  203 prepared structured forms), zero page errors, in cached Chromium. This is
+  an identity-guard probe, not 6,275 complete gameplay lifecycle tests.
+
+Exact cached-Chromium setup in PowerShell, before the browser commands above:
+
+```powershell
+Remove-Item Env:TBC_BROWSER_CHANNEL -ErrorAction SilentlyContinue
+$env:NODE_OPTIONS='--require=./artifacts/question-successor/cached-chromium.cjs'
+```
+
+Standalone revision/probe commands use `node scripts/tbc-recovery-stage0.cjs
+serve` on port 4173; the owned server was stopped before aggregate commands.
+No real user storage is accessed. Evidence is retained under ignored
+`artifacts/question-successor/`, `artifacts/question-revisions/` and the normal
+suite directories. These are precommit results; mandatory postcommit
+`npm.cmd run build` and Edge `npm.cmd run verify` are recorded in
+`artifacts/question-successor/build-postcommit.log`, `verify-postcommit.log` and
+`verify-postcommit.json`, and reported with the certification commit SHA in the
+final task report. A commit alone is not proof those postcommit gates passed.
+
+#### Final scope and next task
+
+This certification changes only the two new successor JSON records, P2A's
+source pin, `docs/TBC_PRODUCT_IDENTITY.md`, this status file, and these scripts:
+`p2a-question-bank-audit.cjs`, `tbc-product-identity.cjs`,
+`tbc-question-successor.test.cjs`, `tbc-reconciliation.test.cjs`,
+`tbc-recovery-stage0.cjs`, `tbc-successor-transition.cjs`, `validate-release.cjs`.
+The existing 31-case successor, 11-case P2A, Stage 0, compatibility, preservation,
+revision and quality test files remain unchanged. Historical records, product
+files, ledger, revision core and archive, storage schema **27**, keys, aliases,
+counts, tiers and supporting assets have no certification-task changes.
+
+This is local certification only: no push, PR, merge or deployment. Linux,
+Node-22 CI and the locked bundled Chromium revision remain unverified locally.
+Revision/quality checks remain explicit standalone certification gates. Unknown
+unarchived revisions still fail closed; additional predecessors or corrections
+require separately reviewed provenance and fixtures. The whole bank has not
+been audited: **100 reviewed, 96 unchanged/verified, 4 corrected, 0 unresolved
+among reviewed entries, 5,699 pending**.
+
+The exact next audit position, after separate authorization, is ledger entry
+**101**, `1-peter-3-15-meaning`, **1 Peter 3:15**, runtime source index **3568**.
+It remains pending; do not treat this certificate as authorization to continue
+the editorial audit or publish the branch.

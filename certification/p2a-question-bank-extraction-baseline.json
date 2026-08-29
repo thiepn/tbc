@@ -3,7 +3,7 @@
   "schemaVersion": "P2A.1",
   "parentP1BMerge": "33252c17f89e7aa750c7df60f495a22b19d3c673",
   "source": {
-    "indexBlobSha1": "ce1b30a8fe2c07822001b9542271eea60174f4f1"
+    "indexBlobSha1": "2009bc20e2fb95646ccd54976342d79bbabe0223"
   },
   "expected": {
     "canonical": 5799,
