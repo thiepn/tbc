@@ -10,7 +10,7 @@ function fixture(run){
   fs.mkdirSync(boundary,{recursive:true});
   const root=fs.mkdtempSync(path.join(boundary,'identity-negative-'));
   try{
-    const files=[id.MANIFEST,id.TRANSITION,id.P2A,...Object.keys(id.loadManifest().historicalEvidence)];
+    const files=[id.MANIFEST,id.TRANSITION,id.BATCH03_MANIFEST,id.BATCH03_TRANSITION,id.P2A,...Object.keys(id.loadManifest().historicalEvidence)];
     for(const file of files){fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.copyFileSync(path.join(id.ROOT,file),path.join(root,file))}
     // Every mutation starts from a passing authority, so no stale prerequisite
     // can masquerade as the intended rejection.
@@ -30,8 +30,8 @@ test('current hashes come from the successor without rewriting historical P2A co
   assert.equal(raw.hashes.registryBankSha256,historical.content.semanticHashes.registry);
   assert.notEqual(current.hashes.canonicalBankSha256,raw.hashes.canonicalBankSha256);
   assert.notEqual(current.hashes.registryBankSha256,raw.hashes.registryBankSha256);
-  const reverted=structuredClone(current);reverted.hashes=raw.hashes;
-  assert.deepEqual(reverted,raw,'only the two explicitly authorized content expectations move');
+  const reverted=structuredClone(current);reverted.hashes=raw.hashes;reverted.source=raw.source;
+  assert.deepEqual(reverted,raw,'only the authorized source and content expectations move');
 });
 for(const [name,file] of [['predecessor identity',id.HISTORICAL_MANIFEST],['previous transition','certification/tbc-preservation-repair-transition.json']]){
   test(`rejects rewriting ${name}`,()=>fixture(root=>{

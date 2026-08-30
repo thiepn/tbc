@@ -3,8 +3,8 @@
 This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activeQuestions()` as extracted by P2A; aliases are compatibility mappings, not additional questions.
 
 - Canonical runtime questions: **5799**
-- Individually completed: **100**
-- Pending individual review: **5699**
+- Individually completed: **150**
+- Pending individual review: **5649**
 - Unresolved human decisions: **0**
 - Complete inventory fields, aliases, mode eligibility, and per-entry audit evidence are in [`TBC_QUESTION_AUDIT.json`](TBC_QUESTION_AUDIT.json).
 - Validate against a fresh P2A extraction with `node scripts/tbc-question-audit-ledger.cjs check`; use `--require-complete` only after every entry is reviewed.
@@ -113,56 +113,56 @@ This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activ
 | `1-peter-2-9-context` | 3571 | 1 Peter 2:9 | Standard | unchanged and verified |
 | `1-peter-2-9-meaning` | 3570 | 1 Peter 2:9 | Easy | unchanged and verified |
 | `1-peter-3-15-context` | 3569 | 1 Peter 3:15 | Advanced | unchanged and verified |
-| `1-peter-3-15-meaning` | 3568 | 1 Peter 3:15 | Easy | pending individual review |
-| `1-peter-4-8-context` | 3573 | 1 Peter 4:8 | Advanced | pending individual review |
-| `1-peter-4-8-meaning` | 3572 | 1 Peter 4:8 | Easy | pending individual review |
-| `1-peter-5-7-book` | 3566 | 1 Peter 5:7 | Standard | pending individual review |
-| `1-peter-5-7-context` | 3565 | 1 Peter 5:7 | Standard | pending individual review |
-| `1-peter-5-7-meaning` | 3564 | 1 Peter 5:7 | Beginner | pending individual review |
-| `1-peter-5-7-reference` | 3567 | 1 Peter 5:7 | Advanced | pending individual review |
-| `1-peter-5-8-9-book` | 3588 | 1 Peter 5:8-9 | Standard | pending individual review |
-| `1-peter-5-8-9-context` | 3587 | 1 Peter 5:8-9 | Standard | pending individual review |
-| `1-peter-5-8-9-meaning` | 3586 | 1 Peter 5:8-9 | Beginner | pending individual review |
-| `1-peter-5-8-9-reference` | 3589 | 1 Peter 5:8-9 | Advanced | pending individual review |
-| `1-samuel-12-22-book` | 986 | 1 Samuel 12:22 | Standard | pending individual review |
-| `1-samuel-12-22-context` | 985 | 1 Samuel 12:22 | Standard | pending individual review |
-| `1-samuel-12-22-meaning` | 984 | 1 Samuel 12:22 | Beginner | pending individual review |
-| `1-samuel-12-22-reference` | 987 | 1 Samuel 12:22 | Advanced | pending individual review |
-| `1-samuel-12-24-context` | 981 | 1 Samuel 12:24 | Advanced | pending individual review |
-| `1-samuel-12-24-meaning` | 980 | 1 Samuel 12:24 | Easy | pending individual review |
-| `1-samuel-15-22-book` | 972 | 1 Samuel 15:22 | Standard | pending individual review |
-| `1-samuel-15-22-context` | 971 | 1 Samuel 15:22 | Standard | pending individual review |
-| `1-samuel-15-22-meaning` | 970 | 1 Samuel 15:22 | Beginner | pending individual review |
-| `1-samuel-15-22-reference` | 973 | 1 Samuel 15:22 | Advanced | pending individual review |
-| `1-samuel-16-7-context` | 965 | 1 Samuel 16:7 | Standard | pending individual review |
-| `1-samuel-16-7-meaning` | 964 | 1 Samuel 16:7 | Easy | pending individual review |
-| `1-samuel-17-47-book` | 976 | 1 Samuel 17:47 | Standard | pending individual review |
-| `1-samuel-17-47-context` | 975 | 1 Samuel 17:47 | Standard | pending individual review |
-| `1-samuel-17-47-meaning` | 974 | 1 Samuel 17:47 | Beginner | pending individual review |
-| `1-samuel-17-47-reference` | 977 | 1 Samuel 17:47 | Advanced | pending individual review |
-| `1-samuel-2-2-context` | 979 | 1 Samuel 2:2 | Advanced | pending individual review |
-| `1-samuel-2-2-meaning` | 978 | 1 Samuel 2:2 | Easy | pending individual review |
-| `1-samuel-3-10-book` | 968 | 1 Samuel 3:10 | Standard | pending individual review |
-| `1-samuel-3-10-context` | 967 | 1 Samuel 3:10 | Standard | pending individual review |
-| `1-samuel-3-10-meaning` | 966 | 1 Samuel 3:10 | Beginner | pending individual review |
-| `1-samuel-3-10-reference` | 969 | 1 Samuel 3:10 | Advanced | pending individual review |
-| `1-samuel-7-12-context` | 983 | 1 Samuel 7:12 | Advanced | pending individual review |
-| `1-samuel-7-12-meaning` | 982 | 1 Samuel 7:12 | Easy | pending individual review |
-| `1-thessalonians-4-13-14-context` | 3333 | 1 Thessalonians 4:13-14 | Advanced | pending individual review |
-| `1-thessalonians-4-13-14-meaning` | 3332 | 1 Thessalonians 4:13-14 | Easy | pending individual review |
-| `1-thessalonians-4-16-context` | 3331 | 1 Thessalonians 4:16 | Advanced | pending individual review |
-| `1-thessalonians-4-16-meaning` | 3330 | 1 Thessalonians 4:16 | Easy | pending individual review |
-| `1-thessalonians-4-3-context` | 3329 | 1 Thessalonians 4:3 | Advanced | pending individual review |
-| `1-thessalonians-4-3-meaning` | 3328 | 1 Thessalonians 4:3 | Easy | pending individual review |
-| `1-thessalonians-5-11-context` | 3327 | 1 Thessalonians 5:11 | Advanced | pending individual review |
-| `1-thessalonians-5-11-meaning` | 3326 | 1 Thessalonians 5:11 | Easy | pending individual review |
-| `1-thessalonians-5-16-18-book` | 3324 | 1 Thessalonians 5:16-18 | Standard | pending individual review |
-| `1-thessalonians-5-16-18-context` | 3323 | 1 Thessalonians 5:16-18 | Standard | pending individual review |
-| `1-thessalonians-5-16-18-meaning` | 3322 | 1 Thessalonians 5:16-18 | Beginner | pending individual review |
-| `1-thessalonians-5-16-18-reference` | 3325 | 1 Thessalonians 5:16-18 | Advanced | pending individual review |
-| `1-thessalonians-5-21-book` | 3336 | 1 Thessalonians 5:21 | Standard | pending individual review |
-| `1-thessalonians-5-21-context` | 3335 | 1 Thessalonians 5:21 | Standard | pending individual review |
-| `1-thessalonians-5-21-meaning` | 3334 | 1 Thessalonians 5:21 | Beginner | pending individual review |
+| `1-peter-3-15-meaning` | 3568 | 1 Peter 3:15 | Easy | unchanged and verified |
+| `1-peter-4-8-context` | 3573 | 1 Peter 4:8 | Advanced | unchanged and verified |
+| `1-peter-4-8-meaning` | 3572 | 1 Peter 4:8 | Easy | unchanged and verified |
+| `1-peter-5-7-book` | 3566 | 1 Peter 5:7 | Standard | unchanged and verified |
+| `1-peter-5-7-context` | 3565 | 1 Peter 5:7 | Standard | unchanged and verified |
+| `1-peter-5-7-meaning` | 3564 | 1 Peter 5:7 | Beginner | unchanged and verified |
+| `1-peter-5-7-reference` | 3567 | 1 Peter 5:7 | Advanced | unchanged and verified |
+| `1-peter-5-8-9-book` | 3588 | 1 Peter 5:8-9 | Standard | unchanged and verified |
+| `1-peter-5-8-9-context` | 3587 | 1 Peter 5:8-9 | Standard | unchanged and verified |
+| `1-peter-5-8-9-meaning` | 3586 | 1 Peter 5:8-9 | Beginner | unchanged and verified |
+| `1-peter-5-8-9-reference` | 3589 | 1 Peter 5:8-9 | Advanced | unchanged and verified |
+| `1-samuel-12-22-book` | 986 | 1 Samuel 12:22 | Standard | unchanged and verified |
+| `1-samuel-12-22-context` | 985 | 1 Samuel 12:22 | Standard | unchanged and verified |
+| `1-samuel-12-22-meaning` | 984 | 1 Samuel 12:22 | Beginner | unchanged and verified |
+| `1-samuel-12-22-reference` | 987 | 1 Samuel 12:22 | Advanced | unchanged and verified |
+| `1-samuel-12-24-context` | 981 | 1 Samuel 12:24 | Advanced | corrected |
+| `1-samuel-12-24-meaning` | 980 | 1 Samuel 12:24 | Easy | unchanged and verified |
+| `1-samuel-15-22-book` | 972 | 1 Samuel 15:22 | Standard | unchanged and verified |
+| `1-samuel-15-22-context` | 971 | 1 Samuel 15:22 | Standard | unchanged and verified |
+| `1-samuel-15-22-meaning` | 970 | 1 Samuel 15:22 | Beginner | unchanged and verified |
+| `1-samuel-15-22-reference` | 973 | 1 Samuel 15:22 | Advanced | unchanged and verified |
+| `1-samuel-16-7-context` | 965 | 1 Samuel 16:7 | Standard | unchanged and verified |
+| `1-samuel-16-7-meaning` | 964 | 1 Samuel 16:7 | Easy | unchanged and verified |
+| `1-samuel-17-47-book` | 976 | 1 Samuel 17:47 | Standard | unchanged and verified |
+| `1-samuel-17-47-context` | 975 | 1 Samuel 17:47 | Standard | unchanged and verified |
+| `1-samuel-17-47-meaning` | 974 | 1 Samuel 17:47 | Beginner | unchanged and verified |
+| `1-samuel-17-47-reference` | 977 | 1 Samuel 17:47 | Advanced | unchanged and verified |
+| `1-samuel-2-2-context` | 979 | 1 Samuel 2:2 | Advanced | unchanged and verified |
+| `1-samuel-2-2-meaning` | 978 | 1 Samuel 2:2 | Easy | unchanged and verified |
+| `1-samuel-3-10-book` | 968 | 1 Samuel 3:10 | Standard | unchanged and verified |
+| `1-samuel-3-10-context` | 967 | 1 Samuel 3:10 | Standard | unchanged and verified |
+| `1-samuel-3-10-meaning` | 966 | 1 Samuel 3:10 | Beginner | unchanged and verified |
+| `1-samuel-3-10-reference` | 969 | 1 Samuel 3:10 | Advanced | unchanged and verified |
+| `1-samuel-7-12-context` | 983 | 1 Samuel 7:12 | Advanced | unchanged and verified |
+| `1-samuel-7-12-meaning` | 982 | 1 Samuel 7:12 | Easy | unchanged and verified |
+| `1-thessalonians-4-13-14-context` | 3333 | 1 Thessalonians 4:13-14 | Advanced | unchanged and verified |
+| `1-thessalonians-4-13-14-meaning` | 3332 | 1 Thessalonians 4:13-14 | Easy | unchanged and verified |
+| `1-thessalonians-4-16-context` | 3331 | 1 Thessalonians 4:16 | Advanced | unchanged and verified |
+| `1-thessalonians-4-16-meaning` | 3330 | 1 Thessalonians 4:16 | Easy | unchanged and verified |
+| `1-thessalonians-4-3-context` | 3329 | 1 Thessalonians 4:3 | Advanced | unchanged and verified |
+| `1-thessalonians-4-3-meaning` | 3328 | 1 Thessalonians 4:3 | Easy | unchanged and verified |
+| `1-thessalonians-5-11-context` | 3327 | 1 Thessalonians 5:11 | Advanced | unchanged and verified |
+| `1-thessalonians-5-11-meaning` | 3326 | 1 Thessalonians 5:11 | Easy | unchanged and verified |
+| `1-thessalonians-5-16-18-book` | 3324 | 1 Thessalonians 5:16-18 | Standard | unchanged and verified |
+| `1-thessalonians-5-16-18-context` | 3323 | 1 Thessalonians 5:16-18 | Standard | unchanged and verified |
+| `1-thessalonians-5-16-18-meaning` | 3322 | 1 Thessalonians 5:16-18 | Beginner | unchanged and verified |
+| `1-thessalonians-5-16-18-reference` | 3325 | 1 Thessalonians 5:16-18 | Advanced | unchanged and verified |
+| `1-thessalonians-5-21-book` | 3336 | 1 Thessalonians 5:21 | Standard | unchanged and verified |
+| `1-thessalonians-5-21-context` | 3335 | 1 Thessalonians 5:21 | Standard | unchanged and verified |
+| `1-thessalonians-5-21-meaning` | 3334 | 1 Thessalonians 5:21 | Beginner | unchanged and verified |
 | `1-thessalonians-5-21-reference` | 3337 | 1 Thessalonians 5:21 | Advanced | pending individual review |
 | `1-timothy-1-15-context` | 3377 | 1 Timothy 1:15 | Advanced | pending individual review |
 | `1-timothy-1-15-meaning` | 3376 | 1 Timothy 1:15 | Easy | pending individual review |

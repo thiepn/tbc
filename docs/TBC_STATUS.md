@@ -1376,3 +1376,162 @@ The exact next audit position, after separate authorization, is ledger entry
 **101**, `1-peter-3-15-meaning`, **1 Peter 3:15**, runtime source index **3568**.
 It remains pending; do not treat this certificate as authorization to continue
 the editorial audit or publish the branch.
+
+## Canonical question-content audit — Batch 03, entries 101–150
+
+Batch 03 started from clean merged production checkpoint
+`dded986a1fce1683acc04b621939e67288084c17` on local branch
+`codex/question-audit-batch-03`. Exactly the 50 lexically ordered ledger entries
+101–150 were reviewed, beginning with `1-peter-3-15-meaning` at runtime source
+index 3568 and ending with `1-thessalonians-5-21-meaning` at source index 3334.
+No entry at or after 151 was reviewed.
+
+The ledger result is **49 unchanged and verified / 1 corrected / 0 unresolved**.
+It now reports **150 reviewed, 145 unchanged and verified, 5 corrected, 0
+unresolved, and 5,649 pending**. Every Batch 03 entry has an individual rationale,
+direct Scripture URL, and one finding per answer option. A focused gate compares
+the ledger with the exact production predecessor and proves only rows 101–150
+changed.
+
+### Confirmed correction and compatibility provenance
+
+`1-samuel-12-24-context` contained two defensible descriptions of the same
+immediate scene. In [1 Samuel 12:19–24](https://biblehub.com/bsb/1_samuel/12.htm),
+Israel confesses the evil of demanding a king, Samuel reassures and instructs
+the people, and verse 24 concludes that response. The distractor “Samuel
+reassures Israel after they confess the sin of demanding a king” therefore
+overlapped the keyed “Samuel concludes his response to Israel’s request for a
+king.” The distractor at option index 2 is now “Samuel sets up the Ebenezer stone
+after God gives Israel victory over the Philistines,” a separate scene in
+[1 Samuel 7:7–12](https://biblehub.com/bsb/1_samuel/7.htm). The prompt, stable ID,
+reference, keyed answer, answer position 3, explanation, tier, metadata, and the
+other three choices are unchanged.
+
+The exact certified predecessor is archived under version 1 with production
+commit `dded986a1fce1683acc04b621939e67288084c17`:
+
+```text
+predecessor fingerprint:  d3a978c6e242352386f36b4a85ac5be803298dfa7e245d4221ee2ae8f38e9039
+predecessor snapshot hash: 56a7fe38ce049add5c365b88268ca8b4a618399f4ab8344332e015660a5a2b73
+current fingerprint:       33d3d115f40c70ddd92c819a2e189a6a7663ae25082da67d04577e3ccb7a7ede
+```
+
+The predecessor validator now binds each archived ID to one of two explicit
+authoritative commits: the four PR #34 records remain bound to `e09333f…`, and
+only this Batch 03 record is bound to `dded986…`. Both commits are captured in
+separate isolated browser contexts. Unknown commits, swapped IDs, forged
+snapshots, recomputed hashes, missing captures, duplicate keys and malformed
+archives remain rejected. The archive still cannot enter current registries,
+aliases or fresh deterministic pools.
+
+### Executed Batch 03 verification
+
+Local environment: Windows, Node **24.16.0**, npm **11.13.0**, locked
+Playwright **1.55.1**, installed Edge **151.0.4129.107**. Browser contexts were
+isolated; no real user storage was accessed. The lockfile and package metadata
+were not changed. Bundled Chromium and Linux/Node-22 were not run locally.
+
+- Ledger render/check: **5,799/5,799**, completed **150**, pending **5,649**,
+  unresolved **0**. Batch scope/evidence regression: PASS.
+- `scripts/tbc-question-revisions.cjs`: PASS, **5 changed IDs / 5 exact
+  predecessor records**, with counts, tiers, aliases, schema and deterministic
+  pools retained.
+- `scripts/tbc-question-revision-tests.cjs`: **64/64**, zero page errors. The
+  original 57 cases remain, including the prior **24/24** exact-predecessor
+  lifecycle rows. Seven new cases cover this ID across Quick/Daily/Weekly,
+  answered/unasked, plus real export/import and unknown-revision rejection.
+  Primary-only, backup-only, both-copy precedence, progress/score/order,
+  repeated reload, continued answers, once-only completion, cleanup and fresh
+  pool exclusion all pass.
+- Existing four-question quality: **4/4**. Batch 03 quality and ledger scope:
+  **5/5**. Session compatibility: **27/27**.
+- P2A extraction ran twice and each exited zero. All five generated files are
+  byte-identical across runs. Counts remain **5,799 canonical / 6,072 registry /
+  273 aliases / 203 structured / 66 books**; tiers remain
+  **1,338 / 1,668 / 1,132 / 1,140 / 521**.
+- Both P2A audits report the expected **55/58**. Only the current canonical hash,
+  registry hash and monolith source pin fail. Structured identity and the other
+  55 checks pass. No manifest was updated.
+- Both passes of P2B, P2C, P2D and P2E exit zero. Existing non-blocking warnings
+  remain one cross-book matrix, 877 quality heuristics and 459 tier boundaries;
+  no new confirmed defect is reported by those automated audits.
+- P2A negatives: **1 pass / 1 prerequisite failure**; the mutation subcases stop
+  because the unchanged positive control rejects the intentionally unrecognized
+  product identity. Product-identity negatives: **7 pass / 24 prerequisite-
+  masked failures** for the same current-source pin. Question-successor
+  negatives remain **7/7**. No assertion was changed to force these green.
+- Standalone P27D Edge runtime/reload certification: PASS across all four
+  desktop/tablet/mobile/reduced-motion profiles with zero runtime errors.
+- Standalone `npm test` executed all **16** children: **12 exited zero**. Passing
+  behavioral children include Stage 0 **7/7**, preservation **19/19**,
+  compatibility **27/27**, revisions **64/64**, both quality gates, P0E **7/7**,
+  and P1B desktop/mobile. The four nonzero children are reconciliation, P0A,
+  historical preservation and release validation; each is blocked by frozen
+  source/content identity. Release validation has exactly the expected canonical
+  and registry hash failures after its extraction/count/tier/runtime checks pass.
+- `npm run build` and `npm run verify`: expected exit 1 before aggregate children
+  at the current `index.html` identity check. This is a real release checkpoint,
+  not a passing full gate. The standalone aggregate above supplies behavioral
+  evidence but does not supersede the identity authority.
+- Parse checks: **78** tracked/new JavaScript files, all tracked JSON, the
+  embedded engine and outer inline scripts pass. `git diff --check` passes.
+  The explicit predecessor/current scope comparison confirms one changed source
+  and one corresponding registry row, unchanged structured content, all five
+  repeat artifacts deterministic, and all 12 supporting deployed assets equal
+  to `dded986…` under Git normalization.
+
+Current unrecognized identities are:
+
+```text
+index Git-normalized blob: 29994bf8bf0357a92a9c84bd84d327d3f5538221
+normalized product SHA-256: 587506df65e6510671c7ca9d5744e23b4028e349c3b43d19e9a7944309715bc3
+canonical SHA-256:          374fd203e7e079553140ac480b958d9a6d4ef32be60ef50f1fb0e3b40c1be03f
+structured SHA-256:         4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb
+registry SHA-256:           e6ba0d209d567c602231887254f0d84ba06aa248016e0e9e408bf4e0f0dcd554
+```
+
+No freezer ran. No identity/product manifest, historical evidence, question ID,
+alias, tier, schema, storage key, supporting asset, package, workflow, gameplay
+or UI file was changed. The working Batch 03 correction is intentionally
+**uncommitted, unpushed, unmerged and undeployed** at the frozen-identity stop.
+
+The exact next task requires separate authorization: create a narrow append-only
+successor identity/transition for this one archived distractor correction, update
+only the minimum current P2A source/canonical/registry authority, then run the
+complete negative, preservation, browser, build and aggregate gates. Do not
+rewrite prior certificates, run a broad freezer, or continue to ledger entry 151.
+
+### Batch 03 successor certification completed locally
+
+The narrowly scoped append-only Batch 03 successor identity and transition are
+now present in the working candidate. They recognize only the certified
+`1-samuel-12-24-context` predecessor from `dded986a1fce1683acc04b621939e67288084c17`;
+the four earlier archived revisions and all historical certificates remain
+immutable. The active successor source is Git blob
+`29994bf8bf0357a92a9c84bd84d327d3f5538221`. No freezer ran.
+
+On Windows / Node 24.16.0 / Edge 151.0.4129.107 with locked Playwright 1.55.1:
+
+- `npm.cmd run verify`: **PASS**, final report
+  `artifacts/recovery-stage0/verify-report.json`, **34/34** child processes
+  exited zero. This includes reconciliation **15/15**, Stage 0 **7/7**,
+  preservation **19/19**, compatibility **27/27**, revisions **64/64**, prior
+  and Batch 03 quality **4/4** and **5/5**, P0E **7/7**, P1B, P27D, two P2A
+  extractions/audits **58/58**, P2A negatives **11/11**, existing successor
+  negatives **31/31**, and Batch 03 successor negatives **22/22**.
+- `npm.cmd test`: **PASS**, including its independent Stage 0, preservation,
+  compatibility, revision lifecycle **64/64**, quality, P0E, P1B and release
+  browser checks.
+- Direct successor/current-content proofs, both P2A audits, revision archive,
+  transition replays, and quality gates pass. JavaScript and JSON parse checks
+  and `git diff --check` pass.
+
+P2A remains exactly **5,799 canonical / 6,072 registry / 273 aliases / 203
+structured / 66 books**, with tiers **1338/1668/1132/1140/521**. Structured
+content and all twelve supporting deployed assets are unchanged. The only
+product source change is the authorized option replacement and its archived
+predecessor; no schema, storage, package, workflow, UI, balance, alias or
+additional question changed. Linux/Node-22 and bundled Chromium remain CI-only
+verification limitations. The next task is commit this certified local
+candidate, then rerun the required postcommit build and verification; do not
+start ledger entry 151 or push, merge or deploy without separate authorization.

@@ -12,7 +12,7 @@ test('successor identity and transition reject unauthorized mutations', async t 
   fs.mkdirSync(boundary, { recursive: true });
   const root = fs.mkdtempSync(path.join(boundary, 'negative-'));
   const manifest = id.loadManifest();
-  const files = [...id.PRODUCT, id.MANIFEST, id.TRANSITION, id.P2A, id.ACCEPTANCE, ...Object.keys(manifest.historicalEvidence)];
+  const files = [...id.PRODUCT, id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION, id.P2A, id.ACCEPTANCE, ...Object.keys(manifest.historicalEvidence)];
   for (const file of files) {
     fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true });
     fs.copyFileSync(path.join(id.ROOT, file), path.join(root, file));
@@ -49,15 +49,15 @@ test('successor identity and transition reject unauthorized mutations', async t 
       await mutate(`rejects ${name} change`, path.join(root, file), bytes => Buffer.concat([bytes, Buffer.from('\n/* unauthorized */\n')]), () => id.validateCurrent(root), /identity changed|acceptance test changed/);
     }
     for (const field of ['predecessor', 'successor']) await mutate(`rejects wrong ${field} identity`, path.join(root, id.MANIFEST),
-      json(q => { q[field].indexBlobSha1 = '0'.repeat(40); }), () => id.validateCurrent(root), /manifest tampered/);
+      json(q => { q[field].indexBlobSha1 = '0'.repeat(40); }), () => id.validateCurrent(root), /manifest tampered|prior successor identity changed/);
     await mutate('rejects authorized transition alteration', path.join(root, id.TRANSITION), json(q => { q.edits[0].to += ' '; }), () => validateTransition(root), /transition record altered/);
-    await mutate('rejects manifest tampering', path.join(root, id.MANIFEST), json(q => { q.changedProductFiles.push('assets/pr5-shell.js'); }), () => id.validateCurrent(root), /manifest tampered/);
-    await mutate('rejects storage key contract change', path.join(root, id.MANIFEST), json(q => { q.persistence.canonicalStateKeys[0] += '_new'; }), () => id.validateCurrent(root), /manifest tampered/);
+    await mutate('rejects manifest tampering', path.join(root, id.MANIFEST), json(q => { q.changedProductFiles.push('assets/pr5-shell.js'); }), () => id.validateCurrent(root), /manifest tampered|prior successor identity changed/);
+    await mutate('rejects storage key contract change', path.join(root, id.MANIFEST), json(q => { q.persistence.canonicalStateKeys[0] += '_new'; }), () => id.validateCurrent(root), /manifest tampered|prior successor identity changed/);
     for (const [name, change] of [
       ['content hash', q => { q.hashes.canonicalBankSha256 = '0'.repeat(64); }],
       ['distribution', q => { q.expected.difficultyDistribution.Easy++; }],
       ['phase evidence', q => { q.p2e.recalibratedQuestions++; }]
-    ]) await mutate(`rejects broad freezer ${name} rewrite`, path.join(root, id.P2A), json(change), () => id.validateCurrent(root), /P2A changes exceed/);
+    ]) await mutate(`rejects broad freezer ${name} rewrite`, path.join(root, id.P2A), json(change), () => id.validateCurrent(root), /P2A changes exceed|historical P2A baseline changed/);
     await mutate('rejects rewritten historical certificate', path.join(root, 'certification/p0e-preservation-baseline.json'), json(q => { q.frozenProductFiles['index.html'] = id.SUCCESSOR; }), () => id.validateCurrent(root), /protected historical evidence changed/);
   } finally {
     const resolved = fs.realpathSync(root);

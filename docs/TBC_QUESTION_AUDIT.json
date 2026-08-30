@@ -99,16 +99,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 16:1-13, 7-36: David appoints thanks after bringing the ark to Jerusalem and calls Israel to seek the LORD and his strength.",
             "reference": "1 Chronicles 16:11",
-            "detail": "1 Chronicles 16:1-13, 7-36: David appoints thanks after bringing the ark to Jerusalem and calls Israel to seek the LORD and his strength."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 16:11",
       "book": "1 Chronicles",
@@ -256,16 +256,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 16:7-36: David gives Asaph and his associates a psalm of thanks when the ark is brought to Jerusalem.",
             "reference": "1 Chronicles 16:34",
-            "detail": "1 Chronicles 16:7-36: David gives Asaph and his associates a psalm of thanks when the ark is brought to Jerusalem."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 16:34",
       "book": "1 Chronicles",
@@ -319,16 +319,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 28:1, 9-10: David addresses Solomon and commissions him to build the sanctuary.",
             "reference": "1 Chronicles 28:9",
-            "detail": "1 Chronicles 28:1, 9-10: David addresses Solomon and commissions him to build the sanctuary."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 28:9",
       "book": "1 Chronicles",
@@ -381,16 +381,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 28:1, 9-10: David addresses Solomon and commissions him to build the sanctuary.",
             "reference": "1 Chronicles 28:9",
-            "detail": "1 Chronicles 28:1, 9-10: David addresses Solomon and commissions him to build the sanctuary."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 28:9",
       "book": "1 Chronicles",
@@ -444,16 +444,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom.",
             "reference": "1 Chronicles 29:11",
-            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 29:11",
       "book": "1 Chronicles",
@@ -506,16 +506,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom.",
             "reference": "1 Chronicles 29:11",
-            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 29:11",
       "book": "1 Chronicles",
@@ -569,16 +569,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom.",
             "reference": "1 Chronicles 29:11",
-            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 29:11",
       "book": "1 Chronicles",
@@ -632,16 +632,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom.",
             "reference": "1 Chronicles 29:11",
-            "detail": "1 Chronicles 29:10-20: David’s final prayer praises God’s greatness, power, glory, and kingdom."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 29:11",
       "book": "1 Chronicles",
@@ -694,16 +694,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 29:10-20: David says the people’s gifts came from God’s hand.",
             "reference": "1 Chronicles 29:14",
-            "detail": "1 Chronicles 29:10-20: David says the people’s gifts came from God’s hand."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 29:14",
       "book": "1 Chronicles",
@@ -757,16 +757,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Chronicles 29:10-20: David says the people’s gifts came from God’s hand.",
             "reference": "1 Chronicles 29:14",
-            "detail": "1 Chronicles 29:10-20: David says the people’s gifts came from God’s hand."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Chronicles 29:14",
       "book": "1 Chronicles",
@@ -820,16 +820,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 1:10-25: Paul contrasts the cross as foolishness to those perishing with God’s power for those being saved.",
             "reference": "1 Corinthians 1:18",
-            "detail": "1 Corinthians 1:10-25: Paul contrasts the cross as foolishness to those perishing with God’s power for those being saved."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 1:18",
       "book": "1 Corinthians",
@@ -882,16 +882,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 1:10-25: Paul contrasts the cross as foolishness to those perishing with God’s power for those being saved.",
             "reference": "1 Corinthians 1:18",
-            "detail": "1 Corinthians 1:10-25: Paul contrasts the cross as foolishness to those perishing with God’s power for those being saved."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 1:18",
       "book": "1 Corinthians",
@@ -945,16 +945,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation.",
             "reference": "1 Corinthians 10:13",
-            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 10:13",
       "book": "1 Corinthians",
@@ -1007,16 +1007,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation.",
             "reference": "1 Corinthians 10:13",
-            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 10:13",
       "book": "1 Corinthians",
@@ -1069,16 +1069,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation.",
             "reference": "1 Corinthians 10:13",
-            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 10:13",
       "book": "1 Corinthians",
@@ -1132,16 +1132,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation.",
             "reference": "1 Corinthians 10:13",
-            "detail": "1 Corinthians 10:1-14: Paul warns from Israel’s example and says God provides a way out so believers can endure temptation."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 10:13",
       "book": "1 Corinthians",
@@ -1194,16 +1194,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 10:23-33: Paul directs eating, drinking, and all conduct to God’s glory and the good of many.",
             "reference": "1 Corinthians 10:31",
-            "detail": "1 Corinthians 10:23-33: Paul directs eating, drinking, and all conduct to God’s glory and the good of many."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 10:31",
       "book": "1 Corinthians",
@@ -1256,16 +1256,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 10:23-33: Paul directs eating, drinking, and all conduct to God’s glory and the good of many.",
             "reference": "1 Corinthians 10:31",
-            "detail": "1 Corinthians 10:23-33: Paul directs eating, drinking, and all conduct to God’s glory and the good of many."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 10:31",
       "book": "1 Corinthians",
@@ -1319,16 +1319,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 12:4-27: Paul uses the one-body image and baptism by one Spirit to explain unity amid diverse members.",
             "reference": "1 Corinthians 12:12-13",
-            "detail": "1 Corinthians 12:4-27: Paul uses the one-body image and baptism by one Spirit to explain unity amid diverse members."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 12:12-13",
       "book": "1 Corinthians",
@@ -1381,16 +1381,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 12:4-27: Paul uses the one-body image and baptism by one Spirit to explain unity amid diverse members.",
             "reference": "1 Corinthians 12:12-13",
-            "detail": "1 Corinthians 12:4-27: Paul uses the one-body image and baptism by one Spirit to explain unity amid diverse members."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 12:12-13",
       "book": "1 Corinthians",
@@ -1443,16 +1443,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 12:4-27: Paul uses the one-body image and baptism by one Spirit to explain unity amid diverse members.",
             "reference": "1 Corinthians 12:12-13",
-            "detail": "1 Corinthians 12:4-27: Paul uses the one-body image and baptism by one Spirit to explain unity amid diverse members."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 12:12-13",
       "book": "1 Corinthians",
@@ -1506,16 +1506,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 13:1-13: Paul concludes that faith, hope, and love remain, and identifies love as greatest.",
             "reference": "1 Corinthians 13:13",
-            "detail": "1 Corinthians 13:1-13: Paul concludes that faith, hope, and love remain, and identifies love as greatest."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 13:13",
       "book": "1 Corinthians",
@@ -1568,16 +1568,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 13:1-13: Paul concludes that faith, hope, and love remain, and identifies love as greatest.",
             "reference": "1 Corinthians 13:13",
-            "detail": "1 Corinthians 13:1-13: Paul concludes that faith, hope, and love remain, and identifies love as greatest."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 13:13",
       "book": "1 Corinthians",
@@ -1631,16 +1631,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance.",
             "reference": "1 Corinthians 13:5-7",
-            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 13:5-7",
       "book": "1 Corinthians",
@@ -1693,16 +1693,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance.",
             "reference": "1 Corinthians 13:5-7",
-            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 13:5-7",
       "book": "1 Corinthians",
@@ -1755,16 +1755,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance.",
             "reference": "1 Corinthians 13:5-7",
-            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 13:5-7",
       "book": "1 Corinthians",
@@ -1818,16 +1818,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance.",
             "reference": "1 Corinthians 13:5-7",
-            "detail": "1 Corinthians 13:4-7: Paul describes love’s conduct and perseverance."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 13:5-7",
       "book": "1 Corinthians",
@@ -1880,16 +1880,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 15:1-11: Paul passes on Christ’s death for sins, burial, resurrection, and appearances as the received gospel.",
             "reference": "1 Corinthians 15:3",
-            "detail": "1 Corinthians 15:1-11: Paul passes on Christ’s death for sins, burial, resurrection, and appearances as the received gospel."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 15:3",
       "book": "1 Corinthians",
@@ -1942,16 +1942,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 15:1-11: Paul passes on Christ’s death for sins, burial, resurrection, and appearances as the received gospel.",
             "reference": "1 Corinthians 15:3",
-            "detail": "1 Corinthians 15:1-11: Paul passes on Christ’s death for sins, burial, resurrection, and appearances as the received gospel."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 15:3",
       "book": "1 Corinthians",
@@ -2005,16 +2005,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 15:50-58: Paul celebrates death’s defeat and thanks God for victory through Jesus Christ.",
             "reference": "1 Corinthians 15:55-57",
-            "detail": "1 Corinthians 15:50-58: Paul celebrates death’s defeat and thanks God for victory through Jesus Christ."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 15:55-57",
       "book": "1 Corinthians",
@@ -2067,16 +2067,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 15:50-58: Paul celebrates death’s defeat and thanks God for victory through Jesus Christ.",
             "reference": "1 Corinthians 15:55-57",
-            "detail": "1 Corinthians 15:50-58: Paul celebrates death’s defeat and thanks God for victory through Jesus Christ."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 15:55-57",
       "book": "1 Corinthians",
@@ -2130,16 +2130,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 15:50-58: the resurrection argument concludes with steadfast work in the Lord.",
             "reference": "1 Corinthians 15:58",
-            "detail": "1 Corinthians 15:50-58: the resurrection argument concludes with steadfast work in the Lord."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 15:58",
       "book": "1 Corinthians",
@@ -2192,16 +2192,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 15:50-58: the resurrection argument concludes with steadfast work in the Lord.",
             "reference": "1 Corinthians 15:58",
-            "detail": "1 Corinthians 15:50-58: the resurrection argument concludes with steadfast work in the Lord."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 15:58",
       "book": "1 Corinthians",
@@ -2255,16 +2255,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 3:1-23: in the divisive church-building argument, Paul calls the congregation God’s temple with God’s Spirit among them.",
             "reference": "1 Corinthians 3:16",
-            "detail": "1 Corinthians 3:1-23: in the divisive church-building argument, Paul calls the congregation God’s temple with God’s Spirit among them."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 3:16",
       "book": "1 Corinthians",
@@ -2317,16 +2317,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 3:1-23: in the divisive church-building argument, Paul calls the congregation God’s temple with God’s Spirit among them.",
             "reference": "1 Corinthians 3:16",
-            "detail": "1 Corinthians 3:1-23: in the divisive church-building argument, Paul calls the congregation God’s temple with God’s Spirit among them."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 3:16",
       "book": "1 Corinthians",
@@ -2380,16 +2380,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 6:12-20: Paul applies belonging to Christ and the Spirit’s temple to bodily holiness.",
             "reference": "1 Corinthians 6:19",
-            "detail": "1 Corinthians 6:12-20: Paul applies belonging to Christ and the Spirit’s temple to bodily holiness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 6:19",
       "book": "1 Corinthians",
@@ -2442,16 +2442,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 6:12-20: Paul applies belonging to Christ and the Spirit’s temple to bodily holiness.",
             "reference": "1 Corinthians 6:19",
-            "detail": "1 Corinthians 6:12-20: Paul applies belonging to Christ and the Spirit’s temple to bodily holiness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 6:19",
       "book": "1 Corinthians",
@@ -2505,16 +2505,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies.",
             "reference": "1 Corinthians 6:20",
-            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 6:20",
       "book": "1 Corinthians",
@@ -2567,16 +2567,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies.",
             "reference": "1 Corinthians 6:20",
-            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 6:20",
       "book": "1 Corinthians",
@@ -2629,16 +2629,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies.",
             "reference": "1 Corinthians 6:20",
-            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 6:20",
       "book": "1 Corinthians",
@@ -2692,16 +2692,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies.",
             "reference": "1 Corinthians 6:20",
-            "detail": "1 Corinthians 6:12-20: Paul says believers were bought at a price and must glorify God with their bodies."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Corinthians 6:20",
       "book": "1 Corinthians",
@@ -2754,16 +2754,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy.",
             "reference": "1 John 1:9",
-            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 1:9",
       "book": "1 John",
@@ -2816,16 +2816,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy.",
             "reference": "1 John 1:9",
-            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 1:9",
       "book": "1 John",
@@ -2878,16 +2878,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy.",
             "reference": "1 John 1:9",
-            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 1:9",
       "book": "1 John",
@@ -2941,16 +2941,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy.",
             "reference": "1 John 1:9",
-            "detail": "1 John 1:5-2:2: John connects walking in light, truthful confession, forgiveness, cleansing, and Christ’s advocacy."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage described; the alternatives name distinct passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 1:9",
       "book": "1 John",
@@ -3003,16 +3003,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 1:8-2:2: John writes against sin while naming Jesus Christ the Righteous One as advocate when believers sin.",
             "reference": "1 John 2:1",
-            "detail": "1 John 1:8-2:2: John writes against sin while naming Jesus Christ the Righteous One as advocate when believers sin."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and every listed alternative is a different book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 2:1",
       "book": "1 John",
@@ -3065,16 +3065,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 1:8-2:2: John writes against sin while naming Jesus Christ the Righteous One as advocate when believers sin.",
             "reference": "1 John 2:1",
-            "detail": "1 John 1:8-2:2: John writes against sin while naming Jesus Christ the Righteous One as advocate when believers sin."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate or literary context supports the keyed setting; the alternatives identify distinct settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 2:1",
       "book": "1 John",
@@ -3127,16 +3127,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 1:8-2:2: John writes against sin while naming Jesus Christ the Righteous One as advocate when believers sin.",
             "reference": "1 John 2:1",
-            "detail": "1 John 1:8-2:2: John writes against sin while naming Jesus Christ the Righteous One as advocate when believers sin."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; the alternatives state distinct themes from other passages.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 2:1",
       "book": "1 John",
@@ -3190,16 +3190,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 1:8-2:2: John names Jesus Christ the Righteous One as advocate when believers sin.",
             "reference": "1 John 2:1",
-            "detail": "1 John 1:8-2:2: John names Jesus Christ the Righteous One as advocate when believers sin."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 2:1",
       "book": "1 John",
@@ -3252,16 +3252,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 2:28-3:24: John calls believers God’s children and develops love expressed in action.",
             "reference": "1 John 3:1",
-            "detail": "1 John 2:28-3:24: John calls believers God’s children and develops love expressed in action."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 3:1",
       "book": "1 John",
@@ -3314,16 +3314,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 2:28-3:24: John calls believers God’s children and develops love expressed in action.",
             "reference": "1 John 3:1",
-            "detail": "1 John 2:28-3:24: John calls believers God’s children and develops love expressed in action."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 3:1",
       "book": "1 John",
@@ -3377,16 +3377,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers.",
             "reference": "1 John 3:16",
-            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and each alternative is another book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 3:16",
       "book": "1 John",
@@ -3439,16 +3439,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers.",
             "reference": "1 John 3:16",
-            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 3:16",
       "book": "1 John",
@@ -3501,16 +3501,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers.",
             "reference": "1 John 3:16",
-            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 3:16",
       "book": "1 John",
@@ -3564,16 +3564,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers.",
             "reference": "1 John 3:16",
-            "detail": "1 John 3:11-24: Christ’s laying down his life defines love and grounds the call to lay down life for fellow believers."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 3:16",
       "book": "1 John",
@@ -3626,16 +3626,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice.",
             "reference": "1 John 4:10",
-            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and each alternative is another book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:10",
       "book": "1 John",
@@ -3688,16 +3688,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice.",
             "reference": "1 John 4:10",
-            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:10",
       "book": "1 John",
@@ -3750,16 +3750,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice.",
             "reference": "1 John 4:10",
-            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:10",
       "book": "1 John",
@@ -3813,16 +3813,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice.",
             "reference": "1 John 4:10",
-            "detail": "1 John 4:7-21: God’s initiating love is shown by sending his Son as atoning sacrifice."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:10",
       "book": "1 John",
@@ -3875,16 +3875,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:7-21: love for others follows God’s prior love for believers.",
             "reference": "1 John 4:19",
-            "detail": "1 John 4:7-21: love for others follows God’s prior love for believers."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:19",
       "book": "1 John",
@@ -3937,16 +3937,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:7-21: love for others follows God’s prior love for believers.",
             "reference": "1 John 4:19",
-            "detail": "1 John 4:7-21: love for others follows God’s prior love for believers."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:19",
       "book": "1 John",
@@ -4000,16 +4000,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:1-6: John contrasts the Spirit of truth with the spirit of falsehood and says the one in believers is greater.",
             "reference": "1 John 4:4",
-            "detail": "1 John 4:1-6: John contrasts the Spirit of truth with the spirit of falsehood and says the one in believers is greater."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:4",
       "book": "1 John",
@@ -4062,16 +4062,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:1-6: John contrasts the Spirit of truth with the spirit of falsehood and says the one in believers is greater.",
             "reference": "1 John 4:4",
-            "detail": "1 John 4:1-6: John contrasts the Spirit of truth with the spirit of falsehood and says the one in believers is greater."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:4",
       "book": "1 John",
@@ -4125,16 +4125,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:7-21: failure to love contradicts knowing God, because God is love.",
             "reference": "1 John 4:8",
-            "detail": "1 John 4:7-21: failure to love contradicts knowing God, because God is love."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:8",
       "book": "1 John",
@@ -4187,16 +4187,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 4:7-21: failure to love contradicts knowing God, because God is love.",
             "reference": "1 John 4:8",
-            "detail": "1 John 4:7-21: failure to love contradicts knowing God, because God is love."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 4:8",
       "book": "1 John",
@@ -4250,16 +4250,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 5:6-12: God’s testimony is eternal life in his Son.",
             "reference": "1 John 5:11",
-            "detail": "1 John 5:6-12: God’s testimony is eternal life in his Son."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 5:11",
       "book": "1 John",
@@ -4312,16 +4312,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 5:6-12: God’s testimony is eternal life in his Son.",
             "reference": "1 John 5:11",
-            "detail": "1 John 5:6-12: God’s testimony is eternal life in his Son."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 5:11",
       "book": "1 John",
@@ -4375,16 +4375,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 5:13-17: assurance of eternal life frames confidence that God hears requests according to his will.",
             "reference": "1 John 5:14",
-            "detail": "1 John 5:13-17: assurance of eternal life frames confidence that God hears requests according to his will."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 5:14",
       "book": "1 John",
@@ -4437,16 +4437,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 5:13-17: assurance of eternal life frames confidence that God hears requests according to his will.",
             "reference": "1 John 5:14",
-            "detail": "1 John 5:13-17: assurance of eternal life frames confidence that God hears requests according to his will."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 5:14",
       "book": "1 John",
@@ -4500,16 +4500,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 5:1-5: those born of God overcome the world through faith in Jesus as the Son of God.",
             "reference": "1 John 5:4",
-            "detail": "1 John 5:1-5: those born of God overcome the world through faith in Jesus as the Son of God."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 5:4",
       "book": "1 John",
@@ -4562,16 +4562,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 John 5:1-5: those born of God overcome the world through faith in Jesus as the Son of God.",
             "reference": "1 John 5:4",
-            "detail": "1 John 5:1-5: those born of God overcome the world through faith in Jesus as the Son of God."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 John 5:4",
       "book": "1 John",
@@ -4625,16 +4625,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 18:16-39: Elijah confronts Israel at Carmel over divided loyalty before the LORD answers by fire.",
             "reference": "1 Kings 18:21",
-            "detail": "1 Kings 18:16-39: Elijah confronts Israel at Carmel over divided loyalty before the LORD answers by fire."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 18:21",
       "book": "1 Kings",
@@ -4687,16 +4687,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 18:16-39: Elijah confronts Israel at Carmel over divided loyalty before the LORD answers by fire.",
             "reference": "1 Kings 18:21",
-            "detail": "1 Kings 18:16-39: Elijah confronts Israel at Carmel over divided loyalty before the LORD answers by fire."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 18:21",
       "book": "1 Kings",
@@ -4750,16 +4750,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 3:3-15: early in his reign Solomon asks for a discerning heart to govern.",
             "reference": "1 Kings 3:9",
-            "detail": "1 Kings 3:3-15: early in his reign Solomon asks for a discerning heart to govern."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 3:9",
       "book": "1 Kings",
@@ -4812,16 +4812,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 3:3-15: early in his reign Solomon asks for a discerning heart to govern.",
             "reference": "1 Kings 3:9",
-            "detail": "1 Kings 3:3-15: early in his reign Solomon asks for a discerning heart to govern."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 3:9",
       "book": "1 Kings",
@@ -4875,16 +4875,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 8:22-30: Solomon begins his temple-dedication prayer by confessing the LORD’s incomparable covenant faithfulness.",
             "reference": "1 Kings 8:23",
-            "detail": "1 Kings 8:22-30: Solomon begins his temple-dedication prayer by confessing the LORD’s incomparable covenant faithfulness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 8:23",
       "book": "1 Kings",
@@ -4937,16 +4937,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 8:22-30: Solomon begins his temple-dedication prayer by confessing the LORD’s incomparable covenant faithfulness.",
             "reference": "1 Kings 8:23",
-            "detail": "1 Kings 8:22-30: Solomon begins his temple-dedication prayer by confessing the LORD’s incomparable covenant faithfulness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 8:23",
       "book": "1 Kings",
@@ -5000,16 +5000,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple.",
             "reference": "1 Kings 8:27",
-            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and each alternative is another book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 8:27",
       "book": "1 Kings",
@@ -5156,16 +5156,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple.",
             "reference": "1 Kings 8:27",
-            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 8:27",
       "book": "1 Kings",
@@ -5219,16 +5219,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple.",
             "reference": "1 Kings 8:27",
-            "detail": "1 Kings 8:22-30: during the temple dedication Solomon asks whether God can dwell on earth, while praying toward the temple."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 8:27",
       "book": "1 Kings",
@@ -5376,16 +5376,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Kings 8:54-61: Solomon concludes the dedication prayer by calling Israel to wholehearted loyalty and obedience.",
             "reference": "1 Kings 8:61",
-            "detail": "1 Kings 8:54-61: Solomon concludes the dedication prayer by calling Israel to wholehearted loyalty and obedience."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Kings 8:61",
       "book": "1 Kings",
@@ -5439,16 +5439,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 1:13-21: Peter grounds holy conduct in God’s holiness and redemption.",
             "reference": "1 Peter 1:15",
-            "detail": "1 Peter 1:13-21: Peter grounds holy conduct in God’s holiness and redemption."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 1:15",
       "book": "1 Peter",
@@ -5501,16 +5501,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 1:13-21: Peter grounds holy conduct in God’s holiness and redemption.",
             "reference": "1 Peter 1:15",
-            "detail": "1 Peter 1:13-21: Peter grounds holy conduct in God’s holiness and redemption."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 1:15",
       "book": "1 Peter",
@@ -5564,16 +5564,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 1:3-12: Peter blesses God for new birth into living hope through Jesus’ resurrection.",
             "reference": "1 Peter 1:3",
-            "detail": "1 Peter 1:3-12: Peter blesses God for new birth into living hope through Jesus’ resurrection."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 1:3",
       "book": "1 Peter",
@@ -5626,16 +5626,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 1:3-12: Peter blesses God for new birth into living hope through Jesus’ resurrection.",
             "reference": "1 Peter 1:3",
-            "detail": "1 Peter 1:3-12: Peter blesses God for new birth into living hope through Jesus’ resurrection."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 1:3",
       "book": "1 Peter",
@@ -5689,16 +5689,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness.",
             "reference": "1 Peter 2:2",
-            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and each alternative is another book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:2",
       "book": "1 Peter",
@@ -5751,16 +5751,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness.",
             "reference": "1 Peter 2:2",
-            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:2",
       "book": "1 Peter",
@@ -5813,16 +5813,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness.",
             "reference": "1 Peter 2:2",
-            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:2",
       "book": "1 Peter",
@@ -5876,16 +5876,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness.",
             "reference": "1 Peter 2:2",
-            "detail": "1 Peter 2:1-3: newborn believers are to crave pure spiritual milk for growth after tasting the Lord’s goodness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:2",
       "book": "1 Peter",
@@ -5938,16 +5938,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness.",
             "reference": "1 Peter 2:24",
-            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited reference is in the keyed book and each alternative is another book.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:24",
       "book": "1 Peter",
@@ -6000,16 +6000,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness.",
             "reference": "1 Peter 2:24",
-            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:24",
       "book": "1 Peter",
@@ -6062,16 +6062,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness.",
             "reference": "1 Peter 2:24",
-            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:24",
       "book": "1 Peter",
@@ -6125,16 +6125,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness.",
             "reference": "1 Peter 2:24",
-            "detail": "1 Peter 2:18-25: Christ bore sins in his body so believers die to sins and live for righteousness."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The keyed reference exactly identifies the passage and alternatives are distinct references.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:24",
       "book": "1 Peter",
@@ -6187,16 +6187,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:4-12: the church receives covenant people language to declare God’s praises.",
             "reference": "1 Peter 2:9",
-            "detail": "1 Peter 2:4-12: the church receives covenant people language to declare God’s praises."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:9",
       "book": "1 Peter",
@@ -6249,16 +6249,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 2:4-12: the church receives covenant people language to declare God’s praises.",
             "reference": "1 Peter 2:9",
-            "detail": "1 Peter 2:4-12: the church receives covenant people language to declare God’s praises."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited passage supports the keyed paraphrase; alternatives state distinct themes.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 2:9",
       "book": "1 Peter",
@@ -6312,16 +6312,16 @@
     {
       "aliases": [],
       "audit": {
-        "status": "unchanged and verified",
+        "changes": [],
         "evidence": [
           {
-            "type": "Direct Scripture",
+            "detail": "1 Peter 3:13-22: Peter joins honoring Christ with a gentle, respectful defense of hope amid suffering.",
             "reference": "1 Peter 3:15",
-            "detail": "1 Peter 3:13-22: Peter joins honoring Christ with a gentle, respectful defense of hope amid suffering."
+            "type": "Direct Scripture"
           }
         ],
         "rationale": "The cited immediate/literary context supports the keyed setting; alternatives identify separate settings.",
-        "changes": []
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 3:15",
       "book": "1 Peter",
@@ -6376,9 +6376,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter joins honoring Christ as Lord with readiness to explain Christian hope gently and respectfully while suffering for doing good.",
+            "reference": "1 Peter 3:13–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Christ bearing sins belongs to 2:24, not 3:15.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "New birth into living hope belongs to 1:3.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: it tracks every major clause of 3:15.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Resisting the adversary belongs to 5:8–9.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed paraphrase includes the verse’s lordship, readiness, hope, gentleness, and respect; the three alternatives summarize 1 Peter 2:24, 1:3, and 5:8–9 instead.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 3:15",
       "book": "1 Peter",
@@ -6433,9 +6462,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Verse 4:8 sits in Peter’s sustained treatment of faithful life under suffering, immediately among prayer, mutual love, hospitality, and service.",
+            "reference": "1 Peter 3:13–4:19",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: suffering frames 3:13–4:19, including the exhortations around 4:8.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Relationship witness is the earlier 2:11–3:12 emphasis and ends before this verse.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Living hope and holy identity frame chapters 1–2.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Shepherding, humility, and resistance frame chapter 5.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "“Suffering as Christians” best spans the larger 3:13–4:19 unit; the other labels belong to earlier identity/household material or the later elder-and-resistance conclusion.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 4:8",
       "book": "1 Peter",
@@ -6489,9 +6547,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter commands deep mutual love because love covers many sins, then applies that communal posture through hospitality and service.",
+            "reference": "1 Peter 4:7–11",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: deep love and covering sins are the explicit claims of 4:8.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "The defense of hope belongs to 3:15.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Alert resistance belongs to 5:8–9.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Christ bearing sins belongs to 2:24.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer responsibly explains the cited proverb-shaped command as sustaining fellowship; the alternatives are distinct teachings from 3:15, 5:8–9, and 2:24.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 4:8",
       "book": "1 Peter",
@@ -6546,9 +6633,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The named chapter places casting anxiety on God within Peter’s appeal to humility.",
+            "reference": "1 Peter 5:5–7",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "James is a different catholic epistle.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "2 John is a different letter and has no chapter 5.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 John is a different Johannine letter.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: the citation is explicitly 1 Peter 5:7.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The page and verse identify 1 Peter; James, 2 John, and 1 John do not contain this cited reference.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 5:7",
       "book": "1 Peter",
@@ -6602,9 +6718,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter moves from shepherding elders to mutual humility, casting cares on God, alert resistance, and God’s promised restoration.",
+            "reference": "1 Peter 5:1–11",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Clean/unclean laws are not part of 1 Peter 5.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: shepherding, humility, and resistance occur in 5:1–11.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Relationship witness and suffering frame earlier chapters.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Living hope and holy identity frame the letter’s opening.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed label covers the whole chapter movement around verse 7; the alternatives describe Leviticus, 1 Peter 2–3, or 1 Peter 1–2.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 5:7",
       "book": "1 Peter",
@@ -6658,9 +6803,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Casting anxiety on God follows the command to humble oneself under His mighty hand and is grounded in His care.",
+            "reference": "1 Peter 5:5–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Asking God for wisdom belongs to James 1:5.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Sacrificial love belongs to 1 John 3:16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: humility entrusts anxiety to the God who cares.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Alert resistance is the next teaching in 5:8–9.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer preserves the humility-and-care logic of verses 6–7; the alternatives state teachings from James 1, 1 John 3, and 1 Peter 5:8–9.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 5:7",
       "book": "1 Peter",
@@ -6715,9 +6889,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Verse 7 is the instruction to cast every anxiety on God because He cares.",
+            "reference": "1 Peter 5:5–7",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 1 Peter 5:7 is exact.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "1 Peter 3:15 concerns defending hope.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Peter 5:8–9 concerns resisting the devil.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Peter 4:8 concerns deep mutual love.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "Only 1 Peter 5:7 names that teaching; the adjacent references concern witness, adversarial vigilance, and mutual love.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 5:7",
       "book": "1 Peter",
@@ -6771,9 +6974,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter’s first letter tells believers to be alert, resist the devil, and remember fellow sufferers.",
+            "reference": "1 Peter 5:8–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Hebrews is not the cited book.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 John is not the cited book.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: the verses appear in 1 Peter.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Jude discusses opposition but is not this citation.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The citation explicitly identifies 1 Peter; Hebrews, 1 John, and Jude contain other perseverance teachings but not this passage.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 5:8-9",
       "book": "1 Peter",
@@ -6827,9 +7059,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter warns suffering churches that the devil prowls like a lion and commands firm resistance in shared faith.",
+            "reference": "1 Peter 5:8–11",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Peter warns churches about the devil amid shared suffering.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Opening praise for salvation occurs in 1 Peter 1:3.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "John’s definition of love belongs to 1 John 3:16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Examples of persevering faith belong to Hebrews 11.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed scene states the actors, threat, and suffering setting; the alternatives point to 1 Peter 1, 1 John 3, and Hebrews 11.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 5:8-9",
       "book": "1 Peter",
@@ -6883,9 +7144,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Believers must stay sober and alert, resist the adversary firmly in faith, and know that Christians elsewhere share such suffering.",
+            "reference": "1 Peter 5:6–11",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: alertness, resistance, firm faith, and shared suffering all appear in 5:8–9.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Casting anxiety is the preceding verse 7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Confession and cleansing belong to 1 John 1:9.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "The virtue sequence belongs to 2 Peter 1:5–7.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer combines the explicit commands and solidarity clause; the alternatives summarize verse 7, 1 John 1:9, and 2 Peter 1:5–7.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 5:8-9",
       "book": "1 Peter",
@@ -6940,9 +7230,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The roaring-adversary warning and command to resist are in 1 Peter 5:8–9.",
+            "reference": "1 Peter 5:8–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "1 Peter 2:2 concerns spiritual milk.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Peter 5:8–9 is exact.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "1 Peter 5:7 concerns casting anxiety.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Peter 4:8 concerns love covering sins.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed two-verse reference is exact; the other 1 Peter references concern spiritual milk, anxiety, and love.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Peter 5:8-9",
       "book": "1 Peter",
@@ -6996,9 +7315,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Samuel reassures Israel after its sinful demand for a king in the book of 1 Samuel.",
+            "reference": "1 Samuel 12:19–25",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/12.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Samuel’s farewell response is in 1 Samuel 12.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Judges precedes Samuel’s monarchy transition.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Kings begins later with David’s final days and Solomon.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Chronicles does not contain this Samuel address.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The named event and citation occur in 1 Samuel; Judges, 1 Kings, and 1 Chronicles narrate different periods or parallels.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 12:22",
       "book": "1 Samuel",
@@ -7052,9 +7400,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After thunder and rain expose the evil of demanding a king, Israel confesses and Samuel tells the people not to fear or turn aside.",
+            "reference": "1 Samuel 12:16–22",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/12.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Judah facing overwhelming enemies is another prophetic setting.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Joshua meditating on the law belongs to Joshua 1.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "David’s sovereignty praise belongs to 1 Chronicles 29.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Israel has just confessed the sin of asking for a king.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The keyed option precisely describes verses 19–22; the other settings belong to Isaiah/Judah, Joshua 1, and David’s prayer in 1 Chronicles 29.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 12:22",
       "book": "1 Samuel",
@@ -7108,9 +7485,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Samuel grounds reassurance in the LORD’s great name and His pleasure in making Israel His people.",
+            "reference": "1 Samuel 12:19–25",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/12.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Obedience over sacrifice belongs to 1 Samuel 15:22.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: God’s name and covenant choice ground His refusal to abandon His people.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Joshua’s courage belongs to Joshua 1:9.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Hearing and obeying the call belongs to 1 Samuel 3:10.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer states verse 22’s explicit reason for non-abandonment; the distractors belong to 1 Samuel 15, Joshua 1, and 1 Samuel 3.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 12:22",
       "book": "1 Samuel",
@@ -7165,9 +7571,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The declaration that the LORD will not abandon His people for His great name is verse 22.",
+            "reference": "1 Samuel 12:19–25",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/12.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "1 Samuel 12:24 commands fear and wholehearted service.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Samuel 12:22 is exact.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "1 Samuel 15:22 contrasts obedience and sacrifice.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Samuel 16:7 contrasts appearance and heart.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "Only 1 Samuel 12:22 gives that assurance; the neighboring choices contain the service command, Saul’s rebuke, or David’s selection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 12:22",
       "book": "1 Samuel",
@@ -7220,10 +7655,82 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "changes": [
+          {
+            "answerPosition": 3,
+            "compatibilityRevision": {
+              "fingerprint": "d3a978c6e242352386f36b4a85ac5be803298dfa7e245d4221ee2ae8f38e9039",
+              "id": "1-samuel-12-24-context",
+              "predecessor": "dded986a1fce1683acc04b621939e67288084c17",
+              "version": 1
+            },
+            "correctedOptions": [
+              "God corrects Samuel's judgment while choosing David.",
+              "Samuel confronts Saul for substituting religious activity for obedience",
+              "Samuel sets up the Ebenezer stone after God gives Israel victory over the Philistines.",
+              "Samuel concludes his response to Israel’s request for a king."
+            ],
+            "newFingerprint": "33d3d115f40c70ddd92c819a2e189a6a7663ae25082da67d04577e3ccb7a7ede",
+            "oldFingerprint": "d3a978c6e242352386f36b4a85ac5be803298dfa7e245d4221ee2ae8f38e9039",
+            "previousDefect": "The keyed setting was accurate, but “Samuel reassures Israel after they confess the sin of demanding a king” also describes verses 19–22 of the same immediate response that concludes at verse 24. Two choices were therefore defensible.",
+            "previousOptions": [
+              "God corrects Samuel's judgment while choosing David.",
+              "Samuel confronts Saul for substituting religious activity for obedience",
+              "Samuel reassures Israel after they confess the sin of demanding a king.",
+              "Samuel concludes his response to Israel’s request for a king."
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "detail": "Verse 24 closes Samuel’s farewell response to Israel’s request for a king; verses 19–23 also include confession, reassurance, intercession, and instruction.",
+            "reference": "1 Samuel 12:1–25",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/12.htm"
+          },
+          {
+            "detail": "After the LORD defeats the Philistines, Samuel erects and names the Ebenezer stone; this is a separate earlier scene.",
+            "reference": "1 Samuel 7:7–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/7.htm"
+          },
+          {
+            "detail": "Samuel confronts Saul’s sacrificial excuse after the Amalekite campaign; this is a separate later scene.",
+            "reference": "1 Samuel 15:13–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/15.htm"
+          },
+          {
+            "detail": "God corrects Samuel’s outward judgment while selecting David; this is another separate later scene.",
+            "reference": "1 Samuel 16:6–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/16.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Choosing David belongs to 1 Samuel 16:6–13.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Confronting Saul over sacrifice belongs to 1 Samuel 15:13–23.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Corrected distractor: the Ebenezer memorial follows victory in 1 Samuel 7:7–12.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: verse 24 concludes Samuel’s response to Israel’s request for a king.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The prior option about reassurance after confession described the same immediate response and made two answers defensible. Replacing it with the Ebenezer scene from 1 Samuel 7 leaves one answer while preserving the keyed position.",
+        "status": "corrected"
       },
       "bibleReference": "1 Samuel 12:24",
       "book": "1 Samuel",
@@ -7261,13 +7768,13 @@
       "options": [
         "God corrects Samuel's judgment while choosing David.",
         "Samuel confronts Saul for substituting religious activity for obedience",
-        "Samuel reassures Israel after they confess the sin of demanding a king.",
+        "Samuel sets up the Ebenezer stone after God gives Israel victory over the Philistines.",
         "Samuel concludes his response to Israel’s request for a king."
       ],
       "question": "Which situation best describes this passage’s immediate context?",
       "questionType": "context",
       "source": {
-        "contentSha256": "6bc71f725e0558d575776ff2fa890712d66c8c12e8f7597419210d63bc7b5a14",
+        "contentSha256": "62a94441fcb4b3c9d96bdfbb92f492384bca61d49f32dcb3da724682710d0dc2",
         "index": 981,
         "origin": "TBC_QB6.activeQuestions()"
       },
@@ -7277,9 +7784,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Samuel commands Israel to fear and serve the LORD faithfully with all its heart while considering His great deeds.",
+            "reference": "1 Samuel 12:19–25",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/12.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Ebenezer remembrance belongs specifically to 1 Samuel 7:12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: fear, wholehearted service, and remembered deeds all occur in 12:24.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Victory belonging to the LORD belongs to 17:47.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Obedience over ritual belongs to 15:22.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer retains the command and its stated motive; the alternatives summarize Ebenezer, David and Goliath, and Saul’s disobedience.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 12:24",
       "book": "1 Samuel",
@@ -7334,9 +7870,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Samuel confronts King Saul over incomplete obedience in 1 Samuel 15.",
+            "reference": "1 Samuel 15:1–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/15.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "1 Kings narrates later monarchy history.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Judges predates Saul’s reign.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "2 Kings narrates a later divided monarchy.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Saul and Samuel’s confrontation is in 1 Samuel 15.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The event and citation identify 1 Samuel; the other historical books do not contain this confrontation.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 15:22",
       "book": "1 Samuel",
@@ -7390,9 +7955,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Saul claims obedience and appeals to intended sacrifice, while Samuel exposes his disobedience.",
+            "reference": "1 Samuel 15:13–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/15.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "David’s sovereignty praise belongs to 1 Chronicles 29.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Israel’s confession after demanding a king belongs to 1 Samuel 12.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Joshua’s meditation command belongs to Joshua 1.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Samuel confronts Saul’s ritual excuse for disobedience.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The keyed setting explains why verse 22 contrasts obedience with offerings; the alternatives are David’s prayer, Israel after demanding a king, and Joshua’s commission.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 15:22",
       "book": "1 Samuel",
@@ -7446,9 +8040,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Samuel says obedience and attentiveness matter more to the LORD than burnt offerings and sacrificial fat.",
+            "reference": "1 Samuel 15:19–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/15.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: attentive obedience outranks ritual used to excuse rebellion.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Non-abandonment for God’s name belongs to 1 Samuel 12:22.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "God not being contained belongs to 1 Kings 8:27.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "God’s sovereign ownership belongs to 1 Chronicles 29:11.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed paraphrase preserves the passage’s contrast and Saul’s excuse; the alternatives teach from 1 Samuel 12, 1 Kings 8, and 1 Chronicles 29.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 15:22",
       "book": "1 Samuel",
@@ -7503,9 +8126,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The obedience-better-than-sacrifice declaration is at 1 Samuel 15:22.",
+            "reference": "1 Samuel 15:19–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/15.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "1 Samuel 17:47 concerns the LORD’s battle.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Samuel 15:22 is exact.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "1 Samuel 12:24 concerns fear and service.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Samuel 16:7 concerns appearance and heart.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed reference is exact; the alternatives point to David and Goliath, Samuel’s closing exhortation, and God’s choice of David.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 15:22",
       "book": "1 Samuel",
@@ -7559,9 +8211,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "While Samuel evaluates Jesse’s sons, God rejects outward criteria and identifies David.",
+            "reference": "1 Samuel 16:1–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/16.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Hannah’s dedication and praise belong to chapters 1–2.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: God corrects Samuel while choosing David.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Samuel’s response to the king request belongs to chapter 12.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "David’s confrontation with Goliath belongs to chapter 17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed setting directly contains verse 7; Hannah’s prayer, Samuel’s farewell, and Goliath are distinct scenes.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 16:7",
       "book": "1 Samuel",
@@ -7615,9 +8296,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "God tells Samuel that humans see outward appearance but the LORD sees the heart.",
+            "reference": "1 Samuel 16:6–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/16.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Non-abandonment belongs to 12:22.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Victory belonging to the LORD belongs to 17:47.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Remembered deeds and service belong to 12:24.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: God looks past appearance and sees the heart.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The keyed answer is a translation-neutral statement of the contrast; the other options summarize 1 Samuel 12:22, 17:47, and 12:24.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 16:7",
       "book": "1 Samuel",
@@ -7672,9 +8382,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "David’s declaration before defeating Goliath occurs in 1 Samuel 17.",
+            "reference": "1 Samuel 17:38–50",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/17.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "2 Chronicles is later history.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: David and Goliath are narrated in 1 Samuel 17.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "1 Kings begins near the end of David’s reign.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Judges precedes Samuel and Saul.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The citation and scene identify 1 Samuel; 2 Chronicles, 1 Kings, and Judges do not contain David’s duel with Goliath.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 17:47",
       "book": "1 Samuel",
@@ -7728,9 +8467,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "David rejects Saul’s armor, approaches Goliath, and declares that the battle belongs to the LORD.",
+            "reference": "1 Samuel 17:38–48",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/17.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: David trusts God as he faces Goliath.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "God choosing David belongs to chapter 16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Hannah’s praise belongs to chapter 2.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Samuel’s closing response to Israel belongs to chapter 12.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed option names the immediate confrontation; David’s anointing, Hannah’s prayer, and Samuel’s farewell are separate chapters.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 17:47",
       "book": "1 Samuel",
@@ -7784,9 +8552,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "David declares that the LORD saves neither by sword nor spear, because the battle is the LORD’s.",
+            "reference": "1 Samuel 17:44–50",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/17.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "God’s non-abandonment belongs to 1 Samuel 12:22.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Meditation leading to obedience belongs to Joshua 1:8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "God exceeding any building belongs to 1 Kings 8:27.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: victory belongs to the LORD rather than weapons or size.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The keyed answer includes the verse’s contrast between divine victory and human weapons; the alternatives state teachings from 1 Samuel 12, Joshua 1, and 1 Kings 8.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 17:47",
       "book": "1 Samuel",
@@ -7841,9 +8638,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The statement that the battle is the LORD’s appears in verse 47 of David’s speech to Goliath.",
+            "reference": "1 Samuel 17:44–50",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/17.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "1 Samuel 16:7 concerns David’s selection.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Samuel 12:24 concerns service after the king request.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Samuel 17:47 is exact.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "1 Samuel 3:10 concerns Samuel’s call.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "Only 1 Samuel 17:47 matches the teaching and duel setting; the alternatives name David’s anointing, Samuel’s farewell, and Samuel’s call.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 17:47",
       "book": "1 Samuel",
@@ -7897,9 +8723,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After Hannah brings Samuel to Shiloh and dedicates him to the LORD, she prays a song of praise.",
+            "reference": "1 Samuel 1:24–2:11",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Hannah praises God after dedicating Samuel.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "David facing Goliath belongs to chapter 17.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Samuel responding to God’s call belongs to chapter 3.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "The Ebenezer memorial belongs to chapter 7.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed setting accounts for the transition from dedication in 1:24–28 to prayer in 2:1–10; the other scenes occur in chapters 17, 3, and 7.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 2:2",
       "book": "1 Samuel",
@@ -7953,9 +8808,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Hannah says no one is holy like the LORD, no one is besides Him, and no Rock is like God.",
+            "reference": "1 Samuel 2:1–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Ebenezer remembrance belongs to 7:12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Attentive response belongs to 3:10.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: unique holiness and incomparable Rock imagery are explicit in 2:2.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Non-abandonment belongs to 12:22.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed paraphrase covers holiness, uniqueness, and Rock-like dependability; the alternatives summarize 1 Samuel 7, 3, and 12.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 2:2",
       "book": "1 Samuel",
@@ -8010,9 +8894,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The LORD’s call of the boy Samuel is narrated in 1 Samuel 3.",
+            "reference": "1 Samuel 3:1–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Judges precedes Samuel’s prophetic ministry.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "2 Samuel follows Saul’s death.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Samuel’s call is in 1 Samuel 3.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "2 Chronicles is later Judah history.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The named prophet and reference identify 1 Samuel; Judges, 2 Samuel, and 2 Chronicles are different books and periods.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 3:10",
       "book": "1 Samuel",
@@ -8066,9 +8979,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After three mistaken trips to Eli, Samuel follows Eli’s instruction and answers when the LORD calls again.",
+            "reference": "1 Samuel 3:1–14",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Choosing David belongs to 1 Samuel 16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Samuel responds when the LORD calls him.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Solomon’s temple prayer belongs to 1 Kings 8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "The people encouraged after hearing the Law belongs to a different restoration-era scene.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed setting is the exact scene of verse 10; the other options describe David’s selection, Solomon’s prayer, and a post-Law assembly.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 3:10",
       "book": "1 Samuel",
@@ -8122,9 +9064,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Samuel answers as a listening servant, receives God’s word, and faithfully reports it to Eli.",
+            "reference": "1 Samuel 3:7–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Samuel listens and then faithfully conveys the word.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Non-abandonment belongs to 1 Samuel 12:22.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "God not being contained belongs to 1 Kings 8:27.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Obedience over sacrifice belongs to 1 Samuel 15:22.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer captures receptive hearing and the obedient response demonstrated in the scene; the alternatives state teachings from 1 Samuel 12, 1 Kings 8, and 1 Samuel 15.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 3:10",
       "book": "1 Samuel",
@@ -8179,9 +9150,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Samuel’s “Speak, for Your servant is listening” response appears at 1 Samuel 3:10.",
+            "reference": "1 Samuel 3:7–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "1 Samuel 7:12 is the Ebenezer memorial.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Samuel 3:10 is exact.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "1 Samuel 12:22 is Samuel’s reassurance to Israel.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Samuel 2:2 is Hannah’s holiness praise.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed reference is exact; the alternatives point to Ebenezer, Israel’s reassurance, and Hannah’s praise.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 3:10",
       "book": "1 Samuel",
@@ -8235,9 +9235,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After Israel repents and the LORD throws the Philistines into confusion, Samuel erects the Ebenezer memorial.",
+            "reference": "1 Samuel 7:5–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Israel’s confession after demanding a king belongs to chapter 12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Hannah’s praise belongs to chapter 2.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Samuel’s closing king-request response belongs to chapter 12.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Samuel sets up Ebenezer after victory over the Philistines.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The keyed setting names the victory and memorial in verse 12; the other options are from chapters 12 and 2.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 7:12",
       "book": "1 Samuel",
@@ -8291,9 +9320,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Samuel names the stone Ebenezer and explains, “Thus far the LORD has helped us.”",
+            "reference": "1 Samuel 7:7–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_samuel/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "God’s unique holiness belongs to 2:2.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: the stone remembers past divine help as a ground for present trust.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Fear and wholehearted service belong specifically to 12:24.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Listening obedience belongs to 3:10.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer expresses the memorial’s purpose without overreading it; the alternatives summarize 1 Samuel 2:2, 12:24, and 3:10.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Samuel 7:12",
       "book": "1 Samuel",
@@ -8348,9 +9406,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul addresses believers’ grief over Christians who have died and grounds hope in Jesus’ death and resurrection.",
+            "reference": "1 Thessalonians 4:13–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Glorifying God in ordinary actions belongs to 1 Corinthians 10:31.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Faith through hearing belongs to Romans 10:17.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Sexual holiness is the earlier 4:1–8 section.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Paul comforts believers grieving Christians who died.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The keyed option identifies the immediate pastoral problem; the alternatives belong to 1 Corinthians 10, Romans 10, and the earlier holiness paragraph.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 4:13-14",
       "book": "1 Thessalonians",
@@ -8404,9 +9491,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Because Jesus died and rose, believers do not grieve the dead in the hopeless manner of those without hope.",
+            "reference": "1 Thessalonians 4:13–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Encouraging and building up is the later 5:11 application.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Jesus’ resurrection grounds hopeful grief.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Sanctification and purity belong to 4:3–8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Rejoicing, prayer, and thanksgiving belong to 5:16–18.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer combines verses 13 and 14; the alternatives state the later 5:11 application, the earlier holiness instruction, and 5:16–18 commands.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 4:13-14",
       "book": "1 Thessalonians",
@@ -8461,9 +9577,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The Lord’s descent and resurrection of the dead answer the concern about believers who have died.",
+            "reference": "1 Thessalonians 4:13–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Sexual holiness is 1 Thessalonians 4:1–8.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Greed and false teachers belong to 1 Timothy 6.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Preserving apostolic teaching belongs to 2 Timothy.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Paul comforts believers about dead Christians.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The keyed option is the immediate pastoral setting; the alternatives concern sexual holiness, 1 Timothy’s false teachers, and 2 Timothy’s teaching deposit.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 4:16",
       "book": "1 Thessalonians",
@@ -8517,9 +9662,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul says the Lord Himself will descend with command, archangelic voice, and trumpet, and the dead in Christ will rise first.",
+            "reference": "1 Thessalonians 4:13–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: the Lord descends and the dead in Christ rise.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Testing everything belongs to 5:21.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Mutual encouragement/building belongs to 5:11.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Hopeful grief belongs to 4:13–14.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed option states the verse’s event sequence; the alternatives are applications or teachings from 5:21, 5:11, and 4:13–14.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 4:16",
       "book": "1 Thessalonians",
@@ -8574,9 +9748,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul explicitly names God’s will as sanctification and immediately applies it to abstaining from sexual immorality and bodily self-control.",
+            "reference": "1 Thessalonians 4:1–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Opening praise after affliction belongs to another Pauline setting.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Paul states God’s will while teaching sexual holiness.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "False teachers and gain belong to 1 Timothy 6.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Comfort about the dead begins at 4:13.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed setting directly follows the verse; the alternatives belong to another letter, 1 Timothy 6, and the later resurrection section.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 4:3",
       "book": "1 Thessalonians",
@@ -8630,9 +9833,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "God wills the Thessalonians’ holiness, including abstinence from sexual immorality and honorable self-control.",
+            "reference": "1 Thessalonians 4:1–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Finishing the race belongs to 2 Timothy 4:7.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: sanctification, self-control, and purity are the paragraph’s explicit teaching.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "The Spirit’s fruit belongs to Galatians 5:22–23.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "The Lord’s descent belongs to 4:16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer uses the surrounding verses to specify sanctification without tying the wording to one translation; the alternatives summarize 2 Timothy 4, Galatians 5, and 1 Thessalonians 4:16.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 4:3",
       "book": "1 Thessalonians",
@@ -8687,9 +9919,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul’s consolation about the dead continues into teaching on the Lord’s day, salvation, and mutual encouragement.",
+            "reference": "1 Thessalonians 4:13–5:11",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "The three concise commands occur later at 5:16–18.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Comfort about dead Christians is the narrower 4:13–18 opening of the unit.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Church-life and prophecy instructions begin after verse 11.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: resurrection hope and the Lord’s coming frame 4:13–5:11.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "“Resurrection and the Lord’s coming” covers the full larger unit; the alternatives name narrower subparagraphs or the later closing instructions.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:11",
       "book": "1 Thessalonians",
@@ -8744,9 +10005,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Because Christ died so believers may live with Him and are destined for salvation, Paul commands mutual encouragement and edification.",
+            "reference": "1 Thessalonians 5:1–11",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: resurrection/salvation hope leads to encouraging and building one another.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Hopeful grief belongs to 4:13–14.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Sexual holiness belongs to 4:3–8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "The Lord’s descent belongs to 4:16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer follows the “therefore” of verse 11 and its preceding resurrection/salvation hope; the distractors are earlier claims in the same letter.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:11",
       "book": "1 Thessalonians",
@@ -8801,9 +10091,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The three commands to rejoice, pray, and give thanks appear in Paul’s first letter to the Thessalonians.",
+            "reference": "1 Thessalonians 5:12–22",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "2 Timothy is a different Pauline letter.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: the citation is 1 Thessalonians 5:16–18.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Colossians contains related exhortations but not this reference.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Luke is a Gospel, not this epistle.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The citation explicitly identifies 1 Thessalonians; 2 Timothy, Colossians, and Luke do not contain these numbered verses.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:16-18",
       "book": "1 Thessalonians",
@@ -8857,9 +10176,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Verses 16–18 form three short imperatives: always rejoice, pray continually, and give thanks in every circumstance.",
+            "reference": "1 Thessalonians 5:14–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "The broader church-life/prophecy instructions include adjacent verses but add material outside 16–18.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: the passage itself is three concise God-oriented commands.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Sexual holiness belongs to 4:1–8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Comfort for the grieving belongs to 4:13–18.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed option describes the exact three-verse unit; the prophecy option is the broader adjacent instruction block, while the remaining alternatives are chapter 4 settings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:16-18",
       "book": "1 Thessalonians",
@@ -8913,9 +10261,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul commands continual joy, prayer, and gratitude as God’s will for believers in Christ.",
+            "reference": "1 Thessalonians 5:14–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Hopeful grief belongs to 4:13–14.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Sexual holiness belongs to 4:3–8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Mutual edification belongs to 5:11.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: continual rejoicing, prayer, and thanksgiving are all explicit.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The keyed synthesis retains all three commands and their God-centered continuity; the alternatives summarize 4:13–14, 4:3, and 5:11.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:16-18",
       "book": "1 Thessalonians",
@@ -8970,9 +10347,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Rejoice always, pray without ceasing, and give thanks in every circumstance are verses 16–18.",
+            "reference": "1 Thessalonians 5:14–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "1 Thessalonians 5:21 concerns testing and holding fast.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Thessalonians 5:11 concerns mutual encouragement.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Thessalonians 5:16–18 is exact.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "1 Thessalonians 4:16 concerns the Lord’s descent.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed range is exact; the alternatives concern testing, encouragement, and the resurrection at Christ’s return.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:16-18",
       "book": "1 Thessalonians",
@@ -9026,9 +10432,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Testing everything and holding fast to what is good appears in 1 Thessalonians 5.",
+            "reference": "1 Thessalonians 5:19–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Philippians is not the cited epistle.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: the verse is in 1 Thessalonians.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Galatians is not the cited epistle.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "2 Corinthians is not the cited epistle.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The citation identifies 1 Thessalonians; Philippians, Galatians, and 2 Corinthians contain other discernment themes but not this verse.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:21",
       "book": "1 Thessalonians",
@@ -9082,9 +10517,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul’s command to test everything follows instructions not to quench the Spirit or despise prophecies and precedes holding good and avoiding evil.",
+            "reference": "1 Thessalonians 5:19–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Contentment in abundance and need belongs to Philippians 4.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Salvation by grace belongs to Ephesians 2.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Christ’s humiliation/exaltation hymn belongs to Philippians 2.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: the verse is among short church-life and prophecy instructions.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "The keyed setting explains the prophecy-related sequence; the alternatives summarize Philippians 4, Ephesians 2, and Philippians 2.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:21",
       "book": "1 Thessalonians",
@@ -9138,9 +10602,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul commands examination of all things, retention of what is good, and avoidance of every form of evil.",
+            "reference": "1 Thessalonians 5:19–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: test everything and hold firmly to the good.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "The Lord’s descent belongs to 4:16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Mutual encouragement belongs to 5:11.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Hopeful grief belongs to 4:13–14.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "The keyed answer states the verse directly and is completed by verse 22; the alternatives summarize the earlier resurrection and encouragement passages.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:21",
       "book": "1 Thessalonians",

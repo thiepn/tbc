@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const zlib = require('node:zlib');
 const vm = require('node:vm');
 const identity = require('./tbc-product-identity.cjs');
-const { ROOT, BASE, PRODUCTION, read, normalize, sha256, git, validateCurrent, loadHistoricalManifest, loadTransition } = identity;
+const { ROOT, BASE, PRODUCTION, BATCH03_PREDECESSOR, read, normalize, sha256, git, loadManifest, loadHistoricalManifest, loadTransition } = identity;
 const PACKAGE = /(<script id="tbc-engine-package" type="application\/octet-stream">)([A-Za-z0-9+/=\r\n]+)(<\/script>)/;
 function split(bytes) {
   const html = normalize(bytes), match = html.match(PACKAGE);
@@ -13,12 +13,12 @@ function split(bytes) {
 const storageNames = engine => [...new Set(engine.match(/theBibleChallenge_[a-zA-Z0-9_]+/g))].sort();
 const schemaAssignments = engine => [...engine.matchAll(/\bschemaVersion\s*(?::|=(?!=))\s*\d+/g)].map(m => m[0]);
 function validateTransition(root = ROOT) {
-  const manifest = validateCurrent(root), transition = loadTransition(root);
+  const manifest = loadManifest(root), transition = loadTransition(root);
   assert.equal(transition.predecessor, manifest.predecessor.indexBlobSha1);
   assert.equal(transition.successor, manifest.successor.indexBlobSha1);
   assert.equal(transition.candidateContentCommit, manifest.successor.contentCommit);
   const original = split(git('show', `${BASE}:index.html`));
-  const before = split(git('show', `${PRODUCTION}:index.html`)), after = split(read(root, 'index.html'));
+  const before = split(git('show', `${PRODUCTION}:index.html`)), after = split(git('show', `${BATCH03_PREDECESSOR}:index.html`));
   // The original forty-edit transition is still replayed against its own
   // predecessor, with both historical record bytes and digests unchanged.
   const historical = loadHistoricalManifest(root);
@@ -56,7 +56,7 @@ function validateTransition(root = ROOT) {
   replay += before.engine.slice(cursor);
   assert.ok(replay === after.engine, 'candidate differs from exact authorized repair replay');
   const {readArchive, core} = require('./tbc-question-revisions.cjs');
-  const archive = readArchive(read(root, 'index.html'));
+  const archive = readArchive(git('show', `${BATCH03_PREDECESSOR}:index.html`));
   core.validate(archive);
   assert.equal(archive.records.length, 4);
   assert.deepEqual(transition.questions.map(q => q.id), transition.changedStableIds);

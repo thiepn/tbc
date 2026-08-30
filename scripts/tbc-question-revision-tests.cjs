@@ -5,10 +5,10 @@ const crypto = require('node:crypto');
 const zlib = require('node:zlib');
 const { chromium } = require('playwright');
 const { ready, open, exact, snapshot, reloadExact, answerOne } = require('./tbc-preservation-repair.cjs');
-const { create, core, PREDECESSOR, ARCHIVE, gitHtml, productHash, readArchive, record, validate, capture } = require('./tbc-question-revisions.cjs');
+const { create, core, PREDECESSOR, BATCH03_PREDECESSOR, PREDECESSOR_BY_ID, ARCHIVE, gitHtml, productHash, readArchive, record, validate, capture } = require('./tbc-question-revisions.cjs');
 const { split } = require('./tbc-successor-transition.cjs');
 const DIR='artifacts/question-revisions', SESSION='theBibleChallenge_v21_activeRound';
-const IDS=['1-chronicles-16-11-context','1-chronicles-16-34-context','1-kings-8-27-context','1-kings-8-61-context'];
+const IDS=['1-chronicles-16-11-context','1-chronicles-16-34-context','1-kings-8-27-context','1-kings-8-61-context','1-samuel-12-24-context'];
 const results=[];
 async function check(name, fn) {
   try { const detail=await fn(); results.push({name,passed:true,detail}); console.log('PASS',name); }
@@ -106,11 +106,12 @@ async function main() {
   });
   const browser=await chromium.launch({headless:true}), html=fs.readFileSync('index.html'), archive=readArchive(html);
   try {
-    const baseline=await openHtml(browser,gitHtml(PREDECESSOR)),candidate=await openHtml(browser);
-    const before=await capture(baseline.page),after=await capture(candidate.page);
-    before.productSha256=productHash(gitHtml(PREDECESSOR));after.productSha256=productHash(html);
-    for(const [name,value] of [['predecessor',before],['candidate',after]])fs.writeFileSync(`${DIR}/${name}.json`,JSON.stringify(value));
-    await check('exact predecessor archive, counts, tier/alias/schema and deterministic pools',()=>({changed:validate(archive,before,after)}));
+    const baseline=await openHtml(browser,gitHtml(PREDECESSOR)),batch03Baseline=await openHtml(browser,gitHtml(BATCH03_PREDECESSOR)),candidate=await openHtml(browser);
+    const before=await capture(baseline.page),batch03=await capture(batch03Baseline.page),after=await capture(candidate.page);
+    before.productSha256=productHash(gitHtml(PREDECESSOR));batch03.productSha256=productHash(gitHtml(BATCH03_PREDECESSOR));after.productSha256=productHash(html);
+    for(const [name,value] of [['predecessor',before],['predecessor-dded986',batch03],['candidate',after]])fs.writeFileSync(`${DIR}/${name}.json`,JSON.stringify(value));
+    const predecessorCaptures={[PREDECESSOR]:before,[BATCH03_PREDECESSOR]:batch03};
+    await check('exact predecessor archives, counts, tier/alias/schema and deterministic pools',()=>({changed:validate(archive,before,after,predecessorCaptures)}));
     const source=before.sources.find(q=>q.itemId===IDS[0]), historical=structuredClone(source);
     historical.prompt='Synthetic historical question: which context?';
     // An actual changed answer key, not just distractors, proves old scoring.
@@ -133,11 +134,11 @@ async function main() {
     }
     await check('validator rejects unnecessary, missing and stale predecessor records',()=>{
       assert.throws(()=>validate(synthetic,before,before));
-      if(archive.records.length){assert.throws(()=>validate(empty,before,after));const bad=structuredClone(archive);bad.records[0].predecessor='0'.repeat(40);assert.throws(()=>validate(bad,before,after))}
+      if(archive.records.length){assert.throws(()=>validate(empty,before,after,predecessorCaptures));const bad=structuredClone(archive);bad.records[0].predecessor='0'.repeat(40);assert.throws(()=>validate(bad,before,after,predecessorCaptures))}
     });
     await check('recomputed forged archive hashes cannot replace Git predecessor authority',()=>{
       const forged=structuredClone(before.sources[0]);forged.prompt+=' forged';
-      assert.throws(()=>validate({version:1,records:[record(forged)]},before,after));
+      assert.throws(()=>validate({version:1,records:[record(forged)]},before,after,predecessorCaptures));
     });
     const isolated=await openHtml(browser,archiveHtml(html,synthetic));
     await check('current canonical and retained-alias saves reject unknown static fingerprints',async()=>{
@@ -231,7 +232,8 @@ async function main() {
       const fixtures=[];
       for(const id of IDS) for(const mode of ['quick','daily','weekly']) for(const answered of [false,true]) {
         await check(`certified predecessor ${id} ${mode} ${answered?'answered':'unasked'}: recovery/reloads/finish`,async()=>{
-          const fixture=await makeFixture(baseline.page,id,mode,answered);assert.equal(fixture.accepted,true);fixtures.push(fixture);
+          const sourcePage=PREDECESSOR_BY_ID[id]===BATCH03_PREDECESSOR?batch03Baseline.page:baseline.page;
+          const fixture=await makeFixture(sourcePage,id,mode,answered);assert.equal(fixture.accepted,true);fixtures.push(fixture);
           await cycle(candidate.page,fixture,true);assert.deepEqual(candidate.errors,[],'no browser page errors');
         });
       }
@@ -246,10 +248,11 @@ async function main() {
         assert.equal(await candidate.page.evaluate(raw=>hydrateQuizSession(raw),bad),null);
         assert.deepEqual(candidate.errors,[],'no browser page errors');
       });
-      fs.writeFileSync(`${DIR}/exact-predecessor-rounds.json`,JSON.stringify({predecessor:PREDECESSOR,fixtures}));
+      fs.writeFileSync(`${DIR}/exact-predecessor-rounds.json`,JSON.stringify({predecessors:[PREDECESSOR,BATCH03_PREDECESSOR],fixtures}));
     }
     assert.deepEqual(baseline.errors,[],'no predecessor browser page errors');assert.deepEqual(candidate.errors,[],'no browser page errors');
-    await baseline.context.close();await candidate.context.close();await isolated.context.close();
+    assert.deepEqual(batch03Baseline.errors,[],'no Batch 03 predecessor browser page errors');
+    await baseline.context.close();await batch03Baseline.context.close();await candidate.context.close();await isolated.context.close();
   } finally { await browser.close(); }
   fs.writeFileSync(`${DIR}/tests.json`,JSON.stringify({browser:process.env.TBC_BROWSER_CHANNEL||'bundled Chromium',results},null,2));
   console.log(`QUESTION REVISIONS: ${results.filter(x=>x.passed).length}/${results.length}`);
