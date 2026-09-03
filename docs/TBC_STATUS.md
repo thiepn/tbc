@@ -1604,3 +1604,56 @@ to conceal it; it remains an unresolved release limitation.
 No push, merge or deployment is part of this closeout. The next authorized task
 is the Batch 05 editorial audit beginning at entry 201; the P27D startup race
 remains separate work.
+
+## Canonical question-content audit — Batch 05, entries 201–250
+
+Batch 05 started from the committed Batch 04 successor
+`2cab7c7742eeb92ef7b784869ca07bbae675e7e5` on local branch
+`codex/question-audit-batch-05`. Exactly the 50 lexically ordered ledger entries
+201–250 were individually reviewed, beginning with
+`2-corinthians-5-21-meaning` and ending with
+`2-thessalonians-2-15-meaning`. Entry 251,
+`2-thessalonians-2-16-17-context`, was not reviewed or modified.
+
+The result is **50 unchanged and verified / 0 corrected / 0 unresolved**. Each
+entry now has direct Scripture evidence, an individual rationale, and a finding
+for every answer option. The review covered 2 Corinthians 5 and 9; 2 John;
+2 Kings 5, 6, 17 and 22; 2 Peter 1 and 3; 2 Samuel 7, 12 and 22; and
+2 Thessalonians 2. In every case the keyed choice remained the unique best
+answer supported by the cited unit.
+
+Entry 235, `2-samuel-12-13-context`, has two near-duplicate wrong choices that
+both describe David’s later deliverance song. This weakens distractor variety,
+but neither choice describes Nathan confronting David in 2 Samuel 12:7–16;
+the keyed answer therefore remains uniquely defensible. Under the instruction
+not to edit merely stylistic imperfections, it was recorded and left unchanged.
+
+### Batch 05 verification
+
+- Ledger inventory/check: **5,799/5,799**, completed **250**, pending **5,549**,
+  unresolved **0**.
+- Batch scope check: PASS. Only audit evidence for entries 201–250 changed;
+  every question inventory/content field and protected entry 251 remain exact.
+- `npm.cmd run build`: PASS. Current Batch 04 identity, all thirteen deployed
+  files, transition replay, schema/keys and acceptance test remain recognized.
+- Revision archive: PASS, unchanged at **6 changed IDs / 6 exact predecessor
+  revisions**.
+- `npm.cmd run audit:p2a`: PASS using the exact Playwright Chromium
+  140.0.7339.186 build-1193 executable extracted from the official downloaded
+  archive. Both P2A audits passed **58/58**; all five artifacts were
+  byte-identical across runs; P2B–P2E found zero confirmed defects.
+- Negative suites passed without skips: P2A **11/11**, product identity
+  **31/31**, first successor **7/7**, Batch 03 **22/22**, and Batch 04 **24/24**.
+- Counts remain **5,799 canonical / 6,072 registry / 273 aliases / 203
+  structured / 66 books**; tiers remain **1338/1668/1132/1140/521**. Product,
+  revision, alias, schema, storage, asset, identity and package files are
+  unchanged from the Batch 04 commit.
+- JSON parsing and `git diff --check` pass.
+
+The full browser aggregate was not repeated because the user explicitly waived
+the separately documented, pre-existing P27D first-run onboarding race. No test
+or product code was changed to suppress that failure. Batch 05 introduces no
+canonical content change, so no successor identity or revision archive entry is
+required. This Batch 05 ledger update is uncommitted, unpushed, unmerged and
+undeployed. The exact next task is a separately authorized ledger-only Batch 05
+commit; after that, Batch 06 would begin at entry 251.

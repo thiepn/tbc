@@ -14984,9 +14984,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Verse 21 states that the sinless Christ was made sin for us so that in Him we might become God’s righteousness; verses 18–20 establish the surrounding ministry of reconciliation.",
+            "reference": "2 Corinthians 5:18–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Corinthians 5:18–21 directly supports “The sinless Christ bore sin so that believers might receive God’s righteousness in Him”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 5:20, not the specific teaching or setting of 2 Corinthians 5:21.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 4:16-18, not the specific teaching or setting of 2 Corinthians 5:21.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 12:9, not the specific teaching or setting of 2 Corinthians 5:21.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-5-21-meaning: Verse 21 states that the sinless Christ was made sin for us so that in Him we might become God’s righteousness; verses 18–20 establish the surrounding ministry of reconciliation. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:21",
       "book": "2 Corinthians",
@@ -15041,9 +15070,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Verse 21 states that the sinless Christ was made sin for us so that in Him we might become God’s righteousness; verses 18–20 establish the surrounding ministry of reconciliation.",
+            "reference": "2 Corinthians 5:18–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "2 Corinthians 4:16-18 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "2 Corinthians 5:17 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "1 Chronicles 29:11 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 5:18–21 directly supports “2 Corinthians 5:21”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-corinthians-5-21-reference: Verse 21 states that the sinless Christ was made sin for us so that in Him we might become God’s righteousness; verses 18–20 establish the surrounding ministry of reconciliation. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:21",
       "book": "2 Corinthians",
@@ -15097,9 +15155,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells the Corinthians to prepare their promised gift, contrasts generous and grudging giving, and says each person should give a decided amount willingly and cheerfully rather than under compulsion.",
+            "reference": "2 Corinthians 9:5–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/9.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to John 14-16 or John 14:15 or John 16:33, not the specific teaching or setting of 2 Corinthians 9:7.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 1, not the specific teaching or setting of 2 Corinthians 9:7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 2-4, not the specific teaching or setting of 2 Corinthians 9:7.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 9:5–8 directly supports “Generous giving”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-corinthians-9-7-context: Paul tells the Corinthians to prepare their promised gift, contrasts generous and grudging giving, and says each person should give a decided amount willingly and cheerfully rather than under compulsion. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 9:7",
       "book": "2 Corinthians",
@@ -15154,9 +15241,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells the Corinthians to prepare their promised gift, contrasts generous and grudging giving, and says each person should give a decided amount willingly and cheerfully rather than under compulsion.",
+            "reference": "2 Corinthians 9:5–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/9.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 12:9, not the specific teaching or setting of 2 Corinthians 9:7.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 5:20, not the specific teaching or setting of 2 Corinthians 9:7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 5:21, not the specific teaching or setting of 2 Corinthians 9:7.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 9:5–8 directly supports “Christian giving should be planned, willing, and cheerful rather than reluctant or compelled”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-corinthians-9-7-meaning: Paul tells the Corinthians to prepare their promised gift, contrasts generous and grudging giving, and says each person should give a decided amount willingly and cheerfully rather than under compulsion. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 9:7",
       "book": "2 Corinthians",
@@ -15211,9 +15327,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John joins truth, love, and obedience: love means walking according to God’s commandments, including the command to walk in love.",
+            "reference": "2 John 4–6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 John 4–6 directly supports “Truth and love are expressed through obedient living”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to John 8:12, not the specific teaching or setting of 2 John 1:6.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 John 1:7-8, not the specific teaching or setting of 2 John 1:6.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to John 1:12, not the specific teaching or setting of 2 John 1:6.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-john-1-6-context: John joins truth, love, and obedience: love means walking according to God’s commandments, including the command to walk in love. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 John 1:6",
       "book": "2 John",
@@ -15267,9 +15412,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John joins truth, love, and obedience: love means walking according to God’s commandments, including the command to walk in love.",
+            "reference": "2 John 4–6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 John 1:7-8, not the specific teaching or setting of 2 John 1:6.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to John 8:12, not the specific teaching or setting of 2 John 1:6.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to John 1:12, not the specific teaching or setting of 2 John 1:6.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 John 4–6 directly supports “Christian love is expressed by walking in God’s commands, joining genuine affection with faithful obedience”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-john-1-6-meaning: John joins truth, love, and obedience: love means walking according to God’s commandments, including the command to walk in love. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 John 1:6",
       "book": "2 John",
@@ -15324,9 +15498,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John warns that many deceivers deny Jesus Christ coming in the flesh and tells believers to watch themselves so they do not lose their full reward.",
+            "reference": "2 John 7–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 John 7–8 directly supports “2 John”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names 1 John, while the cited passage is in 2 John.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 3 John, while the cited passage is in 2 John.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Hebrews, while the cited passage is in 2 John.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-john-1-7-8-book: John warns that many deceivers deny Jesus Christ coming in the flesh and tells believers to watch themselves so they do not lose their full reward. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 John 1:7-8",
       "book": "2 John",
@@ -15380,9 +15583,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John warns that many deceivers deny Jesus Christ coming in the flesh and tells believers to watch themselves so they do not lose their full reward.",
+            "reference": "2 John 7–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 John 7–8 directly supports “After calling believers to truth and love, the elder warns about deceivers who deny Christ’s coming in the flesh”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 1 John 2:1, not the specific teaching or setting of 2 John 1:7-8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Hebrews 2:14-18, not the specific teaching or setting of 2 John 1:7-8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 John 6–9, not the specific teaching or setting of 2 John 1:7-8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-john-1-7-8-context: John warns that many deceivers deny Jesus Christ coming in the flesh and tells believers to watch themselves so they do not lose their full reward. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 John 1:7-8",
       "book": "2 John",
@@ -15436,9 +15668,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John warns that many deceivers deny Jesus Christ coming in the flesh and tells believers to watch themselves so they do not lose their full reward.",
+            "reference": "2 John 7–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 John 7–8 directly supports “Christian love must remain joined to truth and discernment because false teaching about Christ is spiritually serious.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 John 1:6, not the specific teaching or setting of 2 John 1:7-8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to John 1:12, not the specific teaching or setting of 2 John 1:7-8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 John 1:9, not the specific teaching or setting of 2 John 1:7-8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-john-1-7-8-meaning: John warns that many deceivers deny Jesus Christ coming in the flesh and tells believers to watch themselves so they do not lose their full reward. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 John 1:7-8",
       "book": "2 John",
@@ -15493,9 +15754,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John says that whoever runs ahead instead of remaining in Christ’s teaching does not have God, while the one who remains has both the Father and the Son.",
+            "reference": "2 John 9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 John 1:7-8, not the specific teaching or setting of 2 John 1:9.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to John 1:12, not the specific teaching or setting of 2 John 1:9.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 John 1:6, not the specific teaching or setting of 2 John 1:9.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 John 9 directly supports “John warns against teaching that moves beyond the apostolic message about Christ”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-john-1-9-context: John says that whoever runs ahead instead of remaining in Christ’s teaching does not have God, while the one who remains has both the Father and the Son. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 John 1:9",
       "book": "2 John",
@@ -15549,9 +15839,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John says that whoever runs ahead instead of remaining in Christ’s teaching does not have God, while the one who remains has both the Father and the Son.",
+            "reference": "2 John 9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to John 1:12, not the specific teaching or setting of 2 John 1:9.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 John 9 directly supports “Remaining in the true teaching about Christ is essential to fellowship with the Father and Son”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to John 8:12, not the specific teaching or setting of 2 John 1:9.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 John 1:6, not the specific teaching or setting of 2 John 1:9.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-john-1-9-meaning: John says that whoever runs ahead instead of remaining in Christ’s teaching does not have God, while the one who remains has both the Father and the Son. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 John 1:9",
       "book": "2 John",
@@ -15606,9 +15925,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After recounting Israel’s exile and mixed worship, the narrator restates the covenant command to fear the LORD alone and says He will deliver His people from their enemies.",
+            "reference": "2 Kings 17:34–41",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_kings/17.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Kings 5:15, not the specific teaching or setting of 2 Kings 17:39.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Kings 17:34–41 directly supports “The narrator summarizes the covenant obligation after explaining Israel’s exile.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 6:16, not the specific teaching or setting of 2 Kings 17:39.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 22:8-13, not the specific teaching or setting of 2 Kings 17:39.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-kings-17-39-context: After recounting Israel’s exile and mixed worship, the narrator restates the covenant command to fear the LORD alone and says He will deliver His people from their enemies. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Kings 17:39",
       "book": "2 Kings",
@@ -15662,9 +16010,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After recounting Israel’s exile and mixed worship, the narrator restates the covenant command to fear the LORD alone and says He will deliver His people from their enemies.",
+            "reference": "2 Kings 17:34–41",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_kings/17.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Kings 5:15, not the specific teaching or setting of 2 Kings 17:39.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 6:16, not the specific teaching or setting of 2 Kings 17:39.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Kings 17:34–41 directly supports “God’s people must fear the LORD alone and trust Him for deliverance”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 22:8-13, not the specific teaching or setting of 2 Kings 17:39.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-kings-17-39-meaning: After recounting Israel’s exile and mixed worship, the narrator restates the covenant command to fear the LORD alone and says He will deliver His people from their enemies. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Kings 17:39",
       "book": "2 Kings",
@@ -15719,9 +16096,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "During temple repairs Hilkiah finds the Book of the Law, Shaphan reads it to Josiah, and the king responds with grief because Judah has not obeyed it.",
+            "reference": "2 Kings 22:8–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_kings/22.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names 1 Chronicles, while the cited passage is in 2 Kings.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Kings 22:8–13 directly supports “2 Kings”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names 1 Samuel, while the cited passage is in 2 Kings.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Judges, while the cited passage is in 2 Kings.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-kings-22-8-13-book: During temple repairs Hilkiah finds the Book of the Law, Shaphan reads it to Josiah, and the king responds with grief because Judah has not obeyed it. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Kings 22:8-13",
       "book": "2 Kings",
@@ -15775,9 +16181,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "During temple repairs Hilkiah finds the Book of the Law, Shaphan reads it to Josiah, and the king responds with grief because Judah has not obeyed it.",
+            "reference": "2 Kings 22:8–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_kings/22.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Kings 22:8–13 directly supports “During temple repairs Hilkiah finds the Book of the Law, and its reading exposes Judah’s disobedience to Josiah”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Kings 5:1–14; it does not supply the best answer for 2 Kings 22:8-13.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Kings 17:5–23; it does not supply the best answer for 2 Kings 22:8-13.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Kings 6:13–17; it does not supply the best answer for 2 Kings 22:8-13.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-kings-22-8-13-context: During temple repairs Hilkiah finds the Book of the Law, Shaphan reads it to Josiah, and the king responds with grief because Judah has not obeyed it. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Kings 22:8-13",
       "book": "2 Kings",
@@ -15831,9 +16266,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "During temple repairs Hilkiah finds the Book of the Law, Shaphan reads it to Josiah, and the king responds with grief because Judah has not obeyed it.",
+            "reference": "2 Kings 22:8–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_kings/22.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Kings 22:8–13 directly supports “God’s written word exposes covenant unfaithfulness and calls leaders and communities to humble repentance”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Kings 6:16–17; it does not supply the best answer for 2 Kings 22:8-13.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 1 Samuel 2:2, not the specific teaching or setting of 2 Kings 22:8-13.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 1 Kings 3:9, not the specific teaching or setting of 2 Kings 22:8-13.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-kings-22-8-13-meaning: During temple repairs Hilkiah finds the Book of the Law, Shaphan reads it to Josiah, and the king responds with grief because Judah has not obeyed it. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Kings 22:8-13",
       "book": "2 Kings",
@@ -15888,9 +16352,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After washing in the Jordan and being healed, Naaman returns to Elisha and confesses that there is no God in all the earth except the God of Israel.",
+            "reference": "2 Kings 5:13–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_kings/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Kings 17:39, not the specific teaching or setting of 2 Kings 5:15.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 6:16, not the specific teaching or setting of 2 Kings 5:15.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Kings 5:13–17 directly supports “Naaman confesses the God of Israel after being healed of leprosy”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 22:8-13, not the specific teaching or setting of 2 Kings 5:15.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-kings-5-15-context: After washing in the Jordan and being healed, Naaman returns to Elisha and confesses that there is no God in all the earth except the God of Israel. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Kings 5:15",
       "book": "2 Kings",
@@ -15944,9 +16437,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After washing in the Jordan and being healed, Naaman returns to Elisha and confesses that there is no God in all the earth except the God of Israel.",
+            "reference": "2 Kings 5:13–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_kings/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Kings 5:13–17 directly supports “God’s saving power leads outsiders to recognize that He alone is God.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 16:9; it does not supply the best answer for 2 Kings 5:15.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to a different prayer-and-compassion theme, not Naaman’s confession in 2 Kings 5:15; it does not supply the best answer for 2 Kings 5:15.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 15:7; it does not supply the best answer for 2 Kings 5:15.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-kings-5-15-meaning: After washing in the Jordan and being healed, Naaman returns to Elisha and confesses that there is no God in all the earth except the God of Israel. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Kings 5:15",
       "book": "2 Kings",
@@ -16001,9 +16523,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "When an Aramean army surrounds Dothan, Elisha reassures his frightened servant that those with them are more numerous, and God opens the servant’s eyes to the fiery host.",
+            "reference": "2 Kings 6:13–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_kings/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Kings 5:15, not the specific teaching or setting of 2 Kings 6:16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 17:39, not the specific teaching or setting of 2 Kings 6:16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 22:8-13, not the specific teaching or setting of 2 Kings 6:16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Kings 6:13–17 directly supports “Elisha reassures his servant when surrounded by an army”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-kings-6-16-context: When an Aramean army surrounds Dothan, Elisha reassures his frightened servant that those with them are more numerous, and God opens the servant’s eyes to the fiery host. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Kings 6:16",
       "book": "2 Kings",
@@ -16057,9 +16608,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "When an Aramean army surrounds Dothan, Elisha reassures his frightened servant that those with them are more numerous, and God opens the servant’s eyes to the fiery host.",
+            "reference": "2 Kings 6:13–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_kings/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Kings 17:39, not the specific teaching or setting of 2 Kings 6:16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Kings 6:13–17 directly supports “God’s unseen resources are greater than the visible threats surrounding His servants.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 5:15, not the specific teaching or setting of 2 Kings 6:16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Kings 22:8-13, not the specific teaching or setting of 2 Kings 6:16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-kings-6-16-meaning: When an Aramean army surrounds Dothan, Elisha reassures his frightened servant that those with them are more numerous, and God opens the servant’s eyes to the fiery host. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Kings 6:16",
       "book": "2 Kings",
@@ -16114,9 +16694,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter presents the prophetic word as reliable and explains that prophecy did not originate in human will or a prophet’s own interpretation, but from men carried along by the Holy Spirit.",
+            "reference": "2 Peter 1:19–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Peter 1:19–21 directly supports “Peter explains the reliability of the prophetic word.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:8, not the specific teaching or setting of 2 Peter 1:20.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:18, not the specific teaching or setting of 2 Peter 1:20.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:5-7, not the specific teaching or setting of 2 Peter 1:20.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-1-20-context: Peter presents the prophetic word as reliable and explains that prophecy did not originate in human will or a prophet’s own interpretation, but from men carried along by the Holy Spirit. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 1:20",
       "book": "2 Peter",
@@ -16170,9 +16779,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter presents the prophetic word as reliable and explains that prophecy did not originate in human will or a prophet’s own interpretation, but from men carried along by the Holy Spirit.",
+            "reference": "2 Peter 1:19–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:5-7, not the specific teaching or setting of 2 Peter 1:20.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:8, not the specific teaching or setting of 2 Peter 1:20.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:9, not the specific teaching or setting of 2 Peter 1:20.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Peter 1:19–21 directly supports “No prophecy of Scripture arises from a prophet’s own interpretation, the next verse grounds prophecy in the Holy Spirit’s work”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-peter-1-20-meaning: Peter presents the prophetic word as reliable and explains that prophecy did not originate in human will or a prophet’s own interpretation, but from men carried along by the Holy Spirit. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 1:20",
       "book": "2 Peter",
@@ -16227,9 +16865,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter introduces God’s gracious provision: divine power has supplied everything needed for life and godliness through knowing Christ, together with precious promises.",
+            "reference": "2 Peter 1:3–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Peter 1:19–21; it does not supply the best answer for 2 Peter 1:3.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Peter 1:3–4 directly supports “Peter introduces the resources God has given believers”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 John 1:6, not the specific teaching or setting of 2 Peter 1:3.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Hebrews 1:3, not the specific teaching or setting of 2 Peter 1:3.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-1-3-context: Peter introduces God’s gracious provision: divine power has supplied everything needed for life and godliness through knowing Christ, together with precious promises. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 1:3",
       "book": "2 Peter",
@@ -16283,9 +16950,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter introduces God’s gracious provision: divine power has supplied everything needed for life and godliness through knowing Christ, together with precious promises.",
+            "reference": "2 Peter 1:3–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Peter 1:3–4 directly supports “God’s power supplies everything necessary for life and godliness through knowing Christ”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:8, not the specific teaching or setting of 2 Peter 1:3.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:9, not the specific teaching or setting of 2 Peter 1:3.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:18, not the specific teaching or setting of 2 Peter 1:3.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-1-3-meaning: Peter introduces God’s gracious provision: divine power has supplied everything needed for life and godliness through knowing Christ, together with precious promises. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 1:3",
       "book": "2 Peter",
@@ -16340,9 +17036,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "In response to God’s prior provision and promises, Peter calls believers to make every effort to add virtue, knowledge, self-control, perseverance, godliness, brotherly affection, and love to faith.",
+            "reference": "2 Peter 1:3–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Peter 1:3–8 directly supports “2 Peter”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names James, while the cited passage is in 2 Peter.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Hebrews, while the cited passage is in 2 Peter.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 1 Peter, while the cited passage is in 2 Peter.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-1-5-7-book: In response to God’s prior provision and promises, Peter calls believers to make every effort to add virtue, knowledge, self-control, perseverance, godliness, brotherly affection, and love to faith. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 1:5-7",
       "book": "2 Peter",
@@ -16396,9 +17121,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "In response to God’s prior provision and promises, Peter calls believers to make every effort to add virtue, knowledge, self-control, perseverance, godliness, brotherly affection, and love to faith.",
+            "reference": "2 Peter 1:3–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:18, not the specific teaching or setting of 2 Peter 1:5-7.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:3, not the specific teaching or setting of 2 Peter 1:5-7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Peter 1:3–8 directly supports “Peter explains how believers respond to God’s gracious provision.”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:8, not the specific teaching or setting of 2 Peter 1:5-7.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-1-5-7-context: In response to God’s prior provision and promises, Peter calls believers to make every effort to add virtue, knowledge, self-control, perseverance, godliness, brotherly affection, and love to faith. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 1:5-7",
       "book": "2 Peter",
@@ -16452,9 +17206,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "In response to God’s prior provision and promises, Peter calls believers to make every effort to add virtue, knowledge, self-control, perseverance, godliness, brotherly affection, and love to faith.",
+            "reference": "2 Peter 1:3–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Peter 1:3–8 directly supports “Christian growth intentionally adds virtue, knowledge, self-control, perseverance, godliness, affection, and love”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:20, not the specific teaching or setting of 2 Peter 1:5-7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:8, not the specific teaching or setting of 2 Peter 1:5-7.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:9, not the specific teaching or setting of 2 Peter 1:5-7.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-1-5-7-meaning: In response to God’s prior provision and promises, Peter calls believers to make every effort to add virtue, knowledge, self-control, perseverance, godliness, brotherly affection, and love to faith. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 1:5-7",
       "book": "2 Peter",
@@ -16509,9 +17292,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "In response to God’s prior provision and promises, Peter calls believers to make every effort to add virtue, knowledge, self-control, perseverance, godliness, brotherly affection, and love to faith.",
+            "reference": "2 Peter 1:3–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "2 Peter 1:3 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "2 Peter 1:20 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Peter 1:3–8 directly supports “2 Peter 1:5-7”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "2 Peter 3:8 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-1-5-7-reference: In response to God’s prior provision and promises, Peter calls believers to make every effort to add virtue, knowledge, self-control, perseverance, godliness, brotherly affection, and love to faith. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 1:5-7",
       "book": "2 Peter",
@@ -16565,9 +17377,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter closes by warning believers not to be carried away by error and commanding them to grow in the grace and knowledge of Jesus Christ.",
+            "reference": "2 Peter 3:17–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to James 5:13–18; it does not supply the best answer for 2 Peter 3:18.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Peter 3:17–18 directly supports “Peter closes by calling believers to continued growth in Christ”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:9, not the specific teaching or setting of 2 Peter 3:18.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 John 1–3; it does not supply the best answer for 2 Peter 3:18.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-3-18-context: Peter closes by warning believers not to be carried away by error and commanding them to grow in the grace and knowledge of Jesus Christ. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 3:18",
       "book": "2 Peter",
@@ -16621,9 +17462,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter closes by warning believers not to be carried away by error and commanding them to grow in the grace and knowledge of Jesus Christ.",
+            "reference": "2 Peter 3:17–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:3, not the specific teaching or setting of 2 Peter 3:18.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:8, not the specific teaching or setting of 2 Peter 3:18.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:9, not the specific teaching or setting of 2 Peter 3:18.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Peter 3:17–18 directly supports “Believers are to keep growing in the grace and knowledge of Jesus Christ”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-peter-3-18-meaning: Peter closes by warning believers not to be carried away by error and commanding them to grow in the grace and knowledge of Jesus Christ. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 3:18",
       "book": "2 Peter",
@@ -16678,9 +17548,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Answering scoffers who doubt the promised return, Peter contrasts human time with the Lord’s perspective and shows that apparent delay does not make God unfaithful.",
+            "reference": "2 Peter 3:3–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Peter 3:3–10 directly supports “Peter answers scoffers who doubt Christ’s return.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:18, not the specific teaching or setting of 2 Peter 3:8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:5-7, not the specific teaching or setting of 2 Peter 3:8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:3, not the specific teaching or setting of 2 Peter 3:8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-3-8-context: Answering scoffers who doubt the promised return, Peter contrasts human time with the Lord’s perspective and shows that apparent delay does not make God unfaithful. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 3:8",
       "book": "2 Peter",
@@ -16734,9 +17633,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Answering scoffers who doubt the promised return, Peter contrasts human time with the Lord’s perspective and shows that apparent delay does not make God unfaithful.",
+            "reference": "2 Peter 3:3–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:9, not the specific teaching or setting of 2 Peter 3:8.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Peter 3:3–10 directly supports “God’s relation to time differs from ours, and apparent delay does not mean unfaithfulness”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:3, not the specific teaching or setting of 2 Peter 3:8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:5-7, not the specific teaching or setting of 2 Peter 3:8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-3-8-meaning: Answering scoffers who doubt the promised return, Peter contrasts human time with the Lord’s perspective and shows that apparent delay does not make God unfaithful. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 3:8",
       "book": "2 Peter",
@@ -16791,9 +17719,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter explains that the Lord is not slow but patient, not wanting people to perish and giving opportunity for repentance before the Day arrives.",
+            "reference": "2 Peter 3:8–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:18, not the specific teaching or setting of 2 Peter 3:9.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Peter 3:8–10 directly supports “God's apparent delay displays patience and a call to repentance”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to James 2:14–26; it does not supply the best answer for 2 Peter 3:9.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Peter 3:15; it does not supply the best answer for 2 Peter 3:9.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-3-9-context: Peter explains that the Lord is not slow but patient, not wanting people to perish and giving opportunity for repentance before the Day arrives. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 3:9",
       "book": "2 Peter",
@@ -16847,9 +17804,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Peter explains that the Lord is not slow but patient, not wanting people to perish and giving opportunity for repentance before the Day arrives.",
+            "reference": "2 Peter 3:8–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Peter 3:8, not the specific teaching or setting of 2 Peter 3:9.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:3, not the specific teaching or setting of 2 Peter 3:9.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Peter 3:8–10 directly supports “What appears to be delay reflects the Lord’s patience, giving people opportunity to repent before judgment”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Peter 1:5-7, not the specific teaching or setting of 2 Peter 3:9.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-peter-3-9-meaning: Peter explains that the Lord is not slow but patient, not wanting people to perish and giving opportunity for repentance before the Day arrives. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Peter 3:9",
       "book": "2 Peter",
@@ -16904,9 +17890,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After Nathan exposes David’s sin and announces judgment, David confesses; Nathan says the LORD has taken away his sin while also announcing the child’s death.",
+            "reference": "2 Samuel 12:7–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/12.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Samuel 22:2, not the specific teaching or setting of 2 Samuel 12:13.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Samuel 12:7–16 directly supports “David confesses after Nathan exposes his sin”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 22:31, not the specific teaching or setting of 2 Samuel 12:13.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 7:16, not the specific teaching or setting of 2 Samuel 12:13.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-samuel-12-13-context: After Nathan exposes David’s sin and announces judgment, David confesses; Nathan says the LORD has taken away his sin while also announcing the child’s death. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings. Options 0 and 2 are near-duplicate descriptions of the later deliverance song in 2 Samuel 22; this weakens distractor variety, but neither describes Nathan confronting David, so the keyed answer remains uniquely defensible and no content edit is warranted.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 12:13",
       "book": "2 Samuel",
@@ -16960,9 +17975,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After Nathan exposes David’s sin and announces judgment, David confesses; Nathan says the LORD has taken away his sin while also announcing the child’s death.",
+            "reference": "2 Samuel 12:7–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/12.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Samuel 12:7–16 directly supports “Honest confession receives God’s mercy, though sin may still carry serious consequences”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Samuel 7:12–16 and later canonical fulfillment; it does not supply the best answer for 2 Samuel 12:13.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Samuel 22:1–4; it does not supply the best answer for 2 Samuel 12:13.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Samuel 7:18–29; it does not supply the best answer for 2 Samuel 12:13.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-samuel-12-13-meaning: After Nathan exposes David’s sin and announces judgment, David confesses; Nathan says the LORD has taken away his sin while also announcing the child’s death. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 12:13",
       "book": "2 Samuel",
@@ -17017,9 +18061,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After deliverance from Saul and all his enemies, David begins his song by naming the LORD his rock, fortress, deliverer, refuge, shield, and Savior.",
+            "reference": "2 Samuel 22:1–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/22.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Samuel 12:13, not the specific teaching or setting of 2 Samuel 22:2.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 7:16, not the specific teaching or setting of 2 Samuel 22:2.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 7:22, not the specific teaching or setting of 2 Samuel 22:2.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Samuel 22:1–4 directly supports “David begins his song after deliverance from enemies.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-samuel-22-2-context: After deliverance from Saul and all his enemies, David begins his song by naming the LORD his rock, fortress, deliverer, refuge, shield, and Savior. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 22:2",
       "book": "2 Samuel",
@@ -17073,9 +18146,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After deliverance from Saul and all his enemies, David begins his song by naming the LORD his rock, fortress, deliverer, refuge, shield, and Savior.",
+            "reference": "2 Samuel 22:1–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/22.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Chronicles 16:9, not the specific teaching or setting of 2 Samuel 22:2.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 1 Samuel 2:2, not the specific teaching or setting of 2 Samuel 22:2.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Samuel 22:1–4 directly supports “God is a secure rock, fortress, and rescuer”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Samuel 7:22; it does not supply the best answer for 2 Samuel 22:2.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-samuel-22-2-meaning: After deliverance from Saul and all his enemies, David begins his song by naming the LORD his rock, fortress, deliverer, refuge, shield, and Savior. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 22:2",
       "book": "2 Samuel",
@@ -17130,9 +18232,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Within David’s deliverance song, he declares God’s way perfect, His word flawless, and God a shield to everyone who takes refuge in Him.",
+            "reference": "2 Samuel 22:29–33",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/22.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Samuel 22:29–33 directly supports “David praises God after deliverance from his enemies.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 12:13, not the specific teaching or setting of 2 Samuel 22:31.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 7:16, not the specific teaching or setting of 2 Samuel 22:31.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 7:22, not the specific teaching or setting of 2 Samuel 22:31.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-samuel-22-31-context: Within David’s deliverance song, he declares God’s way perfect, His word flawless, and God a shield to everyone who takes refuge in Him. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 22:31",
       "book": "2 Samuel",
@@ -17186,9 +18317,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Within David’s deliverance song, he declares God’s way perfect, His word flawless, and God a shield to everyone who takes refuge in Him.",
+            "reference": "2 Samuel 22:29–33",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/22.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Samuel 7:22, not the specific teaching or setting of 2 Samuel 22:31.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Samuel 7:12–16 and later canonical fulfillment; it does not supply the best answer for 2 Samuel 22:31.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Samuel 22:29–33 directly supports “God’s way and promise prove reliable, and He protects those who take refuge in Him”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 12:13, not the specific teaching or setting of 2 Samuel 22:31.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-samuel-22-31-meaning: Within David’s deliverance song, he declares God’s way perfect, His word flawless, and God a shield to everyone who takes refuge in Him. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 22:31",
       "book": "2 Samuel",
@@ -17243,9 +18403,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Through Nathan, God promises to establish David’s descendant, house, kingdom, and throne, declaring that David’s house and kingdom will endure forever before Him.",
+            "reference": "2 Samuel 7:12–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Samuel 7:12–17 directly supports “2 Samuel”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names 1 Kings, while the cited passage is in 2 Samuel.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 1 Chronicles, while the cited passage is in 2 Samuel.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Judges, while the cited passage is in 2 Samuel.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-samuel-7-16-book: Through Nathan, God promises to establish David’s descendant, house, kingdom, and throne, declaring that David’s house and kingdom will endure forever before Him. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 7:16",
       "book": "2 Samuel",
@@ -17299,9 +18488,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Through Nathan, God promises to establish David’s descendant, house, kingdom, and throne, declaring that David’s house and kingdom will endure forever before Him.",
+            "reference": "2 Samuel 7:12–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Samuel 7:22, not the specific teaching or setting of 2 Samuel 7:16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 22:2, not the specific teaching or setting of 2 Samuel 7:16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 12:13, not the specific teaching or setting of 2 Samuel 7:16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Samuel 7:12–17 directly supports “God promises David an enduring house, kingdom, and throne”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-samuel-7-16-context: Through Nathan, God promises to establish David’s descendant, house, kingdom, and throne, declaring that David’s house and kingdom will endure forever before Him. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 7:16",
       "book": "2 Samuel",
@@ -17355,9 +18573,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Through Nathan, God promises to establish David’s descendant, house, kingdom, and throne, declaring that David’s house and kingdom will endure forever before Him.",
+            "reference": "2 Samuel 7:12–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Samuel 22:31, not the specific teaching or setting of 2 Samuel 7:16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 7:22, not the specific teaching or setting of 2 Samuel 7:16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 12:13, not the specific teaching or setting of 2 Samuel 7:16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Samuel 7:12–17 directly supports “God promises that David’s royal house and kingdom will endure, with his throne established before God forever.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-samuel-7-16-meaning: Through Nathan, God promises to establish David’s descendant, house, kingdom, and throne, declaring that David’s house and kingdom will endure forever before Him. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 7:16",
       "book": "2 Samuel",
@@ -17412,9 +18659,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "David responds to the covenant promise in worship and declares that the Lord GOD is great, incomparable, and the only God.",
+            "reference": "2 Samuel 7:18–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Samuel 7:12–16; it does not supply the best answer for 2 Samuel 7:22.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Nehemiah 6:1–4; it does not supply the best answer for 2 Samuel 7:22.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Samuel 7:18–23 directly supports “David worships after receiving God’s covenant promise concerning his house.”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Nehemiah 4:14, not the specific teaching or setting of 2 Samuel 7:22.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-samuel-7-22-context: David responds to the covenant promise in worship and declares that the Lord GOD is great, incomparable, and the only God. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 7:22",
       "book": "2 Samuel",
@@ -17468,9 +18744,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "David responds to the covenant promise in worship and declares that the Lord GOD is great, incomparable, and the only God.",
+            "reference": "2 Samuel 7:18–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_samuel/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Chronicles 16:9, not the specific teaching or setting of 2 Samuel 7:22.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 15:7; it does not supply the best answer for 2 Samuel 7:22.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Samuel 12:13, not the specific teaching or setting of 2 Samuel 7:22.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Samuel 7:18–23 directly supports “The LORD is incomparable, no other God can be set beside Him”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-samuel-7-22-meaning: David responds to the covenant promise in worship and declares that the Lord GOD is great, incomparable, and the only God. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Samuel 7:22",
       "book": "2 Samuel",
@@ -17525,9 +18830,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul addresses alarm caused by claims that the Day of the Lord has already come and tells the church not to be deceived or destabilized by such messages.",
+            "reference": "2 Thessalonians 2:1–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names 2 Timothy, while the cited passage is in 2 Thessalonians.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 1 Timothy, while the cited passage is in 2 Thessalonians.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Thessalonians 2:1–4 directly supports “2 Thessalonians”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names 1 Corinthians, while the cited passage is in 2 Thessalonians.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-thessalonians-2-1-4-book: Paul addresses alarm caused by claims that the Day of the Lord has already come and tells the church not to be deceived or destabilized by such messages. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 2:1-4",
       "book": "2 Thessalonians",
@@ -17581,9 +18915,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul addresses alarm caused by claims that the Day of the Lord has already come and tells the church not to be deceived or destabilized by such messages.",
+            "reference": "2 Thessalonians 2:1–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 2:9-10, not the specific teaching or setting of 2 Thessalonians 2:1-4.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Philippians 2:3-4, not the specific teaching or setting of 2 Thessalonians 2:1-4.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Thessalonians 2:1–4 directly supports “Paul addresses alarm caused by claims that the Day of the Lord has already arrived”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Psalm 118:24, not the specific teaching or setting of 2 Thessalonians 2:1-4.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-thessalonians-2-1-4-context: Paul addresses alarm caused by claims that the Day of the Lord has already come and tells the church not to be deceived or destabilized by such messages. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 2:1-4",
       "book": "2 Thessalonians",
@@ -17637,9 +19000,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul addresses alarm caused by claims that the Day of the Lord has already come and tells the church not to be deceived or destabilized by such messages.",
+            "reference": "2 Thessalonians 2:1–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Thessalonians 2:1–4 directly supports “Christians should not be destabilized by sensational claims about the Lord’s coming but should test them against apostolic teaching”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 2:16-17, not the specific teaching or setting of 2 Thessalonians 2:1-4.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 3:10, not the specific teaching or setting of 2 Thessalonians 2:1-4.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 2:15, not the specific teaching or setting of 2 Thessalonians 2:1-4.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-thessalonians-2-1-4-meaning: Paul addresses alarm caused by claims that the Day of the Lord has already come and tells the church not to be deceived or destabilized by such messages. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 2:1-4",
       "book": "2 Thessalonians",
@@ -17694,9 +19086,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After giving thanks for the believers’ salvation and calling, Paul tells the shaken church to stand firm and hold to the apostolic teaching delivered by speech or letter.",
+            "reference": "2 Thessalonians 2:13–15",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 3:10, not the specific teaching or setting of 2 Thessalonians 2:15.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 3:3, not the specific teaching or setting of 2 Thessalonians 2:15.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 2:16-17, not the specific teaching or setting of 2 Thessalonians 2:15.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Thessalonians 2:13–15 directly supports “Paul urges a shaken church to remain steady.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-thessalonians-2-15-context: After giving thanks for the believers’ salvation and calling, Paul tells the shaken church to stand firm and hold to the apostolic teaching delivered by speech or letter. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 2:15",
       "book": "2 Thessalonians",
@@ -17750,9 +19171,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After giving thanks for the believers’ salvation and calling, Paul tells the shaken church to stand firm and hold to the apostolic teaching delivered by speech or letter.",
+            "reference": "2 Thessalonians 2:13–15",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 3:10, not the specific teaching or setting of 2 Thessalonians 2:15.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Thessalonians 2:13–15 directly supports “Believers stand firm by holding to the apostolic teaching they received”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Romans 5:1, not the specific teaching or setting of 2 Thessalonians 2:15.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 1:3, not the specific teaching or setting of 2 Thessalonians 2:15.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-thessalonians-2-15-meaning: After giving thanks for the believers’ salvation and calling, Paul tells the shaken church to stand firm and hold to the apostolic teaching delivered by speech or letter. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 2:15",
       "book": "2 Thessalonians",

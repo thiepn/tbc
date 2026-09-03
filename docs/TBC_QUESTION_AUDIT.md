@@ -3,8 +3,8 @@
 This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activeQuestions()` as extracted by P2A; aliases are compatibility mappings, not additional questions.
 
 - Canonical runtime questions: **5799**
-- Individually completed: **200**
-- Pending individual review: **5599**
+- Individually completed: **250**
+- Pending individual review: **5549**
 - Unresolved human decisions: **0**
 - Complete inventory fields, aliases, mode eligibility, and per-entry audit evidence are in [`TBC_QUESTION_AUDIT.json`](TBC_QUESTION_AUDIT.json).
 - Validate against a fresh P2A extraction with `node scripts/tbc-question-audit-ledger.cjs check`; use `--require-complete` only after every entry is reviewed.
@@ -213,56 +213,56 @@ This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activ
 | `2-corinthians-5-20-meaning` | 3126 | 2 Corinthians 5:20 | Easy | unchanged and verified |
 | `2-corinthians-5-21-book` | 3138 | 2 Corinthians 5:21 | Standard | unchanged and verified |
 | `2-corinthians-5-21-context` | 3137 | 2 Corinthians 5:21 | Standard | unchanged and verified |
-| `2-corinthians-5-21-meaning` | 3136 | 2 Corinthians 5:21 | Beginner | pending individual review |
-| `2-corinthians-5-21-reference` | 3139 | 2 Corinthians 5:21 | Advanced | pending individual review |
-| `2-corinthians-9-7-context` | 3129 | 2 Corinthians 9:7 | Advanced | pending individual review |
-| `2-corinthians-9-7-meaning` | 3128 | 2 Corinthians 9:7 | Easy | pending individual review |
-| `2-john-1-6-context` | 3673 | 2 John 1:6 | Advanced | pending individual review |
-| `2-john-1-6-meaning` | 3672 | 2 John 1:6 | Easy | pending individual review |
-| `2-john-1-7-8-book` | 3678 | 2 John 1:7-8 | Standard | pending individual review |
-| `2-john-1-7-8-context` | 3677 | 2 John 1:7-8 | Standard | pending individual review |
-| `2-john-1-7-8-meaning` | 3676 | 2 John 1:7-8 | Beginner | pending individual review |
-| `2-john-1-9-context` | 3675 | 2 John 1:9 | Standard | pending individual review |
-| `2-john-1-9-meaning` | 3674 | 2 John 1:9 | Easy | pending individual review |
-| `2-kings-17-39-context` | 1240 | 2 Kings 17:39 | Advanced | pending individual review |
-| `2-kings-17-39-meaning` | 1239 | 2 Kings 17:39 | Easy | pending individual review |
-| `2-kings-22-8-13-book` | 1243 | 2 Kings 22:8-13 | Standard | pending individual review |
-| `2-kings-22-8-13-context` | 1242 | 2 Kings 22:8-13 | Standard | pending individual review |
-| `2-kings-22-8-13-meaning` | 1241 | 2 Kings 22:8-13 | Beginner | pending individual review |
-| `2-kings-5-15-context` | 1238 | 2 Kings 5:15 | Advanced | pending individual review |
-| `2-kings-5-15-meaning` | 1237 | 2 Kings 5:15 | Easy | pending individual review |
-| `2-kings-6-16-context` | 1236 | 2 Kings 6:16 | Advanced | pending individual review |
-| `2-kings-6-16-meaning` | 1235 | 2 Kings 6:16 | Easy | pending individual review |
-| `2-peter-1-20-context` | 3610 | 2 Peter 1:20 | Advanced | pending individual review |
-| `2-peter-1-20-meaning` | 3609 | 2 Peter 1:20 | Easy | pending individual review |
-| `2-peter-1-3-context` | 3608 | 2 Peter 1:3 | Advanced | pending individual review |
-| `2-peter-1-3-meaning` | 3607 | 2 Peter 1:3 | Easy | pending individual review |
-| `2-peter-1-5-7-book` | 3613 | 2 Peter 1:5-7 | Standard | pending individual review |
-| `2-peter-1-5-7-context` | 3612 | 2 Peter 1:5-7 | Standard | pending individual review |
-| `2-peter-1-5-7-meaning` | 3611 | 2 Peter 1:5-7 | Beginner | pending individual review |
-| `2-peter-1-5-7-reference` | 3614 | 2 Peter 1:5-7 | Advanced | pending individual review |
-| `2-peter-3-18-context` | 3606 | 2 Peter 3:18 | Standard | pending individual review |
-| `2-peter-3-18-meaning` | 3605 | 2 Peter 3:18 | Easy | pending individual review |
-| `2-peter-3-8-context` | 3616 | 2 Peter 3:8 | Advanced | pending individual review |
-| `2-peter-3-8-meaning` | 3615 | 2 Peter 3:8 | Easy | pending individual review |
-| `2-peter-3-9-context` | 3604 | 2 Peter 3:9 | Advanced | pending individual review |
-| `2-peter-3-9-meaning` | 3603 | 2 Peter 3:9 | Easy | pending individual review |
-| `2-samuel-12-13-context` | 1049 | 2 Samuel 12:13 | Advanced | pending individual review |
-| `2-samuel-12-13-meaning` | 1048 | 2 Samuel 12:13 | Easy | pending individual review |
-| `2-samuel-22-2-context` | 1051 | 2 Samuel 22:2 | Advanced | pending individual review |
-| `2-samuel-22-2-meaning` | 1050 | 2 Samuel 22:2 | Easy | pending individual review |
-| `2-samuel-22-31-context` | 1045 | 2 Samuel 22:31 | Standard | pending individual review |
-| `2-samuel-22-31-meaning` | 1044 | 2 Samuel 22:31 | Easy | pending individual review |
-| `2-samuel-7-16-book` | 1054 | 2 Samuel 7:16 | Standard | pending individual review |
-| `2-samuel-7-16-context` | 1053 | 2 Samuel 7:16 | Advanced | pending individual review |
-| `2-samuel-7-16-meaning` | 1052 | 2 Samuel 7:16 | Easy | pending individual review |
-| `2-samuel-7-22-context` | 1047 | 2 Samuel 7:22 | Advanced | pending individual review |
-| `2-samuel-7-22-meaning` | 1046 | 2 Samuel 7:22 | Easy | pending individual review |
-| `2-thessalonians-2-1-4-book` | 3355 | 2 Thessalonians 2:1-4 | Standard | pending individual review |
-| `2-thessalonians-2-1-4-context` | 3354 | 2 Thessalonians 2:1-4 | Standard | pending individual review |
-| `2-thessalonians-2-1-4-meaning` | 3353 | 2 Thessalonians 2:1-4 | Beginner | pending individual review |
-| `2-thessalonians-2-15-context` | 3357 | 2 Thessalonians 2:15 | Advanced | pending individual review |
-| `2-thessalonians-2-15-meaning` | 3356 | 2 Thessalonians 2:15 | Easy | pending individual review |
+| `2-corinthians-5-21-meaning` | 3136 | 2 Corinthians 5:21 | Beginner | unchanged and verified |
+| `2-corinthians-5-21-reference` | 3139 | 2 Corinthians 5:21 | Advanced | unchanged and verified |
+| `2-corinthians-9-7-context` | 3129 | 2 Corinthians 9:7 | Advanced | unchanged and verified |
+| `2-corinthians-9-7-meaning` | 3128 | 2 Corinthians 9:7 | Easy | unchanged and verified |
+| `2-john-1-6-context` | 3673 | 2 John 1:6 | Advanced | unchanged and verified |
+| `2-john-1-6-meaning` | 3672 | 2 John 1:6 | Easy | unchanged and verified |
+| `2-john-1-7-8-book` | 3678 | 2 John 1:7-8 | Standard | unchanged and verified |
+| `2-john-1-7-8-context` | 3677 | 2 John 1:7-8 | Standard | unchanged and verified |
+| `2-john-1-7-8-meaning` | 3676 | 2 John 1:7-8 | Beginner | unchanged and verified |
+| `2-john-1-9-context` | 3675 | 2 John 1:9 | Standard | unchanged and verified |
+| `2-john-1-9-meaning` | 3674 | 2 John 1:9 | Easy | unchanged and verified |
+| `2-kings-17-39-context` | 1240 | 2 Kings 17:39 | Advanced | unchanged and verified |
+| `2-kings-17-39-meaning` | 1239 | 2 Kings 17:39 | Easy | unchanged and verified |
+| `2-kings-22-8-13-book` | 1243 | 2 Kings 22:8-13 | Standard | unchanged and verified |
+| `2-kings-22-8-13-context` | 1242 | 2 Kings 22:8-13 | Standard | unchanged and verified |
+| `2-kings-22-8-13-meaning` | 1241 | 2 Kings 22:8-13 | Beginner | unchanged and verified |
+| `2-kings-5-15-context` | 1238 | 2 Kings 5:15 | Advanced | unchanged and verified |
+| `2-kings-5-15-meaning` | 1237 | 2 Kings 5:15 | Easy | unchanged and verified |
+| `2-kings-6-16-context` | 1236 | 2 Kings 6:16 | Advanced | unchanged and verified |
+| `2-kings-6-16-meaning` | 1235 | 2 Kings 6:16 | Easy | unchanged and verified |
+| `2-peter-1-20-context` | 3610 | 2 Peter 1:20 | Advanced | unchanged and verified |
+| `2-peter-1-20-meaning` | 3609 | 2 Peter 1:20 | Easy | unchanged and verified |
+| `2-peter-1-3-context` | 3608 | 2 Peter 1:3 | Advanced | unchanged and verified |
+| `2-peter-1-3-meaning` | 3607 | 2 Peter 1:3 | Easy | unchanged and verified |
+| `2-peter-1-5-7-book` | 3613 | 2 Peter 1:5-7 | Standard | unchanged and verified |
+| `2-peter-1-5-7-context` | 3612 | 2 Peter 1:5-7 | Standard | unchanged and verified |
+| `2-peter-1-5-7-meaning` | 3611 | 2 Peter 1:5-7 | Beginner | unchanged and verified |
+| `2-peter-1-5-7-reference` | 3614 | 2 Peter 1:5-7 | Advanced | unchanged and verified |
+| `2-peter-3-18-context` | 3606 | 2 Peter 3:18 | Standard | unchanged and verified |
+| `2-peter-3-18-meaning` | 3605 | 2 Peter 3:18 | Easy | unchanged and verified |
+| `2-peter-3-8-context` | 3616 | 2 Peter 3:8 | Advanced | unchanged and verified |
+| `2-peter-3-8-meaning` | 3615 | 2 Peter 3:8 | Easy | unchanged and verified |
+| `2-peter-3-9-context` | 3604 | 2 Peter 3:9 | Advanced | unchanged and verified |
+| `2-peter-3-9-meaning` | 3603 | 2 Peter 3:9 | Easy | unchanged and verified |
+| `2-samuel-12-13-context` | 1049 | 2 Samuel 12:13 | Advanced | unchanged and verified |
+| `2-samuel-12-13-meaning` | 1048 | 2 Samuel 12:13 | Easy | unchanged and verified |
+| `2-samuel-22-2-context` | 1051 | 2 Samuel 22:2 | Advanced | unchanged and verified |
+| `2-samuel-22-2-meaning` | 1050 | 2 Samuel 22:2 | Easy | unchanged and verified |
+| `2-samuel-22-31-context` | 1045 | 2 Samuel 22:31 | Standard | unchanged and verified |
+| `2-samuel-22-31-meaning` | 1044 | 2 Samuel 22:31 | Easy | unchanged and verified |
+| `2-samuel-7-16-book` | 1054 | 2 Samuel 7:16 | Standard | unchanged and verified |
+| `2-samuel-7-16-context` | 1053 | 2 Samuel 7:16 | Advanced | unchanged and verified |
+| `2-samuel-7-16-meaning` | 1052 | 2 Samuel 7:16 | Easy | unchanged and verified |
+| `2-samuel-7-22-context` | 1047 | 2 Samuel 7:22 | Advanced | unchanged and verified |
+| `2-samuel-7-22-meaning` | 1046 | 2 Samuel 7:22 | Easy | unchanged and verified |
+| `2-thessalonians-2-1-4-book` | 3355 | 2 Thessalonians 2:1-4 | Standard | unchanged and verified |
+| `2-thessalonians-2-1-4-context` | 3354 | 2 Thessalonians 2:1-4 | Standard | unchanged and verified |
+| `2-thessalonians-2-1-4-meaning` | 3353 | 2 Thessalonians 2:1-4 | Beginner | unchanged and verified |
+| `2-thessalonians-2-15-context` | 3357 | 2 Thessalonians 2:15 | Advanced | unchanged and verified |
+| `2-thessalonians-2-15-meaning` | 3356 | 2 Thessalonians 2:15 | Easy | unchanged and verified |
 | `2-thessalonians-2-16-17-context` | 3359 | 2 Thessalonians 2:16-17 | Advanced | pending individual review |
 | `2-thessalonians-2-16-17-meaning` | 3358 | 2 Thessalonians 2:16-17 | Easy | pending individual review |
 | `2-thessalonians-3-10-context` | 3361 | 2 Thessalonians 3:10 | Advanced | pending individual review |
