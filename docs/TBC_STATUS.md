@@ -1657,3 +1657,75 @@ canonical content change, so no successor identity or revision archive entry is
 required. This Batch 05 ledger update is uncommitted, unpushed, unmerged and
 undeployed. The exact next task is a separately authorized ledger-only Batch 05
 commit; after that, Batch 06 would begin at entry 251.
+
+## Canonical question-content audit — Batch 06, entries 251–300
+
+Batch 06 started from the committed Batch 05 ledger checkpoint
+`e6d9dcc45df82011969253fd19481e7cda0daed7` on local branch
+`codex/question-audit-batch-06`. Exactly the 50 lexically ordered ledger entries
+251–300 were individually reviewed, beginning with
+`2-thessalonians-2-16-17-context` and ending with `acts-4-32-context`. Entry 301,
+`acts-4-32-meaning`, was not reviewed or modified.
+
+The result is **50 unchanged and verified / 0 corrected / 0 unresolved**. Each
+entry records direct Scripture evidence, an individual rationale, and a finding
+for every answer option. The review covered 2 Thessalonians 2–3; 2 Timothy 1–4;
+3 John; and Acts 1, 2, 4, 16, 17 and 20. Every keyed choice remains the unique
+best answer supported by its cited unit.
+
+Two wording points received explicit translation/context review:
+
+- `2-timothy-1-12-meaning` follows the BSB/KJV/NKJV/NASB direction of the
+  grammatically disputed deposit phrase. The competing translation still
+  preserves the verse's core confidence in Christ and is not represented by a
+  distractor, so the keyed answer remains defensible and unique.
+- `2-timothy-1-7-meaning` describes God's Spirit as the source of power, love
+  and self-control. Major translations divide between “a spirit” and an
+  explicit reference to the Spirit, while the same charge culminates in the
+  indwelling Holy Spirit at verse 14. This is a supportable interpretation, not
+  an answer ambiguity. `acts-2-42-meaning` likewise summarizes the complete
+  immediate community unit in Acts 2:42–47, which includes prayer, praise,
+  shared provision, public witness/favor and daily growth.
+
+### Batch 06 verification
+
+- Ledger inventory/check: **5,799/5,799**, completed **300**, pending **5,499**,
+  unresolved **0**. The Batch 06 scope regression passed: only audit fields for
+  entries 251–300 changed; every question inventory/content field and protected
+  entry 301 remain exact.
+- `npm.cmd run build`: PASS. The current Batch 04 product identity, all thirteen
+  deployed files, transition replay, schema/keys and acceptance test remain
+  recognized.
+- Revision archive: PASS, unchanged at **6 changed IDs / 6 exact predecessor
+  revisions**. The unchanged browser lifecycle suite passed **71/71** in Edge
+  after its documented read-only server prerequisite was started; an initial
+  direct invocation without that server timed out at readiness and was not
+  counted as a product failure.
+- `npm.cmd run audit:p2a`: PASS in Edge. Both P2A audits passed **58/58** and all
+  five extracted artifacts were byte-identical. P2B–P2E reported zero confirmed
+  defects. Negative suites passed without skips: P2A **11/11**, current product
+  identity **31/31**, first successor **7/7**, Batch 03 **22/22**, and Batch 04
+  **24/24**.
+- Counts remain **5,799 canonical / 6,072 registry / 273 aliases / 203
+  structured / 66 books**; tiers remain **1338/1668/1132/1140/521**. Hashes
+  remain canonical `26afebb9b3ca8167d178cd1775c551a3cdcc525885421b45198375928553b046`,
+  structured `4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb`,
+  and registry `5673e072b539fe91ea8edf078bd07a1815aa38fdb058854a24f9334f2a49bb27`.
+- Parse checks passed for **85 JS/CJS** and **17 JSON** files;
+  `git diff --check` passed.
+
+The historical Batch 03 and Batch 04 focused quality scripts were also run and
+reported **4/5** and **5/6**. Their sole failures compare the entire current
+audit ledger to the old batch predecessor and therefore reject the legitimate
+later Batch 05/06 audit annotations outside their original ranges. Their actual
+question-correction assertions continue to pass. No assertion or test was
+changed in this editorial phase. The full browser aggregate was not repeated
+because the user previously waived the separately documented, pre-existing
+P27D first-run onboarding race; no product or test change conceals it.
+
+Batch 06 changes only the audit ledger and rendered index. Product, question,
+revision, alias, tier, schema, storage, asset, identity, manifest, package,
+workflow, gameplay and UI files are unchanged, so no successor identity is
+required. This Batch 06 ledger update is uncommitted, unpushed, unmerged and
+undeployed. The exact next task is a separately authorized ledger-only Batch 06
+commit; after that, Batch 07 would begin at entry 301.

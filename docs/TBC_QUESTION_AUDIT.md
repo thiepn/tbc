@@ -3,8 +3,8 @@
 This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activeQuestions()` as extracted by P2A; aliases are compatibility mappings, not additional questions.
 
 - Canonical runtime questions: **5799**
-- Individually completed: **250**
-- Pending individual review: **5549**
+- Individually completed: **300**
+- Pending individual review: **5499**
 - Unresolved human decisions: **0**
 - Complete inventory fields, aliases, mode eligibility, and per-entry audit evidence are in [`TBC_QUESTION_AUDIT.json`](TBC_QUESTION_AUDIT.json).
 - Validate against a fresh P2A extraction with `node scripts/tbc-question-audit-ledger.cjs check`; use `--require-complete` only after every entry is reviewed.
@@ -263,56 +263,56 @@ This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activ
 | `2-thessalonians-2-1-4-meaning` | 3353 | 2 Thessalonians 2:1-4 | Beginner | unchanged and verified |
 | `2-thessalonians-2-15-context` | 3357 | 2 Thessalonians 2:15 | Advanced | unchanged and verified |
 | `2-thessalonians-2-15-meaning` | 3356 | 2 Thessalonians 2:15 | Easy | unchanged and verified |
-| `2-thessalonians-2-16-17-context` | 3359 | 2 Thessalonians 2:16-17 | Advanced | pending individual review |
-| `2-thessalonians-2-16-17-meaning` | 3358 | 2 Thessalonians 2:16-17 | Easy | pending individual review |
-| `2-thessalonians-3-10-context` | 3361 | 2 Thessalonians 3:10 | Advanced | pending individual review |
-| `2-thessalonians-3-10-meaning` | 3360 | 2 Thessalonians 3:10 | Easy | pending individual review |
-| `2-thessalonians-3-3-context` | 3352 | 2 Thessalonians 3:3 | Standard | pending individual review |
-| `2-thessalonians-3-3-meaning` | 3351 | 2 Thessalonians 3:3 | Easy | pending individual review |
-| `2-timothy-1-12-context` | 3416 | 2 Timothy 1:12 | Standard | pending individual review |
-| `2-timothy-1-12-meaning` | 3415 | 2 Timothy 1:12 | Easy | pending individual review |
-| `2-timothy-1-7-context` | 3408 | 2 Timothy 1:7 | Advanced | pending individual review |
-| `2-timothy-1-7-meaning` | 3407 | 2 Timothy 1:7 | Easy | pending individual review |
-| `2-timothy-2-15-context` | 3410 | 2 Timothy 2:15 | Standard | pending individual review |
-| `2-timothy-2-15-meaning` | 3409 | 2 Timothy 2:15 | Easy | pending individual review |
-| `2-timothy-2-2-context` | 3412 | 2 Timothy 2:2 | Advanced | pending individual review |
-| `2-timothy-2-2-meaning` | 3411 | 2 Timothy 2:2 | Easy | pending individual review |
-| `2-timothy-3-16-book` | 3405 | 2 Timothy 3:16 | Standard | pending individual review |
-| `2-timothy-3-16-context` | 3404 | 2 Timothy 3:16 | Standard | pending individual review |
-| `2-timothy-3-16-meaning` | 3403 | 2 Timothy 3:16 | Beginner | pending individual review |
-| `2-timothy-3-16-reference` | 3406 | 2 Timothy 3:16 | Advanced | pending individual review |
-| `2-timothy-4-7-context` | 3414 | 2 Timothy 4:7 | Advanced | pending individual review |
-| `2-timothy-4-7-meaning` | 3413 | 2 Timothy 4:7 | Easy | pending individual review |
-| `2-timothy-4-8-context` | 3418 | 2 Timothy 4:8 | Advanced | pending individual review |
-| `2-timothy-4-8-meaning` | 3417 | 2 Timothy 4:8 | Easy | pending individual review |
-| `3-john-1-11-context` | 3693 | 3 John 1:11 | Standard | pending individual review |
-| `3-john-1-11-meaning` | 3692 | 3 John 1:11 | Easy | pending individual review |
-| `3-john-1-4-book` | 3691 | 3 John 1:4 | Standard | pending individual review |
-| `3-john-1-4-context` | 3690 | 3 John 1:4 | Advanced | pending individual review |
-| `3-john-1-4-meaning` | 3689 | 3 John 1:4 | Easy | pending individual review |
-| `3-john-1-8-context` | 3695 | 3 John 1:8 | Standard | pending individual review |
-| `3-john-1-8-meaning` | 3694 | 3 John 1:8 | Easy | pending individual review |
-| `acts-1-8-book` | 2953 | Acts 1:8 | Standard | pending individual review |
-| `acts-1-8-context` | 2952 | Acts 1:8 | Standard | pending individual review |
-| `acts-1-8-meaning` | 2951 | Acts 1:8 | Beginner | pending individual review |
-| `acts-1-8-reference` | 2954 | Acts 1:8 | Advanced | pending individual review |
-| `acts-16-31-context` | 2960 | Acts 16:31 | Advanced | pending individual review |
-| `acts-16-31-meaning` | 2959 | Acts 16:31 | Easy | pending individual review |
-| `acts-17-11-context` | 2974 | Acts 17:11 | Advanced | pending individual review |
-| `acts-17-11-meaning` | 2973 | Acts 17:11 | Easy | pending individual review |
-| `acts-2-21-context` | 2964 | Acts 2:21 | Advanced | pending individual review |
-| `acts-2-21-meaning` | 2963 | Acts 2:21 | Easy | pending individual review |
-| `acts-2-38-context` | 2966 | Acts 2:38 | Advanced | pending individual review |
-| `acts-2-38-meaning` | 2965 | Acts 2:38 | Easy | pending individual review |
-| `acts-2-42-context` | 2958 | Acts 2:42 | Advanced | pending individual review |
-| `acts-2-42-meaning` | 2957 | Acts 2:42 | Easy | pending individual review |
-| `acts-20-24-context` | 2976 | Acts 20:24 | Advanced | pending individual review |
-| `acts-20-24-meaning` | 2975 | Acts 20:24 | Easy | pending individual review |
-| `acts-20-35-context` | 2962 | Acts 20:35 | Advanced | pending individual review |
-| `acts-20-35-meaning` | 2961 | Acts 20:35 | Easy | pending individual review |
-| `acts-4-12-context` | 2956 | Acts 4:12 | Advanced | pending individual review |
-| `acts-4-12-meaning` | 2955 | Acts 4:12 | Easy | pending individual review |
-| `acts-4-32-context` | 2968 | Acts 4:32 | Advanced | pending individual review |
+| `2-thessalonians-2-16-17-context` | 3359 | 2 Thessalonians 2:16-17 | Advanced | unchanged and verified |
+| `2-thessalonians-2-16-17-meaning` | 3358 | 2 Thessalonians 2:16-17 | Easy | unchanged and verified |
+| `2-thessalonians-3-10-context` | 3361 | 2 Thessalonians 3:10 | Advanced | unchanged and verified |
+| `2-thessalonians-3-10-meaning` | 3360 | 2 Thessalonians 3:10 | Easy | unchanged and verified |
+| `2-thessalonians-3-3-context` | 3352 | 2 Thessalonians 3:3 | Standard | unchanged and verified |
+| `2-thessalonians-3-3-meaning` | 3351 | 2 Thessalonians 3:3 | Easy | unchanged and verified |
+| `2-timothy-1-12-context` | 3416 | 2 Timothy 1:12 | Standard | unchanged and verified |
+| `2-timothy-1-12-meaning` | 3415 | 2 Timothy 1:12 | Easy | unchanged and verified |
+| `2-timothy-1-7-context` | 3408 | 2 Timothy 1:7 | Advanced | unchanged and verified |
+| `2-timothy-1-7-meaning` | 3407 | 2 Timothy 1:7 | Easy | unchanged and verified |
+| `2-timothy-2-15-context` | 3410 | 2 Timothy 2:15 | Standard | unchanged and verified |
+| `2-timothy-2-15-meaning` | 3409 | 2 Timothy 2:15 | Easy | unchanged and verified |
+| `2-timothy-2-2-context` | 3412 | 2 Timothy 2:2 | Advanced | unchanged and verified |
+| `2-timothy-2-2-meaning` | 3411 | 2 Timothy 2:2 | Easy | unchanged and verified |
+| `2-timothy-3-16-book` | 3405 | 2 Timothy 3:16 | Standard | unchanged and verified |
+| `2-timothy-3-16-context` | 3404 | 2 Timothy 3:16 | Standard | unchanged and verified |
+| `2-timothy-3-16-meaning` | 3403 | 2 Timothy 3:16 | Beginner | unchanged and verified |
+| `2-timothy-3-16-reference` | 3406 | 2 Timothy 3:16 | Advanced | unchanged and verified |
+| `2-timothy-4-7-context` | 3414 | 2 Timothy 4:7 | Advanced | unchanged and verified |
+| `2-timothy-4-7-meaning` | 3413 | 2 Timothy 4:7 | Easy | unchanged and verified |
+| `2-timothy-4-8-context` | 3418 | 2 Timothy 4:8 | Advanced | unchanged and verified |
+| `2-timothy-4-8-meaning` | 3417 | 2 Timothy 4:8 | Easy | unchanged and verified |
+| `3-john-1-11-context` | 3693 | 3 John 1:11 | Standard | unchanged and verified |
+| `3-john-1-11-meaning` | 3692 | 3 John 1:11 | Easy | unchanged and verified |
+| `3-john-1-4-book` | 3691 | 3 John 1:4 | Standard | unchanged and verified |
+| `3-john-1-4-context` | 3690 | 3 John 1:4 | Advanced | unchanged and verified |
+| `3-john-1-4-meaning` | 3689 | 3 John 1:4 | Easy | unchanged and verified |
+| `3-john-1-8-context` | 3695 | 3 John 1:8 | Standard | unchanged and verified |
+| `3-john-1-8-meaning` | 3694 | 3 John 1:8 | Easy | unchanged and verified |
+| `acts-1-8-book` | 2953 | Acts 1:8 | Standard | unchanged and verified |
+| `acts-1-8-context` | 2952 | Acts 1:8 | Standard | unchanged and verified |
+| `acts-1-8-meaning` | 2951 | Acts 1:8 | Beginner | unchanged and verified |
+| `acts-1-8-reference` | 2954 | Acts 1:8 | Advanced | unchanged and verified |
+| `acts-16-31-context` | 2960 | Acts 16:31 | Advanced | unchanged and verified |
+| `acts-16-31-meaning` | 2959 | Acts 16:31 | Easy | unchanged and verified |
+| `acts-17-11-context` | 2974 | Acts 17:11 | Advanced | unchanged and verified |
+| `acts-17-11-meaning` | 2973 | Acts 17:11 | Easy | unchanged and verified |
+| `acts-2-21-context` | 2964 | Acts 2:21 | Advanced | unchanged and verified |
+| `acts-2-21-meaning` | 2963 | Acts 2:21 | Easy | unchanged and verified |
+| `acts-2-38-context` | 2966 | Acts 2:38 | Advanced | unchanged and verified |
+| `acts-2-38-meaning` | 2965 | Acts 2:38 | Easy | unchanged and verified |
+| `acts-2-42-context` | 2958 | Acts 2:42 | Advanced | unchanged and verified |
+| `acts-2-42-meaning` | 2957 | Acts 2:42 | Easy | unchanged and verified |
+| `acts-20-24-context` | 2976 | Acts 20:24 | Advanced | unchanged and verified |
+| `acts-20-24-meaning` | 2975 | Acts 20:24 | Easy | unchanged and verified |
+| `acts-20-35-context` | 2962 | Acts 20:35 | Advanced | unchanged and verified |
+| `acts-20-35-meaning` | 2961 | Acts 20:35 | Easy | unchanged and verified |
+| `acts-4-12-context` | 2956 | Acts 4:12 | Advanced | unchanged and verified |
+| `acts-4-12-meaning` | 2955 | Acts 4:12 | Easy | unchanged and verified |
+| `acts-4-32-context` | 2968 | Acts 4:32 | Advanced | unchanged and verified |
 | `acts-4-32-meaning` | 2967 | Acts 4:32 | Easy | pending individual review |
 | `acts-5-29-book` | 2971 | Acts 5:29 | Standard | pending individual review |
 | `acts-5-29-context` | 2970 | Acts 5:29 | Standard | pending individual review |

@@ -19257,9 +19257,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After calling the believers to stand firm in the apostolic teaching, Paul prays that the Lord Jesus and the Father will encourage their hearts and strengthen every good word and deed.",
+            "reference": "2 Thessalonians 2:13–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Thessalonians 2:1–15, the preceding appeal rather than the closing prayer in verses 16–17; it does not supply the best answer for 2 Thessalonians 2:16-17.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Thessalonians 3:6–12; it does not supply the best answer for 2 Thessalonians 2:16-17.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Thessalonians 2:13–17 directly supports “Paul prays after encouraging believers to stand firm.”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Thessalonians 3:1–5; it does not supply the best answer for 2 Thessalonians 2:16-17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-thessalonians-2-16-17-context: After calling the believers to stand firm in the apostolic teaching, Paul prays that the Lord Jesus and the Father will encourage their hearts and strengthen every good word and deed. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 2:16-17",
       "book": "2 Thessalonians",
@@ -19313,9 +19342,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After calling the believers to stand firm in the apostolic teaching, Paul prays that the Lord Jesus and the Father will encourage their hearts and strengthen every good word and deed.",
+            "reference": "2 Thessalonians 2:13–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 2:1-4, not the specific teaching or setting of 2 Thessalonians 2:16-17.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 3:10, not the specific teaching or setting of 2 Thessalonians 2:16-17.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Thessalonians 2:13–17 directly supports “God’s grace gives eternal encouragement, good hope, and strength for faithful words and actions”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 2:15, not the specific teaching or setting of 2 Thessalonians 2:16-17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-thessalonians-2-16-17-meaning: After calling the believers to stand firm in the apostolic teaching, Paul prays that the Lord Jesus and the Father will encourage their hearts and strengthen every good word and deed. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 2:16-17",
       "book": "2 Thessalonians",
@@ -19370,9 +19428,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul addresses disorderly idleness, recalls his own labor, and repeats the rule that one who is unwilling to work should not eat; the instruction concerns people able but unwilling to work, not people unable to work.",
+            "reference": "2 Thessalonians 3:6–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Thessalonians 3:6–12 directly supports “Paul addresses persistent idleness in the church.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Corinthians 15:50–58; it does not supply the best answer for 2 Thessalonians 3:10.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Thessalonians 3:1–5; it does not supply the best answer for 2 Thessalonians 3:10.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Romans 12:1–2; it does not supply the best answer for 2 Thessalonians 3:10.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-thessalonians-3-10-context: Paul addresses disorderly idleness, recalls his own labor, and repeats the rule that one who is unwilling to work should not eat; the instruction concerns people able but unwilling to work, not people unable to work. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 3:10",
       "book": "2 Thessalonians",
@@ -19426,9 +19513,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul addresses disorderly idleness, recalls his own labor, and repeats the rule that one who is unwilling to work should not eat; the instruction concerns people able but unwilling to work, not people unable to work.",
+            "reference": "2 Thessalonians 3:6–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to Romans 5:3–5; it does not supply the best answer for 2 Thessalonians 3:10.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Thessalonians 3:6–12 directly supports “Those able to work should accept responsibility rather than exploit the community”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in 2 Thessalonians 3:10.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Ephesians 4:32; it does not supply the best answer for 2 Thessalonians 3:10.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-thessalonians-3-10-meaning: Paul addresses disorderly idleness, recalls his own labor, and repeats the rule that one who is unwilling to work should not eat; the instruction concerns people able but unwilling to work, not people unable to work. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 3:10",
       "book": "2 Thessalonians",
@@ -19483,9 +19599,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Amid opposition from wicked people, Paul declares that the Lord is faithful and will strengthen and guard the believers from the evil one.",
+            "reference": "2 Thessalonians 3:1–5",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to Ephesians 2:8–10; it does not supply the best answer for 2 Thessalonians 3:3.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Corinthians 15:50–58; it does not supply the best answer for 2 Thessalonians 3:3.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Romans 12:1–2; it does not supply the best answer for 2 Thessalonians 3:3.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Thessalonians 3:1–5 directly supports “Paul assures believers of the Lord's protection.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-thessalonians-3-3-context: Amid opposition from wicked people, Paul declares that the Lord is faithful and will strengthen and guard the believers from the evil one. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 3:3",
       "book": "2 Thessalonians",
@@ -19539,9 +19684,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Amid opposition from wicked people, Paul declares that the Lord is faithful and will strengthen and guard the believers from the evil one.",
+            "reference": "2 Thessalonians 3:1–5",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_thessalonians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 3:10, not the specific teaching or setting of 2 Thessalonians 3:3.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Thessalonians 3:1–5 directly supports “The Lord is faithful, He strengthens believers and guards them from the evil one”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to Romans 5:3–5; it does not supply the best answer for 2 Thessalonians 3:3.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 1:12, not the specific teaching or setting of 2 Thessalonians 3:3.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-thessalonians-3-3-meaning: Amid opposition from wicked people, Paul declares that the Lord is faithful and will strengthen and guard the believers from the evil one. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Thessalonians 3:3",
       "book": "2 Thessalonians",
@@ -19596,9 +19770,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul explains his gospel suffering without shame because he knows whom he has trusted and is convinced that Christ can guard the entrusted deposit until that day.",
+            "reference": "2 Timothy 1:8–14",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to Romans 10:17; it does not supply the best answer for 2 Timothy 1:12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Corinthians 10:31; it does not supply the best answer for 2 Timothy 1:12.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Titus 3:5; it does not supply the best answer for 2 Timothy 1:12.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 1:8–14 directly supports “Paul speaks from imprisonment about suffering for the gospel.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-timothy-1-12-context: Paul explains his gospel suffering without shame because he knows whom he has trusted and is convinced that Christ can guard the entrusted deposit until that day. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 1:12",
       "book": "2 Timothy",
@@ -19652,9 +19855,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul explains his gospel suffering without shame because he knows whom he has trusted and is convinced that Christ can guard the entrusted deposit until that day.",
+            "reference": "2 Timothy 1:8–14",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:15, not the specific teaching or setting of 2 Timothy 1:12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 3:16, not the specific teaching or setting of 2 Timothy 1:12.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 4:7, not the specific teaching or setting of 2 Timothy 1:12.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 1:8–14 directly supports “Confidence rests in knowing Christ and trusting Him to guard what is committed to Him”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-timothy-1-12-meaning: Paul explains his gospel suffering without shame because he knows whom he has trusted and is convinced that Christ can guard the entrusted deposit until that day. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings. The Greek deposit phrase permits two grammatical directions, reflected in major translations, but the keyed wording follows the BSB/KJV/NKJV/NASB reading and preserves the verse’s unambiguous core of confidence in Christ; none of the distractors presents the competing translation.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 1:12",
       "book": "2 Timothy",
@@ -19709,9 +19941,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul connects God’s gift of power, love, and self-control with refusing shame, sharing gospel suffering, and guarding the good deposit through the indwelling Holy Spirit.",
+            "reference": "2 Timothy 1:6–14",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/2_timothy/1-7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2, not the specific teaching or setting of 2 Timothy 1:7.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 3, not the specific teaching or setting of 2 Timothy 1:7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 4, not the specific teaching or setting of 2 Timothy 1:7.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 1:6–14 directly supports “Guard the gospel without shame”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-timothy-1-7-context: Paul connects God’s gift of power, love, and self-control with refusing shame, sharing gospel suffering, and guarding the good deposit through the indwelling Holy Spirit. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 1:7",
       "book": "2 Timothy",
@@ -19765,9 +20026,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul connects God’s gift of power, love, and self-control with refusing shame, sharing gospel suffering, and guarding the good deposit through the indwelling Holy Spirit.",
+            "reference": "2 Timothy 1:6–14",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/2_timothy/1-7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:2, not the specific teaching or setting of 2 Timothy 1:7.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:15, not the specific teaching or setting of 2 Timothy 1:7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 3:16, not the specific teaching or setting of 2 Timothy 1:7.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 1:6–14 directly supports “God’s Spirit equips believers for courageous witness through power, love, and self-control rather than cowardice”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-timothy-1-7-meaning: Paul connects God’s gift of power, love, and self-control with refusing shame, sharing gospel suffering, and guarding the good deposit through the indwelling Holy Spirit. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings. Translations vary between “a spirit” and an explicit reference to “the Spirit,” but the surrounding charge culminates in guarding the deposit through the indwelling Holy Spirit (v. 14), and several major translations construe verse 7 as God’s Spirit; the keyed teaching remains defensible and unique.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 1:7",
       "book": "2 Timothy",
@@ -19822,9 +20112,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Timothy must present himself approved to God as an unashamed worker who accurately handles the word of truth, in contrast to empty talk and false teaching.",
+            "reference": "2 Timothy 2:14–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Timothy 2:14–18 directly supports “Timothy is charged to handle the word of truth faithfully”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:2, not the specific teaching or setting of 2 Timothy 2:15.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 3:16, not the specific teaching or setting of 2 Timothy 2:15.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 4:7, not the specific teaching or setting of 2 Timothy 2:15.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-timothy-2-15-context: Timothy must present himself approved to God as an unashamed worker who accurately handles the word of truth, in contrast to empty talk and false teaching. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 2:15",
       "book": "2 Timothy",
@@ -19878,9 +20197,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Timothy must present himself approved to God as an unashamed worker who accurately handles the word of truth, in contrast to empty talk and false teaching.",
+            "reference": "2 Timothy 2:14–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:2, not the specific teaching or setting of 2 Timothy 2:15.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 3:16, not the specific teaching or setting of 2 Timothy 2:15.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 2:14–18 directly supports “A faithful worker handles the word of truth accurately instead of distorting or misusing it”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 1:12, not the specific teaching or setting of 2 Timothy 2:15.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-timothy-2-15-meaning: Timothy must present himself approved to God as an unashamed worker who accurately handles the word of truth, in contrast to empty talk and false teaching. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 2:15",
       "book": "2 Timothy",
@@ -19935,9 +20283,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells Timothy to entrust the apostolic teaching he heard to faithful people who will also be qualified to teach others.",
+            "reference": "2 Timothy 2:1–2",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Timothy 4:7, not the specific teaching or setting of 2 Timothy 2:2.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 1:12, not the specific teaching or setting of 2 Timothy 2:2.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:15, not the specific teaching or setting of 2 Timothy 2:2.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 2:1–2 directly supports “Paul tells Timothy how to preserve apostolic teaching.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-timothy-2-2-context: Paul tells Timothy to entrust the apostolic teaching he heard to faithful people who will also be qualified to teach others. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 2:2",
       "book": "2 Timothy",
@@ -19991,9 +20368,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells Timothy to entrust the apostolic teaching he heard to faithful people who will also be qualified to teach others.",
+            "reference": "2 Timothy 2:1–2",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Timothy 2:1–2 directly supports “Christian truth is entrusted to faithful people who can teach others, creating multiplication across generations”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:15, not the specific teaching or setting of 2 Timothy 2:2.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 1:7, not the specific teaching or setting of 2 Timothy 2:2.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 3:16, not the specific teaching or setting of 2 Timothy 2:2.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-timothy-2-2-meaning: Paul tells Timothy to entrust the apostolic teaching he heard to faithful people who will also be qualified to teach others. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 2:2",
       "book": "2 Timothy",
@@ -20048,9 +20454,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul identifies Scripture as God-breathed and useful for teaching, conviction, correction, and training in righteousness so that God’s servant is equipped for every good work.",
+            "reference": "2 Timothy 3:14–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names 2 Thessalonians, while the cited passage is in 2 Timothy.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 3:14–17 directly supports “2 Timothy”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names Hebrews, while the cited passage is in 2 Timothy.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Colossians, while the cited passage is in 2 Timothy.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-timothy-3-16-book: Paul identifies Scripture as God-breathed and useful for teaching, conviction, correction, and training in righteousness so that God’s servant is equipped for every good work. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 3:16",
       "book": "2 Timothy",
@@ -20104,9 +20539,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul identifies Scripture as God-breathed and useful for teaching, conviction, correction, and training in righteousness so that God’s servant is equipped for every good work.",
+            "reference": "2 Timothy 3:14–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:17; it does not supply the best answer for 2 Timothy 3:16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Ephesians 2:8–9; it does not supply the best answer for 2 Timothy 3:16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 3:14–17 directly supports “Paul describes Scripture's divine origin and usefulness”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:3–11; it does not supply the best answer for 2 Timothy 3:16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-timothy-3-16-context: Paul identifies Scripture as God-breathed and useful for teaching, conviction, correction, and training in righteousness so that God’s servant is equipped for every good work. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 3:16",
       "book": "2 Timothy",
@@ -20160,9 +20624,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul identifies Scripture as God-breathed and useful for teaching, conviction, correction, and training in righteousness so that God’s servant is equipped for every good work.",
+            "reference": "2 Timothy 3:14–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:15, not the specific teaching or setting of 2 Timothy 3:16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 3:14–17 directly supports “Scripture comes from God and is useful for teaching, correction, restoration, and training in righteous living”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 1:12, not the specific teaching or setting of 2 Timothy 3:16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 4:7, not the specific teaching or setting of 2 Timothy 3:16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-timothy-3-16-meaning: Paul identifies Scripture as God-breathed and useful for teaching, conviction, correction, and training in righteousness so that God’s servant is equipped for every good work. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 3:16",
       "book": "2 Timothy",
@@ -20217,9 +20710,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul identifies Scripture as God-breathed and useful for teaching, conviction, correction, and training in righteousness so that God’s servant is equipped for every good work.",
+            "reference": "2 Timothy 3:14–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "2 Timothy 2:15 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "2 Timothy 4:8 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 3:14–17 directly supports “2 Timothy 3:16”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "2 Timothy 4:7 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-timothy-3-16-reference: Paul identifies Scripture as God-breathed and useful for teaching, conviction, correction, and training in righteousness so that God’s servant is equipped for every good work. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 3:16",
       "book": "2 Timothy",
@@ -20273,9 +20795,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Facing his approaching death, Paul says he has fought the good fight, finished the race, and kept the faith.",
+            "reference": "2 Timothy 4:6–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Timothy 4:6–8 directly supports “Paul reflects on his ministry near death.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in 2 Timothy 4:7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Titus 2:11–14; it does not supply the best answer for 2 Timothy 4:7.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Ephesians 1:3–14; it does not supply the best answer for 2 Timothy 4:7.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-timothy-4-7-context: Facing his approaching death, Paul says he has fought the good fight, finished the race, and kept the faith. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 4:7",
       "book": "2 Timothy",
@@ -20329,9 +20880,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Facing his approaching death, Paul says he has fought the good fight, finished the race, and kept the faith.",
+            "reference": "2 Timothy 4:6–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Timothy 1:12, not the specific teaching or setting of 2 Timothy 4:7.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 4:8, not the specific teaching or setting of 2 Timothy 4:7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:15, not the specific teaching or setting of 2 Timothy 4:7.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 4:6–8 directly supports “Faithfulness means finishing the race and keeping the faith through the end”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-timothy-4-7-meaning: Facing his approaching death, Paul says he has fought the good fight, finished the race, and kept the faith. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 4:7",
       "book": "2 Timothy",
@@ -20386,9 +20966,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul looks beyond his impending departure to the crown of righteousness that the righteous Judge will give him and everyone who longs for Christ’s appearing.",
+            "reference": "2 Timothy 4:6–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Timothy 4:6–8 directly supports “Paul looks beyond impending death to Christ’s righteous reward”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 1:12, not the specific teaching or setting of 2 Timothy 4:8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:2, not the specific teaching or setting of 2 Timothy 4:8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Timothy 2:15, not the specific teaching or setting of 2 Timothy 4:8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-timothy-4-8-context: Paul looks beyond his impending departure to the crown of righteousness that the righteous Judge will give him and everyone who longs for Christ’s appearing. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 4:8",
       "book": "2 Timothy",
@@ -20442,9 +21051,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul looks beyond his impending departure to the crown of righteousness that the righteous Judge will give him and everyone who longs for Christ’s appearing.",
+            "reference": "2 Timothy 4:6–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_timothy/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 2 Timothy 4:7, not the specific teaching or setting of 2 Timothy 4:8.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:12; it does not supply the best answer for 2 Timothy 4:8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Colossians 3:23–24; it does not supply the best answer for 2 Timothy 4:8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Timothy 4:6–8 directly supports “Christ will reward all who long for His appearing”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-timothy-4-8-meaning: Paul looks beyond his impending departure to the crown of righteousness that the righteous Judge will give him and everyone who longs for Christ’s appearing. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Timothy 4:8",
       "book": "2 Timothy",
@@ -20499,9 +21137,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After exposing Diotrephes’ abusive conduct, John tells Gaius not to imitate evil but good and says conduct reveals whether a person is of God.",
+            "reference": "3 John 9–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/3_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 3 John 9–12 directly supports “John urges Gaius to resist an abusive example and imitate good”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 3 John 1:8, not the specific teaching or setting of 3 John 1:11.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 3 John 1:4, not the specific teaching or setting of 3 John 1:11.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to John 13:34; it does not supply the best answer for 3 John 1:11.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "3-john-1-11-context: After exposing Diotrephes’ abusive conduct, John tells Gaius not to imitate evil but good and says conduct reveals whether a person is of God. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "3 John 1:11",
       "book": "3 John",
@@ -20555,9 +21222,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After exposing Diotrephes’ abusive conduct, John tells Gaius not to imitate evil but good and says conduct reveals whether a person is of God.",
+            "reference": "3 John 9–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/3_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 3 John 9–12 directly supports “Conduct reveals allegiance, doing good reflects God, while persistent evil exposes spiritual blindness”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in 3 John 1:11.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in 3 John 1:11.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in 3 John 1:11.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "3-john-1-11-meaning: After exposing Diotrephes’ abusive conduct, John tells Gaius not to imitate evil but good and says conduct reveals whether a person is of God. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "3 John 1:11",
       "book": "3 John",
@@ -20612,9 +21308,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John rejoices that Gaius walks in the truth and says he has no greater joy than hearing that his children are walking in truth.",
+            "reference": "3 John 3–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/3_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names 1 Peter, while the cited passage is in 3 John.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 2 John, while the cited passage is in 3 John.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names James, while the cited passage is in 3 John.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 3 John 3–4 directly supports “3 John”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "3-john-1-4-book: John rejoices that Gaius walks in the truth and says he has no greater joy than hearing that his children are walking in truth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "3 John 1:4",
       "book": "3 John",
@@ -20668,9 +21393,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John rejoices that Gaius walks in the truth and says he has no greater joy than hearing that his children are walking in truth.",
+            "reference": "3 John 3–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/3_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 3 John 1:8, not the specific teaching or setting of 3 John 1:4.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 3 John 1:11, not the specific teaching or setting of 3 John 1:4.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 3 John 3–4 directly supports “John rejoices over believers' faithful lives.”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to John 3:1–8; it does not supply the best answer for 3 John 1:4.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "3-john-1-4-context: John rejoices that Gaius walks in the truth and says he has no greater joy than hearing that his children are walking in truth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "3 John 1:4",
       "book": "3 John",
@@ -20724,9 +21478,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John rejoices that Gaius walks in the truth and says he has no greater joy than hearing that his children are walking in truth.",
+            "reference": "3 John 3–4",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/3_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 3 John 3–4 directly supports “The Gospel's greatest pastoral joy is seeing believers live consistently with the truth they received”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in 3 John 1:4.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to James 3:17; it does not supply the best answer for 3 John 1:4.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 John 4:7–8; it does not supply the best answer for 3 John 1:4.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "3-john-1-4-meaning: John rejoices that Gaius walks in the truth and says he has no greater joy than hearing that his children are walking in truth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "3 John 1:4",
       "book": "3 John",
@@ -20781,9 +21564,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John commends hospitality toward traveling believers and says supporting workers who went out for the Name makes believers fellow workers for the truth.",
+            "reference": "3 John 5–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/3_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 3 John 1:4, not the specific teaching or setting of 3 John 1:8.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 3 John 5–8 directly supports “John urges support for faithful traveling teachers”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to 3 John 1:11, not the specific teaching or setting of 3 John 1:8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to John 3:1–8; it does not supply the best answer for 3 John 1:8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "3-john-1-8-context: John commends hospitality toward traveling believers and says supporting workers who went out for the Name makes believers fellow workers for the truth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "3 John 1:8",
       "book": "3 John",
@@ -20837,9 +21649,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "John commends hospitality toward traveling believers and says supporting workers who went out for the Name makes believers fellow workers for the truth.",
+            "reference": "3 John 5–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/3_john/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to 3 John 1:4, not the specific teaching or setting of 3 John 1:8.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to John 3:3–8; it does not supply the best answer for 3 John 1:8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to John 15:13; it does not supply the best answer for 3 John 1:8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 3 John 5–8 directly supports “Supporting gospel workers makes believers partners in the truth”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "3-john-1-8-meaning: John commends hospitality toward traveling believers and says supporting workers who went out for the Name makes believers fellow workers for the truth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "3 John 1:8",
       "book": "3 John",
@@ -20894,9 +21735,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Immediately before His ascension, Jesus promises the Holy Spirit’s power and commissions the apostles to witness from Jerusalem through Judea and Samaria to the ends of the earth.",
+            "reference": "Acts 1:6–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names Song of Solomon, while the cited passage is in Acts.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 2 Thessalonians, while the cited passage is in Acts.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 1:6–9 directly supports “Acts”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names 1 John, while the cited passage is in Acts.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-1-8-book: Immediately before His ascension, Jesus promises the Holy Spirit’s power and commissions the apostles to witness from Jerusalem through Judea and Samaria to the ends of the earth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 1:8",
       "book": "Acts",
@@ -20950,9 +21820,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Immediately before His ascension, Jesus promises the Holy Spirit’s power and commissions the apostles to witness from Jerusalem through Judea and Samaria to the ends of the earth.",
+            "reference": "Acts 1:6–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Acts 2:21, not the specific teaching or setting of Acts 1:8.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 1:6–9 directly supports “Jesus commissions the apostles before his ascension.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 16:31, not the specific teaching or setting of Acts 1:8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 1:8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-1-8-context: Immediately before His ascension, Jesus promises the Holy Spirit’s power and commissions the apostles to witness from Jerusalem through Judea and Samaria to the ends of the earth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 1:8",
       "book": "Acts",
@@ -21006,9 +21905,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Immediately before His ascension, Jesus promises the Holy Spirit’s power and commissions the apostles to witness from Jerusalem through Judea and Samaria to the ends of the earth.",
+            "reference": "Acts 1:6–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Acts 1:6–9 directly supports “The Holy Spirit empowers Jesus’ followers to bear witness from Jerusalem outward to the ends of the earth”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 20:35, not the specific teaching or setting of Acts 1:8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 1:8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 5:29, not the specific teaching or setting of Acts 1:8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-1-8-meaning: Immediately before His ascension, Jesus promises the Holy Spirit’s power and commissions the apostles to witness from Jerusalem through Judea and Samaria to the ends of the earth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 1:8",
       "book": "Acts",
@@ -21063,9 +21991,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Immediately before His ascension, Jesus promises the Holy Spirit’s power and commissions the apostles to witness from Jerusalem through Judea and Samaria to the ends of the earth.",
+            "reference": "Acts 1:6–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Acts 2:38 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Acts 4:12 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 1:6–9 directly supports “Acts 1:8”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Acts 2:21 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-1-8-reference: Immediately before His ascension, Jesus promises the Holy Spirit’s power and commissions the apostles to witness from Jerusalem through Judea and Samaria to the ends of the earth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 1:8",
       "book": "Acts",
@@ -21119,9 +22076,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After the earthquake in the Philippian jail, the jailer asks how to be saved; Paul and Silas direct him to believe in the Lord Jesus, then teach his household.",
+            "reference": "Acts 16:25–34",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/16.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 16:31.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 16:25–34 directly supports “Paul and Silas answer the Philippian jailer's question about salvation.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 16:31.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 20:24, not the specific teaching or setting of Acts 16:31.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-16-31-context: After the earthquake in the Philippian jail, the jailer asks how to be saved; Paul and Silas direct him to believe in the Lord Jesus, then teach his household. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 16:31",
       "book": "Acts",
@@ -21175,9 +22161,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After the earthquake in the Philippian jail, the jailer asks how to be saved; Paul and Silas direct him to believe in the Lord Jesus, then teach his household.",
+            "reference": "Acts 16:25–34",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/16.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Acts 16:25–34 directly supports “The Philippian jailer is directed to trust in the Lord Jesus rather than to earn salvation through status or works”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 16:31.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 16:31.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 20:35, not the specific teaching or setting of Acts 16:31.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-16-31-meaning: After the earthquake in the Philippian jail, the jailer asks how to be saved; Paul and Silas direct him to believe in the Lord Jesus, then teach his household. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 16:31",
       "book": "Acts",
@@ -21232,9 +22247,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The Bereans receive Paul’s message eagerly while examining the Scriptures every day to determine whether his teaching is true.",
+            "reference": "Acts 17:10–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/17.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Acts 17:10–12 directly supports “The Bereans examine Paul’s message against the Scriptures”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 17:11.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 2:42, not the specific teaching or setting of Acts 17:11.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 4:32, not the specific teaching or setting of Acts 17:11.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-17-11-context: The Bereans receive Paul’s message eagerly while examining the Scriptures every day to determine whether his teaching is true. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 17:11",
       "book": "Acts",
@@ -21288,9 +22332,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The Bereans receive Paul’s message eagerly while examining the Scriptures every day to determine whether his teaching is true.",
+            "reference": "Acts 17:10–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/17.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Acts 2:42, not the specific teaching or setting of Acts 17:11.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 17:11.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 17:10–12 directly supports “Healthy faith receives teaching eagerly while testing it carefully by Scripture.”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 20:24, not the specific teaching or setting of Acts 17:11.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-17-11-meaning: The Bereans receive Paul’s message eagerly while examining the Scriptures every day to determine whether his teaching is true. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 17:11",
       "book": "Acts",
@@ -21345,9 +22418,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "At Pentecost Peter explains the Spirit’s outpouring by quoting Joel, ending with the promise that everyone who calls on the Lord’s name will be saved.",
+            "reference": "Acts 2:14–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:21.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 2:14–21 directly supports “Peter quotes Joel while explaining the outpouring of the Spirit at Pentecost.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:21.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:21.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-2-21-context: At Pentecost Peter explains the Spirit’s outpouring by quoting Joel, ending with the promise that everyone who calls on the Lord’s name will be saved. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 2:21",
       "book": "Acts",
@@ -21401,9 +22503,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "At Pentecost Peter explains the Spirit’s outpouring by quoting Joel, ending with the promise that everyone who calls on the Lord’s name will be saved.",
+            "reference": "Acts 2:14–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Acts 2:14–21 directly supports “Salvation is offered to everyone who calls on the Lord’s name”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:21.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:21.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 5:29, not the specific teaching or setting of Acts 2:21.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-2-21-meaning: At Pentecost Peter explains the Spirit’s outpouring by quoting Joel, ending with the promise that everyone who calls on the Lord’s name will be saved. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 2:21",
       "book": "Acts",
@@ -21458,9 +22589,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After proclaiming the crucified and risen Jesus as Lord and Christ, Peter answers the convicted crowd with repentance, baptism in Jesus’ name, forgiveness, and the Spirit’s gift.",
+            "reference": "Acts 2:36–41",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:38.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:38.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 2:36–41 directly supports “Peter answers the crowd after proclaiming the crucified and risen Jesus”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:38.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-2-38-context: After proclaiming the crucified and risen Jesus as Lord and Christ, Peter answers the convicted crowd with repentance, baptism in Jesus’ name, forgiveness, and the Spirit’s gift. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 2:38",
       "book": "Acts",
@@ -21514,9 +22674,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After proclaiming the crucified and risen Jesus as Lord and Christ, Peter answers the convicted crowd with repentance, baptism in Jesus’ name, forgiveness, and the Spirit’s gift.",
+            "reference": "Acts 2:36–41",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Acts 16:31, not the specific teaching or setting of Acts 2:38.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 20:35, not the specific teaching or setting of Acts 2:38.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 2:21, not the specific teaching or setting of Acts 2:38.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 2:36–41 directly supports “The proper response to the gospel includes repentance, baptism in Jesus’ name, and receiving the Spirit’s gift”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "acts-2-38-meaning: After proclaiming the crucified and risen Jesus as Lord and Christ, Peter answers the convicted crowd with repentance, baptism in Jesus’ name, forgiveness, and the Spirit’s gift. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 2:38",
       "book": "Acts",
@@ -21571,9 +22760,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The new Jerusalem believers devote themselves to apostolic teaching, fellowship, breaking bread, and prayer; the same immediate unit describes shared possessions, praise, public favor, and daily growth.",
+            "reference": "Acts 2:42–47",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:42.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 2:42–47 directly supports “The earliest Jerusalem believers devote themselves to shared practices”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 17:11, not the specific teaching or setting of Acts 2:42.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 20:35, not the specific teaching or setting of Acts 2:42.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-2-42-context: The new Jerusalem believers devote themselves to apostolic teaching, fellowship, breaking bread, and prayer; the same immediate unit describes shared possessions, praise, public favor, and daily growth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 2:42",
       "book": "Acts",
@@ -21627,9 +22845,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The new Jerusalem believers devote themselves to apostolic teaching, fellowship, breaking bread, and prayer; the same immediate unit describes shared possessions, praise, public favor, and daily growth.",
+            "reference": "Acts 2:42–47",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:42.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 2:42.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 17:11, not the specific teaching or setting of Acts 2:42.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 2:42–47 directly supports “God forms believers into one people who worship, serve, and witness together.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "acts-2-42-meaning: The new Jerusalem believers devote themselves to apostolic teaching, fellowship, breaking bread, and prayer; the same immediate unit describes shared possessions, praise, public favor, and daily growth. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings. “Worship, serve, and witness together” summarizes the complete immediate community portrait in verses 42–47, not verse 42 in isolation: prayer, praise, shared provision, public favor, and daily growth all occur in the same unit.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 2:42",
       "book": "Acts",
@@ -21684,9 +22931,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Speaking to the Ephesian elders while warned of coming chains and afflictions, Paul values completing his gospel ministry above preserving his own life.",
+            "reference": "Acts 20:17–25",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Acts 16:31, not the specific teaching or setting of Acts 20:24.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 20:24.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 20:17–25 directly supports “Paul speaks to the Ephesian elders while facing suffering in Jerusalem.”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 20:24.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-20-24-context: Speaking to the Ephesian elders while warned of coming chains and afflictions, Paul values completing his gospel ministry above preserving his own life. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 20:24",
       "book": "Acts",
@@ -21740,9 +23016,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Speaking to the Ephesian elders while warned of coming chains and afflictions, Paul values completing his gospel ministry above preserving his own life.",
+            "reference": "Acts 20:17–25",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Acts 17:11, not the specific teaching or setting of Acts 20:24.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 20:24.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 20:24.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 20:17–25 directly supports “Faithfulness to the gospel mission matters more than preserving personal comfort.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "acts-20-24-meaning: Speaking to the Ephesian elders while warned of coming chains and afflictions, Paul values completing his gospel ministry above preserving his own life. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 20:24",
       "book": "Acts",
@@ -21797,9 +23102,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul reminds the Ephesian elders that his own labor supported others and helped the weak, then cites Jesus’ saying that giving is more blessed than receiving.",
+            "reference": "Acts 20:32–38",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Acts 20:32–38 directly supports “Paul recalls a saying of Jesus while addressing the Ephesian elders”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 20:35.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 2:42, not the specific teaching or setting of Acts 20:35.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 4:32, not the specific teaching or setting of Acts 20:35.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-20-35-context: Paul reminds the Ephesian elders that his own labor supported others and helped the weak, then cites Jesus’ saying that giving is more blessed than receiving. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 20:35",
       "book": "Acts",
@@ -21853,9 +23187,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul reminds the Ephesian elders that his own labor supported others and helped the weak, then cites Jesus’ saying that giving is more blessed than receiving.",
+            "reference": "Acts 20:32–38",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Acts 1:8, not the specific teaching or setting of Acts 20:35.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 16:31, not the specific teaching or setting of Acts 20:35.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 20:35.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 20:32–38 directly supports “Church leaders should work and give in order to help the weak, remembering that generosity is more blessed than receiving”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "acts-20-35-meaning: Paul reminds the Ephesian elders that his own labor supported others and helped the weak, then cites Jesus’ saying that giving is more blessed than receiving. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 20:35",
       "book": "Acts",
@@ -21910,9 +23273,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Before Jerusalem’s rulers, Peter identifies Jesus as the rejected cornerstone and declares that salvation exists in no one else and in no other name.",
+            "reference": "Acts 4:5–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 4:12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 4:12.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 4:12.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 4:5–12 directly supports “Peter testifies before the rulers in Jerusalem.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "acts-4-12-context: Before Jerusalem’s rulers, Peter identifies Jesus as the rejected cornerstone and declares that salvation exists in no one else and in no other name. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 4:12",
       "book": "Acts",
@@ -21966,9 +23358,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Before Jerusalem’s rulers, Peter identifies Jesus as the rejected cornerstone and declares that salvation exists in no one else and in no other name.",
+            "reference": "Acts 4:5–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 4:12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 4:5–12 directly supports “Salvation is found uniquely in Jesus, no alternative name or authority can reconcile people to God”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 20:35, not the specific teaching or setting of Acts 4:12.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 4:12.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-4-12-meaning: Before Jerusalem’s rulers, Peter identifies Jesus as the rejected cornerstone and declares that salvation exists in no one else and in no other name. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 4:12",
       "book": "Acts",
@@ -22023,9 +23444,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The Jerusalem believers are one in heart and soul, share possessions, and distribute resources so that no one among them remains in need.",
+            "reference": "Acts 4:32–37",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Acts 4:32–37 directly supports “The early Jerusalem church shares life and possessions in deep unity”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 4:32.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 20:35, not the specific teaching or setting of Acts 4:32.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative does not express the specific teaching or setting stated in Acts 4:32.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-4-32-context: The Jerusalem believers are one in heart and soul, share possessions, and distribute resources so that no one among them remains in need. The keyed choice alone best answers the actual prompt; the other choices refer to distinct books, references, nearby units, or teachings.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 4:32",
       "book": "Acts",
