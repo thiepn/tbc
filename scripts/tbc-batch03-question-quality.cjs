@@ -57,7 +57,9 @@ try {
     const prior = JSON.parse(execFileSync('git', ['show', `${BATCH03_PREDECESSOR}:docs/TBC_QUESTION_AUDIT.json`], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 }));
     const ledger = JSON.parse(fs.readFileSync('docs/TBC_QUESTION_AUDIT.json', 'utf8'));
     assert.deepEqual(ledger.entries.slice(0, 100), prior.entries.slice(0, 100));
-    assert.deepEqual(ledger.entries.slice(150), prior.entries.slice(150));
+    // Batch 04 owns entries 151-200 and verifies that range independently.
+    // Everything after that bounded range must remain identical to Batch 03.
+    assert.deepEqual(ledger.entries.slice(200), prior.entries.slice(200));
     const batch = ledger.entries.slice(100, 150);
     assert.equal(batch.length, 50);
     assert.equal(batch.filter(entry => entry.audit.status === 'unchanged and verified').length, 49);

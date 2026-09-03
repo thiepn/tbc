@@ -3,8 +3,8 @@
 This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activeQuestions()` as extracted by P2A; aliases are compatibility mappings, not additional questions.
 
 - Canonical runtime questions: **5799**
-- Individually completed: **150**
-- Pending individual review: **5649**
+- Individually completed: **200**
+- Pending individual review: **5599**
 - Unresolved human decisions: **0**
 - Complete inventory fields, aliases, mode eligibility, and per-entry audit evidence are in [`TBC_QUESTION_AUDIT.json`](TBC_QUESTION_AUDIT.json).
 - Validate against a fresh P2A extraction with `node scripts/tbc-question-audit-ledger.cjs check`; use `--require-complete` only after every entry is reviewed.
@@ -163,56 +163,56 @@ This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activ
 | `1-thessalonians-5-21-book` | 3336 | 1 Thessalonians 5:21 | Standard | unchanged and verified |
 | `1-thessalonians-5-21-context` | 3335 | 1 Thessalonians 5:21 | Standard | unchanged and verified |
 | `1-thessalonians-5-21-meaning` | 3334 | 1 Thessalonians 5:21 | Beginner | unchanged and verified |
-| `1-thessalonians-5-21-reference` | 3337 | 1 Thessalonians 5:21 | Advanced | pending individual review |
-| `1-timothy-1-15-context` | 3377 | 1 Timothy 1:15 | Advanced | pending individual review |
-| `1-timothy-1-15-meaning` | 3376 | 1 Timothy 1:15 | Easy | pending individual review |
-| `1-timothy-2-5-context` | 3379 | 1 Timothy 2:5 | Advanced | pending individual review |
-| `1-timothy-2-5-meaning` | 3378 | 1 Timothy 2:5 | Easy | pending individual review |
-| `1-timothy-4-12-context` | 3375 | 1 Timothy 4:12 | Advanced | pending individual review |
-| `1-timothy-4-12-meaning` | 3374 | 1 Timothy 4:12 | Easy | pending individual review |
-| `1-timothy-6-10-context` | 3383 | 1 Timothy 6:10 | Advanced | pending individual review |
-| `1-timothy-6-10-meaning` | 3382 | 1 Timothy 6:10 | Easy | pending individual review |
-| `1-timothy-6-12-book` | 3386 | 1 Timothy 6:12 | Standard | pending individual review |
-| `1-timothy-6-12-context` | 3385 | 1 Timothy 6:12 | Standard | pending individual review |
-| `1-timothy-6-12-meaning` | 3384 | 1 Timothy 6:12 | Beginner | pending individual review |
-| `1-timothy-6-12-reference` | 3387 | 1 Timothy 6:12 | Advanced | pending individual review |
-| `1-timothy-6-6-context` | 3381 | 1 Timothy 6:6 | Advanced | pending individual review |
-| `1-timothy-6-6-meaning` | 3380 | 1 Timothy 6:6 | Easy | pending individual review |
-| `2-chronicles-16-9-context` | 1304 | 2 Chronicles 16:9 | Standard | pending individual review |
-| `2-chronicles-16-9-meaning` | 1303 | 2 Chronicles 16:9 | Easy | pending individual review |
-| `2-chronicles-20-12-context` | 1306 | 2 Chronicles 20:12 | Advanced | pending individual review |
-| `2-chronicles-20-12-meaning` | 1305 | 2 Chronicles 20:12 | Easy | pending individual review |
-| `2-chronicles-20-15-book` | 1298 | 2 Chronicles 20:15 | Standard | pending individual review |
-| `2-chronicles-20-15-context` | 1297 | 2 Chronicles 20:15 | Standard | pending individual review |
-| `2-chronicles-20-15-meaning` | 1296 | 2 Chronicles 20:15 | Beginner | pending individual review |
-| `2-chronicles-20-15-reference` | 1299 | 2 Chronicles 20:15 | Advanced | pending individual review |
-| `2-chronicles-20-20-context` | 1308 | 2 Chronicles 20:20 | Advanced | pending individual review |
-| `2-chronicles-20-20-meaning` | 1307 | 2 Chronicles 20:20 | Easy | pending individual review |
-| `2-chronicles-34-29-33-book` | 1302 | 2 Chronicles 34:29-33 | Standard | pending individual review |
-| `2-chronicles-34-29-33-context` | 1301 | 2 Chronicles 34:29-33 | Standard | pending individual review |
-| `2-chronicles-34-29-33-meaning` | 1300 | 2 Chronicles 34:29-33 | Beginner | pending individual review |
-| `2-chronicles-7-14-context` | 1295 | 2 Chronicles 7:14 | Advanced | pending individual review |
-| `2-chronicles-7-14-meaning` | 1294 | 2 Chronicles 7:14 | Easy | pending individual review |
-| `2-corinthians-1-3-context` | 3131 | 2 Corinthians 1:3 | Advanced | pending individual review |
-| `2-corinthians-1-3-meaning` | 3130 | 2 Corinthians 1:3 | Easy | pending individual review |
-| `2-corinthians-10-5-book` | 3142 | 2 Corinthians 10:5 | Standard | pending individual review |
-| `2-corinthians-10-5-context` | 3141 | 2 Corinthians 10:5 | Standard | pending individual review |
-| `2-corinthians-10-5-meaning` | 3140 | 2 Corinthians 10:5 | Beginner | pending individual review |
-| `2-corinthians-10-5-reference` | 3143 | 2 Corinthians 10:5 | Advanced | pending individual review |
-| `2-corinthians-12-9-context` | 3125 | 2 Corinthians 12:9 | Advanced | pending individual review |
-| `2-corinthians-12-9-meaning` | 3124 | 2 Corinthians 12:9 | Easy | pending individual review |
-| `2-corinthians-4-16-18-context` | 3135 | 2 Corinthians 4:16-18 | Advanced | pending individual review |
-| `2-corinthians-4-16-18-meaning` | 3134 | 2 Corinthians 4:16-18 | Easy | pending individual review |
-| `2-corinthians-4-7-context` | 3133 | 2 Corinthians 4:7 | Advanced | pending individual review |
-| `2-corinthians-4-7-meaning` | 3132 | 2 Corinthians 4:7 | Easy | pending individual review |
-| `2-corinthians-5-17-book` | 3122 | 2 Corinthians 5:17 | Standard | pending individual review |
-| `2-corinthians-5-17-context` | 3121 | 2 Corinthians 5:17 | Standard | pending individual review |
-| `2-corinthians-5-17-meaning` | 3120 | 2 Corinthians 5:17 | Beginner | pending individual review |
-| `2-corinthians-5-17-reference` | 3123 | 2 Corinthians 5:17 | Advanced | pending individual review |
-| `2-corinthians-5-20-context` | 3127 | 2 Corinthians 5:20 | Advanced | pending individual review |
-| `2-corinthians-5-20-meaning` | 3126 | 2 Corinthians 5:20 | Easy | pending individual review |
-| `2-corinthians-5-21-book` | 3138 | 2 Corinthians 5:21 | Standard | pending individual review |
-| `2-corinthians-5-21-context` | 3137 | 2 Corinthians 5:21 | Standard | pending individual review |
+| `1-thessalonians-5-21-reference` | 3337 | 1 Thessalonians 5:21 | Advanced | unchanged and verified |
+| `1-timothy-1-15-context` | 3377 | 1 Timothy 1:15 | Advanced | unchanged and verified |
+| `1-timothy-1-15-meaning` | 3376 | 1 Timothy 1:15 | Easy | unchanged and verified |
+| `1-timothy-2-5-context` | 3379 | 1 Timothy 2:5 | Advanced | unchanged and verified |
+| `1-timothy-2-5-meaning` | 3378 | 1 Timothy 2:5 | Easy | unchanged and verified |
+| `1-timothy-4-12-context` | 3375 | 1 Timothy 4:12 | Advanced | unchanged and verified |
+| `1-timothy-4-12-meaning` | 3374 | 1 Timothy 4:12 | Easy | unchanged and verified |
+| `1-timothy-6-10-context` | 3383 | 1 Timothy 6:10 | Advanced | unchanged and verified |
+| `1-timothy-6-10-meaning` | 3382 | 1 Timothy 6:10 | Easy | unchanged and verified |
+| `1-timothy-6-12-book` | 3386 | 1 Timothy 6:12 | Standard | unchanged and verified |
+| `1-timothy-6-12-context` | 3385 | 1 Timothy 6:12 | Standard | unchanged and verified |
+| `1-timothy-6-12-meaning` | 3384 | 1 Timothy 6:12 | Beginner | unchanged and verified |
+| `1-timothy-6-12-reference` | 3387 | 1 Timothy 6:12 | Advanced | unchanged and verified |
+| `1-timothy-6-6-context` | 3381 | 1 Timothy 6:6 | Advanced | corrected |
+| `1-timothy-6-6-meaning` | 3380 | 1 Timothy 6:6 | Easy | unchanged and verified |
+| `2-chronicles-16-9-context` | 1304 | 2 Chronicles 16:9 | Standard | unchanged and verified |
+| `2-chronicles-16-9-meaning` | 1303 | 2 Chronicles 16:9 | Easy | unchanged and verified |
+| `2-chronicles-20-12-context` | 1306 | 2 Chronicles 20:12 | Advanced | unchanged and verified |
+| `2-chronicles-20-12-meaning` | 1305 | 2 Chronicles 20:12 | Easy | unchanged and verified |
+| `2-chronicles-20-15-book` | 1298 | 2 Chronicles 20:15 | Standard | unchanged and verified |
+| `2-chronicles-20-15-context` | 1297 | 2 Chronicles 20:15 | Standard | unchanged and verified |
+| `2-chronicles-20-15-meaning` | 1296 | 2 Chronicles 20:15 | Beginner | unchanged and verified |
+| `2-chronicles-20-15-reference` | 1299 | 2 Chronicles 20:15 | Advanced | unchanged and verified |
+| `2-chronicles-20-20-context` | 1308 | 2 Chronicles 20:20 | Advanced | unchanged and verified |
+| `2-chronicles-20-20-meaning` | 1307 | 2 Chronicles 20:20 | Easy | unchanged and verified |
+| `2-chronicles-34-29-33-book` | 1302 | 2 Chronicles 34:29-33 | Standard | unchanged and verified |
+| `2-chronicles-34-29-33-context` | 1301 | 2 Chronicles 34:29-33 | Standard | unchanged and verified |
+| `2-chronicles-34-29-33-meaning` | 1300 | 2 Chronicles 34:29-33 | Beginner | unchanged and verified |
+| `2-chronicles-7-14-context` | 1295 | 2 Chronicles 7:14 | Advanced | unchanged and verified |
+| `2-chronicles-7-14-meaning` | 1294 | 2 Chronicles 7:14 | Easy | unchanged and verified |
+| `2-corinthians-1-3-context` | 3131 | 2 Corinthians 1:3 | Advanced | unchanged and verified |
+| `2-corinthians-1-3-meaning` | 3130 | 2 Corinthians 1:3 | Easy | unchanged and verified |
+| `2-corinthians-10-5-book` | 3142 | 2 Corinthians 10:5 | Standard | unchanged and verified |
+| `2-corinthians-10-5-context` | 3141 | 2 Corinthians 10:5 | Standard | unchanged and verified |
+| `2-corinthians-10-5-meaning` | 3140 | 2 Corinthians 10:5 | Beginner | unchanged and verified |
+| `2-corinthians-10-5-reference` | 3143 | 2 Corinthians 10:5 | Advanced | unchanged and verified |
+| `2-corinthians-12-9-context` | 3125 | 2 Corinthians 12:9 | Advanced | unchanged and verified |
+| `2-corinthians-12-9-meaning` | 3124 | 2 Corinthians 12:9 | Easy | unchanged and verified |
+| `2-corinthians-4-16-18-context` | 3135 | 2 Corinthians 4:16-18 | Advanced | unchanged and verified |
+| `2-corinthians-4-16-18-meaning` | 3134 | 2 Corinthians 4:16-18 | Easy | unchanged and verified |
+| `2-corinthians-4-7-context` | 3133 | 2 Corinthians 4:7 | Advanced | unchanged and verified |
+| `2-corinthians-4-7-meaning` | 3132 | 2 Corinthians 4:7 | Easy | unchanged and verified |
+| `2-corinthians-5-17-book` | 3122 | 2 Corinthians 5:17 | Standard | unchanged and verified |
+| `2-corinthians-5-17-context` | 3121 | 2 Corinthians 5:17 | Standard | unchanged and verified |
+| `2-corinthians-5-17-meaning` | 3120 | 2 Corinthians 5:17 | Beginner | unchanged and verified |
+| `2-corinthians-5-17-reference` | 3123 | 2 Corinthians 5:17 | Advanced | unchanged and verified |
+| `2-corinthians-5-20-context` | 3127 | 2 Corinthians 5:20 | Advanced | unchanged and verified |
+| `2-corinthians-5-20-meaning` | 3126 | 2 Corinthians 5:20 | Easy | unchanged and verified |
+| `2-corinthians-5-21-book` | 3138 | 2 Corinthians 5:21 | Standard | unchanged and verified |
+| `2-corinthians-5-21-context` | 3137 | 2 Corinthians 5:21 | Standard | unchanged and verified |
 | `2-corinthians-5-21-meaning` | 3136 | 2 Corinthians 5:21 | Beginner | pending individual review |
 | `2-corinthians-5-21-reference` | 3139 | 2 Corinthians 5:21 | Advanced | pending individual review |
 | `2-corinthians-9-7-context` | 3129 | 2 Corinthians 9:7 | Advanced | pending individual review |

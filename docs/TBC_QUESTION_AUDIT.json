@@ -10688,9 +10688,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells the church not to quench the Spirit or despise prophecies, then to test everything, hold to the good, and avoid evil.",
+            "reference": "1 Thessalonians 5:19–22",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_thessalonians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Chronicles 29:11, not 1 Thessalonians 5:19–22.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Thessalonians 5:19–22 supports “1 Thessalonians 5:21”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Thessalonians 5:11, not 1 Thessalonians 5:19–22.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Thessalonians 4:16, not 1 Thessalonians 5:19–22.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-thessalonians-5-21-reference: Paul tells the church not to quench the Spirit or despise prophecies, then to test everything, hold to the good, and avoid evil. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Thessalonians 5:21",
       "book": "1 Thessalonians",
@@ -10744,9 +10773,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul recounts the mercy shown to him and presents Christ’s coming to save sinners as a trustworthy saying.",
+            "reference": "1 Timothy 1:12–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:6, not 1 Timothy 1:12–17.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:10, not 1 Timothy 1:12–17.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 1:12–17 supports “Paul summarizes the saving mission of Christ”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:12, not 1 Timothy 1:12–17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-1-15-context: Paul recounts the mercy shown to him and presents Christ’s coming to save sinners as a trustworthy saying. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 1:15",
       "book": "1 Timothy",
@@ -10800,9 +10858,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The saying explicitly states that Christ Jesus came into the world to save sinners, illustrated by the mercy Paul received.",
+            "reference": "1 Timothy 1:12–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:12, not 1 Timothy 1:12–17.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 1:12–17 supports “The coming of Christ to save sinners is a trustworthy summary of the gospel, illustrated by Paul’s own mercy”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:10, not 1 Timothy 1:12–17.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:12, not 1 Timothy 1:12–17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-1-15-meaning: The saying explicitly states that Christ Jesus came into the world to save sinners, illustrated by the mercy Paul received. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 1:15",
       "book": "1 Timothy",
@@ -10857,9 +10944,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The one-God and one-Mediator statement grounds Paul’s instruction that the gathered church pray for all people.",
+            "reference": "1 Timothy 2:1–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Timothy 1:3–20, not 1 Timothy 2:1–8.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 2:1–8 supports “Prayer and gathered church”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:3–21, not 1 Timothy 2:1–8.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:6–16, not 1 Timothy 2:1–8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-2-5-context: The one-God and one-Mediator statement grounds Paul’s instruction that the gathered church pray for all people. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 2:5",
       "book": "1 Timothy",
@@ -10913,9 +11029,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The text names one God and one mediator between God and humanity, Christ Jesus, who gave Himself as a ransom.",
+            "reference": "1 Timothy 2:5–6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 1 Timothy 2:5–6 supports “Jesus is the unique mediator who brings humanity to the one God”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:12, not 1 Timothy 2:5–6.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:6, not 1 Timothy 2:5–6.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:10, not 1 Timothy 2:5–6.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-2-5-meaning: The text names one God and one mediator between God and humanity, Christ Jesus, who gave Himself as a ransom. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 2:5",
       "book": "1 Timothy",
@@ -10970,9 +11115,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells Timothy to teach these things and answer contempt for his youth by exemplary speech, conduct, love, faith, and purity.",
+            "reference": "1 Timothy 4:11–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to Ephesians 2:8–10, not 1 Timothy 4:11–16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 4:11–16 supports “Paul instructs Timothy to lead through godly character.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to Colossians 1:16, not 1 Timothy 4:11–16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Romans 5:8, not 1 Timothy 4:11–16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-4-12-context: Paul tells Timothy to teach these things and answer contempt for his youth by exemplary speech, conduct, love, faith, and purity. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 4:12",
       "book": "1 Timothy",
@@ -11026,9 +11200,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Timothy is commanded to become an example in five named areas of conduct so that his progress benefits his hearers.",
+            "reference": "1 Timothy 4:11–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 1 Timothy 4:11–16 supports “Godly conduct provides a pattern that others can imitate”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:10, not 1 Timothy 4:11–16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 2:5, not 1 Timothy 4:11–16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:12, not 1 Timothy 4:11–16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-4-12-meaning: Timothy is commanded to become an example in five named areas of conduct so that his progress benefits his hearers. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 4:12",
       "book": "1 Timothy",
@@ -11083,9 +11286,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul contrasts corrupt teachers who imagine godliness as gain with contentment and warns how desire for wealth leads people astray.",
+            "reference": "1 Timothy 6:3–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Thessalonians 5:11, not 1 Timothy 6:3–10.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Colossians 3:16, not 1 Timothy 6:3–10.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 9:7, not 1 Timothy 6:3–10.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 6:3–10 supports “Paul warns against false teachers and discontented pursuit of wealth.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "1-timothy-6-10-context: Paul contrasts corrupt teachers who imagine godliness as gain with contentment and warns how desire for wealth leads people astray. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 6:10",
       "book": "1 Timothy",
@@ -11139,9 +11371,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The passage identifies love of money as a root of many evils and describes the ruin and grief produced by craving riches.",
+            "reference": "1 Timothy 6:9–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:12, not 1 Timothy 6:9–10.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:12, not 1 Timothy 6:9–10.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 6:9–10 supports “The love of money, not money itself, produces many destructive evils”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 1:15, not 1 Timothy 6:9–10.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-6-10-meaning: The passage identifies love of money as a root of many evils and describes the ruin and grief produced by craving riches. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 6:10",
       "book": "1 Timothy",
@@ -11196,9 +11457,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The named recipient Timothy is charged to flee greed, pursue virtue, and fight the good fight within Paul’s first letter to him.",
+            "reference": "1 Timothy 6:11–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Thessalonians 5:16-18, not 1 Timothy 6:11–16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 6:11–16 supports “1 Timothy”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:17, not 1 Timothy 6:11–16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Ephesians 2:8, not 1 Timothy 6:11–16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-6-12-book: The named recipient Timothy is charged to flee greed, pursue virtue, and fight the good fight within Paul’s first letter to him. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 6:12",
       "book": "1 Timothy",
@@ -11252,9 +11542,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After warning about wealth, Paul addresses Timothy as a man of God and commands him to flee, pursue, fight, and take hold.",
+            "reference": "1 Timothy 6:11–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 1 Timothy 6:11–16 supports “Paul urges Timothy to reject greed and pursue godliness.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:6, not 1 Timothy 6:11–16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:12, not 1 Timothy 6:11–16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 1:15, not 1 Timothy 6:11–16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-6-12-context: After warning about wealth, Paul addresses Timothy as a man of God and commands him to flee, pursue, fight, and take hold. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 6:12",
       "book": "1 Timothy",
@@ -11308,9 +11627,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The imperative is to fight the good fight of faith and take hold of eternal life while pursuing godly virtues.",
+            "reference": "1 Timothy 6:11–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Timothy 1:15, not 1 Timothy 6:11–16.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:10, not 1 Timothy 6:11–16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 6:11–16 supports “The Christian life requires fighting the good fight of faith and holding to eternal life”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:12, not 1 Timothy 6:11–16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-6-12-meaning: The imperative is to fight the good fight of faith and take hold of eternal life while pursuing godly virtues. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 6:12",
       "book": "1 Timothy",
@@ -11365,9 +11713,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The wording about fighting the good fight and taking hold of eternal life appears at 1 Timothy 6:12.",
+            "reference": "1 Timothy 6:11–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:12, not 1 Timothy 6:11–12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:6, not 1 Timothy 6:11–12.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 6:11–12 supports “1 Timothy 6:12”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:10, not 1 Timothy 6:11–12.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-6-12-reference: The wording about fighting the good fight and taking hold of eternal life appears at 1 Timothy 6:12. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 6:12",
       "book": "1 Timothy",
@@ -11420,10 +11797,64 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "changes": [
+          {
+            "answerPosition": 2,
+            "compatibilityRevision": {
+              "fingerprint": "9857d3803ebca3b2d38580a0f23263fdddaef96ba4e119494bb6aa73ce098377",
+              "id": "1-timothy-6-6-context",
+              "predecessor": "c2a129cf9e41fff089dc361c0019acb2148ccaef",
+              "version": 1
+            },
+            "correctedOptions": [
+              "Paul begins by praising God after severe affliction.",
+              "Paul urges Timothy to reject greed and pursue godliness.",
+              "Paul contrasts false teachers’ greed with true gain",
+              "Paul summarizes the saving mission of Christ"
+            ],
+            "newFingerprint": "37aca4e8b8907af0dc61aeb4dc5b7d9e4734ffc42747d8c2c8fe9c99767be9c7",
+            "oldFingerprint": "9857d3803ebca3b2d38580a0f23263fdddaef96ba4e119494bb6aa73ce098377",
+            "previousDefect": "The keyed answer and the former first distractor both described the immediate 1 Timothy 6:3–10 unit: false teachers, supposed gain, contentment, and the destructive pursuit of wealth. Two choices were therefore defensible.",
+            "previousOptions": [
+              "Paul warns against false teachers and discontented pursuit of wealth.",
+              "Paul urges Timothy to reject greed and pursue godliness.",
+              "Paul contrasts false teachers’ greed with true gain",
+              "Paul summarizes the saving mission of Christ"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "detail": "False teaching, imagined financial gain, contentment, basic provision, and the dangers of craving wealth form the immediate unit around verse 6.",
+            "reference": "1 Timothy 6:3–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 1:3, not 1 Timothy 6:3–10.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:12, not 1 Timothy 6:3–10.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 6:3–10 supports “Paul contrasts false teachers’ greed with true gain”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 1:15, not 1 Timothy 6:3–10.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-6-6-context: False teaching, imagined financial gain, contentment, basic provision, and the dangers of craving wealth form the immediate unit around verse 6. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "corrected"
       },
       "bibleReference": "1 Timothy 6:6",
       "book": "1 Timothy",
@@ -11459,7 +11890,7 @@
         "weekly"
       ],
       "options": [
-        "Paul warns against false teachers and discontented pursuit of wealth.",
+        "Paul begins by praising God after severe affliction.",
         "Paul urges Timothy to reject greed and pursue godliness.",
         "Paul contrasts false teachers’ greed with true gain",
         "Paul summarizes the saving mission of Christ"
@@ -11467,7 +11898,7 @@
       "question": "Which situation best describes this passage’s immediate context?",
       "questionType": "context",
       "source": {
-        "contentSha256": "88e926162ba5e3aca57e5208c15b66fc27b726a04ab84ae6f37d476928ed0a07",
+        "contentSha256": "ea6aacff900b470299f2cee2529def3838e7f5502bdc5e21a3a128495df56434",
         "index": 3381,
         "origin": "TBC_QB6.activeQuestions()"
       },
@@ -11477,9 +11908,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Verse 6 directly joins godliness with contentment and calls that combination great gain.",
+            "reference": "1 Timothy 6:3–8",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_timothy/6.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Timothy 2:5, not 1 Timothy 6:3–8.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 4:12, not 1 Timothy 6:3–8.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 1 Timothy 6:3–8 supports “Godliness joined with contentment is genuine wealth”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:10, not 1 Timothy 6:3–8.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "1-timothy-6-6-meaning: Verse 6 directly joins godliness with contentment and calls that combination great gain. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "1 Timothy 6:6",
       "book": "1 Timothy",
@@ -11534,9 +11994,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Hanani rebukes Asa for relying on the king of Aram instead of the LORD and explains that the LORD supports wholehearted people.",
+            "reference": "2 Chronicles 16:7–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/16.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Chronicles 16:7–10 supports “Hanani rebukes Asa for relying on Aram rather than God.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:20, not 2 Chronicles 16:7–10.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit, not the setting or teaching in 2 Chronicles 16:7–10.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Judges 7:2, not 2 Chronicles 16:7–10.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-16-9-context: Hanani rebukes Asa for relying on the king of Aram instead of the LORD and explains that the LORD supports wholehearted people. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 16:9",
       "book": "2 Chronicles",
@@ -11590,9 +12079,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Hanani says the LORD’s eyes range throughout the earth to strengthen those whose hearts are fully committed to Him.",
+            "reference": "2 Chronicles 16:7–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/16.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Chronicles 16:7–9 supports “God actively supports those whose hearts are fully committed to Him”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:12, not 2 Chronicles 16:7–9.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:20, not 2 Chronicles 16:7–9.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 34:29-33, not 2 Chronicles 16:7–9.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-16-9-meaning: Hanani says the LORD’s eyes range throughout the earth to strengthen those whose hearts are fully committed to Him. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 16:9",
       "book": "2 Chronicles",
@@ -11647,9 +12165,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "With a vast coalition approaching Judah, Jehoshaphat leads the assembly in prayer and confesses that they have no power or plan.",
+            "reference": "2 Chronicles 20:5–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:20, not 2 Chronicles 20:5–13.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 20:5–13 supports “Jehoshaphat prays as a vast army approaches Judah”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:15, not 2 Chronicles 20:5–13.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 16:9, not 2 Chronicles 20:5–13.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-20-12-context: With a vast coalition approaching Judah, Jehoshaphat leads the assembly in prayer and confesses that they have no power or plan. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 20:12",
       "book": "2 Chronicles",
@@ -11703,9 +12250,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Judah admits powerlessness and fixes its eyes on God, making dependent prayer the unique point of the verse.",
+            "reference": "2 Chronicles 20:10–13",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Chronicles 16:9, not 2 Chronicles 20:10–13.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 20:10–13 supports “When God’s people have no power or strategy, they can fix their eyes on Him”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 34:29-33, not 2 Chronicles 20:10–13.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 7:14, not 2 Chronicles 20:10–13.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-20-12-meaning: Judah admits powerlessness and fixes its eyes on God, making dependent prayer the unique point of the verse. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 20:12",
       "book": "2 Chronicles",
@@ -11760,9 +12336,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Jahaziel’s Spirit-given assurance to Judah and Jehoshaphat is recorded in 2 Chronicles 20:15.",
+            "reference": "2 Chronicles 20:14–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Samuel 3:10, not 2 Chronicles 20:14–17.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 20:14–17 supports “2 Chronicles”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to Judges 21:25, not 2 Chronicles 20:14–17.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Kings 22:8-13, not 2 Chronicles 20:14–17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-20-15-book: Jahaziel’s Spirit-given assurance to Judah and Jehoshaphat is recorded in 2 Chronicles 20:15. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 20:15",
       "book": "2 Chronicles",
@@ -11816,9 +12421,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The oracle occurs in the Chronicler’s account of Asa and Jehoshaphat, within Jehoshaphat’s crisis and reform-era reign.",
+            "reference": "2 Chronicles 14:1–20:37",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to Joshua 1–12, not 2 Chronicles 14:1–20:37.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 34:14–33, not 2 Chronicles 14:1–20:37.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Matthew 3:1–4:11, not 2 Chronicles 14:1–20:37.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 14:1–20:37 supports “Asa and Jehoshaphat reforms”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-chronicles-20-15-context: The oracle occurs in the Chronicler’s account of Asa and Jehoshaphat, within Jehoshaphat’s crisis and reform-era reign. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 20:15",
       "book": "2 Chronicles",
@@ -11873,9 +12507,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "God answers Judah’s fear by saying the battle is His and by commanding them to go out, stand firm, and trust.",
+            "reference": "2 Chronicles 20:14–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Chronicles 34:29-33, not 2 Chronicles 20:14–17.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 20:14–17 supports “Judah’s overwhelming crisis will be met by God’s action, so fear must give way to obedient trust”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Kings 8:27, not 2 Chronicles 20:14–17.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Chronicles 29:11, not 2 Chronicles 20:14–17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-20-15-meaning: God answers Judah’s fear by saying the battle is His and by commanding them to go out, stand firm, and trust. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 20:15",
       "book": "2 Chronicles",
@@ -11930,9 +12593,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The declaration not to fear because the battle belongs to God is specifically 2 Chronicles 20:15.",
+            "reference": "2 Chronicles 20:14–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:20, not 2 Chronicles 20:14–17.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 16:9, not 2 Chronicles 20:14–17.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 20:14–17 supports “2 Chronicles 20:15”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:12, not 2 Chronicles 20:14–17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-20-15-reference: The declaration not to fear because the battle belongs to God is specifically 2 Chronicles 20:15. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 20:15",
       "book": "2 Chronicles",
@@ -11986,9 +12678,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "As Judah goes out to battle, Jehoshaphat calls the people to trust the LORD and His prophets before singers lead them.",
+            "reference": "2 Chronicles 20:18–23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:12, not 2 Chronicles 20:18–23.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 16:9, not 2 Chronicles 20:18–23.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 20:18–23 supports “Before battle, Jehoshaphat calls Judah to trust the LORD and His prophets”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:15, not 2 Chronicles 20:18–23.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-20-20-context: As Judah goes out to battle, Jehoshaphat calls the people to trust the LORD and His prophets before singers lead them. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 20:20",
       "book": "2 Chronicles",
@@ -12042,9 +12763,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Jehoshaphat explicitly links faith in the LORD with standing firm and faith in His prophets with success.",
+            "reference": "2 Chronicles 20:20–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/20.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to Judges 8:23, not 2 Chronicles 20:20–21.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 16:9, not 2 Chronicles 20:20–21.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Joshua 24:15, not 2 Chronicles 20:20–21.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 20:20–21 supports “Faith in God’s trustworthy word produces steadiness in crisis.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-chronicles-20-20-meaning: Jehoshaphat explicitly links faith in the LORD with standing firm and faith in His prophets with success. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 20:20",
       "book": "2 Chronicles",
@@ -12099,9 +12849,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Josiah’s assembly, public covenant, and reforms are narrated in Second Chronicles.",
+            "reference": "2 Chronicles 34:29–33",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/34.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Chronicles 34:29–33 supports “Second Chronicles”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Chronicles, not 2 Chronicles 34:29–33.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Kings, not 2 Chronicles 34:29–33.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Kings, not 2 Chronicles 34:29–33.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-34-29-33-book: Josiah’s assembly, public covenant, and reforms are narrated in Second Chronicles. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 34:29-33",
       "book": "2 Chronicles",
@@ -12155,9 +12934,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After the Book of the Law is found and read, Josiah gathers Judah, reads it publicly, renews the covenant, and removes idols.",
+            "reference": "2 Chronicles 34:14–33",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/34.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:20, not 2 Chronicles 34:14–33.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 16:9, not 2 Chronicles 34:14–33.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 34:14–33 supports “After the Book of the Law is found, Josiah gathers Judah and publicly renews the covenant”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:12, not 2 Chronicles 34:14–33.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-34-29-33-context: After the Book of the Law is found and read, Josiah gathers Judah, reads it publicly, renews the covenant, and removes idols. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 34:29-33",
       "book": "2 Chronicles",
@@ -12211,9 +13019,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Josiah responds to the recovered word with a public covenant and concrete removal of detestable idols, not emotion alone.",
+            "reference": "2 Chronicles 34:29–33",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/34.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Chronicles 7:14, not 2 Chronicles 34:29–33.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:12, not 2 Chronicles 34:29–33.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:20, not 2 Chronicles 34:29–33.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 34:29–33 supports “Hearing God’s word should lead God’s people beyond emotion into concrete covenant obedience and reform”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-chronicles-34-29-33-meaning: Josiah responds to the recovered word with a public covenant and concrete removal of detestable idols, not emotion alone. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 34:29-33",
       "book": "2 Chronicles",
@@ -12268,9 +13105,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After Solomon finishes the temple and palace, God appears and answers the temple-dedication prayer with covenant promises and warnings.",
+            "reference": "2 Chronicles 7:11–22",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Chronicles 16:9, not 2 Chronicles 7:11–22.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Chronicles 7:11–22 supports “God responds to Solomon after the temple dedication.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:12, not 2 Chronicles 7:11–22.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:20, not 2 Chronicles 7:11–22.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-7-14-context: After Solomon finishes the temple and palace, God appears and answers the temple-dedication prayer with covenant promises and warnings. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 7:14",
       "book": "2 Chronicles",
@@ -12324,9 +13190,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "God addresses His covenant people and links healing with humility, prayer, seeking His face, and turning from wicked ways.",
+            "reference": "2 Chronicles 7:12–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_chronicles/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Chronicles 7:12–16 supports “God’s promise addresses His covenant people after the temple dedication and links restoration with humility, prayer, seeking, and turning from sin”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 34:29-33, not 2 Chronicles 7:12–16.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:12, not 2 Chronicles 7:12–16.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Chronicles 20:15, not 2 Chronicles 7:12–16.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-chronicles-7-14-meaning: God addresses His covenant people and links healing with humility, prayer, seeking His face, and turning from wicked ways. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Chronicles 7:14",
       "book": "2 Chronicles",
@@ -12381,9 +13276,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul opens with praise to the Father of compassion after describing comfort amid affliction and a deadly ordeal in Asia.",
+            "reference": "2 Corinthians 1:3–11",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 1 Timothy 6:6, not 2 Corinthians 1:3–11.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 1:3–11 supports “Paul begins by praising God after severe affliction.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 4:7, not 2 Corinthians 1:3–11.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Thessalonians 4:3, not 2 Corinthians 1:3–11.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-1-3-context: Paul opens with praise to the Father of compassion after describing comfort amid affliction and a deadly ordeal in Asia. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 1:3",
       "book": "2 Corinthians",
@@ -12437,9 +13361,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul names God the Father of compassion and God of all comfort, who comforts believers in every trouble.",
+            "reference": "2 Corinthians 1:3–7",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 10:5, not 2 Corinthians 1:3–7.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 4:7, not 2 Corinthians 1:3–7.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 12:9, not 2 Corinthians 1:3–7.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 1:3–7 supports “God is the compassionate Father and source of comfort in every trouble”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-corinthians-1-3-meaning: Paul names God the Father of compassion and God of all comfort, who comforts believers in every trouble. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 1:3",
       "book": "2 Corinthians",
@@ -12494,9 +13447,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul’s description of spiritual weapons and captive thoughts is in 2 Corinthians 10:5.",
+            "reference": "2 Corinthians 10:3–6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/10.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Corinthians 10:3–6 supports “2 Corinthians”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Corinthians 10:13, not 2 Corinthians 10:3–6.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Galatians 2:20, not 2 Corinthians 10:3–6.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Ephesians 2:8, not 2 Corinthians 10:3–6.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-10-5-book: Paul’s description of spiritual weapons and captive thoughts is in 2 Corinthians 10:5. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 10:5",
       "book": "2 Corinthians",
@@ -12550,9 +13532,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul defends his ministry and describes divine weapons demolishing arguments and pretensions opposed to knowing God.",
+            "reference": "2 Corinthians 10:1–6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/10.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 4:7, not 2 Corinthians 10:1–6.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 1:3, not 2 Corinthians 10:1–6.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 10:1–6 supports “Paul describes spiritual warfare against arguments opposed to God”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:20, not 2 Corinthians 10:1–6.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-10-5-context: Paul defends his ministry and describes divine weapons demolishing arguments and pretensions opposed to knowing God. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 10:5",
       "book": "2 Corinthians",
@@ -12606,9 +13617,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Spiritual warfare is defined as demolishing arguments and taking every thought captive to obey Christ.",
+            "reference": "2 Corinthians 10:3–6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/10.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 4:7, not 2 Corinthians 10:3–6.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 10:3–6 supports “Christian warfare includes bringing thoughts and claims under Christ’s authority”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 1:3, not 2 Corinthians 10:3–6.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 12:9, not 2 Corinthians 10:3–6.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-10-5-meaning: Spiritual warfare is defined as demolishing arguments and taking every thought captive to obey Christ. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 10:5",
       "book": "2 Corinthians",
@@ -12663,9 +13703,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The language of demolishing arguments and taking thoughts captive is specifically 2 Corinthians 10:5.",
+            "reference": "2 Corinthians 10:3–6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/10.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:17, not 2 Corinthians 10:3–6.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 9:7, not 2 Corinthians 10:3–6.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 10:3–6 supports “2 Corinthians 10:5”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 12:9, not 2 Corinthians 10:3–6.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-10-5-reference: The language of demolishing arguments and taking thoughts captive is specifically 2 Corinthians 10:5. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 10:5",
       "book": "2 Corinthians",
@@ -12719,9 +13788,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Within his apostolic defense, Paul recounts visions, a thorn, repeated prayer, and Christ’s answer about grace and weakness.",
+            "reference": "2 Corinthians 12:1–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/12.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 1:3–11, not 2 Corinthians 12:1–10.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:14–21, not 2 Corinthians 12:1–10.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 3:1–18, not 2 Corinthians 12:1–10.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 12:1–10 supports “Paul’s apostolic defense and weakness”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-corinthians-12-9-context: Within his apostolic defense, Paul recounts visions, a thorn, repeated prayer, and Christ’s answer about grace and weakness. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 12:9",
       "book": "2 Corinthians",
@@ -12776,9 +13874,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Christ says His grace is sufficient and His power is perfected in weakness, leading Paul to boast in weakness.",
+            "reference": "2 Corinthians 12:7–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/12.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to Philippians 4:6, not 2 Corinthians 12:7–10.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Titus 3:5, not 2 Corinthians 12:7–10.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 12:7–10 supports “Christ’s grace is sufficient because His power is displayed most clearly through human weakness”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 9:7, not 2 Corinthians 12:7–10.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-12-9-meaning: Christ says His grace is sufficient and His power is perfected in weakness, leading Paul to boast in weakness. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 12:9",
       "book": "2 Corinthians",
@@ -12833,9 +13960,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "After cataloging bodily affliction, Paul contrasts temporary visible trouble with unseen eternal glory and refuses to lose heart.",
+            "reference": "2 Corinthians 4:7–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 1:3, not 2 Corinthians 4:7–18.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 4:7–18 supports “Paul contrasts present affliction with eternal glory”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:21, not 2 Corinthians 4:7–18.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 12:9, not 2 Corinthians 4:7–18.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-4-16-18-context: After cataloging bodily affliction, Paul contrasts temporary visible trouble with unseen eternal glory and refuses to lose heart. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 4:16-18",
       "book": "2 Corinthians",
@@ -12889,9 +14045,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The passage explicitly weighs light temporary affliction against an eternal glory that far outweighs it.",
+            "reference": "2 Corinthians 4:16–18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:17, not 2 Corinthians 4:16–18.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 4:16–18 supports “Believers do not lose heart because unseen eternal glory outweighs present suffering”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:20, not 2 Corinthians 4:16–18.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:21, not 2 Corinthians 4:16–18.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-4-16-18-meaning: The passage explicitly weighs light temporary affliction against an eternal glory that far outweighs it. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 4:16-18",
       "book": "2 Corinthians",
@@ -12946,9 +14131,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul calls himself a servant carrying the light of Christ in a fragile earthen vessel amid suffering.",
+            "reference": "2 Corinthians 4:5–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to Titus 2:11–14, not 2 Corinthians 4:5–12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Philemon 6, not 2 Corinthians 4:5–12.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Philemon 16, not 2 Corinthians 4:5–12.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 4:5–12 supports “Paul describes fragile messengers carrying the gospel treasure”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "2-corinthians-4-7-context: Paul calls himself a servant carrying the light of Christ in a fragile earthen vessel amid suffering. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 4:7",
       "book": "2 Corinthians",
@@ -13002,9 +14216,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The treasure is placed in jars of clay so that the surpassing power is shown to belong to God rather than the messengers.",
+            "reference": "2 Corinthians 4:7–12",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 1:3, not 2 Corinthians 4:7–12.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Romans 5:1, not 2 Corinthians 4:7–12.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 4:7–12 supports “God uses weak human vessels so the surpassing power is clearly His”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Corinthians 15:3, not 2 Corinthians 4:7–12.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-4-7-meaning: The treasure is placed in jars of clay so that the surpassing power is shown to belong to God rather than the messengers. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 4:7",
       "book": "2 Corinthians",
@@ -13059,9 +14302,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The new-creation declaration appears in 2 Corinthians 5:17.",
+            "reference": "2 Corinthians 5:14–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Corinthians 5:14–21 supports “2 Corinthians”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Corinthians 10:13, not 2 Corinthians 5:14–21.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Galatians 2:20, not 2 Corinthians 5:14–21.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Ephesians 2:8, not 2 Corinthians 5:14–21.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-5-17-book: The new-creation declaration appears in 2 Corinthians 5:17. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:17",
       "book": "2 Corinthians",
@@ -13115,9 +14387,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul moves from Christ’s constraining love and new creation to God’s work and ministry of reconciliation.",
+            "reference": "2 Corinthians 5:11–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Corinthians 5:11–21 supports “New creation and reconciliation”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 9:7, not 2 Corinthians 5:11–21.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 1, not 2 Corinthians 5:11–21.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 12:9, not 2 Corinthians 5:11–21.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-5-17-context: Paul moves from Christ’s constraining love and new creation to God’s work and ministry of reconciliation. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:17",
       "book": "2 Corinthians",
@@ -13171,9 +14472,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Anyone in Christ is a new creation; the old has passed away and the new has come.",
+            "reference": "2 Corinthians 5:14–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 4:16-18, not 2 Corinthians 5:14–17.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 5:14–17 supports “Anyone united to Christ participates in new creation, the former order is passing and a new life has begun”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:20, not 2 Corinthians 5:14–17.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:21, not 2 Corinthians 5:14–17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-5-17-meaning: Anyone in Christ is a new creation; the old has passed away and the new has come. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:17",
       "book": "2 Corinthians",
@@ -13228,9 +14558,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The declaration that anyone in Christ is a new creation is specifically 2 Corinthians 5:17.",
+            "reference": "2 Corinthians 5:16–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:21, not 2 Corinthians 5:16–17.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 5:16–17 supports “2 Corinthians 5:17”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit, not the setting or teaching in 2 Corinthians 5:16–17.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit, not the setting or teaching in 2 Corinthians 5:16–17.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-5-17-reference: The declaration that anyone in Christ is a new creation is specifically 2 Corinthians 5:17. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:17",
       "book": "2 Corinthians",
@@ -13284,9 +14643,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "God entrusts the message of reconciliation to believers, whom Paul calls ambassadors making God’s appeal.",
+            "reference": "2 Corinthians 5:18–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Corinthians 5:18–21 supports “Paul describes the church's ministry of reconciliation”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 4:16-18, not 2 Corinthians 5:18–21.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 12:9, not 2 Corinthians 5:18–21.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 4:7, not 2 Corinthians 5:18–21.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-5-20-context: God entrusts the message of reconciliation to believers, whom Paul calls ambassadors making God’s appeal. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:20",
       "book": "2 Corinthians",
@@ -13340,9 +14728,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Those entrusted with reconciliation serve as Christ’s ambassadors and appeal to others to be reconciled to God.",
+            "reference": "2 Corinthians 5:18–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to 2 Corinthians 5:21, not 2 Corinthians 5:18–20.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 4:16-18, not 2 Corinthians 5:18–20.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 5:18–20 supports “People reconciled to God represent Christ publicly and appeal to others to receive reconciliation”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 2 Corinthians 12:9, not 2 Corinthians 5:18–20.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-5-20-meaning: Those entrusted with reconciliation serve as Christ’s ambassadors and appeal to others to be reconciled to God. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:20",
       "book": "2 Corinthians",
@@ -13397,9 +14814,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The statement that the sinless Christ was made sin for us is recorded in Second Corinthians.",
+            "reference": "2 Corinthians 5:18–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: 2 Corinthians 5:18–21 supports “Second Corinthians”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to 1 Corinthians, not 2 Corinthians 5:18–21.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Galatians, not 2 Corinthians 5:18–21.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to Ephesians, not 2 Corinthians 5:18–21.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-5-21-book: The statement that the sinless Christ was made sin for us is recorded in Second Corinthians. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:21",
       "book": "2 Corinthians",
@@ -13453,9 +14899,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Verse 21 grounds the preceding ministry and appeal of reconciliation in God’s action through the sinless Christ.",
+            "reference": "2 Corinthians 5:18–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/2_corinthians/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative belongs to Ephesians 2:8–9, not 2 Corinthians 5:18–21.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: 2 Corinthians 5:18–21 supports “Paul explains the basis of the ministry of reconciliation.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative belongs to Philippians 4:11–12, not 2 Corinthians 5:18–21.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative belongs to 1 Thessalonians 5:16–18, not 2 Corinthians 5:18–21.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "2-corinthians-5-21-context: Verse 21 grounds the preceding ministry and appeal of reconciliation in God’s action through the sinless Christ. The keyed choice alone matches that evidence; each alternative points to a distinct reference, book, unit, or teaching.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "2 Corinthians 5:21",
       "book": "2 Corinthians",

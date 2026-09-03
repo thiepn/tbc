@@ -1535,3 +1535,72 @@ additional question changed. Linux/Node-22 and bundled Chromium remain CI-only
 verification limitations. The next task is commit this certified local
 candidate, then rerun the required postcommit build and verification; do not
 start ledger entry 151 or push, merge or deploy without separate authorization.
+
+## Canonical question-content audit — Batch 04, entries 151–200
+
+Batch 04 was performed on `codex/question-audit-batch-04` from predecessor
+`c2a129cf9e41fff089dc361c0019acb2148ccaef`. Exactly ledger entries 151–200
+were individually reviewed, from `1-thessalonians-5-21-reference` through
+`2-corinthians-5-21-context`. Entry 201,
+`2-corinthians-5-21-meaning`, was not reviewed or modified.
+
+The result is **49 unchanged and verified / 1 corrected / 0 unresolved**. The
+sole correction is `1-timothy-6-6-context`. In 1 Timothy 6:3–10 the former
+distractor, “Paul warns against false teachers and discontented pursuit of
+wealth,” overlapped the keyed description of Paul contrasting false teachers'
+greed with true gain. Option index 0 is now “Paul begins by praising God after
+severe affliction,” a distinct context from 2 Corinthians 1:3–11. The stable
+ID, prompt, keyed answer, answer position, tier, metadata and remaining options
+are unchanged.
+
+The exact predecessor from `c2a129…` is retained as revision version 1:
+
+```text
+predecessor index blob:      29994bf8bf0357a92a9c84bd84d327d3f5538221
+candidate index blob:        3ece1c38070abe3e98b47696bba34b2eee2bb2c1
+predecessor product SHA-256: 587506df65e6510671c7ca9d5744e23b4028e349c3b43d19e9a7944309715bc3
+candidate product SHA-256:   a6a3f792de295c7c1f7b279f40ca28803ca344015a971a46934b15bd738592bc
+predecessor fingerprint:     9857d3803ebca3b2d38580a0f23263fdddaef96ba4e119494bb6aa73ce098377
+predecessor snapshot hash:   94316189b7f21e271cde932cf73e2fb8fd1e62f3ffc3e79ad526c6c4f5c39bc5
+successor fingerprint:       37aca4e8b8907af0dc61aeb4dc5b7d9e4734ffc42747d8c2c8fe9c99767be9c7
+```
+
+The append-only Batch 04 identity and transition extend the earlier successor
+chain without changing historical records. Current content validation reverses
+the Batch 04 row to the exact Batch 03 artifacts, then replays the earlier
+transitions. No freezer ran and no frozen P2A or historical manifest was
+rewritten.
+
+### Batch 04 verification and accepted limitation
+
+Windows / Node 24.16.0 / locked Playwright 1.55.1 verification produced:
+
+- Batch 04 quality **6/6**, Batch 03 quality **5/5**, and original quality
+  **4/4**.
+- Revision lifecycle **71/71**, Stage 0 **7/7**, compatibility **27/27**,
+  preservation **19/19**, reconciliation **15/15**, P0E **7/7**, and P1B
+  browser/static checks passed.
+- Both P2A audits passed **58/58** and all five extracted artifacts were
+  deterministic. P2A negatives passed **11/11**; product-identity negatives
+  **31/31**; earlier successor checks **7/7**; Batch 03 negatives **22/22**;
+  Batch 04 negatives **24/24**.
+- Counts remain **5,799 canonical / 6,072 registry / 273 aliases / 203
+  structured / 66 books**; tiers remain **1338/1668/1132/1140/521**; schema
+  remains 27. All twelve supporting assets, deterministic pools and protected
+  entry 201 remain exact.
+- Build, JavaScript/JSON parsing and `git diff --check` passed.
+
+The complete aggregate is not green: unchanged
+`p27d-runtime-browser-certification.cjs` times out waiting for the first-run
+Standard difficulty chooser. The failure reproduces against both the Batch 04
+candidate and exact `c2a129…` predecessor in Edge, cached Chromium 151, and
+Playwright Chromium 140.0.7339.186 build 1193. Inspection identifies a
+pre-existing startup-order race between `finishBoot()` invoking `onboarding()`
+and the later `d9ShowOnboarding` assignment. On 2026-09-04 the user explicitly
+directed that this pre-existing failure be ignored so Batch 04 could close and
+the next audit batch could begin. No assertion or product behavior was changed
+to conceal it; it remains an unresolved release limitation.
+
+No push, merge or deployment is part of this closeout. The next authorized task
+is the Batch 05 editorial audit beginning at entry 201; the P27D startup race
+remains separate work.
