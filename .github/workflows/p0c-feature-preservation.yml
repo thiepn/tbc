@@ -1,0 +1,59 @@
+name: P0C Existing Feature Preservation
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - main
+      - 'p0c*'
+      - 'pr7*'
+
+permissions:
+  contents: read
+
+jobs:
+  feature-preservation:
+    name: Preserve existing feature surfaces
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enforce P0A core-content gate first
+        run: node scripts/p0a-preservation-audit.cjs
+
+      - name: Run P0C static feature contract
+        run: node scripts/p0c-feature-preservation.cjs
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local application
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tbc-p0c-server.log 2>&1 &
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tbc-p0c-server.log
+          exit 1
+
+      - name: Map authoritative legacy play modes
+        run: node scripts/p0c-legacy-mode-map.cjs
+
+      - name: Run P0C browser feature audit
+        run: node scripts/p0c-feature-runtime.cjs
