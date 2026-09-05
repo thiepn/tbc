@@ -145,3 +145,54 @@ new records; `npm run verify` now includes that additional negative suite. The
 57-case revision suite and four-question quality gate remain explicit standalone
 certification commands, alongside the aggregate, with results in TBC_STATUS.md.
 No freezer or automatic identity updater is introduced.
+
+## Batch 04 append-only successor
+
+The next certified predecessor is merged production commit
+`c2a129cf9e41fff089dc361c0019acb2148ccaef`, whose `index.html` Git blob is
+`29994bf8bf0357a92a9c84bd84d327d3f5538221`. The independently pinned
+`certification/tbc-batch04-question-revision-identity.json` recognizes only
+successor blob `3ece1c38070abe3e98b47696bba34b2eee2bb2c1`; its transition is
+`certification/tbc-batch04-question-revision-transition.json`.
+
+That transition replays two bounded engine edits: it appends the exact c2
+snapshot for `1-timothy-6-6-context`, then replaces only its overlapping first
+distractor with “Paul begins by praising God after severe affliction.” The
+predecessor fingerprint `9857d3803ebca3b2d38580a0f23263fdddaef96ba4e119494bb6aa73ce098377`
+and successor fingerprint `37aca4e8b8907af0dc61aeb4dc5b7d9e4734ffc42747d8c2c8fe9c99767be9c7`
+are deterministic static-question identities. The prior five archive rows,
+outer HTML, storage names, save schema and twelve supporting assets must match
+their predecessor exactly.
+
+Current content validation first reverses the Batch 04 row and requires exact
+Batch 03 artifacts, then reverses the Batch 03 row and requires exact first-
+successor artifacts. This preserves both earlier proofs while recognizing the
+new canonical and registry hashes. Historical P2A and predecessor certificates
+remain byte-identical; `currentP2ABaseline()` overlays only the current source
+and semantic expectations from the new append-only manifest. No freezer or
+historical rewrite is part of this successor.
+
+## Batch 07 append-only successor
+
+Batch 07 recognizes the Batch 06 ledger checkpoint
+`f1f4a8d4adeae2edd95f28624826abf96caa5b33` as its predecessor. Its deployed
+`index.html` blob is `3ece1c38070abe3e98b47696bba34b2eee2bb2c1` and its only
+recognized successor is `e8531e739b871236853115707b6b6bdf702996aa`, recorded
+in `certification/tbc-batch07-question-revision-identity.json` with the
+corresponding bounded transition record.
+
+The transition appends the exact predecessor snapshot for
+`connection.ark-baptism.v20-meaning` and changes only that question's one
+overlapping distractor plus its derived feedback source. It preserves the outer
+HTML, all twelve supporting assets, aliases, tiers, schema and storage keys.
+Current content validation reverses this one canonical/registry row before
+replaying the Batch 04 and Batch 03 proofs, so every earlier successor remains
+independently pinned.
+
+QB11's historical QB1 whole-bank freeze reports this expressly certified
+post-freeze revision as its one false subcheck. The extractor, P2A audit, P2E,
+and release validator retain that raw report and accept it only when QB1 is the
+sole false QB11 check, the Batch 07 manifest is intact, and the full current
+content proof succeeds. Any other false QB11 check remains a release failure.
+This is an explicit interpretation of immutable historical evidence, not a
+QB11 rewrite or freezer update.

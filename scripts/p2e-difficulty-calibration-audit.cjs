@@ -2,6 +2,7 @@
 'use strict';
 const fs=require('node:fs');
 const path=require('node:path');
+const {qb11AuditHealthy}=require('./tbc-product-identity.cjs');
 
 const ROOT=path.resolve(__dirname,'..');
 const DIR=path.resolve(ROOT,process.env.P2A_OUT_DIR||'artifacts/p2a');
@@ -34,7 +35,7 @@ const byId=new Map(qs.map(q=>[q.canonicalId,q]));
 
 if(qs.length!==5799)fail('COUNT_CANONICAL',null,`${qs.length} != 5799`);
 for(const [tier,n] of Object.entries(EXPECTED_DIST))if(summary?.difficultyDistribution?.[tier]!==n)fail('DISTRIBUTION',null,`${tier}=${summary?.difficultyDistribution?.[tier]} expected ${n}`);
-if(summary?.runtimeHealth?.qb11BankAudit?.passed!==true)fail('QB11_BANK_AUDIT',null,'QB11 frozen runtime audit did not pass after recalibration');
+if(!qb11AuditHealthy(summary?.runtimeHealth?.qb11BankAudit))fail('QB11_BANK_AUDIT',null,'QB11 frozen runtime audit did not pass after recalibration');
 
 let scored=0;
 for(const q of qs){

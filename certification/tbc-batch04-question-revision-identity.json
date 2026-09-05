@@ -1,0 +1,76 @@
+{
+  "version": "TBC-BATCH04-QUESTION-REVISION-IDENTITY.1",
+  "predecessor": {
+    "productCommit": "c2a129cf9e41fff089dc361c0019acb2148ccaef",
+    "indexBlobSha1": "29994bf8bf0357a92a9c84bd84d327d3f5538221",
+    "identityManifest": "certification/tbc-batch03-question-revision-identity.json",
+    "identityManifestBlobSha1": "f6943e0887b07b299cc94e5f67d72229f1b6a137"
+  },
+  "successor": {
+    "indexBlobSha1": "3ece1c38070abe3e98b47696bba34b2eee2bb2c1"
+  },
+  "authorizedReasons": [
+    "Batch 04 review of entries 151–200",
+    "One ambiguous distractor correction with exact active-session predecessor compatibility"
+  ],
+  "changedProductFiles": [
+    "index.html"
+  ],
+  "productFiles": {
+    "index.html": "3ece1c38070abe3e98b47696bba34b2eee2bb2c1",
+    "assets/pr5-foundation.css": "6bd97b4ec9f8e6894d37480679790e1e9ce32e8f",
+    "assets/pr5-shell.js": "1d27e85dafe765a33e358c1902e70a647af1c33b",
+    "assets/pr6-play-learning.css": "115c03c589fc2445397e517294d67a3be7bdc9c9",
+    "assets/pr6-play-learning.js": "dcfbe5d21c84ae50138765412a35ab5b095ef2a0",
+    "assets/p0b-player-controls.js": "d4bbadc73a6ba1af0da9b678a5ffbe2cd06f3176",
+    "assets/p0c-existing-feature-preservation.js": "526a112d876cb20622fb95836dc601bd8f97c0ec",
+    "assets/p1b-pr7-production.js": "1af2e4f5334114767340d5627da188ed4ddbf99d",
+    "assets/pr7-library-progress.css": "a4ae9ff8cf41ace4ffa7fa245c691b9a40c9cf35",
+    "assets/pr7-collections-adapter.js": "7b4aeac1dc361ccc78aa11896189eb879c955511",
+    "assets/pr7-library-progress.js": "1fbcc4398d5bf3a18b5a40e94fb1776a1f50a037",
+    "assets/pr7-navigation-guard.js": "8439a23460dfd870af6d248e386cd33d8b913d9d",
+    "favicon.svg": "5429e8cfdf3cd00886141e7100b2a941548b93ed"
+  },
+  "transition": {
+    "file": "certification/tbc-batch04-question-revision-transition.json",
+    "sha256": "5e92ca505e66e2c41b7310dcf4b00177f7a29d2744c0d07f3fc582609e8fb68b"
+  },
+  "content": {
+    "counts": {
+      "aliases": 273,
+      "books": 66,
+      "canonical": 5799,
+      "registry": 6072,
+      "structured": 203
+    },
+    "difficultyDistribution": {
+      "Advanced": 1140,
+      "Beginner": 1338,
+      "Easy": 1668,
+      "Expert": 521,
+      "Standard": 1132
+    },
+    "semanticHashes": {
+      "algorithm": "sha256",
+      "canonicalBank": "26afebb9b3ca8167d178cd1775c551a3cdcc525885421b45198375928553b046",
+      "registry": "5673e072b539fe91ea8edf078bd07a1815aa38fdb058854a24f9334f2a49bb27",
+      "structuredBank": "4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb"
+    },
+    "artifactSha256": {
+      "question-bank.json": "167413663201e93439ff1d619ced00bda493bb334b667d92b4dd251c604f1268",
+      "structured-questions.json": "60fad2a3985e9dc6304026ad84325d2ea4053273f639b81bd1aa327c5459e878",
+      "question-registry.json": "490ac2f11a046999e577d561c93bef56c968345aba8eff48ce8068ca1b5cf1b0"
+    },
+    "perQuestionHashesSha256": "26afebb9b3ca8167d178cd1775c551a3cdcc525885421b45198375928553b046",
+    "structuredHashesSha256": "4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb",
+    "aliasTargetsSha256": "c7d35e57f7c44f7a7532f7f8e7692923bd956dc690c3e6ade4665dc7f3e7dead"
+  },
+  "audit": {
+    "reviewed": 200,
+    "unchangedVerified": 194,
+    "corrected": 6,
+    "unresolved": 0,
+    "pending": 5599,
+    "wholeBankAudited": false
+  }
+}

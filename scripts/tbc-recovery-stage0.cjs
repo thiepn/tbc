@@ -9,6 +9,8 @@ const { spawn, execFileSync } = require('node:child_process');
 const { worktreeBlob } = require('./tbc-source-identity.cjs');
 const { validateTransition } = require('./tbc-successor-transition.cjs');
 const { validateBatch03Transition } = require('./tbc-batch03-successor-transition.cjs');
+const { validateBatch04Transition } = require('./tbc-batch04-successor-transition.cjs');
+const { validateBatch07Transition } = require('./tbc-batch07-successor-transition.cjs');
 const ROOT = path.resolve(__dirname, '..');
 const BASELINE = 'f84d5eff6a93046642c681e9163baa1b0b6b31a2';
 const PRODUCT = ['index.html', 'assets/pr5-foundation.css', 'assets/pr5-shell.js',
@@ -26,7 +28,7 @@ const evidence = { schemaVersion: 1, baseline: BASELINE, startedAt: new Date().t
   browserChannel: ['build', 'deploy-check'].includes(process.argv[2]) ? 'not used' : process.env.TBC_BROWSER_CHANNEL || 'bundled Chromium', results: [] };
 
 function build() {
-  evidence.successor = { prior: validateTransition(), batch03: validateBatch03Transition() };
+  evidence.successor = { prior: validateTransition(), batch03: validateBatch03Transition(), batch04: validateBatch04Transition(), batch07: validateBatch07Transition() };
   git('merge-base', '--is-ancestor', '25d2ff4975e91c031a78ba07ce57fab4c46d80f0', 'HEAD');
   console.log(`BUILD PASS: ${PRODUCT.length} deployed files match the authorized successor; exact repair replay, protected evidence, schema/keys and acceptance test preserved; no bundle emitted.`);
 }
@@ -77,7 +79,7 @@ async function tests() {
     'p0c-existing-feature-preservation-audit', 'p0d-visual-preservation-audit',
     'p1b-pr7-activation-audit', 'tbc-historical-preservation', 'tbc-stage0-invariants',
     'tbc-preservation-repair', 'tbc-session-compatibility',
-    'tbc-question-revision-tests', 'tbc-four-question-quality', 'tbc-batch03-question-quality',
+    'tbc-question-revision-tests', 'tbc-four-question-quality', 'tbc-batch03-question-quality', 'tbc-batch04-question-quality', 'tbc-batch07-question-quality',
     'p0e-browser-certification', 'p1b-pr7-browser-smoke', 'validate-release']) {
     await run(`scripts/${script}.cjs`);
   }
@@ -108,6 +110,8 @@ async function audit() {
   await run('scripts/tbc-product-identity.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
   await run('scripts/tbc-question-successor.test.cjs', {}, ['--test']);
   await run('scripts/tbc-batch03-successor.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
+  await run('scripts/tbc-batch04-successor.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
+  await run('scripts/tbc-batch07-successor.test.cjs', { P2A_OUT_DIR: dirs[0] }, ['--test']);
 }
 
 async function deployment() {

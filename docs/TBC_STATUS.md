@@ -1535,3 +1535,344 @@ additional question changed. Linux/Node-22 and bundled Chromium remain CI-only
 verification limitations. The next task is commit this certified local
 candidate, then rerun the required postcommit build and verification; do not
 start ledger entry 151 or push, merge or deploy without separate authorization.
+
+## Canonical question-content audit — Batch 04, entries 151–200
+
+Batch 04 was performed on `codex/question-audit-batch-04` from predecessor
+`c2a129cf9e41fff089dc361c0019acb2148ccaef`. Exactly ledger entries 151–200
+were individually reviewed, from `1-thessalonians-5-21-reference` through
+`2-corinthians-5-21-context`. Entry 201,
+`2-corinthians-5-21-meaning`, was not reviewed or modified.
+
+The result is **49 unchanged and verified / 1 corrected / 0 unresolved**. The
+sole correction is `1-timothy-6-6-context`. In 1 Timothy 6:3–10 the former
+distractor, “Paul warns against false teachers and discontented pursuit of
+wealth,” overlapped the keyed description of Paul contrasting false teachers'
+greed with true gain. Option index 0 is now “Paul begins by praising God after
+severe affliction,” a distinct context from 2 Corinthians 1:3–11. The stable
+ID, prompt, keyed answer, answer position, tier, metadata and remaining options
+are unchanged.
+
+The exact predecessor from `c2a129…` is retained as revision version 1:
+
+```text
+predecessor index blob:      29994bf8bf0357a92a9c84bd84d327d3f5538221
+candidate index blob:        3ece1c38070abe3e98b47696bba34b2eee2bb2c1
+predecessor product SHA-256: 587506df65e6510671c7ca9d5744e23b4028e349c3b43d19e9a7944309715bc3
+candidate product SHA-256:   a6a3f792de295c7c1f7b279f40ca28803ca344015a971a46934b15bd738592bc
+predecessor fingerprint:     9857d3803ebca3b2d38580a0f23263fdddaef96ba4e119494bb6aa73ce098377
+predecessor snapshot hash:   94316189b7f21e271cde932cf73e2fb8fd1e62f3ffc3e79ad526c6c4f5c39bc5
+successor fingerprint:       37aca4e8b8907af0dc61aeb4dc5b7d9e4734ffc42747d8c2c8fe9c99767be9c7
+```
+
+The append-only Batch 04 identity and transition extend the earlier successor
+chain without changing historical records. Current content validation reverses
+the Batch 04 row to the exact Batch 03 artifacts, then replays the earlier
+transitions. No freezer ran and no frozen P2A or historical manifest was
+rewritten.
+
+### Batch 04 verification and accepted limitation
+
+Windows / Node 24.16.0 / locked Playwright 1.55.1 verification produced:
+
+- Batch 04 quality **6/6**, Batch 03 quality **5/5**, and original quality
+  **4/4**.
+- Revision lifecycle **71/71**, Stage 0 **7/7**, compatibility **27/27**,
+  preservation **19/19**, reconciliation **15/15**, P0E **7/7**, and P1B
+  browser/static checks passed.
+- Both P2A audits passed **58/58** and all five extracted artifacts were
+  deterministic. P2A negatives passed **11/11**; product-identity negatives
+  **31/31**; earlier successor checks **7/7**; Batch 03 negatives **22/22**;
+  Batch 04 negatives **24/24**.
+- Counts remain **5,799 canonical / 6,072 registry / 273 aliases / 203
+  structured / 66 books**; tiers remain **1338/1668/1132/1140/521**; schema
+  remains 27. All twelve supporting assets, deterministic pools and protected
+  entry 201 remain exact.
+- Build, JavaScript/JSON parsing and `git diff --check` passed.
+
+The complete aggregate is not green: unchanged
+`p27d-runtime-browser-certification.cjs` times out waiting for the first-run
+Standard difficulty chooser. The failure reproduces against both the Batch 04
+candidate and exact `c2a129…` predecessor in Edge, cached Chromium 151, and
+Playwright Chromium 140.0.7339.186 build 1193. Inspection identifies a
+pre-existing startup-order race between `finishBoot()` invoking `onboarding()`
+and the later `d9ShowOnboarding` assignment. On 2026-09-04 the user explicitly
+directed that this pre-existing failure be ignored so Batch 04 could close and
+the next audit batch could begin. No assertion or product behavior was changed
+to conceal it; it remains an unresolved release limitation.
+
+No push, merge or deployment is part of this closeout. The next authorized task
+is the Batch 05 editorial audit beginning at entry 201; the P27D startup race
+remains separate work.
+
+## Canonical question-content audit — Batch 05, entries 201–250
+
+Batch 05 started from the committed Batch 04 successor
+`2cab7c7742eeb92ef7b784869ca07bbae675e7e5` on local branch
+`codex/question-audit-batch-05`. Exactly the 50 lexically ordered ledger entries
+201–250 were individually reviewed, beginning with
+`2-corinthians-5-21-meaning` and ending with
+`2-thessalonians-2-15-meaning`. Entry 251,
+`2-thessalonians-2-16-17-context`, was not reviewed or modified.
+
+The result is **50 unchanged and verified / 0 corrected / 0 unresolved**. Each
+entry now has direct Scripture evidence, an individual rationale, and a finding
+for every answer option. The review covered 2 Corinthians 5 and 9; 2 John;
+2 Kings 5, 6, 17 and 22; 2 Peter 1 and 3; 2 Samuel 7, 12 and 22; and
+2 Thessalonians 2. In every case the keyed choice remained the unique best
+answer supported by the cited unit.
+
+Entry 235, `2-samuel-12-13-context`, has two near-duplicate wrong choices that
+both describe David’s later deliverance song. This weakens distractor variety,
+but neither choice describes Nathan confronting David in 2 Samuel 12:7–16;
+the keyed answer therefore remains uniquely defensible. Under the instruction
+not to edit merely stylistic imperfections, it was recorded and left unchanged.
+
+### Batch 05 verification
+
+- Ledger inventory/check: **5,799/5,799**, completed **250**, pending **5,549**,
+  unresolved **0**.
+- Batch scope check: PASS. Only audit evidence for entries 201–250 changed;
+  every question inventory/content field and protected entry 251 remain exact.
+- `npm.cmd run build`: PASS. Current Batch 04 identity, all thirteen deployed
+  files, transition replay, schema/keys and acceptance test remain recognized.
+- Revision archive: PASS, unchanged at **6 changed IDs / 6 exact predecessor
+  revisions**.
+- `npm.cmd run audit:p2a`: PASS using the exact Playwright Chromium
+  140.0.7339.186 build-1193 executable extracted from the official downloaded
+  archive. Both P2A audits passed **58/58**; all five artifacts were
+  byte-identical across runs; P2B–P2E found zero confirmed defects.
+- Negative suites passed without skips: P2A **11/11**, product identity
+  **31/31**, first successor **7/7**, Batch 03 **22/22**, and Batch 04 **24/24**.
+- Counts remain **5,799 canonical / 6,072 registry / 273 aliases / 203
+  structured / 66 books**; tiers remain **1338/1668/1132/1140/521**. Product,
+  revision, alias, schema, storage, asset, identity and package files are
+  unchanged from the Batch 04 commit.
+- JSON parsing and `git diff --check` pass.
+
+The full browser aggregate was not repeated because the user explicitly waived
+the separately documented, pre-existing P27D first-run onboarding race. No test
+or product code was changed to suppress that failure. Batch 05 introduces no
+canonical content change, so no successor identity or revision archive entry is
+required. This Batch 05 ledger update is uncommitted, unpushed, unmerged and
+undeployed. The exact next task is a separately authorized ledger-only Batch 05
+commit; after that, Batch 06 would begin at entry 251.
+
+## Canonical question-content audit — Batch 06, entries 251–300
+
+Batch 06 started from the committed Batch 05 ledger checkpoint
+`e6d9dcc45df82011969253fd19481e7cda0daed7` on local branch
+`codex/question-audit-batch-06`. Exactly the 50 lexically ordered ledger entries
+251–300 were individually reviewed, beginning with
+`2-thessalonians-2-16-17-context` and ending with `acts-4-32-context`. Entry 301,
+`acts-4-32-meaning`, was not reviewed or modified.
+
+The result is **50 unchanged and verified / 0 corrected / 0 unresolved**. Each
+entry records direct Scripture evidence, an individual rationale, and a finding
+for every answer option. The review covered 2 Thessalonians 2–3; 2 Timothy 1–4;
+3 John; and Acts 1, 2, 4, 16, 17 and 20. Every keyed choice remains the unique
+best answer supported by its cited unit.
+
+Two wording points received explicit translation/context review:
+
+- `2-timothy-1-12-meaning` follows the BSB/KJV/NKJV/NASB direction of the
+  grammatically disputed deposit phrase. The competing translation still
+  preserves the verse's core confidence in Christ and is not represented by a
+  distractor, so the keyed answer remains defensible and unique.
+- `2-timothy-1-7-meaning` describes God's Spirit as the source of power, love
+  and self-control. Major translations divide between “a spirit” and an
+  explicit reference to the Spirit, while the same charge culminates in the
+  indwelling Holy Spirit at verse 14. This is a supportable interpretation, not
+  an answer ambiguity. `acts-2-42-meaning` likewise summarizes the complete
+  immediate community unit in Acts 2:42–47, which includes prayer, praise,
+  shared provision, public witness/favor and daily growth.
+
+### Batch 06 verification
+
+- Ledger inventory/check: **5,799/5,799**, completed **300**, pending **5,499**,
+  unresolved **0**. The Batch 06 scope regression passed: only audit fields for
+  entries 251–300 changed; every question inventory/content field and protected
+  entry 301 remain exact.
+- `npm.cmd run build`: PASS. The current Batch 04 product identity, all thirteen
+  deployed files, transition replay, schema/keys and acceptance test remain
+  recognized.
+- Revision archive: PASS, unchanged at **6 changed IDs / 6 exact predecessor
+  revisions**. The unchanged browser lifecycle suite passed **71/71** in Edge
+  after its documented read-only server prerequisite was started; an initial
+  direct invocation without that server timed out at readiness and was not
+  counted as a product failure.
+- `npm.cmd run audit:p2a`: PASS in Edge. Both P2A audits passed **58/58** and all
+  five extracted artifacts were byte-identical. P2B–P2E reported zero confirmed
+  defects. Negative suites passed without skips: P2A **11/11**, current product
+  identity **31/31**, first successor **7/7**, Batch 03 **22/22**, and Batch 04
+  **24/24**.
+- Counts remain **5,799 canonical / 6,072 registry / 273 aliases / 203
+  structured / 66 books**; tiers remain **1338/1668/1132/1140/521**. Hashes
+  remain canonical `26afebb9b3ca8167d178cd1775c551a3cdcc525885421b45198375928553b046`,
+  structured `4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb`,
+  and registry `5673e072b539fe91ea8edf078bd07a1815aa38fdb058854a24f9334f2a49bb27`.
+- Parse checks passed for **85 JS/CJS** and **17 JSON** files;
+  `git diff --check` passed.
+
+The historical Batch 03 and Batch 04 focused quality scripts were also run and
+reported **4/5** and **5/6**. Their sole failures compare the entire current
+audit ledger to the old batch predecessor and therefore reject the legitimate
+later Batch 05/06 audit annotations outside their original ranges. Their actual
+question-correction assertions continue to pass. No assertion or test was
+changed in this editorial phase. The full browser aggregate was not repeated
+because the user previously waived the separately documented, pre-existing
+P27D first-run onboarding race; no product or test change conceals it.
+
+Batch 06 changes only the audit ledger and rendered index. Product, question,
+revision, alias, tier, schema, storage, asset, identity, manifest, package,
+workflow, gameplay and UI files are unchanged, so no successor identity is
+required. This Batch 06 ledger update is uncommitted, unpushed, unmerged and
+undeployed. The exact next task is a separately authorized ledger-only Batch 06
+commit; after that, Batch 07 would begin at entry 301.
+
+## Canonical question-content audit — Batch 07, entries 301–350
+
+Batch 06 was sealed as ledger-only commit
+`f1f4a8d4adeae2edd95f28624826abf96caa5b33`, and Batch 07 began from that
+exact checkpoint on local branch `codex/question-audit-batch-07`. Exactly the
+50 lexically ordered ledger entries 301–350 were individually reviewed,
+beginning with `acts-4-32-meaning` and ending with
+`connection.bethlehem-messiah.meaning`. Entry 351,
+`connection.bronze-serpent.meaning`, was not reviewed or modified.
+
+The result is **49 unchanged and verified / 1 corrected / 0 unresolved**. Each
+entry records direct Scripture evidence, an individual rationale, and a finding
+for every answer option. The review covered Acts 4–5; Amos 5 and 7; Colossians
+1–3; and the Abraham/city, Abraham/faith, Abraham/nations, Abraham/seed,
+Adam/Christ, ark/baptism, and Bethlehem/Messiah cross-passage connections.
+
+The sole correction is `connection.ark-baptism.v20-meaning`. Genesis 6:18 and
+7:23 describe Noah's household preserved in the ark, while 1 Peter 3:20–21
+explicitly relates the eight saved through water to baptism through Jesus
+Christ's resurrection. The keyed option states that relationship, but the old
+second option also said that Peter uses Noah's rescue as a correspondence when
+explaining baptism and Christ's resurrection. Both choices therefore answered
+the prompt. The second option is now the distinct and biblically valid
+Adam–Christ connection, “Paul contrasts Adam's disobedience and death with
+Christ's obedience and gift of life,” supported by Romans 5:12–19 and
+1 Corinthians 15:21–22. The stable ID, prompt, keyed answer, answer position,
+tier, metadata and two unaffected distractors are preserved; the corresponding
+distractor rationale was updated with the option.
+
+The exact predecessor from `f1f4a8d…` is retained as revision version 1:
+
+```text
+predecessor product SHA-256:  a6a3f792de295c7c1f7b279f40ca28803ca344015a971a46934b15bd738592bc
+candidate product SHA-256:    80051430da97b3423e889678e7d1c37991b92e5479ea05dd0d49c76016309272
+predecessor index blob:       3ece1c38070abe3e98b47696bba34b2eee2bb2c1
+candidate index blob:         e8531e739b871236853115707b6b6bdf702996aa
+predecessor fingerprint:      89a4e9c0f02f3f0c08881d892d33331aacf2928fd7b07cb87b03f2149881c478
+predecessor snapshot hash:    412b244d59fb750daff0e9441e16437e1c4dc554f21d485900d30ade17f90541
+candidate fingerprint:        b6649736bff64adc2818997e8a7e25f3d6c0a578e8d026713431f7143a9d21b1
+candidate snapshot hash:      c4f5e69a7e9e7e2d70abb4c0ea2f16dd15bf4f11a5c02c15dc9540515a479cd1
+```
+
+### Batch 07 editorial checkpoint verification
+
+- Ledger inventory/check: **5,799/5,799**, completed **350**, pending
+  **5,449**, unresolved **0**. The focused Batch 07 gate passed **6/6** and
+  proves exact scope, exact predecessor archival, one changed question,
+  preserved answer position/tier, and protected entry 351.
+- Revision archive validation passed at **7 changed IDs / 7 exact predecessor
+  revisions**. The full active-session lifecycle suite passed **78/78** in
+  Edge, including Quick Play, Daily Five and Weekly Challenge, answered and
+  unasked predecessors, primary/backup recovery, repeated reload, completion,
+  export/import and unknown-revision rejection.
+- Stage 0 passed **7/7**, compatibility **27/27**, preservation **19/19**,
+  P0E browser **7/7**, and P1B browser/static certification passed. Desktop
+  and mobile navigation remained covered. Browser work used installed Edge
+  because the locked Playwright 1.55.1 headless-shell build 1193 is absent
+  locally; Linux/bundled-Chromium certification remains for a later PR.
+- Two certified P2A extractions were byte-identical across all five artifacts.
+  Counts remain **5,799 canonical / 6,072 registry / 273 aliases / 203
+  structured / 66 books** and tiers remain **1338/1668/1132/1140/521**.
+  The candidate hashes are canonical
+  `5beca9c7eb30dd6bc3047bb4a66cc3e4d4e833a09886eea41457e6eadd7d1bad`,
+  structured
+  `4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb`,
+  and registry
+  `0253814053c4e5d1deebc1b6a3e6ecf8b40843a97b79a14660e8428a806c91aa`.
+  P2B, P2C and P2D reported zero confirmed defects.
+- The P2A audits each passed **54/58**. Their four failures are the expected
+  frozen registry hash, canonical hash, monolith identity and QB11 runtime
+  bank-audit checks. P2E likewise reports only the expected QB11 bank-audit
+  failure. `npm.cmd run build` stops at the expected current-product identity
+  mismatch (`e8531e7…` versus certified `3ece1c3…`). Historical successor
+  negative suites cannot establish their normal baselines while the current
+  product is deliberately outside the last certified identity. These are the
+  intended narrow successor-certification checkpoint, not behavioral defects.
+- The previously documented P27D first-run onboarding race remains separately
+  waived by the user and was not changed or concealed in this batch. No broad
+  freezer, manifest update, historical-evidence rewrite, schema change, storage
+  change, asset change, tier change, alias change, gameplay change or UI change
+  was made. Parse checks passed for **84 JS/CJS**, **17 JSON** files and the
+  embedded engine; `git diff --check` passed.
+
+Batch 07 is uncommitted, unpushed, unmerged and undeployed. The exact next task
+is a separately authorized narrow Batch 07 successor-identity certification
+covering only this one question revision and its append-only predecessor, while
+preserving every historical identity and leaving entry 351 untouched. Batch 08
+must not begin before that checkpoint is certified and committed.
+
+## Batch 07 successor certification — completed locally
+
+The Batch 07 correction is now certified locally on
+`codex/question-audit-batch-07`, still based on Batch 06 checkpoint
+`f1f4a8d4adeae2edd95f28624826abf96caa5b33`. The append-only identity is
+`certification/tbc-batch07-question-revision-identity.json`; it recognizes only
+index blob `e8531e739b871236853115707b6b6bdf702996aa` and records the exact
+four-edit transition from the preceding blob
+`3ece1c38070abe3e98b47696bba34b2eee2bb2c1`. Historical identity manifests,
+transition records and P2A baseline remain byte-identical. No freezer was run.
+
+The record covers only `connection.ark-baptism.v20-meaning`: it retains the
+exact `f1f4a8d` archived snapshot and predecessor fingerprint
+`89a4e9c0f02f3f0c08881d892d33331aacf2928fd7b07cb87b03f2149881c478`, while
+the current fingerprint is
+`b6649736bff64adc2818997e8a7e25f3d6c0a578e8d026713431f7143a9d21b1`.
+The only authored change is the ambiguous Noah/baptism distractor and matching
+feedback becoming the separate Adam/Christ comparison. Stable ID, keyed answer,
+answer position, tier, all counts, aliases, structured subset, schema 27,
+storage keys and twelve supporting assets remain preserved. Entry 351,
+`connection.bronze-serpent.meaning`, was not reviewed or modified.
+
+QB11 retains its historical whole-bank QB1 freeze, so its raw runtime report
+marks only `qb1` false for this post-freeze certified question revision. The
+new `qb11AuditHealthy()` guard accepts exactly that one pinned condition after
+the Batch 07 manifest and full content proof validate; every other false QB11
+subcheck fails extraction, P2A, P2E and release validation. The raw audit is
+not rewritten or hidden.
+
+### Batch 07 successor verification
+
+- `npm.cmd run build`: PASS before and during final aggregate verification.
+- `npm.cmd run verify`: PASS, **38/38 child commands**. It includes Stage 0
+  **7/7**, preservation **19/19**, compatibility **27/27**, revision lifecycle
+  **78/78**, P0E **7/7**, P2A **58/58** twice, P2B–P2E with zero confirmed
+  defects, deterministic five-artifact comparison, historical adapters, P1B,
+  release validation, product identity negatives **32/32**, historical
+  successor negatives **7/7**, Batch 03 **22/22**, Batch 04 **24/24**, and
+  Batch 07 **26/26**.
+- Focused quality gates passed: four original revisions **4/4**, Batch 03
+  **5/5**, Batch 04 **6/6**, Batch 07 **6/6**. The older fixtures now own their
+  own audited ledger range and do not mistake later certified batch rows for
+  changes to their historical review.
+- Two P2A outputs were byte-identical. Current hashes are canonical
+  `5beca9c7eb30dd6bc3047bb4a66cc3e4d4e833a09886eea41457e6eadd7d1bad`,
+  structured `4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb`,
+  and registry `0253814053c4e5d1deebc1b6a3e6ecf8b40843a97b79a14660e8428a806c91aa`.
+- JavaScript/JSON parse checks and `git diff --check` passed before the final
+  status update. Browser verification used installed Edge with Playwright
+  1.55.1 because bundled Chromium build 1193 is unavailable locally. Linux
+  Node-22/bundled-Chromium certification remains required in a separately
+  authorized PR phase.
+
+Batch 07 remains local, uncommitted, unpushed, unmerged and undeployed at this
+point. The exact next task is to review the completed diff, rerun parse and
+`git diff --check`, commit this narrow successor certification, and then await
+separate authorization to push/open a Batch 07 PR. Batch 08 must not begin yet.

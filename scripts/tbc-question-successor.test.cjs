@@ -10,11 +10,11 @@ function fixture(run){
   fs.mkdirSync(boundary,{recursive:true});
   const root=fs.mkdtempSync(path.join(boundary,'identity-negative-'));
   try{
-    const files=[id.MANIFEST,id.TRANSITION,id.BATCH03_MANIFEST,id.BATCH03_TRANSITION,id.P2A,...Object.keys(id.loadManifest().historicalEvidence)];
+    const files=[id.MANIFEST,id.TRANSITION,id.BATCH03_MANIFEST,id.BATCH03_TRANSITION,id.BATCH04_MANIFEST,id.BATCH04_TRANSITION,id.BATCH07_MANIFEST,id.BATCH07_TRANSITION,id.P2A,...Object.keys(id.loadManifest().historicalEvidence)];
     for(const file of files){fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.copyFileSync(path.join(id.ROOT,file),path.join(root,file))}
     // Every mutation starts from a passing authority, so no stale prerequisite
     // can masquerade as the intended rejection.
-    id.currentP2ABaseline(root);id.loadTransition(root);
+    id.currentP2ABaseline(root);id.loadTransition(root);id.loadBatch03Transition(root);id.loadBatch04Transition(root);id.loadBatch07Transition(root);
     run(root);
   }finally{
     const resolved=fs.realpathSync(root);

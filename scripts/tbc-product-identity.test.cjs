@@ -7,12 +7,21 @@ const id = require('./tbc-product-identity.cjs');
 const { validateTransition } = require('./tbc-successor-transition.cjs');
 const SOURCE = path.resolve(id.ROOT, process.env.P2A_OUT_DIR || 'artifacts/p2a');
 
+test('QB11 successor interpretation permits only the pinned historical QB1 freeze', () => {
+  assert.equal(id.qb11AuditHealthy({ passed: true }), true);
+  assert.equal(id.qb11AuditHealthy({ passed: false, checks: { qb1: false, canonical: true, registry: true } }), true);
+  assert.equal(id.qb11AuditHealthy({ passed: false, checks: { qb1: false, canonical: false, registry: true } }), false);
+  assert.equal(id.qb11AuditHealthy({ passed: false, checks: { qb1: true, canonical: false } }), false);
+  assert.equal(id.qb11AuditHealthy({ passed: false, checks: { qb1: false } }), true);
+  assert.equal(id.qb11AuditHealthy({ passed: false }), false);
+});
+
 test('successor identity and transition reject unauthorized mutations', async t => {
   const boundary = path.join(id.ROOT, 'artifacts/product-identity');
   fs.mkdirSync(boundary, { recursive: true });
   const root = fs.mkdtempSync(path.join(boundary, 'negative-'));
   const manifest = id.loadManifest();
-  const files = [...id.PRODUCT, id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION, id.P2A, id.ACCEPTANCE, ...Object.keys(manifest.historicalEvidence)];
+  const files = [...id.PRODUCT, id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION, id.BATCH04_MANIFEST, id.BATCH04_TRANSITION, id.BATCH07_MANIFEST, id.BATCH07_TRANSITION, id.P2A, id.ACCEPTANCE, ...Object.keys(manifest.historicalEvidence)];
   for (const file of files) {
     fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true });
     fs.copyFileSync(path.join(id.ROOT, file), path.join(root, file));

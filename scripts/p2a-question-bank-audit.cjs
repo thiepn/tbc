@@ -12,6 +12,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const crypto=require('node:crypto');
 const {worktreeBlob}=require('./tbc-source-identity.cjs');
+const {qb11AuditHealthy}=require('./tbc-product-identity.cjs');
 
 const ROOT=path.resolve(__dirname,'..');
 const DIR=path.resolve(ROOT,process.env.P2A_OUT_DIR||'artifacts/p2a');
@@ -90,7 +91,7 @@ if(baseline.hashes?.canonicalBankSha256)check('canonical frozen hash',recomputed
 if(baseline.hashes?.structuredBankSha256)check('structured frozen hash',recomputedStructuredHash===baseline.hashes.structuredBankSha256,`${recomputedStructuredHash}`);
 if(baseline.source?.indexBlobSha1)check('frozen monolith source identity',summary.source?.indexBlobSha1===baseline.source.indexBlobSha1,`${summary.source?.indexBlobSha1}`);
 check('artifacts match current candidate source',summary.source?.indexBlobSha1===worktreeBlob('index.html'));
-check('runtime health',summary.runtimeHealth?.pageErrors?.length===0&&summary.runtimeHealth?.consoleErrors?.length===0&&['qb11BankAudit','qb8SchemaAudit','qb8InteractionAudit'].every(k=>summary.runtimeHealth?.[k]?.passed===true));
+check('runtime health',summary.runtimeHealth?.pageErrors?.length===0&&summary.runtimeHealth?.consoleErrors?.length===0&&qb11AuditHealthy(summary.runtimeHealth?.qb11BankAudit)&&['qb8SchemaAudit','qb8InteractionAudit'].every(k=>summary.runtimeHealth?.[k]?.passed===true));
 check('discovery agrees with summary',JSON.stringify(stable(discovery.counts))===JSON.stringify(stable(summary.counts))&&JSON.stringify(stable(discovery.authority))===JSON.stringify(stable(summary.source))&&JSON.stringify(stable(discovery.runtimeHealth))===JSON.stringify(stable(summary.runtimeHealth)));
 
 const requiredNormalizedFields=['question','correctAnswer','distractors','options','bibleReference','book','category','difficulty','explanation','evidence','memoryCue','collections','modeEligibility','questionType'];
