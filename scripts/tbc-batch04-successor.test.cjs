@@ -13,7 +13,8 @@ test('Batch 04 successor accepts its exact candidate and rejects bounded corrupt
   const root = fs.mkdtempSync(path.join(boundary, 'negative-'));
   const parent = id.loadBatch03Manifest();
   const files = [...id.PRODUCT, id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION,
-    id.BATCH04_MANIFEST, id.BATCH04_TRANSITION, id.P2A, id.ACCEPTANCE, ...Object.keys(id.loadManifest().historicalEvidence)];
+    id.BATCH04_MANIFEST, id.BATCH04_TRANSITION, id.BATCH07_MANIFEST, id.BATCH07_TRANSITION, id.P2A, id.ACCEPTANCE,
+    ...Object.keys(id.loadManifest().historicalEvidence)];
   for (const file of files) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(path.join(id.ROOT, file), path.join(root, file)); }
   const content = path.join(root, 'content'); fs.mkdirSync(content);
   for (const file of [...id.CONTENT_FILES, 'question-bank-summary.json']) fs.copyFileSync(path.join(SOURCE, file), path.join(content, file));
@@ -47,7 +48,7 @@ test('Batch 04 successor accepts its exact candidate and rejects bounded corrupt
       ['structured-subset change', 'structured-questions.json', q => { q.questions[0].question += ' tampered'; }]
     ]) await mutate(`rejects ${name}`, path.join(content, file), json(change), () => id.validateContent(content, root), /protected content artifact changed/);
     for (const [name, file] of [['schema/storage-key change', id.BATCH04_MANIFEST], ['supporting deployed-asset change', 'assets/pr5-shell.js']]) {
-      await mutate(`rejects ${name}`, path.join(root, file), bytes => Buffer.concat([bytes, Buffer.from('\n')]), () => id.validateCurrent(root), /Batch 04 identity manifest tampered|current product identity changed/);
+      await mutate(`rejects ${name}`, path.join(root, file), bytes => Buffer.concat([bytes, Buffer.from('\n')]), () => id.validateCurrent(root), /Batch 04 identity manifest tampered|prior Batch 04 successor identity changed|current product identity changed/);
     }
     assert.equal(parent.successor.indexBlobSha1, id.BATCH03_SUCCESSOR);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }

@@ -10,13 +10,15 @@ const core = create({ version: 1, records: [] });
 const PREDECESSOR = 'e09333f1b532ef5fe5d3179335eafbba5e61d53b';
 const BATCH03_PREDECESSOR = 'dded986a1fce1683acc04b621939e67288084c17';
 const BATCH04_PREDECESSOR = 'c2a129cf9e41fff089dc361c0019acb2148ccaef';
+const BATCH07_PREDECESSOR = 'f1f4a8d4adeae2edd95f28624826abf96caa5b33';
 const PREDECESSOR_BY_ID = Object.freeze({
   '1-chronicles-16-11-context': PREDECESSOR,
   '1-chronicles-16-34-context': PREDECESSOR,
   '1-kings-8-27-context': PREDECESSOR,
   '1-kings-8-61-context': PREDECESSOR,
   '1-samuel-12-24-context': BATCH03_PREDECESSOR,
-  '1-timothy-6-6-context': BATCH04_PREDECESSOR
+  '1-timothy-6-6-context': BATCH04_PREDECESSOR,
+  'connection.ark-baptism.v20-meaning': BATCH07_PREDECESSOR
 });
 const ARCHIVE = /\/\* TBC QUESTION REVISIONS DATA \*\/\nconst TBC_QUESTION_REVISION_ARCHIVE = (.+);/;
 function readArchive(html = fs.readFileSync('index.html')) {
@@ -76,16 +78,17 @@ async function capture(page) {
   // undefined properties are not serializable question content.
   return JSON.parse(JSON.stringify(data));
 }
-module.exports = { create, core, PREDECESSOR, BATCH03_PREDECESSOR, BATCH04_PREDECESSOR, PREDECESSOR_BY_ID, ARCHIVE, readArchive, gitHtml, productHash, record, validate, capture };
+module.exports = { create, core, PREDECESSOR, BATCH03_PREDECESSOR, BATCH04_PREDECESSOR, BATCH07_PREDECESSOR, PREDECESSOR_BY_ID, ARCHIVE, readArchive, gitHtml, productHash, record, validate, capture };
 if (require.main === module) {
   try {
     const read = name => JSON.parse(fs.readFileSync(`artifacts/question-revisions/${name}.json`,'utf8'));
-    const before=read('predecessor'),batch03=read('predecessor-dded986'),batch04=read('predecessor-c2a129'),after=read('candidate');
+    const before=read('predecessor'),batch03=read('predecessor-dded986'),batch04=read('predecessor-c2a129'),batch07=read('predecessor-f1f4a8d'),after=read('candidate');
     assert.equal(before.productSha256,productHash(gitHtml(PREDECESSOR)),'stale predecessor capture');
     assert.equal(batch03.productSha256,productHash(gitHtml(BATCH03_PREDECESSOR)),'stale Batch 03 predecessor capture');
     assert.equal(batch04.productSha256,productHash(gitHtml(BATCH04_PREDECESSOR)),'stale Batch 04 predecessor capture');
+    assert.equal(batch07.productSha256,productHash(gitHtml(BATCH07_PREDECESSOR)),'stale Batch 07 predecessor capture');
     assert.equal(after.productSha256,productHash(fs.readFileSync('index.html')),'stale candidate capture');
-    const changed = validate(readArchive(),before,after,{[PREDECESSOR]:before,[BATCH03_PREDECESSOR]:batch03,[BATCH04_PREDECESSOR]:batch04});
+    const changed = validate(readArchive(),before,after,{[PREDECESSOR]:before,[BATCH03_PREDECESSOR]:batch03,[BATCH04_PREDECESSOR]:batch04,[BATCH07_PREDECESSOR]:batch07});
     console.log(`REVISION ARCHIVE PASS: ${changed.length} changed IDs, ${readArchive().records.length} exact predecessor revisions; all counts/tiers/aliases/schema/pool identities retained.`);
   } catch(e) { console.error(e.stack); process.exitCode=1; }
 }

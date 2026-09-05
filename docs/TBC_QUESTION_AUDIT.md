@@ -3,8 +3,8 @@
 This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activeQuestions()` as extracted by P2A; aliases are compatibility mappings, not additional questions.
 
 - Canonical runtime questions: **5799**
-- Individually completed: **300**
-- Pending individual review: **5499**
+- Individually completed: **350**
+- Pending individual review: **5449**
 - Unresolved human decisions: **0**
 - Complete inventory fields, aliases, mode eligibility, and per-entry audit evidence are in [`TBC_QUESTION_AUDIT.json`](TBC_QUESTION_AUDIT.json).
 - Validate against a fresh P2A extraction with `node scripts/tbc-question-audit-ledger.cjs check`; use `--require-complete` only after every entry is reviewed.
@@ -313,56 +313,56 @@ This is a non-certification audit inventory. Runtime authority is `TBC_QB6.activ
 | `acts-4-12-context` | 2956 | Acts 4:12 | Advanced | unchanged and verified |
 | `acts-4-12-meaning` | 2955 | Acts 4:12 | Easy | unchanged and verified |
 | `acts-4-32-context` | 2968 | Acts 4:32 | Advanced | unchanged and verified |
-| `acts-4-32-meaning` | 2967 | Acts 4:32 | Easy | pending individual review |
-| `acts-5-29-book` | 2971 | Acts 5:29 | Standard | pending individual review |
-| `acts-5-29-context` | 2970 | Acts 5:29 | Standard | pending individual review |
-| `acts-5-29-meaning` | 2969 | Acts 5:29 | Beginner | pending individual review |
-| `acts-5-29-reference` | 2972 | Acts 5:29 | Advanced | pending individual review |
-| `amos-5-14-context` | 1985 | Amos 5:14 | Advanced | pending individual review |
-| `amos-5-14-meaning` | 1984 | Amos 5:14 | Easy | pending individual review |
-| `amos-5-24-context` | 1980 | Amos 5:24 | Advanced | pending individual review |
-| `amos-5-24-meaning` | 1979 | Amos 5:24 | Easy | pending individual review |
-| `amos-7-14-15-book` | 1983 | Amos 7:14-15 | Easy | pending individual review |
-| `amos-7-14-15-context` | 1982 | Amos 7:14-15 | Standard | pending individual review |
-| `amos-7-14-15-meaning` | 1981 | Amos 7:14-15 | Beginner | pending individual review |
-| `amos-7-7-9-book` | 1988 | Amos 7:7-9 | Easy | pending individual review |
-| `amos-7-7-9-context` | 1987 | Amos 7:7-9 | Standard | pending individual review |
-| `amos-7-7-9-meaning` | 1986 | Amos 7:7-9 | Beginner | pending individual review |
-| `colossians-1-15-book` | 3300 | Colossians 1:15 | Standard | pending individual review |
-| `colossians-1-15-context` | 3299 | Colossians 1:15 | Standard | pending individual review |
-| `colossians-1-15-meaning` | 3298 | Colossians 1:15 | Beginner | pending individual review |
-| `colossians-1-15-reference` | 3301 | Colossians 1:15 | Advanced | pending individual review |
-| `colossians-1-16-context` | 3290 | Colossians 1:16 | Advanced | pending individual review |
-| `colossians-1-16-meaning` | 3289 | Colossians 1:16 | Easy | pending individual review |
-| `colossians-1-27-book` | 3304 | Colossians 1:27 | Standard | pending individual review |
-| `colossians-1-27-context` | 3303 | Colossians 1:27 | Standard | pending individual review |
-| `colossians-1-27-meaning` | 3302 | Colossians 1:27 | Beginner | pending individual review |
-| `colossians-1-27-reference` | 3305 | Colossians 1:27 | Advanced | pending individual review |
-| `colossians-2-6-context` | 3297 | Colossians 2:6 | Advanced | pending individual review |
-| `colossians-2-6-meaning` | 3296 | Colossians 2:6 | Easy | pending individual review |
-| `colossians-2-9-10-book` | 3293 | Colossians 2:9-10 | Standard | pending individual review |
-| `colossians-2-9-10-context` | 3292 | Colossians 2:9-10 | Standard | pending individual review |
-| `colossians-2-9-10-meaning` | 3291 | Colossians 2:9-10 | Beginner | pending individual review |
-| `colossians-3-12-book` | 3308 | Colossians 3:12 | Standard | pending individual review |
-| `colossians-3-12-context` | 3307 | Colossians 3:12 | Standard | pending individual review |
-| `colossians-3-12-meaning` | 3306 | Colossians 3:12 | Beginner | pending individual review |
-| `colossians-3-12-reference` | 3309 | Colossians 3:12 | Advanced | pending individual review |
-| `colossians-3-16-context` | 3295 | Colossians 3:16 | Advanced | pending individual review |
-| `colossians-3-16-meaning` | 3294 | Colossians 3:16 | Easy | pending individual review |
-| `colossians-3-23-context` | 3288 | Colossians 3:23 | Advanced | pending individual review |
-| `colossians-3-23-meaning` | 3287 | Colossians 3:23 | Easy | pending individual review |
-| `connection.abraham-city.v20-left` | 211 | Genesis 12:1–9 | Expert | pending individual review |
-| `connection.abraham-city.v20-meaning` | 210 | Genesis 12:1–9 | Advanced | pending individual review |
-| `connection.abraham-city.v20-right` | 212 | Genesis 12:1–9 | Expert | pending individual review |
-| `connection.abraham-faith.meaning` | 118 | Genesis 15:6 | Standard | pending individual review |
-| `connection.abraham-faith.reference` | 119 | Genesis 15:6 | Advanced | pending individual review |
-| `connection.abraham-nations.meaning` | 116 | Genesis 12:1–3 | Standard | pending individual review |
-| `connection.abraham-seed.meaning` | 124 | Genesis 12:7; 22:18 | Standard | pending individual review |
-| `connection.adam-christ.meaning` | 2994 | Romans 5:12–19 | Standard | pending individual review |
-| `connection.ark-baptism.v20-left` | 202 | Genesis 6:18; 7:23 | Advanced | pending individual review |
-| `connection.ark-baptism.v20-meaning` | 201 | Genesis 6:18; 7:23 | Advanced | pending individual review |
-| `connection.ark-baptism.v20-right` | 203 | Genesis 6:18; 7:23 | Expert | pending individual review |
-| `connection.bethlehem-messiah.meaning` | 2045 | Micah 5:2 | Standard | pending individual review |
+| `acts-4-32-meaning` | 2967 | Acts 4:32 | Easy | unchanged and verified |
+| `acts-5-29-book` | 2971 | Acts 5:29 | Standard | unchanged and verified |
+| `acts-5-29-context` | 2970 | Acts 5:29 | Standard | unchanged and verified |
+| `acts-5-29-meaning` | 2969 | Acts 5:29 | Beginner | unchanged and verified |
+| `acts-5-29-reference` | 2972 | Acts 5:29 | Advanced | unchanged and verified |
+| `amos-5-14-context` | 1985 | Amos 5:14 | Advanced | unchanged and verified |
+| `amos-5-14-meaning` | 1984 | Amos 5:14 | Easy | unchanged and verified |
+| `amos-5-24-context` | 1980 | Amos 5:24 | Advanced | unchanged and verified |
+| `amos-5-24-meaning` | 1979 | Amos 5:24 | Easy | unchanged and verified |
+| `amos-7-14-15-book` | 1983 | Amos 7:14-15 | Easy | unchanged and verified |
+| `amos-7-14-15-context` | 1982 | Amos 7:14-15 | Standard | unchanged and verified |
+| `amos-7-14-15-meaning` | 1981 | Amos 7:14-15 | Beginner | unchanged and verified |
+| `amos-7-7-9-book` | 1988 | Amos 7:7-9 | Easy | unchanged and verified |
+| `amos-7-7-9-context` | 1987 | Amos 7:7-9 | Standard | unchanged and verified |
+| `amos-7-7-9-meaning` | 1986 | Amos 7:7-9 | Beginner | unchanged and verified |
+| `colossians-1-15-book` | 3300 | Colossians 1:15 | Standard | unchanged and verified |
+| `colossians-1-15-context` | 3299 | Colossians 1:15 | Standard | unchanged and verified |
+| `colossians-1-15-meaning` | 3298 | Colossians 1:15 | Beginner | unchanged and verified |
+| `colossians-1-15-reference` | 3301 | Colossians 1:15 | Advanced | unchanged and verified |
+| `colossians-1-16-context` | 3290 | Colossians 1:16 | Advanced | unchanged and verified |
+| `colossians-1-16-meaning` | 3289 | Colossians 1:16 | Easy | unchanged and verified |
+| `colossians-1-27-book` | 3304 | Colossians 1:27 | Standard | unchanged and verified |
+| `colossians-1-27-context` | 3303 | Colossians 1:27 | Standard | unchanged and verified |
+| `colossians-1-27-meaning` | 3302 | Colossians 1:27 | Beginner | unchanged and verified |
+| `colossians-1-27-reference` | 3305 | Colossians 1:27 | Advanced | unchanged and verified |
+| `colossians-2-6-context` | 3297 | Colossians 2:6 | Advanced | unchanged and verified |
+| `colossians-2-6-meaning` | 3296 | Colossians 2:6 | Easy | unchanged and verified |
+| `colossians-2-9-10-book` | 3293 | Colossians 2:9-10 | Standard | unchanged and verified |
+| `colossians-2-9-10-context` | 3292 | Colossians 2:9-10 | Standard | unchanged and verified |
+| `colossians-2-9-10-meaning` | 3291 | Colossians 2:9-10 | Beginner | unchanged and verified |
+| `colossians-3-12-book` | 3308 | Colossians 3:12 | Standard | unchanged and verified |
+| `colossians-3-12-context` | 3307 | Colossians 3:12 | Standard | unchanged and verified |
+| `colossians-3-12-meaning` | 3306 | Colossians 3:12 | Beginner | unchanged and verified |
+| `colossians-3-12-reference` | 3309 | Colossians 3:12 | Advanced | unchanged and verified |
+| `colossians-3-16-context` | 3295 | Colossians 3:16 | Advanced | unchanged and verified |
+| `colossians-3-16-meaning` | 3294 | Colossians 3:16 | Easy | unchanged and verified |
+| `colossians-3-23-context` | 3288 | Colossians 3:23 | Advanced | unchanged and verified |
+| `colossians-3-23-meaning` | 3287 | Colossians 3:23 | Easy | unchanged and verified |
+| `connection.abraham-city.v20-left` | 211 | Genesis 12:1–9 | Expert | unchanged and verified |
+| `connection.abraham-city.v20-meaning` | 210 | Genesis 12:1–9 | Advanced | unchanged and verified |
+| `connection.abraham-city.v20-right` | 212 | Genesis 12:1–9 | Expert | unchanged and verified |
+| `connection.abraham-faith.meaning` | 118 | Genesis 15:6 | Standard | unchanged and verified |
+| `connection.abraham-faith.reference` | 119 | Genesis 15:6 | Advanced | unchanged and verified |
+| `connection.abraham-nations.meaning` | 116 | Genesis 12:1–3 | Standard | unchanged and verified |
+| `connection.abraham-seed.meaning` | 124 | Genesis 12:7; 22:18 | Standard | unchanged and verified |
+| `connection.adam-christ.meaning` | 2994 | Romans 5:12–19 | Standard | unchanged and verified |
+| `connection.ark-baptism.v20-left` | 202 | Genesis 6:18; 7:23 | Advanced | unchanged and verified |
+| `connection.ark-baptism.v20-meaning` | 201 | Genesis 6:18; 7:23 | Advanced | corrected |
+| `connection.ark-baptism.v20-right` | 203 | Genesis 6:18; 7:23 | Expert | unchanged and verified |
+| `connection.bethlehem-messiah.meaning` | 2045 | Micah 5:2 | Standard | unchanged and verified |
 | `connection.bronze-serpent.meaning` | 562 | Numbers 21:4–9 | Standard | pending individual review |
 | `connection.creation-light-gospel.meaning` | 132 | Genesis 1:3 | Advanced | pending individual review |
 | `connection.creation-new-creation.meaning` | 115 | Genesis 1:1–31 | Standard | pending individual review |

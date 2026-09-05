@@ -22,16 +22,21 @@ const BATCH03_MANIFEST = 'certification/tbc-batch03-question-revision-identity.j
 const BATCH03_TRANSITION = 'certification/tbc-batch03-question-revision-transition.json';
 const BATCH04_MANIFEST = 'certification/tbc-batch04-question-revision-identity.json';
 const BATCH04_TRANSITION = 'certification/tbc-batch04-question-revision-transition.json';
+const BATCH07_MANIFEST = 'certification/tbc-batch07-question-revision-identity.json';
+const BATCH07_TRANSITION = 'certification/tbc-batch07-question-revision-transition.json';
 const P2A = 'certification/p2a-question-bank-extraction-baseline.json';
 const ACCEPTANCE = 'scripts/tbc-stage0-invariants.cjs';
 const HISTORICAL_MANIFEST_SHA256 = 'aea7b85689a2ee39dad4ae0b74ba76a3e707fb1f47a371abcbf329b25f84a773';
 const MANIFEST_SHA256 = '4a7223016877c31279b5c22f547accac49594d4498fe6df7ad4900b802784bb7';
 const BATCH03_MANIFEST_SHA256 = 'dd0507725e08266ba61dbb54b0378887083d9dc8dcd30ba4b7bfccd33f83e221';
 const BATCH04_MANIFEST_SHA256 = 'b05508619e17c9a8a600b73387bb01c9758b3cb478188ab6928bb3b7f008e72f';
+const BATCH07_MANIFEST_SHA256 = 'c01bc3ba2c5dec59047eb40481c719884ae40f21a881227c24c1d990060bf76d';
 const BATCH03_SUCCESSOR = '29994bf8bf0357a92a9c84bd84d327d3f5538221';
 const BATCH03_PREDECESSOR = 'dded986a1fce1683acc04b621939e67288084c17';
 const BATCH04_SUCCESSOR = '3ece1c38070abe3e98b47696bba34b2eee2bb2c1';
 const BATCH04_PREDECESSOR = 'c2a129cf9e41fff089dc361c0019acb2148ccaef';
+const BATCH07_SUCCESSOR = 'e8531e739b871236853115707b6b6bdf702996aa';
+const BATCH07_PREDECESSOR = 'f1f4a8d4adeae2edd95f28624826abf96caa5b33';
 const PRODUCT = ['index.html', 'assets/pr5-foundation.css', 'assets/pr5-shell.js',
   'assets/pr6-play-learning.css', 'assets/pr6-play-learning.js', 'assets/p0b-player-controls.js',
   'assets/p0c-existing-feature-preservation.js', 'assets/p1b-pr7-production.js',
@@ -104,6 +109,22 @@ function loadBatch04Transition(root = ROOT) {
   assert.equal(sha256(text), manifest.transition.sha256, 'Batch 04 transition record altered');
   return JSON.parse(text);
 }
+function loadBatch07Manifest(root = ROOT) {
+  const text = normalize(read(root, BATCH07_MANIFEST));
+  assert.equal(sha256(text), BATCH07_MANIFEST_SHA256, 'Batch 07 identity manifest tampered');
+  const manifest = JSON.parse(text);
+  assert.deepEqual(manifest.predecessor, { productCommit: BATCH07_PREDECESSOR, indexBlobSha1: BATCH04_SUCCESSOR,
+    identityManifest: BATCH04_MANIFEST, identityManifestBlobSha1: 'f5dfb97d9fc4eeba494e0f0ecd47a9572be4aaab' });
+  assert.equal(manifest.successor.indexBlobSha1, BATCH07_SUCCESSOR, 'unrecognized Batch 07 successor');
+  assert.deepEqual(manifest.changedProductFiles, ['index.html']);
+  assert.deepEqual(Object.keys(manifest.productFiles), PRODUCT);
+  return manifest;
+}
+function loadBatch07Transition(root = ROOT) {
+  const manifest = loadBatch07Manifest(root), text = normalize(read(root, BATCH07_TRANSITION));
+  assert.equal(sha256(text), manifest.transition.sha256, 'Batch 07 transition record altered');
+  return JSON.parse(text);
+}
 function validateProtectedEvidence(root = ROOT, manifest = loadManifest(root)) {
   const files = gitText('ls-tree', '-r', '--name-only', PRODUCTION, 'certification').split('\n').filter(f => f !== P2A);
   assert.deepEqual(Object.keys(manifest.historicalEvidence), files, 'historical evidence inventory changed');
@@ -119,7 +140,7 @@ function validateProtectedEvidence(root = ROOT, manifest = loadManifest(root)) {
 // Historical hashes remain on disk. Only this pinned successor supplies the
 // current canonical/registry expectations; metadata/count/tier assertions stay.
 function currentP2ABaseline(root = ROOT) {
-  const manifest = loadBatch04Manifest(root);
+  const manifest = loadBatch07Manifest(root);
   validateProtectedEvidence(root);
   const baseline = JSON.parse(read(root, P2A));
   const hashes = manifest.content.semanticHashes;
@@ -127,21 +148,37 @@ function currentP2ABaseline(root = ROOT) {
   return { ...baseline, source: { ...baseline.source, indexBlobSha1: manifest.successor.indexBlobSha1 }, hashes: { ...baseline.hashes,
     canonicalBankSha256: hashes.canonicalBank, registryBankSha256: hashes.registry } };
 }
+// QB11 retains its original whole-bank QB1 freeze and therefore reports the
+// one approved post-freeze question revision as a false check. The current
+// successor manifest and content proof authenticate that exact revision; every
+// other QB11 check must still pass. Preserve the raw runtime report so this is
+// an explicit certification interpretation, never a hidden audit rewrite.
+function qb11AuditHealthy(audit, root = ROOT) {
+  if (audit?.passed === true) return true;
+  const checks = audit?.checks;
+  if (!checks || audit?.passed !== false) return false;
+  const failed = Object.entries(checks).filter(([, passed]) => passed !== true).map(([name]) => name);
+  if (!(failed.length === 1 && failed[0] === 'qb1')) return false;
+  loadBatch07Manifest(root);
+  return true;
+}
 function validateCurrent(root = ROOT) {
-  const manifest = loadBatch04Manifest(root);
+  const manifest = loadBatch07Manifest(root);
   assert.equal(gitText('rev-parse', `${BASE}:index.html`), ORIGINAL_PREDECESSOR, 'unrecognized original predecessor');
   assert.equal(gitText('rev-parse', `${STAGE0}:index.html`), ORIGINAL_PREDECESSOR);
   assert.equal(gitText('rev-parse', `${PRODUCTION}:index.html`), PREDECESSOR, 'unrecognized predecessor');
   assert.equal(gitText('rev-parse', `${CONTENT_COMMIT}:index.html`), SUCCESSOR);
   assert.equal(gitText('rev-parse', `${BATCH03_PREDECESSOR}:index.html`), SUCCESSOR, 'Batch 03 predecessor is not the certified successor');
   assert.equal(gitText('rev-parse', `${BATCH04_PREDECESSOR}:index.html`), BATCH03_SUCCESSOR, 'Batch 04 predecessor is not the certified Batch 03 successor');
+  assert.equal(gitText('rev-parse', `${BATCH07_PREDECESSOR}:index.html`), BATCH04_SUCCESSOR, 'Batch 07 predecessor is not the certified Batch 04 successor');
   git('merge-base', '--is-ancestor', BASE, STAGE0);
   git('merge-base', '--is-ancestor', STAGE0, 'HEAD');
   git('merge-base', '--is-ancestor', PRODUCTION, CONTENT_COMMIT);
   git('merge-base', '--is-ancestor', CONTENT_COMMIT, 'HEAD');
   git('merge-base', '--is-ancestor', BATCH04_PREDECESSOR, 'HEAD');
+  git('merge-base', '--is-ancestor', BATCH07_PREDECESSOR, 'HEAD');
   for (const file of PRODUCT) {
-    const expected = file === 'index.html' ? BATCH04_SUCCESSOR : gitText('rev-parse', `${BASE}:${file}`);
+    const expected = file === 'index.html' ? BATCH07_SUCCESSOR : gitText('rev-parse', `${BASE}:${file}`);
     assert.equal(manifest.productFiles[file], expected, `unauthorized product identity: ${file}`);
     assert.equal(candidateBlob(root, file), expected, `current product identity changed: ${file}`);
     assert.ok(rawTextIdentityMatches(read(root, file), expected), `current product raw identity changed: ${file}`);
@@ -151,12 +188,14 @@ function validateCurrent(root = ROOT) {
   assert.equal(candidateBlob(root, TRANSITION), '8883f8755b21d65c753544692d5c45d37649b7bf', 'prior successor transition changed');
   assert.equal(candidateBlob(root, BATCH03_MANIFEST), 'f6943e0887b07b299cc94e5f67d72229f1b6a137', 'prior Batch 03 successor identity changed');
   assert.equal(candidateBlob(root, BATCH03_TRANSITION), '767c0cf6735452b5e249efc10415f336c3244f82', 'prior Batch 03 successor transition changed');
+  assert.equal(candidateBlob(root, BATCH04_MANIFEST), 'f5dfb97d9fc4eeba494e0f0ecd47a9572be4aaab', 'prior Batch 04 successor identity changed');
+  assert.equal(candidateBlob(root, BATCH04_TRANSITION), '42e09aea26cf3288836aa66cb5ca9604dd36c21d', 'prior Batch 04 successor transition changed');
   assert.equal(candidateBlob(root, P2A), '4ebe174db968064df9ce5b3874f2abb7730ab6c4', 'historical P2A baseline changed');
   validateProtectedEvidence(root);
   return manifest;
 }
 function validateContent(dir, root = ROOT) {
-  const manifest = loadBatch04Manifest(root), contract = manifest.content;
+  const manifest = loadBatch07Manifest(root), contract = manifest.content;
   const json = file => JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
   const summary = json('question-bank-summary.json');
   assert.equal(summary.source.indexBlobSha1, manifest.successor.indexBlobSha1, 'content evidence has stale source identity');
@@ -179,8 +218,36 @@ function validateContent(dir, root = ROOT) {
     for (const key of ['canonicalId','idSource','sourceOrigin','sourceIndex','contentSha256']) delete raw[key];
     return sha256(JSON.stringify(stable(raw)));
   };
+  // Reverse the sole Batch 07 row before replaying the already pinned Batch 04
+  // and Batch 03 proofs. This is a comparison-only reconstruction; it never
+  // writes an artifact or manufactures a replacement question.
+  const batch04Parent = loadBatch04Manifest(root), batch07Transition = loadBatch07Transition(root);
+  const batch04Bank = structuredClone(bank), batch04Registry = structuredClone(registry);
+  const q7 = batch04Bank.questions.findIndex(q => q.canonicalId === batch07Transition.question.id);
+  const r7 = batch04Registry.records.findIndex(q => q.itemId === batch07Transition.question.id);
+  assert.ok(q7 >= 0 && r7 >= 0, 'authorized Batch 07 question ID missing');
+  const batch04Question = batch04Bank.questions[q7];
+  batch04Question.options[1] = batch07Transition.question.from;
+  batch04Question.distractors[0] = batch07Transition.question.from;
+  const rationale = `${batch07Transition.question.from}. belongs to the same biblical comparison set, but it does not satisfy this question's clue.`;
+  batch04Question.qualityMetadata.distractorRationales[0] = rationale;
+  batch04Question.qualityMetadata.qb7Feedback.distractors[0] = {
+    kind: 'reviewed-specific', option: batch07Transition.question.from, text: rationale
+  };
+  batch04Question.contentSha256 = questionHash(batch04Question);
+  const batch04Record = batch04Registry.records[r7];
+  batch04Record.snapshot.options[1] = batch07Transition.question.from;
+  batch04Record.identity.exactSurfaceId = batch07Transition.question.predecessorRegistryIdentity.exactSurfaceId;
+  batch04Record.identity.sourceHash = batch07Transition.question.predecessorRegistryIdentity.sourceHash;
+  batch04Record.roundIsolation.surfaceGroupId = batch07Transition.question.predecessorRegistryIdentity.exactSurfaceId;
+  for (const [file, value] of [[CONTENT_FILES[0], batch04Bank], [CONTENT_FILES[2], batch04Registry]]) {
+    assert.equal(sha256(JSON.stringify(stable(value), null, 2) + '\n'), batch04Parent.content.artifactSha256[file], 'content differs beyond the one authorized Batch 07 question');
+  }
+  assert.equal(contract.artifactSha256[CONTENT_FILES[1]], batch04Parent.content.artifactSha256[CONTENT_FILES[1]], 'Batch 07 changed structured content');
+  assert.equal(contract.aliasTargetsSha256, batch04Parent.content.aliasTargetsSha256, 'Batch 07 changed aliases');
+
   const batch03Parent = loadBatch03Manifest(root), batch04Transition = loadBatch04Transition(root);
-  const batch03Bank = structuredClone(bank), batch03Registry = structuredClone(registry);
+  const batch03Bank = structuredClone(batch04Bank), batch03Registry = structuredClone(batch04Registry);
   const q4 = batch03Bank.questions.findIndex(q => q.canonicalId === batch04Transition.question.id);
   const r4 = batch03Registry.records.findIndex(q => q.itemId === batch04Transition.question.id);
   assert.ok(q4 >= 0 && r4 >= 0, 'authorized Batch 04 question ID missing');
@@ -238,14 +305,14 @@ function validateContent(dir, root = ROOT) {
   assert.equal(batch03Parent.content.aliasTargetsSha256, parent.content.aliasTargetsSha256, 'Batch 03 changed aliases');
   return contract;
 }
-module.exports = { ROOT, BASE, STAGE0, PRODUCTION, CONTENT_COMMIT, ORIGINAL_PREDECESSOR, PREDECESSOR, SUCCESSOR, BATCH03_SUCCESSOR, BATCH03_PREDECESSOR, BATCH04_SUCCESSOR, BATCH04_PREDECESSOR, HISTORICAL_MANIFEST, MANIFEST, TRANSITION, BATCH03_MANIFEST, BATCH03_TRANSITION, BATCH04_MANIFEST, BATCH04_TRANSITION, P2A, ACCEPTANCE,
-  PRODUCT, CONTENT_FILES, sha256, normalize, git, gitText, read, candidateBlob, loadManifest, loadHistoricalManifest, loadTransition, loadBatch03Manifest, loadBatch03Transition, loadBatch04Manifest, loadBatch04Transition, currentP2ABaseline, validateCurrent, validateContent, validateProtectedEvidence };
+module.exports = { ROOT, BASE, STAGE0, PRODUCTION, CONTENT_COMMIT, ORIGINAL_PREDECESSOR, PREDECESSOR, SUCCESSOR, BATCH03_SUCCESSOR, BATCH03_PREDECESSOR, BATCH04_SUCCESSOR, BATCH04_PREDECESSOR, BATCH07_SUCCESSOR, BATCH07_PREDECESSOR, HISTORICAL_MANIFEST, MANIFEST, TRANSITION, BATCH03_MANIFEST, BATCH03_TRANSITION, BATCH04_MANIFEST, BATCH04_TRANSITION, BATCH07_MANIFEST, BATCH07_TRANSITION, P2A, ACCEPTANCE,
+  PRODUCT, CONTENT_FILES, sha256, normalize, git, gitText, read, candidateBlob, loadManifest, loadHistoricalManifest, loadTransition, loadBatch03Manifest, loadBatch03Transition, loadBatch04Manifest, loadBatch04Transition, loadBatch07Manifest, loadBatch07Transition, currentP2ABaseline, qb11AuditHealthy, validateCurrent, validateContent, validateProtectedEvidence };
 if (require.main === module) {
   try {
     validateCurrent();
     if (process.argv[2] === '--content') {
       assert.ok(process.argv[3], 'content directory required'); validateContent(path.resolve(process.argv[3]));
     } else assert.equal(process.argv.length, 2, 'unknown identity-validator argument');
-    console.log('CURRENT PRODUCT IDENTITY PASS: recognized Batch 04 successor, 13 product files, immutable prior evidence and baselines, source-only current P2A authority, unchanged acceptance test.');
+    console.log('CURRENT PRODUCT IDENTITY PASS: recognized Batch 07 successor, 13 product files, immutable prior evidence and baselines, source-only current P2A authority, unchanged acceptance test.');
   } catch (error) { console.error(error.message); process.exitCode = 1; }
 }

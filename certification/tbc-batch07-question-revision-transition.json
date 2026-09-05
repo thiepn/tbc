@@ -1,0 +1,65 @@
+{
+  "version": "TBC-BATCH07-QUESTION-REVISION-TRANSITION.1",
+  "predecessor": "3ece1c38070abe3e98b47696bba34b2eee2bb2c1",
+  "predecessorCommit": "f1f4a8d4adeae2edd95f28624826abf96caa5b33",
+  "successor": "e8531e739b871236853115707b6b6bdf702996aa",
+  "predecessorEngineSha256": "41646d98a4d8f0d3550cc27be72255841cdc93754dfc85ef5c08f233820c4eb4",
+  "successorEngineSha256": "33704d33e0176ac6475e60015ae72af61977f5682504195a3f1e0c4789df58b1",
+  "productSha256": {
+    "predecessor": "a6a3f792de295c7c1f7b279f40ca28803ca344015a971a46934b15bd738592bc",
+    "successor": "80051430da97b3423e889678e7d1c37991b92e5479ea05dd0d49c76016309272"
+  },
+  "question": {
+    "id": "connection.ark-baptism.v20-meaning",
+    "predecessorFingerprint": "89a4e9c0f02f3f0c08881d892d33331aacf2928fd7b07cb87b03f2149881c478",
+    "predecessorSnapshotSha256": "412b244d59fb750daff0e9441e16437e1c4dc554f21d485900d30ade17f90541",
+    "successorFingerprint": "b6649736bff64adc2818997e8a7e25f3d6c0a578e8d026713431f7143a9d21b1",
+    "from": "Peter explicitly uses Noah's rescue as a correspondence when explaining baptism and Christ's resurrection",
+    "to": "Paul contrasts Adam's disobedience and death with Christ's obedience and gift of life",
+    "predecessorRegistryIdentity": {
+      "exactSurfaceId": "0ccfe205a5c50c57",
+      "sourceHash": "775ceb3bc13ffd89"
+    }
+  },
+  "edits": [
+    {
+      "kind": "archive-append",
+      "offset": 777507,
+      "anchor": "]};\nconst TBC_QUESTION_REVISIONS = tbcCreateQuestionRevisions(TBC_QUESTION_REVISION_ARCHIVE);"
+    },
+    {
+      "kind": "question-option-replacement",
+      "offset": 3315449,
+      "from": "Peter explicitly uses Noah's rescue as a correspondence when explaining baptism and Christ's resurrection",
+      "to": "Paul contrasts Adam's disobedience and death with Christ's obedience and gift of life"
+    },
+    {
+      "kind": "question-rationale-replacement",
+      "offset": 3315817,
+      "from": "Peter explicitly uses Noah's rescue as a correspondence when explaining baptism and Christ's resurrection",
+      "to": "Paul contrasts Adam's disobedience and death with Christ's obedience and gift of life"
+    },
+    {
+      "kind": "final-runtime-override-replacement",
+      "offset": 11456469,
+      "from": "Peter explicitly uses Noah's rescue as a correspondence when explaining baptism and Christ's resurrection",
+      "to": "Paul contrasts Adam's disobedience and death with Christ's obedience and gift of life"
+    }
+  ],
+  "invariants": {
+    "canonical": 5799,
+    "registry": 6072,
+    "aliases": 273,
+    "structured": 203,
+    "difficultyDistribution": {
+      "Beginner": 1338,
+      "Easy": 1668,
+      "Standard": 1132,
+      "Advanced": 1140,
+      "Expert": 521
+    },
+    "saveSchema": 27,
+    "supportingAssetsChanged": 0
+  },
+  "intent": "Append the exact f1f4a8d predecessor snapshot and replace only the overlapping ark/baptism distractor and its derived runtime feedback; all fresh selection remains current-only."
+}

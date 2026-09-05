@@ -23529,9 +23529,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The believers are one in heart and soul, share their possessions, and distribute resources so no one remains in need.",
+            "reference": "Acts 4:32–37",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Acts 4:32–37 supports “Gospel-shaped community produces unity and generous care.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 17:11, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-4-32-meaning: The believers are one in heart and soul, share their possessions, and distribute resources so no one remains in need. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 4:32",
       "book": "Acts",
@@ -23586,9 +23615,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "When the council charges the apostles with defying its command not to teach in Jesus’ name, Peter and the apostles answer that they must obey God rather than men.",
+            "reference": "Acts 5:26–32",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Acts 5:26–32 supports “Acts”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names John, while the cited passage is in Acts.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Romans, while the cited passage is in Acts.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 1 Corinthians, while the cited passage is in Acts.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-5-29-book: When the council charges the apostles with defying its command not to teach in Jesus’ name, Peter and the apostles answer that they must obey God rather than men. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 5:29",
       "book": "Acts",
@@ -23642,9 +23700,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "When the council charges the apostles with defying its command not to teach in Jesus’ name, Peter and the apostles answer that they must obey God rather than men.",
+            "reference": "Acts 5:26–32",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 5:26–32 supports “The apostles answer authorities who command them to stop preaching Jesus”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 2:42, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-5-29-context: When the council charges the apostles with defying its command not to teach in Jesus’ name, Peter and the apostles answer that they must obey God rather than men. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 5:29",
       "book": "Acts",
@@ -23698,9 +23785,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "When the council charges the apostles with defying its command not to teach in Jesus’ name, Peter and the apostles answer that they must obey God rather than men.",
+            "reference": "Acts 5:26–32",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Acts 1:8, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 5:26–32 supports “When human commands directly oppose God, believers must obey God”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Acts 2:21, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-5-29-meaning: When the council charges the apostles with defying its command not to teach in Jesus’ name, Peter and the apostles answer that they must obey God rather than men. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 5:29",
       "book": "Acts",
@@ -23755,9 +23871,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "When the council charges the apostles with defying its command not to teach in Jesus’ name, Peter and the apostles answer that they must obey God rather than men.",
+            "reference": "Acts 5:26–32",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/acts/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Acts 2:21 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Acts 4:32 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Acts 5:26–32 supports “Acts 5:29”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Acts 4:12 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "acts-5-29-reference: When the council charges the apostles with defying its command not to teach in Jesus’ name, Peter and the apostles answer that they must obey God rather than men. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Acts 5:29",
       "book": "Acts",
@@ -23811,9 +23956,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Amos calls Israel to seek good rather than presume God’s presence, then rejects festivals and songs that coexist with injustice and demands justice and righteousness.",
+            "reference": "Amos 5:14–15, 21–24",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Amos 7:7-9, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Amos 5:14–15, 21–24 supports “the prophet calls Israel to seek good instead of presuming God is with them”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:24, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 7:14-15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "amos-5-14-context: Amos calls Israel to seek good rather than presume God’s presence, then rejects festivals and songs that coexist with injustice and demands justice and righteousness. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 5:14",
       "book": "Amos",
@@ -23867,9 +24041,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Amos calls Israel to seek good rather than presume God’s presence, then rejects festivals and songs that coexist with injustice and demands justice and righteousness.",
+            "reference": "Amos 5:14–15, 21–24",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Amos 5:14–15, 21–24 supports “God’s presence cannot be claimed while evil is deliberately practiced”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Nahum 1:3, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Nahum 1:15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Hosea 14:4, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "amos-5-14-meaning: Amos calls Israel to seek good rather than presume God’s presence, then rejects festivals and songs that coexist with injustice and demands justice and righteousness. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 5:14",
       "book": "Amos",
@@ -23924,9 +24127,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Amos calls Israel to seek good rather than presume God’s presence, then rejects festivals and songs that coexist with injustice and demands justice and righteousness.",
+            "reference": "Amos 5:14–15, 21–24",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Amos 5:14–15, 21–24 supports “God demands justice rather than empty religious performance”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:14, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 7:14-15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 7:7-9, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "amos-5-24-context: Amos calls Israel to seek good rather than presume God’s presence, then rejects festivals and songs that coexist with injustice and demands justice and righteousness. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 5:24",
       "book": "Amos",
@@ -23980,9 +24212,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Amos calls Israel to seek good rather than presume God’s presence, then rejects festivals and songs that coexist with injustice and demands justice and righteousness.",
+            "reference": "Amos 5:14–15, 21–24",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/5.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Amos 7:7-9, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 7:14-15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:14, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Amos 5:14–15, 21–24 supports “God rejects religious activity that coexists with oppression and calls for justice and righteousness to become continuous realities”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "amos-5-24-meaning: Amos calls Israel to seek good rather than presume God’s presence, then rejects festivals and songs that coexist with injustice and demands justice and righteousness. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 5:24",
       "book": "Amos",
@@ -24037,9 +24298,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Amaziah orders Amos away from Bethel; Amos replies that he was not a professional prophet but was called by the LORD from tending livestock and sycamore figs.",
+            "reference": "Amos 7:10–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names Joel, while the cited passage is in Amos.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Amos 7:10–17 supports “Amos”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names Nahum, while the cited passage is in Amos.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Obadiah, while the cited passage is in Amos.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "amos-7-14-15-book: Amaziah orders Amos away from Bethel; Amos replies that he was not a professional prophet but was called by the LORD from tending livestock and sycamore figs. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 7:14-15",
       "book": "Amos",
@@ -24093,9 +24383,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Amaziah orders Amos away from Bethel; Amos replies that he was not a professional prophet but was called by the LORD from tending livestock and sycamore figs.",
+            "reference": "Amos 7:10–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Amos 7:10–17 supports “Amaziah orders the prophet to leave Bethel, and the prophet answers by explaining how the LORD called him from ordinary work”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 7:7-9, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:14, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:24, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "amos-7-14-15-context: Amaziah orders Amos away from Bethel; Amos replies that he was not a professional prophet but was called by the LORD from tending livestock and sycamore figs. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 7:14-15",
       "book": "Amos",
@@ -24149,9 +24468,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Amaziah orders Amos away from Bethel; Amos replies that he was not a professional prophet but was called by the LORD from tending livestock and sycamore figs.",
+            "reference": "Amos 7:10–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Amos 7:7-9, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:24, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Amos 7:10–17 supports “True prophetic authority rests on God’s call and commission rather than professional status or human permission.”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:14, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "amos-7-14-15-meaning: Amaziah orders Amos away from Bethel; Amos replies that he was not a professional prophet but was called by the LORD from tending livestock and sycamore figs. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 7:14-15",
       "book": "Amos",
@@ -24206,9 +24554,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The LORD stands beside a plumb wall, sets a plumb line among Israel, and announces that He will no longer pass them by.",
+            "reference": "Amos 7:7–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Amos 7:7–9 supports “Amos”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names Nahum, while the cited passage is in Amos.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Joel, while the cited passage is in Amos.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Obadiah, while the cited passage is in Amos.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "amos-7-7-9-book: The LORD stands beside a plumb wall, sets a plumb line among Israel, and announces that He will no longer pass them by. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 7:7-9",
       "book": "Amos",
@@ -24262,9 +24639,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The LORD stands beside a plumb wall, sets a plumb line among Israel, and announces that He will no longer pass them by.",
+            "reference": "Amos 7:7–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Amos 7:7–9 supports “In a vision the LORD shows the prophet a plumb line and announces that Israel will no longer escape covenant judgment”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 7:14-15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:14, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:24, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "amos-7-7-9-context: The LORD stands beside a plumb wall, sets a plumb line among Israel, and announces that He will no longer pass them by. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 7:7-9",
       "book": "Amos",
@@ -24318,9 +24724,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "The LORD stands beside a plumb wall, sets a plumb line among Israel, and announces that He will no longer pass them by.",
+            "reference": "Amos 7:7–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/amos/7.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Amos 5:24, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 7:14-15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Amos 7:7–9 supports “God measures His people by His own standard and will not indefinitely overlook entrenched covenant unfaithfulness”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Amos 5:14, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "amos-7-7-9-meaning: The LORD stands beside a plumb wall, sets a plumb line among Israel, and announces that He will no longer pass them by. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Amos 7:7-9",
       "book": "Amos",
@@ -24375,9 +24810,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created.",
+            "reference": "Colossians 1:13–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names Philippians, while the cited passage is in Colossians.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:13–20 supports “Colossians”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This names Romans, while the cited passage is in Colossians.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names Galatians, while the cited passage is in Colossians.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-1-15-book: Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:15",
       "book": "Colossians",
@@ -24431,9 +24895,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created.",
+            "reference": "Colossians 1:13–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 3:23, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 1:27, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 2:6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:13–20 supports “Paul begins a hymn celebrating the supremacy of Christ.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "colossians-1-15-context: Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:15",
       "book": "Colossians",
@@ -24487,9 +24980,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created.",
+            "reference": "Colossians 1:13–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 2:6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:13–20 supports “Jesus perfectly reveals the invisible God and holds first place over creation”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 3:16, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 3:23, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-1-15-meaning: Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:15",
       "book": "Colossians",
@@ -24544,9 +25066,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created.",
+            "reference": "Colossians 1:13–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Colossians 2:6 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:13–20 supports “Colossians 1:15”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Colossians 1:27 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Colossians 1:16 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-1-15-reference: Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:15",
       "book": "Colossians",
@@ -24600,9 +25151,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created.",
+            "reference": "Colossians 1:13–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 3:23, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 1:15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:13–20 supports “Christ is presented as the agent and goal of creation.”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 2:6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-1-16-context: Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:16",
       "book": "Colossians",
@@ -24656,9 +25236,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created.",
+            "reference": "Colossians 1:13–20",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 1:27, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 3:23, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:13–20 supports “All creation came into being through Christ and for Christ, demonstrating His supremacy over it”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 1:15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-1-16-meaning: Paul’s Christ hymn names the Son as the image of the invisible God, firstborn over creation, and the One through whom and for whom all things were created. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:16",
       "book": "Colossians",
@@ -24713,9 +25322,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul describes his commission to disclose the mystery among the Gentiles: Christ in or among them, the hope of glory.",
+            "reference": "Colossians 1:24–29",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names Luke, while the cited passage is in Colossians.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 2 Thessalonians, while the cited passage is in Colossians.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 1 Timothy, while the cited passage is in Colossians.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:24–29 supports “Colossians”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "colossians-1-27-book: Paul describes his commission to disclose the mystery among the Gentiles: Christ in or among them, the hope of glory. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:27",
       "book": "Colossians",
@@ -24769,9 +25407,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul describes his commission to disclose the mystery among the Gentiles: Christ in or among them, the hope of glory.",
+            "reference": "Colossians 1:24–29",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 1:15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 3:12, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 2:6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:24–29 supports “Paul explains the revealed mystery of the gospel among the nations”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "colossians-1-27-context: Paul describes his commission to disclose the mystery among the Gentiles: Christ in or among them, the hope of glory. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:27",
       "book": "Colossians",
@@ -24825,9 +25492,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul describes his commission to disclose the mystery among the Gentiles: Christ in or among them, the hope of glory.",
+            "reference": "Colossians 1:24–29",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 1:16, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 3:23, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 1:15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:24–29 supports “Christ dwelling among and in His people is the hope of glory”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "colossians-1-27-meaning: Paul describes his commission to disclose the mystery among the Gentiles: Christ in or among them, the hope of glory. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:27",
       "book": "Colossians",
@@ -24882,9 +25578,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul describes his commission to disclose the mystery among the Gentiles: Christ in or among them, the hope of glory.",
+            "reference": "Colossians 1:24–29",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/1.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Colossians 1:15 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Colossians 1:16 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Colossians 3:23 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 1:24–29 supports “Colossians 1:27”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "colossians-1-27-reference: Paul describes his commission to disclose the mystery among the Gentiles: Christ in or among them, the hope of glory. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 1:27",
       "book": "Colossians",
@@ -24938,9 +25663,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ.",
+            "reference": "Colossians 2:6–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 2:6–10 supports “Paul transitions from Christ’s supremacy to practical discipleship”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 4:7, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-2-6-context: Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 2:6",
       "book": "Colossians",
@@ -24994,9 +25748,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ.",
+            "reference": "Colossians 2:6–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 3:16, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 2:6–10 supports “Believers should continue living in Christ with the same faith by which they received Him”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 2:9-10, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 3:12, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-2-6-meaning: Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 2:6",
       "book": "Colossians",
@@ -25051,9 +25834,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ.",
+            "reference": "Colossians 2:6–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names Luke, while the cited passage is in Colossians.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 1 Thessalonians, while the cited passage is in Colossians.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 2 Timothy, while the cited passage is in Colossians.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 2:6–10 supports “Colossians”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "colossians-2-9-10-book: Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 2:9-10",
       "book": "Colossians",
@@ -25107,9 +25919,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ.",
+            "reference": "Colossians 2:6–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Colossians 2:6–10 supports “Paul warns the Colossians against teaching based on human tradition rather than Christ”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Philippians 2:3-4, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Galatians 5:13, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Thessalonians 2:1-4, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-2-9-10-context: Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 2:9-10",
       "book": "Colossians",
@@ -25163,9 +26004,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ.",
+            "reference": "Colossians 2:6–10",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Galatians 6:9, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to 2 Corinthians 5:17, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 2:6–10 supports “The fullness of deity dwells bodily in Christ, and believers’ completeness is found in Him rather than rival spiritual systems”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Titus 2:12, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-2-9-10-meaning: Those who received Christ must continue walking in Him; Paul contrasts that life with human tradition and grounds sufficiency in the bodily fullness of deity in Christ. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 2:9-10",
       "book": "Colossians",
@@ -25220,9 +26090,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells God’s chosen and renewed people to put on compassion, kindness, humility, gentleness, patience, forgiveness, and love.",
+            "reference": "Colossians 3:10–14",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This names Luke, while the cited passage is in Colossians.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 2 Thessalonians, while the cited passage is in Colossians.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This names 1 Timothy, while the cited passage is in Colossians.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 3:10–14 supports “Colossians”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "colossians-3-12-book: Paul tells God’s chosen and renewed people to put on compassion, kindness, humility, gentleness, patience, forgiveness, and love. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 3:12",
       "book": "Colossians",
@@ -25276,9 +26175,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells God’s chosen and renewed people to put on compassion, kindness, humility, gentleness, patience, forgiveness, and love.",
+            "reference": "Colossians 3:10–14",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Colossians 3:10–14 supports “Paul tells the renewed people of God what to put on.”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-3-12-context: Paul tells God’s chosen and renewed people to put on compassion, kindness, humility, gentleness, patience, forgiveness, and love. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 3:12",
       "book": "Colossians",
@@ -25332,9 +26260,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells God’s chosen and renewed people to put on compassion, kindness, humility, gentleness, patience, forgiveness, and love.",
+            "reference": "Colossians 3:10–14",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 2:6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 3:16, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 3:10–14 supports “God’s chosen people are to clothe themselves with compassion, kindness, humility, gentleness, and patience”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 1:15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-3-12-meaning: Paul tells God’s chosen and renewed people to put on compassion, kindness, humility, gentleness, patience, forgiveness, and love. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 3:12",
       "book": "Colossians",
@@ -25389,9 +26346,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells God’s chosen and renewed people to put on compassion, kindness, humility, gentleness, patience, forgiveness, and love.",
+            "reference": "Colossians 3:10–14",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Colossians 3:10–14 supports “Colossians 3:12”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "Colossians 3:23 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Colossians 3:16 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Colossians 3:2 is a different reference and does not match the cited teaching and setting.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-3-12-reference: Paul tells God’s chosen and renewed people to put on compassion, kindness, humility, gentleness, patience, forgiveness, and love. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 3:12",
       "book": "Colossians",
@@ -25445,9 +26431,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Within the new humanity’s holy life, the word of Christ is to dwell richly through teaching, admonition, singing, and gratitude.",
+            "reference": "Colossians 3:12–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 2, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 1, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 3:12–17 supports “New humanity and holy life”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 3:18-4:18, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-3-16-context: Within the new humanity’s holy life, the word of Christ is to dwell richly through teaching, admonition, singing, and gratitude. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 3:16",
       "book": "Colossians",
@@ -25502,9 +26517,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Within the new humanity’s holy life, the word of Christ is to dwell richly through teaching, admonition, singing, and gratitude.",
+            "reference": "Colossians 3:12–17",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 2:6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 3:12, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 1:15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 3:12–17 supports “The message of Christ should richly shape the church’s teaching, worship, wisdom, and gratitude”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "colossians-3-16-meaning: Within the new humanity’s holy life, the word of Christ is to dwell richly through teaching, admonition, singing, and gratitude. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 3:16",
       "book": "Colossians",
@@ -25559,9 +26603,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells servants to work wholeheartedly for the Lord rather than merely for human masters, knowing the Lord gives the inheritance.",
+            "reference": "Colossians 3:22–24",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 1:15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 2:6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 1:16, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 3:22–24 supports “Believers are called to serve Christ in ordinary work”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "colossians-3-23-context: Paul tells servants to work wholeheartedly for the Lord rather than merely for human masters, knowing the Lord gives the inheritance. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 3:23",
       "book": "Colossians",
@@ -25615,9 +26688,38 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul tells servants to work wholeheartedly for the Lord rather than merely for human masters, knowing the Lord gives the inheritance.",
+            "reference": "Colossians 3:22–24",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/colossians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Colossians 1:15, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Colossians 3:22–24 supports “Ordinary labor should be done faithfully as service to God.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 1:16, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Colossians 2:6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "colossians-3-23-meaning: Paul tells servants to work wholeheartedly for the Lord rather than merely for human masters, knowing the Lord gives the inheritance. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Colossians 3:23",
       "book": "Colossians",
@@ -25672,9 +26774,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Abraham leaves home at God’s command and lives as a pilgrim in the promised land.",
+            "reference": "Genesis 12:1–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/12.htm"
+          },
+          {
+            "detail": "Hebrews explains that Abraham lived as a stranger while looking for the city with foundations and a better heavenly country prepared by God.",
+            "reference": "Hebrews 11:8–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/hebrews/11.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Genesis 16:1–16; 21:1–21 or Genesis 16:1–6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 21:1–12, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Genesis 12:1–9 and Hebrews 11:8–16 supports “Abraham living as a pilgrim”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Matthew 27:50–51, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.abraham-city.v20-left: Abraham leaves home at God’s command and lives as a pilgrim in the promised land. Hebrews explains that Abraham lived as a stranger while looking for the city with foundations and a better heavenly country prepared by God. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Genesis 12:1–9",
       "book": "Genesis",
@@ -25729,9 +26866,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Abraham leaves home at God’s command and lives as a pilgrim in the promised land.",
+            "reference": "Genesis 12:1–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/12.htm"
+          },
+          {
+            "detail": "Hebrews explains that Abraham lived as a stranger while looking for the city with foundations and a better heavenly country prepared by God.",
+            "reference": "Hebrews 11:8–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/hebrews/11.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Genesis 12:1–9 and Hebrews 11:8–16 supports “Hebrews presents Abraham as looking for the city with foundations and a better heavenly country”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 22:1–14, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Matthew 27:50–51, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.abraham-city.v20-meaning: Abraham leaves home at God’s command and lives as a pilgrim in the promised land. Hebrews explains that Abraham lived as a stranger while looking for the city with foundations and a better heavenly country prepared by God. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Genesis 12:1–9",
       "book": "Genesis",
@@ -25786,9 +26958,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Abraham leaves home at God’s command and lives as a pilgrim in the promised land.",
+            "reference": "Genesis 12:1–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/12.htm"
+          },
+          {
+            "detail": "Hebrews explains that Abraham lived as a stranger while looking for the city with foundations and a better heavenly country prepared by God.",
+            "reference": "Hebrews 11:8–16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/hebrews/11.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Genesis 22:1–14 or Genesis 22:1–14; Hebrews 11:17–19, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Genesis 12:1–9 and Hebrews 11:8–16 supports “The lasting city prepared by God”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 12:7; 22:18 or Genesis 12:7; 22:18; Galatians 3:16, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 6:18; 7:23 or Genesis 6:18; 7:23; 1 Peter 3:20–21, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.abraham-city.v20-right: Abraham leaves home at God’s command and lives as a pilgrim in the promised land. Hebrews explains that Abraham lived as a stranger while looking for the city with foundations and a better heavenly country prepared by God. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Genesis 12:1–9",
       "book": "Genesis",
@@ -25843,9 +27050,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Abram believes the LORD, and it is credited to him as righteousness.",
+            "reference": "Genesis 15:6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/15.htm"
+          },
+          {
+            "detail": "Paul cites Abraham’s credited righteousness to explain justification by faith apart from works.",
+            "reference": "Romans 4:1–5",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/romans/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Genesis 15:6 and Romans 4:1–5 supports “Paul uses Abraham's faith to explain that righteousness is credited apart from works.”.",
+            "optionIndex": 3,
+            "role": "keyed answer"
+          }
+        ],
+        "rationale": "connection.abraham-faith.meaning: Abram believes the LORD, and it is credited to him as righteousness. Paul cites Abraham’s credited righteousness to explain justification by faith apart from works. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Genesis 15:6",
       "book": "Genesis",
@@ -25900,9 +27142,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Abram believes the LORD, and it is credited to him as righteousness.",
+            "reference": "Genesis 15:6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/15.htm"
+          },
+          {
+            "detail": "Paul cites Abraham’s credited righteousness to explain justification by faith apart from works.",
+            "reference": "Romans 4:1–5",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/romans/4.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Genesis 15:6 and Romans 4:1–5 supports “Genesis 15:6”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 12:2, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.abraham-faith.reference: Abram believes the LORD, and it is credited to him as righteousness. Paul cites Abraham’s credited righteousness to explain justification by faith apart from works. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Genesis 15:6",
       "book": "Genesis",
@@ -25957,9 +27234,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "God promises that all families of the earth will be blessed through Abraham.",
+            "reference": "Genesis 12:1–3",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/12.htm"
+          },
+          {
+            "detail": "Paul calls the promise advance gospel to Abraham and applies its blessing to believing Gentiles.",
+            "reference": "Galatians 3:8–9",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/galatians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Genesis 12:1–3 and Galatians 3:8–9 supports “The promise that all nations would be blessed through Abraham is connected with the gospel going to the Gentiles”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Exodus 12:1–14, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.abraham-nations.meaning: God promises that all families of the earth will be blessed through Abraham. Paul calls the promise advance gospel to Abraham and applies its blessing to believing Gentiles. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Genesis 12:1–3",
       "book": "Genesis",
@@ -26014,9 +27326,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "God promises Abraham offspring and says all nations will be blessed through that offspring.",
+            "reference": "Genesis 12:7; 22:18",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/22.htm"
+          },
+          {
+            "detail": "Paul interprets the promised offspring in its focused fulfillment as Christ.",
+            "reference": "Galatians 3:16",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/galatians/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative is keyed to Genesis 14:18–20, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Genesis 12:7; 22:18 and Galatians 3:16 supports “Paul explains that the promise to Abraham's offspring reaches its focus in Christ”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Exodus 24:3–8, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Deuteronomy 31:24–26, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.abraham-seed.meaning: God promises Abraham offspring and says all nations will be blessed through that offspring. Paul interprets the promised offspring in its focused fulfillment as Christ. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Genesis 12:7; 22:18",
       "book": "Genesis",
@@ -26071,9 +27418,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Paul contrasts Adam’s trespass and disobedience, which bring sin, death, and condemnation, with Christ’s obedient act, which brings grace, righteousness, and life.",
+            "reference": "Romans 5:12–19",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/romans/5.htm"
+          },
+          {
+            "detail": "Paul states that death came through a man and resurrection through a man: in Adam all die, while in Christ all will be made alive.",
+            "reference": "1 Corinthians 15:21–22",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_corinthians/15.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Romans 5:12–19 and 1 Corinthians 15:21–22 supports “Paul contrasts Adam's disobedience and death with Christ's obedience and gift of life.”.",
+            "optionIndex": 1,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.adam-christ.meaning: Paul contrasts Adam’s trespass and disobedience, which bring sin, death, and condemnation, with Christ’s obedient act, which brings grace, righteousness, and life. Paul states that death came through a man and resurrection through a man: in Adam all die, while in Christ all will be made alive. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Romans 5:12–19",
       "book": "Romans",
@@ -26128,9 +27510,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "God covenants with Noah to bring his household into the ark, and only Noah and those with him remain through the flood judgment.",
+            "reference": "Genesis 6:18; 7:23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/7.htm"
+          },
+          {
+            "detail": "Peter explicitly relates the eight saved through water in Noah’s ark to baptism, whose saving significance is through Jesus Christ’s resurrection rather than bodily washing.",
+            "reference": "1 Peter 3:20–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Genesis 6:18; 7:23 and 1 Peter 3:20–21 supports “Noah's household preserved through water”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 16:1–16; 21:1–21 or Genesis 16:1–6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 12:7; 22:18, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 22:1–14, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.ark-baptism.v20-left: God covenants with Noah to bring his household into the ark, and only Noah and those with him remain through the flood judgment. Peter explicitly relates the eight saved through water in Noah’s ark to baptism, whose saving significance is through Jesus Christ’s resurrection rather than bodily washing. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Genesis 6:18; 7:23",
       "book": "Genesis",
@@ -26184,10 +27601,70 @@
     {
       "aliases": [],
       "audit": {
-        "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "changes": [
+          {
+            "answerPosition": 0,
+            "compatibilityRevision": {
+              "fingerprint": "89a4e9c0f02f3f0c08881d892d33331aacf2928fd7b07cb87b03f2149881c478",
+              "id": "connection.ark-baptism.v20-meaning",
+              "predecessor": "f1f4a8d4adeae2edd95f28624826abf96caa5b33",
+              "version": 1
+            },
+            "correctedOptions": [
+              "Peter connects the flood's preservation with baptism while locating saving power in Jesus Christ's resurrection",
+              "Paul contrasts Adam's disobedience and death with Christ's obedience and gift of life",
+              "Hebrews presents Jesus as the great High Priest who sympathizes with weakness and grants confident access to grace",
+              "The promise that all nations would be blessed through Abraham is connected with the gospel going to the Gentiles"
+            ],
+            "newFingerprint": "b6649736bff64adc2818997e8a7e25f3d6c0a578e8d026713431f7143a9d21b1",
+            "oldFingerprint": "89a4e9c0f02f3f0c08881d892d33331aacf2928fd7b07cb87b03f2149881c478",
+            "previousDefect": "The keyed answer and former second option both described Peter’s explicit Noah/flood-to-baptism correspondence through Christ’s resurrection, so two answers were defensible.",
+            "previousOptions": [
+              "Peter connects the flood's preservation with baptism while locating saving power in Jesus Christ's resurrection",
+              "Peter explicitly uses Noah's rescue as a correspondence when explaining baptism and Christ's resurrection",
+              "Hebrews presents Jesus as the great High Priest who sympathizes with weakness and grants confident access to grace",
+              "The promise that all nations would be blessed through Abraham is connected with the gospel going to the Gentiles"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "detail": "God covenants with Noah to bring his household into the ark, and only Noah and those with him remain through the flood judgment.",
+            "reference": "Genesis 6:18; 7:23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/7.htm"
+          },
+          {
+            "detail": "Peter explicitly relates the eight saved through water in Noah’s ark to baptism, whose saving significance is through Jesus Christ’s resurrection rather than bodily washing.",
+            "reference": "1 Peter 3:20–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Genesis 6:18; 7:23 and 1 Peter 3:20–21 supports “Peter connects the flood's preservation with baptism while locating saving power in Jesus Christ's resurrection”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Leviticus 16:32–34, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 12:1–3, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.ark-baptism.v20-meaning: Genesis 6:18 and 7:23 establish Noah’s household preservation in the ark, and 1 Peter 3:20–21 expressly relates those saved through water to baptism through Christ’s resurrection. The former second option restated that same relationship and was also defensible. Replacing only that overlapping distractor and its matching rationale with the distinct Adam–Christ connection restores one unique best answer.",
+        "status": "corrected"
       },
       "bibleReference": "Genesis 6:18; 7:23",
       "book": "Genesis",
@@ -26225,14 +27702,14 @@
       ],
       "options": [
         "Peter connects the flood's preservation with baptism while locating saving power in Jesus Christ's resurrection",
-        "Peter explicitly uses Noah's rescue as a correspondence when explaining baptism and Christ's resurrection",
+        "Paul contrasts Adam's disobedience and death with Christ's obedience and gift of life",
         "Hebrews presents Jesus as the great High Priest who sympathizes with weakness and grants confident access to grace",
         "The promise that all nations would be blessed through Abraham is connected with the gospel going to the Gentiles"
       ],
       "question": "Which option states the biblical connection supported by the cited references?",
       "questionType": "knowledgeConnections",
       "source": {
-        "contentSha256": "cd02f80f8f65ab094bafc8c62cd79a174427f9298a1bb69669e613e8e86a9f87",
+        "contentSha256": "323cee1cf9a87f7446379817d1427d76ad52259ef2d8d19d5e4e889e7e1a05bb",
         "index": 201,
         "origin": "TBC_QB6.activeQuestions()"
       },
@@ -26242,9 +27719,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "God covenants with Noah to bring his household into the ark, and only Noah and those with him remain through the flood judgment.",
+            "reference": "Genesis 6:18; 7:23",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/genesis/7.htm"
+          },
+          {
+            "detail": "Peter explicitly relates the eight saved through water in Noah’s ark to baptism, whose saving significance is through Jesus Christ’s resurrection rather than bodily washing.",
+            "reference": "1 Peter 3:20–21",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/1_peter/3.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "Keyed: Genesis 6:18; 7:23 and 1 Peter 3:20–21 supports “Baptism's appeal through Christ's resurrection”.",
+            "optionIndex": 0,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 16:1–16; 21:1–21 or Genesis 16:1–16; 21:1–21; Galatians 4:21–31, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 12:7; 22:18 or Genesis 12:7; 22:18; Galatians 3:16, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 2,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Genesis 22:1–14 or Genesis 22:1–14; Hebrews 11:17–19, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.ark-baptism.v20-right: God covenants with Noah to bring his household into the ark, and only Noah and those with him remain through the flood judgment. Peter explicitly relates the eight saved through water in Noah’s ark to baptism, whose saving significance is through Jesus Christ’s resurrection rather than bodily washing. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Genesis 6:18; 7:23",
       "book": "Genesis",
@@ -26299,9 +27811,44 @@
       "aliases": [],
       "audit": {
         "changes": [],
-        "evidence": [],
-        "rationale": "Inventory created; individual review not yet performed.",
-        "status": "pending individual review"
+        "evidence": [
+          {
+            "detail": "Micah says a ruler for Israel will come from Bethlehem Ephrathah.",
+            "reference": "Micah 5:2",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/micah/5.htm"
+          },
+          {
+            "detail": "Matthew records Jesus’ birth in Bethlehem and the priests’ citation of Micah when Herod asks where the Christ would be born.",
+            "reference": "Matthew 2:1–6",
+            "type": "Direct Scripture",
+            "url": "https://biblehub.com/bsb/matthew/2.htm"
+          }
+        ],
+        "optionFindings": [
+          {
+            "finding": "This alternative describes a distinct biblical unit or teaching and does not answer the cited question.",
+            "optionIndex": 0,
+            "role": "distractor"
+          },
+          {
+            "finding": "This alternative is keyed to Psalm 118:22–23, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 1,
+            "role": "distractor"
+          },
+          {
+            "finding": "Keyed: Micah 5:2 and Matthew 2:1–6 supports “Matthew connects Jesus' birth in Bethlehem with Micah's promise of a ruler”.",
+            "optionIndex": 2,
+            "role": "keyed answer"
+          },
+          {
+            "finding": "This alternative is keyed to Malachi 4:5–6, not the specific teaching or setting in the cited evidence.",
+            "optionIndex": 3,
+            "role": "distractor"
+          }
+        ],
+        "rationale": "connection.bethlehem-messiah.meaning: Micah says a ruler for Israel will come from Bethlehem Ephrathah. Matthew records Jesus’ birth in Bethlehem and the priests’ citation of Micah when Herod asks where the Christ would be born. The keyed choice alone best answers the prompt; every other choice names a different book, reference, literary unit, or biblical connection.",
+        "status": "unchanged and verified"
       },
       "bibleReference": "Micah 5:2",
       "book": "Micah",

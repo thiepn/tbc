@@ -1729,3 +1729,150 @@ workflow, gameplay and UI files are unchanged, so no successor identity is
 required. This Batch 06 ledger update is uncommitted, unpushed, unmerged and
 undeployed. The exact next task is a separately authorized ledger-only Batch 06
 commit; after that, Batch 07 would begin at entry 301.
+
+## Canonical question-content audit — Batch 07, entries 301–350
+
+Batch 06 was sealed as ledger-only commit
+`f1f4a8d4adeae2edd95f28624826abf96caa5b33`, and Batch 07 began from that
+exact checkpoint on local branch `codex/question-audit-batch-07`. Exactly the
+50 lexically ordered ledger entries 301–350 were individually reviewed,
+beginning with `acts-4-32-meaning` and ending with
+`connection.bethlehem-messiah.meaning`. Entry 351,
+`connection.bronze-serpent.meaning`, was not reviewed or modified.
+
+The result is **49 unchanged and verified / 1 corrected / 0 unresolved**. Each
+entry records direct Scripture evidence, an individual rationale, and a finding
+for every answer option. The review covered Acts 4–5; Amos 5 and 7; Colossians
+1–3; and the Abraham/city, Abraham/faith, Abraham/nations, Abraham/seed,
+Adam/Christ, ark/baptism, and Bethlehem/Messiah cross-passage connections.
+
+The sole correction is `connection.ark-baptism.v20-meaning`. Genesis 6:18 and
+7:23 describe Noah's household preserved in the ark, while 1 Peter 3:20–21
+explicitly relates the eight saved through water to baptism through Jesus
+Christ's resurrection. The keyed option states that relationship, but the old
+second option also said that Peter uses Noah's rescue as a correspondence when
+explaining baptism and Christ's resurrection. Both choices therefore answered
+the prompt. The second option is now the distinct and biblically valid
+Adam–Christ connection, “Paul contrasts Adam's disobedience and death with
+Christ's obedience and gift of life,” supported by Romans 5:12–19 and
+1 Corinthians 15:21–22. The stable ID, prompt, keyed answer, answer position,
+tier, metadata and two unaffected distractors are preserved; the corresponding
+distractor rationale was updated with the option.
+
+The exact predecessor from `f1f4a8d…` is retained as revision version 1:
+
+```text
+predecessor product SHA-256:  a6a3f792de295c7c1f7b279f40ca28803ca344015a971a46934b15bd738592bc
+candidate product SHA-256:    80051430da97b3423e889678e7d1c37991b92e5479ea05dd0d49c76016309272
+predecessor index blob:       3ece1c38070abe3e98b47696bba34b2eee2bb2c1
+candidate index blob:         e8531e739b871236853115707b6b6bdf702996aa
+predecessor fingerprint:      89a4e9c0f02f3f0c08881d892d33331aacf2928fd7b07cb87b03f2149881c478
+predecessor snapshot hash:    412b244d59fb750daff0e9441e16437e1c4dc554f21d485900d30ade17f90541
+candidate fingerprint:        b6649736bff64adc2818997e8a7e25f3d6c0a578e8d026713431f7143a9d21b1
+candidate snapshot hash:      c4f5e69a7e9e7e2d70abb4c0ea2f16dd15bf4f11a5c02c15dc9540515a479cd1
+```
+
+### Batch 07 editorial checkpoint verification
+
+- Ledger inventory/check: **5,799/5,799**, completed **350**, pending
+  **5,449**, unresolved **0**. The focused Batch 07 gate passed **6/6** and
+  proves exact scope, exact predecessor archival, one changed question,
+  preserved answer position/tier, and protected entry 351.
+- Revision archive validation passed at **7 changed IDs / 7 exact predecessor
+  revisions**. The full active-session lifecycle suite passed **78/78** in
+  Edge, including Quick Play, Daily Five and Weekly Challenge, answered and
+  unasked predecessors, primary/backup recovery, repeated reload, completion,
+  export/import and unknown-revision rejection.
+- Stage 0 passed **7/7**, compatibility **27/27**, preservation **19/19**,
+  P0E browser **7/7**, and P1B browser/static certification passed. Desktop
+  and mobile navigation remained covered. Browser work used installed Edge
+  because the locked Playwright 1.55.1 headless-shell build 1193 is absent
+  locally; Linux/bundled-Chromium certification remains for a later PR.
+- Two certified P2A extractions were byte-identical across all five artifacts.
+  Counts remain **5,799 canonical / 6,072 registry / 273 aliases / 203
+  structured / 66 books** and tiers remain **1338/1668/1132/1140/521**.
+  The candidate hashes are canonical
+  `5beca9c7eb30dd6bc3047bb4a66cc3e4d4e833a09886eea41457e6eadd7d1bad`,
+  structured
+  `4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb`,
+  and registry
+  `0253814053c4e5d1deebc1b6a3e6ecf8b40843a97b79a14660e8428a806c91aa`.
+  P2B, P2C and P2D reported zero confirmed defects.
+- The P2A audits each passed **54/58**. Their four failures are the expected
+  frozen registry hash, canonical hash, monolith identity and QB11 runtime
+  bank-audit checks. P2E likewise reports only the expected QB11 bank-audit
+  failure. `npm.cmd run build` stops at the expected current-product identity
+  mismatch (`e8531e7…` versus certified `3ece1c3…`). Historical successor
+  negative suites cannot establish their normal baselines while the current
+  product is deliberately outside the last certified identity. These are the
+  intended narrow successor-certification checkpoint, not behavioral defects.
+- The previously documented P27D first-run onboarding race remains separately
+  waived by the user and was not changed or concealed in this batch. No broad
+  freezer, manifest update, historical-evidence rewrite, schema change, storage
+  change, asset change, tier change, alias change, gameplay change or UI change
+  was made. Parse checks passed for **84 JS/CJS**, **17 JSON** files and the
+  embedded engine; `git diff --check` passed.
+
+Batch 07 is uncommitted, unpushed, unmerged and undeployed. The exact next task
+is a separately authorized narrow Batch 07 successor-identity certification
+covering only this one question revision and its append-only predecessor, while
+preserving every historical identity and leaving entry 351 untouched. Batch 08
+must not begin before that checkpoint is certified and committed.
+
+## Batch 07 successor certification — completed locally
+
+The Batch 07 correction is now certified locally on
+`codex/question-audit-batch-07`, still based on Batch 06 checkpoint
+`f1f4a8d4adeae2edd95f28624826abf96caa5b33`. The append-only identity is
+`certification/tbc-batch07-question-revision-identity.json`; it recognizes only
+index blob `e8531e739b871236853115707b6b6bdf702996aa` and records the exact
+four-edit transition from the preceding blob
+`3ece1c38070abe3e98b47696bba34b2eee2bb2c1`. Historical identity manifests,
+transition records and P2A baseline remain byte-identical. No freezer was run.
+
+The record covers only `connection.ark-baptism.v20-meaning`: it retains the
+exact `f1f4a8d` archived snapshot and predecessor fingerprint
+`89a4e9c0f02f3f0c08881d892d33331aacf2928fd7b07cb87b03f2149881c478`, while
+the current fingerprint is
+`b6649736bff64adc2818997e8a7e25f3d6c0a578e8d026713431f7143a9d21b1`.
+The only authored change is the ambiguous Noah/baptism distractor and matching
+feedback becoming the separate Adam/Christ comparison. Stable ID, keyed answer,
+answer position, tier, all counts, aliases, structured subset, schema 27,
+storage keys and twelve supporting assets remain preserved. Entry 351,
+`connection.bronze-serpent.meaning`, was not reviewed or modified.
+
+QB11 retains its historical whole-bank QB1 freeze, so its raw runtime report
+marks only `qb1` false for this post-freeze certified question revision. The
+new `qb11AuditHealthy()` guard accepts exactly that one pinned condition after
+the Batch 07 manifest and full content proof validate; every other false QB11
+subcheck fails extraction, P2A, P2E and release validation. The raw audit is
+not rewritten or hidden.
+
+### Batch 07 successor verification
+
+- `npm.cmd run build`: PASS before and during final aggregate verification.
+- `npm.cmd run verify`: PASS, **38/38 child commands**. It includes Stage 0
+  **7/7**, preservation **19/19**, compatibility **27/27**, revision lifecycle
+  **78/78**, P0E **7/7**, P2A **58/58** twice, P2B–P2E with zero confirmed
+  defects, deterministic five-artifact comparison, historical adapters, P1B,
+  release validation, product identity negatives **32/32**, historical
+  successor negatives **7/7**, Batch 03 **22/22**, Batch 04 **24/24**, and
+  Batch 07 **26/26**.
+- Focused quality gates passed: four original revisions **4/4**, Batch 03
+  **5/5**, Batch 04 **6/6**, Batch 07 **6/6**. The older fixtures now own their
+  own audited ledger range and do not mistake later certified batch rows for
+  changes to their historical review.
+- Two P2A outputs were byte-identical. Current hashes are canonical
+  `5beca9c7eb30dd6bc3047bb4a66cc3e4d4e833a09886eea41457e6eadd7d1bad`,
+  structured `4b6a0c8c6a7b438a8ce0bd62b4a1464680bee58d0c0686dff077fb9e86458fcb`,
+  and registry `0253814053c4e5d1deebc1b6a3e6ecf8b40843a97b79a14660e8428a806c91aa`.
+- JavaScript/JSON parse checks and `git diff --check` passed before the final
+  status update. Browser verification used installed Edge with Playwright
+  1.55.1 because bundled Chromium build 1193 is unavailable locally. Linux
+  Node-22/bundled-Chromium certification remains required in a separately
+  authorized PR phase.
+
+Batch 07 remains local, uncommitted, unpushed, unmerged and undeployed at this
+point. The exact next task is to review the completed diff, rerun parse and
+`git diff --check`, commit this narrow successor certification, and then await
+separate authorization to push/open a Batch 07 PR. Batch 08 must not begin yet.

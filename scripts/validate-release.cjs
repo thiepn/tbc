@@ -6,6 +6,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { automaticMainAuthority } = require('./tbc-workflow-authority.cjs');
+const { qb11AuditHealthy } = require('./tbc-product-identity.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
@@ -109,7 +110,7 @@ if (fs.existsSync(summaryPath)) {
   check('canonical bank hash preserved', summary.hashes?.canonicalBank === hashes.canonicalBankSha256, summary.hashes?.canonicalBank || 'missing');
   check('structured bank hash preserved', summary.hashes?.structuredBank === hashes.structuredBankSha256, summary.hashes?.structuredBank || 'missing');
   check('registry bank hash preserved', summary.hashes?.registry === hashes.registryBankSha256, summary.hashes?.registry || 'missing');
-  check('QB11 runtime bank audit healthy', summary.runtimeHealth?.qb11BankAudit?.passed === true);
+  check('QB11 runtime bank audit healthy', qb11AuditHealthy(summary.runtimeHealth?.qb11BankAudit));
   check('QB8 schema audit healthy', summary.runtimeHealth?.qb8SchemaAudit?.passed === true);
   check('QB8 interaction audit healthy', summary.runtimeHealth?.qb8InteractionAudit?.passed === true);
   check('runtime extraction has no page errors', (summary.runtimeHealth?.pageErrors || []).length === 0, JSON.stringify(summary.runtimeHealth?.pageErrors || []));

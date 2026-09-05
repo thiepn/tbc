@@ -171,3 +171,28 @@ new canonical and registry hashes. Historical P2A and predecessor certificates
 remain byte-identical; `currentP2ABaseline()` overlays only the current source
 and semantic expectations from the new append-only manifest. No freezer or
 historical rewrite is part of this successor.
+
+## Batch 07 append-only successor
+
+Batch 07 recognizes the Batch 06 ledger checkpoint
+`f1f4a8d4adeae2edd95f28624826abf96caa5b33` as its predecessor. Its deployed
+`index.html` blob is `3ece1c38070abe3e98b47696bba34b2eee2bb2c1` and its only
+recognized successor is `e8531e739b871236853115707b6b6bdf702996aa`, recorded
+in `certification/tbc-batch07-question-revision-identity.json` with the
+corresponding bounded transition record.
+
+The transition appends the exact predecessor snapshot for
+`connection.ark-baptism.v20-meaning` and changes only that question's one
+overlapping distractor plus its derived feedback source. It preserves the outer
+HTML, all twelve supporting assets, aliases, tiers, schema and storage keys.
+Current content validation reverses this one canonical/registry row before
+replaying the Batch 04 and Batch 03 proofs, so every earlier successor remains
+independently pinned.
+
+QB11's historical QB1 whole-bank freeze reports this expressly certified
+post-freeze revision as its one false subcheck. The extractor, P2A audit, P2E,
+and release validator retain that raw report and accept it only when QB1 is the
+sole false QB11 check, the Batch 07 manifest is intact, and the full current
+content proof succeeds. Any other false QB11 check remains a release failure.
+This is an explicit interpretation of immutable historical evidence, not a
+QB11 rewrite or freezer update.

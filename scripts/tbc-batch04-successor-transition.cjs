@@ -6,10 +6,13 @@ const { split, storageNames, schemaAssignments } = require('./tbc-successor-tran
 const revisions = require('./tbc-question-revisions.cjs');
 
 function validateBatch04Transition(root = identity.ROOT) {
-  const manifest = identity.validateCurrent(root);
+  identity.validateCurrent(root);
+  const manifest = identity.loadBatch04Manifest(root);
   const transition = identity.loadBatch04Transition(root);
   const before = split(identity.git('show', `${identity.BATCH04_PREDECESSOR}:index.html`));
-  const after = split(identity.read(root, 'index.html'));
+  // Batch 04 is historical once a later successor exists. Replay its exact
+  // product from the last ledger-only Batch 06 checkpoint, not today's tree.
+  const after = split(identity.git('show', `${identity.BATCH07_PREDECESSOR}:index.html`));
   assert.equal(transition.predecessor, manifest.predecessor.indexBlobSha1);
   assert.equal(transition.successor, manifest.successor.indexBlobSha1);
   assert.equal(identity.sha256(before.engine), transition.predecessorEngineSha256);
@@ -19,7 +22,7 @@ function validateBatch04Transition(root = identity.ROOT) {
   assert.equal(after.shell, before.shell, 'Batch 04 changed the outer HTML shell');
   assert.deepEqual(storageNames(after.engine), storageNames(before.engine), 'Batch 04 changed storage keys');
   assert.deepEqual(schemaAssignments(after.engine), schemaAssignments(before.engine), 'Batch 04 changed save schema');
-  const archive = revisions.readArchive(identity.read(root, 'index.html'));
+  const archive = revisions.readArchive(identity.git('show', `${identity.BATCH07_PREDECESSOR}:index.html`));
   revisions.core.validate(archive);
   assert.equal(archive.records.length, 6, 'Batch 04 archive count changed');
   const record = archive.records.find(row => row.id === transition.question.id);

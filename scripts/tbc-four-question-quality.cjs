@@ -3,9 +3,10 @@
 // option sets; they do not claim to automate theological or semantic review.
 const fs=require('node:fs');
 const assert=require('node:assert/strict');
-const {core,readArchive,PREDECESSOR,BATCH03_PREDECESSOR,gitHtml,productHash}=require('./tbc-question-revisions.cjs');
+const {core,readArchive,PREDECESSOR,BATCH03_PREDECESSOR,BATCH04_PREDECESSOR,BATCH07_PREDECESSOR,gitHtml,productHash}=require('./tbc-question-revisions.cjs');
 const BATCH03_ID='1-samuel-12-24-context';
 const BATCH04_ID='1-timothy-6-6-context';
+const BATCH07_ID='connection.ark-baptism.v20-meaning';
 const cases=[
   {id:'1-chronicles-16-11-context', replacements:{0:'Nathan delivers God’s covenant promise to David.'},
     evidence:[['1 Chronicles 16:1–7, 11','https://biblehub.com/bsb/1_chronicles/16.htm'],['1 Chronicles 17:1–15','https://biblehub.com/bsb/1_chronicles/17.htm']],
@@ -26,8 +27,10 @@ function main(){
   assert.equal(before.productSha256,productHash(gitHtml(PREDECESSOR)),'stale predecessor capture');
   assert.equal(after.productSha256,productHash(fs.readFileSync('index.html')),'stale candidate capture');
   const changed=before.sources.filter(q=>core.fingerprint(q)!==core.fingerprint(after.sources.find(x=>x.itemId===q.itemId))).map(q=>q.itemId);
-  assert.deepEqual(changed.slice().sort(),[...cases.map(x=>x.id),BATCH03_ID,BATCH04_ID].sort(),'only prior corrections and separately tested later-batch identities may change');
+  assert.deepEqual(changed.slice().sort(),[...cases.map(x=>x.id),BATCH03_ID,BATCH04_ID,BATCH07_ID].sort(),'only prior corrections and separately tested later-batch identities may change');
   assert.ok(archive.records.some(r=>r.id===BATCH03_ID&&r.predecessor===BATCH03_PREDECESSOR),'Batch 03 correction must carry separate certified provenance');
+  assert.ok(archive.records.some(r=>r.id===BATCH04_ID&&r.predecessor===BATCH04_PREDECESSOR),'Batch 04 correction must carry separate certified provenance');
+  assert.ok(archive.records.some(r=>r.id===BATCH07_ID&&r.predecessor===BATCH07_PREDECESSOR),'Batch 07 correction must carry separate certified provenance');
   for(const c of cases){
     const old=before.sources.find(q=>q.itemId===c.id),now=after.sources.find(q=>q.itemId===c.id);
     const options=old.options.map((x,i)=>c.replacements[i]??x);

@@ -4,16 +4,17 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const id = require('./tbc-product-identity.cjs');
-const { validateBatch03Transition } = require('./tbc-batch03-successor-transition.cjs');
+const { validateBatch07Transition } = require('./tbc-batch07-successor-transition.cjs');
 const SOURCE = path.resolve(id.ROOT, process.env.P2A_OUT_DIR || 'artifacts/p2a');
 
-test('Batch 03 successor accepts its exact candidate and rejects bounded corruption cases', async t => {
-  const boundary = path.join(id.ROOT, 'artifacts/batch03-successor-negative');
+test('Batch 07 successor accepts its exact candidate and rejects bounded corruption cases', async t => {
+  const boundary = path.join(id.ROOT, 'artifacts/batch07-successor-negative');
   fs.mkdirSync(boundary, { recursive: true });
   const root = fs.mkdtempSync(path.join(boundary, 'negative-'));
-  const parent = id.loadManifest();
-  const files = [...id.PRODUCT, id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION, id.BATCH04_MANIFEST, id.BATCH04_TRANSITION, id.BATCH07_MANIFEST, id.BATCH07_TRANSITION,
-    id.P2A, id.ACCEPTANCE, ...Object.keys(parent.historicalEvidence)];
+  const parent = id.loadBatch04Manifest();
+  const files = [...id.PRODUCT, id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION,
+    id.BATCH04_MANIFEST, id.BATCH04_TRANSITION, id.BATCH07_MANIFEST, id.BATCH07_TRANSITION, id.P2A, id.ACCEPTANCE,
+    ...Object.keys(id.loadManifest().historicalEvidence)];
   for (const file of files) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(path.join(id.ROOT, file), path.join(root, file)); }
   const content = path.join(root, 'content'); fs.mkdirSync(content);
   for (const file of [...id.CONTENT_FILES, 'question-bank-summary.json']) fs.copyFileSync(path.join(SOURCE, file), path.join(content, file));
@@ -22,20 +23,23 @@ test('Batch 03 successor accepts its exact candidate and rejects bounded corrupt
   });
   const json = fn => bytes => { const value = JSON.parse(bytes); fn(value); return JSON.stringify(value, null, 2) + '\n'; };
   try {
-    await t.test('exact candidate, predecessor reconstruction, and both transition links pass', () => {
-      id.validateCurrent(root); validateBatch03Transition(root); id.validateContent(content, root);
+    await t.test('exact candidate, all predecessor transitions, and current content pass', () => {
+      id.validateCurrent(root); validateBatch07Transition(root); id.validateContent(content, root);
     });
     for (const [name, mutateManifest] of [
       ['wrong predecessor chain identity', q => { q.predecessor.indexBlobSha1 = '0'.repeat(40); }],
       ['wrong candidate index identity', q => { q.successor.indexBlobSha1 = '0'.repeat(40); }],
-      ['changed corrected-question ID', q => { q.audit.reviewed = 151; }]
-    ]) await mutate(name, path.join(root, id.BATCH03_MANIFEST), json(mutateManifest), () => id.loadBatch03Manifest(root), /Batch 03 identity manifest tampered/);
+      ['changed corrected-question count', q => { q.audit.corrected = 6; }]
+    ]) await mutate(name, path.join(root, id.BATCH07_MANIFEST), json(mutateManifest), () => id.loadBatch07Manifest(root), /Batch 07 identity manifest tampered/);
     for (const field of ['id', 'predecessorFingerprint', 'successorFingerprint', 'from', 'to']) {
-      await mutate(`rejects altered Batch 03 transition ${field}`, path.join(root, id.BATCH03_TRANSITION), json(q => { q.question[field] = 'tampered'; }), () => id.loadBatch03Transition(root), /Batch 03 transition record altered/);
+      await mutate(`rejects altered Batch 07 transition ${field}`, path.join(root, id.BATCH07_TRANSITION), json(q => { q.question[field] = 'tampered'; }), () => id.loadBatch07Transition(root), /Batch 07 transition record altered/);
     }
     for (const [name, file] of [
-      ['prior identity rewrite', id.MANIFEST], ['prior transition rewrite', id.TRANSITION], ['historical certificate rewrite', 'certification/p0e-preservation-baseline.json'], ['historical P2A freezer rewrite', id.P2A]
-    ]) await mutate(`rejects ${name}`, path.join(root, file), bytes => Buffer.concat([bytes, Buffer.from('\n')]), () => id.validateCurrent(root), /prior successor|prior Batch 03|protected historical evidence|historical P2A baseline|P2A changes exceed/);
+      ['first successor identity rewrite', id.MANIFEST], ['first successor transition rewrite', id.TRANSITION],
+      ['Batch 03 identity rewrite', id.BATCH03_MANIFEST], ['Batch 03 transition rewrite', id.BATCH03_TRANSITION],
+      ['Batch 04 identity rewrite', id.BATCH04_MANIFEST], ['Batch 04 transition rewrite', id.BATCH04_TRANSITION],
+      ['historical certificate rewrite', 'certification/p0e-preservation-baseline.json'], ['historical P2A freezer rewrite', id.P2A]
+    ]) await mutate(`rejects ${name}`, path.join(root, file), bytes => Buffer.concat([bytes, Buffer.from('\n')]), () => id.validateCurrent(root), /prior successor|prior Batch 03|prior Batch 04|protected historical evidence|historical P2A baseline|P2A changes exceed/);
     for (const [name, file, change] of [
       ['second unauthorized canonical question edit', 'question-bank.json', q => { q.questions[1].question += ' tampered'; }],
       ['answer-key change', 'question-bank.json', q => { q.questions[0].correctAnswer = 'tampered'; }],
@@ -44,8 +48,9 @@ test('Batch 03 successor accepts its exact candidate and rejects bounded corrupt
       ['alias change', 'question-registry.json', q => { q.aliases[0].canonicalId = 'tampered'; }],
       ['structured-subset change', 'structured-questions.json', q => { q.questions[0].question += ' tampered'; }]
     ]) await mutate(`rejects ${name}`, path.join(content, file), json(change), () => id.validateContent(content, root), /protected content artifact changed/);
-    for (const [name, file] of [['schema/storage-key change', id.MANIFEST], ['supporting deployed-asset change', 'assets/pr5-shell.js']]) {
-      await mutate(`rejects ${name}`, path.join(root, file), bytes => Buffer.concat([bytes, Buffer.from('\n')]), () => id.validateCurrent(root), /prior successor identity changed|prior Batch 03 successor identity changed|current product identity changed/);
+    for (const [name, file] of [['schema/storage-key change', id.BATCH07_MANIFEST], ['supporting deployed-asset change', 'assets/pr5-shell.js']]) {
+      await mutate(`rejects ${name}`, path.join(root, file), bytes => Buffer.concat([bytes, Buffer.from('\n')]), () => id.validateCurrent(root), /Batch 07 identity manifest tampered|current product identity changed/);
     }
+    assert.equal(parent.successor.indexBlobSha1, id.BATCH04_SUCCESSOR);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });
