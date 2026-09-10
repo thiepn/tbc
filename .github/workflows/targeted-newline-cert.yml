@@ -1,0 +1,27 @@
+name: Targeted newline repair certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/targeted-newline-cert.yml
+
+permissions:
+  contents: read
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 100
+      - name: Rendering repair identity
+        run: node scripts/tbc-rendering-repair-identity.cjs
+      - name: Current product identity
+        run: node scripts/tbc-product-identity.cjs
+      - name: Historical Batch 07 transition
+        run: node scripts/tbc-batch07-successor-transition.cjs
+      - name: Literal newline source guard
+        run: python3 scripts/audit_literal_newline_artifacts.py
