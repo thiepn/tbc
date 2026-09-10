@@ -2,14 +2,19 @@
 const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const identity = require('./tbc-product-identity.cjs');
+const repairIdentity = require('./tbc-rendering-repair-identity.cjs');
 const { split, storageNames, schemaAssignments } = require('./tbc-successor-transition.cjs');
 const revisions = require('./tbc-question-revisions.cjs');
 
 function validateBatch07Transition(root = identity.ROOT) {
-  const manifest = identity.validateCurrent(root);
+  // Batch 07 remains immutable historical evidence. Validate its exact replay
+  // against the certified Batch 07 blob, then separately authenticate the
+  // current literal-newline-only rendering repair successor.
+  const currentRepair = repairIdentity.validate(root);
+  const manifest = identity.loadBatch07Manifest(root);
   const transition = identity.loadBatch07Transition(root);
   const before = split(identity.git('show', `${identity.BATCH07_PREDECESSOR}:index.html`));
-  const after = split(identity.read(root, 'index.html'));
+  const after = split(identity.git('cat-file', 'blob', identity.BATCH07_SUCCESSOR));
   assert.equal(transition.predecessor, manifest.predecessor.indexBlobSha1);
   assert.equal(transition.successor, manifest.successor.indexBlobSha1);
   assert.equal(identity.sha256(before.engine), transition.predecessorEngineSha256);
@@ -19,7 +24,7 @@ function validateBatch07Transition(root = identity.ROOT) {
   assert.equal(after.shell, before.shell, 'Batch 07 changed the outer HTML shell');
   assert.deepEqual(storageNames(after.engine), storageNames(before.engine), 'Batch 07 changed storage keys');
   assert.deepEqual(schemaAssignments(after.engine), schemaAssignments(before.engine), 'Batch 07 changed save schema');
-  const archive = revisions.readArchive(identity.read(root, 'index.html'));
+  const archive = revisions.readArchive(identity.git('cat-file', 'blob', identity.BATCH07_SUCCESSOR));
   revisions.core.validate(archive);
   assert.equal(archive.records.length, 7, 'Batch 07 archive count changed');
   const record = archive.records.find(row => row.id === transition.question.id);
@@ -42,9 +47,14 @@ function validateBatch07Transition(root = identity.ROOT) {
     replay = replay.slice(0, offset) + replacement.to + replay.slice(offset + replacement.from.length);
     shift += replacement.to.length - replacement.from.length;
   }
-  assert.equal(replay, after.engine, 'candidate differs from exact authorized Batch 07 replay');
+  assert.equal(replay, after.engine, 'historical Batch 07 blob differs from exact authorized replay');
   new vm.Script(after.engine);
-  return { edits: transition.edits.length, archivedQuestions: archive.records.length, successor: transition.successor };
+  return {
+    edits: transition.edits.length,
+    archivedQuestions: archive.records.length,
+    successor: transition.successor,
+    renderingRepairSuccessor: currentRepair.successor,
+  };
 }
 
 module.exports = { validateBatch07Transition };
