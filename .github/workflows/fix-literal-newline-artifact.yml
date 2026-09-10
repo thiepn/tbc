@@ -23,7 +23,6 @@ jobs:
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
-          import hashlib
           import re
 
           index = Path('index.html')
@@ -32,7 +31,6 @@ jobs:
           head = re.search(r'(?is)<head\b[^>]*>(.*?)</head>', text)
           if not head:
               raise SystemExit('structural <head> not found')
-
           gap_re = re.compile(r'(?s)(?<=>)((?:[ \t\r\n]|\\[nr])+)(?=<)')
 
           def clean_gap(match):
@@ -49,7 +47,6 @@ jobs:
           body = re.search(r'(?is)<body\b[^>]*>', text)
           if not body:
               raise SystemExit('structural <body> not found')
-
           first_child = text.find('<', body.end())
           if first_child > body.end():
               prefix = text[body.end():first_child]
@@ -57,16 +54,28 @@ jobs:
                   prefix = prefix.replace('\\r', '\n').replace('\\n', '\n')
                   text = text[:body.end()] + prefix + text[first_child:]
 
-          guard_id = 'literal-newline-artifact-guard'
-          if f'id="{guard_id}"' not in text:
-              guard = r'''\n<script id="literal-newline-artifact-guard">\n(()=>{for(const n of Array.from(document.body.childNodes)){if(n.nodeType!==3)continue;const v=n.nodeValue||"";if(/\\[nr]/.test(v)&&/^(?:\s|\\n|\\r)+$/.test(v))n.remove();}})();\n</script>'''
+          guard = '''<script id="literal-newline-artifact-guard">
+(()=>{for(const n of Array.from(document.body.childNodes)){if(n.nodeType!==3)continue;const v=n.nodeValue||"";if(/\\\\[nr]/.test(v)&&/^(?:\\s|\\\\n|\\\\r)+$/.test(v))n.remove();}})();
+</script>'''
+          guard_re = re.compile(r'(?is)<script id="literal-newline-artifact-guard">.*?</script>')
+          if guard_re.search(text):
+              text = guard_re.sub(guard, text, count=1)
+          else:
               body = re.search(r'(?is)<body\b[^>]*>', text)
-              text = text[:body.end()] + guard + text[body.end():]
+              text = text[:body.end()] + '\n' + guard + text[body.end():]
 
           head = re.search(r'(?is)<head\b[^>]*>(.*?)</head>', text)
           bad = [m.group(1) for m in gap_re.finditer(head.group(1)) if '\\n' in m.group(1) or '\\r' in m.group(1)]
           if bad:
               raise SystemExit(f'structural escaped-newline text remains in <head>: {bad!r}')
+
+          body = re.search(r'(?is)<body\b[^>]*>', text)
+          first_child = text.find('<', body.end())
+          body_prefix = text[body.end():first_child]
+          if ('\\n' in body_prefix or '\\r' in body_prefix):
+              raise SystemExit(f'escaped-newline text remains after <body>: {body_prefix!r}')
+          if '\\n<script id="literal-newline-artifact-guard"' in text:
+              raise SystemExit('guard is preceded by a literal escaped newline')
 
           index.write_text(text, encoding='utf-8')
           PY
@@ -75,6 +84,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add index.html
           if ! git diff --cached --quiet; then
-            git commit -m 'fix: eliminate literal newline rendering artifact'
+            git commit -m 'fix: write real newlines in rendering guard'
             git push
           fi
