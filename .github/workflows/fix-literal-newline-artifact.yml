@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Repair structural escaped-newline text
+      - name: Repair and verify HTML
         shell: bash
         run: |
           set -euo pipefail
@@ -25,24 +25,29 @@ jobs:
           from pathlib import Path
           import re
 
-          index = Path('index.html')
-          text = index.read_text(encoding='utf-8')
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+          gap_re = re.compile(r'(?s)(?<=>)((?:[ \t\r\n]|\\[nr])+)(?=<)')
 
           head = re.search(r'(?is)<head\b[^>]*>(.*?)</head>', text)
           if not head:
               raise SystemExit('structural <head> not found')
-          gap_re = re.compile(r'(?s)(?<=>)((?:[ \t\r\n]|\\[nr])+)(?=<)')
 
-          def clean_gap(match):
-              gap = match.group(1)
-              if '\\n' not in gap and '\\r' not in gap:
-                  return gap
-              return gap.replace('\\r', '\n').replace('\\n', '\n')
+          def clean_gap(m):
+              gap = m.group(1)
+              return gap.replace('\\r', '\n').replace('\\n', '\n') if ('\\n' in gap or '\\r' in gap) else gap
 
-          cleaned_head = gap_re.sub(clean_gap, head.group(1))
-          if cleaned_head != head.group(1):
-              start, end = head.span(1)
-              text = text[:start] + cleaned_head + text[end:]
+          cleaned = gap_re.sub(clean_gap, head.group(1))
+          if cleaned != head.group(1):
+              a, b = head.span(1)
+              text = text[:a] + cleaned + text[b:]
+
+          # This generated v3.4.0 block contained escaped newlines in its CSS too.
+          style_re = re.compile(r'(?is)(<style id="v340-product-polish">)(.*?)(</style>)')
+          m = style_re.search(text)
+          if m and ('\\n' in m.group(2) or '\\r' in m.group(2)):
+              inner = m.group(2).replace('\\r', '\n').replace('\\n', '\n')
+              text = text[:m.start()] + m.group(1) + inner + m.group(3) + text[m.end():]
 
           body = re.search(r'(?is)<body\b[^>]*>', text)
           if not body:
@@ -59,7 +64,7 @@ jobs:
 </script>'''
           guard_re = re.compile(r'(?is)<script id="literal-newline-artifact-guard">.*?</script>')
           if guard_re.search(text):
-              text = guard_re.sub(guard, text, count=1)
+              text = guard_re.sub(lambda _: guard, text, count=1)
           else:
               body = re.search(r'(?is)<body\b[^>]*>', text)
               text = text[:body.end()] + '\n' + guard + text[body.end():]
@@ -67,23 +72,25 @@ jobs:
           head = re.search(r'(?is)<head\b[^>]*>(.*?)</head>', text)
           bad = [m.group(1) for m in gap_re.finditer(head.group(1)) if '\\n' in m.group(1) or '\\r' in m.group(1)]
           if bad:
-              raise SystemExit(f'structural escaped-newline text remains in <head>: {bad!r}')
+              raise SystemExit(f'escaped-newline structural text remains in head: {bad!r}')
 
           body = re.search(r'(?is)<body\b[^>]*>', text)
           first_child = text.find('<', body.end())
-          body_prefix = text[body.end():first_child]
-          if ('\\n' in body_prefix or '\\r' in body_prefix):
-              raise SystemExit(f'escaped-newline text remains after <body>: {body_prefix!r}')
-          if '\\n<script id="literal-newline-artifact-guard"' in text:
-              raise SystemExit('guard is preceded by a literal escaped newline')
+          prefix = text[body.end():first_child]
+          if '\\n' in prefix or '\\r' in prefix:
+              raise SystemExit(f'escaped-newline text remains after body open: {prefix!r}')
 
-          index.write_text(text, encoding='utf-8')
+          style = style_re.search(text)
+          if style and ('\\n' in style.group(2) or '\\r' in style.group(2)):
+              raise SystemExit('escaped-newline token remains in v340-product-polish')
+
+          path.write_text(text, encoding='utf-8')
           PY
 
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add index.html
           if ! git diff --cached --quiet; then
-            git commit -m 'fix: write real newlines in rendering guard'
+            git commit -m 'fix: fully normalize literal newline artifacts'
             git push
           fi
