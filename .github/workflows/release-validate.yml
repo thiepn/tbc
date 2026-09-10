@@ -21,6 +21,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Guard literal newline rendering artifacts
+        run: python3 scripts/audit_literal_newline_artifacts.py
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
