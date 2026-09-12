@@ -6,9 +6,13 @@ const { execFileSync } = require('node:child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const PREDECESSOR = 'e8531e739b871236853115707b6b6bdf702996aa';
-const SUCCESSOR = '742834e8ce148dcc8c8d8fcfdfa2d7baa7ea5f0f';
+const SUCCESSOR = 'a03d37b0a95c3900a0cb5c21f78ddd8f405e74f5';
 const STYLE_OPEN = '<style id="v340-product-polish">';
 const STYLE_CLOSE = '</style>';
+const PWA_HEAD_ANCHOR = '<!-- PR5_FOUNDATION_ASSETS -->\n<link rel="stylesheet" href="assets/pr5-foundation.css?v=pr5.1">\n';
+const PWA_HEAD_INSERTION = '\n<meta name="application-name" content="The Bible Challenge"/>\n<meta name="mobile-web-app-capable" content="yes"/>\n<meta name="apple-mobile-web-app-capable" content="yes"/>\n<meta name="apple-mobile-web-app-title" content="The Bible Challenge"/>\n<link rel="icon" href="./favicon.svg" type="image/svg+xml"/>\n<link rel="icon" href="./assets/icons/favicon-32.png" type="image/png" sizes="32x32"/>\n<link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png"/>\n<link rel="manifest" href="./manifest.webmanifest"/>\n';
+const PWA_BODY_ANCHOR = '<script src="assets/pr5-shell.js?v=pr5.1" defer></script>\n';
+const PWA_BODY_INSERTION = '\n<script>\nif ("serviceWorker" in navigator) {\n  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));\n}\n</script>\n';
 
 function git(...args) {
   return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
@@ -47,17 +51,26 @@ function applyAuthorizedRepair(text) {
   return normalizeBodyPrefix(repaired);
 }
 
+function applyAuthorizedPwa(text) {
+  assert.equal(text.split(PWA_HEAD_ANCHOR).length - 1, 1, 'PWA head anchor must occur exactly once');
+  assert.equal(text.split(PWA_BODY_ANCHOR).length - 1, 1, 'PWA body anchor must occur exactly once');
+  return text
+    .replace(PWA_HEAD_ANCHOR, PWA_HEAD_ANCHOR + PWA_HEAD_INSERTION)
+    .replace(PWA_BODY_ANCHOR, PWA_BODY_ANCHOR + PWA_BODY_INSERTION);
+}
+
 function validate(root = ROOT) {
   const historical = git('cat-file', 'blob', PREDECESSOR);
   const current = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 
-  assert.equal(blobForBytes(current), SUCCESSOR, 'current repaired index.html identity changed');
+  assert.equal(blobForBytes(current), SUCCESSOR, 'current repaired + PWA index.html identity changed');
   assert.equal(blobForBytes(historical), PREDECESSOR, 'historical Batch 07 index identity changed');
 
   const repairedHistorical = applyAuthorizedRepair(historical);
+  const expectedCurrent = applyAuthorizedPwa(repairedHistorical);
   const normalizedCurrent = normalizeBodyPrefix(current);
-  assert.equal(normalizedCurrent, repairedHistorical,
-    'current index.html differs from Batch 07 beyond the authorized literal-newline repair');
+  assert.equal(normalizedCurrent, expectedCurrent,
+    'current index.html differs from Batch 07 beyond the authorized literal-newline repair and exact PWA shell insertion');
 
   const currentStyleStart = current.indexOf(STYLE_OPEN);
   const currentStyleClose = current.indexOf(STYLE_CLOSE, currentStyleStart + STYLE_OPEN.length);
@@ -70,10 +83,26 @@ function validate(root = ROOT) {
   assert.notEqual(current.slice(currentStyleClose + STYLE_CLOSE.length, currentStyleClose + STYLE_CLOSE.length + 2), '\\n',
     'literal newline token remains after current v340-product-polish block');
 
-  return { predecessor: PREDECESSOR, successor: SUCCESSOR, scope: 'literal-newline-rendering-repair-only' };
+  assert.equal((current.match(/rel="manifest"/g) || []).length, 1, 'PWA manifest link must occur exactly once');
+  assert.equal((current.match(/navigator\.serviceWorker\.register\("\.\/sw\.js"\)/g) || []).length, 1,
+    'PWA service-worker registration must occur exactly once');
+
+  return {
+    predecessor: PREDECESSOR,
+    successor: SUCCESSOR,
+    scope: 'literal-newline-rendering-repair-plus-exact-pwa-shell-insertion',
+  };
 }
 
-module.exports = { ROOT, PREDECESSOR, SUCCESSOR, applyAuthorizedRepair, normalizeBodyPrefix, validate };
+module.exports = {
+  ROOT,
+  PREDECESSOR,
+  SUCCESSOR,
+  applyAuthorizedRepair,
+  applyAuthorizedPwa,
+  normalizeBodyPrefix,
+  validate,
+};
 
 if (require.main === module) {
   try {

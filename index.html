@@ -1130,6 +1130,15 @@ body.dark{--bg:#090d22;--surface:#171d42;--surface2:#101633;--line:rgba(255,255,
 </style>
 <!-- PR5_FOUNDATION_ASSETS -->
 <link rel="stylesheet" href="assets/pr5-foundation.css?v=pr5.1">
+
+<meta name="application-name" content="The Bible Challenge"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="The Bible Challenge"/>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="./assets/icons/favicon-32.png" type="image/png" sizes="32x32"/>
+<link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png"/>
+<link rel="manifest" href="./manifest.webmanifest"/>
 </head>
 <body>
 
@@ -1835,5 +1844,11 @@ select[aria-label^="Quick Play"]{height:46px!important;min-height:46px!important
 <!-- AF1 Runtime State & Navigation Integrity; baseline SHA-256 09dcda106e96678b1c7ef03939d27fde328d19d5f7aba988eb200c292374ab49 -->
 <!-- QB3 → recovered QB4 → QB5 direct certified build -->
 <script src="assets/pr5-shell.js?v=pr5.1" defer></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+}
+</script>
 </body>
 </html>
