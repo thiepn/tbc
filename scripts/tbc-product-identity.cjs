@@ -37,7 +37,7 @@ const BATCH04_SUCCESSOR = '3ece1c38070abe3e98b47696bba34b2eee2bb2c1';
 const BATCH04_PREDECESSOR = 'c2a129cf9e41fff089dc361c0019acb2148ccaef';
 const BATCH07_SUCCESSOR = 'e8531e739b871236853115707b6b6bdf702996aa';
 const BATCH07_PREDECESSOR = 'f1f4a8d4adeae2edd95f28624826abf96caa5b33';
-const RENDER_REPAIR_SUCCESSOR = '742834e8ce148dcc8c8d8fcfdfa2d7baa7ea5f0f';
+const RENDER_REPAIR_SUCCESSOR = 'a03d37b0a95c3900a0cb5c21f78ddd8f405e74f5';
 const PRODUCT = ['index.html', 'assets/pr5-foundation.css', 'assets/pr5-shell.js',
   'assets/pr6-play-learning.css', 'assets/pr6-play-learning.js', 'assets/p0b-player-controls.js',
   'assets/p0c-existing-feature-preservation.js', 'assets/p1b-pr7-production.js',
