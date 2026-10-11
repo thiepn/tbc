@@ -27,7 +27,10 @@ const LEGACY={
   focused:['Focused Practice','Practice a Book','Book Practice','Custom Practice','Practice'],
   journey:['Bible Journey','Continue Journey','Journey'],
   path:['Learning Path','Continue Learning','Continue Path','Learn'],
-  review:['Adaptive Review','Review Due','Due Review','Mistake Review','Review','Weak Areas']
+  review:['Adaptive Review','Review Due','Due Review','Mistake Review','Review','Weak Areas'],
+  campaign:['Campaign'],
+  expedition:['Expedition'],
+  duel:['Start Duel','Bible Duel']
 };
 const BOOK_GROUPS=[
   ['Pentateuch',['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']],
@@ -146,7 +149,7 @@ function focusHeading(){
   });
 }
 function escapeHtml(v){
-  return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]));
 }
 function rail(activeDomain){
   const playActive=activeDomain==='play',learnActive=activeDomain==='learn';
@@ -183,14 +186,18 @@ function card({title,copy,flow,action,labelText='Open',primary=false,meta=''}) {
 
 function renderPlay(){
   return shell('play',`
-    <section class="pr6-intro-grid" aria-label="Play choices">
+    <section class="pr6-intro-grid" aria-label="Practice choices">
       ${card({title:'Quick Play',copy:'Start immediately with the game’s default mixed practice. No setup required.',action:'quick-start',labelText:'Start now',primary:true})}
       ${card({title:'Focused Practice',copy:'Choose a specific book or practice route before starting the round.',flow:'focused',labelText:'Choose focus'})}
     </section>
     <section class="pr6-explain">
-      <span class="pr6-section-label">Two ways to practice</span>
-      <div class="pr6-explain-grid"><div><b>1</b><strong>Need reps?</strong><p>Use Quick Play when the goal is immediate recall practice.</p></div><div><b>2</b><strong>Know the weak area?</strong><p>Use Focused Practice when you want deliberate work on a narrower scope.</p></div></div>
-    </section>`,'Start a round immediately or narrow the practice target first.');
+      <span class="pr6-section-label">Game modes</span>
+      <div class="pr6-intro-grid three" aria-label="Existing game modes">
+        ${card({title:'Campaign',copy:'Continue the existing 72-mission campaign and its saved progress.',action:'campaign-open',labelText:'Open campaign'})}
+        ${card({title:'Expedition',copy:'Choose from the existing 12 Bible-spanning expedition arcs.',action:'expedition-open',labelText:'Open expeditions'})}
+        ${card({title:'Bible Duel',copy:'Two players alternate locally on one device using the existing Duel mode.',action:'duel-open',labelText:'Start duel'})}
+      </div>
+    </section>`,'Choose practice or continue one of the existing game modes.');
 }
 function renderQuick(){
   return shell('quick',`
@@ -343,6 +350,30 @@ async function handoff(flow){
   state.primed=null;
   return true;
 }
+async function handoffLegacyPlayMode(mode){
+  const names={campaign:'Campaign',expedition:'Expedition',duel:'Bible Duel'};
+  const display=names[mode]||mode;
+  setStatus(`Opening ${display}…`);
+  await prime('play');
+  const root=content();
+  if(!root){setStatus(`Could not open ${display} from this screen.`,'error');return false;}
+  if(mode==='duel'){
+    const quickTab=findLegacy(['Quick Play'],root);
+    if(!quickTab){setStatus('Could not open Bible Duel from this screen.','error');return false;}
+    quickTab.click();
+    await waitFrame();
+    await new Promise(resolve=>setTimeout(resolve,32));
+  }
+  const target=findLegacy(LEGACY[mode]||[display],root);
+  if(!target){
+    setStatus(`Could not open ${display} from this screen.`,'error');
+    return false;
+  }
+  deactivate();
+  target.click();
+  state.primed=null;
+  return true;
+}
 async function handoffBook(name){
   setStatus(`Opening ${name} practice…`);
   await prime('play');
@@ -380,6 +411,9 @@ function bindDynamic(){
     else if(a==='journey-start')handoff('journey');
     else if(a==='path-start')handoff('path');
     else if(a==='review-start')handoff('review');
+    else if(a==='campaign-open')handoffLegacyPlayMode('campaign');
+    else if(a==='expedition-open')handoffLegacyPlayMode('expedition');
+    else if(a==='duel-open')handoffLegacyPlayMode('duel');
   }));
   root.querySelectorAll('[data-pr6-book]').forEach(b=>b.addEventListener('click',()=>handoffBook(b.dataset.pr6Book)));
   root.querySelectorAll('[data-pr6-learning-index]').forEach(b=>b.addEventListener('click',()=>handoffLearning(Number(b.dataset.pr6LearningIndex))));
@@ -450,7 +484,9 @@ function audit(){
     focusedTarget:Boolean(flowTarget('focused')),
     journeyTarget:Boolean(flowTarget('journey')),
     pathTarget:Boolean(flowTarget('path')),
-    reviewTarget:Boolean(flowTarget('review'))
+    reviewTarget:Boolean(flowTarget('review')),
+    campaignTarget:Boolean(findLegacy(LEGACY.campaign,content()||document)),
+    expeditionTarget:Boolean(findLegacy(LEGACY.expedition,content()||document))
   };
   checks.pass=checks.shell&&checks.pr5Navigation&&checks.legacyPlayRoute&&checks.legacyLearnRoute;
   return checks;
@@ -464,7 +500,7 @@ function start(){
     if(!state.root?.isConnected)mount();
   });
   observer.observe(document.body,{childList:true,subtree:true});
-  window.TBC_PR6={version:VERSION,open,handoff,audit,deactivate};
+  window.TBC_PR6={version:VERSION,open,handoff,handoffLegacyPlayMode,audit,deactivate};
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
