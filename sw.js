@@ -37,6 +37,15 @@ const SHELL = [
 const SHELL_URLS = SHELL.map(file => new URL(file, SCOPE).href);
 const SHELL_PATHS = new Set(SHELL_URLS.map(url => new URL(url).pathname));
 
+// In-flight fetch handlers from the retiring v2 worker can reopen its cache
+// after v3 activation. Reconcile again on new-worker requests, when clients
+// have crossed the controller boundary, rather than assuming one delete lasts.
+async function retireOldCaches() {
+  const keys = await caches.keys();
+  await Promise.all(keys.filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
+    .map(key => caches.delete(key)));
+}
+
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
@@ -66,9 +75,7 @@ self.addEventListener('activate', event => {
       if (!await cache.match(url)) throw new Error('TBC shell activation denied');
     }
     // Retire old versions only after the complete new release exists.
-    const keys = await caches.keys();
-    await Promise.all(keys.filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
-      .map(key => caches.delete(key)));
+    await retireOldCaches();
     await self.clients.claim();
   })());
 });
@@ -86,6 +93,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(caches.open(CACHE_NAME)
       .then(cache => cache.match(DOCUMENT))
       .then(response => response || fetch(request)));
+    event.waitUntil(retireOldCaches());
     return;
   }
 
@@ -93,4 +101,5 @@ self.addEventListener('fetch', event => {
   event.respondWith(caches.open(CACHE_NAME)
     .then(cache => cache.match(request, { ignoreSearch: true }))
     .then(response => response || fetch(request)));
+  event.waitUntil(retireOldCaches());
 });
