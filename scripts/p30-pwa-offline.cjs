@@ -210,18 +210,23 @@ async function main() {
       for (const field of ['stats', 'daily', 'weekly', 'gameProgress']) assert.deepEqual(offline.progress[field], before.progress[field]);
     }
     check('two genuine Chromium offline reloads restore exactly', true);
-    // Old v2's in-flight fetch can recreate its cache after v3 activation.
-    // Require retirement after old client traffic drains and v3 handles
-    // a stable offline navigation; never accept an orphaned old cache.
-    await page.waitForFunction(async () => !(await caches.keys()).includes('tbc-pwa-v2'), null, {timeout:30000});
-    assert.deepEqual((await state(page)).versions.filter(key => key.startsWith('tbc-pwa-')), [CACHE]);
-    check('stale v2 cache is retired after new-controller navigation', true);
     const fetchResults = await page.evaluate(async files => Promise.all(files.map(async file => {
       const response = await fetch(file + '?p30=offline-test');
       return { file, status: response.status, bytes: (await response.arrayBuffer()).byteLength };
     })), ['assets/pr6-play-learning.js','assets/pr7-library-progress.js','manifest.webmanifest','assets/icons/icon-192.png']);
     assert.ok(fetchResults.every(r => r.status === 200 && r.bytes > 0), JSON.stringify(fetchResults));
     check('offline worker serves game, Library, manifest and icon requests', true);
+    // A v2 request can recreate its cache after v3 first deletes it.
+    // Require two separate, real v3-controlled offline fetches to each leave
+    // only the current cache; a transiently empty stale cache is insufficient.
+    for (const [i, file] of ['assets/pr6-play-learning.js','assets/pr7-library-progress.js'].entries()) {
+      const ok = await page.evaluate(async ({file,i}) =>
+        (await fetch('./' + file + '?p30=retire-' + i)).ok, {file,i});
+      assert.equal(ok,true,'offline v3 retirement fetch must succeed');
+      const names = await page.evaluate(async () => (await caches.keys()).filter(name => name.startsWith('tbc-pwa-')));
+      assert.deepEqual(names,[CACHE],'old cache must stay retired after controlled offline fetch '+i);
+    }
+    check('stale v2 cache is retired after two controlled offline fetches', true);
     // Reproduce late old-worker cache resurrection after activation and prove
     // normal offline requests retire only obsolete versions. In particular,
     // do not delete a newer worker's in-progress installation cache.
