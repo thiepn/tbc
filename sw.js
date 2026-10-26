@@ -4,7 +4,8 @@
 // Cache keys are release-scoped; never mix a newly fetched document with
 // older enhancement assets during an offline transition.
 const CACHE_PREFIX = 'tbc-pwa-';
-const CACHE_NAME = CACHE_PREFIX + 'v3';
+const CACHE_VERSION = 3;
+const CACHE_NAME = CACHE_PREFIX + 'v' + CACHE_VERSION;
 const SCOPE = new URL(self.registration.scope);
 const DOCUMENT = new URL('./index.html', SCOPE).href;
 const SHELL = [
@@ -42,8 +43,14 @@ const SHELL_PATHS = new Set(SHELL_URLS.map(url => new URL(url).pathname));
 // have crossed the controller boundary, rather than assuming one delete lasts.
 async function retireOldCaches() {
   const keys = await caches.keys();
-  await Promise.all(keys.filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
-    .map(key => caches.delete(key)));
+  // A newer worker may already be installing its own cache while this worker
+  // still controls existing tabs. Never erase that newer, not-yet-active shell.
+  const oldKeys = keys.filter(key => {
+    if (!key.startsWith(CACHE_PREFIX)) return false;
+    const version = /^tbc-pwa-v(\\d+)$/.exec(key);
+    return version && Number(version[1]) < CACHE_VERSION;
+  });
+  await Promise.all(oldKeys.map(key => caches.delete(key)));
 }
 
 self.addEventListener('install', event => {
