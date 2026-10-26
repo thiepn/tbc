@@ -47,7 +47,7 @@ async function retireOldCaches() {
   // still controls existing tabs. Never erase that newer, not-yet-active shell.
   const oldKeys = keys.filter(key => {
     if (!key.startsWith(CACHE_PREFIX)) return false;
-    const version = /^tbc-pwa-v(\\d+)$/.exec(key);
+    const version = /^tbc-pwa-v(\d+)$/.exec(key);
     return version && Number(version[1]) < CACHE_VERSION;
   });
   await Promise.all(oldKeys.map(key => caches.delete(key)));
