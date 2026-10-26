@@ -80,6 +80,13 @@ self.addEventListener('activate', event => {
   })());
 });
 
+// Read-only release handshake: a browser must distinguish the installed v3
+// controller from a still-active v2 worker sharing the same script URL.
+self.addEventListener('message', event => {
+  if (event.data?.type !== 'TBC_PWA_VERSION' || !event.ports?.[0]) return;
+  event.ports[0].postMessage({type: 'TBC_PWA_VERSION', cache: CACHE_NAME});
+});
+
 self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
