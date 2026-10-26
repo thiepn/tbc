@@ -175,6 +175,27 @@ async function main() {
         clearQuizSession();quiz=null;return failures;
       });assert.deepEqual(failures,[]);
     });
+    await check('PWA-controlled current round restores from a good backup without trusting a forged revision',async()=>{
+      // Unlike routed predecessor fixtures, this context permits the actual
+      // production service worker to control navigation and normal reloads.
+      await candidate.page.waitForFunction(()=>
+        navigator.serviceWorker?.controller?.scriptURL?.endsWith('/sw.js'),null,{timeout:30000});
+      const fixture=await makeFixture(candidate.page,IDS[0],'quick',true);
+      assert.equal(fixture.accepted,true,'current canonical question must hydrate');
+      await useFixture(candidate.page,fixture);
+      const saved=await snapshot(candidate.page);
+      const corrupt=structuredClone(saved);
+      corrupt.questions[2].prompt+=' unauthorized source revision';
+      assert.equal(await candidate.page.evaluate(raw=>hydrateQuizSession(raw),corrupt),null,
+        'unknown static fingerprint must fail closed even with a controlling worker');
+      const progress=await candidate.page.evaluate(()=>localStorage.getItem('theBibleChallenge_v21'));
+      await candidate.page.evaluate(key=>localStorage.setItem(key,'{broken'),SESSION);
+      await reloadExact(candidate.page,saved);
+      assert.equal(await candidate.page.evaluate(()=>localStorage.getItem('theBibleChallenge_v21')),progress,
+        'worker-controlled backup recovery must not reset player progress');
+      assert.equal(await candidate.page.evaluate(()=>Boolean(navigator.serviceWorker.controller)),true);
+      assert.deepEqual(candidate.errors,[],'no browser page errors');
+    });
     for(const mode of ['quick','daily','weekly']) await check(`synthetic ${mode}: primary/backup/both, progress, old scoring, repeated reload, cleanup`,async()=>{
       const fixture=await makeFixture(baseline.page,historical.itemId,mode,false,historical);
       assert.equal(fixture.accepted,false,'unallowlisted synthetic predecessor must fail original integrity checks');
