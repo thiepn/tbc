@@ -135,11 +135,15 @@ async function main() {
     fixture.setWorker('new');
     fixture.failAsset('assets/pr7-navigation-guard.js');
     await page.evaluate(async () => (await navigator.serviceWorker.getRegistration()).update());
+    const failureDeadline = Date.now() + 30000;
+    while (!fixture.failures() && Date.now() < failureDeadline) {
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    check('install failure is exercised by the actual fixture server', fixture.failures() > 0);
     await page.waitForFunction(async () => {
       const r = await navigator.serviceWorker.getRegistration();
-      return !r.installing && !r.waiting;
+      return !r.installing && !r.waiting && !(await caches.keys()).includes('tbc-pwa-v3');
     }, null, {timeout:30000});
-    check('install failure is exercised by the actual fixture server', fixture.failures() > 0);
     const failedInstall = await page.evaluate(async () => ({
       keys: await caches.keys(), round: serializeQuizSession(),
       progress: JSON.parse(localStorage.getItem('theBibleChallenge_v21'))
