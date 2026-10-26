@@ -16,7 +16,12 @@ async function check(name, fn) {
 }
 async function openHtml(browser, html) {
   return open({newContext:async options=>{
-    const context=await browser.newContext(options);
+    // Synthetic predecessor HTML is provided by Playwright routing, not the server.
+    // Chromium service workers bypass context.route() and may fetch the live
+    // index during a reload, silently replacing an injected revision archive.
+    // Disable workers only for routed-source fixtures; the unmodified candidate
+    // retains normal PWA behavior and is tested with service workers enabled.
+    const context=await browser.newContext(html ? {...options,serviceWorkers:'block'} : options);
     if(html) await context.route('http://127.0.0.1:4173/',r=>r.fulfill({contentType:'text/html',body:html}));
     return context;
   }});
@@ -141,6 +146,19 @@ async function main() {
       assert.throws(()=>validate({version:1,records:[record(forged)]},before,after,predecessorCaptures));
     });
     const isolated=await openHtml(browser,archiveHtml(html,synthetic));
+    await check('synthetic revision archive remains active across reloads without a service worker',async()=>{
+      for(const source of [historical,second]){
+        const expected=structuredClone(source);
+        assert.deepEqual(await isolated.page.evaluate(q=>TBC_QUESTION_REVISIONS.historical(q),source),expected);
+      }
+      await isolated.page.reload();await ready(isolated.page);
+      for(const source of [historical,second]){
+        assert.deepEqual(await isolated.page.evaluate(q=>TBC_QUESTION_REVISIONS.historical(q),source),source,
+          'routed historical HTML must survive a reload instead of serving the production archive');
+      }
+      assert.equal(await isolated.page.evaluate(()=>navigator.serviceWorker.controller),null);
+      assert.deepEqual(isolated.errors,[],'no browser page errors');
+    });
     await check('current canonical and retained-alias saves reject unknown static fingerprints',async()=>{
       const failures=await candidate.page.evaluate(()=>{
         clearQuizSession();quiz=null;startQuiz('quick',10);
