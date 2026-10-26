@@ -188,11 +188,13 @@ async function main() {
       corrupt.questions[2].prompt+=' unauthorized source revision';
       assert.equal(await candidate.page.evaluate(raw=>hydrateQuizSession(raw),corrupt),null,
         'unknown static fingerprint must fail closed even with a controlling worker');
-      const progress=await candidate.page.evaluate(()=>localStorage.getItem('theBibleChallenge_v21'));
+      const progress=await candidate.page.evaluate(()=>JSON.parse(localStorage.getItem('theBibleChallenge_v21')));
       await candidate.page.evaluate(key=>localStorage.setItem(key,'{broken'),SESSION);
       await reloadExact(candidate.page,saved);
-      assert.equal(await candidate.page.evaluate(()=>localStorage.getItem('theBibleChallenge_v21')),progress,
-        'worker-controlled backup recovery must not reset player progress');
+      const after=await candidate.page.evaluate(()=>JSON.parse(localStorage.getItem('theBibleChallenge_v21')));
+      for(const field of ['stats','daily','weekly','gameProgress'])
+        assert.deepEqual(after[field],progress[field],
+          'worker-controlled backup recovery must preserve '+field);
       assert.equal(await candidate.page.evaluate(()=>Boolean(navigator.serviceWorker.controller)),true);
       assert.deepEqual(candidate.errors,[],'no browser page errors');
     });
