@@ -173,9 +173,22 @@ async function main() {
     // then exercise v3's reconciliation on a genuine controlled asset fetch.
     await page.waitForFunction(async () => {
       const registration = await navigator.serviceWorker.getRegistration();
-      return registration?.active?.state === 'activated' &&
-        navigator.serviceWorker.controller === registration.active;
+      const worker = navigator.serviceWorker.controller;
+      if (registration?.active?.state !== 'activated' || worker !== registration.active) return false;
+      // The old and new workers share /sw.js. A live version response,
+      // not scriptURL or cache presence, proves which worker owns this tab.
+      const cache = await new Promise(resolve => {
+        const channel = new MessageChannel();
+        const timeout = setTimeout(() => { channel.port1.close(); resolve(null); }, 250);
+        channel.port1.onmessage = event => {
+          clearTimeout(timeout);channel.port1.close();
+          resolve(event.data?.type === 'TBC_PWA_VERSION' ? event.data.cache : null);
+        };
+        worker.postMessage({type: 'TBC_PWA_VERSION'}, [channel.port2]);
+      });
+      return cache === 'tbc-pwa-v3';
     }, null, {timeout:30000});
+    check('active document is controlled by identified v3 worker, not retired v2', true);
     assert.equal(await page.evaluate(async () => (await fetch('./assets/pr6-play-learning.js?p30=controlled')).ok), true);
     const active = await state(page);
     assert.ok(active.worker && active.versions.includes(CACHE),
