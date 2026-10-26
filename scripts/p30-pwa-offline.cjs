@@ -168,8 +168,13 @@ async function main() {
       const r = await navigator.serviceWorker.getRegistration();
       return r?.active?.state === 'activated' && (await caches.keys()).includes('tbc-pwa-v3') && !(await caches.keys()).includes('tbc-pwa-v2');
     }, null, {timeout:30000});
+    // Cache retirement precedes clients.claim(); wait for the new navigation
+    // to become actually controlled rather than treating activation as control.
+    await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), null, {timeout:30000});
     const active = await state(page);
-    check('v3 activates only after old client closes and retires v2', active.worker && active.versions.includes(CACHE) && !active.versions.includes('tbc-pwa-v2'));
+    assert.ok(active.worker && active.versions.includes(CACHE) && !active.versions.includes('tbc-pwa-v2'),
+      'new client must be controlled by the complete v3 release: ' + JSON.stringify(active));
+    check('v3 activates only after old client closes and retires v2', true);
     for (const file of REQUIRED) assert.ok(active.keys.includes('/' + file), 'v3 cache missing ' + file);
     check('every 24 runtime/manifest assets is actually precached', true);
 
