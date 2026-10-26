@@ -222,6 +222,26 @@ async function main() {
     })), ['assets/pr6-play-learning.js','assets/pr7-library-progress.js','manifest.webmanifest','assets/icons/icon-192.png']);
     assert.ok(fetchResults.every(r => r.status === 200 && r.bytes > 0), JSON.stringify(fetchResults));
     check('offline worker serves game, Library, manifest and icon requests', true);
+    // Reproduce late old-worker cache resurrection after activation and prove
+    // normal offline requests retire only obsolete versions. In particular,
+    // do not delete a newer worker's in-progress installation cache.
+    await page.evaluate(async () => {
+      const old = await caches.open('tbc-pwa-v2');
+      await old.put('./resurrected-v2-fixture', new Response('obsolete'));
+      const future = await caches.open('tbc-pwa-v4');
+      await future.put('./pending-v4-fixture', new Response('future'));
+    });
+    assert.equal(await page.evaluate(async () => (await fetch('./assets/pr7-library-progress.js?p30=prune')).ok), true);
+    const versionsAfterReconciliation = await page.evaluate(async () => ({
+      keys: await caches.keys(),
+      future: await (await caches.open('tbc-pwa-v4')).match('./pending-v4-fixture').then(r => r?.text())
+    }));
+    assert.ok(!versionsAfterReconciliation.keys.includes('tbc-pwa-v2'),
+      'offline controlled fetch must retire a resurrected v2 cache');
+    assert.equal(versionsAfterReconciliation.future, 'future',
+      'current v3 worker must not destroy a waiting future worker cache');
+    await page.evaluate(async () => { await caches.delete('tbc-pwa-v4'); });
+    check('old-worker resurrection is retired without deleting future installation caches', true);
     await page.evaluate(() => { answer(currentQuestion().answer); nextQuestion(); saveQuizSession(); });
     check('offline round remains answerable without resetting progress', Boolean((await saved(page)).round));
     const afterAnswer = await saved(page);
