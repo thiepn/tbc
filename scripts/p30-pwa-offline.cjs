@@ -168,9 +168,16 @@ async function main() {
       const r = await navigator.serviceWorker.getRegistration();
       return r?.active?.state === 'activated' && (await caches.keys()).includes('tbc-pwa-v3') && !(await caches.keys()).includes('tbc-pwa-v2');
     }, null, {timeout:30000});
-    // Cache retirement precedes clients.claim(); wait for the new navigation
-    // to become actually controlled rather than treating activation as control.
-    await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), null, {timeout:30000});
+    // An old worker may finish an in-flight navigation and recreate the v2
+    // cache after activation. First prove the actual controller transition,
+    // then exercise v3's reconciliation on a genuine controlled asset fetch.
+    await page.waitForFunction(async () => {
+      const registration = await navigator.serviceWorker.getRegistration();
+      return registration?.active?.state === 'activated' &&
+        navigator.serviceWorker.controller === registration.active;
+    }, null, {timeout:30000});
+    assert.equal(await page.evaluate(async () => (await fetch('./assets/pr6-play-learning.js?p30=controlled')).ok), true);
+    await page.waitForFunction(async () => !(await caches.keys()).includes('tbc-pwa-v2'), null, {timeout:30000});
     const active = await state(page);
     assert.ok(active.worker && active.versions.includes(CACHE) && !active.versions.includes('tbc-pwa-v2'),
       'new client must be controlled by the complete v3 release: ' + JSON.stringify(active));
