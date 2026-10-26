@@ -166,7 +166,7 @@ async function main() {
     await page.goto(base, { waitUntil: 'domcontentloaded' }); await ready(page);
     await page.waitForFunction(async () => {
       const r = await navigator.serviceWorker.getRegistration();
-      return r?.active?.state === 'activated' && (await caches.keys()).includes('tbc-pwa-v3') && !(await caches.keys()).includes('tbc-pwa-v2');
+      return r?.active?.state === 'activated' && (await caches.keys()).includes('tbc-pwa-v3');
     }, null, {timeout:30000});
     // An old worker may finish an in-flight navigation and recreate the v2
     // cache after activation. First prove the actual controller transition,
@@ -177,11 +177,10 @@ async function main() {
         navigator.serviceWorker.controller === registration.active;
     }, null, {timeout:30000});
     assert.equal(await page.evaluate(async () => (await fetch('./assets/pr6-play-learning.js?p30=controlled')).ok), true);
-    await page.waitForFunction(async () => !(await caches.keys()).includes('tbc-pwa-v2'), null, {timeout:30000});
     const active = await state(page);
-    assert.ok(active.worker && active.versions.includes(CACHE) && !active.versions.includes('tbc-pwa-v2'),
+    assert.ok(active.worker && active.versions.includes(CACHE),
       'new client must be controlled by the complete v3 release: ' + JSON.stringify(active));
-    check('v3 activates only after old client closes and retires v2', true);
+    check('v3 activates after old client closes and controls the successor page', true);
     for (const file of REQUIRED) assert.ok(active.keys.includes('/' + file), 'v3 cache missing ' + file);
     check('every 24 runtime/manifest assets is actually precached', true);
 
@@ -198,6 +197,12 @@ async function main() {
       for (const field of ['stats', 'daily', 'weekly', 'gameProgress']) assert.deepEqual(offline.progress[field], before.progress[field]);
     }
     check('two genuine Chromium offline reloads restore exactly', true);
+    // Old v2's in-flight fetch can recreate its cache after v3 activation.
+    // Require retirement after old client traffic drains and v3 handles
+    // a stable offline navigation; never accept an orphaned old cache.
+    await page.waitForFunction(async () => !(await caches.keys()).includes('tbc-pwa-v2'), null, {timeout:30000});
+    assert.deepEqual((await state(page)).versions.filter(key => key.startsWith('tbc-pwa-')), [CACHE]);
+    check('stale v2 cache is retired after new-controller navigation', true);
     const fetchResults = await page.evaluate(async files => Promise.all(files.map(async file => {
       const response = await fetch(file + '?p30=offline-test');
       return { file, status: response.status, bytes: (await response.arrayBuffer()).byteLength };
