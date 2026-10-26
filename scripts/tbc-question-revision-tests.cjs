@@ -16,7 +16,12 @@ async function check(name, fn) {
 }
 async function openHtml(browser, html) {
   return open({newContext:async options=>{
-    const context=await browser.newContext(options);
+    // Synthetic predecessor HTML is provided by Playwright routing, not the server.
+    // Chromium service workers bypass context.route() and may fetch the live
+    // index during a reload, silently replacing an injected revision archive.
+    // Disable workers only for routed-source fixtures; the unmodified candidate
+    // retains normal PWA behavior and is tested with service workers enabled.
+    const context=await browser.newContext(html ? {...options,serviceWorkers:'block'} : options);
     if(html) await context.route('http://127.0.0.1:4173/',r=>r.fulfill({contentType:'text/html',body:html}));
     return context;
   }});
@@ -141,6 +146,19 @@ async function main() {
       assert.throws(()=>validate({version:1,records:[record(forged)]},before,after,predecessorCaptures));
     });
     const isolated=await openHtml(browser,archiveHtml(html,synthetic));
+    await check('synthetic revision archive remains active across reloads without a service worker',async()=>{
+      for(const source of [historical,second]){
+        const expected=structuredClone(source);
+        assert.deepEqual(await isolated.page.evaluate(q=>TBC_QUESTION_REVISIONS.historical(q),source),expected);
+      }
+      await isolated.page.reload();await ready(isolated.page);
+      for(const source of [historical,second]){
+        assert.deepEqual(await isolated.page.evaluate(q=>TBC_QUESTION_REVISIONS.historical(q),source),source,
+          'routed historical HTML must survive a reload instead of serving the production archive');
+      }
+      assert.equal(await isolated.page.evaluate(()=>navigator.serviceWorker.controller),null);
+      assert.deepEqual(isolated.errors,[],'no browser page errors');
+    });
     await check('current canonical and retained-alias saves reject unknown static fingerprints',async()=>{
       const failures=await candidate.page.evaluate(()=>{
         clearQuizSession();quiz=null;startQuiz('quick',10);
@@ -156,6 +174,29 @@ async function main() {
         }
         clearQuizSession();quiz=null;return failures;
       });assert.deepEqual(failures,[]);
+    });
+    await check('PWA-controlled current round restores from a good backup without trusting a forged revision',async()=>{
+      // Unlike routed predecessor fixtures, this context permits the actual
+      // production service worker to control navigation and normal reloads.
+      await candidate.page.waitForFunction(()=>
+        navigator.serviceWorker?.controller?.scriptURL?.endsWith('/sw.js'),null,{timeout:30000});
+      const fixture=await makeFixture(candidate.page,IDS[0],'quick',true);
+      assert.equal(fixture.accepted,true,'current canonical question must hydrate');
+      await useFixture(candidate.page,fixture);
+      const saved=await snapshot(candidate.page);
+      const corrupt=structuredClone(saved);
+      corrupt.questions[2].prompt+=' unauthorized source revision';
+      assert.equal(await candidate.page.evaluate(raw=>hydrateQuizSession(raw),corrupt),null,
+        'unknown static fingerprint must fail closed even with a controlling worker');
+      const progress=await candidate.page.evaluate(()=>JSON.parse(localStorage.getItem('theBibleChallenge_v21')));
+      await candidate.page.evaluate(key=>localStorage.setItem(key,'{broken'),SESSION);
+      await reloadExact(candidate.page,saved);
+      const after=await candidate.page.evaluate(()=>JSON.parse(localStorage.getItem('theBibleChallenge_v21')));
+      for(const field of ['stats','daily','weekly','gameProgress'])
+        assert.deepEqual(after[field],progress[field],
+          'worker-controlled backup recovery must preserve '+field);
+      assert.equal(await candidate.page.evaluate(()=>Boolean(navigator.serviceWorker.controller)),true);
+      assert.deepEqual(candidate.errors,[],'no browser page errors');
     });
     for(const mode of ['quick','daily','weekly']) await check(`synthetic ${mode}: primary/backup/both, progress, old scoring, repeated reload, cleanup`,async()=>{
       const fixture=await makeFixture(baseline.page,historical.itemId,mode,false,historical);
