@@ -87,19 +87,24 @@ self.addEventListener('fetch', event => {
   if (url.origin !== SCOPE.origin || !url.pathname.startsWith(SCOPE.pathname)) return;
 
   if (request.mode === 'navigate') {
-    // Cache-first navigation keeps the document, revision archive and
-    // separate enhancement scripts from the same successfully installed
-    // release. A future release is adopted through the worker update.
-    event.respondWith(caches.open(CACHE_NAME)
-      .then(cache => cache.match(DOCUMENT))
-      .then(response => response || fetch(request)));
-    event.waitUntil(retireOldCaches());
+    // The document and enhancement modules must come from the same completed
+    // release, including on offline refresh. Complete stale-cache retirement
+    // before fulfilling the navigation: a separate waitUntil cleanup can race
+    // the next loaded document and leave resurrected v2 cache entries behind.
+    event.respondWith((async () => {
+      const cache = await caches.open(CACHE_NAME);
+      const response = await cache.match(DOCUMENT) || await fetch(request);
+      await retireOldCaches();
+      return response;
+    })());
     return;
   }
 
   if (!SHELL_PATHS.has(url.pathname)) return;
-  event.respondWith(caches.open(CACHE_NAME)
-    .then(cache => cache.match(request, { ignoreSearch: true }))
-    .then(response => response || fetch(request)));
-  event.waitUntil(retireOldCaches());
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const response = await cache.match(request, { ignoreSearch: true }) || await fetch(request);
+    await retireOldCaches();
+    return response;
+  })());
 });
