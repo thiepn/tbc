@@ -238,6 +238,30 @@ async function main() {
       'new-controller online reload must preserve exact source-bound round');
     check('fresh v3-controlled navigation preserves historical-safe session',true);
 
+    // A v3 cache-first handler must serve the complete installed module even
+    // when the fixture origin returns 503. The predecessor v2 was network-first
+    // and cannot satisfy this fresh cache-busted query; an HTTP disk-cache hit
+    // cannot satisfy a unique no-store request either.
+    const beforeForcedNetwork = fixture.failures();
+    fixture.failAsset('assets/pr6-play-learning.js');
+    let forcedCache;
+    try {
+      forcedCache = await page.evaluate(async () => {
+        try {
+          const response = await fetch('./assets/pr6-play-learning.js?p30=forced-successor-cache', {
+            cache:'no-store'
+          });
+          return {status:response.status, bytes:(await response.arrayBuffer()).byteLength};
+        } catch (error) { return {error:String(error)}; }
+      });
+    } finally { fixture.failAsset(null); }
+    assert.deepEqual(forcedCache?.status,200,
+      'v3 must serve precached gameplay asset despite origin 503: '+JSON.stringify(forcedCache));
+    assert.ok(forcedCache.bytes > 0);
+    assert.equal(fixture.failures(), beforeForcedNetwork,
+      'v3 cache-first fetch must not contact the deliberately failing origin');
+    check('v3 handles cache-first gameplay fetch while origin rejects requests', true);
+
     // A worker can be installed and answer postMessage yet fail to control
     // actual fetches. Require a real worker-only route before switching off
     // the network; the fixture server deliberately has no such URL.
