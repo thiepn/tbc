@@ -98,12 +98,17 @@ async function saved(page) {
   }), { SAVE, ACTIVE });
 }
 async function state(page) {
-  return page.evaluate(async () => ({
-    worker: Boolean(navigator.serviceWorker.controller),
-    versions: await caches.keys(),
-    keys: (await (await caches.open('tbc-offline-v3')).keys()).map(request => new URL(request.url).pathname),
-    registration: Boolean(await navigator.serviceWorker.getRegistration())
-  }));
+  return page.evaluate(async () => {
+    const versions = await caches.keys();
+    // Observation must not create an empty cache and manufacture apparent
+    // installation success when a worker was removed/evicted.
+    const keys = versions.includes('tbc-offline-v3')
+      ? (await (await caches.open('tbc-offline-v3')).keys())
+          .map(request => new URL(request.url).pathname)
+      : [];
+    return {worker:Boolean(navigator.serviceWorker.controller),versions,keys,
+      registration:Boolean(await navigator.serviceWorker.getRegistration())};
+  });
 }
 async function main() {
   inventoryCheck();
@@ -170,9 +175,16 @@ async function main() {
     assert.deepEqual(vulnerable,[],
       'successor cache must avoid the shipped v2 purge namespace');
     check('waiting v3 shell is immune to shipped v2 activation purge',true);
+    for (const file of REQUIRED) {
+      assert.ok(waiting.keys.includes('/' + file),
+        'waiting v3 cache must be fully installed BEFORE browser exit: ' + file);
+    }
+    check('all installed successor assets exist BEFORE browser shutdown',true);
     const during = await saved(page);
     assert.deepEqual(exact(during.round), exact(before.round));
     await page.close();
+    // Final pre-shutdown state from an origin-scoped browser page is preserved
+    // by the prior check; never mutate CacheStorage while inspecting it.
     await context.close();
     // This is the real PWA lifecycle boundary: no v2 clients or old Chromium
     // worker processes survive, while the same profile retains all saved data.
