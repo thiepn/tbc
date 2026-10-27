@@ -207,6 +207,18 @@ async function main() {
       (await (await caches.open('tbc-pwa-v3')).keys()).length >= count,
       REQUIRED.length, {timeout:20000});
     const persisted = await state(page);
+    const afterRestart = await saved(page);
+    assert.deepEqual(exact(afterRestart.round),exact(before.round),
+      'persisted Chromium browser must retain exact active round after restart');
+    assert.deepEqual(afterRestart.progress.stats,before.progress.stats,
+      'persisted Chromium browser must retain progress stats after restart');
+    check('browser restart retains exact active round and schema-27 progress',true);
+    if (REQUIRED.some(file => !persisted.keys.includes('/' + file))) {
+      console.error('P30 CACHE PERSISTENCE EVIDENCE',JSON.stringify({
+        versions:persisted.versions, keys:persisted.keys,
+        missing:REQUIRED.filter(file => !persisted.keys.includes('/' + file))
+      }));
+    }
     for (const file of REQUIRED) assert.ok(persisted.keys.includes('/' + file),
       'v3 cache missing after browser restart: ' + file);
     check('every 24 runtime/manifest assets is actually precached', true);
