@@ -41,16 +41,28 @@ const SHELL_PATHS = new Set(SHELL_URLS.map(url => new URL(url).pathname));
 // In-flight fetch handlers from the retiring v2 worker can reopen its cache
 // after v3 activation. Reconcile again on new-worker requests, when clients
 // have crossed the controller boundary, rather than assuming one delete lasts.
+const oldVersion = key => {
+  // Never match unrelated caches or an installing successor generation.
+  const version = /^tbc-pwa-v(\d+)$/.exec(key);
+  return version && Number(version[1]) < CACHE_VERSION;
+};
 async function retireOldCaches() {
-  const keys = await caches.keys();
-  // A newer worker may already be installing its own cache while this worker
-  // still controls existing tabs. Never erase that newer, not-yet-active shell.
-  const oldKeys = keys.filter(key => {
-    if (!key.startsWith(CACHE_PREFIX)) return false;
-    const version = /^tbc-pwa-v(\d+)$/.exec(key);
-    return version && Number(version[1]) < CACHE_VERSION;
-  });
-  await Promise.all(oldKeys.map(key => caches.delete(key)));
+  // v2 performed cache.put() asynchronously outside its fetch event's
+  // waitUntil/respondWith lifetime. A late v2 task may reopen its cache just
+  // after a v3 sweep. If an old cache exists, finish a bounded quiescence
+  // sweep before completing a v3 response. No delay on the normal clean path.
+  let sawOld = false;
+  for (let sweep = 0; sweep < 4; sweep++) {
+    const stale = (await caches.keys()).filter(oldVersion);
+    if (stale.length) {
+      sawOld = true;
+      await Promise.all(stale.map(key => caches.delete(key)));
+    }
+    if (!sawOld) return;
+    if (sweep < 3) await new Promise(resolve => setTimeout(resolve, 75));
+  }
+  const remaining = (await caches.keys()).filter(oldVersion);
+  if (remaining.length) throw new Error('Old TBC PWA cache kept reopening');
 }
 
 self.addEventListener('install', event => {
