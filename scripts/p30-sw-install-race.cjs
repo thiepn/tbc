@@ -79,30 +79,37 @@ async function main() {
   for (let i=0; f.attempts() < 1 && i<100; i++) await Promise.resolve();
   assert.equal(f.attempts(),1,'first independent install did not start');
   await second.event('install');
-  const complete = f.stores.get(NEXT);
-  assert.ok(complete,'successful overlapping attempt did not publish a shell');
-  const entries = complete.entries.size;
-  assert.ok(entries >= 24,'successor shell is incomplete');
+  const staged = [...f.stores.entries()].filter(([name]) => name.startsWith('tbc-stage-v3-'));
+  assert.equal(staged.length,2,'independent attempts must retain separate staged caches');
+  const complete = staged.find(([,cache])=>cache.entries.size >= 24);
+  assert.ok(complete,'successful overlapping attempt did not finish its own stage');
+  const entries = complete[1].entries.size;
+  assert.ok(entries >= 24,'successor staged shell is incomplete');
+  assert.ok(!f.stores.has(NEXT),'a waiting worker must not publish a shared shell');
   f.firstFailure.resolve();
   await assert.rejects(unsuccessful,/simulated first installation 503/);
-  assert.equal(f.stores.get(NEXT)?.entries.size,entries,
-    'failed concurrent attempt must not delete successful shell');
-  assert.ok(!f.deletions.includes(NEXT),
-    'failed install must never delete a shared release cache');
-  assert.ok((await f.caches.keys()).every(name => !name.startsWith('tbc-stage-')),
-    'temporary installation cache must be removed on both outcomes');
-  console.log('PASS overlapping failed 503 cannot erase a successful waiting shell');
+  const liveStages = [...f.stores.entries()].filter(([name])=>name.startsWith('tbc-stage-v3-'));
+  assert.equal(liveStages.length,1,'failed attempt must delete only its own stage');
+  assert.equal(liveStages[0][1].entries.size,entries,
+    'failed attempt must not delete successful staged bytes');
+  assert.ok(!f.stores.has(NEXT),'failed install must never publish version cache');
+  assert.ok(!f.deletions.includes(NEXT),'failed install must never delete shared release cache');
+  console.log('PASS overlapping failed 503 preserves complete private waiting shell');
 
-  // The shipped v2 activate() deleted every tbc-pwa-* cache but its own.
+  // Reproduce exact shipped v2 cache-purge logic before activation.
   for (const name of await f.caches.keys()) {
     if (name.startsWith('tbc-pwa-') && name !== OLD) await f.caches.delete(name);
   }
-  assert.ok(f.stores.has(NEXT), 'released v2 purge rule must not reach successor shell');
-  console.log('PASS successor cache is isolated from shipped v2 activation purge');
+  assert.ok(f.stores.has(liveStages[0][0]),'v2 must not purge staged successor shell');
+  console.log('PASS successor staged cache is isolated from shipped v2 activation purge');
 
   await f.caches.open(OLD);
   await f.caches.open(FUTURE);
   await second.event('activate');
+  assert.equal(f.stores.get(NEXT)?.entries.size,entries,
+    'activation must atomically promote every staged asset');
+  assert.ok(!(await f.caches.keys()).some(name => name.startsWith('tbc-stage-v3-')),
+    'activation must clean promoted temporary staging cache');
   assert.ok(!f.stores.has(OLD), 'v3 activation must delete retired v2');
   assert.ok(f.stores.has(NEXT), 'v3 must retain current cache');
   assert.ok(f.stores.has(FUTURE), 'v3 must preserve a future waiting v4 cache');
