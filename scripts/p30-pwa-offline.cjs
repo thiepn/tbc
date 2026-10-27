@@ -205,6 +205,29 @@ async function main() {
     await context.setOffline(true);
     for (let i=0;i<2;i++) {
       await page.reload({ waitUntil: 'domcontentloaded' }); await ready(page);
+      const workerStatus = await page.evaluate(async () => {
+        const registration = await navigator.serviceWorker.getRegistration();
+        const worker = navigator.serviceWorker.controller;
+        const identify = target => new Promise(resolve => {
+          if (!target) return resolve('missing');
+          const channel = new MessageChannel();
+          const timeout = setTimeout(() => resolve('timeout'), 1200);
+          channel.port1.onmessage = event => {
+            clearTimeout(timeout);
+            resolve(event.data?.cache || 'unknown');
+          };
+          target.postMessage({type:'TBC_PWA_VERSION'}, [channel.port2]);
+        });
+        return {
+          same: worker === registration?.active,
+          activeState: registration?.active?.state,
+          controller: await identify(worker),
+          active: await identify(registration?.active)
+        };
+      });
+      assert.deepEqual(workerStatus, {
+        same:true, activeState:'activated', controller:CACHE, active:CACHE
+      }, 'offline reload '+i+' must keep the authenticated v3 controller');
       const offline = await saved(page);
       assert.deepEqual(exact(offline.round), exact(before.round));
       for (const field of ['stats', 'daily', 'weekly', 'gameProgress']) assert.deepEqual(offline.progress[field], before.progress[field]);
