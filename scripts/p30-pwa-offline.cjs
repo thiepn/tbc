@@ -161,6 +161,30 @@ async function main() {
     assert.deepEqual(exact(during.round), exact(before.round));
     await page.close();
 
+    // Closing the predecessor tab does not synchronously activate the waiting
+    // worker. Opening a replacement tab during that gap can let v2 claim the
+    // initial navigation; controller metadata may change before fetch routing
+    // does. Wait with *zero application tabs* until the actual v3 worker realm
+    // reports activated, then open a fresh client.
+    let observed = [];
+    const claimDeadline = Date.now() + 30000;
+    while (Date.now() < claimDeadline) {
+      const current = context.serviceWorkers();
+      observed = await Promise.all(current.map(async worker => {
+        try {
+          return await worker.evaluate(() => ({
+            cache: typeof CACHE_NAME === 'string' ? CACHE_NAME : null,
+            state: self.registration.active?.state
+          }));
+        } catch (error) { return {error: String(error).slice(0,120)}; }
+      }));
+      if (observed.some(worker => worker.cache === CACHE && worker.state === 'activated')) break;
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    assert.ok(observed.some(worker => worker.cache === CACHE && worker.state === 'activated'),
+      'v3 must activate with no v2 application clients: ' + JSON.stringify(observed));
+    check('v3 worker activation observed before opening successor tab', true);
+
     page = await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base, { waitUntil: 'domcontentloaded' }); await ready(page);
