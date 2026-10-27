@@ -89,11 +89,9 @@ async function shellComplete(cache) {
   const identity = release && await release.json();
   return identity?.release === EXPECTED_RELEASE;
 }
-async function stageAndCommitShell() {
-  // The timestamp and random token identify this *attempt*, not the version.
-  // No failed install is allowed to delete CACHE_NAME or another attempt's
-  // staging cache, even when installs overlap.
-  const stageName = 'tbc-stage-v3-' + Date.now() + '-' +
+const STAGE_PREFIX = 'tbc-stage-v3-';
+async function stageShell() {
+  const stageName = STAGE_PREFIX + Date.now() + '-' +
     Math.random().toString(36).slice(2);
   const staging = await caches.open(stageName);
   try {
@@ -101,21 +99,44 @@ async function stageAndCommitShell() {
     if (!await shellComplete(staging)) {
       throw new Error('TBC staging shell incomplete or release identity invalid');
     }
-    const published = await caches.open(CACHE_NAME);
-    if (!await shellComplete(published)) {
-      for (const url of SHELL_URLS) {
-        const source = await staging.match(url);
-        if (!source) throw new Error('Missing staged TBC asset');
-        await published.put(url, source);
-      }
-    }
-    if (!await shellComplete(published)) {
-      throw new Error('TBC published shell incomplete');
-    }
-    return published;
-  } finally {
+    // Installation must not publish into a shared version cache. The
+    // attempting worker alone owns this stage until activation.
+    return stageName;
+  } catch (error) {
     await caches.delete(stageName);
+    throw error;
   }
+}
+async function promoteStagedShell() {
+  const names = await caches.keys();
+  if (names.includes(CACHE_NAME)) {
+    const existing = await caches.open(CACHE_NAME);
+    if (await shellComplete(existing)) return existing;
+  }
+  // Only validated staging caches are eligible. An offline activation can
+  // succeed from the complete install-time stage without network access.
+  const stages = names.filter(name => name.startsWith(STAGE_PREFIX));
+  for (const stageName of stages) {
+    const stage = await caches.open(stageName);
+    if (!await shellComplete(stage)) continue;
+    const published = await caches.open(CACHE_NAME);
+    try {
+      for (const url of SHELL_URLS) {
+        const asset = await stage.match(url);
+        if (!asset) throw new Error('Missing staged TBC asset');
+        await published.put(url, asset);
+      }
+      if (!await shellComplete(published)) {
+        throw new Error('TBC published shell incomplete');
+      }
+    } catch (error) {
+      // Invalid/partial publication never gets accepted as ready.
+      throw error;
+    }
+    await caches.delete(stageName);
+    return published;
+  }
+  throw new Error('No complete authenticated TBC PWA staged release');
 }
 
 let healthyCachePromise = null;
@@ -123,12 +144,16 @@ function verifiedCache() {
   if (!healthyCachePromise) {
     healthyCachePromise = (async () => {
       const names = await caches.keys();
-      const cache = names.includes(CACHE_NAME) ? await caches.open(CACHE_NAME) : null;
-      if (cache && await shellComplete(cache)) return cache;
-      // An installed-but-evicted shell must be fully rebuilt and pinned to
-      // this release before any navigation/asset is served. Offline failure
-      // rejects the fetch; never substitute mixed-version network resources.
-      return stageAndCommitShell();
+      const existing = names.includes(CACHE_NAME) ? await caches.open(CACHE_NAME) : null;
+      if (existing && await shellComplete(existing)) return existing;
+      // Prefer previously staged assets, including when activation happens
+      // without a network. Only an active worker may rebuild a missing shell
+      // after verifying the pinned release; never use mixed-version fallback.
+      if (names.some(name => name.startsWith(STAGE_PREFIX))) {
+        try { return await promoteStagedShell(); } catch { /* fail closed or retry online below */ }
+      }
+      await stageShell();
+      return promoteStagedShell();
     })().catch(error => {
       healthyCachePromise = null;
       throw error;
@@ -138,14 +163,16 @@ function verifiedCache() {
 }
 
 self.addEventListener('install', event => {
-  // Do not skipWaiting. Active v2 rounds keep their existing controller
-  // until all old clients close. An install failure affects staging only.
-  event.waitUntil(stageAndCommitShell().then(() => undefined));
+  // Keep the verified bytes in a private cache until successor activation.
+  // Failed overlapping installs cannot affect this successful attempt.
+  event.waitUntil(stageShell().then(() => undefined));
 });
 
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
-    await verifiedCache();
+    // Commit a complete install-time stage before claiming clients; never
+    // activate with only a registration marker and an incomplete cache.
+    await promoteStagedShell();
     // Retire old versions only after the complete new release exists.
     await retireOldCaches();
     await self.clients.claim();
