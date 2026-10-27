@@ -3,6 +3,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const os = require('node:os');
 const http = require('node:http');
 const { execFileSync } = require('node:child_process');
 const { chromium } = require('playwright');
@@ -107,13 +108,18 @@ async function state(page) {
 async function main() {
   inventoryCheck();
   const fixture = fixtureServer();
-  const browser = await chromium.launch({ headless: true });
+  // Persistent Chromium faithfully preserves SW registrations, CacheStorage,
+  // local progress and active-round keys through an actual browser restart.
+  // A second ephemeral tab in one living browser process can retain a v2
+  // fetch controller even when registration metadata identifies v3.
+  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'tbc-p30-pwa-'));
+  const launchOptions = {headless:true,acceptDownloads:true,timezoneId:'Europe/Berlin'};
   let context;
   try {
     await new Promise((resolve, reject) => { fixture.server.once('error', reject); fixture.server.listen(0, '127.0.0.1', resolve); });
     const base = 'http://127.0.0.1:' + fixture.server.address().port + '/';
-    context = await browser.newContext({ acceptDownloads: true, timezoneId: 'Europe/Berlin' });
-    let page = await context.newPage(), errors = [];
+    context = await chromium.launchPersistentContext(profile,launchOptions);
+    let page = context.pages()[0] || await context.newPage(), errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base, { waitUntil: 'domcontentloaded' }); await ready(page);
     const modal = page.locator('#modalRoot .modal-backdrop').getByRole('button').filter({ hasText: /Standard/i });
@@ -160,32 +166,11 @@ async function main() {
     const during = await saved(page);
     assert.deepEqual(exact(during.round), exact(before.round));
     await page.close();
-
-    // Closing the predecessor tab does not synchronously activate the waiting
-    // worker. Opening a replacement tab during that gap can let v2 claim the
-    // initial navigation; controller metadata may change before fetch routing
-    // does. Wait with *zero application tabs* until the actual v3 worker realm
-    // reports activated, then open a fresh client.
-    let observed = [];
-    const claimDeadline = Date.now() + 30000;
-    while (Date.now() < claimDeadline) {
-      const current = context.serviceWorkers();
-      observed = await Promise.all(current.map(async worker => {
-        try {
-          return await worker.evaluate(() => ({
-            cache: typeof CACHE_NAME === 'string' ? CACHE_NAME : null,
-            state: self.registration.active?.state
-          }));
-        } catch (error) { return {error: String(error).slice(0,120)}; }
-      }));
-      if (observed.some(worker => worker.cache === CACHE && worker.state === 'activated')) break;
-      await new Promise(resolve => setTimeout(resolve, 100));
-    }
-    assert.ok(observed.some(worker => worker.cache === CACHE && worker.state === 'activated'),
-      'v3 must activate with no v2 application clients: ' + JSON.stringify(observed));
-    check('v3 worker activation observed before opening successor tab', true);
-
-    page = await context.newPage();
+    await context.close();
+    // This is the real PWA lifecycle boundary: no v2 clients or old Chromium
+    // worker processes survive, while the same profile retains all saved data.
+    context = await chromium.launchPersistentContext(profile,launchOptions);
+    page = context.pages()[0] || await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base, { waitUntil: 'domcontentloaded' }); await ready(page);
     await page.waitForFunction(async () => {
@@ -391,9 +376,11 @@ async function main() {
     await context.setOffline(false);
     check('no uncaught Chromium page errors', errors.length === 0);
   } finally {
-    await context?.close();
-    await browser.close();
-    await new Promise(resolve => fixture.server.close(resolve));
+    try { await context?.close(); }
+    finally {
+      fs.rmSync(profile,{recursive:true,force:true});
+      await new Promise(resolve => fixture.server.close(resolve));
+    }
   }
   console.log('P30 OFFLINE CHROMIUM: ' + RESULTS.length + '/' + RESULTS.length + ' PASS');
 }
