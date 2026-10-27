@@ -75,32 +75,60 @@ async function retireOldCaches() {
   if (remaining.length) throw new Error('Old TBC PWA cache kept reopening');
 }
 
+// Every install attempt uses a separate temporary cache. The old installer
+// removed the shared version cache on a 503, so a failed overlapping update
+// could erase bytes written by another successful waiting worker.
+const SHELL_REQUESTS = SHELL_URLS.map(url => new Request(url, {
+  cache: 'reload', credentials: 'same-origin'
+}));
+async function shellComplete(cache) {
+  for (const url of SHELL_URLS) {
+    if (!await cache.match(url)) return false;
+  }
+  const release = await cache.match(new URL('./release.json', SCOPE).href);
+  const identity = release && await release.json();
+  return identity?.release === EXPECTED_RELEASE;
+}
+async function stageAndCommitShell() {
+  // The timestamp and random token identify this *attempt*, not the version.
+  // No failed install is allowed to delete CACHE_NAME or another attempt's
+  // staging cache, even when installs overlap.
+  const stageName = 'tbc-stage-v3-' + Date.now() + '-' +
+    Math.random().toString(36).slice(2);
+  const staging = await caches.open(stageName);
+  try {
+    await staging.addAll(SHELL_REQUESTS);
+    if (!await shellComplete(staging)) {
+      throw new Error('TBC staging shell incomplete or release identity invalid');
+    }
+    const published = await caches.open(CACHE_NAME);
+    if (!await shellComplete(published)) {
+      for (const url of SHELL_URLS) {
+        const source = await staging.match(url);
+        if (!source) throw new Error('Missing staged TBC asset');
+        await published.put(url, source);
+      }
+    }
+    if (!await shellComplete(published)) {
+      throw new Error('TBC published shell incomplete');
+    }
+    return published;
+  } finally {
+    await caches.delete(stageName);
+  }
+}
+
 let healthyCachePromise = null;
 function verifiedCache() {
   if (!healthyCachePromise) {
     healthyCachePromise = (async () => {
-      const cache = await caches.open(CACHE_NAME);
-      const missing = [];
-      for (const url of SHELL_URLS) {
-        if (!await cache.match(url)) missing.push(url);
-      }
-      if (missing.length) {
-        // Chromium may retain registration + localStorage across a full
-        // restart while discarding an installed-but-waiting cache. Repair the
-        // whole shell atomically while online, never serve a partial release.
-        await cache.addAll(SHELL_URLS.map(url => new Request(url,{
-          cache:'reload',credentials:'same-origin'
-        })));
-      }
-      for (const url of SHELL_URLS) {
-        if (!await cache.match(url)) throw new Error('Incomplete TBC offline release');
-      }
-      const release = await cache.match(new URL('./release.json',SCOPE).href);
-      const identity = release && await release.json();
-      if (identity?.release !== EXPECTED_RELEASE) {
-        throw new Error('Refusing mixed TBC release after PWA cache recovery');
-      }
-      return cache;
+      const names = await caches.keys();
+      const cache = names.includes(CACHE_NAME) ? await caches.open(CACHE_NAME) : null;
+      if (cache && await shellComplete(cache)) return cache;
+      // An installed-but-evicted shell must be fully rebuilt and pinned to
+      // this release before any navigation/asset is served. Offline failure
+      // rejects the fetch; never substitute mixed-version network resources.
+      return stageAndCommitShell();
     })().catch(error => {
       healthyCachePromise = null;
       throw error;
@@ -110,25 +138,9 @@ function verifiedCache() {
 }
 
 self.addEventListener('install', event => {
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    try {
-      // addAll fails atomically on a missing/invalid asset. Do not activate a
-      // release with only its HTML or only some of its scripts available.
-      await cache.addAll(SHELL_URLS.map(url => new Request(url, {
-        cache: 'reload',
-        credentials: 'same-origin'
-      })));
-      for (const url of SHELL_URLS) {
-        if (!await cache.match(url)) throw new Error('Incomplete TBC offline shell');
-      }
-      // Do not skipWaiting: an active round stays on its current version
-      // until the older client closes, rather than changing engines mid-quiz.
-    } catch (error) {
-      await caches.delete(CACHE_NAME);
-      throw error;
-    }
-  })());
+  // Do not skipWaiting. Active v2 rounds keep their existing controller
+  // until all old clients close. An install failure affects staging only.
+  event.waitUntil(stageAndCommitShell().then(() => undefined));
 });
 
 self.addEventListener('activate', event => {
