@@ -202,9 +202,24 @@ async function main() {
     for (const field of ['stats', 'daily', 'weekly', 'gameProgress']) assert.deepEqual(restored.progress[field], before.progress[field]);
     check('schema-27 progress and active round survive worker replacement', true);
 
+    // A worker can be installed and answer postMessage yet fail to control
+    // actual fetches. Require a real worker-only route before switching off
+    // the network; the fixture server deliberately has no such URL.
+    const onlineHealth = await page.evaluate(async () => {
+      const response = await fetch('./__tbc_pwa_status?p30=online',{cache:'no-store'});
+      return {status:response.status,body:await response.text()};
+    });
+    assert.equal(onlineHealth.status,200,
+      'installed v3 must handle online fetch events, not merely messages: '+JSON.stringify(onlineHealth));
+    assert.equal(JSON.parse(onlineHealth.body).cache,CACHE);
+    check('v3 fetch handler serves worker-only status before network cutoff', true);
+
     await context.setOffline(true);
     for (let i=0;i<2;i++) {
-      await page.reload({ waitUntil: 'domcontentloaded' }); await ready(page);
+      const navigation = await page.reload({ waitUntil: 'domcontentloaded' });
+      assert.equal(navigation?.fromServiceWorker(),true,
+        'offline reload '+i+' must be served by the active service worker, not HTTP disk cache');
+      await ready(page);
       const workerStatus = await page.evaluate(async () => {
         const registration = await navigator.serviceWorker.getRegistration();
         return {
