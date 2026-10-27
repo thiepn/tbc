@@ -6,6 +6,7 @@
 const CACHE_PREFIX = 'tbc-pwa-';
 const CACHE_VERSION = 3;
 const CACHE_NAME = CACHE_PREFIX + 'v' + CACHE_VERSION;
+const EXPECTED_RELEASE = 'v4.1.0';
 const SCOPE = new URL(self.registration.scope);
 const DOCUMENT = new URL('./index.html', SCOPE).href;
 const STATUS_PATH = new URL('./__tbc_pwa_status', SCOPE).pathname;
@@ -71,6 +72,40 @@ async function retireOldCaches() {
   if (remaining.length) throw new Error('Old TBC PWA cache kept reopening');
 }
 
+let healthyCachePromise = null;
+function verifiedCache() {
+  if (!healthyCachePromise) {
+    healthyCachePromise = (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      const missing = [];
+      for (const url of SHELL_URLS) {
+        if (!await cache.match(url)) missing.push(url);
+      }
+      if (missing.length) {
+        // Chromium may retain registration + localStorage across a full
+        // restart while discarding an installed-but-waiting cache. Repair the
+        // whole shell atomically while online, never serve a partial release.
+        await cache.addAll(SHELL_URLS.map(url => new Request(url,{
+          cache:'reload',credentials:'same-origin'
+        })));
+      }
+      for (const url of SHELL_URLS) {
+        if (!await cache.match(url)) throw new Error('Incomplete TBC offline release');
+      }
+      const release = await cache.match(new URL('./release.json',SCOPE).href);
+      const identity = release && await release.json();
+      if (identity?.release !== EXPECTED_RELEASE) {
+        throw new Error('Refusing mixed TBC release after PWA cache recovery');
+      }
+      return cache;
+    })().catch(error => {
+      healthyCachePromise = null;
+      throw error;
+    });
+  }
+  return healthyCachePromise;
+}
+
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
@@ -95,10 +130,7 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    for (const url of SHELL_URLS) {
-      if (!await cache.match(url)) throw new Error('TBC shell activation denied');
-    }
+    await verifiedCache();
     // Retire old versions only after the complete new release exists.
     await retireOldCaches();
     await self.clients.claim();
@@ -129,6 +161,7 @@ self.addEventListener('fetch', event => {
     // progress is exposed; unlike an API-presence probe, this verifies the
     // active worker actually handles fetches without network access.
     event.respondWith((async () => {
+      await verifiedCache();
       await retireOldCaches();
       const stale = (await caches.keys()).filter(oldVersion);
       return new Response(JSON.stringify({
@@ -147,8 +180,9 @@ self.addEventListener('fetch', event => {
     // before fulfilling the navigation: a separate waitUntil cleanup can race
     // the next loaded document and leave resurrected v2 cache entries behind.
     event.respondWith((async () => {
-      const cache = await caches.open(CACHE_NAME);
-      const response = await cache.match(DOCUMENT) || await fetch(request);
+      const cache = await verifiedCache();
+      const response = await cache.match(DOCUMENT);
+      if (!response) throw new Error('Offline TBC document missing after cache verification');
       await retireOldCaches();
       return response;
     })());
@@ -157,8 +191,9 @@ self.addEventListener('fetch', event => {
 
   if (!SHELL_PATHS.has(url.pathname)) return;
   event.respondWith((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    const response = await cache.match(request, { ignoreSearch: true }) || await fetch(request);
+    const cache = await verifiedCache();
+    const response = await cache.match(request, { ignoreSearch: true });
+    if (!response) throw new Error('Offline TBC asset missing after cache verification');
     await retireOldCaches();
     return response;
   })());
