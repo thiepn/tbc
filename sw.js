@@ -46,7 +46,9 @@ const oldVersion = key => {
   const version = /^tbc-pwa-v(\d+)$/.exec(key);
   return version && Number(version[1]) < CACHE_VERSION;
 };
+let lastRetirement = {calls: 0, deleted: [], residual: [], matched: false};
 async function retireOldCaches() {
+  lastRetirement.calls++;
   // v2 performed cache.put() asynchronously outside its fetch event's
   // waitUntil/respondWith lifetime. A late v2 task may reopen its cache just
   // after a v3 sweep. If an old cache exists, finish a bounded quiescence
@@ -56,12 +58,15 @@ async function retireOldCaches() {
     const stale = (await caches.keys()).filter(oldVersion);
     if (stale.length) {
       sawOld = true;
+      lastRetirement.matched = true;
+      lastRetirement.deleted.push(...stale);
       await Promise.all(stale.map(key => caches.delete(key)));
     }
     if (!sawOld) return;
     if (sweep < 3) await new Promise(resolve => setTimeout(resolve, 75));
   }
   const remaining = (await caches.keys()).filter(oldVersion);
+  lastRetirement.residual = remaining;
   if (remaining.length) throw new Error('Old TBC PWA cache kept reopening');
 }
 
@@ -103,7 +108,13 @@ self.addEventListener('activate', event => {
 // controller from a still-active v2 worker sharing the same script URL.
 self.addEventListener('message', event => {
   if (event.data?.type !== 'TBC_PWA_VERSION' || !event.ports?.[0]) return;
-  event.ports[0].postMessage({type: 'TBC_PWA_VERSION', cache: CACHE_NAME});
+  event.ports[0].postMessage({
+    type: 'TBC_PWA_VERSION', cache: CACHE_NAME,
+    retirement: {
+      ...lastRetirement,
+      cacheKeys: null
+    }
+  });
 });
 
 self.addEventListener('fetch', event => {
