@@ -8,6 +8,7 @@ const CACHE_VERSION = 3;
 const CACHE_NAME = CACHE_PREFIX + 'v' + CACHE_VERSION;
 const SCOPE = new URL(self.registration.scope);
 const DOCUMENT = new URL('./index.html', SCOPE).href;
+const STATUS_PATH = new URL('./__tbc_pwa_status', SCOPE).pathname;
 const SHELL = [
   './',
   './index.html',
@@ -122,6 +123,23 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== SCOPE.origin || !url.pathname.startsWith(SCOPE.pathname)) return;
+
+  if (url.pathname === STATUS_PATH) {
+    // Read-only, origin-scoped offline health proof. No app state or user
+    // progress is exposed; unlike an API-presence probe, this verifies the
+    // active worker actually handles fetches without network access.
+    event.respondWith((async () => {
+      await retireOldCaches();
+      const stale = (await caches.keys()).filter(oldVersion);
+      return new Response(JSON.stringify({
+        cache: CACHE_NAME, stale
+      }), {headers: {
+        'content-type': 'application/json; charset=utf-8',
+        'cache-control': 'no-store'
+      }});
+    })());
+    return;
+  }
 
   if (request.mode === 'navigate') {
     // The document and enhancement modules must come from the same completed
