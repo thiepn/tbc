@@ -165,9 +165,19 @@ async function main() {
 
     fixture.failAsset(null);
     await page.evaluate(async () => (await navigator.serviceWorker.getRegistration()).update());
-    await page.waitForFunction(async () => Boolean((await navigator.serviceWorker.getRegistration())?.waiting), null, {timeout:30000});
+    await page.waitForFunction(async ({cacheName,count}) => {
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (!registration?.waiting) return false;
+      const names = await caches.keys();
+      if (!names.includes('tbc-pwa-v2') || !names.includes(cacheName)) return false;
+      // A registration can report "waiting" before the page sees all writes
+      // from the successor installer. Require actual complete cache visibility.
+      return (await (await caches.open(cacheName)).keys()).length >= count;
+    }, {cacheName:CACHE,count:REQUIRED.length}, {timeout:30000});
     const waiting = await state(page);
-    check('complete v3 shell waits rather than replacing the active v2 round', waiting.versions.includes('tbc-pwa-v2') && waiting.versions.includes(CACHE));
+    assert.ok(waiting.versions.includes('tbc-pwa-v2') && waiting.versions.includes(CACHE),
+      'complete successor waiting install must keep old cache: '+JSON.stringify(waiting));
+    check('complete v3 shell waits rather than replacing the active v2 round',true);
     // The shipped v2 activation deletes all tbc-pwa-* caches but its own.
     // A successor under that prefix cannot survive a late v2 activation.
     const vulnerable = waiting.versions.filter(name =>
