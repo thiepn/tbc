@@ -175,6 +175,28 @@ async function main() {
     assert.deepEqual(vulnerable,[],
       'successor cache must avoid the shipped v2 purge namespace');
     check('waiting v3 shell is immune to shipped v2 activation purge',true);
+    if (REQUIRED.some(file => !waiting.keys.includes('/' + file))) {
+      const workerInventories = await Promise.all(context.serviceWorkers().map(async worker => {
+        try {
+          return await worker.evaluate(async () => {
+            const name = typeof CACHE_NAME === 'string' ? CACHE_NAME : null;
+            const names = await caches.keys();
+            return {
+              script:self.location.href,
+              name,
+              state:self.registration?.active?.state,
+              names,
+              keys:name && names.includes(name)
+                ? (await (await caches.open(name)).keys()).map(q=>q.url)
+                : []
+            };
+          });
+        } catch(error){ return {error:String(error)}; }
+      }));
+      console.error('P30 WAITING INSTALL DIAGNOSTIC',JSON.stringify({
+        document:waiting,workers:workerInventories
+      }));
+    }
     for (const file of REQUIRED) {
       assert.ok(waiting.keys.includes('/' + file),
         'waiting v3 cache must be fully installed BEFORE browser exit: ' + file);
