@@ -244,8 +244,10 @@ async function main() {
     // cannot satisfy a unique no-store request either.
     const beforeForcedNetwork = fixture.failures();
     fixture.failAsset('assets/pr6-play-learning.js');
-    let forcedCache;
+    let forcedCache, forcedProvenance;
     try {
+      const responseEvidence = page.waitForResponse(response =>
+        response.url().includes('p30=forced-successor-cache'),{timeout:15000});
       forcedCache = await page.evaluate(async () => {
         try {
           const response = await fetch('./assets/pr6-play-learning.js?p30=forced-successor-cache', {
@@ -254,7 +256,21 @@ async function main() {
           return {status:response.status, bytes:(await response.arrayBuffer()).byteLength};
         } catch (error) { return {error:String(error)}; }
       });
+      const observed = await responseEvidence;
+      forcedProvenance = {fromServiceWorker:observed.fromServiceWorker()};
     } finally { fixture.failAsset(null); }
+    if (forcedCache?.status !== 200) {
+      const cachedLookup = await page.evaluate(async () => {
+        const cache = await caches.open('tbc-pwa-v3');
+        const literal = await cache.match('./assets/pr6-play-learning.js');
+        const query = await cache.match('./assets/pr6-play-learning.js?p30=forced-successor-cache',
+          {ignoreSearch:true});
+        return {literal:Boolean(literal),query:Boolean(query)};
+      });
+      console.error('P30 FORCED-ORIGIN ROUTING',JSON.stringify({
+        forcedCache,forcedProvenance,cachedLookup
+      }));
+    }
     assert.deepEqual(forcedCache?.status,200,
       'v3 must serve precached gameplay asset despite origin 503: '+JSON.stringify(forcedCache));
     assert.ok(forcedCache.bytes > 0);
