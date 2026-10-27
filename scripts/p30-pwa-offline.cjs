@@ -203,7 +203,12 @@ async function main() {
     assert.ok(active.worker && active.versions.includes(CACHE),
       'new client must be controlled by the complete v3 release: ' + JSON.stringify(active));
     check('v3 activates after old client closes and controls the successor page', true);
-    for (const file of REQUIRED) assert.ok(active.keys.includes('/' + file), 'v3 cache missing ' + file);
+    await page.waitForFunction(async count =>
+      (await (await caches.open('tbc-pwa-v3')).keys()).length >= count,
+      REQUIRED.length, {timeout:20000});
+    const persisted = await state(page);
+    for (const file of REQUIRED) assert.ok(persisted.keys.includes('/' + file),
+      'v3 cache missing after browser restart: ' + file);
     check('every 24 runtime/manifest assets is actually precached', true);
 
     const restored = await saved(page);
