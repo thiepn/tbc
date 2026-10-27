@@ -202,6 +202,18 @@ async function main() {
     for (const field of ['stats', 'daily', 'weekly', 'gameProgress']) assert.deepEqual(restored.progress[field], before.progress[field]);
     check('schema-27 progress and active round survive worker replacement', true);
 
+    // The first navigation after closing the last v2 client can begin before
+    // v3 claims the page. Prove a fresh navigation is actually intercepted by
+    // the successor before treating the page as installed/offline-ready.
+    const v3Navigation = await page.reload({waitUntil:'domcontentloaded'});
+    assert.equal(v3Navigation?.fromServiceWorker(),true,
+      'fresh v3 navigation must be served by a registered service worker');
+    await ready(page);
+    const afterV3Navigation = await saved(page);
+    assert.deepEqual(exact(afterV3Navigation.round), exact(before.round),
+      'new-controller online reload must preserve exact source-bound round');
+    check('fresh v3-controlled navigation preserves historical-safe session',true);
+
     // A worker can be installed and answer postMessage yet fail to control
     // actual fetches. Require a real worker-only route before switching off
     // the network; the fixture server deliberately has no such URL.
