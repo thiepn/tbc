@@ -224,6 +224,18 @@ async function main() {
         (await fetch('./' + file + '?p30=retire-' + i)).ok, {file,i});
       assert.equal(ok,true,'offline v3 retirement fetch must succeed');
       const names = await page.evaluate(async () => (await caches.keys()).filter(name => name.startsWith('tbc-pwa-')));
+      if (names.includes('tbc-pwa-v2')) {
+        const evidence = await page.evaluate(() => new Promise(resolve => {
+          const channel = new MessageChannel();
+          const timeout = setTimeout(() => resolve({timeout:true}), 2500);
+          channel.port1.onmessage = event => {
+            clearTimeout(timeout);
+            resolve(event.data?.retirement || {reply:event.data});
+          };
+          navigator.serviceWorker.controller.postMessage({type:'TBC_PWA_VERSION'}, [channel.port2]);
+        }));
+        console.error('P30 CACHE RETIREMENT DIAGNOSTIC', JSON.stringify({names,evidence}));
+      }
       assert.deepEqual(names,[CACHE],'old cache must stay retired after controlled offline fetch '+i);
     }
     check('stale v2 cache is retired after two controlled offline fetches', true);
