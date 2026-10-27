@@ -165,53 +165,38 @@ async function main() {
 
     fixture.failAsset(null);
     await page.evaluate(async () => (await navigator.serviceWorker.getRegistration()).update());
-    await page.waitForFunction(async ({cacheName,count}) => {
+    const waitingEvidence = await page.waitForFunction(async ({count}) => {
       const registration = await navigator.serviceWorker.getRegistration();
       if (!registration?.waiting) return false;
       const names = await caches.keys();
-      if (!names.includes('tbc-pwa-v2') || !names.includes(cacheName)) return false;
-      // A registration can report "waiting" before the page sees all writes
-      // from the successor installer. Require actual complete cache visibility.
-      return (await (await caches.open(cacheName)).keys()).length >= count;
-    }, {cacheName:CACHE,count:REQUIRED.length}, {timeout:30000});
+      if (!names.includes('tbc-pwa-v2')) return false;
+      for (const name of names.filter(name => name.startsWith('tbc-stage-v3-'))) {
+        const cache = await caches.open(name);
+        if ((await cache.keys()).length < count + 1) continue;
+        const release = await cache.match('./release.json');
+        if ((await release?.json())?.release === 'v4.1.0') return name;
+      }
+      return false;
+    }, {count:REQUIRED.length}, {timeout:30000});
+    const stagedName = await waitingEvidence.jsonValue();
     const waiting = await state(page);
-    assert.ok(waiting.versions.includes('tbc-pwa-v2') && waiting.versions.includes(CACHE),
-      'complete successor waiting install must keep old cache: '+JSON.stringify(waiting));
-    check('complete v3 shell waits rather than replacing the active v2 round',true);
-    // The shipped v2 activation deletes all tbc-pwa-* caches but its own.
-    // A successor under that prefix cannot survive a late v2 activation.
-    const vulnerable = waiting.versions.filter(name =>
-      name.startsWith('tbc-pwa-') && name !== 'tbc-pwa-v2');
-    assert.deepEqual(vulnerable,[],
-      'successor cache must avoid the shipped v2 purge namespace');
+    assert.ok(waiting.versions.includes('tbc-pwa-v2') &&
+      waiting.versions.includes(stagedName) && !waiting.versions.includes(CACHE),
+      'successor install must keep a private complete staged shell until activation: ' +
+      JSON.stringify(waiting));
+    check('complete authenticated v3 shell waits without publishing during live v2 round',true);
+    assert.deepEqual(waiting.versions.filter(name =>
+      name.startsWith('tbc-pwa-') && name !== 'tbc-pwa-v2'),[],
+      'successor must not use shipped v2 cache purge namespace');
     check('waiting v3 shell is immune to shipped v2 activation purge',true);
-    if (REQUIRED.some(file => !waiting.keys.includes('/' + file))) {
-      const workerInventories = await Promise.all(context.serviceWorkers().map(async worker => {
-        try {
-          return await worker.evaluate(async () => {
-            const name = typeof CACHE_NAME === 'string' ? CACHE_NAME : null;
-            const names = await caches.keys();
-            return {
-              script:self.location.href,
-              name,
-              state:self.registration?.active?.state,
-              names,
-              keys:name && names.includes(name)
-                ? (await (await caches.open(name)).keys()).map(q=>q.url)
-                : []
-            };
-          });
-        } catch(error){ return {error:String(error)}; }
-      }));
-      console.error('P30 WAITING INSTALL DIAGNOSTIC',JSON.stringify({
-        document:waiting,workers:workerInventories
-      }));
-    }
+    const stagedPaths = await page.evaluate(async name =>
+      (await (await caches.open(name)).keys()).map(request => new URL(request.url).pathname),
+      stagedName);
     for (const file of REQUIRED) {
-      assert.ok(waiting.keys.includes('/' + file),
-        'waiting v3 cache must be fully installed BEFORE browser exit: ' + file);
+      assert.ok(stagedPaths.includes('/' + file),
+        'waiting private staging shell must include '+file);
     }
-    check('all installed successor assets exist BEFORE browser shutdown',true);
+    check('all original successor assets are verified BEFORE browser shutdown',true);
     const during = await saved(page);
     assert.deepEqual(exact(during.round), exact(before.round));
     await page.close();
