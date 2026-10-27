@@ -3,9 +3,12 @@
 // P30: an installed worker serves one verified, immutable release shell.
 // Cache keys are release-scoped; never mix a newly fetched document with
 // older enhancement assets during an offline transition.
-const CACHE_PREFIX = 'tbc-pwa-';
+// The shipped v2 worker deletes every "tbc-pwa-*" cache on activation.
+// A waiting successor using that namespace can lose its fully installed shell
+// if v2 activates late. Use a disjoint namespace for v3 and newer releases.
+const CACHE_PREFIX = 'tbc-offline-v';
 const CACHE_VERSION = 3;
-const CACHE_NAME = CACHE_PREFIX + 'v' + CACHE_VERSION;
+const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 const EXPECTED_RELEASE = 'v4.1.0';
 const SCOPE = new URL(self.registration.scope);
 const DOCUMENT = new URL('./index.html', SCOPE).href;
@@ -45,7 +48,7 @@ const SHELL_PATHS = new Set(SHELL_URLS.map(url => new URL(url).pathname));
 // have crossed the controller boundary, rather than assuming one delete lasts.
 const oldVersion = key => {
   // Never match unrelated caches or an installing successor generation.
-  const version = /^tbc-pwa-v(\d+)$/.exec(key);
+  const version = /^tbc-(?:pwa-v|offline-v)(\d+)$/.exec(key);
   return version && Number(version[1]) < CACHE_VERSION;
 };
 let lastRetirement = {calls: 0, deleted: [], residual: [], matched: false};
