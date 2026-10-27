@@ -207,27 +207,16 @@ async function main() {
       await page.reload({ waitUntil: 'domcontentloaded' }); await ready(page);
       const workerStatus = await page.evaluate(async () => {
         const registration = await navigator.serviceWorker.getRegistration();
-        const worker = navigator.serviceWorker.controller;
-        const identify = target => new Promise(resolve => {
-          if (!target) return resolve('missing');
-          const channel = new MessageChannel();
-          const timeout = setTimeout(() => resolve('timeout'), 1200);
-          channel.port1.onmessage = event => {
-            clearTimeout(timeout);
-            resolve(event.data?.cache || 'unknown');
-          };
-          target.postMessage({type:'TBC_PWA_VERSION'}, [channel.port2]);
-        });
         return {
-          same: worker === registration?.active,
+          same: navigator.serviceWorker.controller === registration?.active,
           activeState: registration?.active?.state,
-          controller: await identify(worker),
-          active: await identify(registration?.active)
+          controllerScript: navigator.serviceWorker.controller?.scriptURL,
+          activeScript: registration?.active?.scriptURL
         };
       });
-      assert.deepEqual(workerStatus, {
-        same:true, activeState:'activated', controller:CACHE, active:CACHE
-      }, 'offline reload '+i+' must keep the authenticated v3 controller');
+      assert.ok(workerStatus.same && workerStatus.activeState === 'activated' &&
+        workerStatus.controllerScript === workerStatus.activeScript,
+        'offline reload '+i+' must retain the active service-worker controller: '+JSON.stringify(workerStatus));
       const offline = await saved(page);
       assert.deepEqual(exact(offline.round), exact(before.round));
       for (const field of ['stats', 'daily', 'weekly', 'gameProgress']) assert.deepEqual(offline.progress[field], before.progress[field]);
@@ -257,10 +246,27 @@ async function main() {
           };
           navigator.serviceWorker.controller.postMessage({type:'TBC_PWA_VERSION'}, [channel.port2]);
         }));
-        console.error('P30 CACHE RETIREMENT DIAGNOSTIC', JSON.stringify({names,evidence}));
+        let offlineHealth = null;
+        try {
+          const response = await page.evaluate(async () => {
+            const result = await fetch('./__tbc_pwa_status?p30=diagnostic', {cache:'no-store'});
+            return {status:result.status, body:await result.text()};
+          });
+          offlineHealth = response;
+        } catch (error) {
+          offlineHealth = {error:String(error)};
+        }
+        console.error('P30 CACHE RETIREMENT DIAGNOSTIC', JSON.stringify({names,evidence,offlineHealth}));
       }
       assert.deepEqual(names,[CACHE],'old cache must stay retired after controlled offline fetch '+i);
     }
+    const status = await page.evaluate(async () => {
+      const response = await fetch('./__tbc_pwa_status?p30=offline-proof',{cache:'no-store'});
+      return {status:response.status, body:await response.json()};
+    });
+    assert.equal(status.status,200,'offline worker status must be served without network');
+    assert.equal(status.body.cache,CACHE,'offline status must identify the actual v3 fetch worker');
+    assert.deepEqual(status.body.stale,[],'offline status must confirm stale cache retirement');
     check('stale v2 cache is retired after two controlled offline fetches', true);
     // Reproduce late old-worker cache resurrection after activation and prove
     // normal offline requests retire only obsolete versions. In particular,
