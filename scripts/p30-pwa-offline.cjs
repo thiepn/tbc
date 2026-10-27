@@ -165,41 +165,52 @@ async function main() {
 
     fixture.failAsset(null);
     await page.evaluate(async () => (await navigator.serviceWorker.getRegistration()).update());
-    const waitingEvidence = await page.waitForFunction(async ({count}) => {
-      const registration = await navigator.serviceWorker.getRegistration();
-      if (!registration?.waiting) return false;
-      const names = await caches.keys();
-      if (!names.includes('tbc-pwa-v2')) return false;
-      for (const name of names.filter(name => name.startsWith('tbc-stage-v3-'))) {
-        const cache = await caches.open(name);
-        if ((await cache.keys()).length < count + 1) continue;
-        const release = await cache.match('./release.json');
-        if ((await release?.json())?.release === 'v4.1.0') return name;
-      }
-      return false;
-    }, {count:REQUIRED.length}, {timeout:30000});
-    const initiallyObservedStage = await waitingEvidence.jsonValue();
-    const stagedEvidence = await page.evaluate(async count => {
-      const registration = await navigator.serviceWorker.getRegistration();
-      const names = await caches.keys();
-      const completeStages = [];
-      for (const name of names.filter(name => name.startsWith('tbc-stage-v3-'))) {
-        const cache = await caches.open(name);
-        const urls = (await cache.keys()).map(request => new URL(request.url).pathname);
-        const release = await cache.match('./release.json');
-        if (urls.length >= count + 1 &&
-            (await release?.json())?.release === 'v4.1.0') {
-          completeStages.push({name, urls});
+    // Poll a single coherent observation from the page. Waiting status and
+    // staging cache publication may span separate browser tasks; do not infer
+    // a completed install from one stale registration snapshot or stage name.
+    const deadline = Date.now() + 30000;
+    let stagedEvidence;
+    let stagedName = null;
+    while (Date.now() < deadline) {
+      stagedEvidence = await page.evaluate(async count => {
+        const registration = await navigator.serviceWorker.getRegistration();
+        const names = await caches.keys();
+        const completeStages = [], incompleteStages = [];
+        for (const name of names.filter(name => name.startsWith('tbc-stage-v3-'))) {
+          const cache = await caches.open(name);
+          const urls = (await cache.keys()).map(request => new URL(request.url).pathname);
+          const release = await cache.match('./release.json');
+          const identity = (await release?.json().catch(() => null))?.release || null;
+          if (urls.length >= count + 1 && identity === 'v4.1.0') {
+            completeStages.push({name, urls});
+          } else {
+            incompleteStages.push({name, entryCount:urls.length, identity});
+          }
         }
+        return {
+          installing:registration?.installing?.state || null,
+          waiting:registration?.waiting?.state || null,
+          active:registration?.active?.state || null,
+          names, completeStages, incompleteStages
+        };
+      }, REQUIRED.length);
+      const eligible = stagedEvidence.completeStages[0];
+      if (stagedEvidence.waiting === 'installed' && eligible &&
+          stagedEvidence.names.includes('tbc-pwa-v2') &&
+          !stagedEvidence.names.includes(CACHE)) {
+        stagedName = eligible.name;
+        break;
       }
-      return {waiting:Boolean(registration?.waiting),names,completeStages};
-    }, REQUIRED.length);
-    const stagedName = stagedEvidence.completeStages[0]?.name;
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    assert.ok(stagedName,
+      'successor waiting installation must have complete authenticated private stage: ' +
+      JSON.stringify(stagedEvidence));
     const waiting = await state(page);
-    assert.ok(stagedEvidence.waiting && stagedEvidence.names.includes('tbc-pwa-v2') &&
-      stagedName && !stagedEvidence.names.includes(CACHE),
-      'successor waiting installation must have a private complete authenticated stage: ' +
-      JSON.stringify({initiallyObservedStage,stagedEvidence,waiting}));
+    assert.ok(waiting.versions.includes('tbc-pwa-v2') &&
+      !waiting.versions.includes(CACHE),
+      'successor install must not publish the shared version cache while waiting: ' +
+      JSON.stringify(waiting));
     check('complete authenticated v3 shell waits without publishing during live v2 round',true);
     assert.deepEqual(waiting.versions.filter(name =>
       name.startsWith('tbc-pwa-') && name !== 'tbc-pwa-v2'),[],
