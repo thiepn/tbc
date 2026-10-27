@@ -178,20 +178,34 @@ async function main() {
       }
       return false;
     }, {count:REQUIRED.length}, {timeout:30000});
-    const stagedName = await waitingEvidence.jsonValue();
+    const initiallyObservedStage = await waitingEvidence.jsonValue();
+    const stagedEvidence = await page.evaluate(async count => {
+      const registration = await navigator.serviceWorker.getRegistration();
+      const names = await caches.keys();
+      const completeStages = [];
+      for (const name of names.filter(name => name.startsWith('tbc-stage-v3-'))) {
+        const cache = await caches.open(name);
+        const urls = (await cache.keys()).map(request => new URL(request.url).pathname);
+        const release = await cache.match('./release.json');
+        if (urls.length >= count + 1 &&
+            (await release?.json())?.release === 'v4.1.0') {
+          completeStages.push({name, urls});
+        }
+      }
+      return {waiting:Boolean(registration?.waiting),names,completeStages};
+    }, REQUIRED.length);
+    const stagedName = stagedEvidence.completeStages[0]?.name;
     const waiting = await state(page);
-    assert.ok(waiting.versions.includes('tbc-pwa-v2') &&
-      waiting.versions.includes(stagedName) && !waiting.versions.includes(CACHE),
-      'successor install must keep a private complete staged shell until activation: ' +
-      JSON.stringify(waiting));
+    assert.ok(stagedEvidence.waiting && stagedEvidence.names.includes('tbc-pwa-v2') &&
+      stagedName && !stagedEvidence.names.includes(CACHE),
+      'successor waiting installation must have a private complete authenticated stage: ' +
+      JSON.stringify({initiallyObservedStage,stagedEvidence,waiting}));
     check('complete authenticated v3 shell waits without publishing during live v2 round',true);
     assert.deepEqual(waiting.versions.filter(name =>
       name.startsWith('tbc-pwa-') && name !== 'tbc-pwa-v2'),[],
       'successor must not use shipped v2 cache purge namespace');
     check('waiting v3 shell is immune to shipped v2 activation purge',true);
-    const stagedPaths = await page.evaluate(async name =>
-      (await (await caches.open(name)).keys()).map(request => new URL(request.url).pathname),
-      stagedName);
+    const stagedPaths = stagedEvidence.completeStages[0].urls;
     for (const file of REQUIRED) {
       assert.ok(stagedPaths.includes('/' + file),
         'waiting private staging shell must include '+file);
