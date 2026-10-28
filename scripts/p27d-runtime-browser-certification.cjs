@@ -326,7 +326,67 @@ function assertStoragePreserved(before, after, label) {
     report.profiles.mobile = mobileAudit;
     await mobile.context.close();
 
-    const reduced = await openCandidate(browser, { width: 1440, height: 1000 }, { reducedMotion: 'reduce' });
+    // P32: isolated real-browser responsive navigation and phone gameplay.
+    // Theme class toggles exercise CSS palettes, not Settings UI acceptance.
+    for(const width of [320,390,768,1440]){
+    const height=width<=390?844:width===768?1024:1000;
+    const profile=await openCandidate(browser,{width,height});
+    try{
+      const page=profile.page,nav=width<=940?'.pr5-mobile-nav':'.pr5-primary-nav';
+      const observations=[];
+      for(const dark of [false,true]){
+        const theme=dark?'dark':'light';
+        const palette=()=>page.evaluate(enabled=>{
+          document.body.classList.toggle('dark',enabled);
+          return document.body.classList.contains('dark');
+        },dark);
+        assert.equal(await palette(),dark,`${width}px ${theme} palette state`);
+        const home=await runtimeAudit(page,`P32 ${width}px ${theme} Home`);
+        await page.locator(`${nav} [data-pr5-nav="play"]`).click();
+        await waitPr6(page,'play');
+        await palette();
+        const play=await runtimeAudit(page,`P32 ${width}px ${theme} Play`);
+        assert.equal(await page.locator('.pr6-root:not([hidden]) .pr6-intro-grid .pr6-flow-card').count(),2,`P32 ${width}px ${theme} play paths`);
+        await page.locator(`${nav} [data-pr5-nav="library"]`).click();
+        await waitPr7(page,'library');
+        await palette();
+        const library=await runtimeAudit(page,`P32 ${width}px ${theme} Library`);
+        assert.equal(await page.locator('.pr7-root:not([hidden]) [data-pr7-book]').count(),66,`P32 ${width}px ${theme} books`);
+        observations.push({theme,homeOverflow:home.overflow,playOverflow:play.overflow,libraryOverflow:library.overflow});
+      }
+      const navigation=await page.evaluate(selector=>{
+        const bar=document.querySelector(selector),rect=bar.getBoundingClientRect();
+        return {visible:rect.width>0&&rect.height>0,position:getComputedStyle(bar).position,
+          targets:[...bar.querySelectorAll('[data-pr5-nav]')].map(x=>({name:x.dataset.pr5Nav,width:x.getBoundingClientRect().width,height:x.getBoundingClientRect().height}))};
+      },nav);
+      assert.equal(navigation.visible,true,`P32 ${width}px visible navigation`);
+      assert.ok(navigation.targets.every(x=>x.width>0&&x.height>=44),`P32 ${width}px hit areas: ${JSON.stringify(navigation.targets)}`);
+      if(width<=940)assert.equal(navigation.position,'fixed',`P32 ${width}px fixed bottom navigation`);
+      if(width<=390){
+        await page.locator(`${nav} [data-pr5-nav="play"]`).click();
+        await waitPr6(page,'play');
+        await page.locator('.pr6-root:not([hidden]) [data-pr6-action="quick-start"]').first().click();
+        await page.getByRole('button',{name:'Start Quick Play',exact:true}).click();
+        await page.waitForFunction(()=>quiz?.mode==='quick'&&screen==='quiz');
+        assert.equal(new URL(page.url()).hash,'#quiz',`P32 ${width}px real quiz launch`);
+        const gameplay=await page.evaluate(()=>({
+          overflow:document.documentElement.scrollWidth-innerWidth,
+          promptVisible:!!currentQuestion()?.prompt&&document.body.innerText.includes(currentQuestion().prompt),
+          schema:JSON.parse(localStorage.getItem('theBibleChallenge_v21'))?.schemaVersion
+        }));
+        assert.ok(gameplay.overflow<=1,`P32 ${width}px quiz overflow: ${gameplay.overflow}`);
+        assert.equal(gameplay.promptVisible,true,`P32 ${width}px prompt visible`);
+        assert.equal(gameplay.schema,27,'P32 retains original save schema');
+        observations.push({gameplay});
+        await page.screenshot({path:`${ARTIFACT_DIR}/p32-${width}-quick-play.png`,fullPage:true});
+      }
+      assert.deepEqual(profile.pageErrors,[],`P32 ${width}px page errors`);
+      assert.deepEqual(profile.consoleErrors,[],`P32 ${width}px console errors`);
+      report.profiles[`p32-${width}`]={observations,navigation};
+    }finally{await profile.context.close()}
+  }
+
+        const reduced = await openCandidate(browser, { width: 1440, height: 1000 }, { reducedMotion: 'reduce' });
     assert.equal(await reduced.page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches), true, 'reduced-motion preference must be observable');
     const reducedAudit = await runtimeAudit(reduced.page, 'reduced-motion boot');
     assert.deepEqual(reduced.pageErrors, [], `reduced-motion page errors: ${reduced.pageErrors.join(' | ')}`);

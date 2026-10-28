@@ -1922,3 +1922,13 @@ separate authorization to push/open a Batch 07 PR. Batch 08 must not begin yet.
 - Tests added to the existing mandatory `npm run verify` path; this does not change product, save schema, question bank, release identity, deployment or branch rules.
 - **Execution verdict at authoring: NOT_TESTED.** Source review and JavaScript parse inspection do not substitute for a genuine Node 22/Chromium run. Exact-head CI must complete successfully before claiming PASS; any failure is a real follow-up blocker, not permission to weaken assertions.
 - Unchanged holds: PR #39 draft/unmerged; no merge or deployment; P31 physical devices C1–C3, E1–E4 and P29 branch governance remain open. Existing production is not the P30 candidate.
+
+## P32 scoped responsive stabilization (28 October 2026)
+
+- Parent is certified draft P30 PR #39 at `ff78a7d05e0bd8c406595cd10d8ba0117288ad1d`. Phase 32 is a separately scoped descendant, not a P30 modification or release.
+- The prior browser gate covered 390 px mobile, 820 px tablet, 1440 px desktop, not the full 320/390/768/1440 px light/dark navigation and gameplay matrix.
+- P32 adds Chromium Home/Play/Library navigation, both CSS theme palettes, 66-book and two-path availability, horizontal containment, accessible names, mobile 44 px primary hit areas, and UI-driven Quick Play at 320/390. Test data is isolated.
+- Palette toggles are not user-facing Settings theme-switch acceptance. Physical devices remain NOT_TESTED.
+- At authoring script syntax parsed; real browser checks require exact-head CI. Do not claim a reproduced defect without browser evidence.
+- Product, questions, aliases, modes, schema 27, progression, contents, P30, service worker, workflows, certification identity, main and release settings are unchanged.
+- Next task: inspect exact-head CI; fix only reproduced UI defects with original asset identity/provenance protected. No merge or deployment.
