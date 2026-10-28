@@ -247,6 +247,83 @@ function assertStoragePreserved(before, after, label) {
   }
 }
 
+// P32 DOM evidence: identify real stacking and covering elements without
+// changing any product CSS, input behavior, or trusted game state.
+async function p32VisualOverlapEvidence(page) {
+  return page.evaluate(() => {
+    const rect = el => {
+      const b = el.getBoundingClientRect();
+      return { x: Math.round(b.x), y: Math.round(b.y),
+        width: Math.round(b.width), height: Math.round(b.height) };
+    };
+    const intersects = (a, b) =>
+      a.x < b.x + b.width && b.x < a.x + a.width &&
+      a.y < b.y + b.height && b.y < a.y + a.height;
+    const visible = el => {
+      const s = getComputedStyle(el), b = el.getBoundingClientRect();
+      return s.display !== 'none' && s.visibility !== 'hidden' &&
+        Number(s.opacity) > 0 && b.width > 0 && b.height > 0;
+    };
+    const info = el => {
+      const s = getComputedStyle(el);
+      return { tag: el.tagName.toLowerCase(), id: el.id || null,
+        classes: typeof el.className === 'string' ? el.className.slice(0, 180) : '',
+        text: (el.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 100),
+        box: rect(el), display: s.display, opacity: s.opacity,
+        zIndex: s.zIndex, pointerEvents: s.pointerEvents,
+        ariaHidden: el.getAttribute('aria-hidden') };
+    };
+    const bar = document.querySelector('.pr5-mobile-nav');
+    const barBounds = bar ? rect(bar) : null;
+    const overlappingNavigation = barBounds
+      ? [...document.querySelectorAll('nav,[role="navigation"],.mobile-nav,[class*="nav"],[class*="Nav"]')]
+        .filter(el => el !== bar && !bar.contains(el) && visible(el) &&
+          intersects(rect(el), barBounds))
+        .slice(0, 32).map(info) : [];
+    const underlyingAtBar = barBounds
+      ? [0.16, 0.38, 0.62, 0.84].map(fraction => {
+        const x = Math.floor(barBounds.x + barBounds.width * fraction);
+        const y = Math.floor(barBounds.y + barBounds.height * .55);
+        return { x, y, stack: document.elementsFromPoint(x, y).slice(0, 8).map(info) };
+      }) : [];
+    // Exact leaf text avoids choosing a broad parent containing the whole page.
+    const leaf = [...document.querySelectorAll('body *')]
+      .find(el => el.childElementCount === 0 &&
+        (el.textContent || '').trim() === 'Standard selected');
+    const toast = leaf?.closest('[role="status"],[class*="toast"],[id*="toast"]') ||
+      leaf?.parentElement || null;
+    const toastBounds = toast && visible(toast) ? rect(toast) : null;
+    const answerHits = toastBounds
+      ? [...document.querySelectorAll('button,[role="button"]')]
+        .filter(el => !toast.contains(el) && visible(el) && intersects(rect(el), toastBounds))
+        .slice(0, 15).map(el => {
+          const b = rect(el);
+          const overlap = {
+            left: Math.max(b.x, toastBounds.x),
+            right: Math.min(b.x + b.width, toastBounds.x + toastBounds.width),
+            top: Math.max(b.y, toastBounds.y),
+            bottom: Math.min(b.y + b.height, toastBounds.y + toastBounds.height),
+          };
+          // Test the center of the *actual* intersection. Do not round away
+          // a one-pixel overlap or sample outside the toast as before.
+          const x = (overlap.left + overlap.right) / 2;
+          const y = (overlap.top + overlap.bottom) / 2;
+          const hit = document.elementFromPoint(x, y);
+          return { element: info(el), sample: {x, y},
+            overlapWidth: overlap.right - overlap.left,
+            overlapHeight: overlap.bottom - overlap.top,
+            hit: hit ? info(hit) : null,
+            hitIsControl: Boolean(hit && el.contains(hit)),
+            blockedByToast: Boolean(hit && toast.contains(hit)) };
+        }) : [];
+    return { viewport: {width: innerWidth, height: innerHeight},
+      activeDomain: document.body.dataset.pr5Domain || null,
+      bar: bar ? info(bar) : null,
+      overlappingNavigation, underlyingAtBar,
+      toast: toastBounds ? info(toast) : null, answerHits };
+  });
+}
+
 (async () => {
   fs.mkdirSync(ARTIFACT_DIR, { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -301,9 +378,19 @@ function assertStoragePreserved(before, after, label) {
     const tabletNav = await tablet.page.evaluate(() => ({
       desktop: getComputedStyle(document.querySelector('.pr5-primary-nav')).display,
       mobile: getComputedStyle(document.querySelector('.pr5-mobile-nav')).display,
+      legacy: [...document.querySelectorAll('.mobile-nav.pr5-native-mobile-nav')].map(el => getComputedStyle(el).display),
     }));
     assert.ok(tabletNav.desktop !== 'none' || tabletNav.mobile !== 'none', 'tablet must retain a visible primary navigation surface');
+    assert.ok(tabletNav.legacy.length > 0 && tabletNav.legacy.every(display => display === 'none'),
+      'P32 820px duplicate legacy navigation must be hidden: ' + JSON.stringify(tabletNav.legacy));
     await tablet.page.screenshot({ path: `${ARTIFACT_DIR}/tablet-home.png`, fullPage: true });
+    const tabletVisualEvidence = await p32VisualOverlapEvidence(tablet.page);
+    fs.writeFileSync(`${ARTIFACT_DIR}/p32-tablet-navigation-dom.json`,
+      JSON.stringify(tabletVisualEvidence, null, 2) + '\n');
+    report.profiles.p32TabletNavigationEvidence = {
+      candidates: tabletVisualEvidence.overlappingNavigation.length,
+      labels: tabletVisualEvidence.overlappingNavigation.map(el => el.text)
+    };
     assert.deepEqual(tablet.pageErrors, [], `tablet page errors: ${tablet.pageErrors.join(' | ')}`);
     assert.deepEqual(tablet.consoleErrors, [], `tablet console errors: ${tablet.consoleErrors.join(' | ')}`);
     report.profiles.tablet = tabletAudit;
@@ -326,7 +413,81 @@ function assertStoragePreserved(before, after, label) {
     report.profiles.mobile = mobileAudit;
     await mobile.context.close();
 
-    const reduced = await openCandidate(browser, { width: 1440, height: 1000 }, { reducedMotion: 'reduce' });
+    // P32: isolated real-browser responsive navigation and phone gameplay.
+    // Theme class toggles exercise CSS palettes, not Settings UI acceptance.
+    for(const width of [320,390,768,1440]){
+    const height=width<=390?844:width===768?1024:1000;
+    const profile=await openCandidate(browser,{width,height});
+    try{
+      const page=profile.page,nav=width<=940?'.pr5-mobile-nav':'.pr5-primary-nav';
+      const observations=[];
+      for(const dark of [false,true]){
+        const theme=dark?'dark':'light';
+        const palette=()=>page.evaluate(enabled=>{
+          document.body.classList.toggle('dark',enabled);
+          return document.body.classList.contains('dark');
+        },dark);
+        await page.locator(`${nav} [data-pr5-nav="home"]`).click();
+        await page.waitForFunction(() => document.body.dataset.pr5Domain === 'home');
+        assert.equal(await palette(),dark,`${width}px ${theme} palette state`);
+        const home=await runtimeAudit(page,`P32 ${width}px ${theme} Home`);
+        await page.locator(`${nav} [data-pr5-nav="play"]`).click();
+        await waitPr6(page,'play');
+        await palette();
+        const play=await runtimeAudit(page,`P32 ${width}px ${theme} Play`);
+        assert.equal(await page.locator('.pr6-root:not([hidden]) .pr6-intro-grid .pr6-flow-card').count(),2,`P32 ${width}px ${theme} play paths`);
+        await page.locator(`${nav} [data-pr5-nav="library"]`).click();
+        await waitPr7(page,'library');
+        await palette();
+        const library=await runtimeAudit(page,`P32 ${width}px ${theme} Library`);
+        assert.equal(await page.locator('.pr7-root:not([hidden]) [data-pr7-book]').count(),66,`P32 ${width}px ${theme} books`);
+        observations.push({theme,homeOverflow:home.overflow,playOverflow:play.overflow,libraryOverflow:library.overflow});
+      }
+      const navigation=await page.evaluate(selector=>{
+        const bar=document.querySelector(selector),rect=bar.getBoundingClientRect();
+        return {visible:rect.width>0&&rect.height>0,position:getComputedStyle(bar).position,
+          targets:[...bar.querySelectorAll('[data-pr5-nav]')].map(x=>({name:x.dataset.pr5Nav,width:x.getBoundingClientRect().width,height:x.getBoundingClientRect().height}))};
+      },nav);
+      assert.equal(navigation.visible,true,`P32 ${width}px visible navigation`);
+      const nativeBars = await page.locator('.mobile-nav.pr5-native-mobile-nav').evaluateAll(els =>
+        els.map(el => ({display:getComputedStyle(el).display,width:el.getBoundingClientRect().width})));
+      assert.ok(nativeBars.length > 0 && nativeBars.every(el => el.display === 'none' && el.width === 0),
+        `P32 ${width}px duplicated legacy navigation: ${JSON.stringify(nativeBars)}`);
+      assert.ok(navigation.targets.every(x=>x.width>0&&x.height>=44),`P32 ${width}px hit areas: ${JSON.stringify(navigation.targets)}`);
+      if(width<=940)assert.equal(navigation.position,'fixed',`P32 ${width}px fixed bottom navigation`);
+      if(width<=390){
+        await page.locator(`${nav} [data-pr5-nav="play"]`).click();
+        await waitPr6(page,'play');
+        await page.locator('.pr6-root:not([hidden]) [data-pr6-action="quick-start"]').first().click();
+        await page.getByRole('button',{name:'Start Quick Play',exact:true}).click();
+        await page.waitForFunction(()=>quiz?.mode==='quick'&&screen==='quiz');
+        assert.equal(new URL(page.url()).hash,'#quiz',`P32 ${width}px real quiz launch`);
+        const gameplay=await page.evaluate(()=>({
+          overflow:document.documentElement.scrollWidth-innerWidth,
+          promptVisible:!!currentQuestion()?.prompt&&document.body.innerText.includes(currentQuestion().prompt),
+          schema:JSON.parse(localStorage.getItem('theBibleChallenge_v21'))?.schemaVersion
+        }));
+        assert.ok(gameplay.overflow<=1,`P32 ${width}px quiz overflow: ${gameplay.overflow}`);
+        assert.equal(gameplay.promptVisible,true,`P32 ${width}px prompt visible`);
+        assert.equal(gameplay.schema,27,'P32 retains original save schema');
+        observations.push({gameplay});
+        await page.screenshot({path:`${ARTIFACT_DIR}/p32-${width}-quick-play.png`,fullPage:true});
+        const toastEvidence = await p32VisualOverlapEvidence(page);
+        fs.writeFileSync(`${ARTIFACT_DIR}/p32-${width}-quiz-overlap-dom.json`,
+          JSON.stringify(toastEvidence, null, 2) + '\n');
+        observations.push({
+          toastOverlap: { visible: Boolean(toastEvidence.toast),
+            intersectingControls: toastEvidence.answerHits.length,
+            pointerBlocked: toastEvidence.answerHits.filter(hit => hit.blockedByToast).length }
+        });
+      }
+      assert.deepEqual(profile.pageErrors,[],`P32 ${width}px page errors`);
+      assert.deepEqual(profile.consoleErrors,[],`P32 ${width}px console errors`);
+      report.profiles[`p32-${width}`]={observations,navigation};
+    }finally{await profile.context.close()}
+  }
+
+        const reduced = await openCandidate(browser, { width: 1440, height: 1000 }, { reducedMotion: 'reduce' });
     assert.equal(await reduced.page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches), true, 'reduced-motion preference must be observable');
     const reducedAudit = await runtimeAudit(reduced.page, 'reduced-motion boot');
     assert.deepEqual(reduced.pageErrors, [], `reduced-motion page errors: ${reduced.pageErrors.join(' | ')}`);

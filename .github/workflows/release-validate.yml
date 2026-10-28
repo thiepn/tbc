@@ -13,7 +13,9 @@ permissions:
 
 jobs:
   validate-release:
-    runs-on: ubuntu-latest
+    # Playwright 1.55.1 does not support Ubuntu 26.04 (the current ubuntu-latest).
+    # Pin a supported runner until the browser/toolchain upgrade is qualified.
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
       - name: Checkout

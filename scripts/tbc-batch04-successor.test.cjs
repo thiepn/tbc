@@ -12,7 +12,7 @@ test('Batch 04 successor accepts its exact candidate and rejects bounded corrupt
   fs.mkdirSync(boundary, { recursive: true });
   const root = fs.mkdtempSync(path.join(boundary, 'negative-'));
   const parent = id.loadBatch03Manifest();
-  const files = [...id.PRODUCT, id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION,
+  const files = [...id.PRODUCT, id.P32_CERT, 'sw.js', id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION,
     id.BATCH04_MANIFEST, id.BATCH04_TRANSITION, id.BATCH07_MANIFEST, id.BATCH07_TRANSITION, id.P2A, id.ACCEPTANCE,
     ...Object.keys(id.loadManifest().historicalEvidence)];
   for (const file of files) { fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); fs.copyFileSync(path.join(id.ROOT, file), path.join(root, file)); }
