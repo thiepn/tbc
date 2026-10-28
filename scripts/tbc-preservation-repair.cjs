@@ -176,6 +176,59 @@ async function main() {
       await launch(page, 'quick'); await answerOne(page);
       return rejected;
     });
+    await check(browser, 'Quick Play: synthetic transfer to separate browser profile, recovery and failed-import rollback', 'standard', false, async sourcePage => {
+      await launch(sourcePage, 'quick');
+      await answerOne(sourcePage);
+      await sourcePage.evaluate(() => nextQuestion());
+      await answerOne(sourcePage);
+      const sourceRound = await snapshot(sourcePage);
+      const sourceProgress = await sourcePage.evaluate(key => JSON.parse(localStorage.getItem(key)), SAVE);
+      const downloadEvent = sourcePage.waitForEvent('download');
+      await sourcePage.evaluate(() => exportProgress());
+      const stream = await (await downloadEvent).createReadStream();
+      const chunks = [];
+      for await (const chunk of stream) chunks.push(chunk);
+      const exported = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+      assert.equal(exported.app, 'The Bible Challenge');
+      assert.deepEqual(exact(exported.activeRound), exact(sourceRound));
+      const target = await open(browser, 'standard');
+      try {
+        assert.notEqual(target.context, sourcePage.context(), 'import must use an independent browser context');
+        assert.equal(await target.page.evaluate(() => serializeQuizSession()), null, 'target must have no active round before import');
+        await target.page.evaluate(async payload => v296ImportProgress({
+          currentTarget: { files: [new File([JSON.stringify(payload)], 'synthetic-transfer.json', { type: 'application/json' })], value: 'fixture' }
+        }), exported);
+        assert.deepEqual(exact(await snapshot(target.page)), exact(sourceRound), 'different-profile import must restore the exact source round');
+        const targetProgress = await target.page.evaluate(key => JSON.parse(localStorage.getItem(key)), SAVE);
+        for (const field of ['stats', 'daily', 'weekly', 'gameProgress']) {
+          assert.deepEqual(targetProgress[field], sourceProgress[field], 'different-profile import must preserve '+field);
+        }
+        await reloadExact(target.page, sourceRound);
+        await reloadExact(target.page, sourceRound);
+        const healthy = await snapshot(target.page);
+        const beforeInvalid = await target.page.evaluate(key => ({
+          progress: localStorage.getItem(key), primary: localStorage.getItem(key + '_activeRound'),
+          backup: sessionStorage.getItem(key + '_activeRound')
+        }), SAVE);
+        const corrupted = structuredClone(exported);
+        corrupted.activeRound.questions[0].prompt += ' unauthorized revision';
+        await target.page.evaluate(async payload => v296ImportProgress({
+          currentTarget: { files: [new File([JSON.stringify(payload)], 'invalid-transfer.json', { type: 'application/json' })], value: 'fixture' }
+        }), corrupted);
+        const afterInvalid = await target.page.evaluate(key => ({
+          progress: localStorage.getItem(key), primary: localStorage.getItem(key + '_activeRound'),
+          backup: sessionStorage.getItem(key + '_activeRound')
+        }), SAVE);
+        assert.deepEqual(afterInvalid, beforeInvalid, 'rejected import must not alter existing progress or recovery copies');
+        assert.deepEqual(exact(await snapshot(target.page)), exact(healthy), 'rejected import must retain the playable round');
+        await reloadExact(target.page, healthy);
+        assert.deepEqual(target.errors, [], 'imported profile must have no browser page errors');
+        assert.deepEqual(exact(await snapshot(sourcePage)), exact(sourceRound), 'independent import must not mutate source profile');
+        return { isolatedProfiles: 2, answered: 2, reloads: 3, invalidImportPreserved: true };
+      } finally {
+        await target.context.close();
+      }
+    });
     for (const mode of Object.keys(COUNTS)) await check(browser, `${mode} mobile: navigation, rendering, reload and leave confirmation`, 'standard', true, async page => {
       await launch(page, mode, true); await reloadExact(page, await snapshot(page)); await answerOne(page);
       await page.screenshot({ path: path.join(OUT, `mobile-${mode}.png`), fullPage: true });

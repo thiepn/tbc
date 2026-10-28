@@ -1914,3 +1914,11 @@ separate authorization to push/open a Batch 07 PR. Batch 08 must not begin yet.
   acceptance only after the new gate passes. Keep both PRs draft; no merge
   or deployment without authorization. Bump the offline cache release name
   whenever its installed product bytes change in a future authorized release.
+
+## P31 synthetic beta acceptance — isolated profile transfer regression (28 October 2026)
+
+- Owner confirmed no real users or existing progress: two external user-data backups are **N/A**, not PASS. See RDA1 issue #33; do not fabricate progress records.
+- A focused P31 regression was added to the existing preservation browser suite: export an answered Quick Play round from a disposable profile, import into a **separate** browser context, verify exact round/question/answer and progress identity, reload three times, reject a forged source change without altering progress or recovery copies, and confirm the source profile remains untouched.
+- Tests added to the existing mandatory `npm run verify` path; this does not change product, save schema, question bank, release identity, deployment or branch rules.
+- **Execution verdict at authoring: NOT_TESTED.** Source review and JavaScript parse inspection do not substitute for a genuine Node 22/Chromium run. Exact-head CI must complete successfully before claiming PASS; any failure is a real follow-up blocker, not permission to weaken assertions.
+- Unchanged holds: PR #39 draft/unmerged; no merge or deployment; P31 physical devices C1–C3, E1–E4 and P29 branch governance remain open. Existing production is not the P30 candidate.
