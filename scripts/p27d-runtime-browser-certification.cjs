@@ -297,15 +297,23 @@ async function p32VisualOverlapEvidence(page) {
       ? [...document.querySelectorAll('button,[role="button"]')]
         .filter(el => !toast.contains(el) && visible(el) && intersects(rect(el), toastBounds))
         .slice(0, 15).map(el => {
-          const b = rect(el), x = Math.round(Math.max(b.x, toastBounds.x) +
-            Math.min(b.x + b.width, toastBounds.x + toastBounds.width) -
-            (Math.min(b.x + b.width, toastBounds.x + toastBounds.width) -
-            Math.max(b.x, toastBounds.x)) / 2);
-          const y = Math.round((Math.max(b.y, toastBounds.y) +
-            Math.min(b.y + b.height, toastBounds.y + toastBounds.height)) / 2);
+          const b = rect(el);
+          const overlap = {
+            left: Math.max(b.x, toastBounds.x),
+            right: Math.min(b.x + b.width, toastBounds.x + toastBounds.width),
+            top: Math.max(b.y, toastBounds.y),
+            bottom: Math.min(b.y + b.height, toastBounds.y + toastBounds.height),
+          };
+          // Test the center of the *actual* intersection. Do not round away
+          // a one-pixel overlap or sample outside the toast as before.
+          const x = (overlap.left + overlap.right) / 2;
+          const y = (overlap.top + overlap.bottom) / 2;
           const hit = document.elementFromPoint(x, y);
           return { element: info(el), sample: {x, y},
+            overlapWidth: overlap.right - overlap.left,
+            overlapHeight: overlap.bottom - overlap.top,
             hit: hit ? info(hit) : null,
+            hitIsControl: Boolean(hit && el.contains(hit)),
             blockedByToast: Boolean(hit && toast.contains(hit)) };
         }) : [];
     return { viewport: {width: innerWidth, height: innerHeight},
