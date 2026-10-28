@@ -247,6 +247,75 @@ function assertStoragePreserved(before, after, label) {
   }
 }
 
+// P32 DOM evidence: identify real stacking and covering elements without
+// changing any product CSS, input behavior, or trusted game state.
+async function p32VisualOverlapEvidence(page) {
+  return page.evaluate(() => {
+    const rect = el => {
+      const b = el.getBoundingClientRect();
+      return { x: Math.round(b.x), y: Math.round(b.y),
+        width: Math.round(b.width), height: Math.round(b.height) };
+    };
+    const intersects = (a, b) =>
+      a.x < b.x + b.width && b.x < a.x + a.width &&
+      a.y < b.y + b.height && b.y < a.y + a.height;
+    const visible = el => {
+      const s = getComputedStyle(el), b = el.getBoundingClientRect();
+      return s.display !== 'none' && s.visibility !== 'hidden' &&
+        Number(s.opacity) > 0 && b.width > 0 && b.height > 0;
+    };
+    const info = el => {
+      const s = getComputedStyle(el);
+      return { tag: el.tagName.toLowerCase(), id: el.id || null,
+        classes: typeof el.className === 'string' ? el.className.slice(0, 180) : '',
+        text: (el.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 100),
+        box: rect(el), display: s.display, opacity: s.opacity,
+        zIndex: s.zIndex, pointerEvents: s.pointerEvents,
+        ariaHidden: el.getAttribute('aria-hidden') };
+    };
+    const bar = document.querySelector('.pr5-mobile-nav');
+    const barBounds = bar ? rect(bar) : null;
+    const overlappingNavigation = barBounds
+      ? [...document.querySelectorAll('nav,[role="navigation"],.mobile-nav,[class*="nav"],[class*="Nav"]')]
+        .filter(el => el !== bar && !bar.contains(el) && visible(el) &&
+          intersects(rect(el), barBounds))
+        .slice(0, 32).map(info) : [];
+    const underlyingAtBar = barBounds
+      ? [0.16, 0.38, 0.62, 0.84].map(fraction => {
+        const x = Math.floor(barBounds.x + barBounds.width * fraction);
+        const y = Math.floor(barBounds.y + barBounds.height * .55);
+        return { x, y, stack: document.elementsFromPoint(x, y).slice(0, 8).map(info) };
+      }) : [];
+    // Exact leaf text avoids choosing a broad parent containing the whole page.
+    const leaf = [...document.querySelectorAll('body *')]
+      .find(el => el.childElementCount === 0 &&
+        (el.textContent || '').trim() === 'Standard selected');
+    const toast = leaf?.closest('[role="status"],[class*="toast"],[id*="toast"]') ||
+      leaf?.parentElement || null;
+    const toastBounds = toast && visible(toast) ? rect(toast) : null;
+    const answerHits = toastBounds
+      ? [...document.querySelectorAll('button,[role="button"]')]
+        .filter(el => !toast.contains(el) && visible(el) && intersects(rect(el), toastBounds))
+        .slice(0, 15).map(el => {
+          const b = rect(el), x = Math.round(Math.max(b.x, toastBounds.x) +
+            Math.min(b.x + b.width, toastBounds.x + toastBounds.width) -
+            (Math.min(b.x + b.width, toastBounds.x + toastBounds.width) -
+            Math.max(b.x, toastBounds.x)) / 2);
+          const y = Math.round((Math.max(b.y, toastBounds.y) +
+            Math.min(b.y + b.height, toastBounds.y + toastBounds.height)) / 2);
+          const hit = document.elementFromPoint(x, y);
+          return { element: info(el), sample: {x, y},
+            hit: hit ? info(hit) : null,
+            blockedByToast: Boolean(hit && toast.contains(hit)) };
+        }) : [];
+    return { viewport: {width: innerWidth, height: innerHeight},
+      activeDomain: document.body.dataset.pr5Domain || null,
+      bar: bar ? info(bar) : null,
+      overlappingNavigation, underlyingAtBar,
+      toast: toastBounds ? info(toast) : null, answerHits };
+  });
+}
+
 (async () => {
   fs.mkdirSync(ARTIFACT_DIR, { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -304,6 +373,13 @@ function assertStoragePreserved(before, after, label) {
     }));
     assert.ok(tabletNav.desktop !== 'none' || tabletNav.mobile !== 'none', 'tablet must retain a visible primary navigation surface');
     await tablet.page.screenshot({ path: `${ARTIFACT_DIR}/tablet-home.png`, fullPage: true });
+    const tabletVisualEvidence = await p32VisualOverlapEvidence(tablet.page);
+    fs.writeFileSync(`${ARTIFACT_DIR}/p32-tablet-navigation-dom.json`,
+      JSON.stringify(tabletVisualEvidence, null, 2) + '\n');
+    report.profiles.p32TabletNavigationEvidence = {
+      candidates: tabletVisualEvidence.overlappingNavigation.length,
+      labels: tabletVisualEvidence.overlappingNavigation.map(el => el.text)
+    };
     assert.deepEqual(tablet.pageErrors, [], `tablet page errors: ${tablet.pageErrors.join(' | ')}`);
     assert.deepEqual(tablet.consoleErrors, [], `tablet console errors: ${tablet.consoleErrors.join(' | ')}`);
     report.profiles.tablet = tabletAudit;
@@ -381,6 +457,14 @@ function assertStoragePreserved(before, after, label) {
         assert.equal(gameplay.schema,27,'P32 retains original save schema');
         observations.push({gameplay});
         await page.screenshot({path:`${ARTIFACT_DIR}/p32-${width}-quick-play.png`,fullPage:true});
+        const toastEvidence = await p32VisualOverlapEvidence(page);
+        fs.writeFileSync(`${ARTIFACT_DIR}/p32-${width}-quiz-overlap-dom.json`,
+          JSON.stringify(toastEvidence, null, 2) + '\n');
+        observations.push({
+          toastOverlap: { visible: Boolean(toastEvidence.toast),
+            intersectingControls: toastEvidence.answerHits.length,
+            pointerBlocked: toastEvidence.answerHits.filter(hit => hit.blockedByToast).length }
+        });
       }
       assert.deepEqual(profile.pageErrors,[],`P32 ${width}px page errors`);
       assert.deepEqual(profile.consoleErrors,[],`P32 ${width}px console errors`);
