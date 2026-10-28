@@ -74,6 +74,11 @@ async function run(script, env = {}, args = [], scriptArgs = []) {
 }
 
 async function tests() {
+  // Fail immediately if a real-browser install or offline transition is unsafe.
+  // Do not spend the remainder of the release gate on an unusable PWA.
+  assert.ok(await run('scripts/p30-sw-install-race.cjs'),
+    'P30 independent overlapping-worker install gate failed');
+  assert.ok(await run('scripts/p30-pwa-offline.cjs'), 'P30 Chromium offline acceptance failed');
   await run('scripts/tbc-reconciliation.test.cjs', {}, ['--test']);
   for (const script of ['p0a-preservation-audit', 'p0b-player-controls-audit',
     'p0c-existing-feature-preservation-audit', 'p0d-visual-preservation-audit',

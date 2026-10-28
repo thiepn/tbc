@@ -1876,3 +1876,49 @@ Batch 07 remains local, uncommitted, unpushed, unmerged and undeployed at this
 point. The exact next task is to review the completed diff, rerun parse and
 `git diff --check`, commit this narrow successor certification, and then await
 separate authorization to push/open a Batch 07 PR. Batch 08 must not begin yet.
+
+## P28 qualification and P30 PWA reliability — 26 October 2026
+
+- P28 inherited base: `2a440bff40c0929a349488331cce6e63aee0f1c6`;
+  GitHub Actions exact-head run `40306205007` **PASS** (80/80 question
+  revision tests; complete `npm run verify`; clean tracked files).
+  P28 draft PR #38 remains unmerged and undeployed.
+- P30 is a separate descendant branch
+  `feature/tbc-p30-atomic-offline-pwa-20261026`, draft PR #39.
+- P30 implementation replaces opportunistic network-first partial caching with
+  a release-specific complete offline shell. It precaches the original 13
+  preserved runtime files plus the manifest, release identity, imagery and
+  install icons, rolls back incomplete installation, and waits for existing
+  clients to close before activation. Neither save schema nor user progress
+  is touched by the worker.
+- `scripts/p27d-deployment-certification.cjs` now compares 25 deployed
+  first-party files, including `sw.js`, manifest, all installed icons and
+  the previously omitted enhancement modules. It remains read-only and must
+  not be confused with an actual deployed-byte PASS until an authorized release.
+- `scripts/p30-pwa-offline.cjs` is a genuine Chromium release gate covering
+  a forced failed installation, old-worker retention, waiting-to-active
+  replacement, preservation of schema-27 progress and active round, two offline
+  reloads, closed/reopened offline tabs and cached module/icon requests.
+- P30 acceptance and exact-head aggregate `npm run verify`:
+  **NOT_TESTED at this status edit**; GitHub CI may be running. No
+  device test, production upload, migration, merge, publication or
+  repository ruleset activation was performed.
+- P29 protection remains unresolved: `main` had no active ruleset during
+  preflight. The `validate-release` check is verified, but live ruleset
+  modification was not authorized.
+- Preservation: canonical 5,799/registry 6,072/aliases 273/structured 203,
+  66 books, original mode and stage inventories, schema 27, stable content
+  identity and source-authenticated historical revisions are unchanged.
+- **Next task:** read the final exact-head P30 CI logs, repair demonstrated
+  browser failures without reducing assertions, and prepare P31 real-device
+  acceptance only after the new gate passes. Keep both PRs draft; no merge
+  or deployment without authorization. Bump the offline cache release name
+  whenever its installed product bytes change in a future authorized release.
+
+## P31 synthetic beta acceptance — isolated profile transfer regression (28 October 2026)
+
+- Owner confirmed no real users or existing progress: two external user-data backups are **N/A**, not PASS. See RDA1 issue #33; do not fabricate progress records.
+- A focused P31 regression was added to the existing preservation browser suite: export an answered Quick Play round from a disposable profile, import into a **separate** browser context, verify exact round/question/answer and progress identity, reload three times, reject a forged source change without altering progress or recovery copies, and confirm the source profile remains untouched.
+- Tests added to the existing mandatory `npm run verify` path; this does not change product, save schema, question bank, release identity, deployment or branch rules.
+- **Execution verdict at authoring: NOT_TESTED.** Source review and JavaScript parse inspection do not substitute for a genuine Node 22/Chromium run. Exact-head CI must complete successfully before claiming PASS; any failure is a real follow-up blocker, not permission to weaken assertions.
+- Unchanged holds: PR #39 draft/unmerged; no merge or deployment; P31 physical devices C1–C3, E1–E4 and P29 branch governance remain open. Existing production is not the P30 candidate.
