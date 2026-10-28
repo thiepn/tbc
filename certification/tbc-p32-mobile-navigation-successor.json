@@ -1,0 +1,17 @@
+{
+  "phase": "P32",
+  "change": "legacy mobile navigation CSS specificity",
+  "parentCommit": "27b9954dfc2579a5a7a8c13d2cc46ba72668b514",
+  "cssFile": "assets/pr5-foundation.css",
+  "cssPredecessorBlob": "6bd97b4ec9f8e6894d37480679790e1e9ce32e8f",
+  "cssSuccessorBlob": "0ae8a1cfba83c61a01f8796e20ff4c440a95e932",
+  "cssOldRule": ".pr5-native-mobile-nav{display:none!important}.pr5-mobile-nav{display:none}",
+  "cssNewRule": ".mobile-nav.pr5-native-mobile-nav{display:none!important}.pr5-mobile-nav{display:none}",
+  "workerFile": "sw.js",
+  "workerPredecessorBlob": "0083b472d93d961f41df72d75d1075959571848d",
+  "workerSuccessorBlob": "f080945625aabe9cc4337147b5276b330b01bcdf",
+  "oldCacheVersion": 3,
+  "newCacheVersion": 4,
+  "immutableQuestionBank": true,
+  "preservationBase": "ff78a7d05e0bd8c406595cd10d8ba0117288ad1d"
+}

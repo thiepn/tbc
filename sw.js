@@ -7,7 +7,7 @@
 // A waiting successor using that namespace can lose its fully installed shell
 // if v2 activates late. Use a disjoint namespace for v3 and newer releases.
 const CACHE_PREFIX = 'tbc-offline-v';
-const CACHE_VERSION = 3;
+const CACHE_VERSION = 4;
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 const EXPECTED_RELEASE = 'v4.1.0';
 const SCOPE = new URL(self.registration.scope);
@@ -89,7 +89,7 @@ async function shellComplete(cache) {
   const identity = release && await release.json();
   return identity?.release === EXPECTED_RELEASE;
 }
-const STAGE_PREFIX = 'tbc-stage-v3-';
+const STAGE_PREFIX = 'tbc-stage-v' + CACHE_VERSION + '-';
 async function stageShell() {
   const stageName = STAGE_PREFIX + Date.now() + '-' +
     Math.random().toString(36).slice(2);

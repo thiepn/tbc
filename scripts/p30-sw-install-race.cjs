@@ -7,9 +7,9 @@ const vm = require('node:vm');
 
 const workerSource = fs.readFileSync(path.join(__dirname, '..', 'sw.js'), 'utf8');
 const ORIGIN = 'http://127.0.0.1:4173/';
-const NEXT = 'tbc-offline-v3';
+const NEXT = 'tbc-offline-v4';
 const OLD = 'tbc-pwa-v2';
-const FUTURE = 'tbc-offline-v4';
+const FUTURE = 'tbc-offline-v5';
 
 function deferred() {
   let resolve, reject;
@@ -79,7 +79,7 @@ async function main() {
   for (let i=0; f.attempts() < 1 && i<100; i++) await Promise.resolve();
   assert.equal(f.attempts(),1,'first independent install did not start');
   await second.event('install');
-  const staged = [...f.stores.entries()].filter(([name]) => name.startsWith('tbc-stage-v3-'));
+  const staged = [...f.stores.entries()].filter(([name]) => name.startsWith('tbc-stage-v4-'));
   assert.equal(staged.length,2,'independent attempts must retain separate staged caches');
   const complete = staged.find(([,cache])=>cache.entries.size >= 24);
   assert.ok(complete,'successful overlapping attempt did not finish its own stage');
@@ -88,7 +88,7 @@ async function main() {
   assert.ok(!f.stores.has(NEXT),'a waiting worker must not publish a shared shell');
   f.firstFailure.resolve();
   await assert.rejects(unsuccessful,/simulated first installation 503/);
-  const liveStages = [...f.stores.entries()].filter(([name])=>name.startsWith('tbc-stage-v3-'));
+  const liveStages = [...f.stores.entries()].filter(([name])=>name.startsWith('tbc-stage-v4-'));
   assert.equal(liveStages.length,1,'failed attempt must delete only its own stage');
   assert.equal(liveStages[0][1].entries.size,entries,
     'failed attempt must not delete successful staged bytes');
@@ -108,13 +108,13 @@ async function main() {
   await second.event('activate');
   assert.equal(f.stores.get(NEXT)?.entries.size,entries,
     'activation must atomically promote every staged asset');
-  assert.ok(!(await f.caches.keys()).some(name => name.startsWith('tbc-stage-v3-')),
+  assert.ok(!(await f.caches.keys()).some(name => name.startsWith('tbc-stage-v4-')),
     'activation must clean promoted temporary staging cache');
-  assert.ok(!f.stores.has(OLD), 'v3 activation must delete retired v2');
-  assert.ok(f.stores.has(NEXT), 'v3 must retain current cache');
-  assert.ok(f.stores.has(FUTURE), 'v3 must preserve a future waiting v4 cache');
+  assert.ok(!f.stores.has(OLD), 'v4 activation must delete retired v2');
+  assert.ok(f.stores.has(NEXT), 'v4 must retain current cache');
+  assert.ok(f.stores.has(FUTURE), 'v4 must preserve a future waiting v4 cache');
   assert.ok(f.claimCount() > 0,'successful activation must claim clients');
-  console.log('PASS active v3 retires v2 without deleting future v4');
+  console.log('PASS active v4 retires v2 without deleting future v5');
 
   const bad = fixture({badRelease:true});
   await assert.rejects(bad.worker().event('install'),/identity invalid/);

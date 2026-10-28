@@ -21,7 +21,7 @@ test('successor identity and transition reject unauthorized mutations', async t 
   fs.mkdirSync(boundary, { recursive: true });
   const root = fs.mkdtempSync(path.join(boundary, 'negative-'));
   const manifest = id.loadManifest();
-  const files = [...id.PRODUCT, id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION, id.BATCH04_MANIFEST, id.BATCH04_TRANSITION, id.BATCH07_MANIFEST, id.BATCH07_TRANSITION, id.P2A, id.ACCEPTANCE, ...Object.keys(manifest.historicalEvidence)];
+  const files = [...id.PRODUCT, id.P32_CERT, 'sw.js', id.MANIFEST, id.TRANSITION, id.BATCH03_MANIFEST, id.BATCH03_TRANSITION, id.BATCH04_MANIFEST, id.BATCH04_TRANSITION, id.BATCH07_MANIFEST, id.BATCH07_TRANSITION, id.P2A, id.ACCEPTANCE, ...Object.keys(manifest.historicalEvidence)];
   for (const file of files) {
     fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true });
     fs.copyFileSync(path.join(id.ROOT, file), path.join(root, file));
@@ -54,8 +54,8 @@ test('successor identity and transition reject unauthorized mutations', async t 
     for (const hash of ['canonicalBank', 'structuredBank', 'registry']) await mutate(`rejects ${hash} semantic aggregate change`, path.join(content, 'question-bank-summary.json'),
       json(q => { q.hashes[hash] = '0'.repeat(64); }), () => id.validateContent(content, root), /semantic aggregate changed/);
     await mutate('rejects save schema change', path.join(content, 'question-bank-summary.json'), json(q => { q.source.qb11Freeze.saveSchema = 28; }), () => id.validateContent(content, root), /save schema changed/);
-    for (const [name, file] of [['supporting asset', 'assets/pr5-shell.js'], ['acceptance test', id.ACCEPTANCE], ['unrelated index edit', 'index.html']]) {
-      await mutate(`rejects ${name} change`, path.join(root, file), bytes => Buffer.concat([bytes, Buffer.from('\n/* unauthorized */\n')]), () => id.validateCurrent(root), /identity changed|acceptance test changed/);
+    for (const [name, file] of [['supporting asset', 'assets/pr5-shell.js'], ['P32 CSS', 'assets/pr5-foundation.css'], ['P32 worker', 'sw.js'], ['P32 certificate', id.P32_CERT], ['acceptance test', id.ACCEPTANCE], ['unrelated index edit', 'index.html']]) {
+      await mutate(`rejects ${name} change`, path.join(root, file), bytes => Buffer.concat([bytes, Buffer.from('\n/* unauthorized */\n')]), () => id.validateCurrent(root), /identity changed|acceptance test changed|P32 .*changed/);
     }
     for (const field of ['predecessor', 'successor']) await mutate(`rejects wrong ${field} identity`, path.join(root, id.MANIFEST),
       json(q => { q[field].indexBlobSha1 = '0'.repeat(40); }), () => id.validateCurrent(root), /manifest tampered|prior successor identity changed/);

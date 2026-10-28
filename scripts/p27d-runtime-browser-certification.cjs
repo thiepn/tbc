@@ -378,8 +378,11 @@ async function p32VisualOverlapEvidence(page) {
     const tabletNav = await tablet.page.evaluate(() => ({
       desktop: getComputedStyle(document.querySelector('.pr5-primary-nav')).display,
       mobile: getComputedStyle(document.querySelector('.pr5-mobile-nav')).display,
+      legacy: [...document.querySelectorAll('.mobile-nav.pr5-native-mobile-nav')].map(el => getComputedStyle(el).display),
     }));
     assert.ok(tabletNav.desktop !== 'none' || tabletNav.mobile !== 'none', 'tablet must retain a visible primary navigation surface');
+    assert.ok(tabletNav.legacy.length > 0 && tabletNav.legacy.every(display => display === 'none'),
+      'P32 820px duplicate legacy navigation must be hidden: ' + JSON.stringify(tabletNav.legacy));
     await tablet.page.screenshot({ path: `${ARTIFACT_DIR}/tablet-home.png`, fullPage: true });
     const tabletVisualEvidence = await p32VisualOverlapEvidence(tablet.page);
     fs.writeFileSync(`${ARTIFACT_DIR}/p32-tablet-navigation-dom.json`,
@@ -446,6 +449,10 @@ async function p32VisualOverlapEvidence(page) {
           targets:[...bar.querySelectorAll('[data-pr5-nav]')].map(x=>({name:x.dataset.pr5Nav,width:x.getBoundingClientRect().width,height:x.getBoundingClientRect().height}))};
       },nav);
       assert.equal(navigation.visible,true,`P32 ${width}px visible navigation`);
+      const nativeBars = await page.locator('.mobile-nav.pr5-native-mobile-nav').evaluateAll(els =>
+        els.map(el => ({display:getComputedStyle(el).display,width:el.getBoundingClientRect().width})));
+      assert.ok(nativeBars.length > 0 && nativeBars.every(el => el.display === 'none' && el.width === 0),
+        `P32 ${width}px duplicated legacy navigation: ${JSON.stringify(nativeBars)}`);
       assert.ok(navigation.targets.every(x=>x.width>0&&x.height>=44),`P32 ${width}px hit areas: ${JSON.stringify(navigation.targets)}`);
       if(width<=940)assert.equal(navigation.position,'fixed',`P32 ${width}px fixed bottom navigation`);
       if(width<=390){

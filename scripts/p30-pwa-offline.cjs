@@ -14,7 +14,7 @@ const PRE_P30 = '37d1ddf53a7c4bca128dd60d5c21beeb9383ef25';
 const OLD_SW = execFileSync('git', ['show', PRE_P30 + ':sw.js'], { cwd: ROOT, encoding: 'utf8' });
 const ACTIVE = 'theBibleChallenge_v21_activeRound';
 const SAVE = 'theBibleChallenge_v21';
-const CACHE = 'tbc-offline-v3';
+const CACHE = 'tbc-offline-v4';
 const REQUIRED = [
   'index.html', 'release.json', 'manifest.webmanifest', 'favicon.svg',
   'assets/pr5-foundation.css', 'assets/pr5-shell.js',
@@ -102,8 +102,8 @@ async function state(page) {
     const versions = await caches.keys();
     // Observation must not create an empty cache and manufacture apparent
     // installation success when a worker was removed/evicted.
-    const keys = versions.includes('tbc-offline-v3')
-      ? (await (await caches.open('tbc-offline-v3')).keys())
+    const keys = versions.includes('tbc-offline-v4')
+      ? (await (await caches.open('tbc-offline-v4')).keys())
           .map(request => new URL(request.url).pathname)
       : [];
     return {worker:Boolean(navigator.serviceWorker.controller),versions,keys,
@@ -116,7 +116,7 @@ async function main() {
   // Persistent Chromium faithfully preserves SW registrations, CacheStorage,
   // local progress and active-round keys through an actual browser restart.
   // A second ephemeral tab in one living browser process can retain a v2
-  // fetch controller even when registration metadata identifies v3.
+  // fetch controller even when registration metadata identifies v4.
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'tbc-p30-pwa-'));
   const launchOptions = {headless:true,acceptDownloads:true,timezoneId:'Europe/Berlin'};
   let context;
@@ -153,7 +153,7 @@ async function main() {
     check('install failure is exercised by the actual fixture server', fixture.failures() > 0);
     await page.waitForFunction(async () => {
       const r = await navigator.serviceWorker.getRegistration();
-      return !r.installing && !r.waiting && !(await caches.keys()).includes('tbc-offline-v3');
+      return !r.installing && !r.waiting && !(await caches.keys()).includes('tbc-offline-v4');
     }, null, {timeout:30000});
     const failedInstall = await page.evaluate(async () => ({
       keys: await caches.keys(), round: serializeQuizSession(),
@@ -176,7 +176,7 @@ async function main() {
         const registration = await navigator.serviceWorker.getRegistration();
         const names = await caches.keys();
         const completeStages = [], incompleteStages = [];
-        for (const name of names.filter(name => name.startsWith('tbc-stage-v3-'))) {
+        for (const name of names.filter(name => name.startsWith('tbc-stage-v4-'))) {
           const cache = await caches.open(name);
           const urls = (await cache.keys()).map(request => new URL(request.url).pathname);
           const release = await cache.match('./release.json');
@@ -211,11 +211,11 @@ async function main() {
       !waiting.versions.includes(CACHE),
       'successor install must not publish the shared version cache while waiting: ' +
       JSON.stringify(waiting));
-    check('complete authenticated v3 shell waits without publishing during live v2 round',true);
+    check('complete authenticated v4 shell waits without publishing during live v2 round',true);
     assert.deepEqual(waiting.versions.filter(name =>
       name.startsWith('tbc-pwa-') && name !== 'tbc-pwa-v2'),[],
       'successor must not use shipped v2 cache purge namespace');
-    check('waiting v3 shell is immune to shipped v2 activation purge',true);
+    check('waiting v4 shell is immune to shipped v2 activation purge',true);
     const stagedPaths = stagedEvidence.completeStages[0].urls;
     for (const file of REQUIRED) {
       assert.ok(stagedPaths.includes('/' + file),
@@ -236,11 +236,11 @@ async function main() {
     await page.goto(base, { waitUntil: 'domcontentloaded' }); await ready(page);
     await page.waitForFunction(async () => {
       const r = await navigator.serviceWorker.getRegistration();
-      return r?.active?.state === 'activated' && (await caches.keys()).includes('tbc-offline-v3');
+      return r?.active?.state === 'activated' && (await caches.keys()).includes('tbc-offline-v4');
     }, null, {timeout:30000});
     // An old worker may finish an in-flight navigation and recreate the v2
     // cache after activation. First prove the actual controller transition,
-    // then exercise v3's reconciliation on a genuine controlled asset fetch.
+    // then exercise v4's reconciliation on a genuine controlled asset fetch.
     await page.waitForFunction(async () => {
       const registration = await navigator.serviceWorker.getRegistration();
       const worker = navigator.serviceWorker.controller;
@@ -256,16 +256,16 @@ async function main() {
         };
         worker.postMessage({type: 'TBC_PWA_VERSION'}, [channel.port2]);
       });
-      return cache === 'tbc-offline-v3';
+      return cache === 'tbc-offline-v4';
     }, null, {timeout:30000});
-    check('active document is controlled by identified v3 worker, not retired v2', true);
+    check('active document is controlled by identified v4 worker, not retired v2', true);
     assert.equal(await page.evaluate(async () => (await fetch('./assets/pr6-play-learning.js?p30=controlled')).ok), true);
     const active = await state(page);
     assert.ok(active.worker && active.versions.includes(CACHE),
-      'new client must be controlled by the complete v3 release: ' + JSON.stringify(active));
-    check('v3 activates after old client closes and controls the successor page', true);
+      'new client must be controlled by the complete v4 release: ' + JSON.stringify(active));
+    check('v4 activates after old client closes and controls the successor page', true);
     await page.waitForFunction(async count =>
-      (await (await caches.open('tbc-offline-v3')).keys()).length >= count,
+      (await (await caches.open('tbc-offline-v4')).keys()).length >= count,
       REQUIRED.length, {timeout:20000});
     const persisted = await state(page);
     const afterRestart = await saved(page);
@@ -281,7 +281,7 @@ async function main() {
       }));
     }
     for (const file of REQUIRED) assert.ok(persisted.keys.includes('/' + file),
-      'v3 cache missing after browser restart: ' + file);
+      'v4 cache missing after browser restart: ' + file);
     check('every 24 runtime/manifest assets is actually precached', true);
 
     const restored = await saved(page);
@@ -290,18 +290,18 @@ async function main() {
     check('schema-27 progress and active round survive worker replacement', true);
 
     // The first navigation after closing the last v2 client can begin before
-    // v3 claims the page. Prove a fresh navigation is actually intercepted by
+    // v4 claims the page. Prove a fresh navigation is actually intercepted by
     // the successor before treating the page as installed/offline-ready.
     const v3Navigation = await page.reload({waitUntil:'domcontentloaded'});
     assert.equal(v3Navigation?.fromServiceWorker(),true,
-      'fresh v3 navigation must be served by a registered service worker');
+      'fresh v4 navigation must be served by a registered service worker');
     await ready(page);
     const afterV3Navigation = await saved(page);
     assert.deepEqual(exact(afterV3Navigation.round), exact(before.round),
       'new-controller online reload must preserve exact source-bound round');
-    check('fresh v3-controlled navigation preserves historical-safe session',true);
+    check('fresh v4-controlled navigation preserves historical-safe session',true);
 
-    // A v3 cache-first handler must serve the complete installed module even
+    // A v4 cache-first handler must serve the complete installed module even
     // when the fixture origin returns 503. The predecessor v2 was network-first
     // and cannot satisfy this fresh cache-busted query; an HTTP disk-cache hit
     // cannot satisfy a unique no-store request either.
@@ -324,7 +324,7 @@ async function main() {
     } finally { fixture.failAsset(null); }
     if (forcedCache?.status !== 200) {
       const cachedLookup = await page.evaluate(async () => {
-        const cache = await caches.open('tbc-offline-v3');
+        const cache = await caches.open('tbc-offline-v4');
         const literal = await cache.match('./assets/pr6-play-learning.js');
         const query = await cache.match('./assets/pr6-play-learning.js?p30=forced-successor-cache',
           {ignoreSearch:true});
@@ -335,11 +335,11 @@ async function main() {
       }));
     }
     assert.deepEqual(forcedCache?.status,200,
-      'v3 must serve precached gameplay asset despite origin 503: '+JSON.stringify(forcedCache));
+      'v4 must serve precached gameplay asset despite origin 503: '+JSON.stringify(forcedCache));
     assert.ok(forcedCache.bytes > 0);
     assert.equal(fixture.failures(), beforeForcedNetwork,
-      'v3 cache-first fetch must not contact the deliberately failing origin');
-    check('v3 handles cache-first gameplay fetch while origin rejects requests', true);
+      'v4 cache-first fetch must not contact the deliberately failing origin');
+    check('v4 handles cache-first gameplay fetch while origin rejects requests', true);
 
     // A worker can be installed and answer postMessage yet fail to control
     // actual fetches. Require a real worker-only route before switching off
@@ -349,9 +349,9 @@ async function main() {
       return {status:response.status,body:await response.text()};
     });
     assert.equal(onlineHealth.status,200,
-      'installed v3 must handle online fetch events, not merely messages: '+JSON.stringify(onlineHealth));
+      'installed v4 must handle online fetch events, not merely messages: '+JSON.stringify(onlineHealth));
     assert.equal(JSON.parse(onlineHealth.body).cache,CACHE);
-    check('v3 fetch handler serves worker-only status before network cutoff', true);
+    check('v4 fetch handler serves worker-only status before network cutoff', true);
 
     await context.setOffline(true);
     for (let i=0;i<2;i++) {
@@ -382,13 +382,13 @@ async function main() {
     })), ['assets/pr6-play-learning.js','assets/pr7-library-progress.js','manifest.webmanifest','assets/icons/icon-192.png']);
     assert.ok(fetchResults.every(r => r.status === 200 && r.bytes > 0), JSON.stringify(fetchResults));
     check('offline worker serves game, Library, manifest and icon requests', true);
-    // A v2 request can recreate its cache after v3 first deletes it.
-    // Require two separate, real v3-controlled offline fetches to each leave
+    // A v2 request can recreate its cache after v4 first deletes it.
+    // Require two separate, real v4-controlled offline fetches to each leave
     // only the current cache; a transiently empty stale cache is insufficient.
     for (const [i, file] of ['assets/pr6-play-learning.js','assets/pr7-library-progress.js'].entries()) {
       const ok = await page.evaluate(async ({file,i}) =>
         (await fetch('./' + file + '?p30=retire-' + i)).ok, {file,i});
-      assert.equal(ok,true,'offline v3 retirement fetch must succeed');
+      assert.equal(ok,true,'offline v4 retirement fetch must succeed');
       const names = await page.evaluate(async () => (await caches.keys()).filter(name =>
         name.startsWith('tbc-pwa-') || name.startsWith('tbc-offline-')));
       if (names.includes('tbc-pwa-v2')) {
@@ -420,7 +420,7 @@ async function main() {
       return {status:response.status, body:await response.json()};
     });
     assert.equal(status.status,200,'offline worker status must be served without network');
-    assert.equal(status.body.cache,CACHE,'offline status must identify the actual v3 fetch worker');
+    assert.equal(status.body.cache,CACHE,'offline status must identify the actual v4 fetch worker');
     assert.deepEqual(status.body.stale,[],'offline status must confirm stale cache retirement');
     check('stale v2 cache is retired after two controlled offline fetches', true);
     // Reproduce late old-worker cache resurrection after activation and prove
@@ -429,19 +429,19 @@ async function main() {
     await page.evaluate(async () => {
       const old = await caches.open('tbc-pwa-v2');
       await old.put('./resurrected-v2-fixture', new Response('obsolete'));
-      const future = await caches.open('tbc-offline-v4');
-      await future.put('./pending-v4-fixture', new Response('future'));
+      const future = await caches.open('tbc-offline-v5');
+      await future.put('./pending-v5-fixture', new Response('future'));
     });
     assert.equal(await page.evaluate(async () => (await fetch('./assets/pr7-library-progress.js?p30=prune')).ok), true);
     const versionsAfterReconciliation = await page.evaluate(async () => ({
       keys: await caches.keys(),
-      future: await (await caches.open('tbc-offline-v4')).match('./pending-v4-fixture').then(r => r?.text())
+      future: await (await caches.open('tbc-offline-v5')).match('./pending-v5-fixture').then(r => r?.text())
     }));
     assert.ok(!versionsAfterReconciliation.keys.includes('tbc-pwa-v2'),
       'offline controlled fetch must retire a resurrected v2 cache');
     assert.equal(versionsAfterReconciliation.future, 'future',
-      'current v3 worker must not destroy a waiting future worker cache');
-    await page.evaluate(async () => { await caches.delete('tbc-offline-v4'); });
+      'current v4 worker must not destroy a waiting future worker cache');
+    await page.evaluate(async () => { await caches.delete('tbc-offline-v5'); });
     check('old-worker resurrection is retired without deleting future installation caches', true);
     await page.evaluate(() => { answer(currentQuestion().answer); nextQuestion(); saveQuizSession(); });
     check('offline round remains answerable without resetting progress', Boolean((await saved(page)).round));

@@ -1932,3 +1932,11 @@ separate authorization to push/open a Batch 07 PR. Batch 08 must not begin yet.
 - At authoring script syntax parsed; real browser checks require exact-head CI. Do not claim a reproduced defect without browser evidence.
 - Product, questions, aliases, modes, schema 27, progression, contents, P30, service worker, workflows, certification identity, main and release settings are unchanged.
 - Next task: inspect exact-head CI; fix only reproduced UI defects with original asset identity/provenance protected. No merge or deployment.
+
+## P32 explicitly authorized versioned UI successor (28 October 2026)
+
+- Scoped on same draft PR #40, descendant of P30 #39 at `ff78a7d05e0bd8c406595cd10d8ba0117288ad1d`, with no merge, deploy, main settings or user data changes.
+- Exactly one strengthened CSS selector hides old `.mobile-nav.pr5-native-mobile-nav` but preserves original DOM routes and all game state. CSS blob: `6bd97b4ec9f8e6894d37480679790e1e9ce32e8f` → `0ae8a1cfba83c61a01f8796e20ff4c440a95e932`.
+- P30 offline shell moves cache identity v3 → v4, and staging v3 → v4, preventing cached CSS confusion. Worker blob: `0083b472d93d961f41df72d75d1075959571848d` → `f080945625aabe9cc4337147b5276b330b01bcdf`.
+- New append-only certificate `certification/tbc-p32-mobile-navigation-successor.json` with exact CSS/worker old/new blobs and parent commit. Current identity validator permits only this exact source patch; prior historical certificates, question content, registry, schema 27, modes and stage counts are unchanged.
+- P27D proves hidden legacy nav on 320, 390, 768, 820 and 1440 profiles; P30 browser/worker-race tests validate new v4 and retain v5 future cache. Exact-head CI required; authoring static syntax only, no claim of browser PASS before execution.

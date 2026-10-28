@@ -38,6 +38,11 @@ const BATCH04_PREDECESSOR = 'c2a129cf9e41fff089dc361c0019acb2148ccaef';
 const BATCH07_SUCCESSOR = 'e8531e739b871236853115707b6b6bdf702996aa';
 const BATCH07_PREDECESSOR = 'f1f4a8d4adeae2edd95f28624826abf96caa5b33';
 const RENDER_REPAIR_SUCCESSOR = 'a03d37b0a95c3900a0cb5c21f78ddd8f405e74f5';
+const P32_PARENT = '27b9954dfc2579a5a7a8c13d2cc46ba72668b514';
+const P32_CERT = 'certification/tbc-p32-mobile-navigation-successor.json';
+const P32_CERT_BLOB = 'ee875ba5f16d746ac7049da5e550800764769a9d';
+const P32_CSS_BLOB = '0ae8a1cfba83c61a01f8796e20ff4c440a95e932';
+const P32_SW_BLOB = 'f080945625aabe9cc4337147b5276b330b01bcdf';
 const PRODUCT = ['index.html', 'assets/pr5-foundation.css', 'assets/pr5-shell.js',
   'assets/pr6-play-learning.css', 'assets/pr6-play-learning.js', 'assets/p0b-player-controls.js',
   'assets/p0c-existing-feature-preservation.js', 'assets/p1b-pr7-production.js',
@@ -163,6 +168,41 @@ function qb11AuditHealthy(audit, root = ROOT) {
   loadBatch07Manifest(root);
   return true;
 }
+function validateP32Successor(root = ROOT) {
+  git('merge-base', '--is-ancestor', P32_PARENT, 'HEAD');
+  const oldCssBlob = gitText('rev-parse', P32_PARENT + ':assets/pr5-foundation.css');
+  assert.equal(oldCssBlob, '6bd97b4ec9f8e6894d37480679790e1e9ce32e8f', 'P32 historical CSS changed');
+  assert.equal(gitText('rev-parse', P32_PARENT + ':sw.js'),
+    '0083b472d93d961f41df72d75d1075959571848d', 'P32 historical worker changed');
+  assert.equal(candidateBlob(root, P32_CERT), P32_CERT_BLOB, 'P32 successor certificate changed');
+  const evidence = JSON.parse(read(root, P32_CERT));
+  assert.deepEqual(evidence, {
+    phase: 'P32', change: 'legacy mobile navigation CSS specificity',
+    parentCommit: P32_PARENT, cssFile: 'assets/pr5-foundation.css',
+    cssPredecessorBlob: oldCssBlob, cssSuccessorBlob: P32_CSS_BLOB,
+    cssOldRule: '.pr5-native-mobile-nav{display:none!important}.pr5-mobile-nav{display:none}', cssNewRule: '.mobile-nav.pr5-native-mobile-nav{display:none!important}.pr5-mobile-nav{display:none}',
+    workerFile: 'sw.js',
+    workerPredecessorBlob: '0083b472d93d961f41df72d75d1075959571848d',
+    workerSuccessorBlob: P32_SW_BLOB,
+    oldCacheVersion: 3, newCacheVersion: 4, immutableQuestionBank: true,
+    preservationBase: 'ff78a7d05e0bd8c406595cd10d8ba0117288ad1d'
+  }, 'P32 authorized certificate scope changed');
+  const historicCss = normalize(git('show', P32_PARENT + ':assets/pr5-foundation.css'));
+  assert.equal(historicCss.split(evidence.cssOldRule).length, 2, 'P32 CSS predecessor ambiguous');
+  assert.equal(normalize(read(root, evidence.cssFile)),
+    historicCss.replace(evidence.cssOldRule, evidence.cssNewRule), 'P32 CSS scope changed');
+  assert.equal(candidateBlob(root, evidence.cssFile), P32_CSS_BLOB, 'P32 CSS identity changed');
+  const historicWorker = normalize(git('show', P32_PARENT + ':sw.js'));
+  const versionBefore = 'const CACHE_VERSION = 3;';
+  const stageBefore = "const STAGE_PREFIX = 'tbc-stage-v3-';";
+  assert.equal(historicWorker.split(versionBefore).length, 2, 'P32 cache predecessor ambiguous');
+  assert.equal(historicWorker.split(stageBefore).length, 2, 'P32 stage predecessor ambiguous');
+  const allowedWorker = historicWorker.replace(versionBefore, 'const CACHE_VERSION = 4;')
+    .replace(stageBefore, "const STAGE_PREFIX = 'tbc-stage-v' + CACHE_VERSION + '-';");
+  assert.equal(normalize(read(root, evidence.workerFile)), allowedWorker, 'P32 worker scope changed');
+  assert.equal(candidateBlob(root, evidence.workerFile), P32_SW_BLOB, 'P32 worker identity changed');
+  return evidence;
+}
 function validateCurrent(root = ROOT) {
   const manifest = loadBatch07Manifest(root);
   assert.equal(gitText('rev-parse', `${BASE}:index.html`), ORIGINAL_PREDECESSOR, 'unrecognized original predecessor');
@@ -180,7 +220,8 @@ function validateCurrent(root = ROOT) {
   git('merge-base', '--is-ancestor', BATCH07_PREDECESSOR, 'HEAD');
   for (const file of PRODUCT) {
     const historicalExpected = file === 'index.html' ? BATCH07_SUCCESSOR : gitText('rev-parse', `${BASE}:${file}`);
-    const currentExpected = file === 'index.html' ? RENDER_REPAIR_SUCCESSOR : historicalExpected;
+    const currentExpected = file === 'index.html' ? RENDER_REPAIR_SUCCESSOR :
+      file === 'assets/pr5-foundation.css' ? P32_CSS_BLOB : historicalExpected;
     assert.equal(manifest.productFiles[file], historicalExpected, `unauthorized historical product identity: ${file}`);
     assert.equal(candidateBlob(root, file), currentExpected, `current product identity changed: ${file}`);
     assert.ok(rawTextIdentityMatches(read(root, file), currentExpected), `current product raw identity changed: ${file}`);
@@ -193,6 +234,7 @@ function validateCurrent(root = ROOT) {
   assert.equal(candidateBlob(root, BATCH04_MANIFEST), 'f5dfb97d9fc4eeba494e0f0ecd47a9572be4aaab', 'prior Batch 04 successor identity changed');
   assert.equal(candidateBlob(root, BATCH04_TRANSITION), '42e09aea26cf3288836aa66cb5ca9604dd36c21d', 'prior Batch 04 successor transition changed');
   assert.equal(candidateBlob(root, P2A), '4ebe174db968064df9ce5b3874f2abb7730ab6c4', 'historical P2A baseline changed');
+  validateP32Successor(root);
   validateProtectedEvidence(root);
   return manifest;
 }
@@ -308,13 +350,13 @@ function validateContent(dir, root = ROOT) {
   return contract;
 }
 module.exports = { ROOT, BASE, STAGE0, PRODUCTION, CONTENT_COMMIT, ORIGINAL_PREDECESSOR, PREDECESSOR, SUCCESSOR, BATCH03_SUCCESSOR, BATCH03_PREDECESSOR, BATCH04_SUCCESSOR, BATCH04_PREDECESSOR, BATCH07_SUCCESSOR, BATCH07_PREDECESSOR, RENDER_REPAIR_SUCCESSOR, HISTORICAL_MANIFEST, MANIFEST, TRANSITION, BATCH03_MANIFEST, BATCH03_TRANSITION, BATCH04_MANIFEST, BATCH04_TRANSITION, BATCH07_MANIFEST, BATCH07_TRANSITION, P2A, ACCEPTANCE,
-  PRODUCT, CONTENT_FILES, sha256, normalize, git, gitText, read, candidateBlob, loadManifest, loadHistoricalManifest, loadTransition, loadBatch03Manifest, loadBatch03Transition, loadBatch04Manifest, loadBatch04Transition, loadBatch07Manifest, loadBatch07Transition, currentP2ABaseline, qb11AuditHealthy, validateCurrent, validateContent, validateProtectedEvidence };
+  PRODUCT, P32_CERT, validateP32Successor, CONTENT_FILES, sha256, normalize, git, gitText, read, candidateBlob, loadManifest, loadHistoricalManifest, loadTransition, loadBatch03Manifest, loadBatch03Transition, loadBatch04Manifest, loadBatch04Transition, loadBatch07Manifest, loadBatch07Transition, currentP2ABaseline, qb11AuditHealthy, validateCurrent, validateContent, validateProtectedEvidence };
 if (require.main === module) {
   try {
     validateCurrent();
     if (process.argv[2] === '--content') {
       assert.ok(process.argv[3], 'content directory required'); validateContent(path.resolve(process.argv[3]));
     } else assert.equal(process.argv.length, 2, 'unknown identity-validator argument');
-    console.log('CURRENT PRODUCT IDENTITY PASS: recognized Batch 07 history plus literal-newline rendering-repair successor, 13 product files, immutable prior evidence and baselines, source-only current P2A authority, unchanged acceptance test.');
+    console.log('CURRENT PRODUCT IDENTITY PASS: recognized Batch 07 history plus literal-newline rendering-repair successor, 13 product files with P32 CSS successor and offline v4 worker, immutable prior evidence and baselines, source-only current P2A authority, unchanged acceptance test.');
   } catch (error) { console.error(error.message); process.exitCode = 1; }
 }
