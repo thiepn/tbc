@@ -340,6 +340,8 @@ function assertStoragePreserved(before, after, label) {
           document.body.classList.toggle('dark',enabled);
           return document.body.classList.contains('dark');
         },dark);
+        await page.locator(`${nav} [data-pr5-nav="home"]`).click();
+        await page.waitForFunction(() => document.body.dataset.pr5Domain === 'home');
         assert.equal(await palette(),dark,`${width}px ${theme} palette state`);
         const home=await runtimeAudit(page,`P32 ${width}px ${theme} Home`);
         await page.locator(`${nav} [data-pr5-nav="play"]`).click();
